@@ -1,5 +1,3 @@
-Project Title: Test Automation Demo per Firmex
-
 Prerequisites on windows: 
 1, Please install/config JRE and eclipse first
 2, Please install chrome and firefox latest version
