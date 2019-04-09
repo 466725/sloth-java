@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.framework</groupId>
-	<artifactId>Automation-Framework-Demo</artifactId>
+	<artifactId>test-automation-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Automation-Framework-Demo</name>
+	<name>test-automation-demo</name>
 	<description>Best automation demo ever, have fun, haha! </description>
 
 	<build>
