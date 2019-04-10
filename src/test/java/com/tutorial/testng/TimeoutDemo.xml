@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SuiteName" time-out="500">
+	<parameter name="browser" value="Chrome"></parameter>
+	<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+	<test name="TestName" parallel="false">
+		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<classes>
+			<class name="com.tutorial.testng.TimeoutDemo">
+				<methods>
+					<include name="testTwo" />
+					<include name="testOne" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

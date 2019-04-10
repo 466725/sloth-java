@@ -1,0 +1,49 @@
+package com.tutorial.testng;
+
+import java.io.IOException;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.testng.annotations.Test;
+
+import com.framework.templates.ApiTestCase;
+import com.relevantcodes.extentreports.LogStatus;
+
+public class ExpectedExceptionDemo extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(ExpectedExceptionDemo.class.getName());
+
+	@Test(expectedExceptions = { IOException.class }, expectedExceptionsMessageRegExp = "Pass Message test")
+	public void testFive() throws Exception {
+		test = extent.startTest("Expected Exception test example 005");
+		test.log(LogStatus.INFO, "Expected Exception test example 005");
+		throw new IOException("Fail Message test");
+	}
+
+	@Test(expectedExceptions = { IOException.class, NullPointerException.class })
+	public void testTwo() throws Exception {
+		test = extent.startTest("Expected Exception test example 002");
+		test.log(LogStatus.INFO, "Expected Exception test example 002");
+		throw new Exception();
+	}
+
+	@Test(expectedExceptions = { IOException.class })
+	public void testOne() throws Exception {
+		test = extent.startTest("Expected Exception test example 001");
+		test.log(LogStatus.INFO, "Expected Exception test example 001");
+		throw new IOException();
+	}
+
+	@Test(expectedExceptions = { IOException.class }, expectedExceptionsMessageRegExp = "Pass Message test")
+	public void testThree() throws Exception {
+		test = extent.startTest("Expected Exception test example 003");
+		test.log(LogStatus.INFO, "Expected Exception test example 003");
+		throw new IOException("Pass Message test");
+	}
+
+	@Test(expectedExceptions = { IOException.class }, expectedExceptionsMessageRegExp = ".* Message .*")
+	public void testFour() throws Exception {
+		test = extent.startTest("Expected Exception test example 004");
+		test.log(LogStatus.INFO, "Expected Exception test example 004");
+		throw new IOException("Pass Message test");
+	}
+}
