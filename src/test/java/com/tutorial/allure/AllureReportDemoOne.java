@@ -16,16 +16,16 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 
-public class AllureReportExamleOne extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(AllureReportExamleOne.class.getName());
+public class AllureReportDemoOne extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(AllureReportDemoOne.class.getName());
 
 	@Test(priority = 1)
 	@Issue("ISSUE-0000")
 	@Feature("Some feature")
 	@Severity(SeverityLevel.CRITICAL)
 	public void simpleTest() {
-		test = extent.startTest("Allure Example: Simple test example");
-		test.log(LogStatus.INFO, "Allure Example: Simple test example");
+		test = extent.startTest("Allure Demo: Simple test example");
+		test.log(LogStatus.INFO, "Allure Demo: Simple test example");
 		firstStep();
 		Assert.assertTrue(true);
 	}

@@ -1,4 +1,4 @@
-package com.test.api.testcases;
+package com.tutorial.restassured;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -11,8 +11,8 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class RestAssuredExample extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(RestAssuredExample.class.getName());
+public class RestAssuredDemo extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(RestAssuredDemo.class.getName());
 	
 	@Test(priority = 1)
 	public void getAllCategoryWithRestAssured() {

@@ -1,4 +1,4 @@
-package com.test.api.testcases;
+package com.tutorial.sql;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -15,8 +15,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import config.Constants;
 
-public class DatabaseVerificationExample extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(DatabaseVerificationExample.class.getName());
+public class DatabaseVerificationDemo extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(DatabaseVerificationDemo.class.getName());
 
 	@Test(priority = 2)
 	public void checkDatabaseLoginInfo() {

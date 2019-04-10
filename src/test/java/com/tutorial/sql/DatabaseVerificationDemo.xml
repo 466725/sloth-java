@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SuiteName">
+	<test name="TestName" parallel="false">
+		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<classes>
+			<class name="com.tutorial.sql.DatabaseVerificationDemo" />
+		</classes>
+	</test>
+</suite>
