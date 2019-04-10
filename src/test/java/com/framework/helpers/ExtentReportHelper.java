@@ -23,7 +23,7 @@ public class ExtentReportHelper {
 	private static String reportFile = reportFileFolder + reportFileName;
 
 	private ExtentReportHelper() {
-		logger.info("I am here to gurantee singleton! ");
+		logger.info("I am here to guarantee singleton! ");
 	}
 
 	private static class ReportMaster {

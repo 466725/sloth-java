@@ -12,7 +12,7 @@ public class DatabaseStatementManager {
 	protected final static Logger logger = LogManager.getLogger(DatabaseStatementManager.class.getName());
 
 	private DatabaseStatementManager() {
-		logger.info("I am here to gurantee singleton! ");
+		logger.info("I am here to guarantee singleton! ");
 	}
 
 	private static class DatabaseStatementMaster {

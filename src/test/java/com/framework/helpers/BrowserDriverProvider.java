@@ -22,7 +22,7 @@ public class BrowserDriverProvider {
 	protected final static Logger logger = LogManager.getLogger(BrowserDriverProvider.class.getName());
 
 	private BrowserDriverProvider() {
-		logger.info("I am here to gurantee singleton! ");
+		logger.info("I am here to guarantee singleton! ");
 	}
 
 	private static class DriverMaster {

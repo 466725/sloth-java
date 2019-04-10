@@ -13,7 +13,7 @@ public class DatabaseConnectionManager {
 	protected final static Logger logger = LogManager.getLogger(DatabaseConnectionManager.class.getName());
 
 	private DatabaseConnectionManager() {
-		logger.info("I am here to gurantee singleton! ");
+		logger.info("I am here to guarantee singleton! ");
 	}
 
 	private static class DatabaseConnectionMaster {
