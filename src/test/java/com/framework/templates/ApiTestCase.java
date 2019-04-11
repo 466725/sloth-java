@@ -65,7 +65,7 @@ public class ApiTestCase extends TestCase {
 	}
 
 	@AfterClass(alwaysRun = true)
-	protected void afterClass() {
+	public void afterClass() {
 		logger.info("----------------------Ending of class-------------------------");
 	}
 }

@@ -32,7 +32,7 @@ public class TestCase {
 	protected static DB_CONN_ENUM dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
 
 	@BeforeSuite(alwaysRun = true)
-	public static void beforeSuite() {
+	public void beforeSuite() {
 		DOMConfigurator.configure(Constants.RESOURCE_FOLDER + "log4j-config.xml");
 		logger.info(Constants.RESOURCE_FOLDER + "log4j-config.xml");
 		logger.info(logger.getAllAppenders());

@@ -90,7 +90,7 @@ public class GuiTestCase extends TestCase {
 	}
 
 	@AfterClass(alwaysRun = true)
-	protected void afterClass() {
+	public void afterClass() {
 		logger.info("***** " + driver.toString() + " quit()! *****");
 		driver.quit();
 		logger.info("----------------------Ending of class-------------------------");
