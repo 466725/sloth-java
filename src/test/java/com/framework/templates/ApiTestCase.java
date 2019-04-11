@@ -1,10 +1,12 @@
 package com.framework.templates;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.json.simple.parser.JSONParser;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -12,11 +14,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import com.relevantcodes.extentreports.LogStatus;
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.ResponseBody;
 
 public class ApiTestCase extends TestCase {
 	protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
 	protected static OkHttpClient client = new OkHttpClient();
+	protected static MediaType mediaType = MediaType.parse("application/json");
+	protected static ResponseBody responseBody = null;
+	protected static String responseString = "";
+	protected static JSONParser parser = new JSONParser();
 
 	@BeforeClass(alwaysRun = true)
 	public void beforeClass() {
@@ -61,6 +69,11 @@ public class ApiTestCase extends TestCase {
 			break;
 		}
 		extent.endTest(test);
+		try {
+			responseBody.close();
+		} catch (IOException e) {
+			logger.warn("Caught IOException during responseBody.close().");
+		}
 		logger.info("-----------------------Ending of method------------------------");
 	}
 
