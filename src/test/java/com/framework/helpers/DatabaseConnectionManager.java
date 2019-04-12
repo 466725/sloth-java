@@ -20,29 +20,41 @@ public class DatabaseConnectionManager {
 		private static Connection databaseConnection = null;
 	}
 
-	public static Connection getConnection(Constants.DB_CONN_ENUM dbConn) throws Exception {
+	public static Connection getConnection(Constants.DB_CONN_ENUM dbConn) {
 		if (DatabaseConnectionMaster.databaseConnection == null) {
 			switch (dbConn) {
 			case LOCALHOST_POSTGRE:
-				Class.forName("org.postgresql.Driver");
-				DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
-						Constants.LOCALHOST_POSTGRE_JDBC_URL, 
-						Constants.LOCALHOST_POSTGRE_JDBC_USERNAME,
-						Constants.LOCALHOST_POSTGRE_JDBC_PASSWORD);
+				try {
+					Class.forName("org.postgresql.Driver");
+					DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
+							Constants.LOCALHOST_POSTGRE_JDBC_URL, 
+							Constants.LOCALHOST_POSTGRE_JDBC_USERNAME,
+							Constants.LOCALHOST_POSTGRE_JDBC_PASSWORD);
+				} catch (Throwable e) {
+					logger.error("Exception is: ", e);
+				}
 				break;
 			case LOCALHOST_SYBASE:
-				Class.forName("sybase.jdbc.sqlanywhere.IDriver");
-				DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
-						Constants.LOCALHOST_SYBASE_JDBC_URL, 
-						Constants.LOCALHOST_SYBASE_JDBC_USERNAME,
-						Constants.LOCALHOST_SYBASE_JDBC_PASSWORD);
+				try {
+					Class.forName("sybase.jdbc.sqlanywhere.IDriver");
+					DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
+							Constants.LOCALHOST_SYBASE_JDBC_URL, 
+							Constants.LOCALHOST_SYBASE_JDBC_USERNAME,
+							Constants.LOCALHOST_SYBASE_JDBC_PASSWORD);
+				} catch (Throwable e) {
+					logger.error("Exception is: ", e);
+				}
 				break;
 			default:
-				Class.forName("org.postgresql.Driver");
-				DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
-						Constants.LOCALHOST_POSTGRE_JDBC_URL, 
-						Constants.LOCALHOST_POSTGRE_JDBC_USERNAME,
-						Constants.LOCALHOST_POSTGRE_JDBC_PASSWORD);
+				try {
+					Class.forName("org.postgresql.Driver");
+					DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
+							Constants.LOCALHOST_POSTGRE_JDBC_URL, 
+							Constants.LOCALHOST_POSTGRE_JDBC_USERNAME,
+							Constants.LOCALHOST_POSTGRE_JDBC_PASSWORD);
+				} catch (Throwable e) {
+					logger.error("Exception is: ", e);
+				}
 				break;
 			}
 		}

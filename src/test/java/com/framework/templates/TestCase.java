@@ -49,12 +49,8 @@ public class TestCase {
 		if (dbConnection.compareToIgnoreCase("Localhost_Sybase") == 0)
 			TestCase.dbConn = DB_CONN_ENUM.LOCALHOST_SYBASE;
 		logger.info("dbConn.toString() after: " + dbConn.toString());
-		try {
-			DatabaseConnectionManager.getConnection(dbConn);
-			DatabaseStatementManager.createStatement(dbConn);
-		} catch (Exception e) {
-			logger.error("Exception is: ", e);
-		}
+		DatabaseConnectionManager.getConnection(dbConn);
+		DatabaseStatementManager.createStatement(dbConn);
 		RestAssured.baseURI = Constants.API_TEST_BASE_URL;
 		extent = ExtentReportHelper.getExtentReporter(browser);
 	}
