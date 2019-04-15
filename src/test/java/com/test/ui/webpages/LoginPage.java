@@ -15,25 +15,35 @@ import config.Constants;
 
 public class LoginPage extends WebPage {
 	protected final static Logger logger = LogManager.getLogger(LoginPage.class.getName());
-	private static WebDriver driver;
-	
-	public LoginPage(WebDriver driver) {
-		LoginPage.driver = driver;
+	protected String URL = "";
+	protected String userName = "";
+	protected String password = "";
+	protected WebDriver driver = null;
+
+	public LoginPage(WebDriver driver, String URL, String userName, String password) {
+		this.driver = driver;
+		this.URL = URL;
+		this.userName = userName;
+		this.password = password;
 		PageFactory.initElements(driver, this);
-		logger.info("Login page is now ready, have fun!");
+		logger.info("LoginPage is now ready, have fun!");
 	}
 
-	// User name
-	//@FindBy(id = "login_user")
-	@FindBy(xpath = ".//*[contains(@id,'login_user')]")
-	public static WebElement username;
+	@Override
+	public boolean navigateTo() {
+		driver.navigate().to(URL);
+		return true;
+	}
 
-	public static boolean inputUsername(String userName) {
-		WaitHandler.explicitWait(driver, username);
+	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter Your email or account')]")
+	public static WebElement loginUsername;
+
+	public boolean inputUsername(String userName) {
+		WaitHandler.explicitWait(driver, loginUsername);
 		try {
-			username.clear();
+			loginUsername.clear();
 			WaitHandler.implicitWait(driver);
-			username.sendKeys(userName);
+			loginUsername.sendKeys(userName);
 			WaitHandler.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
@@ -42,17 +52,15 @@ public class LoginPage extends WebPage {
 		return false;
 	}
 
-	// Password
-	//@FindBy(id = "login_pw")
-	@FindBy(xpath = ".//*[contains(@id,'login_pw')]")
-	public static WebElement userPassword;
+	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter your password')]")
+	public static WebElement loginPassword;
 
-	public static boolean inputPassword(String password) {
-		WaitHandler.explicitWait(driver, userPassword);
+	public boolean inputPassword(String password) {
+		WaitHandler.explicitWait(driver, loginPassword);
 		try {
-			userPassword.clear();
+			loginPassword.clear();
 			WaitHandler.implicitWait(driver);
-			userPassword.sendKeys(password);
+			loginPassword.sendKeys(password);
 			WaitHandler.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
@@ -61,27 +69,17 @@ public class LoginPage extends WebPage {
 		return false;
 	}
 
-	// Login button
-	@FindBy(id = "login_btn")
+	@FindBy(xpath = ".//button[contains(@class, 'login')]")
 	public static WebElement loginButton;
 
-	public static boolean clickLoginButton() {
+	public boolean clickLoginButton() {
 		WaitHandler.explicitWait(driver, loginButton);
 		return WebActionPerformer.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
 	}
 
-	public static boolean login(String userName, String password) {
+	public boolean login(String userName, String password) {
 		if (inputUsername(userName) && inputPassword(password))
 			return clickLoginButton();
 		return false;
-	}
-
-	// @FindBy(className = "form-message m15t")
-	@FindBy(xpath = ".//*[contains(@class,'form-message m15t')]")
-	public static WebElement invalidCredentials;
-
-	public static boolean verifyInvalidEmailMessage() {
-		WaitHandler.explicitWait(driver, invalidCredentials);
-		return invalidCredentials.getText().contains("User credentials are invalid");
 	}
 }

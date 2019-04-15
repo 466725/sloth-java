@@ -23,9 +23,9 @@ public class GuiTestCase extends TestCase {
 	protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
 
 	protected static WebDriver driver;
-	protected static String URL = "https://www.firmex.com/";
-	protected static String userName = "fake@gmail.com";
-	protected static String password = "fake";
+	protected static String URL = "";
+	protected static String userName = "";
+	protected static String password = "";
 
 	@Parameters({ "browser", "URL", "userName", "password" })
 	@BeforeClass(alwaysRun = true)
@@ -36,7 +36,6 @@ public class GuiTestCase extends TestCase {
 		logger.info("userName parameterized as: " + userName);
 		logger.info("password parameterized as: " + password);
 		driver = BrowserDriverProvider.createDriver(browser);
-		driver.navigate().to(URL);
 		GuiTestCase.URL = URL;
 		GuiTestCase.userName = userName;
 		GuiTestCase.password = password;

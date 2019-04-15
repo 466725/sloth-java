@@ -8,11 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import com.framework.templates.WebPage;
-
 import config.Constants;
 
-public class WebActionPerformer extends WebPage {
+public class WebActionPerformer {
 	protected final static Logger logger = LogManager.getLogger(WebActionPerformer.class.getName());
 
 	public static boolean scrollToElement(WebDriver driver, WebElement element) {
@@ -31,8 +29,9 @@ public class WebActionPerformer extends WebPage {
 			}
 		}
 	}
-	
-	public static boolean clickElement(WebDriver driver, WebElement element, Constants.CLICK_METHOD_ENUM how, int waitTime) {
+
+	public static boolean clickElement(WebDriver driver, WebElement element, Constants.CLICK_METHOD_ENUM how,
+			int waitTime) {
 		if (!(element.isDisplayed() && element.isEnabled())) {
 			WaitHandler.explicitWait(driver, element);
 		}

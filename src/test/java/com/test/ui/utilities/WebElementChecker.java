@@ -4,9 +4,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
-import com.framework.templates.WebPage;
-
-public class WebElementChecker extends WebPage {
+public class WebElementChecker {
 	protected final static Logger logger = LogManager.getLogger(WebElementChecker.class.getName());
 
 	public static boolean isElementDisplayed(WebElement element) {

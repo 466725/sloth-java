@@ -4,12 +4,15 @@
 <suite name="GUI Test Suite">
 	<test name="Regression Test" parallel="false">
 		<parameter name="browser" value="Chrome"></parameter>
-		<parameter name="URL" value="https://www.firmex.com/"></parameter>
-		<parameter name="userName" value="fake@gmail.com"></parameter>
-		<parameter name="password" value="fake"></parameter>
+		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
+		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
+		<parameter name="password" value="test"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<classes>
 			<class name="com.test.ui.testcases.LoginPageTest" />
+			<class name="com.test.ui.testcases.HomePageTest" />
+			<class name="com.test.ui.testcases.StoreViewPageTest" />
+			<class name="com.test.ui.testcases.HospitalityPageTest" />
 		</classes>
 	</test>
 </suite>
