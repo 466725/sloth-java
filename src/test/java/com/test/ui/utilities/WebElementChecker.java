@@ -12,7 +12,7 @@ public class WebElementChecker {
 			if (element.isDisplayed())
 				return true;
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 			return false;
 		}
 		return false;

@@ -5,13 +5,13 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Hospitality page object to host all locators on it, and related methods
+ * Template management page object to host all locators on it, and related methods
  * 
  * @author Weipeng Zheng
  *
  */
-public class HospitalityPage extends StoreViewPage {
-	protected final static Logger logger = LogManager.getLogger(HospitalityPage.class.getName());
+public class TemplateManagementPage extends HomePage {
+	protected final static Logger logger = LogManager.getLogger(TemplateManagementPage.class.getName());
 
 	/**
 	 * Page object constructor, to initialize the page
@@ -21,9 +21,9 @@ public class HospitalityPage extends StoreViewPage {
 	 * @param userName login user name
 	 * @param password login password
 	 */
-	public HospitalityPage(WebDriver driver, String URL, String userName, String password) {
+	public TemplateManagementPage(WebDriver driver, String URL, String userName, String password) {
 		super(driver, URL, userName, password);
-		logger.info("HospitalityPage is now ready, have fun!");
+		logger.info("StoreViewPage is now ready, have fun!");
 	}
 
 	/**
@@ -32,6 +32,6 @@ public class HospitalityPage extends StoreViewPage {
 	@Override
 	public boolean navigateTo() {
 		super.navigateTo();
-		return super.gotoHospitalityPage();
+		return super.gotoTemplateManagement();
 	}
 }

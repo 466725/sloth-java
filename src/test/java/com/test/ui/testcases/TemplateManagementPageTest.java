@@ -8,22 +8,20 @@ import org.testng.annotations.Test;
 import com.framework.templates.GuiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
 import com.test.ui.webpages.HomePage;
-import com.test.ui.webpages.HospitalityPage;
 import com.test.ui.webpages.LoginPage;
-import com.test.ui.webpages.StoreViewPage;
+import com.test.ui.webpages.TemplateManagementPage;
 
 /**
- * Tests related to HospitalityPage
+ * Tests related to TemplateManagementPage
  * 
  * @author Weipeng Zheng
  *
  */
-public class HospitalityPageTest extends GuiTestCase {
-	protected final static Logger logger = LogManager.getLogger(HospitalityPageTest.class.getName());
+public class TemplateManagementPageTest extends GuiTestCase {
+	protected final static Logger logger = LogManager.getLogger(TemplateManagementPageTest.class.getName());
 	protected LoginPage loginPage = null;
 	protected HomePage homePage = null;
-	protected StoreViewPage storeViewPage = null;
-	protected HospitalityPage hospitalityPage = null;
+	protected TemplateManagementPage templateManagementPage = null;
 
 	/**
 	 * Test of navigating to HospitalityPage 
@@ -33,8 +31,8 @@ public class HospitalityPageTest extends GuiTestCase {
 		test = extent.startTest("Navigate to HospitalityPage");
 		test.log(LogStatus.INFO, "Navigate to HospitalityPage");
 
-		hospitalityPage = new HospitalityPage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
+		templateManagementPage = new TemplateManagementPage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 
-		Assert.assertTrue(hospitalityPage.navigateTo());
+		Assert.assertTrue(templateManagementPage.navigateTo());
 	}
 }

@@ -13,6 +13,12 @@ import com.test.ui.utilities.WebActionPerformer;
 
 import config.Constants;
 
+/**
+ * Login page object to host all locators on it, and related methods
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class LoginPage extends WebPage {
 	protected final static Logger logger = LogManager.getLogger(LoginPage.class.getName());
 	protected String URL = "";
@@ -20,6 +26,14 @@ public class LoginPage extends WebPage {
 	protected String password = "";
 	protected WebDriver driver = null;
 
+	/**
+	 * Page object constructor, to initialize the page
+	 * 
+	 * @param driver   web browser driver
+	 * @param URL      web page URL
+	 * @param userName login user name
+	 * @param password login password
+	 */
 	public LoginPage(WebDriver driver, String URL, String userName, String password) {
 		this.driver = driver;
 		this.URL = URL;
@@ -29,6 +43,9 @@ public class LoginPage extends WebPage {
 		logger.info("LoginPage is now ready, have fun!");
 	}
 
+	/**
+	 * Page object navigator, to navigate to the page object
+	 */
 	@Override
 	public boolean navigateTo() {
 		driver.navigate().to(URL);
@@ -38,8 +55,13 @@ public class LoginPage extends WebPage {
 	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter Your email or account')]")
 	public static WebElement loginUsername;
 
+	/**
+	 * Input user name
+	 * 
+	 * @param userName login user name
+	 */
 	public boolean inputUsername(String userName) {
-		WaitHandler.explicitWait(driver, loginUsername);
+		WaitHandler.explicitWait(driver, loginUsername, 15);
 		try {
 			loginUsername.clear();
 			WaitHandler.implicitWait(driver);
@@ -47,7 +69,7 @@ public class LoginPage extends WebPage {
 			WaitHandler.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 		}
 		return false;
 	}
@@ -55,8 +77,13 @@ public class LoginPage extends WebPage {
 	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter your password')]")
 	public static WebElement loginPassword;
 
+	/**
+	 * Input password
+	 * 
+	 * @param password login password
+	 */
 	public boolean inputPassword(String password) {
-		WaitHandler.explicitWait(driver, loginPassword);
+		WaitHandler.explicitWait(driver, loginPassword, 15);
 		try {
 			loginPassword.clear();
 			WaitHandler.implicitWait(driver);
@@ -64,7 +91,7 @@ public class LoginPage extends WebPage {
 			WaitHandler.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 		}
 		return false;
 	}
@@ -72,11 +99,17 @@ public class LoginPage extends WebPage {
 	@FindBy(xpath = ".//button[contains(@class, 'login')]")
 	public static WebElement loginButton;
 
+	/**
+	 * Click login button
+	 */
 	public boolean clickLoginButton() {
-		WaitHandler.explicitWait(driver, loginButton);
+		WaitHandler.explicitWait(driver, loginButton, 15);
 		return WebActionPerformer.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
 	}
 
+	/**
+	 * Login, input user name, input password, and then click login button
+	 */
 	public boolean login(String userName, String password) {
 		if (inputUsername(userName) && inputPassword(password))
 			return clickLoginButton();

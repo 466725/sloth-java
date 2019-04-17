@@ -12,6 +12,7 @@
 			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.ui.testcases.HomePageTest" />
 			<class name="com.test.ui.testcases.StoreViewPageTest" />
+			<class name="com.test.ui.testcases.TemplateManagementPageTest" />
 			<class name="com.test.ui.testcases.HospitalityPageTest" />
 		</classes>
 	</test>

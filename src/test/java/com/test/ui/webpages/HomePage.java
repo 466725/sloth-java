@@ -11,26 +11,59 @@ import com.test.ui.utilities.WebActionPerformer;
 
 import config.Constants;
 
+/**
+ * Home page object to host all locators on it, and related methods
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class HomePage extends LoginPage {
 	protected final static Logger logger = LogManager.getLogger(HomePage.class.getName());
-	
+
+	/**
+	 * Page object constructor, to initialize the page
+	 * 
+	 * @param driver   web browser driver
+	 * @param URL      web page URL
+	 * @param userName login user name
+	 * @param password login password
+	 */
 	public HomePage(WebDriver driver, String URL, String userName, String password) {
 		super(driver, URL, userName, password);
 		logger.info("HomePage is now ready, have fun!");
 	}
 
+	/**
+	 * Page object navigator, to navigate to the page object
+	 */
 	@Override
 	public boolean navigateTo() {
 		super.navigateTo();
 		return super.login(super.userName, super.password);
 	}
-	
-	@FindBy(xpath = ".//div[text() = 'Store View']")
-	public static WebElement storeViewQuickAccess;
 
+	@FindBy(xpath = ".//div[text() = 'Store View']")
+	public static WebElement storeView;
+
+	/**
+	 * Navigate to store view page object
+	 */
 	public boolean gotoStoreViewPage() {
-		WaitHandler.explicitWait(driver, storeViewQuickAccess);
-		if (WebActionPerformer.clickElement(driver, storeViewQuickAccess, Constants.CLICK_METHOD_ENUM.CLICK, 10))
+		WaitHandler.explicitWait(driver, storeView, 15);
+		if (WebActionPerformer.clickElement(driver, storeView, Constants.CLICK_METHOD_ENUM.CLICK, 10))
+			return true;
+		return false;
+	}
+
+	@FindBy(xpath = ".//div[text() = 'Template Management']")
+	public static WebElement templateManagement;
+
+	/**
+	 * Navigate to template management page object
+	 */
+	public boolean gotoTemplateManagement() {
+		WaitHandler.explicitWait(driver, templateManagement, 15);
+		if (WebActionPerformer.clickElement(driver, templateManagement, Constants.CLICK_METHOD_ENUM.CLICK, 10))
 			return true;
 		return false;
 	}

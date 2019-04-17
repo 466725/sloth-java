@@ -19,7 +19,7 @@ public class ScreenShotProvider {
 		try {
 			return saveScreenShot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE), name);
 		} catch (WebDriverException e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 			return null;
 		}
 	}
@@ -28,7 +28,7 @@ public class ScreenShotProvider {
 		try {
 			return saveScreenShot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
 		} catch (WebDriverException e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 			return null;
 		}
 	}
@@ -40,7 +40,7 @@ public class ScreenShotProvider {
 		try {
 			FileUtils.copyFile(screenShot, new File(screenshotFile));
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 		}
 		return ".//ScreenShot/" + screenshotName;
 	}
@@ -52,7 +52,7 @@ public class ScreenShotProvider {
 		try {
 			FileUtils.copyFile(screenShot, new File(screenshotFile));
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 		}
 		return ".//ScreenShot/" + screenshotName;
 	}
