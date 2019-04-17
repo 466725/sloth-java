@@ -9,8 +9,12 @@
 		<parameter name="password" value="test"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<classes>
-			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.api.testcases.SiteApiTest" />
+			<class name="com.test.ui.testcases.LoginPageTest" />
+			<class name="com.test.ui.testcases.HomePageTest" />
+			<class name="com.test.ui.testcases.StoreViewPageTest" />
+			<class name="com.test.ui.testcases.TemplateManagementPageTest" />
+			<class name="com.test.ui.testcases.HospitalityPageTest" />
 		</classes>
 	</test>
 </suite>
