@@ -21,10 +21,10 @@ import config.Constants;
  */
 public class LoginPage extends WebPage {
 	protected final static Logger logger = LogManager.getLogger(LoginPage.class.getName());
-	protected String URL = "";
-	protected String userName = "";
-	protected String password = "";
-	protected WebDriver driver = null;
+	protected String URL;
+	protected String userName;
+	protected String password;
+	protected WebDriver driver;
 
 	/**
 	 * Page object constructor, to initialize the page
