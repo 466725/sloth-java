@@ -2,7 +2,6 @@ package com.tutorial.assertj;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
@@ -19,15 +18,14 @@ public class AssertjSimpleDemo extends ApiTestCase {
 
 		SoftAssertions softly = new SoftAssertions();
 
-		Assertions.assertThat(1);
-		Assertions.assertThat(1).isGreaterThan(0);
-		Assertions.assertThat(1).usingDefaultComparator();
-		Assertions.assertThat(1).usingDefaultComparator().isGreaterThan(0);
-
-		Assertions.assertThat("a").asString();
-		Assertions.assertThat("a").asString().hasSize(1);
-
 		softly.assertThat(1);
+		softly.assertThat(1).isGreaterThan(0);
+		softly.assertThat(1).usingDefaultComparator();
+		softly.assertThat(1).usingDefaultComparator().isGreaterThan(0);
+
+		softly.assertThat("a").asString();
+		softly.assertThat("a").asString().hasSize(1);
+
 		softly.assertAll();
 	}
 
@@ -40,10 +38,10 @@ public class AssertjSimpleDemo extends ApiTestCase {
 		final int[] ACTUAL = new int[] { 2, 5, 7 };
 		final int[] EXPECTED = new int[] { 2, 5, 7 };
 
-		Assertions.assertThat(true).isTrue();
-		Assertions.assertThat(1).isGreaterThan(0);
-
-		Assertions.assertThat(ACTUAL).isEqualTo(EXPECTED);
+		softly.assertThat(true).isTrue();
+		softly.assertThat(1).isGreaterThan(0);
+		softly.assertThat(ACTUAL).isEqualTo(EXPECTED);
+		
 		softly.assertAll();
 	}
 
@@ -54,8 +52,8 @@ public class AssertjSimpleDemo extends ApiTestCase {
 
 		SoftAssertions softly = new SoftAssertions();
 
-		Assertions.assertThat(false).isTrue();
-		Assertions.assertThat(0).isGreaterThan(1);
+		softly.assertThat(false).isTrue();
+		softly.assertThat(0).isGreaterThan(1);
 
 		softly.assertAll();
 	}
