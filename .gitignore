@@ -2,8 +2,11 @@
 /target/
 /bin/
 
-# Eclipse Core      
+# EclipseCore
+# JDT-specific(EclipseJavaDevelopmentTools)
 .project
-
-# JDT-specific (Eclipse Java Development Tools)     
 .classpath
+/.classpath
+/*.project
+/.settings
+/*.springBeans
