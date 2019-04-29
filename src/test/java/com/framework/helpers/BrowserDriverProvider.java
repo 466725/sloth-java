@@ -55,6 +55,7 @@ public class BrowserDriverProvider {
 			logger.info(System.getProperty("webdriver.chrome.driver"));
 			return new ChromeDriver();
 		} else {
+			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
 			logger.fatal("oops ^_^, failed to validate OS version!");
 			logger.fatal("Driver is null!");
 			return null;
@@ -76,6 +77,7 @@ public class BrowserDriverProvider {
 			logger.info(System.getProperty("webdriver.gecko.driver"));
 			return new FirefoxDriver();
 		} else {
+			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
 			logger.fatal("oops ^_^, failed to validate OS version!");
 			logger.fatal("Driver is null!");
 			return null;
@@ -94,10 +96,12 @@ public class BrowserDriverProvider {
 			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 			return new InternetExplorerDriver();
 		} else if (PlatformDetector.isMac()) {
+			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
 			logger.fatal("oops ^_^, mission impossible, ie not available on osx!");
 			logger.fatal("Driver is null!");
 			return null;
 		} else {
+			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
 			logger.fatal("oops ^_^, failed to validate OS version!");
 			logger.fatal("Driver is null!");
 			return null;
