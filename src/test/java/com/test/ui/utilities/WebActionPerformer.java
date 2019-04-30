@@ -41,6 +41,23 @@ public class WebActionPerformer {
 			}
 		}
 	}
+	
+	/**
+	 * Hover mouse over element
+	 * 
+	 * @param driver  web browser driver
+	 * @param element web element to hover over
+	 */
+	public static boolean hoverMouseOverElement(WebDriver driver, WebElement element) {
+		try {
+			Actions action = new Actions(driver);
+			action.moveToElement(element).perform();
+			return true;
+		} catch (Exception e) {
+			logger.warn("Exception is: ", e);
+			return false;
+		}
+	}
 
 	/**
 	 * Perform click action to a specific web element
