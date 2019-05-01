@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.test.ui.utilities.WaitHandler;
-import com.test.ui.utilities.WebActionPerformer;
+import com.test.ui.utilities.SeleniumWrapper;
 
 import config.Constants;
 
@@ -49,7 +48,7 @@ public class StoreViewPage extends HomePage {
 	 * Navigate to hospitality page object
 	 */
 	public boolean gotoHospitalityPage() {
-		WaitHandler.explicitWait(driver, hospitality, 15);
-		return WebActionPerformer.clickElement(driver, hospitality, Constants.CLICK_METHOD_ENUM.CLICK, 10);
+		SeleniumWrapper.explicitWait(driver, hospitality, 15);
+		return SeleniumWrapper.clickElement(driver, hospitality, Constants.CLICK_METHOD_ENUM.CLICK, 10);
 	}
 }

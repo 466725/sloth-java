@@ -8,8 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.framework.templates.WebPage;
-import com.test.ui.utilities.WaitHandler;
-import com.test.ui.utilities.WebActionPerformer;
+import com.test.ui.utilities.SeleniumWrapper;
 
 import config.Constants;
 
@@ -61,12 +60,12 @@ public class LoginPage extends WebPage {
 	 * @param userName login user name
 	 */
 	public boolean inputUsername(String userName) {
-		WaitHandler.explicitWait(driver, loginUsername, 15);
+		SeleniumWrapper.explicitWait(driver, loginUsername, 15);
 		try {
 			loginUsername.clear();
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			loginUsername.sendKeys(userName);
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
 			logger.error("Exception is: ", e);
@@ -83,12 +82,12 @@ public class LoginPage extends WebPage {
 	 * @param password login password
 	 */
 	public boolean inputPassword(String password) {
-		WaitHandler.explicitWait(driver, loginPassword, 15);
+		SeleniumWrapper.explicitWait(driver, loginPassword, 15);
 		try {
 			loginPassword.clear();
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			loginPassword.sendKeys(password);
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
 			logger.error("Exception is: ", e);
@@ -103,8 +102,8 @@ public class LoginPage extends WebPage {
 	 * Click login button
 	 */
 	public boolean clickLoginButton() {
-		WaitHandler.explicitWait(driver, loginButton, 15);
-		return WebActionPerformer.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
+		SeleniumWrapper.explicitWait(driver, loginButton, 15);
+		return SeleniumWrapper.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
 	}
 
 	/**

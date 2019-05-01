@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.test.ui.utilities.WaitHandler;
-import com.test.ui.utilities.WebActionPerformer;
+import com.test.ui.utilities.SeleniumWrapper;
 
 import config.Constants;
 
@@ -49,8 +48,8 @@ public class HomePage extends LoginPage {
 	 * Navigate to store view page object
 	 */
 	public boolean gotoStoreViewPage() {
-		WaitHandler.explicitWait(driver, storeView, 15);
-		if (WebActionPerformer.clickElement(driver, storeView, Constants.CLICK_METHOD_ENUM.CLICK, 10))
+		SeleniumWrapper.explicitWait(driver, storeView, 15);
+		if (SeleniumWrapper.clickElement(driver, storeView, Constants.CLICK_METHOD_ENUM.CLICK, 10))
 			return true;
 		return false;
 	}
@@ -62,8 +61,8 @@ public class HomePage extends LoginPage {
 	 * Navigate to template management page object
 	 */
 	public boolean gotoTemplateManagement() {
-		WaitHandler.explicitWait(driver, templateManagement, 15);
-		if (WebActionPerformer.clickElement(driver, templateManagement, Constants.CLICK_METHOD_ENUM.CLICK, 10))
+		SeleniumWrapper.explicitWait(driver, templateManagement, 15);
+		if (SeleniumWrapper.clickElement(driver, templateManagement, Constants.CLICK_METHOD_ENUM.CLICK, 10))
 			return true;
 		return false;
 	}

@@ -8,6 +8,7 @@
 		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
 		<parameter name="password" value="test"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<parameter name="newConceptName" value="AutoTest0001" />
 		<classes>
 			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.ui.testcases.HomePageTest" />
