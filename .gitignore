@@ -1,12 +1,7 @@
 /test-output/
 /target/
 /bin/
-
-# EclipseCore
-# JDT-specific(EclipseJavaDevelopmentTools)
+/.settings/
+/.idea/
 .project
 .classpath
-/.classpath
-/*.project
-/.settings
-/*.springBeans
