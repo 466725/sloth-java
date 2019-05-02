@@ -35,6 +35,7 @@ public class TemplateManagementPage extends HomePage {
 	private static final String CONCEPT_ROW_DATA_NAME_LIST = ".//div[contains(@class, 'EMTitle-eMTitle')]";
 	private static final String CONCEPT_ROW_DATA_EDIT_LIST = ".//i[contains(@class, 'icon-edit')]";
 	private static final String CONCEPT_ROW_DATA_EDIT_LIST_INPUT = ".//div[contains(@class, 'ListAddInput-listAddInput')]/child::*";
+	private static final String CONCEPT_ROW_DATA_EDIT_LIST_CHECK = ".//div[contains(@class, 'ListAddInput-endRender')]";
 	private static final String POSITIVE_BUTTON = ".//div[text() = 'Delete' and contains(@class, 'Button-btn')]";
 	private static final String NEGATIVE_BUTTON = ".//div[text() = 'Cancel' and contains(@class, 'Button-btn')]";
 	private static final String CONFIRM_MESSAGE_TEXT = ".//div[text() = 'Are you sure you want to delete this item?']";
@@ -83,6 +84,9 @@ public class TemplateManagementPage extends HomePage {
 	
 	@FindBy(xpath = CONCEPT_ROW_DATA_EDIT_LIST_INPUT)
 	private static WebElement rowsOfConceptEditIconInput;
+	
+	@FindBy(xpath = CONCEPT_ROW_DATA_EDIT_LIST_CHECK)
+	private static WebElement rowsOfConceptEditIconCheck;
 
 	@FindBy(xpath = POSITIVE_BUTTON)
 	private static WebElement positiveButton;
@@ -302,6 +306,9 @@ public class TemplateManagementPage extends HomePage {
 			return false;
 		SeleniumWrapper.waitForPageToLoad(driver);
 		if (!SeleniumWrapper.setInputFieldText(rowsOfConceptEditIconInput, newConceptName, driver))
+			return false;
+		SeleniumWrapper.waitForPageToLoad(driver);
+		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIconCheck, Constants.CLICK_METHOD_ENUM.CLICK, Constants.WAIT_TIME_SECOND))
 			return false;
 		return true;
 	}

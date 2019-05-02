@@ -215,4 +215,57 @@ public class SeleniumWrapper {
 			return false;
 		}
 	}
+
+	/**
+	 * Simulates clicking on the browser back button
+	 * 
+	 * @param driver The WebDriver
+	 */
+	public static void goBackToPage(WebDriver driver) {
+		driver.navigate().back();
+		SeleniumWrapper.waitForPageToLoad(driver);
+	}
+
+	/**
+	 * Print info of a specific WebDriver
+	 * 
+	 * @param driver the WebDriver to print info for
+	 */
+	public static void printWebDriverInfo(WebDriver driver) {
+		logger.info("");
+		logger.info("driver.toString(): " + driver.toString());
+		logger.info("driver.getCurrentUrl(): " + driver.getCurrentUrl());
+		logger.info("driver.getTitle(): " + driver.getTitle());
+		logger.info("driver.getWindowHandles().size(): " + driver.getWindowHandles().size());
+		logger.info("driver.getWindowHandles().toString(): " + driver.getWindowHandles().toString());
+		logger.info("driver.getPageSource(): ");
+		logger.info(driver.getPageSource());
+		logger.info("");
+	}
+
+	/**
+	 * Print info of a specific WebElement
+	 * 
+	 * @param element the WebElement to print info for
+	 */
+	public static void printWebElementInfo(WebElement element) {
+		logger.info("");
+		logger.info("getText(): " + element.getText());
+		logger.info("getTagName(): " + element.getTagName());
+		logger.info("getLocation(): " + element.getLocation());
+		logger.info("getAttribute(\"id\"): " + element.getAttribute("id"));
+		logger.info("getAttribute(\"src\"): " + element.getAttribute("src"));
+		logger.info("getAttribute(\"class\"): " + element.getAttribute("class"));
+		logger.info("getAttribute(\"name\"): " + element.getAttribute("name"));
+		logger.info("getAttribute(\"type\"): " + element.getAttribute("type"));
+		logger.info("getAttribute(\"style\"): " + element.getAttribute("style"));
+		logger.info("getAttribute(\"value\"): " + element.getAttribute("value"));
+		logger.info("getAttribute(\"onload\"): " + element.getAttribute("onload"));
+		logger.info("getAttribute(\"onfocus\"): " + element.getAttribute("onfocus"));
+		logger.info("getAttribute(\"onclick\"): " + element.getAttribute("onclick"));
+		logger.info("getAttribute(\"tabindex\"): " + element.getAttribute("tabindex"));
+		logger.info("getAttribute(\"onmouseover\"): " + element.getAttribute("onmouseover"));
+		logger.info("getAttribute(\"onmouseout\"): " + element.getAttribute("onmouseout"));
+		logger.info("");
+	}
 }
