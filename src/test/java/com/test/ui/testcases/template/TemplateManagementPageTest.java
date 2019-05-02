@@ -1,4 +1,4 @@
-package com.test.ui.testcases;
+package com.test.ui.testcases.template;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -8,9 +8,8 @@ import org.testng.annotations.Test;
 
 import com.framework.annotations.TestInfo;
 import com.framework.templates.GuiTestCase;
-import com.test.ui.webpages.HomePage;
-import com.test.ui.webpages.LoginPage;
-import com.test.ui.webpages.TemplateManagementPage;
+import com.test.ui.testcases.HomePage;
+import com.test.ui.testcases.LoginPage;
 
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;

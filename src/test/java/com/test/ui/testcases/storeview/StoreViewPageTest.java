@@ -1,4 +1,4 @@
-package com.test.ui.testcases;
+package com.test.ui.testcases.storeview;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -7,9 +7,8 @@ import org.testng.annotations.Test;
 
 import com.framework.templates.GuiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
-import com.test.ui.webpages.HomePage;
-import com.test.ui.webpages.LoginPage;
-import com.test.ui.webpages.StoreViewPage;
+import com.test.ui.testcases.HomePage;
+import com.test.ui.testcases.LoginPage;
 
 /**
  * Tests related to StoreViewPage

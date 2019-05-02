@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import com.framework.templates.GuiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
-import com.test.ui.webpages.LoginPage;
 
 /**
  * Tests related to LoginPage

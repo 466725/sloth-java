@@ -14,7 +14,6 @@
 			<!-- <class name="com.test.ui.testcases.HomePageTest" /> --> 
 			<!-- <class name="com.test.ui.testcases.StoreViewPageTest" /> --> 
 			<!-- <class name="com.test.ui.testcases.TemplateManagementPageTest" /> --> 
-			<!-- <class name="com.test.ui.testcases.HospitalityPageTest" /> --> 
 			<class name="com.test.ui.testcases.TemplateManagementPageTest" />
 		</classes>
 	</test>
