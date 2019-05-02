@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="GUI Test Suite">
+	<test name="Regression Test" parallel="false">
+		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
+		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
+		<parameter name="password" value="test"></parameter>
+		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<parameter name="newConceptName" value="AutoTest0001" />
+		<classes>
+			<class name="com.test.ui.testcases.storeview.StoreViewPageTest" />
+		</classes>
+	</test>
+</suite>

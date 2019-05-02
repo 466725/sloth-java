@@ -6,7 +6,7 @@
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<classes>
-			<class name="com.test.api.testcases.SiteApiTest"/>
+			<class name="com.test.api.testcases.SiteTest"/>
 		</classes>
 	</test>
 </suite>

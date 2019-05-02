@@ -10,11 +10,10 @@
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<parameter name="newConceptName" value="AutoTest0001" />
 		<classes>
-			<!-- <class name="com.test.ui.testcases.LoginPageTest" /> --> 
-			<!-- <class name="com.test.ui.testcases.HomePageTest" /> --> 
-			<!-- <class name="com.test.ui.testcases.StoreViewPageTest" /> --> 
-			<!-- <class name="com.test.ui.testcases.TemplateManagementPageTest" /> --> 
-			<class name="com.test.ui.testcases.TemplateManagementPageTest" />
+			<class name="com.test.ui.testcases.LoginPageTest" />
+			<class name="com.test.ui.testcases.HomePageTest" />
+			<class name="com.test.ui.testcases.storeview.StoreViewPageTest" />
+			<class name="com.test.ui.testcases.template.TemplateManagementPageTest" />
 		</classes>
 	</test>
 </suite>

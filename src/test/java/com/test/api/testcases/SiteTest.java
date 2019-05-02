@@ -15,8 +15,8 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
-public class SiteApiTest extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(SiteApiTest.class.getName());
+public class SiteTest extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(SiteTest.class.getName());
 
 	@Test(priority = 1)
 	public void getScheduleBeforeCreation() throws IOException, ParseException {
