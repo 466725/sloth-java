@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.framework.templates.GuiTestCase;
-import com.relevantcodes.extentreports.LogStatus;
 import com.test.ui.testcases.HomePage;
 import com.test.ui.testcases.LoginPage;
 
@@ -28,7 +27,6 @@ public class StoreViewPageTest extends GuiTestCase {
 	@Test(priority = 1)
 	public void gotoStoreViewPage() {
 		test = extent.startTest("Navigate to StoreViewPage");
-		test.log(LogStatus.INFO, "Navigate to StoreViewPage");
 
 		storeViewPage = new StoreViewPage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 

@@ -26,6 +26,7 @@ import io.qameta.allure.Step;
 public class TokenManagementTest extends ApiTestCase {
 	protected final static Logger logger = LogManager.getLogger(TokenManagementTest.class.getName());
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Test(priority = 1)
 	@Step("Token management test: Generate Token")
 	public static void generateToken() throws IOException, ParseException {

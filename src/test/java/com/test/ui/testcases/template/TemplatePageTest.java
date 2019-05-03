@@ -3,10 +3,8 @@ package com.test.ui.testcases.template;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.framework.annotations.TestCaseID;
 import com.framework.templates.GuiTestCase;
 import com.test.ui.testcases.HomePage;
 import com.test.ui.testcases.LoginPage;
@@ -110,10 +108,9 @@ public class TemplatePageTest extends GuiTestCase {
 	}
 
 	@Test(description = "VOL-8888:[UI] Edit concept name")
-	@TestCaseID(testCaseID = "VOL-8888")
 	@Link(name = "VOL-8888", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-8888")
-	@Parameters("newConceptName")
-	public void testEditingConceptName(String newConceptName) {
+	public void testEditingConceptName() {
+		test = extent.startTest("Navigate to template page and then edit concept name");
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -123,10 +120,7 @@ public class TemplatePageTest extends GuiTestCase {
 	}
 
 	// @Test(description = "VOL-9999:[UI] Creating new concept")
-	@TestCaseID(testCaseID = "VOL-9999")
-	@Link(name = "VOL-9999", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-9999")
-	@Parameters("newConceptName")
-	public void testCreatingNewConcept(String newConceptName) {
+	public void testCreatingNewConcept() {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -137,7 +131,7 @@ public class TemplatePageTest extends GuiTestCase {
 		softly.assertThat(hoverMouseOverConceptRowAndEditName(1));
 		softly.assertThat(specifyNewConceptNameByHoveringMouseOver(2, "AT" + System.currentTimeMillis()));
 		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept(newConceptName));
+		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
 		softly.assertThat(clickVerticalSelector());
 		softly.assertThat(selectVerticalOption("Restaurant"));
 		softly.assertThat(selectVerticalOption("Hospitality"));
@@ -151,8 +145,6 @@ public class TemplatePageTest extends GuiTestCase {
 	}
 
 	// @Test(description = "VOL-3214:[UI] View concept page")
-	@TestCaseID(testCaseID = "VOL-3214")
-	@Link(name = "VOL-3214", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-3214")
 	public void testViewingConcept() {
 		SoftAssertions softly = new SoftAssertions();
 
@@ -167,8 +159,6 @@ public class TemplatePageTest extends GuiTestCase {
 	}
 
 	// @Test(description = "VOL-3215:[UI] Add new concept")
-	@TestCaseID(testCaseID = "VOL-3215")
-	@Link(name = "VOL-3215", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-3215")
 	public void testAddingNewConcept() {
 		SoftAssertions softly = new SoftAssertions();
 
@@ -184,12 +174,8 @@ public class TemplatePageTest extends GuiTestCase {
 		softly.assertAll();
 	}
 
-	// @Test(description = "VOL-3217:[UI] Add new concept alternative flow - cancel
-	// - save without name")
-	@TestCaseID(testCaseID = "VOL-3217")
-	@Link(name = "VOL-3217", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-3217")
-	@Parameters("newConceptName")
-	public void testAddingNewConceptAlternativeFlow(String existingConceptName) {
+	// @Test(description = "VOL-3217:[UI] Add new concept alternative flow")
+	public void testAddingNewConceptAlternativeFlow() {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -201,7 +187,7 @@ public class TemplatePageTest extends GuiTestCase {
 		softly.assertThat(applySelectedVerticalsToTheConcept());
 		softly.assertThat(tryToCancelTheNewlyCreatedConcept());
 		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept(existingConceptName));
+		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
 		softly.assertThat(clickVerticalSelector());
 		softly.assertThat(selectVerticalOption("Restaurant"));
 		softly.assertThat(selectVerticalOption("Hospitality"));

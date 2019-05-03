@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.framework.templates.GuiTestCase;
-import com.relevantcodes.extentreports.LogStatus;
 
 /**
  * Tests related to HomePage
@@ -25,7 +24,6 @@ public class HomePageTest extends GuiTestCase {
 	@Test(priority = 1)
 	public void gotoHomePage() {
 		test = extent.startTest("Navigate to HomePage");
-		test.log(LogStatus.INFO, "Navigate to HomePage");
 
 		homePage = new HomePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 

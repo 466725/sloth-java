@@ -68,11 +68,26 @@ public class SeleniumWrapper {
 	}
 
 	/**
-	 * Waits for the progress bar to disappear ensuring the page has loaded
+	 * Waits for page rendering to be finished
 	 * 
 	 * @param driver WebDriver
 	 */
 	public static void waitForPageToLoad(WebDriver driver) {
+		// To be polished, we need a better solution
+		try {
+			Thread.sleep(Constants.SLEEP_TIME);
+		} catch (InterruptedException e) {
+			logger.info("Falied to wait for page rendering to be finished");
+			logger.info("Exception is: " + e);
+		}
+	}
+	
+	/**
+	 * Waits for the progress bar to disappear ensuring the page has loaded
+	 * 
+	 * @param driver WebDriver
+	 */
+	public static void waitForPageToLoadWithElement(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME);
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/svg")));
@@ -144,22 +159,27 @@ public class SeleniumWrapper {
 		switch (clickMethod) {
 		case CLICK:
 			element.click();
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.click(), called.");
 			return true;
 		case SENDENTER:
 			element.sendKeys(Keys.ENTER);
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.sendKeys(Keys.ENTER), called.");
 			return true;
 		case SENDRETURN:
 			element.sendKeys(Keys.RETURN);
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.sendKeys(Keys.RETURN), called.");
 			return true;
 		case SUBMIT:
 			element.submit();
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.submit(), called.");
 			return true;
 		case RUNJS:
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("((JavascriptExecutor) driver).executeScript(\"arguments[0].click();\", element), called.");
 			return true;
 		default:
