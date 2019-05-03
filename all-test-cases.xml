@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Poseidon GUI and API Test Suite">
+<suite name="Volante GUI and API Test Suite">
 	<test name="Regression Test" parallel="false">
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
@@ -10,11 +10,14 @@
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<parameter name="newConceptName" value="AutoTest0001" />
 		<classes>
-			<class name="com.test.api.testcases.SiteApiTest" />
+			<!-- API test cases -->
+			<class name="com.test.api.testcases.TokenManagementTest"/>
+			<class name="com.test.api.testcases.storeview.StoreViewTest"/>
+			<!-- GUI test cases -->
 			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.ui.testcases.HomePageTest" />
 			<class name="com.test.ui.testcases.storeview.StoreViewPageTest" />
-			<class name="com.test.ui.testcases.template.TemplateManagementPageTest" />
+			<class name="com.test.ui.testcases.template.TemplatePageTest" />
 		</classes>
 	</test>
 </suite>

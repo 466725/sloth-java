@@ -19,8 +19,8 @@ import config.Constants;
  * @author Weipeng Zheng
  *
  */
-public class TemplateManagementPage extends HomePage {
-	protected final static Logger logger = LogManager.getLogger(TemplateManagementPage.class.getName());
+public class TemplatePage extends HomePage {
+	protected final static Logger logger = LogManager.getLogger(TemplatePage.class.getName());
 
 	@FindBy(xpath = ".//i[contains(@class, 'fe-plus')]")
 	private static WebElement addConceptIcon;
@@ -330,7 +330,7 @@ public class TemplateManagementPage extends HomePage {
 	 * @param password login password
 	 * @return true, if everything successful; otherwise false
 	 */
-	public TemplateManagementPage(WebDriver driver, String URL, String userName, String password) {
+	public TemplatePage(WebDriver driver, String URL, String userName, String password) {
 		super(driver, URL, userName, password);
 		logger.info("StoreViewPage is now ready, have fun!");
 	}

@@ -20,17 +20,17 @@ import io.qameta.allure.Step;
  * @author Weipeng Zheng
  *
  */
-public class TemplateManagementPageTest extends GuiTestCase {
+public class TemplatePageTest extends GuiTestCase {
 
-	protected final static Logger logger = LogManager.getLogger(TemplateManagementPageTest.class.getName());
+	protected final static Logger logger = LogManager.getLogger(TemplatePageTest.class.getName());
 	protected static LoginPage loginPage = null;
 	protected static HomePage homePage = null;
-	protected static TemplateManagementPage templateManagementPage = null;
+	protected static TemplatePage templateManagementPage = null;
 
 	@Step("Step of navigating to TemplateManagementPage")
 	public boolean navigateToTemplateManagementPage()
 	{
-		templateManagementPage = new TemplateManagementPage(driver, GuiTestCase.URL, GuiTestCase.userName,
+		templateManagementPage = new TemplatePage(driver, GuiTestCase.URL, GuiTestCase.userName,
 				GuiTestCase.password);
 		return templateManagementPage.navigateTo();
 	}

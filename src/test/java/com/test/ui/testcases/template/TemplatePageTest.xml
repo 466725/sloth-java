@@ -10,7 +10,7 @@
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<parameter name="newConceptName" value="AutoTest0001" />
 		<classes>
-			<class name="com.test.ui.testcases.template.TemplateManagementPageTest" />
+			<class name="com.test.ui.testcases.template.TemplatePageTest" />
 		</classes>
 	</test>
 </suite>

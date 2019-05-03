@@ -6,7 +6,8 @@
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<classes>
-			<class name="com.test.api.testcases.SiteTest"/>
+			<class name="com.test.api.testcases.TokenManagementTest"/>
+			<class name="com.test.api.testcases.storeview.StoreViewTest"/>
 		</classes>
 	</test>
 </suite>

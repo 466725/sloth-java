@@ -44,7 +44,7 @@ public class TestCase {
 	public void beforeTest(String browser, String dbConnection) {
 		logger.info("-----------------------Beginning of test-----------------------");
 		logger.info("dbConn.toString() before: " + dbConn.toString());
-		if (dbConnection.compareToIgnoreCase("Localhost_Postgre") == 0) //equalsIgnoreCase
+		if (dbConnection.compareToIgnoreCase("Localhost_Postgre") == 0)
 			TestCase.dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
 		if (dbConnection.compareToIgnoreCase("Localhost_Sybase") == 0)
 			TestCase.dbConn = DB_CONN_ENUM.LOCALHOST_SYBASE;

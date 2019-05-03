@@ -13,7 +13,7 @@
 			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.ui.testcases.HomePageTest" />
 			<class name="com.test.ui.testcases.storeview.StoreViewPageTest" />
-			<class name="com.test.ui.testcases.template.TemplateManagementPageTest" />
+			<class name="com.test.ui.testcases.template.TemplatePageTest" />
 		</classes>
 	</test>
 </suite>
