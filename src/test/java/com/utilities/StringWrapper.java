@@ -37,14 +37,14 @@ public class StringWrapper {
 	public static boolean isStringNull(String str) {
 		return str != null;
 	}
-	
+
 	/**
 	 * Check if a String is empty
 	 * 
 	 * @param str string to check
 	 * @return true if the string is empty
 	 */
-	public static boolean isElementDisplayed(String str) {
+	public static boolean isStringEmpty(String str) {
 		return str.isEmpty();
 	}
 

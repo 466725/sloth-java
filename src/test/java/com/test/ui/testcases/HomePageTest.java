@@ -20,7 +20,7 @@ public class HomePageTest extends GuiTestCase {
 	protected HomePage homePage = null;
 
 	/**
-	 * Test of navigating to HomePage 
+	 * Test of navigating to HomePage
 	 */
 	@Test(priority = 1)
 	public void gotoHomePage() {

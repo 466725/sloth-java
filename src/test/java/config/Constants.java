@@ -1,7 +1,13 @@
 package config;
 
+/**
+ * Put all constant and ENUM here, please 
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public final class Constants {
-	public static final int WAIT_TIME_SECOND = 10;
+	public static final int WAIT_TIME = 10;
 	
 	public static final String API_TEST_BASE_URL = "https://aries-qa.volantecloud.com/aries/api";
 

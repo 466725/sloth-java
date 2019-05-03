@@ -23,7 +23,7 @@ public class StoreViewPageTest extends GuiTestCase {
 	protected StoreViewPage storeViewPage = null;
 
 	/**
-	 * Test of navigating to StoreViewPage 
+	 * Test of navigating to StoreViewPage
 	 */
 	@Test(priority = 1)
 	public void gotoStoreViewPage() {

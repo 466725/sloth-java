@@ -11,8 +11,8 @@
 		<parameter name="newConceptName" value="AutoTest0001" />
 		<classes>
 			<!-- API test cases -->
-			<class name="com.test.api.testcases.TokenManagementTest"/>
-			<class name="com.test.api.testcases.storeview.StoreViewTest"/>
+			<class name="com.test.api.testcases.TokenManagementTest" />
+			<class name="com.test.api.testcases.storeview.StoreViewTest" />
 			<!-- GUI test cases -->
 			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.ui.testcases.HomePageTest" />

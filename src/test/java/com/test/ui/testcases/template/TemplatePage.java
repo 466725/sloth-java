@@ -22,6 +22,31 @@ import config.Constants;
 public class TemplatePage extends HomePage {
 	protected final static Logger logger = LogManager.getLogger(TemplatePage.class.getName());
 
+	/**
+	 * Page object constructor, to initialize the page
+	 * 
+	 * @param driver   web browser driver
+	 * @param URL      web page URL
+	 * @param userName login user name
+	 * @param password login password
+	 * @return true, if everything successful; otherwise false
+	 */
+	public TemplatePage(WebDriver driver, String URL, String userName, String password) {
+		super(driver, URL, userName, password);
+		logger.info("TemplatePage is now ready, have fun!");
+	}
+
+	/**
+	 * Page object navigator, to navigate to the page object
+	 * 
+	 * @return true, if everything successful; otherwise false
+	 */
+	@Override
+	public boolean navigateTo() {
+		super.navigateTo();
+		return super.gotoTemplateManagement();
+	}
+
 	@FindBy(xpath = ".//i[contains(@class, 'fe-plus')]")
 	private static WebElement addConceptIcon;
 
@@ -31,9 +56,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean addNewConcept() {
-		SeleniumWrapper.explicitWait(driver, addConceptIcon, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, addConceptIcon, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, addConceptIcon, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -48,14 +73,14 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean inputNewConceptName(String conceptName) {
-		SeleniumWrapper.explicitWait(driver, inputConceptName, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, inputConceptName, Constants.WAIT_TIME);
 		try {
 			SeleniumWrapper.setInputFieldText(inputConceptName, conceptName, driver);
 			return true;
 		} catch (Exception e) {
-			logger.debug("Exception is: " + e);
+			logger.error("Exception is: " + e);
+			return false;
 		}
-		return false;
 	}
 
 	@FindBy(xpath = ".//span[text() = 'Select']")
@@ -67,9 +92,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectVertical() {
-		SeleniumWrapper.explicitWait(driver, verticalSelector, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, verticalSelector, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, verticalSelector, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -83,9 +108,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectFirstVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, firstVerticalOption, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, firstVerticalOption, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, firstVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -99,9 +124,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectSecondVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, secondVerticalOption, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, secondVerticalOption, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, secondVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -115,9 +140,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectThirdVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, thirdVerticalOption, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, thirdVerticalOption, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, thirdVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -131,9 +156,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectFourthVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, fourthVerticalOption, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, fourthVerticalOption, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, fourthVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -147,9 +172,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean applyVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, applyVerticalButton, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, applyVerticalButton, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, applyVerticalButton, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -163,9 +188,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean saveTheNewConcept() {
-		SeleniumWrapper.explicitWait(driver, saveNewConceptCheck, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, saveNewConceptCheck, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, saveNewConceptCheck, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -179,9 +204,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean cancelTheNewConcept() {
-		SeleniumWrapper.explicitWait(driver, cancelNewConceptUncheck, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, cancelNewConceptUncheck, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, cancelNewConceptUncheck, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -196,7 +221,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean hoverMouseOverConceptRow(int index) {
-		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.WAIT_TIME);
 		if (SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConcept.get(index)))
 			return true;
 		return false;
@@ -212,10 +237,10 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean trashConceptByHoveringMouseOver(int index) {
-		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.WAIT_TIME);
 		if (SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConcept.get(index)))
 			if (SeleniumWrapper.clickElement(driver, rowsOfConceptTrashIcon.get(index),
-					Constants.CLICK_METHOD_ENUM.CLICK, Constants.WAIT_TIME_SECOND))
+					Constants.CLICK_METHOD_ENUM.CLICK, Constants.WAIT_TIME))
 				return true;
 		return false;
 	}
@@ -234,7 +259,7 @@ public class TemplatePage extends HomePage {
 		if (!SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConceptEditIcon.get(index)))
 			return false;
 		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIcon.get(index), Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return false;
 		return true;
 	}
@@ -261,14 +286,14 @@ public class TemplatePage extends HomePage {
 			return false;
 		SeleniumWrapper.waitForPageToLoad(driver);
 		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIcon.get(index), Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return false;
 		SeleniumWrapper.waitForPageToLoad(driver);
 		if (!SeleniumWrapper.setInputFieldText(rowsOfConceptEditIconInput, newConceptName, driver))
 			return false;
 		SeleniumWrapper.waitForPageToLoad(driver);
 		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIconCheck, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return false;
 		return true;
 	}
@@ -282,9 +307,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectPositive() {
-		SeleniumWrapper.explicitWait(driver, positiveButton, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, positiveButton, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, positiveButton, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -298,9 +323,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectNegative() {
-		SeleniumWrapper.explicitWait(driver, negativeButton, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, negativeButton, Constants.WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, negativeButton, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME_SECOND))
+				Constants.WAIT_TIME))
 			return true;
 		return false;
 	}
@@ -315,34 +340,9 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean checkPopupMessage(String expectedMessage) {
-		SeleniumWrapper.explicitWait(driver, confirmMessageText, Constants.WAIT_TIME_SECOND);
+		SeleniumWrapper.explicitWait(driver, confirmMessageText, Constants.WAIT_TIME);
 		if (confirmMessageText.getText().contains(expectedMessage))
 			return true;
 		return false;
-	}
-
-	/**
-	 * Page object constructor, to initialize the page
-	 * 
-	 * @param driver   web browser driver
-	 * @param URL      web page URL
-	 * @param userName login user name
-	 * @param password login password
-	 * @return true, if everything successful; otherwise false
-	 */
-	public TemplatePage(WebDriver driver, String URL, String userName, String password) {
-		super(driver, URL, userName, password);
-		logger.info("StoreViewPage is now ready, have fun!");
-	}
-
-	/**
-	 * Page object navigator, to navigate to the page object
-	 * 
-	 * @return true, if everything successful; otherwise false
-	 */
-	@Override
-	public boolean navigateTo() {
-		super.navigateTo();
-		return super.gotoTemplateManagement();
 	}
 }

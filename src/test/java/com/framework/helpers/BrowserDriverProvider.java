@@ -18,17 +18,37 @@ import com.framework.utilities.PlatformDetector;
 
 import config.Constants;
 
+/**
+ * Web browser driver provider
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class BrowserDriverProvider {
 	protected final static Logger logger = LogManager.getLogger(BrowserDriverProvider.class.getName());
 
+	/**
+	 * Private Constructor, to make this class a singleton one. 
+	 * 
+	 */
 	private BrowserDriverProvider() {
 		logger.info("I am here to guarantee singleton! ");
 	}
 
+	/**
+	 * Inner class, to encapsulate database statement securely
+	 * 
+	 */
 	private static class DriverMaster {
 		private static WebDriver driver = null;
 	}
 
+	/**
+	 * Create a web browser driver
+	 * 
+	 * @param browser Firefox or Chrome or IE...
+	 * @return WebDriver, create one of them and then return
+	 */
 	public static WebDriver createDriver(String browser) {
 		if (browser.toString().equalsIgnoreCase("Firefox")) {
 			DriverMaster.driver = createFirefoxDriver();
@@ -37,10 +57,15 @@ public class BrowserDriverProvider {
 		} else {
 			DriverMaster.driver = createChromeDriver();
 		}
-		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.WAIT_TIME_SECOND, TimeUnit.SECONDS);
+		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.WAIT_TIME, TimeUnit.SECONDS);
 		return DriverMaster.driver;
 	}
 
+	/**
+	 * Create a web browser driver, per Chrome
+	 * 
+	 * @return WebDriver, create a driver for Chrome and then return
+	 */
 	private static WebDriver createChromeDriver() {
 		if (PlatformDetector.isWindows()) {
 			File file = new File(Constants.WIN64_DRIVER_CHROME);
@@ -62,6 +87,11 @@ public class BrowserDriverProvider {
 		}
 	}
 
+	/**
+	 * Create a web browser driver, per Firefox
+	 * 
+	 * @return WebDriver, create a driver for Firefox and then return
+	 */
 	private static WebDriver createFirefoxDriver() {
 		if (PlatformDetector.isWindows()) {
 			File file = new File(Constants.WIN64_DRIVER_FIREFOX);
@@ -84,6 +114,11 @@ public class BrowserDriverProvider {
 		}
 	}
 
+	/**
+	 * Create a web browser driver, per IE
+	 * 
+	 * @return WebDriver, create a driver for IE and then return
+	 */
 	private static WebDriver createIEDriver() {
 		if (PlatformDetector.isWindows()) {
 			File file = new File(Constants.WIN64_DRIVER_IE);

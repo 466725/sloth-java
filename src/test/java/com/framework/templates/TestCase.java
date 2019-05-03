@@ -23,6 +23,12 @@ import config.Constants;
 import config.Constants.DB_CONN_ENUM;
 import io.restassured.RestAssured;
 
+/**
+ * Base class of all test cases related objects
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class TestCase {
 	protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
 
@@ -31,6 +37,9 @@ public class TestCase {
 	protected static ExtentTest test;
 	protected static DB_CONN_ENUM dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
 
+	/**
+	 * Prepare per BeforeSuite annotation.
+	 */
 	@BeforeSuite(alwaysRun = true)
 	public void beforeSuite() {
 		DOMConfigurator.configure(Constants.RESOURCE_FOLDER + "log4j-config.xml");
@@ -39,6 +48,12 @@ public class TestCase {
 		logger.info("-----------------------Beginning of suite----------------------");
 	}
 
+	/**
+	 * Prepare per BeforeTest annotation.
+	 * 
+	 * @param Browser    type used by GUI test
+	 * @param Connection info of targeted database
+	 */
 	@Parameters({ "browser", "dbConnection" })
 	@BeforeTest(alwaysRun = true)
 	public void beforeTest(String browser, String dbConnection) {
@@ -55,17 +70,23 @@ public class TestCase {
 		extent = ExtentReportHelper.getExtentReporter(browser);
 	}
 
+	/**
+	 * Cleanup per AfterTest annotation.
+	 */
 	@AfterTest(alwaysRun = true)
 	public void afterTest() {
 		try {
 			DatabaseStatementManager.closeStatement();
 			DatabaseConnectionManager.closeConnection();
 		} catch (SQLException e) {
-			logger.error("Exception is: ", e);
+			logger.warn("Exception is: ", e);
 		}
 		logger.info("----------------------Ending of test--------------------------");
 	}
 
+	/**
+	 * Cleanup per AfterTest annotation.
+	 */
 	@AfterSuite(alwaysRun = true)
 	protected void afterSuite() {
 		extent.flush();

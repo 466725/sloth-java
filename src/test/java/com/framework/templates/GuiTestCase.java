@@ -18,6 +18,12 @@ import com.framework.helpers.ScreenShotProvider;
 import com.relevantcodes.extentreports.LogStatus;
 import com.test.ui.utilities.SeleniumWrapper;
 
+/**
+ * Base class of all GUI test cases related objects
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class GuiTestCase extends TestCase {
 	protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
 
@@ -26,6 +32,14 @@ public class GuiTestCase extends TestCase {
 	protected static String userName = "";
 	protected static String password = "";
 
+	/**
+	 * Prepare per BeforeClass annotation.
+	 * 
+	 * @param Browser  type used by GUI test
+	 * @param URL      used to launch a website
+	 * @param userName login user name
+	 * @param password login password
+	 */
 	@Parameters({ "browser", "URL", "userName", "password" })
 	@BeforeClass(alwaysRun = true)
 	public void beforeClass(String browser, String URL, String userName, String password) {
@@ -40,11 +54,17 @@ public class GuiTestCase extends TestCase {
 		GuiTestCase.password = password;
 	}
 
+	/**
+	 * Prepare per BeforeMethod annotation.
+	 */
 	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod() {
 		logger.info("-----------------------Beginning of method---------------------");
 	}
 
+	/**
+	 * Cleanup per AfterMethod annotation.
+	 */
 	@AfterMethod(alwaysRun = true)
 	public void afterMethod(ITestResult result) {
 		logger.info("***** Class: " + result.getTestClass().getName() + " *****");
@@ -87,6 +107,9 @@ public class GuiTestCase extends TestCase {
 		logger.info("-----------------------Ending of method------------------------");
 	}
 
+	/**
+	 * Cleanup per AfterClass annotation.
+	 */
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		logger.info("***** " + driver.toString() + " quit()! *****");
