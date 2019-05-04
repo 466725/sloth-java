@@ -28,12 +28,13 @@ public class SeleniumWrapper {
 	 * Check if a web element is displayed or not
 	 * 
 	 * @param element web element to check
+	 * @return true, if web element is displayed; otherwise false
 	 */
 	public static boolean isElementDisplayed(WebElement element) {
 		try {
 			return element.isDisplayed();
 		} catch (Exception e) {
-			logger.error("Exception is: ", e);
+			logger.warn("Exception is: ", e);
 			return false;
 		}
 	}
@@ -45,7 +46,7 @@ public class SeleniumWrapper {
 	 */
 	public static void implicitWait(WebDriver driver) {
 		try {
-			driver.manage().timeouts().implicitlyWait(Constants.WAIT_TIME_SECOND, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(Constants.WAIT_TIME, TimeUnit.SECONDS);
 		} catch (Exception e) {
 			logger.warn("Exception is: ", e);
 		}
@@ -67,19 +68,34 @@ public class SeleniumWrapper {
 	}
 
 	/**
-	 * Waits for the progress bar to disappear ensuring the page has loaded
+	 * Waits for page rendering to be finished
 	 * 
 	 * @param driver WebDriver
 	 */
 	public static void waitForPageToLoad(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME_SECOND);
+		// To be polished, we need a better solution
+		try {
+			Thread.sleep(Constants.SLEEP_TIME);
+		} catch (InterruptedException e) {
+			logger.info("Falied to wait for page rendering to be finished");
+			logger.info("Exception is: " + e);
+		}
+	}
+	
+	/**
+	 * Waits for the progress bar to disappear ensuring the page has loaded
+	 * 
+	 * @param driver WebDriver
+	 */
+	public static void waitForPageToLoadWithElement(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME);
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/svg")));
 		} catch (Exception e) {
 			logger.debug("Exception is: " + e);
 			return;
 		}
-		WebDriverWait waitForInvisibility = new WebDriverWait(driver, Constants.WAIT_TIME_SECOND);
+		WebDriverWait waitForInvisibility = new WebDriverWait(driver, Constants.WAIT_TIME);
 		waitForInvisibility.ignoring(org.openqa.selenium.NoSuchElementException.class);
 		waitForInvisibility.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div/svg")));
 	}
@@ -89,6 +105,7 @@ public class SeleniumWrapper {
 	 * 
 	 * @param driver  web browser driver
 	 * @param element web element to scroll to
+	 * @return true, if everything successful; otherwise false
 	 */
 	public static boolean scrollToElement(WebDriver driver, WebElement element) {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -112,6 +129,7 @@ public class SeleniumWrapper {
 	 * 
 	 * @param driver  web browser driver
 	 * @param element web element to hover over
+	 * @return true, if everything successful; otherwise false
 	 */
 	public static boolean hoverMouseOverElement(WebDriver driver, WebElement element) {
 		try {
@@ -131,6 +149,7 @@ public class SeleniumWrapper {
 	 * @param element     web element to scroll to
 	 * @param clickMethod action to perform
 	 * @param waitTime    time to wait
+	 * @return true, if everything successful; otherwise false
 	 */
 	public static boolean clickElement(WebDriver driver, WebElement element, Constants.CLICK_METHOD_ENUM clickMethod,
 			int waitTime) {
@@ -140,22 +159,27 @@ public class SeleniumWrapper {
 		switch (clickMethod) {
 		case CLICK:
 			element.click();
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.click(), called.");
 			return true;
 		case SENDENTER:
 			element.sendKeys(Keys.ENTER);
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.sendKeys(Keys.ENTER), called.");
 			return true;
 		case SENDRETURN:
 			element.sendKeys(Keys.RETURN);
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.sendKeys(Keys.RETURN), called.");
 			return true;
 		case SUBMIT:
 			element.submit();
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("element.submit(), called.");
 			return true;
 		case RUNJS:
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+			SeleniumWrapper.waitForPageToLoad(driver);
 			logger.info("((JavascriptExecutor) driver).executeScript(\"arguments[0].click();\", element), called.");
 			return true;
 		default:
@@ -173,7 +197,7 @@ public class SeleniumWrapper {
 	 */
 	public static boolean setInputFieldText(WebElement inputField, String textToSet, WebDriver driver) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME_SECOND);
+			WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME);
 			wait.until(ExpectedConditions.elementToBeClickable(inputField));
 		} catch (Exception e1) {
 			logger.info("Exception during wait.until(ExpectedConditions.elementToBeClickable())");
@@ -184,7 +208,7 @@ public class SeleniumWrapper {
 			inputField.sendKeys(textToSet);
 			return true;
 		} catch (Exception e) {
-			logger.warn("Exception is: " + e);
+			logger.error("Exception is: " + e);
 			return false;
 		}
 	}
@@ -200,7 +224,7 @@ public class SeleniumWrapper {
 	 */
 	public static boolean setInputFieldTextNoClear(WebElement inputField, String textToSet, WebDriver driver) {
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME_SECOND);
+			WebDriverWait wait = new WebDriverWait(driver, Constants.WAIT_TIME);
 			wait.until(ExpectedConditions.elementToBeClickable(inputField));
 		} catch (Exception e1) {
 			logger.info("Exception during wait.until(ExpectedConditions.elementToBeClickable())");
@@ -211,7 +235,7 @@ public class SeleniumWrapper {
 			inputField.sendKeys(textToSet);
 			return true;
 		} catch (Exception e) {
-			logger.warn("Exception is: " + e);
+			logger.error("Exception is: " + e);
 			return false;
 		}
 	}
@@ -220,16 +244,27 @@ public class SeleniumWrapper {
 	 * Simulates clicking on the browser back button
 	 * 
 	 * @param driver The WebDriver
+	 * @return true, if everything successful; otherwise false
 	 */
-	public static void goBackToPage(WebDriver driver) {
-		driver.navigate().back();
-		SeleniumWrapper.waitForPageToLoad(driver);
+	public static boolean goBackToPage(WebDriver driver) {
+		try {
+			driver.navigate().back();
+			try {
+				SeleniumWrapper.waitForPageToLoad(driver);
+			} catch (Exception e) {
+				logger.warn("Exception duration: SeleniumWrapper.waitForPageToLoad()");
+			}
+			return true;
+		} catch (Exception e) {
+			logger.warn("Exception is: " + e);
+			return false;
+		}
 	}
 
 	/**
 	 * Print info of a specific WebDriver
 	 * 
-	 * @param driver the WebDriver to print info for
+	 * @param driver, the WebDriver to print info for
 	 */
 	public static void printWebDriverInfo(WebDriver driver) {
 		logger.info("");
@@ -246,7 +281,7 @@ public class SeleniumWrapper {
 	/**
 	 * Print info of a specific WebElement
 	 * 
-	 * @param element the WebElement to print info for
+	 * @param element, the WebElement to print info for
 	 */
 	public static void printWebElementInfo(WebElement element) {
 		logger.info("");

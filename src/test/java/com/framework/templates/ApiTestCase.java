@@ -17,6 +17,12 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.ResponseBody;
 
+/**
+ * Base class of all API test cases related objects
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class ApiTestCase extends TestCase {
 	protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
 	protected static OkHttpClient client = new OkHttpClient();
@@ -25,16 +31,25 @@ public class ApiTestCase extends TestCase {
 	protected static String responseString = "";
 	protected static JSONParser parser = new JSONParser();
 
+	/**
+	 * Prepare per BeforeClass annotation.
+	 */
 	@BeforeClass(alwaysRun = true)
 	public void beforeClass() {
 		logger.info("-----------------------Beginning of class----------------------");
 	}
 
+	/**
+	 * Prepare per BeforeMethod annotation.
+	 */
 	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod() {
 		logger.info("-----------------------Beginning of method---------------------");
 	}
 
+	/**
+	 * Cleanup per AfterMethod annotation.
+	 */
 	@AfterMethod(alwaysRun = true)
 	public void afterMethod(ITestResult result) {
 		logger.info("***** Class: " + result.getTestClass().getName() + " *****");
@@ -77,6 +92,9 @@ public class ApiTestCase extends TestCase {
 		logger.info("-----------------------Ending of method------------------------");
 	}
 
+	/**
+	 * Cleanup per AfterClass annotation.
+	 */
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		logger.info("----------------------Ending of class-------------------------");

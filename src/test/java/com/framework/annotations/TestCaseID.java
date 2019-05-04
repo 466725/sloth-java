@@ -1,7 +1,7 @@
 package com.framework.annotations;
 
 /**
- * Annotation for test cases
+ * Annotation for test cases info
  * 
  * @author Weipeng Zheng
  */
@@ -12,6 +12,6 @@ import java.lang.annotation.ElementType;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface TestInfo {
-    public String id();
+public @interface TestCaseID {
+    public String testCaseID();
 }

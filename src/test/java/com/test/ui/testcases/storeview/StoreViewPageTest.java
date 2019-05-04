@@ -1,4 +1,4 @@
-package com.test.ui.testcases;
+package com.test.ui.testcases.storeview;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -6,10 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.framework.templates.GuiTestCase;
-import com.relevantcodes.extentreports.LogStatus;
-import com.test.ui.webpages.HomePage;
-import com.test.ui.webpages.LoginPage;
-import com.test.ui.webpages.StoreViewPage;
+import com.test.ui.testcases.HomePage;
+import com.test.ui.testcases.LoginPage;
 
 /**
  * Tests related to StoreViewPage
@@ -24,12 +22,11 @@ public class StoreViewPageTest extends GuiTestCase {
 	protected StoreViewPage storeViewPage = null;
 
 	/**
-	 * Test of navigating to StoreViewPage 
+	 * Test of navigating to StoreViewPage
 	 */
 	@Test(priority = 1)
 	public void gotoStoreViewPage() {
 		test = extent.startTest("Navigate to StoreViewPage");
-		test.log(LogStatus.INFO, "Navigate to StoreViewPage");
 
 		storeViewPage = new StoreViewPage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 

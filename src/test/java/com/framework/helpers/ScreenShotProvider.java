@@ -12,9 +12,22 @@ import org.openqa.selenium.WebDriverException;
 
 import config.Constants;
 
+/**
+ * Screenshot provider class
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class ScreenShotProvider {
 	protected final static Logger logger = LogManager.getLogger(ScreenShotProvider.class.getName());
 
+	/**
+	 * Capture screenshot
+	 * 
+	 * @param WebDriver, web browser driver
+	 * @param name,      screenshot file name
+	 * @return String, screenshot file with folder
+	 */
 	public static String captureScreenShot(WebDriver driver, String name) {
 		try {
 			return saveScreenShot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE), name);
@@ -24,6 +37,12 @@ public class ScreenShotProvider {
 		}
 	}
 
+	/**
+	 * Capture screenshot
+	 * 
+	 * @param WebDriver, web browser driver
+	 * @return String, screenshot file with folder
+	 */
 	public static String captureScreenShot(WebDriver driver) {
 		try {
 			return saveScreenShot(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
@@ -33,6 +52,13 @@ public class ScreenShotProvider {
 		}
 	}
 
+	/**
+	 * Save screenshot
+	 * 
+	 * @param WebDriver, web browser driver
+	 * @param File,      screenshot file
+	 * @return String, screenshot name
+	 */
 	private static String saveScreenShot(File screenShot, String name) {
 		String screenshotFolder = Constants.SCREENSHOT_FOLDER.toString();
 		String screenshotName = name + ".png";
@@ -45,6 +71,12 @@ public class ScreenShotProvider {
 		return ".//ScreenShot/" + screenshotName;
 	}
 
+	/**
+	 * Save screenshot
+	 * 
+	 * @param WebDriver, web browser driver
+	 * @param File,      screenshot file
+	 */
 	private static String saveScreenShot(File screenShot) {
 		String screenshotFolder = Constants.SCREENSHOT_FOLDER.toString();
 		String screenshotName = System.currentTimeMillis() + ".png";

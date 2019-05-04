@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="API Test Suite">
+	<test name="Regression Test" parallel="false">
+		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<classes>
+			<class name="com.test.api.testcases.storeview.StoreViewTest"/>
+		</classes>
+	</test>
+</suite>

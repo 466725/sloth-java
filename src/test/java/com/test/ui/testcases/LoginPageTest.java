@@ -6,8 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.framework.templates.GuiTestCase;
-import com.relevantcodes.extentreports.LogStatus;
-import com.test.ui.webpages.LoginPage;
 
 /**
  * Tests related to LoginPage
@@ -20,15 +18,14 @@ public class LoginPageTest extends GuiTestCase {
 	protected LoginPage loginPage = null;
 
 	/**
-	 * Test of navigating to LoginPage 
+	 * Test of navigating to LoginPage
 	 */
 	@Test(priority = 1)
 	public void gotoLoginPage() {
 		test = extent.startTest("Navigate to LoginPage");
-		test.log(LogStatus.INFO, "Navigate to LoginPage");
-		
+
 		loginPage = new LoginPage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
-		
+
 		Assert.assertTrue(loginPage.navigateTo());
 	}
 }

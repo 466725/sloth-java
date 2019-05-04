@@ -1,4 +1,4 @@
-package com.test.ui.webpages;
+package com.test.ui.testcases;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

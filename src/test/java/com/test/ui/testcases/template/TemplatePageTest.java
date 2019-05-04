@@ -1,16 +1,13 @@
-package com.test.ui.testcases;
+package com.test.ui.testcases.template;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.framework.annotations.TestInfo;
 import com.framework.templates.GuiTestCase;
-import com.test.ui.webpages.HomePage;
-import com.test.ui.webpages.LoginPage;
-import com.test.ui.webpages.TemplateManagementPage;
+import com.test.ui.testcases.HomePage;
+import com.test.ui.testcases.LoginPage;
 
 import io.qameta.allure.Link;
 import io.qameta.allure.Step;
@@ -21,42 +18,36 @@ import io.qameta.allure.Step;
  * @author Weipeng Zheng
  *
  */
-public class TemplateManagementPageTest extends GuiTestCase {
+public class TemplatePageTest extends GuiTestCase {
 
-	protected final static Logger logger = LogManager.getLogger(TemplateManagementPageTest.class.getName());
+	protected final static Logger logger = LogManager.getLogger(TemplatePageTest.class.getName());
 	protected static LoginPage loginPage = null;
 	protected static HomePage homePage = null;
-	protected static TemplateManagementPage templateManagementPage = null;
+	protected static TemplatePage templateManagementPage = null;
 
 	@Step("Step of navigating to TemplateManagementPage")
-	public boolean navigateToTemplateManagementPage()
-	{
-		templateManagementPage = new TemplateManagementPage(driver, GuiTestCase.URL, GuiTestCase.userName,
-				GuiTestCase.password);
+	public boolean navigateToTemplateManagementPage() {
+		templateManagementPage = new TemplatePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 		return templateManagementPage.navigateTo();
 	}
 
 	@Step("Step of adding new concept by clicking on the '+' icon")
-	public boolean clickAddNewConceptIcon()
-	{
+	public boolean clickAddNewConceptIcon() {
 		return templateManagementPage.addNewConcept();
 	}
 
 	@Step("Specify a name to the new concept")
-	public boolean specifyNameToTheConcept(String conceptName)
-	{
+	public boolean specifyNameToTheConcept(String conceptName) {
 		return templateManagementPage.inputNewConceptName(conceptName);
 	}
 
 	@Step("Click vertical button to show drop down options")
-	public boolean clickVerticalSelector()
-	{
+	public boolean clickVerticalSelector() {
 		return templateManagementPage.selectVertical();
 	}
 
 	@Step("Select a vertical option for the new concept")
-	public boolean selectVerticalOption(String index)
-	{
+	public boolean selectVerticalOption(String index) {
 		if (index.equalsIgnoreCase("Restaurant"))
 			return templateManagementPage.selectFirstVerticalOption();
 		else if (index.equalsIgnoreCase("Hospitality"))
@@ -70,67 +61,56 @@ public class TemplateManagementPageTest extends GuiTestCase {
 	}
 
 	@Step("Apply selected verticals to the new concept")
-	public boolean applySelectedVerticalsToTheConcept()
-	{
+	public boolean applySelectedVerticalsToTheConcept() {
 		return templateManagementPage.applyVerticalOption();
 	}
 
 	@Step("Try to save the newly created concept")
-	public boolean tryToSaveTheNewlyCreatedConcept()
-	{
+	public boolean tryToSaveTheNewlyCreatedConcept() {
 		return templateManagementPage.saveTheNewConcept();
 	}
 
 	@Step("Try to cacel the newly created concept")
-	public boolean tryToCancelTheNewlyCreatedConcept()
-	{
+	public boolean tryToCancelTheNewlyCreatedConcept() {
 		return templateManagementPage.cancelTheNewConcept();
 	}
 
 	@Step("Hover mouse over a concept row")
-	public boolean hoverMouseOverConceptRow(int index)
-	{
+	public boolean hoverMouseOverConceptRow(int index) {
 		return templateManagementPage.hoverMouseOverConceptRow(index);
 	}
 
 	@Step("Hover mouse over a concept row, and then click trash icon")
-	public boolean hoverMouseOverConceptRowAndDelete(int index)
-	{
+	public boolean hoverMouseOverConceptRowAndDelete(int index) {
 		return templateManagementPage.trashConceptByHoveringMouseOver(index);
 	}
 
 	@Step("Hover mouse over a concept row, and then click edit concept name icon")
-	public boolean hoverMouseOverConceptRowAndEditName(int index)
-	{
+	public boolean hoverMouseOverConceptRowAndEditName(int index) {
 		return templateManagementPage.editConceptNameByHoveringMouseOver(index);
 	}
 
 	@Step("Hover mouse over a concept row, and then specify a new concept name")
-	public boolean specifyNewConceptNameByHoveringMouseOver(int index, String newConceptName)
-	{
+	public boolean specifyNewConceptNameByHoveringMouseOver(int index, String newConceptName) {
 		return templateManagementPage.specifyNewConceptNameByHoveringMouseOver(index, newConceptName);
 	}
 
 	@Step("Check the message on the popup confirmation window")
-	public boolean checkPopupWindowConfirmationMessage(String expectedMessage)
-	{
+	public boolean checkPopupWindowConfirmationMessage(String expectedMessage) {
 		return templateManagementPage.checkPopupMessage(expectedMessage);
 	}
 
 	@Step("Click either positive or negative button on the popup window")
-	public boolean clickPopupWindowConfirmationButtons(boolean isPositive)
-	{
+	public boolean clickPopupWindowConfirmationButtons(boolean isPositive) {
 		if (isPositive)
 			return templateManagementPage.selectPositive();
 		return templateManagementPage.selectPositive();
 	}
-	
+
 	@Test(description = "VOL-8888:[UI] Edit concept name")
-	@TestInfo(id = "VOL-8888")
 	@Link(name = "VOL-8888", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-8888")
-	@Parameters("newConceptName")
-	public void testEditingConceptName(String newConceptName)
-	{
+	public void testEditingConceptName() {
+		test = extent.startTest("Navigate to template page and then edit concept name");
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -140,11 +120,7 @@ public class TemplateManagementPageTest extends GuiTestCase {
 	}
 
 	// @Test(description = "VOL-9999:[UI] Creating new concept")
-	@TestInfo(id = "VOL-9999")
-	@Link(name = "VOL-9999", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-9999")
-	@Parameters("newConceptName")
-	public void testCreatingNewConcept(String newConceptName)
-	{
+	public void testCreatingNewConcept() {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -155,7 +131,7 @@ public class TemplateManagementPageTest extends GuiTestCase {
 		softly.assertThat(hoverMouseOverConceptRowAndEditName(1));
 		softly.assertThat(specifyNewConceptNameByHoveringMouseOver(2, "AT" + System.currentTimeMillis()));
 		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept(newConceptName));
+		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
 		softly.assertThat(clickVerticalSelector());
 		softly.assertThat(selectVerticalOption("Restaurant"));
 		softly.assertThat(selectVerticalOption("Hospitality"));
@@ -169,10 +145,7 @@ public class TemplateManagementPageTest extends GuiTestCase {
 	}
 
 	// @Test(description = "VOL-3214:[UI] View concept page")
-	@TestInfo(id = "VOL-3214")
-	@Link(name = "VOL-3214", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-3214")
-	public void testViewingConcept()
-	{
+	public void testViewingConcept() {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -186,10 +159,7 @@ public class TemplateManagementPageTest extends GuiTestCase {
 	}
 
 	// @Test(description = "VOL-3215:[UI] Add new concept")
-	@TestInfo(id = "VOL-3215")
-	@Link(name = "VOL-3215", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-3215")
-	public void testAddingNewConcept()
-	{
+	public void testAddingNewConcept() {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -204,12 +174,8 @@ public class TemplateManagementPageTest extends GuiTestCase {
 		softly.assertAll();
 	}
 
-	// @Test(description = "VOL-3217:[UI] Add new concept alternative flow - cancel - save without name")
-	@TestInfo(id = "VOL-3217")
-	@Link(name = "VOL-3217", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-3217")
-	@Parameters("newConceptName")
-	public void testAddingNewConceptAlternativeFlow(String existingConceptName)
-	{
+	// @Test(description = "VOL-3217:[UI] Add new concept alternative flow")
+	public void testAddingNewConceptAlternativeFlow() {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(navigateToTemplateManagementPage());
@@ -221,7 +187,7 @@ public class TemplateManagementPageTest extends GuiTestCase {
 		softly.assertThat(applySelectedVerticalsToTheConcept());
 		softly.assertThat(tryToCancelTheNewlyCreatedConcept());
 		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept(existingConceptName));
+		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
 		softly.assertThat(clickVerticalSelector());
 		softly.assertThat(selectVerticalOption("Restaurant"));
 		softly.assertThat(selectVerticalOption("Hospitality"));
