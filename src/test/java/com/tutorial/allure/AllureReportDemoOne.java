@@ -26,14 +26,48 @@ public class AllureReportDemoOne extends ApiTestCase {
 	public void simpleTest() {
 		test = extent.startTest("Allure Demo: Simple test example");
 		test.log(LogStatus.INFO, "Allure Demo: Simple test example");
-		firstStep();
+
+		logger.info(firstStep());
+		logger.info(secondStep());
+		logger.info(thirdStep());
+		logger.info(fourthStep());
+		logger.info(fifthStep());
+
 		Assert.assertTrue(true);
 	}
 
-	@Step
+	@Step("01 step with Allure Test Report")
 	@Attachment
 	public static String firstStep() {
-		logger.info("First step with Allure Test Report");
+		logger.info("01 step with Allure Test Report");
+		return "Yeah, 1 is 1!";
+	}
+
+	@Step("02 step with Allure Test Report")
+	@Attachment
+	public static String secondStep() {
+		logger.info("02 step with Allure Test Report");
 		return "Yeah, 2 is 2!";
+	}
+
+	@Step("03 step with Allure Test Report")
+	@Attachment
+	public static String thirdStep() {
+		logger.info("03 step with Allure Test Report");
+		return "Yeah, 3 is 3!";
+	}
+
+	@Step("04 step with Allure Test Report")
+	@Attachment
+	public static String fourthStep() {
+		logger.info("04 step with Allure Test Report");
+		return "Yeah, 4 is 4!";
+	}
+
+	@Step("05 step with Allure Test Report")
+	@Attachment
+	public static String fifthStep() {
+		logger.info("05 step with Allure Test Report");
+		return "Yeah, 5 is 5!";
 	}
 }

@@ -23,7 +23,13 @@ public class AllureReportDemoTwo extends ApiTestCase {
 	public void simpleTest() {
 		test = extent.startTest("Allure Demo: Simple test example");
 		test.log(LogStatus.INFO, "Allure Demo: Simple test example");
+		
 		AllureReportDemoOne.firstStep();
+		AllureReportDemoOne.secondStep();
+		AllureReportDemoOne.thirdStep();
+		AllureReportDemoOne.fourthStep();
+		AllureReportDemoOne.fifthStep();
+		
 		Assert.assertTrue(true);
 	}
 }

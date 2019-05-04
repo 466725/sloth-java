@@ -6,7 +6,6 @@ import java.io.StringWriter;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -17,7 +16,7 @@ import org.testng.annotations.Parameters;
 import com.framework.helpers.BrowserDriverProvider;
 import com.framework.helpers.ScreenShotProvider;
 import com.relevantcodes.extentreports.LogStatus;
-import com.test.ui.utilities.WaitHandler;
+import com.test.ui.utilities.SeleniumWrapper;
 
 public class GuiTestCase extends TestCase {
 	protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
@@ -84,7 +83,7 @@ public class GuiTestCase extends TestCase {
 			break;
 		}
 		extent.endTest(test);
-		WaitHandler.implicitWait(driver);
+		SeleniumWrapper.implicitWait(driver);
 		logger.info("-----------------------Ending of method------------------------");
 	}
 

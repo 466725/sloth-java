@@ -8,18 +8,31 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.framework.templates.WebPage;
-import com.test.ui.utilities.WaitHandler;
-import com.test.ui.utilities.WebActionPerformer;
+import com.test.ui.utilities.SeleniumWrapper;
 
 import config.Constants;
 
+/**
+ * Login page object to host all locators on it, and related methods
+ * 
+ * @author Weipeng Zheng
+ *
+ */
 public class LoginPage extends WebPage {
 	protected final static Logger logger = LogManager.getLogger(LoginPage.class.getName());
-	protected String URL = "";
-	protected String userName = "";
-	protected String password = "";
-	protected WebDriver driver = null;
+	protected String URL;
+	protected String userName;
+	protected String password;
+	protected WebDriver driver;
 
+	/**
+	 * Page object constructor, to initialize the page
+	 * 
+	 * @param driver   web browser driver
+	 * @param URL      web page URL
+	 * @param userName login user name
+	 * @param password login password
+	 */
 	public LoginPage(WebDriver driver, String URL, String userName, String password) {
 		this.driver = driver;
 		this.URL = URL;
@@ -29,6 +42,9 @@ public class LoginPage extends WebPage {
 		logger.info("LoginPage is now ready, have fun!");
 	}
 
+	/**
+	 * Page object navigator, to navigate to the page object
+	 */
 	@Override
 	public boolean navigateTo() {
 		driver.navigate().to(URL);
@@ -38,16 +54,21 @@ public class LoginPage extends WebPage {
 	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter Your email or account')]")
 	public static WebElement loginUsername;
 
+	/**
+	 * Input user name
+	 * 
+	 * @param userName login user name
+	 */
 	public boolean inputUsername(String userName) {
-		WaitHandler.explicitWait(driver, loginUsername);
+		SeleniumWrapper.explicitWait(driver, loginUsername, 15);
 		try {
 			loginUsername.clear();
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			loginUsername.sendKeys(userName);
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 		}
 		return false;
 	}
@@ -55,16 +76,21 @@ public class LoginPage extends WebPage {
 	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter your password')]")
 	public static WebElement loginPassword;
 
+	/**
+	 * Input password
+	 * 
+	 * @param password login password
+	 */
 	public boolean inputPassword(String password) {
-		WaitHandler.explicitWait(driver, loginPassword);
+		SeleniumWrapper.explicitWait(driver, loginPassword, 15);
 		try {
 			loginPassword.clear();
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			loginPassword.sendKeys(password);
-			WaitHandler.implicitWait(driver);
+			SeleniumWrapper.implicitWait(driver);
 			return true;
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Exception is: ", e);
 		}
 		return false;
 	}
@@ -72,11 +98,17 @@ public class LoginPage extends WebPage {
 	@FindBy(xpath = ".//button[contains(@class, 'login')]")
 	public static WebElement loginButton;
 
+	/**
+	 * Click login button
+	 */
 	public boolean clickLoginButton() {
-		WaitHandler.explicitWait(driver, loginButton);
-		return WebActionPerformer.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
+		SeleniumWrapper.explicitWait(driver, loginButton, 15);
+		return SeleniumWrapper.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
 	}
 
+	/**
+	 * Login, input user name, input password, and then click login button
+	 */
 	public boolean login(String userName, String password) {
 		if (inputUsername(userName) && inputPassword(password))
 			return clickLoginButton();

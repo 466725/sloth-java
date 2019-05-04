@@ -1,6 +1,5 @@
 package com.framework.templates;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -45,6 +44,7 @@ public class ApiTestCase extends TestCase {
 		Throwable exception = result.getThrowable();
 		String className = result.getTestClass().getName();
 		String methodName = result.getMethod().getMethodName();
+
 		switch (resultStatus) {
 		case ITestResult.SUCCESS:
 			test.log(LogStatus.PASS, String.format("%s:  %s", className, methodName));
@@ -71,7 +71,7 @@ public class ApiTestCase extends TestCase {
 		extent.endTest(test);
 		try {
 			responseBody.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			logger.warn("Caught IOException during responseBody.close().");
 		}
 		logger.info("-----------------------Ending of method------------------------");

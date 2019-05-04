@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SuiteName" time-out="500">
+	<listeners>
+		<listener class-name = "com.tutorial.listener.ListenerDemo"/>
+	</listeners>
+	<parameter name="browser" value="Chrome"></parameter>
+	<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+	<test name="TestName" parallel="false">
+		<classes>
+			<class name="com.tutorial.listener.ListenerTestCaseDemo2"/>
+		</classes>
+	</test>
+</suite>
