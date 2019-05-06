@@ -34,11 +34,14 @@ public class TokenManagementTest extends ApiTestCase {
 				"{\n   \"grant_type\": \"password\","
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
 				+ "\n   \"password\": \"test\"\n}");
-		Request request = new Request.Builder().url("https://dev.volantecloud.com/auth/auth/token").post(body)
+		Request request = new Request.Builder()
+				.url("https://dev.volantecloud.com/auth/auth/token")
+				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
 				.addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636").build();
+				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
+				.build();
 
 		Response response = client.newCall(request).execute();
 		responseBody = response.body();
@@ -83,11 +86,14 @@ public class TokenManagementTest extends ApiTestCase {
 				"{\n   \"grant_type\": \"password\","
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
 				+ "\n   \"password\": \"test\"\n}");
-		Request request = new Request.Builder().url("https://dev.volantecloud.com/auth/auth/token").post(body)
+		Request request = new Request.Builder()
+				.url("https://dev.volantecloud.com/auth/auth/token")
+				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
 				.addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636").build();
+				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
+				.build();
 
 		Response response = client.newCall(request).execute();
 
@@ -99,11 +105,14 @@ public class TokenManagementTest extends ApiTestCase {
 				"{\n   \"grant_type\": \"password\","
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
 				+ "\n   \"password\": \"test\"\n}");
-		Request request = new Request.Builder().url("https://dev.volantecloud.com/auth/auth/token").post(body)
+		Request request = new Request.Builder()
+				.url("https://dev.volantecloud.com/auth/auth/token")
+				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
 				.addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636").build();
+				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
+				.build();
 
 		Response response = client.newCall(request).execute();
 		responseBody = response.body();

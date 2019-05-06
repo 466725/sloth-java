@@ -46,7 +46,9 @@ public class StoreViewTest extends ApiTestCase {
 				+ "\r\n  \"phoneNumber\": \"416-221-1132\","
 				+ "\r\n  \"postalCode\": \"L111X4\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
-		Request request = new Request.Builder().url("https://dev.volantecloud.com/api/store/v1/sites").post(body)
+		Request request = new Request.Builder()
+				.url("https://dev.volantecloud.com/api/store/v1/sites")
+				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("cache-control", "no-cache")
 				.addHeader("access_token", TokenManagementTest.generateTokenStepReturnToken().toString())
@@ -69,7 +71,9 @@ public class StoreViewTest extends ApiTestCase {
 		test = extent.startTest("Store view API test: Verify a site is created");
 		SoftAssertions softly = new SoftAssertions();
 
-		Request request = new Request.Builder().url("https://dev.volantecloud.com/api/store/v1/sites/9bdce676-c85a-43bc-84b2-e4a108272ab3").get()
+		Request request = new Request.Builder()
+				.url("https://dev.volantecloud.com/api/store/v1/sites/9bdce676-c85a-43bc-84b2-e4a108272ab3")
+				.get()
 				.addHeader("Content-Type", "application/json")
 				.addHeader("cache-control", "no-cache")
 				.addHeader("Postman-Token", "b6394174-b143-494a-9995-8daf22b575a5")
