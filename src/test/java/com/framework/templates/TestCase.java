@@ -36,6 +36,7 @@ public class TestCase {
 	protected static ExtentReports extent;
 	protected static ExtentTest test;
 	protected static DB_CONN_ENUM dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
+	protected static String API_TEST_BASE_URL = "https://aries-qa.volantecloud.com/aries/api";
 
 	/**
 	 * Prepare per BeforeSuite annotation.
@@ -54,9 +55,9 @@ public class TestCase {
 	 * @param Browser    type used by GUI test
 	 * @param Connection info of targeted database
 	 */
-	@Parameters({ "browser", "dbConnection" })
+	@Parameters({ "browser", "dbConnection", "baseURI" })
 	@BeforeTest(alwaysRun = true)
-	public void beforeTest(String browser, String dbConnection) {
+	public void beforeTest(String browser, String dbConnection, String baseURI) {
 		logger.info("-----------------------Beginning of test-----------------------");
 		logger.info("dbConn.toString() before: " + dbConn.toString());
 		if (dbConnection.compareToIgnoreCase("Localhost_Postgre") == 0)
@@ -66,7 +67,8 @@ public class TestCase {
 		logger.info("dbConn.toString() after: " + dbConn.toString());
 		DatabaseConnectionManager.getConnection(dbConn);
 		DatabaseStatementManager.createStatement(dbConn);
-		RestAssured.baseURI = Constants.API_TEST_BASE_URL;
+		API_TEST_BASE_URL = baseURI;
+		RestAssured.baseURI = baseURI;
 		extent = ExtentReportHelper.getExtentReporter(browser);
 	}
 

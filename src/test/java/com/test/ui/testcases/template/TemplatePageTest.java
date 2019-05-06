@@ -9,9 +9,6 @@ import com.framework.templates.GuiTestCase;
 import com.test.ui.testcases.HomePage;
 import com.test.ui.testcases.LoginPage;
 
-import io.qameta.allure.Link;
-import io.qameta.allure.Step;
-
 /**
  * Tests related to TemplateManagementPage
  * 
@@ -25,28 +22,23 @@ public class TemplatePageTest extends GuiTestCase {
 	protected static HomePage homePage = null;
 	protected static TemplatePage templateManagementPage = null;
 
-	@Step("Step of navigating to TemplateManagementPage")
 	public boolean navigateToTemplateManagementPage() {
 		templateManagementPage = new TemplatePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 		return templateManagementPage.navigateTo();
 	}
 
-	@Step("Step of adding new concept by clicking on the '+' icon")
 	public boolean clickAddNewConceptIcon() {
 		return templateManagementPage.addNewConcept();
 	}
 
-	@Step("Specify a name to the new concept")
 	public boolean specifyNameToTheConcept(String conceptName) {
 		return templateManagementPage.inputNewConceptName(conceptName);
 	}
 
-	@Step("Click vertical button to show drop down options")
 	public boolean clickVerticalSelector() {
 		return templateManagementPage.selectVertical();
 	}
 
-	@Step("Select a vertical option for the new concept")
 	public boolean selectVerticalOption(String index) {
 		if (index.equalsIgnoreCase("Restaurant"))
 			return templateManagementPage.selectFirstVerticalOption();
@@ -60,47 +52,38 @@ public class TemplatePageTest extends GuiTestCase {
 			return templateManagementPage.selectFirstVerticalOption();
 	}
 
-	@Step("Apply selected verticals to the new concept")
 	public boolean applySelectedVerticalsToTheConcept() {
 		return templateManagementPage.applyVerticalOption();
 	}
 
-	@Step("Try to save the newly created concept")
 	public boolean tryToSaveTheNewlyCreatedConcept() {
 		return templateManagementPage.saveTheNewConcept();
 	}
 
-	@Step("Try to cacel the newly created concept")
 	public boolean tryToCancelTheNewlyCreatedConcept() {
 		return templateManagementPage.cancelTheNewConcept();
 	}
 
-	@Step("Hover mouse over a concept row")
 	public boolean hoverMouseOverConceptRow(int index) {
 		return templateManagementPage.hoverMouseOverConceptRow(index);
 	}
 
-	@Step("Hover mouse over a concept row, and then click trash icon")
 	public boolean hoverMouseOverConceptRowAndDelete(int index) {
 		return templateManagementPage.trashConceptByHoveringMouseOver(index);
 	}
 
-	@Step("Hover mouse over a concept row, and then click edit concept name icon")
 	public boolean hoverMouseOverConceptRowAndEditName(int index) {
 		return templateManagementPage.editConceptNameByHoveringMouseOver(index);
 	}
 
-	@Step("Hover mouse over a concept row, and then specify a new concept name")
 	public boolean specifyNewConceptNameByHoveringMouseOver(int index, String newConceptName) {
 		return templateManagementPage.specifyNewConceptNameByHoveringMouseOver(index, newConceptName);
 	}
 
-	@Step("Check the message on the popup confirmation window")
 	public boolean checkPopupWindowConfirmationMessage(String expectedMessage) {
 		return templateManagementPage.checkPopupMessage(expectedMessage);
 	}
 
-	@Step("Click either positive or negative button on the popup window")
 	public boolean clickPopupWindowConfirmationButtons(boolean isPositive) {
 		if (isPositive)
 			return templateManagementPage.selectPositive();
@@ -108,7 +91,6 @@ public class TemplatePageTest extends GuiTestCase {
 	}
 
 	@Test(description = "VOL-8888:[UI] Edit concept name")
-	@Link(name = "VOL-8888", url = "http://volantedocs.com/testlink/linkto.php?tprojectPrefix=VOL&item=testcase&id=VOL-8888")
 	public void testEditingConceptName() {
 		test = extent.startTest("Navigate to template page and then edit concept name");
 		SoftAssertions softly = new SoftAssertions();

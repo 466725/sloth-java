@@ -15,8 +15,6 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.utilities.StringWrapper;
 
-import io.qameta.allure.Step;
-
 /**
  * Token management test cases are all here, Add + Update + Delete...
  * 
@@ -28,7 +26,6 @@ public class TokenManagementTest extends ApiTestCase {
 
 	@SuppressWarnings("unlikely-arg-type")
 	@Test(priority = 1)
-	@Step("Token management test: Generate Token")
 	public static void generateToken() throws IOException, ParseException {
 		test = extent.startTest("Token management test: Generate Token");
 		SoftAssertions softly = new SoftAssertions();
@@ -79,7 +76,6 @@ public class TokenManagementTest extends ApiTestCase {
 		softly.assertAll();
 	}
 	
-	@Step("Token management test: Generate Token step")
 	public static boolean generateTokenStep() throws IOException, ParseException {
 		RequestBody body = RequestBody.create(mediaType,
 				"{\n   \"grant_type\": \"password\",\n   \"email\": \"vetest@volantesystems.com\",\n   \"password\": \"test\"\n}");
@@ -94,7 +90,6 @@ public class TokenManagementTest extends ApiTestCase {
 		return response.isSuccessful();
 	}
 	
-	@Step("Token management test: Generate Token step")
 	public static Object generateTokenStepReturnToken() throws IOException, ParseException {
 		RequestBody body = RequestBody.create(mediaType,
 				"{\n   \"grant_type\": \"password\",\n   \"email\": \"vetest@volantesystems.com\",\n   \"password\": \"test\"\n}");
