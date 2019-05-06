@@ -55,10 +55,9 @@ public class TemplatePage extends HomePage {
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean addNewConcept() {
-		SeleniumWrapper.explicitWait(driver, addConceptIcon, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, addConceptIcon, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean clickAddNewConceptIcon() {
+		SeleniumWrapper.explicitWait(driver, addConceptIcon, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, addConceptIcon, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -73,7 +72,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean inputNewConceptName(String conceptName) {
-		SeleniumWrapper.explicitWait(driver, inputConceptName, Constants.WAIT_TIME);
+		SeleniumWrapper.explicitWait(driver, inputConceptName, Constants.EXPLICIT_WAIT_TIME);
 		try {
 			SeleniumWrapper.setInputFieldText(inputConceptName, conceptName, driver);
 			return true;
@@ -87,14 +86,13 @@ public class TemplatePage extends HomePage {
 	private static WebElement verticalSelector;
 
 	/**
-	 * Select a vertical for the new concept
+	 * Click the vertical select drop-down, to multi-select any of them
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean selectVertical() {
-		SeleniumWrapper.explicitWait(driver, verticalSelector, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, verticalSelector, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean clickVerticalSelectDropdown() {
+		SeleniumWrapper.explicitWait(driver, verticalSelector, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, verticalSelector, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -108,9 +106,8 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectFirstVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, firstVerticalOption, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, firstVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		SeleniumWrapper.explicitWait(driver, firstVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, firstVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -124,9 +121,8 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectSecondVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, secondVerticalOption, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, secondVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		SeleniumWrapper.explicitWait(driver, secondVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, secondVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -140,9 +136,8 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectThirdVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, thirdVerticalOption, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, thirdVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		SeleniumWrapper.explicitWait(driver, thirdVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, thirdVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -156,9 +151,8 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectFourthVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, fourthVerticalOption, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, fourthVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		SeleniumWrapper.explicitWait(driver, fourthVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, fourthVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -171,42 +165,39 @@ public class TemplatePage extends HomePage {
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean applyVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, applyVerticalButton, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, applyVerticalButton, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean applySelectedVerticalOptions() {
+		SeleniumWrapper.explicitWait(driver, applyVerticalButton, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, applyVerticalButton, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
 
 	@FindBy(xpath = ".//i[contains(@class, 'fe-check ok')]")
-	private static WebElement saveNewConceptCheck;
+	private static WebElement saveConcept;
 
 	/**
-	 * Save the new concept
+	 * Save the new concept, by clicking the icon
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean saveTheNewConcept() {
-		SeleniumWrapper.explicitWait(driver, saveNewConceptCheck, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, saveNewConceptCheck, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean clickSaveNewConceptIcon() {
+		SeleniumWrapper.explicitWait(driver, saveConcept, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, saveConcept, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
 
 	@FindBy(xpath = ".//i[contains(@class, 'fe-x danger')]")
-	private static WebElement cancelNewConceptUncheck;
+	private static WebElement cancelConcept;
 
 	/**
-	 * Cancel the new concept
+	 * Cancel the new concept, by clicking the icon
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean cancelTheNewConcept() {
-		SeleniumWrapper.explicitWait(driver, cancelNewConceptUncheck, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, cancelNewConceptUncheck, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean clickCancelNewConceptIcon() {
+		SeleniumWrapper.explicitWait(driver, cancelConcept, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, cancelConcept, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -221,32 +212,14 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean hoverMouseOverConceptRow(int index) {
-		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.WAIT_TIME);
+		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConcept.get(index)))
 			return true;
 		return false;
 	}
 
-	@FindBy(xpath = ".//div[contains(@class, 'ListManagement-rowData')]")
-	private static List<WebElement> rowsOfConceptTrashIcon;
-
-	/**
-	 * Hover mouse over a concept row, and then click trash icon
-	 * 
-	 * @param index index of the row to hover over
-	 * @return true, if everything successful; otherwise false
-	 */
-	public boolean trashConceptByHoveringMouseOver(int index) {
-		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.WAIT_TIME);
-		if (SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConcept.get(index)))
-			if (SeleniumWrapper.clickElement(driver, rowsOfConceptTrashIcon.get(index),
-					Constants.CLICK_METHOD_ENUM.CLICK, Constants.WAIT_TIME))
-				return true;
-		return false;
-	}
-
 	@FindBy(xpath = ".//i[contains(@class, 'icon-edit')]")
-	private static List<WebElement> rowsOfConceptEditIcon;
+	private static List<WebElement> conceptNameEditIcon;
 
 	/**
 	 * Hover mouse over a concept row, and then click edit concept name icon
@@ -254,24 +227,23 @@ public class TemplatePage extends HomePage {
 	 * @param index index of the row to hover over
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean editConceptNameByHoveringMouseOver(int index) {
-		SeleniumWrapper.waitForPageToLoad(driver);
-		if (!SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConceptEditIcon.get(index)))
+	public boolean clickEditConceptNameIcon(int index) {
+		SeleniumWrapper.waitForDomToBeRendered(driver);
+		if (!SeleniumWrapper.hoverMouseOverElement(driver, conceptNameEditIcon.get(index)))
 			return false;
-		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIcon.get(index), Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		if (!SeleniumWrapper.clickElement(driver, conceptNameEditIcon.get(index), Constants.CLICK_METHOD_ENUM.CLICK))
 			return false;
 		return true;
 	}
 
 	@FindBy(xpath = ".//div[contains(@class, 'EMTitle-eMTitle')]")
-	private static List<WebElement> rowsOfConceptNameDiv;
+	private static List<WebElement> conceptNameDiv;
 
 	@FindBy(xpath = ".//div[contains(@class, 'ListAddInput-listAddInput')]/child::*")
-	private static WebElement rowsOfConceptEditIconInput;
+	private static WebElement conceptNameInput;
 
 	@FindBy(xpath = ".//div[contains(@class, 'ListAddInput-endRender')]")
-	private static WebElement rowsOfConceptEditIconCheck;
+	private static WebElement conceptNameCheckIcon;
 
 	/**
 	 * Hover mouse over a concept row, and then specify a new concept name
@@ -281,23 +253,39 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean specifyNewConceptNameByHoveringMouseOver(int index, String newConceptName) {
-		SeleniumWrapper.waitForPageToLoad(driver);
-		if (!SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConceptEditIcon.get(index)))
+		SeleniumWrapper.waitForDomToBeRendered(driver);
+		if (!SeleniumWrapper.hoverMouseOverElement(driver, conceptNameEditIcon.get(index)))
 			return false;
-		SeleniumWrapper.waitForPageToLoad(driver);
-		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIcon.get(index), Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		SeleniumWrapper.waitForDomToBeRendered(driver);
+		if (!SeleniumWrapper.clickElement(driver, conceptNameEditIcon.get(index), Constants.CLICK_METHOD_ENUM.CLICK))
 			return false;
-		SeleniumWrapper.waitForPageToLoad(driver);
-		if (!SeleniumWrapper.setInputFieldText(rowsOfConceptEditIconInput, newConceptName, driver))
+		SeleniumWrapper.waitForDomToBeRendered(driver);
+		if (!SeleniumWrapper.setInputFieldText(conceptNameInput, newConceptName, driver))
 			return false;
-		SeleniumWrapper.waitForPageToLoad(driver);
-		if (!SeleniumWrapper.clickElement(driver, rowsOfConceptEditIconCheck, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+		SeleniumWrapper.waitForDomToBeRendered(driver);
+		if (!SeleniumWrapper.clickElement(driver, conceptNameCheckIcon, Constants.CLICK_METHOD_ENUM.CLICK))
 			return false;
 		return true;
 	}
 
+	@FindBy(xpath = ".//i[contains(@class, 'fe fe-trash')]")
+	private static List<WebElement> deleteConceptIcon;
+
+	/**
+	 * Hover mouse over a concept row, and then click trash icon
+	 * 
+	 * @param index index of the row to hover over
+	 * @return true, if everything successful; otherwise false
+	 */
+	public boolean hoverAndClickRrashConceptIcon(int index) {
+		SeleniumWrapper.waitForDomToBeRendered(driver);
+		if (SeleniumWrapper.hoverMouseOverElement(driver, deleteConceptIcon.get(index)))
+			if (SeleniumWrapper.clickElement(driver, deleteConceptIcon.get(index),
+					Constants.CLICK_METHOD_ENUM.CLICK))
+				return true;
+		return false;
+	}
+	
 	@FindBy(xpath = ".//div[text() = 'Delete' and contains(@class, 'Button-btn')]")
 	private static WebElement positiveButton;
 
@@ -306,10 +294,9 @@ public class TemplatePage extends HomePage {
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean selectPositive() {
-		SeleniumWrapper.explicitWait(driver, positiveButton, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, positiveButton, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean selectPositiveOnDeleteConceptPopup() {
+		SeleniumWrapper.explicitWait(driver, positiveButton, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, positiveButton, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -322,16 +309,15 @@ public class TemplatePage extends HomePage {
 	 * 
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean selectNegative() {
-		SeleniumWrapper.explicitWait(driver, negativeButton, Constants.WAIT_TIME);
-		if (SeleniumWrapper.clickElement(driver, negativeButton, Constants.CLICK_METHOD_ENUM.CLICK,
-				Constants.WAIT_TIME))
+	public boolean selectNegativeOnDeleteConceptPopup() {
+		SeleniumWrapper.explicitWait(driver, negativeButton, Constants.EXPLICIT_WAIT_TIME);
+		if (SeleniumWrapper.clickElement(driver, negativeButton, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
 
 	@FindBy(xpath = ".//div[text() = 'Are you sure you want to delete this item?']")
-	private static WebElement confirmMessageText;
+	private static WebElement confirmMessage;
 
 	/**
 	 * Check the message on the popup confirmation window
@@ -339,9 +325,9 @@ public class TemplatePage extends HomePage {
 	 * @param expectedMessage expected popup message to be displayed on the window
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean checkPopupMessage(String expectedMessage) {
-		SeleniumWrapper.explicitWait(driver, confirmMessageText, Constants.WAIT_TIME);
-		if (confirmMessageText.getText().contains(expectedMessage))
+	public boolean checkPopupMessageOnDeleteConceptPopup(String expectedMessage) {
+		SeleniumWrapper.explicitWait(driver, confirmMessage, Constants.EXPLICIT_WAIT_TIME);
+		if (confirmMessage.getText().contains(expectedMessage))
 			return true;
 		return false;
 	}

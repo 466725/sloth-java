@@ -16,167 +16,53 @@ import com.test.ui.testcases.LoginPage;
  *
  */
 public class TemplatePageTest extends GuiTestCase {
-
 	protected final static Logger logger = LogManager.getLogger(TemplatePageTest.class.getName());
 	protected static LoginPage loginPage = null;
 	protected static HomePage homePage = null;
-	protected static TemplatePage templateManagementPage = null;
+	protected static TemplatePage templatePage = null;
 
-	public boolean navigateToTemplateManagementPage() {
-		templateManagementPage = new TemplatePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
-		return templateManagementPage.navigateTo();
-	}
-
-	public boolean clickAddNewConceptIcon() {
-		return templateManagementPage.addNewConcept();
-	}
-
-	public boolean specifyNameToTheConcept(String conceptName) {
-		return templateManagementPage.inputNewConceptName(conceptName);
-	}
-
-	public boolean clickVerticalSelector() {
-		return templateManagementPage.selectVertical();
-	}
-
-	public boolean selectVerticalOption(String index) {
-		if (index.equalsIgnoreCase("Restaurant"))
-			return templateManagementPage.selectFirstVerticalOption();
-		else if (index.equalsIgnoreCase("Hospitality"))
-			return templateManagementPage.selectSecondVerticalOption();
-		else if (index.equalsIgnoreCase("Health Care"))
-			return templateManagementPage.selectThirdVerticalOption();
-		else if (index.equalsIgnoreCase("Entertaiment"))
-			return templateManagementPage.selectFourthVerticalOption();
-		else
-			return templateManagementPage.selectFirstVerticalOption();
-	}
-
-	public boolean applySelectedVerticalsToTheConcept() {
-		return templateManagementPage.applyVerticalOption();
-	}
-
-	public boolean tryToSaveTheNewlyCreatedConcept() {
-		return templateManagementPage.saveTheNewConcept();
-	}
-
-	public boolean tryToCancelTheNewlyCreatedConcept() {
-		return templateManagementPage.cancelTheNewConcept();
-	}
-
-	public boolean hoverMouseOverConceptRow(int index) {
-		return templateManagementPage.hoverMouseOverConceptRow(index);
-	}
-
-	public boolean hoverMouseOverConceptRowAndDelete(int index) {
-		return templateManagementPage.trashConceptByHoveringMouseOver(index);
-	}
-
-	public boolean hoverMouseOverConceptRowAndEditName(int index) {
-		return templateManagementPage.editConceptNameByHoveringMouseOver(index);
-	}
-
-	public boolean specifyNewConceptNameByHoveringMouseOver(int index, String newConceptName) {
-		return templateManagementPage.specifyNewConceptNameByHoveringMouseOver(index, newConceptName);
-	}
-
-	public boolean checkPopupWindowConfirmationMessage(String expectedMessage) {
-		return templateManagementPage.checkPopupMessage(expectedMessage);
-	}
-
-	public boolean clickPopupWindowConfirmationButtons(boolean isPositive) {
-		if (isPositive)
-			return templateManagementPage.selectPositive();
-		return templateManagementPage.selectPositive();
-	}
-
-	@Test(description = "VOL-8888:[UI] Edit concept name")
-	public void testEditingConceptName() {
-		test = extent.startTest("Navigate to template page and then edit concept name");
+	@Test(priority = 1)
+	public void gotoTemplatePage() {
+		test = extent.startTest("Navigate to TemplatePage");
 		SoftAssertions softly = new SoftAssertions();
+		templatePage = new TemplatePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 
-		softly.assertThat(navigateToTemplateManagementPage());
-		softly.assertThat(specifyNewConceptNameByHoveringMouseOver(2, "AT" + System.currentTimeMillis()));
-
+		softly.assertThat(templatePage.navigateTo());
 		softly.assertAll();
 	}
 
-	// @Test(description = "VOL-9999:[UI] Creating new concept")
-	public void testCreatingNewConcept() {
+	@Test(priority = 3)
+	public void deleteConcept() {
+		test = extent.startTest("Try to delete a concept");
 		SoftAssertions softly = new SoftAssertions();
 
-		softly.assertThat(navigateToTemplateManagementPage());
-		softly.assertThat(hoverMouseOverConceptRow(1));
-		softly.assertThat(hoverMouseOverConceptRowAndDelete(2));
-		softly.assertThat(checkPopupWindowConfirmationMessage("Are you sure you want to delete this item?"));
-		softly.assertThat(clickPopupWindowConfirmationButtons(true));
-		softly.assertThat(hoverMouseOverConceptRowAndEditName(1));
-		softly.assertThat(specifyNewConceptNameByHoveringMouseOver(2, "AT" + System.currentTimeMillis()));
-		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
-		softly.assertThat(clickVerticalSelector());
-		softly.assertThat(selectVerticalOption("Restaurant"));
-		softly.assertThat(selectVerticalOption("Hospitality"));
-		softly.assertThat(selectVerticalOption("Health Care"));
-		softly.assertThat(selectVerticalOption("I have no Idea"));
-		softly.assertThat(applySelectedVerticalsToTheConcept());
-		softly.assertThat(tryToSaveTheNewlyCreatedConcept());
-		// softly.assertThat(tryToCancelTheNewlyCreatedConcept());
-
+		softly.assertThat(templatePage.hoverAndClickRrashConceptIcon(1));
+		softly.assertThat(templatePage.checkPopupMessageOnDeleteConceptPopup("Are you sure you want to delete this item?"));
+		softly.assertThat(templatePage.selectPositiveOnDeleteConceptPopup());
 		softly.assertAll();
 	}
 
-	// @Test(description = "VOL-3214:[UI] View concept page")
-	public void testViewingConcept() {
+	@Test(priority = 9)
+	public void editConcept() {
+		test = extent.startTest("Try to edit an existing concept name");
 		SoftAssertions softly = new SoftAssertions();
 
-		softly.assertThat(navigateToTemplateManagementPage());
-		softly.assertThat(hoverMouseOverConceptRowAndEditName(1));
-		softly.assertThat(clickVerticalSelector());
-		softly.assertThat(hoverMouseOverConceptRowAndDelete(2));
-		softly.assertThat(checkPopupWindowConfirmationMessage("Are you sure you want to delete this item?"));
-		softly.assertThat(clickPopupWindowConfirmationButtons(true));
-
+		softly.assertThat(templatePage.specifyNewConceptNameByHoveringMouseOver(2, "Weipeng" + System.currentTimeMillis()));
 		softly.assertAll();
 	}
 
-	// @Test(description = "VOL-3215:[UI] Add new concept")
-	public void testAddingNewConcept() {
+	@Test(priority = 99)
+	public void addConcept() {
+		test = extent.startTest("Try to add a new concept");
 		SoftAssertions softly = new SoftAssertions();
 
-		softly.assertThat(navigateToTemplateManagementPage());
-		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
-		softly.assertThat(clickVerticalSelector());
-		softly.assertThat(selectVerticalOption("Restaurant"));
-		softly.assertThat(selectVerticalOption("Hospitality"));
-		softly.assertThat(applySelectedVerticalsToTheConcept());
-		softly.assertThat(tryToSaveTheNewlyCreatedConcept());
-
-		softly.assertAll();
-	}
-
-	// @Test(description = "VOL-3217:[UI] Add new concept alternative flow")
-	public void testAddingNewConceptAlternativeFlow() {
-		SoftAssertions softly = new SoftAssertions();
-
-		softly.assertThat(navigateToTemplateManagementPage());
-		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
-		softly.assertThat(clickVerticalSelector());
-		softly.assertThat(selectVerticalOption("Restaurant"));
-		softly.assertThat(selectVerticalOption("Hospitality"));
-		softly.assertThat(applySelectedVerticalsToTheConcept());
-		softly.assertThat(tryToCancelTheNewlyCreatedConcept());
-		softly.assertThat(clickAddNewConceptIcon());
-		softly.assertThat(specifyNameToTheConcept("AT" + System.currentTimeMillis()));
-		softly.assertThat(clickVerticalSelector());
-		softly.assertThat(selectVerticalOption("Restaurant"));
-		softly.assertThat(selectVerticalOption("Hospitality"));
-		softly.assertThat(applySelectedVerticalsToTheConcept());
-		softly.assertThat(tryToSaveTheNewlyCreatedConcept());
-		// ...
-
+		softly.assertThat(templatePage.clickAddNewConceptIcon());
+		softly.assertThat(templatePage.inputNewConceptName("Weipeng" + System.currentTimeMillis()));
+		softly.assertThat(templatePage.clickVerticalSelectDropdown());
+		softly.assertThat(templatePage.selectSecondVerticalOption());
+		softly.assertThat(templatePage.selectFourthVerticalOption());
+		softly.assertThat(templatePage.applySelectedVerticalOptions());
+		softly.assertThat(templatePage.clickSaveNewConceptIcon());
 		softly.assertAll();
 	}
 }

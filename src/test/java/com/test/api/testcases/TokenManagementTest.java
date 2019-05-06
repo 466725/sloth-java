@@ -31,7 +31,9 @@ public class TokenManagementTest extends ApiTestCase {
 		SoftAssertions softly = new SoftAssertions();
 
 		RequestBody body = RequestBody.create(mediaType,
-				"{\n   \"grant_type\": \"password\",\n   \"email\": \"vetest@volantesystems.com\",\n   \"password\": \"test\"\n}");
+				"{\n   \"grant_type\": \"password\","
+				+ "\n   \"email\": \"vetest@volantesystems.com\","
+				+ "\n   \"password\": \"test\"\n}");
 		Request request = new Request.Builder().url("https://dev.volantecloud.com/auth/auth/token").post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
@@ -78,7 +80,9 @@ public class TokenManagementTest extends ApiTestCase {
 	
 	public static boolean generateTokenStep() throws IOException, ParseException {
 		RequestBody body = RequestBody.create(mediaType,
-				"{\n   \"grant_type\": \"password\",\n   \"email\": \"vetest@volantesystems.com\",\n   \"password\": \"test\"\n}");
+				"{\n   \"grant_type\": \"password\","
+				+ "\n   \"email\": \"vetest@volantesystems.com\","
+				+ "\n   \"password\": \"test\"\n}");
 		Request request = new Request.Builder().url("https://dev.volantecloud.com/auth/auth/token").post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
@@ -92,7 +96,9 @@ public class TokenManagementTest extends ApiTestCase {
 	
 	public static Object generateTokenStepReturnToken() throws IOException, ParseException {
 		RequestBody body = RequestBody.create(mediaType,
-				"{\n   \"grant_type\": \"password\",\n   \"email\": \"vetest@volantesystems.com\",\n   \"password\": \"test\"\n}");
+				"{\n   \"grant_type\": \"password\","
+				+ "\n   \"email\": \"vetest@volantesystems.com\","
+				+ "\n   \"password\": \"test\"\n}");
 		Request request = new Request.Builder().url("https://dev.volantecloud.com/auth/auth/token").post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")

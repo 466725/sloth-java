@@ -40,10 +40,17 @@ public class StoreViewTest extends ApiTestCase {
 		SoftAssertions softly = new SoftAssertions();
 
 		RequestBody body = RequestBody.create(mediaType,
-				"{\r\n  \"address\": \"300 Titus Avenue\",\r\n  \"cityId\": 4952206,\r\n  \"name\": \"SiteCreatedByAutomation1557149984\",\r\n  \"phoneNumber\": \"416-221-1132\",\r\n  \"postalCode\": \"L111X4\",\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
+				"{\r\n  \"address\": \"300 Titus Avenue\","
+				+ "\r\n  \"cityId\": 4952206,"
+				+ "\r\n  \"name\": \"SiteCreatedByAutomation1557149984\"," //" + "name" + System.currentTimeMillis() + "
+				+ "\r\n  \"phoneNumber\": \"416-221-1132\","
+				+ "\r\n  \"postalCode\": \"L111X4\","
+				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
 		Request request = new Request.Builder().url("https://dev.volantecloud.com/api/store/v1/sites").post(body)
-				.addHeader("Content-Type", "application/json").addHeader("cache-control", "no-cache")
-				.addHeader("access_token", TokenManagementTest.generateTokenStepReturnToken().toString()).build();
+				.addHeader("Content-Type", "application/json")
+				.addHeader("cache-control", "no-cache")
+				.addHeader("access_token", TokenManagementTest.generateTokenStepReturnToken().toString())
+				.build();
 
 		Response response = client.newCall(request).execute();
 		responseBody = response.body();
@@ -62,15 +69,18 @@ public class StoreViewTest extends ApiTestCase {
 		test = extent.startTest("Store view API test: Verify a site is created");
 		SoftAssertions softly = new SoftAssertions();
 
-		Request request = new Request.Builder()
-				.url("https://dev.volantecloud.com/api/store/v1/sites/9bdce676-c85a-43bc-84b2-e4a108272ab3").get()
-				.addHeader("Content-Type", "application/json").addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "b6394174-b143-494a-9995-8daf22b575a5").build();
+		Request request = new Request.Builder().url("https://dev.volantecloud.com/api/store/v1/sites/9bdce676-c85a-43bc-84b2-e4a108272ab3").get()
+				.addHeader("Content-Type", "application/json")
+				.addHeader("cache-control", "no-cache")
+				.addHeader("Postman-Token", "b6394174-b143-494a-9995-8daf22b575a5")
+				.build();
 
 		Response response = client.newCall(request).execute();
 		responseBody = response.body();
 		responseString = responseBody.string();
 		JSONObject responseJsonObject = (JSONObject) parser.parse(responseString);
+		
+		// throw new ParseException(6);
 
 		softly.assertThat(response.code() == 200);
 		softly.assertThat(response.isSuccessful());

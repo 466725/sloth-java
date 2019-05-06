@@ -36,7 +36,7 @@ public class TestCase {
 	protected static ExtentReports extent;
 	protected static ExtentTest test;
 	protected static DB_CONN_ENUM dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
-	protected static String API_TEST_BASE_URL = "https://aries-qa.volantecloud.com/aries/api";
+	protected static String API_TEST_BASE_URL = "";
 
 	/**
 	 * Prepare per BeforeSuite annotation.
@@ -69,6 +69,7 @@ public class TestCase {
 		DatabaseStatementManager.createStatement(dbConn);
 		API_TEST_BASE_URL = baseURI;
 		RestAssured.baseURI = baseURI;
+		logger.info("API test base URL: " + baseURI);
 		extent = ExtentReportHelper.getExtentReporter(browser);
 	}
 

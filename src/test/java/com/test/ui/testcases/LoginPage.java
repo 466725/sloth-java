@@ -47,19 +47,24 @@ public class LoginPage extends WebPage {
 	 */
 	@Override
 	public boolean navigateTo() {
-		driver.navigate().to(URL);
-		return true;
+		try {
+			driver.navigate().to(URL);
+			return true;
+		} catch (Exception e) {
+			logger.error("Exception is: ", e);
+			return false;
+		}
 	}
 
 	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter Your email or account')]")
-	public static WebElement loginUsername;
+	private static WebElement loginUsername;
 
 	/**
 	 * Input user name
 	 * 
 	 * @param userName login user name
 	 */
-	public boolean inputUsername(String userName) {
+	private boolean inputUsername(String userName) {
 		SeleniumWrapper.explicitWait(driver, loginUsername, 15);
 		try {
 			loginUsername.clear();
@@ -69,19 +74,19 @@ public class LoginPage extends WebPage {
 			return true;
 		} catch (Exception e) {
 			logger.error("Exception is: ", e);
+			return false;
 		}
-		return false;
 	}
 
 	@FindBy(xpath = ".//*[contains(@placeholder, 'Enter your password')]")
-	public static WebElement loginPassword;
+	private static WebElement loginPassword;
 
 	/**
 	 * Input password
 	 * 
 	 * @param password login password
 	 */
-	public boolean inputPassword(String password) {
+	private boolean inputPassword(String password) {
 		SeleniumWrapper.explicitWait(driver, loginPassword, 15);
 		try {
 			loginPassword.clear();
@@ -91,19 +96,19 @@ public class LoginPage extends WebPage {
 			return true;
 		} catch (Exception e) {
 			logger.error("Exception is: ", e);
+			return false;
 		}
-		return false;
 	}
 
 	@FindBy(xpath = ".//button[contains(@class, 'login')]")
-	public static WebElement loginButton;
+	private static WebElement loginButton;
 
 	/**
 	 * Click login button
 	 */
-	public boolean clickLoginButton() {
+	private boolean clickLoginButton() {
 		SeleniumWrapper.explicitWait(driver, loginButton, 15);
-		return SeleniumWrapper.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK, 10);
+		return SeleniumWrapper.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK);
 	}
 
 	/**

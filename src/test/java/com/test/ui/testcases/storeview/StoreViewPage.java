@@ -50,6 +50,6 @@ public class StoreViewPage extends HomePage {
 	 */
 	public boolean gotoHospitalityPage() {
 		SeleniumWrapper.explicitWait(driver, hospitality, 15);
-		return SeleniumWrapper.clickElement(driver, hospitality, Constants.CLICK_METHOD_ENUM.CLICK, 10);
+		return SeleniumWrapper.clickElement(driver, hospitality, Constants.CLICK_METHOD_ENUM.CLICK);
 	}
 }
