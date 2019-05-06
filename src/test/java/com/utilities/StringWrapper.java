@@ -6,8 +6,6 @@ package com.utilities;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.test.api.testcases.TokenManagementTest;
-
 /**
  * StringWrapper to host all String related methods for the convenience of
  * automation
@@ -16,7 +14,7 @@ import com.test.api.testcases.TokenManagementTest;
  *
  */
 public class StringWrapper {
-	protected final static Logger logger = LogManager.getLogger(TokenManagementTest.class.getName());
+	protected final static Logger logger = LogManager.getLogger(StringWrapper.class.getName());
 
 	/**
 	 * Check if a Object is null

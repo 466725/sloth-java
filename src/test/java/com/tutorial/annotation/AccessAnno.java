@@ -10,7 +10,7 @@ import com.framework.templates.ApiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class AccessAnno extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(ApplyAnno.class.getName());
+	protected final static Logger logger = LogManager.getLogger(AccessAnno.class.getName());
 	
 	@Test(priority = 1)
 	public void testAccessAnnotationData() throws NoSuchMethodException, SecurityException {
