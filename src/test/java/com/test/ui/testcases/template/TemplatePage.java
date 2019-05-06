@@ -56,7 +56,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean clickAddNewConceptIcon() {
-		SeleniumWrapper.explicitWait(driver, addConceptIcon, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, addConceptIcon, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, addConceptIcon, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -72,7 +72,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean inputNewConceptName(String conceptName) {
-		SeleniumWrapper.explicitWait(driver, inputConceptName, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, inputConceptName, Constants.EXPLICIT_WAIT_TIME);
 		try {
 			SeleniumWrapper.setInputFieldText(inputConceptName, conceptName, driver);
 			return true;
@@ -91,7 +91,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean clickVerticalSelectDropdown() {
-		SeleniumWrapper.explicitWait(driver, verticalSelector, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, verticalSelector, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, verticalSelector, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -106,7 +106,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectFirstVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, firstVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, firstVerticalOption, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, firstVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -121,7 +121,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectSecondVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, secondVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, secondVerticalOption, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, secondVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -136,7 +136,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectThirdVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, thirdVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, thirdVerticalOption, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, thirdVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -151,7 +151,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectFourthVerticalOption() {
-		SeleniumWrapper.explicitWait(driver, fourthVerticalOption, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, fourthVerticalOption, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, fourthVerticalOption, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -166,7 +166,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean applySelectedVerticalOptions() {
-		SeleniumWrapper.explicitWait(driver, applyVerticalButton, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, applyVerticalButton, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, applyVerticalButton, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -181,7 +181,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean clickSaveNewConceptIcon() {
-		SeleniumWrapper.explicitWait(driver, saveConcept, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, saveConcept, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, saveConcept, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -196,7 +196,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean clickCancelNewConceptIcon() {
-		SeleniumWrapper.explicitWait(driver, cancelConcept, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, cancelConcept, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, cancelConcept, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -212,7 +212,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean hoverMouseOverConceptRow(int index) {
-		SeleniumWrapper.explicitWait(driver, rowsOfConcept.get(index), Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, rowsOfConcept.get(index), Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.hoverMouseOverElement(driver, rowsOfConcept.get(index)))
 			return true;
 		return false;
@@ -295,7 +295,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectPositiveOnDeleteConceptPopup() {
-		SeleniumWrapper.explicitWait(driver, positiveButton, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, positiveButton, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, positiveButton, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -310,7 +310,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean selectNegativeOnDeleteConceptPopup() {
-		SeleniumWrapper.explicitWait(driver, negativeButton, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, negativeButton, Constants.EXPLICIT_WAIT_TIME);
 		if (SeleniumWrapper.clickElement(driver, negativeButton, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
@@ -326,7 +326,7 @@ public class TemplatePage extends HomePage {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public boolean checkPopupMessageOnDeleteConceptPopup(String expectedMessage) {
-		SeleniumWrapper.explicitWait(driver, confirmMessage, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, confirmMessage, Constants.EXPLICIT_WAIT_TIME);
 		if (confirmMessage.getText().contains(expectedMessage))
 			return true;
 		return false;

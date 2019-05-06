@@ -65,7 +65,7 @@ public class LoginPage extends WebPage {
 	 * @param userName login user name
 	 */
 	private boolean inputUsername(String userName) {
-		SeleniumWrapper.explicitWait(driver, loginUsername, 15);
+		SeleniumWrapper.explicitWaitClickable(driver, loginUsername, 15);
 		try {
 			loginUsername.clear();
 			SeleniumWrapper.implicitWait(driver);
@@ -87,7 +87,7 @@ public class LoginPage extends WebPage {
 	 * @param password login password
 	 */
 	private boolean inputPassword(String password) {
-		SeleniumWrapper.explicitWait(driver, loginPassword, 15);
+		SeleniumWrapper.explicitWaitClickable(driver, loginPassword, 15);
 		try {
 			loginPassword.clear();
 			SeleniumWrapper.implicitWait(driver);
@@ -107,7 +107,7 @@ public class LoginPage extends WebPage {
 	 * Click login button
 	 */
 	private boolean clickLoginButton() {
-		SeleniumWrapper.explicitWait(driver, loginButton, 15);
+		SeleniumWrapper.explicitWaitClickable(driver, loginButton, 15);
 		return SeleniumWrapper.clickElement(driver, loginButton, Constants.CLICK_METHOD_ENUM.CLICK);
 	}
 

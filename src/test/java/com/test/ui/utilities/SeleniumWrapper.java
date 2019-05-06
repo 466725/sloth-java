@@ -59,7 +59,7 @@ public class SeleniumWrapper {
 	 * @param element  web element to scroll to
 	 * @param waitTime time to wait
 	 */
-	public static void explicitWait(WebDriver driver, WebElement element, int waitTime) {
+	public static void explicitWaitClickable(WebDriver driver, WebElement element, int waitTime) {
 		try {
 			(new WebDriverWait(driver, waitTime)).until(ExpectedConditions.elementToBeClickable(element));
 		} catch (Exception e) {
@@ -194,7 +194,7 @@ public class SeleniumWrapper {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public static boolean setInputFieldText(WebElement inputField, String textToSet, WebDriver driver) {
-		SeleniumWrapper.explicitWait(driver, inputField, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, inputField, Constants.EXPLICIT_WAIT_TIME);
 		try {
 			new Actions(driver).moveToElement(inputField).perform();
 			inputField.clear();
@@ -216,7 +216,7 @@ public class SeleniumWrapper {
 	 * @return true, if everything successful; otherwise false
 	 */
 	public static boolean setInputFieldTextNoClear(WebElement inputField, String textToSet, WebDriver driver) {
-		SeleniumWrapper.explicitWait(driver, inputField, Constants.EXPLICIT_WAIT_TIME);
+		SeleniumWrapper.explicitWaitClickable(driver, inputField, Constants.EXPLICIT_WAIT_TIME);
 		try {
 			new Actions(driver).moveToElement(inputField).perform();
 			inputField.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));

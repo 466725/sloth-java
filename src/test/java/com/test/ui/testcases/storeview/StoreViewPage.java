@@ -49,7 +49,7 @@ public class StoreViewPage extends HomePage {
 	 * Navigate to hospitality page object
 	 */
 	public boolean gotoHospitalityPage() {
-		SeleniumWrapper.explicitWait(driver, hospitality, 15);
+		SeleniumWrapper.explicitWaitClickable(driver, hospitality, 15);
 		return SeleniumWrapper.clickElement(driver, hospitality, Constants.CLICK_METHOD_ENUM.CLICK);
 	}
 }
