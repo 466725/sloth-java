@@ -9,4 +9,8 @@ Steps to run the tests:
 4, Screen shot will be created under test-output/EstentReport/ScreenShot
 5, Log will be created as test-output/EstentReport/Test-Automation.log
 
+Note: 
+1, Supported OS: Windows, Mac, Linux
+2, Supprorted Browser: Chrome, Firefox, IE
+
 Author: Weipeng Zheng (weipeng.zheng.ca@gmail.com)

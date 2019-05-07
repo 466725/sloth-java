@@ -48,8 +48,8 @@ public class HomePage extends LoginPage {
 	 * Navigate to store view page object
 	 */
 	public boolean gotoStoreViewPage() {
-		SeleniumWrapper.explicitWait(driver, storeView, 15);
-		if (SeleniumWrapper.clickElement(driver, storeView, Constants.CLICK_METHOD_ENUM.CLICK, 10))
+		SeleniumWrapper.explicitWaitClickable(driver, storeView, 15);
+		if (SeleniumWrapper.clickElement(driver, storeView, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}
@@ -61,8 +61,8 @@ public class HomePage extends LoginPage {
 	 * Navigate to template management page object
 	 */
 	public boolean gotoTemplateManagement() {
-		SeleniumWrapper.explicitWait(driver, templateManagement, 15);
-		if (SeleniumWrapper.clickElement(driver, templateManagement, Constants.CLICK_METHOD_ENUM.CLICK, 10))
+		SeleniumWrapper.explicitWaitClickable(driver, templateManagement, 15);
+		if (SeleniumWrapper.clickElement(driver, templateManagement, Constants.CLICK_METHOD_ENUM.CLICK))
 			return true;
 		return false;
 	}

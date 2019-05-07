@@ -57,7 +57,7 @@ public class BrowserDriverProvider {
 		} else {
 			DriverMaster.driver = createChromeDriver();
 		}
-		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.WAIT_TIME, TimeUnit.SECONDS);
+		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		return DriverMaster.driver;
 	}
 
