@@ -31,18 +31,18 @@ public class TemplatePageTest extends GuiTestCase {
 		softly.assertAll();
 	}
 
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	public void deleteConcept() {
 		test = extent.startTest("Try to delete a concept");
 		SoftAssertions softly = new SoftAssertions();
 
-		softly.assertThat(templatePage.hoverAndClickRrashConceptIcon(1));
+		softly.assertThat(templatePage.hoverAndClickTrashConceptIcon(1));
 		softly.assertThat(templatePage.checkPopupMessageOnDeleteConceptPopup("Are you sure you want to delete this item?"));
 		softly.assertThat(templatePage.selectPositiveOnDeleteConceptPopup());
 		softly.assertAll();
 	}
 
-	@Test(priority = 9)
+//	@Test(priority = 9)
 	public void editConcept() {
 		test = extent.startTest("Try to edit an existing concept name");
 		SoftAssertions softly = new SoftAssertions();
@@ -57,9 +57,9 @@ public class TemplatePageTest extends GuiTestCase {
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(templatePage.clickAddNewConceptIcon());
-		softly.assertThat(templatePage.inputNewConceptName("Weipeng" + System.currentTimeMillis()));
+		softly.assertThat(templatePage.inputNewConceptName("Yahtu" + System.currentTimeMillis()));
 		softly.assertThat(templatePage.clickVerticalSelectDropdown());
-		softly.assertThat(templatePage.selectSecondVerticalOption());
+		softly.assertThat(templatePage.selectFirstVerticalOption());
 		softly.assertThat(templatePage.selectFourthVerticalOption());
 		softly.assertThat(templatePage.applySelectedVerticalOptions());
 		softly.assertThat(templatePage.clickSaveNewConceptIcon());

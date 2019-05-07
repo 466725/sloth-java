@@ -47,7 +47,7 @@ public class TemplatePage extends HomePage {
 		return super.gotoTemplateManagement();
 	}
 
-	@FindBy(xpath = ".//i[contains(@class, 'fe-plus')]")
+	@FindBy(xpath = ".//i[contains(@class, 'fe fe-plus')]")
 	private static WebElement addConceptIcon;
 
 	/**
@@ -277,7 +277,7 @@ public class TemplatePage extends HomePage {
 	 * @param index index of the row to hover over
 	 * @return true, if everything successful; otherwise false
 	 */
-	public boolean hoverAndClickRrashConceptIcon(int index) {
+	public boolean hoverAndClickTrashConceptIcon(int index) {
 		SeleniumWrapper.waitForDomToBeRendered(driver);
 		if (SeleniumWrapper.hoverMouseOverElement(driver, deleteConceptIcon.get(index)))
 			if (SeleniumWrapper.clickElement(driver, deleteConceptIcon.get(index),
