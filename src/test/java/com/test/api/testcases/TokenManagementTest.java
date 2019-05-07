@@ -30,6 +30,7 @@ public class TokenManagementTest extends ApiTestCase {
 		test = extent.startTest("Token management test: Generate Token");
 		SoftAssertions softly = new SoftAssertions();
 
+		//RequestBody body = RequestBody.create(contentType, file);
 		RequestBody body = RequestBody.create(mediaType,
 				"{\n   \"grant_type\": \"password\","
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
