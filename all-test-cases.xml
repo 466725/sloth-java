@@ -3,7 +3,7 @@
 
 <suite name="Volante GUI and API Test Suite">
 	<test name="Regression Test" parallel="false">
-		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="browser" value="Firefox"></parameter>
 		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
 		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
 		<parameter name="password" value="test"></parameter>
