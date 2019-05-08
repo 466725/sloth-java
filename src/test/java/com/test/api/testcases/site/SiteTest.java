@@ -1,4 +1,4 @@
-package com.test.api.testcases.storeview;
+package com.test.api.testcases.site;
 
 import java.io.IOException;
 
@@ -16,17 +16,17 @@ import com.squareup.okhttp.Response;
 import com.test.api.testcases.TokenManagementTest;
 
 /**
- * Store view API test cases are all here, Add + Update + Delete...
+ * Site API test cases are all here, Add + Update + Delete...
  * 
  * @author Weipeng Zheng
  *
  */
-public class StoreViewTest extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(StoreViewTest.class.getName());
+public class SiteTest extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(SiteTest.class.getName());
 
 	@Test(priority = 1)
 	public static void generateToken() throws IOException, ParseException {
-		test = extent.startTest("Store view API test: Generate Token");
+		test = extent.startTest("Site API test: Generate Token");
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(TokenManagementTest.generateTokenStep());
@@ -36,7 +36,7 @@ public class StoreViewTest extends ApiTestCase {
 
 	@Test(priority = 2)
 	public static void addSite() throws IOException, ParseException {
-		test = extent.startTest("Store view API test: Add a site");
+		test = extent.startTest("Site API test: Add a site");
 		SoftAssertions softly = new SoftAssertions();
 
 		RequestBody body = RequestBody.create(mediaType,
@@ -68,7 +68,7 @@ public class StoreViewTest extends ApiTestCase {
 
 	@Test(priority = 3)
 	public static void verifySiteCreated() throws IOException, ParseException {
-		test = extent.startTest("Store view API test: Verify a site is created");
+		test = extent.startTest("Site API test: Verify a site is created");
 		SoftAssertions softly = new SoftAssertions();
 
 		Request request = new Request.Builder()
@@ -84,8 +84,6 @@ public class StoreViewTest extends ApiTestCase {
 		responseString = responseBody.string();
 		JSONObject responseJsonObject = (JSONObject) parser.parse(responseString);
 		
-		// throw new ParseException(6);
-
 		softly.assertThat(response.code() == 200);
 		softly.assertThat(response.isSuccessful());
 		softly.assertThat(responseJsonObject.get("access_token") != null);

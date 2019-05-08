@@ -6,7 +6,7 @@
 		<!-- For both API and GUI test cases -->
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
-		<parameter name="baseURI" value="https://aries-qa.volantecloud.com/aries/api"></parameter>
+		<parameter name="baseURI" value="https://dev.volantecloud.com"></parameter>
 		<!-- For GUI test cases only -->
 		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
 		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
@@ -14,7 +14,7 @@
 		<classes>
 			<!-- API test cases -->
 			<class name="com.test.api.testcases.TokenManagementTest" />
-			<class name="com.test.api.testcases.storeview.StoreViewTest" />
+			<class name="com.test.api.testcases.site.SiteTest" />
 		</classes>
 	</test>
 </suite>

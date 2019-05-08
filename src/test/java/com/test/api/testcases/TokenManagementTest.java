@@ -10,6 +10,7 @@ import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
 
 import com.framework.templates.ApiTestCase;
+import com.framework.templates.TestCase;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
@@ -36,12 +37,12 @@ public class TokenManagementTest extends ApiTestCase {
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
 				+ "\n   \"password\": \"test\"\n}");
 		Request request = new Request.Builder()
-				.url("https://dev.volantecloud.com/auth/auth/token")
+				.url(TestCase.API_TEST_BASE_URL + "/auth/auth/token")
 				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
 				.addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
+				.addHeader("access_token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
 				.build();
 
 		Response response = client.newCall(request).execute();
@@ -88,12 +89,12 @@ public class TokenManagementTest extends ApiTestCase {
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
 				+ "\n   \"password\": \"test\"\n}");
 		Request request = new Request.Builder()
-				.url("https://dev.volantecloud.com/auth/auth/token")
+				.url(TestCase.API_TEST_BASE_URL + "/auth/auth/token")
 				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
 				.addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
+				.addHeader("access_token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
 				.build();
 
 		Response response = client.newCall(request).execute();
@@ -107,12 +108,12 @@ public class TokenManagementTest extends ApiTestCase {
 				+ "\n   \"email\": \"vetest@volantesystems.com\","
 				+ "\n   \"password\": \"test\"\n}");
 		Request request = new Request.Builder()
-				.url("https://dev.volantecloud.com/auth/auth/token")
+				.url(TestCase.API_TEST_BASE_URL + "/auth/auth/token")
 				.post(body)
 				.addHeader("Content-Type", "application/json")
 				.addHeader("Authorization", "Basic dmV0ZXN0QHZvbGFudGVzeXN0ZW1zLmNvbTp0ZXN0")
 				.addHeader("cache-control", "no-cache")
-				.addHeader("Postman-Token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
+				.addHeader("access_token", "f6f82d1e-a5e4-4497-aca8-d7d04f136636")
 				.build();
 
 		Response response = client.newCall(request).execute();
