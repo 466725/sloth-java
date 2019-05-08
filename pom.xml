@@ -34,6 +34,11 @@
 
 	<dependencies>
 		<dependency>
+		    <groupId>com.github.javafaker</groupId>
+		    <artifactId>javafaker</artifactId>
+		    <version>0.17.2</version>
+		</dependency>
+		<dependency>
 			<groupId>com.sybase.sqlaynwhere</groupId>
 			<artifactId>sajdbc</artifactId>
 			<version>11.0.1.3158</version>
