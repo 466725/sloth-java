@@ -96,6 +96,13 @@ public class SiteTest extends ApiTestCase {
 		Assert.assertTrue(responseJson.containsValue(firstSiteID));
 	}
 	
+	@Test(priority = 6)
+	public static void verifyFirstSiteCreatedEasyWay() throws IOException, ParseException {
+		test = extent.startTest("Verify the first site is created");
+		
+		Assert.assertTrue(ApiTestCase.isGetSuccessful(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + firstSiteID));
+	}
+	
 	@Test(priority = 7)
 	public static void addSiteAgainWithSameName() throws IOException, ParseException {
 		test = extent.startTest("Add another site with first site's name");
@@ -337,19 +344,7 @@ public class SiteTest extends ApiTestCase {
 	public static void deleteSecondSite() throws IOException, ParseException {
 		test = extent.startTest("Delete the second site");
 
-		Request request = new Request.Builder()
-				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + secondSiteID)
-				.delete(null)
-				.addHeader("Content-Type", "application/json")
-				.addHeader("cache-control", "no-cache")
-				.addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-				.build();
-
-		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-
-		Assert.assertTrue(response.code() == 200);
+		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + secondSiteID));
 	}
 	
 	@Test(priority = 27)
