@@ -13,9 +13,10 @@ public final class Constants {
 	public static final int PAGE_RENDER_TIME = 1000; //sleep for one second
 	
 	public static final String RESOURCE_FOLDER = "src/test/resources/";
-	public static final String EXTENT_REPORT_CONFIG_FILENAME = "extent-report-config.xml";
+	public static final String EXTENT_REPORT_CONFIG = "extent-report-config.xml";
 	public static final String TEST_REPORT_FOLDER = "test-output/ExtentReport/";
 	public static final String SCREENSHOT_FOLDER = "test-output/ExtentReport/ScreenShot/";
+	public static final String SITE_REQUEST_BODY = "ApiRequestBody/SiteMgmt/";
 
 	public static final String WIN64_DRIVER_IE = RESOURCE_FOLDER + "IEDrivers/win/IEDriverServer-64.exe";
 	public static final String WIN64_DRIVER_CHROME = RESOURCE_FOLDER + "ChromeDrivers/win/chromedriver-64.exe";

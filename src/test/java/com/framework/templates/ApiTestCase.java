@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -30,6 +31,8 @@ public class ApiTestCase extends TestCase {
 	protected static ResponseBody responseBody = null;
 	protected static String responseString = "";
 	protected static JSONParser parser = new JSONParser();
+	protected static String globalToken = "";
+	protected static Faker faker = new Faker();
 
 	/**
 	 * Prepare per BeforeClass annotation.

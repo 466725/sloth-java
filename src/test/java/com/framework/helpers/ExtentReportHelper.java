@@ -19,7 +19,7 @@ import config.Constants;
  */
 public class ExtentReportHelper {
 	private final static Logger logger = LogManager.getLogger(ExtentReportHelper.class.getName());
-	private static String config = Constants.RESOURCE_FOLDER + Constants.EXTENT_REPORT_CONFIG_FILENAME;
+	private static String config = Constants.RESOURCE_FOLDER + Constants.EXTENT_REPORT_CONFIG;
 	private static String reportFileFolder = Constants.TEST_REPORT_FOLDER;
 
 	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
