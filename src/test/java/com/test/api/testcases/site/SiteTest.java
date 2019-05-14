@@ -24,21 +24,19 @@ import com.test.api.testcases.TokenManagementTest;
  */
 public class SiteTest extends ApiTestCase {
 	protected final static Logger logger = LogManager.getLogger(SiteTest.class.getName());
-	private static String companyNameOne = faker.company().name();
-	private static String companyNameTwo = faker.company().name();
-	private static String companyNameTwoChange = faker.company().name();
-	private static String companyAddressTwo = faker.address().streetAddress();
-	private static String companyAddressTwoChange = faker.address().streetAddress();
-	private static String companyPhoneTwo = faker.phoneNumber().cellPhone();
-	private static String companyPhoneTwoChange = faker.phoneNumber().cellPhone();
+	private static String companyOneName = faker.company().name();
+	private static String conpanyTwoName = faker.company().name();
+	private static String companyTwoOldAddress = faker.address().streetAddress();
+	private static String companyTwoNewAddress = faker.address().streetAddress();
+	private static String companyTwoOldPhone = faker.phoneNumber().cellPhone();
+	private static String companyTwoNewPhone = faker.phoneNumber().cellPhone();
 	private static String firstSiteID = "";
 	private static String secondSiteID = "";
-
+	
 	@Test(priority = 1)
 	public static void generateToken() throws IOException, ParseException {
 		test = extent.startTest("Generate Token");
 		
-		//TokenManagementTest.generateToken();
 		TokenManagementTest.generateTokenWithJsonFileBody();
 	}
 	
@@ -49,7 +47,7 @@ public class SiteTest extends ApiTestCase {
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + faker.address().streetAddress() + "\","
 				+ "\r\n  \"cityId\": 4952206,"
-				+ "\r\n  \"name\": \"" + companyNameOne + "\","
+				+ "\r\n  \"name\": \"" + companyOneName + "\","
 				+ "\r\n  \"phoneNumber\": \"" + faker.phoneNumber().cellPhone() + "\","
 				+ "\r\n  \"postalCode\": \"" + faker.address().zipCode() + "\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
@@ -76,31 +74,10 @@ public class SiteTest extends ApiTestCase {
 	@Test(priority = 5)
 	public static void verifyFirstSiteCreated() throws IOException, ParseException {
 		test = extent.startTest("Verify the first site is created");
-
-		Request request = new Request.Builder()
-				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + firstSiteID)
-				.get()
-				.addHeader("Content-Type", "application/json")
-				.addHeader("cache-control", "no-cache")
-				.addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-				.build();
-
-		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-		JSONObject responseJson = (JSONObject) parser.parse(responseString);
 		
-		Assert.assertTrue(response.code() == 200);
-		Assert.assertTrue(response.isSuccessful());
-		Assert.assertTrue(responseJson.get("siteId").equals(firstSiteID));
-		Assert.assertTrue(responseJson.containsValue(firstSiteID));
-	}
-	
-	@Test(priority = 6)
-	public static void verifyFirstSiteCreatedEasyWay() throws IOException, ParseException {
-		test = extent.startTest("Verify the first site is created");
-		
-		Assert.assertTrue(ApiTestCase.isGetSuccessful(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + firstSiteID));
+		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + firstSiteID;
+		Assert.assertTrue(ApiTestCase.isGetSuccessful(url));
+		Assert.assertTrue(ApiTestCase.verifyCreatedSuccessful(url));
 	}
 	
 	@Test(priority = 7)
@@ -110,7 +87,7 @@ public class SiteTest extends ApiTestCase {
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"300 Titus Avenue\","
 				+ "\r\n  \"cityId\": 4952206,"
-				+ "\r\n  \"name\": \"" + companyNameOne + "\","
+				+ "\r\n  \"name\": \"" + companyOneName + "\","
 				+ "\r\n  \"phoneNumber\": \"416-221-1132\","
 				+ "\r\n  \"postalCode\": \"L111X4\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
@@ -123,8 +100,6 @@ public class SiteTest extends ApiTestCase {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
 
 		Assert.assertTrue(response.code() == 400);
 	}
@@ -149,8 +124,6 @@ public class SiteTest extends ApiTestCase {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
 
 		Assert.assertTrue(response.code() == 400);
 	}
@@ -160,10 +133,10 @@ public class SiteTest extends ApiTestCase {
 		test = extent.startTest("Add the second site");
 		
 		RequestBody body = RequestBody.create(mediaType,
-				"{\r\n  \"address\": \"" + companyAddressTwo + "\","
+				"{\r\n  \"address\": \"" + companyTwoOldAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
-				+ "\r\n  \"name\": \"" + companyNameTwo + "\","
-				+ "\r\n  \"phoneNumber\": \"" + companyPhoneTwo + "\","
+				+ "\r\n  \"name\": \"" + conpanyTwoName + "\","
+				+ "\r\n  \"phoneNumber\": \"" + companyTwoOldPhone + "\","
 				+ "\r\n  \"postalCode\": \"" + faker.address().zipCode() + "\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
 		Request request = new Request.Builder()
@@ -200,13 +173,9 @@ public class SiteTest extends ApiTestCase {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-		JSONObject responseJson = (JSONObject) parser.parse(responseString);
 
 		Assert.assertTrue(response.code() == 200);
 		Assert.assertTrue(response.isSuccessful());
-		Assert.assertTrue(responseJson.size() > 0);
 	}
 	
 	@Test(priority = 17)
@@ -214,10 +183,10 @@ public class SiteTest extends ApiTestCase {
 		test = extent.startTest("Update name of the second site");
 
 		RequestBody body = RequestBody.create(mediaType,
-				"{\r\n  \"address\": \"" + companyAddressTwo + "\","
+				"{\r\n  \"address\": \"" + companyTwoOldAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
-				+ "\r\n  \"name\": \"" + companyNameTwoChange + "\","
-				+ "\r\n  \"phoneNumber\": \"" + companyPhoneTwo + "\","
+				+ "\r\n  \"name\": \"" + conpanyTwoName + conpanyTwoName + "\","
+				+ "\r\n  \"phoneNumber\": \"" + companyTwoOldPhone + "\","
 				+ "\r\n  \"postalCode\": \"" + faker.address().zipCode() + "\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
 		Request request = new Request.Builder()
@@ -229,13 +198,9 @@ public class SiteTest extends ApiTestCase {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-		JSONObject responseJson = (JSONObject) parser.parse(responseString);
 
 		Assert.assertTrue(response.code() == 200);
 		Assert.assertTrue(response.isSuccessful());
-		Assert.assertTrue(responseJson.size() > 0);
 	}
 	
 	@Test(priority = 19)
@@ -243,10 +208,10 @@ public class SiteTest extends ApiTestCase {
 		test = extent.startTest("Update address of the second site");
 
 		RequestBody body = RequestBody.create(mediaType,
-				"{\r\n  \"address\": \"" + companyAddressTwoChange + "\","
+				"{\r\n  \"address\": \"" + companyTwoNewAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
-				+ "\r\n  \"name\": \"" + companyNameTwoChange + "\","
-				+ "\r\n  \"phoneNumber\": \"" + companyPhoneTwo + "\","
+				+ "\r\n  \"name\": \"" + conpanyTwoName + conpanyTwoName + "\","
+				+ "\r\n  \"phoneNumber\": \"" + companyTwoOldPhone + "\","
 				+ "\r\n  \"postalCode\": \"" + faker.address().zipCode() + "\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
 		Request request = new Request.Builder()
@@ -258,13 +223,9 @@ public class SiteTest extends ApiTestCase {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-		JSONObject responseJson = (JSONObject) parser.parse(responseString);
 
 		Assert.assertTrue(response.code() == 200);
 		Assert.assertTrue(response.isSuccessful());
-		Assert.assertTrue(responseJson.size() > 0);
 	}
 	
 	@Test(priority = 21)
@@ -272,10 +233,10 @@ public class SiteTest extends ApiTestCase {
 		test = extent.startTest("Update phone number of the second site");
 
 		RequestBody body = RequestBody.create(mediaType,
-				"{\r\n  \"address\": \"" + companyAddressTwoChange + "\","
+				"{\r\n  \"address\": \"" + companyTwoNewAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
-				+ "\r\n  \"name\": \"" + companyNameTwoChange + "\","
-				+ "\r\n  \"phoneNumber\": \"" + companyPhoneTwoChange + "\","
+				+ "\r\n  \"name\": \"" + conpanyTwoName + conpanyTwoName + "\","
+				+ "\r\n  \"phoneNumber\": \"" + companyTwoNewPhone + "\","
 				+ "\r\n  \"postalCode\": \"" + faker.address().zipCode() + "\","
 				+ "\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}");
 		Request request = new Request.Builder()
@@ -287,13 +248,9 @@ public class SiteTest extends ApiTestCase {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-		JSONObject responseJson = (JSONObject) parser.parse(responseString);
-
+		
 		Assert.assertTrue(response.code() == 200);
 		Assert.assertTrue(response.isSuccessful());
-		Assert.assertTrue(responseJson.size() > 0);
 	}
 	
 	@Test(priority = 23)
@@ -315,54 +272,34 @@ public class SiteTest extends ApiTestCase {
 
 		Assert.assertTrue(response.code() == 200);
 		Assert.assertTrue(response.isSuccessful());
-		Assert.assertTrue(responseJson.size() > 0);
-		Assert.assertTrue(responseJson.get("name").equals(companyNameTwoChange));
-		Assert.assertTrue(responseJson.get("address").equals(companyAddressTwoChange));
-		Assert.assertTrue(responseJson.get("phoneNumber").equals(companyPhoneTwoChange));
+		Assert.assertTrue(responseJson.get("name").equals(conpanyTwoName + conpanyTwoName));
+		Assert.assertTrue(responseJson.get("address").equals(companyTwoNewAddress));
+		Assert.assertTrue(responseJson.get("phoneNumber").equals(companyTwoNewPhone));
 	}
 	
 	@Test(priority = 11)
 	public static void deleteFirstSite() throws IOException, ParseException {
 		test = extent.startTest("Delete the first site with ID");
 
-		Request request = new Request.Builder()
-				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + firstSiteID)
-				.delete(null)
-				.addHeader("Content-Type", "application/json")
-				.addHeader("cache-control", "no-cache")
-				.addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-				.build();
-
-		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-
-		Assert.assertTrue(response.code() == 200);
+		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + firstSiteID;
+		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(url));
+		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
 	}
 	
 	@Test(priority = 25)
 	public static void deleteSecondSite() throws IOException, ParseException {
 		test = extent.startTest("Delete the second site");
 
-		Request request = new Request.Builder()
-				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + secondSiteID)
-				.delete(null)
-				.addHeader("Content-Type", "application/json")
-				.addHeader("cache-control", "no-cache")
-				.addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-				.build();
-
-		Response response = client.newCall(request).execute();
-		responseBody = response.body();
-		responseString = responseBody.string();
-
-		Assert.assertTrue(response.code() == 200);
+		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + secondSiteID;
+		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(url));
+		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
 	}
 	
 	@Test(priority = 27)
 	public static void getDeletedSecondSite() throws IOException, ParseException {
 		test = extent.startTest("Verify the second site could be deleted");
 
-		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + secondSiteID));
+		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/sites/" + secondSiteID;
+		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
 	}
 }

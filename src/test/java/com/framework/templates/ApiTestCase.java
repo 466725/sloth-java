@@ -107,7 +107,7 @@ public class ApiTestCase extends TestCase {
 	public void afterClass() {
 		logger.info("----------------------Ending of class-------------------------");
 	}
-	
+
 	/**
 	 * Send get request, and return response as JSON object
 	 * 
@@ -194,5 +194,51 @@ public class ApiTestCase extends TestCase {
 		responseString = responseBody.string();
 
 		return response.code() == 200;
+	}
+	
+	/**
+	 * Verify creation, and return true or false
+	 * 
+	 * @param url URI of targeted API
+	 * @return boolean true if everything fine, otherwise false
+	 */
+	public static boolean verifyCreatedSuccessful(String url) throws IOException, ParseException {
+		Request request = new Request.Builder()
+				.url(url)
+				.get()
+				.addHeader("Content-Type", "application/json")
+				.addHeader("cache-control", "no-cache")
+				.addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
+				.build();
+
+		Response response = client.newCall(request).execute();
+		responseBody = response.body();
+		responseString = responseBody.string();
+		JSONObject responseJson = (JSONObject) parser.parse(responseString);
+		
+		return responseJson.get("createTime") != null;
+	}
+	
+	/**
+	 * Verify deletion, and return true or false
+	 * 
+	 * @param url URI of targeted API
+	 * @return boolean true if everything fine, otherwise false
+	 */
+	public static boolean verifyDeleteSuccessful(String url) throws IOException, ParseException {
+		Request request = new Request.Builder()
+				.url(url)
+				.get()
+				.addHeader("Content-Type", "application/json")
+				.addHeader("cache-control", "no-cache")
+				.addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
+				.build();
+
+		Response response = client.newCall(request).execute();
+		responseBody = response.body();
+		responseString = responseBody.string();
+		JSONObject responseJson = (JSONObject) parser.parse(responseString);
+		
+		return responseJson.get("deleted").equals(true);
 	}
 }
