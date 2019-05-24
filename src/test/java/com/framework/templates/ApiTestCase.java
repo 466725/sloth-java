@@ -36,8 +36,8 @@ public class ApiTestCase extends TestCase {
 	protected static ResponseBody responseBody = null;
 	protected static String responseString = "";
 	protected static JSONParser parser = new JSONParser();
-	protected static String globalToken = "";
 	protected static Faker faker = new Faker();
+	public static String globalToken = "";
 
 	/**
 	 * Prepare per BeforeClass annotation.

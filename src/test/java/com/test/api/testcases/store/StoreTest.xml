@@ -13,7 +13,8 @@
 		<parameter name="password" value="test"></parameter>
 		<classes>
 			<!-- API test cases -->
-			<class name="com.test.api.testcases.store.StoreTest" />
+			<!-- <class name="com.test.api.testcases.store.StoreTest" /> -->
+			<class name="com.test.api.testcases.store.StoreActionTest" />
 		</classes>
 	</test>
 </suite>
