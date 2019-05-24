@@ -1,0 +1,2405 @@
+{
+	"info": {
+		"_postman_id": "d0e0d4d4-951f-4a10-a0be-49d697cf3f40",
+		"name": "Store API Scenario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "00 Generate Login Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "69c08e4c-b41c-475a-bf70-91c72140be7a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must be OK and have a json body\", function () {",
+							"     pm.response.to.be.ok;",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Body has access_token\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"access_token\");",
+							"});",
+							"",
+							"pm.test(\"Body has refresh_token\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"refresh_token\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 800ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"my_access_token\", jsonData.access_token);",
+							"console.log('Get Token from jsonData: ', jsonData.access_token);",
+							"console.log('Get Token from environment: ', pm.environment.get(\"my_access_token\"));",
+							"console.log('Get Token from globals: ', pm.globals.get(\"my_access_token\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"grant_type\": \"password\",\n   \"email\": \"vetest@volantesystems.com\",\n   \"password\": \"test\"\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/auth/token",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"auth",
+						"token"
+					]
+				},
+				"description": "Cloud"
+			},
+			"response": []
+		},
+		{
+			"name": "01 Add the first Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"pm.environment.set('myFirstStoreID', jsonData.storeId);",
+							"console.log('Get first Store ID from global: ', pm.environment.get('myFirstStoreID'));",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"pm.environment.set('myFirstStoreName', jsonData.name);",
+							"console.log('Get first Store name from global: ', pm.environment.get('myFirstStoreName'));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"300 Titus Avenue\",\r\n  \"cityId\": 4952206,\r\n  \"name\": \"StoreCreatedByAutomation{{$timestamp}}\",\r\n  \"phoneNumber\": \"416-221-1132\",\r\n  \"postalCode\": \"L111X4\",\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02 Verify Store is created",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).to.eql(pm.environment.get('myFirstStoreID'));",
+							"});",
+							"",
+							"pm.test(\"Body has store name\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of store name\", function () {",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('myFirstStoreName'));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{myFirstStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{myFirstStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03 Add Store with same Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"300 Titus Avenue\",\r\n  \"cityId\": 4952206,\r\n  \"name\": \"{{myFirstStoreName}}\",\r\n  \"phoneNumber\": \"416-221-1132\",\r\n  \"postalCode\": \"L111X4\",\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores"
+					]
+				},
+				"description": "Should return HTTP 400"
+			},
+			"response": []
+		},
+		{
+			"name": "04 Add Store with blank name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"300 Titus Avenue\",\r\n  \"cityId\": 4952206,\r\n  \"name\": \"\",\r\n  \"phoneNumber\": \"416-221-1132\",\r\n  \"postalCode\": \"L111X4\",\r\n  \"vertical\": \"ENTERTAINMENT\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12 Delete 01 Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"console.log('Access first Store ID from local: ', pm.variables.get('myFirstStoreIDLocal'));",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.success;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{myFirstStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{myFirstStoreID}}"
+					]
+				},
+				"description": "Delete first created store"
+			},
+			"response": []
+		},
+		{
+			"name": "05 Add 02 Store with 2 Stations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.environment.set('mySecondStoreID', jsonData.storeId);",
+							"console.log('Get second Store ID from global: ', pm.environment.get('mySecondStoreID'));",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.environment.set('mySecondStoreName', jsonData.name);",
+							"console.log('Get second Store name from global: ', pm.environment.get('mySecondStoreName'));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"300 Titus Avenue\",\r\n  \"cityId\": 4952206,\r\n  \"name\": \"StoreCreatedByAutomation{{$timestamp}}\",\r\n  \"phoneNumber\": \"416-221-1132\",\r\n  \"postalCode\": \"L111X4\",\r\n  \"vertical\": \"ENTERTAINMENT\",\r\n  \"stations\": [\r\n    {\r\n      \"name\": \"Station 1\"\r\n    },\r\n    {\r\n      \"name\": \"Station 2\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02 Verify Store 02 is created",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"require(`lodash`);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"var arrItem = JSON.parse(responseBody);",
+							"let StationIdCount = 0;",
+							"let StationNameCount = 0;",
+							"",
+							"//_.each(_.first(jsonData.stations), (arrItem) => {",
+							"//    console.log(\"StationID: \", jsonData.stations[StationIdCount].stationId);",
+							"//    console.log(\"StationName: \", jsonData.stations[StationNameCount].name);",
+							"//    pm.environment.set(`StationID${StationIdCount++}`, arrItem.stations.stationId);",
+							"//    pm.environment.set(`StationName${StationNameCount++}`, arrItem.stations.name);    ",
+							"//});",
+							"",
+							"for (var i = 0; i < arrItem.stations.length; i++) {",
+							"    var counter = arrItem.stations[i];",
+							"    console.log(counter.stationId);",
+							"    console.log(counter.name);",
+							"    pm.environment.set(`StationID`+i, counter.stationId);",
+							"    pm.environment.set(`StationName`+i, counter.name);  ",
+							"}",
+							"",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).to.eql(pm.environment.get('mySecondStoreID'));",
+							"});",
+							"",
+							"pm.test(\"Body has store name\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of store name\", function () {",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('mySecondStoreName'));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06 Get all Stores and find 02 uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"var size = jsonData.content.length;",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Body has store name\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of store name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify Second Store's UUID is in the GetAll call\", function () {",
+							"    var flag = false;",
+							"    var uuid = pm.variables.get('mySecondStoreID');",
+							"",
+							"    for(var i = 0; i < size; i++) ",
+							"        {",
+							"              if (jsonData.content[i].storeId == uuid) ",
+							"                {",
+							"                    flag=true;",
+							"                }",
+							"    }",
+							"    pm.expect(flag).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Verify that number of elements equals array count\", function () {",
+							"    pm.expect(size).to.eql(jsonData.numberOfElements);",
+							"    console.log('number of size:', size);",
+							"    console.log('number of elements', jsonData.numberOfElements);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/?size=10000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						""
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07 Update 02 Store name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.environment.set('SecondStoreNameUpdated', jsonData.name);",
+							"console.log('Get second Store new name from global: ', pm.environment.get('SecondStoreNameUpdated'));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"12 Yonge Street\",\r\n  \"cityId\": 6066513,\r\n  \"name\": \"StoreCreatedByAutomation{{$timestamp}}\",\r\n  \"phoneNumber\": \"416-111-5512\",\r\n  \"postalCode\": \"M1Q1T3\",\r\n  \"vertical\": \"HOSPITALITY\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07a Update 02 Store address",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"pm.environment.set('SecondStoreAddressUpdated', jsonData.address);",
+							"console.log('Get second Store new address from global: ', pm.environment.get('SecondStoreAddressUpdated'));",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"{{$randomInt}} Yonge Street\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07b Update 02 Store Phone Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"pm.environment.set('SecondStorePhoneUpdated', jsonData.phoneNumber);",
+							"console.log('Get second Store new phone from global: ', pm.environment.get('SecondStorePhoneUpdated'));",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phoneNumber\": \"{{$timestamp}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07b Update 02 Store Station Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"var arrItem = JSON.parse(responseBody);",
+							"let StationIdCount = 0;",
+							"let StationNameCount = 0;",
+							"    ",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"for (var i = 0; i < arrItem.stations.length; i++) {",
+							"    var counter = arrItem.stations[i];",
+							"    console.log(counter.stationId);",
+							"    console.log(counter.name);",
+							"    pm.environment.set(`StationID`+i, counter.stationId);",
+							"    pm.environment.set(`StationName`+i, counter.name);  ",
+							"}",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"stations\": [\r\n    {\r\n      \"name\": \"Station {{$timestamp}}\",\r\n      \"stationId\": \"{{StationID0}}\"\r\n    },\r\n    {\r\n\t  \"name\": \"{{StationName1}}\",\r\n\t  \"stationId\": \"{{StationID1}}\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07b Add Printer to 02 Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"//TODO: Parse Array",
+							"//pm.environment.set('FirstPrinterForSecondStore', jsonData.phoneNumber);",
+							"//console.log('Get second Store new phone from global: ', pm.environment.get('SecondStorePhoneUpdated'));",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration Printers\", function () {",
+							"    pm.expect(jsonData.hardwareConfiguration.enabledPrinters).not.to.eql(null);",
+							"});",
+							"console.log('Get printers from jsonData: ', JSON.stringify(jsonData.hardwareConfiguration.enabledPrinters));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"enabledPrinters\": [\"ccb8322b-92e2-405c-8ad3-bc118dc90aeb\" ]\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}/hardware",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}",
+						"hardware"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07b Add Features to 02 Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"//TODO: Parse Array",
+							"//pm.environment.set('FirstPrinterForSecondStore', jsonData.phoneNumber);",
+							"//console.log('Get second Store new phone from global: ', pm.environment.get('SecondStorePhoneUpdated'));",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration Printers\", function () {",
+							"    pm.expect(jsonData.featureConfiguration).not.to.eql(null);",
+							"});",
+							"console.log('Get Features from jsonData: ', JSON.stringify(jsonData.featureConfiguration));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n  \"accountManagementSystem\": true,\r\n  \"customerDeclineBalance\": true,\r\n  \"customerMealPlan\": true,\r\n  \"customerOperation\": true,\r\n  \"customerPayrollDeduct\": true,\r\n  \"customerTypes\": true,\r\n  \"employeeJobTypes\": true,\r\n  \"employeeManagement\": true,\r\n  \"employeeOperation\": true,\r\n  \"employeeUserTypes\": true,\r\n  \"globalCustomerManagement\": false,\r\n  \"hardwareManagement\": true,\r\n  \"inventory\": true,\r\n  \"inventoryBarcode\": true,\r\n  \"inventoryIngredients\": true,\r\n  \"menuCategory\": true,\r\n  \"menuChitsReceipt\": true,\r\n  \"menuComboSides\": false,\r\n  \"menuDiscounts\": false,\r\n  \"menuItems\": true,\r\n  \"menuManagement\": true,\r\n  \"menuOptions\": true,\r\n  \"menuPromotions\": true,\r\n  \"menuSchedules\": true,\r\n  \"menuSizes\": true,\r\n  \"menuTags\": true,\r\n  \"menuTax\": true,\r\n  \"report\": true,\r\n  \"reportCanned\": true,\r\n  \"reportCustom\": true,\r\n  \"requestApproval\": true,\r\n  \"requestCategory\": true,\r\n  \"requestComboSides\": true,\r\n  \"requestDiscounts\": true,\r\n  \"requestItems\": true,\r\n  \"requestOptions\": true,\r\n  \"requestPromotions\": true,\r\n  \"requestSchedules\": true,\r\n  \"requestSizes\": true,\r\n  \"requestTax\": true,\r\n  \"screenConfiguration\": true,\r\n  \"screenKioskPath\": true,\r\n  \"screenPosPath\": true,\r\n  \"sfdgsdfg\" : true\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}/features",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}",
+						"features"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07b Add POS to 02 Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"//TODO: Parse Array",
+							"//pm.environment.set('FirstPrinterForSecondStore', jsonData.phoneNumber);",
+							"//console.log('Get second Store new phone from global: ', pm.environment.get('SecondStorePhoneUpdated'));",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration Printers\", function () {",
+							"    pm.expect(jsonData.hardwareConfiguration.enabledPrinters).not.to.eql(null);",
+							"});",
+							"console.log('Get printers from jsonData: ', JSON.stringify(jsonData.hardwareConfiguration.enabledPrinters));",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration POS\", function () {",
+							"    pm.expect(jsonData.hardwareConfiguration.enabledPOSDevices).not.to.eql(null);",
+							"});",
+							"console.log('Get printers from jsonData: ', JSON.stringify(jsonData.hardwareConfiguration.enabledPOSDevices));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"enabledPrinters\": [\"ccb8322b-92e2-405c-8ad3-bc118dc90aeb\" ],\r\n  \"enabledPOSDevices\": [\"81e1dcc7-a291-4fd0-b7c7-510d96cf7052\", \"49e8d594-d92f-49e3-8b35-cc0798e09f3e\" ]\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}/hardware",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}",
+						"hardware"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07b Add KIOSK to 02 Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Body has address\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"//TODO: Parse Array",
+							"//pm.environment.set('FirstPrinterForSecondStore', jsonData.phoneNumber);",
+							"//console.log('Get second Store new phone from global: ', pm.environment.get('SecondStorePhoneUpdated'));",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration Printers\", function () {",
+							"    pm.expect(jsonData.hardwareConfiguration.enabledPrinters).not.to.eql(null);",
+							"});",
+							"console.log('Get printers from jsonData: ', JSON.stringify(jsonData.hardwareConfiguration.enabledPrinters));",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration POS\", function () {",
+							"    pm.expect(jsonData.hardwareConfiguration.enabledPOSDevices).not.to.eql(null);",
+							"});",
+							"console.log('Get POS from jsonData: ', JSON.stringify(jsonData.hardwareConfiguration.enabledPOSDevices));",
+							"",
+							"pm.test(\"Verify value of Hardware Configuration Kiosk\", function () {",
+							"    pm.expect(jsonData.hardwareConfiguration.enabledKioskDevices).not.to.eql(null);",
+							"});",
+							"console.log('Get kiosk from jsonData: ', JSON.stringify(jsonData.hardwareConfiguration.enabledKioskDevices));",
+							"",
+							"pm.test(\"Verify value of city.cityId\", function () {",
+							"    pm.expect(jsonData.city.cityId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of vertical\", function () {",
+							"    pm.expect(jsonData.vertical).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of city.adminDivision.countryCode\", function () {",
+							"    pm.expect(jsonData.city.adminDivision.countryCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"enabledPrinters\": [\"ccb8322b-92e2-405c-8ad3-bc118dc90aeb\" ],\r\n  \"enabledPOSDevices\": [\"81e1dcc7-a291-4fd0-b7c7-510d96cf7052\", \"49e8d594-d92f-49e3-8b35-cc0798e09f3e\" ],\r\n  \"enabledKioskDevices\" : [\"94a5bedc-5e59-4d3d-aa6a-e017c4fd75a6\", \"2080098b-fa8e-4850-b338-2c49fa359882\"]\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}/hardware",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}",
+						"hardware"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08 Verify Store Information has been updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).to.eql(pm.environment.get('mySecondStoreID'));",
+							"});",
+							"",
+							"pm.test(\"Verify New Store Name\", function () {",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('SecondStoreNameUpdated'));",
+							"});",
+							"",
+							"pm.test(\"Verify new address\", function () {",
+							"    pm.expect(jsonData.address).to.eql(pm.environment.get('SecondStoreAddressUpdated'));",
+							"});",
+							"",
+							"pm.test(\"Verify new phone number\", function () {",
+							"    pm.expect(jsonData.phoneNumber).to.eql(pm.environment.get('SecondStorePhoneUpdated'));",
+							"});",
+							"",
+							"pm.test(\"Verify value of globalCustomerManagement\", function () {",
+							"    pm.expect(jsonData.featureConfiguration.globalCustomerManagement).to.eql(false);",
+							"});",
+							"",
+							"pm.test(\"Verify value of menuDiscounts\", function () {",
+							"    pm.expect(jsonData.featureConfiguration.menuDiscounts).to.eql(false);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05 Add 02 Store to Terminal Group",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.environment.set('TerminalGroupID', jsonData.terminalGroupId);",
+							"console.log('Get second terminalGroupId from global: ', pm.environment.get('TerminalGroupID'));",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of address\", function () {",
+							"    pm.expect(jsonData.address).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of postalCode\", function () {",
+							"    pm.expect(jsonData.postalCode).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify the delete flag set to 'false'\", function () {",
+							"    pm.expect(jsonData.deleted).to.eql(false);",
+							"});",
+							"",
+							"pm.test(\"Verify the 02 StoreID matches the response\", function () {",
+							"    console.log(\"This is the store ID: \", jsonData.store.storeId);",
+							"    console.log(\"This is mySecondStoreID: \", pm.environment.get('mySecondStoreID'));",
+							"    pm.expect(jsonData.store.storeId).to.eql(pm.environment.get('mySecondStoreID'));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Terminal Group {{$timestamp}}\",\r\n  \"storeId\": \"{{mySecondStoreID}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/terminal-groups",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"terminal-groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02 Verify Terminal Group is Created",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of terminalGroupId\", function () {",
+							"    pm.expect(jsonData.terminalGroupId).to.eql(pm.environment.get('TerminalGroupID'));",
+							"});",
+							"",
+							"pm.test(\"Verify the 02 StoreID matches the response\", function () {",
+							"    console.log(\"This is the store ID: \", jsonData.store.storeId);",
+							"    console.log(\"This is mySecondStoreID: \", pm.environment.get('mySecondStoreID'));",
+							"    pm.expect(jsonData.store.storeId).to.eql(pm.environment.get('mySecondStoreID'));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/terminal-groups/{{TerminalGroupID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"terminal-groups",
+						"{{TerminalGroupID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07 Update 02 Terminal Group name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b353f3c-6208-4d4a-ad7e-50815b90afe9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.be.success;",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.environment.set('TerminalGroupNameUpdated', jsonData.name);",
+							"console.log('Get updated Terminal Group name: ', pm.environment.get('TerminalGroupNameUpdated'));",
+							"",
+							"pm.test(\"Verify value of creator.name\", function () {",
+							"    pm.expect(jsonData.creator.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify value of lastModifiedBy.name\", function () {",
+							"    pm.expect(jsonData.lastModifiedBy.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify the new Terminal group name matches the response\", function () {",
+							"    console.log(\"This is the new terminal name: \", jsonData.name);",
+							"    console.log(\"This is TerminalGroupNameUpdated: \", pm.environment.get('TerminalGroupNameUpdated'));",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get('TerminalGroupNameUpdated'));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Terminal Group {{$timestamp}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/terminal-groups/{{TerminalGroupID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"terminal-groups",
+						"{{TerminalGroupID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06 Get all Terminal Groups and find Created Terminal Group uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"var size = jsonData.content.length;",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Body has store name\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of store name\", function () {",
+							"    pm.expect(jsonData.name).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify terminal UUID is in the GetAll call\", function () {",
+							"    var flag = false;",
+							"    var uuid = pm.variables.get('TerminalGroupID');",
+							"",
+							"    for(var i = 0; i < size; i++) ",
+							"        {",
+							"              if (jsonData.content[i].terminalGroupId == uuid) ",
+							"                {",
+							"                    flag=true;",
+							"                }",
+							"    }",
+							"    pm.expect(flag).to.eql(true);",
+							"});",
+							"",
+							"pm.test(\"Verify that number of elements equals array count\", function () {",
+							"    pm.expect(size).to.eql(jsonData.numberOfElements);",
+							"    console.log('number of size:', size);",
+							"    console.log('number of elements', jsonData.numberOfElements);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/terminal-groups/?size=10000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"terminal-groups",
+						""
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12 Delete Terminal Group",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"",
+							"console.log('Access Terminal Group ID from local: ', pm.variables.get('TerminalGroupID'));",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.success;",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/terminal-groups/{{TerminalGroupID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"terminal-groups",
+						"{{TerminalGroupID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12 Delete 02 Store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"",
+							"console.log('Access first Store ID from local: ', pm.variables.get('myFirstStoreIDLocal'));",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.success;",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13 \t Check Terminal Group was deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has terminalGroupId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"terminalGroupId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of terminalGroupId\", function () {",
+							"    pm.expect(jsonData.terminalGroupId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify the delete flag set to 'true'\", function () {",
+							"    pm.expect(jsonData.deleted).to.eql(true);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/terminal-groups/{{TerminalGroupID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"terminal-groups",
+						"{{TerminalGroupID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13 \t Get 02 Store to see if it's Deleted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "900cc38f-cdc6-4458-aaa5-29bd0fb9f74a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must have a json body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"    ",
+							"pm.test(\"Body has storeId\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"storeId\");",
+							"});",
+							"",
+							"pm.test(\"Verify value of storeId\", function () {",
+							"    pm.expect(jsonData.storeId).not.to.eql(null);",
+							"});",
+							"",
+							"pm.test(\"Verify the delete flag set to 'true'\", function () {",
+							"    pm.expect(jsonData.deleted).to.eql(true);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{my_access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/store/v1/stores/{{mySecondStoreID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"store",
+						"v1",
+						"stores",
+						"{{mySecondStoreID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

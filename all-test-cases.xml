@@ -7,9 +7,9 @@
 		<parameter name="browser" value="Firefox"></parameter>
 =======
 		<!-- For both API and GUI test cases -->
-		<parameter name="browser" value="Firefox"></parameter>
+		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
-		<parameter name="baseURI" value="https://aries-qa.volantecloud.com/aries/api"></parameter>
+		<parameter name="baseURI" value="https://dev.volantecloud.com"></parameter>
 		<!-- For GUI test cases only -->
 >>>>>>> origin/for_next_tuesday_demo
 		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
@@ -18,7 +18,8 @@
 		<classes>
 			<!-- API test cases -->
 			<class name="com.test.api.testcases.TokenManagementTest" />
-			<class name="com.test.api.testcases.storeview.StoreViewTest" />
+			<class name="com.test.api.testcases.site.SiteTest" />
+			<class name="com.test.api.testcases.store.StoreTest" />
 			<!-- GUI test cases -->
 			<class name="com.test.ui.testcases.LoginPageTest" />
 			<class name="com.test.ui.testcases.HomePageTest" />

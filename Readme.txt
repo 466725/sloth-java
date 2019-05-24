@@ -1,5 +1,5 @@
 Prerequisites on windows: 
-1, Please install and config JRE and eclipse first
+1, Please install and config JRE and eclipse first, good to have https://projectlombok.org/
 2, Please install chrome and firefox latest version
 
 Steps to run the tests:
