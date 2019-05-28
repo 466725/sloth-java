@@ -15,19 +15,11 @@ import com.google.gson.annotations.SerializedName;
 public class StoreModal {
 	protected final static Logger logger = LogManager.getLogger(StoreModal.class.getName());
 	protected static Faker faker = new Faker();
-	
+
 	@SerializedName("address")
 	String address;
 	@SerializedName("cityId")
 	int cityId;
-	public int getCityId() {
-		return cityId;
-	}
-
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
-	}
-
 	@SerializedName("name")
 	String name;
 	@SerializedName("phoneNumber")
@@ -53,5 +45,13 @@ public class StoreModal {
 		this.phoneNumber = faker.phoneNumber().cellPhone();
 		this.postalCode = faker.address().zipCode();
 		this.vertical = "ENTERTAINMENT";
+	}
+
+	public int getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(int cityId) {
+		this.cityId = cityId;
 	}
 }
