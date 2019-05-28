@@ -1,9 +1,12 @@
 package com.interview.inject;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 public class Demo {
-    public static void main(String[] args) {
-        Injector injector = Guice.createInjector(new PaymentModule());
-        // Now, whenever we want an instance we tell the injector to create it for us.
-        Cart cart = injector.getInstance(Cart.class);
-    }
+	public static void main(String[] args) {
+		Injector injector = Guice.createInjector(new PaymentModule());
+		Cart cart = injector.getInstance(Cart.class);
+		System.out.println(cart.toString());
+	}
 }
