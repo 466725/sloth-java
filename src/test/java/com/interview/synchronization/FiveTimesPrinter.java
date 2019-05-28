@@ -1,4 +1,4 @@
-package com.interview.synchronize;
+package com.interview.synchronization;
 
 public class FiveTimesPrinter {
 	synchronized void printFiveTimes(int n) {// synchronized method

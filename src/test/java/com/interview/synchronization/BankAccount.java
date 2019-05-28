@@ -1,4 +1,4 @@
-package com.interview.synchronize;
+package com.interview.synchronization;
 
 class BankAccount {
 	int amount = 10000;

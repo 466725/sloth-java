@@ -1,4 +1,4 @@
-package com.interview.inject;
+package com.interview.injection;
 
 public class CashPaymentService implements PaymentService {
 	@Override
