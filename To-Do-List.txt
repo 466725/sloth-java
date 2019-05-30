@@ -1,0 +1,3 @@
+1, Merge Servoy version
+2, Polish modal solution, create base classes
+3, 
