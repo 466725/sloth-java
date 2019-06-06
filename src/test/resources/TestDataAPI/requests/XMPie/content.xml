@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OrderXml>
+  <Order OrderId="13880" DisplayOrderId="708831" CreationDate="2015-11-17T09:48:35.110" cartCreationdDate="2015-11-16T15:52:30.310" orderSubmissionDate="2015-11-17T09:48:34.590" orderSubmissionId="4173" primaryCurrency="USD">
+    <Prices>
+      <Subtotal>27.50000</Subtotal>
+      <ShippingPrice>0.00000</ShippingPrice>
+      <MailingPrice>0.00000</MailingPrice>
+      <Tax>0.00000</Tax>
+      <Taxes Amount="0.00">
+        <Tax Name="Texas State Tax" DisplayName="Texas State Tax" Percentage="8.25000">0.00000</Tax>
+      </Taxes>
+      <CouponDiscount CouponID="0">0.00000</CouponDiscount>
+      <TotalPrice>27.50000</TotalPrice>
+      <Cost>0.00000</Cost>
+    </Prices>
+    <Store Id="97" externalId="2828">
+      <Currency>USD</Currency>
+      <PickupAddress>
+        <Name>Candy Ellis</Name>
+        <Company>Accu-Print</Company>
+        <Address1>3503 Crosspoint</Address1>
+        <Address2 />
+        <City>San Antonio</City>
+        <State>TX</State>
+        <ZipCode>78217</ZipCode>
+        <Country>US</Country>
+        <Phone>210-870-3677</Phone>
+        <Fax />
+        <AddressReference />
+      </PickupAddress>
+    </Store>
+    <User UserId="29989" externalId="">
+      <FirstName>Denise</FirstName>
+      <LastName>Garcia</LastName>
+      <Email>Denise.garcia@utsa.edu</Email>
+      <Phone />
+      <Mobile />
+      <Fax />
+      <Company />
+      <Department />
+      <JobTitle />
+    </User>
+    <BillingAddress>
+      <Name>Denise Garcia</Name>
+      <Company>UTSA</Company>
+      <Address1>One UTSA Circle</Address1>
+      <Address2>MB 3.304</Address2>
+      <City>San Antonio</City>
+      <State>TX</State>
+      <ZipCode>78249</ZipCode>
+      <Country>US</Country>
+      <Phone>210-458-4370</Phone>
+      <Fax />
+      <AddressReference />
+    </BillingAddress>
+    <Deliveries>
+      <Delivery>
+        <Method>Shipping</Method>
+        <DeliveryProvider id="5">Manual Shipping</DeliveryProvider>
+        <DeliveryService id="10001">Local Delivery</DeliveryService>
+        <DeliveryPrice>0.00000</DeliveryPrice>
+        <ShippingTax Percentage="0.00000">0.00000</ShippingTax>
+        <ShippingAddress>
+          <Name>Denise Garcia</Name>
+          <Company>UTSA</Company>
+          <Address1>One UTSA Circle</Address1>
+          <Address2>MB 3.304</Address2>
+          <City>San Antonio</City>
+          <State>TX</State>
+          <ZipCode>78249</ZipCode>
+          <Country>US</Country>
+          <Phone>210-458-4370</Phone>
+          <Fax />
+          <AddressReference />
+        </ShippingAddress>
+        <DeliveryItems>
+          <DeliveryItem id="12418">
+            <OrderProductId>35764</OrderProductId>
+            <NumberOfUnits>250</NumberOfUnits>
+          </DeliveryItem>
+        </DeliveryItems>
+      </Delivery>
+    </Deliveries>
+    <OrderProducts>
+      <OrderProduct id="35764" creationDate="2015-11-16T16:18:28.120">
+        <Quantities>
+          <NumberOfRecipients>1</NumberOfRecipients>
+          <NumberOfCopies>250</NumberOfCopies>
+          <TotalUnits>250</TotalUnits>
+        </Quantities>
+        <Prices>
+          <FixedPrice>0.00000</FixedPrice>
+          <PricePerRecipient>0.00000</PricePerRecipient>
+          <PricePerUnit>0.11000</PricePerUnit>
+          <Subtotal>27.50000</Subtotal>
+          <MailingPrice>0.00000</MailingPrice>
+          <TotalPrice>27.50000</TotalPrice>
+          <Cost>0.00000</Cost>
+        </Prices>
+        <Delivery />
+        <ProductUnit id="1" itemsAmount="1">Item</ProductUnit>
+        <Product id="3183" externalId="">
+          <Name>Standard UTSA Business Card</Name>
+          <CatalogNumber />
+          <Type>DynamicPrint</Type>
+          <Downloadable>false</Downloadable>
+          <Manufacturer externalId="" />
+        </Product>
+        <DialValues>
+          <DialValue>
+            <Dial id="23578" externalId="">
+              <PlanName>College Name</PlanName>
+              <DisplayName>College Name</DisplayName>
+            </Dial>
+            <Value>College of Education and Human Development</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23579" externalId="">
+              <PlanName>Department Name</PlanName>
+              <DisplayName>Department Name</DisplayName>
+            </Dial>
+            <Value>Department of Interdisciplinary Learning and Teaching</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23580" externalId="">
+              <PlanName>Full name</PlanName>
+              <DisplayName>Full name</DisplayName>
+            </Dial>
+            <Value>Gabriela Cantu Couvillion</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23581" externalId="">
+              <PlanName>Job Title</PlanName>
+              <DisplayName>Job Title</DisplayName>
+            </Dial>
+            <Value>Administrative Associate II</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23582" externalId="">
+              <PlanName>email</PlanName>
+              <DisplayName>Email Address</DisplayName>
+            </Dial>
+            <Value>gabriela.couvillion@utsa.edu</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23583" externalId="">
+              <PlanName>Telephone</PlanName>
+              <DisplayName>Telephone</DisplayName>
+            </Dial>
+            <Value>210-458-6988</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23584" externalId="">
+              <PlanName>Cell</PlanName>
+              <DisplayName>Cell</DisplayName>
+            </Dial>
+            <Value />
+          </DialValue>
+          <DialValue>
+            <Dial id="23585" externalId="">
+              <PlanName>Fax</PlanName>
+              <DisplayName>Fax</DisplayName>
+            </Dial>
+            <Value>210-458-7281</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23586" externalId="">
+              <PlanName>Address1</PlanName>
+              <DisplayName>Address</DisplayName>
+            </Dial>
+            <Value>One UTSA Circle</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23587" externalId="">
+              <PlanName>City</PlanName>
+              <DisplayName>City</DisplayName>
+            </Dial>
+            <Value>San Antonio</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23588" externalId="">
+              <PlanName>State</PlanName>
+              <DisplayName>State</DisplayName>
+            </Dial>
+            <Value>TX</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23589" externalId="">
+              <PlanName>Zip</PlanName>
+              <DisplayName>Zip</DisplayName>
+            </Dial>
+            <Value>78249</Value>
+          </DialValue>
+          <DialValue>
+            <Dial id="23590" externalId="12">
+              <PlanName>website</PlanName>
+              <DisplayName>website</DisplayName>
+            </Dial>
+            <Value>utsa.edu</Value>
+          </DialValue>
+        </DialValues>
+        <PropertyValues>
+          <PropertyValue>
+            <Property id="23801" externalId="123">
+              <DisplayName>Base</DisplayName>
+            </Property>
+            <Value>123</Value>
+          </PropertyValue>
+          <PropertyValue>
+            <Property id="23802" externalId="1234">
+              <DisplayName>Additional Information</DisplayName>
+            </Property>
+            <Value>1234</Value>
+          </PropertyValue>
+          <PropertyValue>
+            <Property id="23803" externalId="1505">
+              <DisplayName>Customization</DisplayName>
+            </Property>
+            <Value>1505</Value>
+          </PropertyValue>
+          <PropertyValue>
+            <Property id="23804" externalId="2005">
+              <DisplayName>Custom Pricing</DisplayName>
+            </Property>
+            <Value>0.00</Value>
+          </PropertyValue>
+        </PropertyValues>
+      </OrderProduct>
+    </OrderProducts>
+    <Clearing type="Online Credit Card Transaction">
+      <Value>
+        <VerisignClearing>
+          <ReferenceNumber>BS1PDAD86A8C</ReferenceNumber>
+        </VerisignClearing>
+      </Value>
+    </Clearing>
+  </Order>
+</OrderXml>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<orderInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OrderID xmlns="http://w2p.aleyant.com/">6a428b4c-8dcc-4d59-89cb-2d37994fe361</OrderID>
+  <OrderNumber xmlns="http://w2p.aleyant.com/">1853</OrderNumber>
+  <OrderDate xmlns="http://w2p.aleyant.com/"><a>asas</a>2015-11-23T21:26:13.557</OrderDate>
+  <siteDomain xmlns="http://w2p.aleyant.com/">asco.mapl.net</siteDomain>
+  <siteID xmlns="http://w2p.aleyant.com/">e25a06a1-c564-4451-92a8-0a6305c7c322</siteID>
+  <IsPayComplete xmlns="http://w2p.aleyant.com/">false</IsPayComplete>
+  <payments xmlns="http://w2p.aleyant.com/" />
+  <RequestShipDate xmlns="http://w2p.aleyant.com/">2015-11-25T00:00:00</RequestShipDate>
+  <siteMisID xmlns="http://w2p.aleyant.com/">ASCO</siteMisID>
+  <taxID xmlns="http://w2p.aleyant.com/" />
+  <isOpenTerms xmlns="http://w2p.aleyant.com/">true</isOpenTerms>
+  <checkoutPaymentMethodID xmlns="http://w2p.aleyant.com/">4aa83735-c979-42bb-82fc-36ad0048744b</checkoutPaymentMethodID>
+  <checkoutPaymentMethodName xmlns="http://w2p.aleyant.com/">Purchase on Open Account</checkoutPaymentMethodName>
+  <checkoutPaymentSubscriberMethodName xmlns="http://w2p.aleyant.com/">Open Account</checkoutPaymentSubscriberMethodName>
+  <IsOrderEdited xmlns="http://w2p.aleyant.com/">false</IsOrderEdited>
+</orderInfo>

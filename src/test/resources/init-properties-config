@@ -1,0 +1,40 @@
+###################################################################
+# System Properties                                               #
+###################################################################
+webdriver.chrome.driver= lib/chromedriver.exe
+webdriver.chrome.logfile=chromedriver.log
+webdriver.firefox.bin=C:\\WinApp\\firefox\\firefox.exe
+webdriver.ie.driver=/lib/IEDriverServer.exe
+
+###################################################################
+# Selenium                                                        #
+###################################################################
+selenium.hub.url =http://devselenium.toronto.com:4444/wd/hub
+selenium.staleElementRetryNum = 5
+
+###################################################################
+# TestNG                                                          #
+###################################################################
+testng.defaultThreadCount=35
+
+###################################################################
+# TestRail                                                        #
+###################################################################
+testrail.baseurl=https://avanti.testrail.com/
+testrail.key=aBc
+testrail.suites=1,2,3
+
+###################################################################
+# JIRA                                                            #
+###################################################################
+jira.baseurl=https://jira.company.com/jira/rest/
+jira.adminusername=
+jira.adminpassword=
+
+###################################################################
+# General                                                         #
+###################################################################
+remotedriver.retries=3
+login.retries=3
+compare.time.diff=180000
+databasepool=false

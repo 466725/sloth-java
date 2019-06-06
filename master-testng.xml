@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite">
+	<!-- <parameter name="browser" value="Chrome"></parameter> -->
+	<!-- <parameter name="browser" value="Firefox"></parameter> -->
+
+	<parameter name="browser" value="Chrome"></parameter>
+	<parameter name="URL" value="http://184.106.20.39:8091/servoy-webclient/ss/s/avanti/a/25CA7817-FA36-447A-BD34-E63A3BBAD6C7"></parameter>
+	<parameter name="userName" value="Andy Zheng"></parameter>
+	<parameter name="password" value="avanti"></parameter>
+	<parameter name="printWebDriver" value="no"></parameter>
+	<parameter name="printWebElement" value="no"></parameter>
+
+	<test name="Test-Automation" parallel="false">
+		<classes>
+			<!--
+			<class name="com.avanti.unit.puzzle.MemoryReallocateTests" />
+			<class name="com.avanti.unit.self.PropertiesReaderTests" />
+			<class name="com.avanti.unit.self.CSVHandlerTests" />
+			<class name="com.avanti.api.XmlIntegrationTests" /> 
+			<class name="com.avanti.api.demo.RestAssuredUsageDemo" />
+			<class name="com.avanti.api.demo.TestRailUsageDemo" />
+			<class name="com.avanti.ui.testcases.LoginPageTests" /> 
+			<class name="com.avanti.ui.testcases.HomePageTests" /> 
+			<class name="com.avanti.ui.testcases.EstimatingPageTests" /> 
+			<class name="com.avanti.ui.testcases.SalesOrdersPageTests" />
+			<class name="com.avanti.ui.testcases.ShopFloorPageTests" />
+			<class name="com.avanti.ui.workflows.EstimatingCalculator" />
+			-->
+			<class name="com.avanti.unit.self.PropertiesReaderTests" />
+			<class name="com.avanti.unit.self.CSVHandlerTests" />
+		</classes>
+	</test>
+</suite>

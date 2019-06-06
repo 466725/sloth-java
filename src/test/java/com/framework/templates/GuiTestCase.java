@@ -28,9 +28,9 @@ public class GuiTestCase extends TestCase {
 	protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
 
 	protected static WebDriver driver;
-	protected static String URL = "";
-	protected static String userName = "";
-	protected static String password = "";
+	public static String URL = "";
+	public static String userName = "";
+	public static String password = "";
 
 	/**
 	 * Prepare per BeforeClass annotation.

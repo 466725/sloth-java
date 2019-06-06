@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cXML timestamp="2009-04-07T01:30:23" payloadID="SWO2269965@printable.com">
+	<Header>
+		<From>
+			<Credential domain="NetworkID">
+				<Identity>PrintableGateway</Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="NetworkID">
+				<Identity>1097-1550-8486</Identity>
+			</Credential>
+		</To>
+		<Sender>
+			<Credential domain="NetworkID">
+				<Identity>gateway@printable.com</Identity>
+				<SharedSecret>sharedsecret</SharedSecret>
+			</Credential>
+			<UserAgent>Dashboard</UserAgent>
+		</Sender>
+	</Header>
+	<Request deploymentMode="production">
+		<Order>
+			<OrderNumber>PO796</OrderNumber>
+			<OrderDate>20090407</OrderDate>
+			<OrderTime>13:24:14</OrderTime>
+			<PromiseDate>20090415</PromiseDate>
+			<CustomerID>AARONFIT0001</CustomerID>
+			<CustomerName>StoreABD</CustomerName>
+			<WebUserID>jsmith</WebUserID>
+			<WebUserName>John Smith</WebUserName>
+			<UserEmail>jsmith@abd.com</UserEmail>
+			<OrderQuantity>4</OrderQuantity>
+			<CustomerPO>PO12312</CustomerPO>
+			<ShippingMethod>2-Days</ShippingMethod>
+			<OrderTotal>41.6000</OrderTotal>
+			<TaxAmount1>12.34</TaxAmount1>
+			<PaymentMethod>CreditCard</PaymentMethod>
+			<AuthorizationNumber>123</AuthorizationNumber>
+			<BillTo>
+				<BillToName>Mary Jones</BillToName>
+				<BillToCompany>ABC Company</BillToCompany>	
+				<BillToAddress1>Address Line 1</BillToAddress1>
+				<BillToAddress2>Address Line 2</BillToAddress2>
+				<BillToAddress3>Address Line 3</BillToAddress3>
+				<BillToAddress4>Address Line 4</BillToAddress4>
+				<BillToCity>Washington</BillToCity>
+				<BillToState>DC</BillToState>
+				<BillToZip>20007</BillToZip>
+				<BillToCountry>US</BillToCountry>
+				<BillToAttention>Attention Line</BillToAttention>
+			</BillTo>
+			<ShipTo>
+				<ShipToName>John Smith Box 123</ShipToName>
+				<ShipToCompany>ABC Company</ShipToCompany>
+				<ShipToAddress1>Address Line 1</ShipToAddress1>
+				<ShipToAddress2>Address Line 2</ShipToAddress2>
+				<ShipToAddress3>Address Line 3</ShipToAddress3>
+				<ShipToAddress4>Address Line 4</ShipToAddress4>
+				<ShipToCity>Washington</ShipToCity>
+				<ShipToState>DC</ShipToState>
+				<ShipToZip>20007</ShipToZip>
+				<ShipToCountry>US</ShipToCountry>
+				<ShipToAttention>Attention Line</ShipToAttention>
+			</ShipTo>
+			<Products>
+				<Product>
+					<ProductCode>BasicPoster</ProductCode>
+					<EntryType>V</EntryType>
+					<ProductName>1C-5.5x8.5 - 50Sh Notepad</ProductName>
+					<ProductDescription> xxxxxxx</ProductDescription>
+					<Quantity>4</Quantity>
+					<Price>41.6000</Price>
+					<ContentFile>http://images.printable.com/impositions/123/JT2344_234234_12312312.pdf</ContentFile>
+					<OrderLineItemID>5795169</OrderLineItemID>				
+					<CostCenterNumber>123</CostCenterNumber>
+					<CostCenterName>Cost Center 123</CostCenterName>
+					<CostCenterExternalID>456_CostCenter</CostCenterExternalID>
+					<SpecialInstructions>Special Instructions</SpecialInstructions>
+				<Finishing>
+				<GeneralDescription>General Description</GeneralDescription>
+				<PaperDescription></PaperDescription>
+				<PrepressInstructions>Prepress Instructions</PrepressInstructions>
+				<PressInstructions>Press Instructions</PressInstructions>
+				<BinderyInstructions>Bindery Instructions</BinderyInstructions>
+				<ShipInstructions>Job Ticket Ship Instructions</ShipInstructions>
+				</Finishing>
+				</Product>
+			</Products>
+		</Order>
+	</Request>
+</cXML>

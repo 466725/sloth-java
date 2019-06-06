@@ -1,0 +1,1 @@
+/servoy-service/rest_ws/avanti_api/api_web_service/params?SenderID=Pressero&RequestType=NewOrder&Username=QADATA%5cXMPIEACCUPRINT&Password=password
