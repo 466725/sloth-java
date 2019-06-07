@@ -1,7 +1,8 @@
 package com.gurock.testrail;
 
 import java.util.ArrayList;
-import com.openqa.testlog.TestLog.Entry;
+
+import com.framework.helpers.TestLogHelper.Entry;
 
 public class TestScenarioResult
 {

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Volante GUI and API Test Suite">
+<suite name="Demo Test Suite">
 	<test name="Regression Test" parallel="false">
-<<<<<<< HEAD
 		<parameter name="browser" value="Firefox"></parameter>
-=======
 		<!-- For both API and GUI test cases -->
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
 		<parameter name="baseURI" value="https://dev.volantecloud.com"></parameter>
 		<!-- For GUI test cases only -->
->>>>>>> origin/for_next_tuesday_demo
 		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
 		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
 		<parameter name="password" value="test"></parameter>
@@ -25,6 +22,9 @@
 			<class name="com.test.ui.testcases.HomePageTest" />
 			<class name="com.test.ui.testcases.storeview.StoreViewPageTest" />
 			<class name="com.test.ui.testcases.template.TemplatePageTest" />
+			<!-- Unit test cases -->
+			<class name="com.avanti.unit.PropertiesReaderTests" />
+			<class name="com.avanti.unit.CSVHandlerTests" />
 		</classes>
 	</test>
 </suite>

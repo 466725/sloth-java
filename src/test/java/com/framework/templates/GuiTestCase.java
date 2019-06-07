@@ -16,7 +16,7 @@ import org.testng.annotations.Parameters;
 import com.framework.helpers.BrowserDriverProvider;
 import com.framework.helpers.ScreenShotProvider;
 import com.relevantcodes.extentreports.LogStatus;
-import com.test.ui.utilities.SeleniumWrapper;
+import com.utilities.SeleniumWrapper;
 
 /**
  * Base class of all GUI test cases related objects

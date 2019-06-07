@@ -6,16 +6,18 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import com.openqa.common.RestApiHelper;
+
+import com.framework.helpers.RestApiHelper;
 
 public class FileUtils {
-
 	protected final static Logger logger = LogManager.getLogger(FileUtils.class.getName());
 
 	public static InputStream openFileAsInputStream(String filename) throws Exception {

@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.framework.templates.GuiTestCase;
-import com.openqa.utils.WebPageUtils;
+import com.utilities.WebPageUtils;
+
 import config.Constants;
 
 public class HomePage extends LoginPage

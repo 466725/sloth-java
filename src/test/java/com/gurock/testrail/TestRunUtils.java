@@ -7,9 +7,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.testng.ITestContext;
-import com.openqa.annotations.DataSource;
-import com.openqa.testlog.TestLog;
-import com.openqa.testlog.TestLog.Entry;
+
+import com.framework.annotations.DataSource;
+import com.framework.helpers.TestLogHelper;
+import com.framework.helpers.TestLogHelper.Entry;
 
 /**
  * This utility class is used to provide methods to deal with test execution
@@ -159,7 +160,7 @@ public class TestRunUtils
 			int i = 0;
 			for (Entry entry : entries)
 			{
-				i += (entry.getLogType() == TestLog.STEP) ? 1 : 0;
+				i += (entry.getLogType() == TestLogHelper.STEP) ? 1 : 0;
 				String str = entry.toString(i);
 				logInText += str + "\n";
 			}

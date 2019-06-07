@@ -7,7 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.framework.templates.GuiTestCase;
-import com.openqa.utils.WebPageUtils;
+import com.utilities.WebPageUtils;
+
 import config.Constants;
 
 public class ShopFloorPage extends HomePage {

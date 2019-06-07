@@ -12,8 +12,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.openqa.utils.IframeHandler;
-import com.openqa.utils.WebPageUtils;
+import com.utilities.WebPageIframeHandler;
+import com.utilities.WebPageUtils;
+
 import config.Constants;
 
 public class EstimatingPage extends HomePage
@@ -99,23 +100,23 @@ public class EstimatingPage extends HomePage
 		boolean result = false;
 		if (!WebPageUtils.clickElement(driver, duplicateEstimateIcon, Constants.CLICK_METHOD_ENUM.CLICK, 8))
 			return result;
-		List<WebElement> allIframes = IframeHandler.locateAllIframes(driver);
-		IframeHandler.printAllIframes(allIframes);
+		List<WebElement> allIframes = WebPageIframeHandler.locateAllIframes(driver);
+		WebPageIframeHandler.printAllIframes(allIframes);
 		if (allIframes.size() < 1)
 			return result;
 		if (confirmPopup.equals(Constants.AlertMethods.CANCEL))
 		{
 			for (WebElement ele : allIframes)
-				IframeHandler.switchToIframe(driver, ele);
+				WebPageIframeHandler.switchToIframe(driver, ele);
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("0")), Constants.CLICK_METHOD_ENUM.CLICK, 1);
-			IframeHandler.switchParentIframe(driver);
+			WebPageIframeHandler.switchParentIframe(driver);
 		}
 		else if (confirmPopup.equals(Constants.AlertMethods.OK))
 		{
 			for (WebElement ele : allIframes)
-				IframeHandler.switchToIframe(driver, ele);
+				WebPageIframeHandler.switchToIframe(driver, ele);
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("1")), Constants.CLICK_METHOD_ENUM.CLICK, 18);
-			IframeHandler.switchParentIframe(driver);
+			WebPageIframeHandler.switchParentIframe(driver);
 		}
 		return result;
 	}
@@ -124,21 +125,21 @@ public class EstimatingPage extends HomePage
 	public static boolean handleUpdateCostPopup(WebDriver driver, Constants.AlertMethods updateCostPopup)
 	{
 		boolean result = false;
-		List<WebElement> allIframes = IframeHandler.locateAllIframes(driver);
-		IframeHandler.printAllIframes(allIframes);
+		List<WebElement> allIframes = WebPageIframeHandler.locateAllIframes(driver);
+		WebPageIframeHandler.printAllIframes(allIframes);
 		if (allIframes.size() < 1)
 			return result;
 		for (WebElement ele : allIframes)
-			IframeHandler.switchToIframe(driver, ele);
+			WebPageIframeHandler.switchToIframe(driver, ele);
 		if (updateCostPopup.equals(Constants.AlertMethods.NO))
 		{
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("1")), Constants.CLICK_METHOD_ENUM.CLICK, 3);
-			IframeHandler.switchParentIframe(driver);
+			WebPageIframeHandler.switchParentIframe(driver);
 		}
 		else if (updateCostPopup.equals(Constants.AlertMethods.YES))
 		{
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("0")), Constants.CLICK_METHOD_ENUM.CLICK, 25);
-			IframeHandler.switchParentIframe(driver);
+			WebPageIframeHandler.switchParentIframe(driver);
 		}
 		return result;
 	}
@@ -174,12 +175,12 @@ public class EstimatingPage extends HomePage
 		result = WebPageUtils.clickElement(driver, lineItemCalculator, Constants.CLICK_METHOD_ENUM.CLICK, 15);
 		if (switchIframe)
 		{
-			List<WebElement> allIframes = IframeHandler.locateAllIframes(driver);
-			IframeHandler.printAllIframes(allIframes);
+			List<WebElement> allIframes = WebPageIframeHandler.locateAllIframes(driver);
+			WebPageIframeHandler.printAllIframes(allIframes);
 			if (allIframes.size() < 1)
 				return result;
 			for (WebElement ele : allIframes)
-				IframeHandler.switchToIframe(driver, ele);
+				WebPageIframeHandler.switchToIframe(driver, ele);
 		}
 		return result;
 	}
@@ -192,7 +193,7 @@ public class EstimatingPage extends HomePage
 		boolean result = false;
 		if (switchIframe)
 		{
-			result = IframeHandler.switchParentIframe(driver);
+			result = WebPageIframeHandler.switchParentIframe(driver);
 		}
 		WebPageUtils.printWebElementInfo(lineItemCalculatorCloseIcon);
 		result = WebPageUtils.clickElement(driver, lineItemCalculatorCloseIcon, Constants.CLICK_METHOD_ENUM.CLICK, 3);

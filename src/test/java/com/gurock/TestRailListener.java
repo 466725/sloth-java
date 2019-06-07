@@ -10,12 +10,14 @@ import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 import org.testng.xml.XmlTest;
+
+import com.framework.helpers.TestLogHelper;
 import com.gurock.testrail.TestResult;
 import com.gurock.testrail.TestRunUtils;
 import com.gurock.testrail.TestScenarioResult;
 import com.gurock.testrail.enums.TestResultStatusEnum;
 import com.gurock.testrail.TestResultCapture;
-import com.openqa.testlog.TestLog;
+
 import org.openqa.selenium.remote.UnreachableBrowserException;
 
 public class TestRailListener extends TestListenerAdapter
@@ -69,8 +71,8 @@ public class TestRailListener extends TestListenerAdapter
 		try
 		{
 			String uniqueLogId = TestRunUtils.generateUniqueLogId(testResult.getTestClass().getName(), testResult.getMethod().getMethodName(), testResult.getParameters());
-			if (TestLog.getLogEntries(uniqueLogId).isEmpty())
-				TestLog.initialize(uniqueLogId);
+			if (TestLogHelper.getLogEntries(uniqueLogId).isEmpty())
+				TestLogHelper.initialize(uniqueLogId);
 			if (testResult.getThrowable() == null)
 			{
 				IResultMap failedConfigurations = testResult.getTestContext().getFailedConfigurations();
@@ -130,21 +132,21 @@ public class TestRailListener extends TestListenerAdapter
 							|| method.isAfterSuiteConfiguration() || method.isAfterGroupsConfiguration()))
 			{
 				uniqueLogId = TestRunUtils.generateUniqueLogId(testResult.getTestClass().getName(), testResult.getMethod().getMethodName(), testResult.getParameters());
-				if (TestLog.getLogEntries(uniqueLogId).isEmpty())
-					TestLog.initialize(uniqueLogId);
+				if (TestLogHelper.getLogEntries(uniqueLogId).isEmpty())
+					TestLogHelper.initialize(uniqueLogId);
 				onTestResult(TestResultStatusEnum.POSTTESTFAILED, testResult);
 			}
 		}
 		catch (Exception e)
 		{
-			TestLog.debug(e.getMessage());
+			TestLogHelper.debug(e.getMessage());
 		}
 		finally
 		{
 			if (uniqueLogId != null)
 			{
-				TestLog.done(uniqueLogId);
-				TestLog.removeLogEntries(uniqueLogId, Thread.currentThread().getId());
+				TestLogHelper.done(uniqueLogId);
+				TestLogHelper.removeLogEntries(uniqueLogId, Thread.currentThread().getId());
 			}
 		}
 	}

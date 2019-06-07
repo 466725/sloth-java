@@ -1,0 +1,13 @@
+<suite name="Demo Test Suite">
+	<test name="Regression Test" parallel="false">
+		<!-- For both API and GUI test cases -->
+		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<parameter name="baseURI" value="https://dev.volantecloud.com"></parameter>
+		<classes>
+			<!-- API test cases -->
+			<class name="com.avanti.api.XmlIntegrationTests" /> 
+			<class name="com.avanti.api.TestRailUsageDemo" />
+		</classes>
+	</test>
+</suite>

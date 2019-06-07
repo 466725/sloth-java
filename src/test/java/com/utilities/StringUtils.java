@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -22,7 +23,6 @@ import org.apache.log4j.Logger;
  * </P>
  */
 public class StringUtils {
-
 	protected final static Logger logger = LogManager.getLogger(StringUtils.class.getName());
 
 	/**

@@ -8,7 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.framework.templates.WebPage;
-import com.openqa.utils.WebPageUtils;
+import com.utilities.WebPageUtils;
+
 import config.Constants;
 
 public class LoginPage extends WebPage

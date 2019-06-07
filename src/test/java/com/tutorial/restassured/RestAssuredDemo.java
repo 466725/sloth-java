@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import com.framework.templates.ApiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
-import com.test.api.testcases.TokenManagementTest;
+import com.volante.api.testcases.TokenManagementTest;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
