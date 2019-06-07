@@ -12,12 +12,9 @@
 		<parameter name="printWebDriver" value="no"></parameter>
 		<parameter name="printWebElement" value="no"></parameter>
 		<classes>
-			<class name="com.avanti.ui.testcases.LoginPageTests" /> 
-			<class name="com.avanti.ui.testcases.HomePageTests" /> 
-			<class name="com.avanti.ui.testcases.EstimatingPageTests" /> 
-			<class name="com.avanti.ui.testcases.SalesOrdersPageTests" />
-			<class name="com.avanti.ui.testcases.ShopFloorPageTests" />
-			<class name="com.avanti.ui.workflows.EstimatingCalculator" />
+			<class name="com.avanti.ui.testcases.LoginPageTest" /> 
+			<class name="com.avanti.ui.testcases.HomePageTest" /> 
+			<class name="com.avanti.ui.testcases.EstimatingPageTest" /> 
 		</classes>
 	</test>
 </suite>

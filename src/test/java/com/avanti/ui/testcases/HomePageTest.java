@@ -9,10 +9,10 @@ import com.avanti.ui.webpages.LoginPage;
 import com.framework.templates.GuiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class HomePageTests extends GuiTestCase
+public class HomePageTest extends GuiTestCase
 {
 	
-	protected final static Logger logger = LogManager.getLogger(HomePageTests.class.getName());
+	protected final static Logger logger = LogManager.getLogger(HomePageTest.class.getName());
 	protected LoginPage loginPage;
 	protected HomePage homePage;
 	

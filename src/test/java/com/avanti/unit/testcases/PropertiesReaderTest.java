@@ -9,8 +9,8 @@ import com.framework.templates.UnitTestCase;
 import com.relevantcodes.extentreports.LogStatus;
 import com.utilities.PropertiesFileReader;
 
-public class PropertiesReaderTests extends UnitTestCase {
-	protected final static Logger logger = LogManager.getLogger(PropertiesReaderTests.class.getName());
+public class PropertiesReaderTest extends UnitTestCase {
+	protected final static Logger logger = LogManager.getLogger(PropertiesReaderTest.class.getName());
 
 	@Test(priority = 1)
 	public void readPropertyWithKey() {

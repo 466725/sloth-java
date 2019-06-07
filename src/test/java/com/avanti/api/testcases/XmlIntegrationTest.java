@@ -22,9 +22,9 @@ import com.utilities.FileUtils;
 
 import config.Constants;
 
-@DataSource(source = Constants.xmlIntegrationCSV)
-public class XmlIntegrationTests extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(XmlIntegrationTests.class.getName());
+@DataSource(source = Constants.XML_INTEGRATION_CSV)
+public class XmlIntegrationTest extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(XmlIntegrationTest.class.getName());
 
 	@DataProvider(name = "csvData")
 	public Iterator<Object[]> data(ITestContext context, Method method) throws Exception {

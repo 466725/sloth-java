@@ -87,9 +87,9 @@ public class TestRailConnector {
 	}
 
 	private TestRailConnector() throws Exception {
-		apiClient = new APIClient(Constants.testRail_URL);
-		apiClient.setUser(Constants.testRail_Username);
-		apiClient.setPassword(Constants.testRail_Password);
+		apiClient = new APIClient(Constants.TEST_RAIL_URL);
+		apiClient.setUser(Constants.TEST_RAIL_USERNAME);
+		apiClient.setPassword(Constants.TEST_RAIL_PASSWORD);
 		baseUrl = PropertiesFileReader.getProperty("testrail.baseurl");
 		key = "&key=" + PropertiesFileReader.getProperty("testrail.key");
 		headerHashMap.put(HTTPRequestEnum.HTTPRequestHeader.ACCEPT.getProperty(), "application/json");

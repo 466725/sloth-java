@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<!-- <suite name="SuiteName" parallel="classes" thread-count="2" > -->
-<!-- <suite name="SuiteName" parallel="tests" thread-count="2" > -->
-<!-- <suite name="SuiteName" parallel="methods" thread-count="2" > -->
-<suite name="SuiteName">
-	<parameter name="browser" value="Chrome"></parameter>
-	<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
-	<test name="TestName" group-by-instances="true">
+<suite name="Demo Test Suite">
+	<test name="Regression Test" parallel="false">
+		<!-- For both API and GUI test cases -->
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
-		<classes parallel="methods" thread-count="2">
+		<parameter name="baseURI" value="https://dev.volantecloud.com"></parameter>
+		<!-- For GUI test cases only -->
+		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
+		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
+		<parameter name="password" value="test"></parameter>
+		<!-- <classes parallel="methods" thread-count="2"> -->
+		<classes>
 			<class name="com.tutorial.testng.DependentTestDemo">
 				<methods>
 					<include name="testTwo" />
@@ -22,6 +24,3 @@
 		</classes>
 	</test>
 </suite>
-
-<!-- Need to improve logger, etc! -->
-<!-- Lots of work need to be done! -->

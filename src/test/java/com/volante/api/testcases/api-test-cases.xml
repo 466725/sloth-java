@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Volante GUI and API Test Suite">
+<suite name="Demo Test Suite">
 	<test name="Regression Test" parallel="false">
 		<!-- For both API and GUI test cases -->
 		<parameter name="browser" value="Chrome"></parameter>
@@ -13,9 +13,9 @@
 		<parameter name="password" value="test"></parameter>
 		<classes>
 			<!-- API test cases -->
-			<class name="com.test.api.testcases.TokenManagementTest" />
-			<class name="com.test.api.testcases.site.SiteTest" />
-			<class name="com.test.api.testcases.store.StoreTest" />
+			<class name="com.volante.api.testcases.TokenManagementTest" />
+			<class name="com.volante.api.testcases.store.StoreTest" />
+			<class name="com.volante.api.testcases.store.StoreActionTest" />
 		</classes>
 	</test>
 </suite>

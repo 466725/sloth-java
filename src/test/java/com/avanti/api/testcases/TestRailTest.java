@@ -13,7 +13,7 @@ import com.gurock.TestRailConnector;
 import com.gurock.testrail.APIClient;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class TestRailUsageDemo extends ApiTestCase {
+public class TestRailTest extends ApiTestCase {
 
 	protected final static Logger logger = LogManager.getLogger(TestRailConnector.class.getName());
 	protected final static APIClient client = new APIClient("https://avanti.testrail.com/");
@@ -25,7 +25,7 @@ public class TestRailUsageDemo extends ApiTestCase {
 		client.setUser("testautomationavanti@gmail.com");
 		client.setPassword("Avanti313");
 		logger.info(client.toString());
-		TestRailUsageDemo.getTestCase("get_case/1");
+		TestRailTest.getTestCase("get_case/1");
 	}
 
 	protected static void getTestCase(String testCaseID) throws Exception {

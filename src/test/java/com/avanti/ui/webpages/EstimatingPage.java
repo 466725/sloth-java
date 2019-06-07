@@ -95,7 +95,7 @@ public class EstimatingPage extends HomePage
 	@FindBy(id = "id14a_img")
 	public static WebElement duplicateEstimateIcon;
 	
-	public static boolean handleConfirmPopup(WebDriver driver, Constants.AlertMethods confirmPopup)
+	public static boolean handleConfirmPopup(WebDriver driver, Constants.ALLERT_METHOD_ENUM confirmPopup)
 	{
 		boolean result = false;
 		if (!WebPageUtils.clickElement(driver, duplicateEstimateIcon, Constants.CLICK_METHOD_ENUM.CLICK, 8))
@@ -104,14 +104,14 @@ public class EstimatingPage extends HomePage
 		WebPageIframeHandler.printAllIframes(allIframes);
 		if (allIframes.size() < 1)
 			return result;
-		if (confirmPopup.equals(Constants.AlertMethods.CANCEL))
+		if (confirmPopup.equals(Constants.ALLERT_METHOD_ENUM.CANCEL))
 		{
 			for (WebElement ele : allIframes)
 				WebPageIframeHandler.switchToIframe(driver, ele);
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("0")), Constants.CLICK_METHOD_ENUM.CLICK, 1);
 			WebPageIframeHandler.switchParentIframe(driver);
 		}
-		else if (confirmPopup.equals(Constants.AlertMethods.OK))
+		else if (confirmPopup.equals(Constants.ALLERT_METHOD_ENUM.OK))
 		{
 			for (WebElement ele : allIframes)
 				WebPageIframeHandler.switchToIframe(driver, ele);
@@ -122,7 +122,7 @@ public class EstimatingPage extends HomePage
 	}
 	
 	// Call below method after clicking OK button confirm pop-up
-	public static boolean handleUpdateCostPopup(WebDriver driver, Constants.AlertMethods updateCostPopup)
+	public static boolean handleUpdateCostPopup(WebDriver driver, Constants.ALLERT_METHOD_ENUM updateCostPopup)
 	{
 		boolean result = false;
 		List<WebElement> allIframes = WebPageIframeHandler.locateAllIframes(driver);
@@ -131,12 +131,12 @@ public class EstimatingPage extends HomePage
 			return result;
 		for (WebElement ele : allIframes)
 			WebPageIframeHandler.switchToIframe(driver, ele);
-		if (updateCostPopup.equals(Constants.AlertMethods.NO))
+		if (updateCostPopup.equals(Constants.ALLERT_METHOD_ENUM.NO))
 		{
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("1")), Constants.CLICK_METHOD_ENUM.CLICK, 3);
 			WebPageIframeHandler.switchParentIframe(driver);
 		}
-		else if (updateCostPopup.equals(Constants.AlertMethods.YES))
+		else if (updateCostPopup.equals(Constants.ALLERT_METHOD_ENUM.YES))
 		{
 			result = WebPageUtils.clickElement(driver, driver.findElement(By.name("0")), Constants.CLICK_METHOD_ENUM.CLICK, 25);
 			WebPageIframeHandler.switchParentIframe(driver);

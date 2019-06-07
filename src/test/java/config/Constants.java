@@ -32,13 +32,11 @@ public final class Constants {
 	public static final String LOCALHOST_SYBASE_JDBC_USERNAME = "vsupport";
 	public static final String LOCALHOST_SYBASE_JDBC_PASSWORD = "V01ant#9VU";
 	
-	public static final String propertyFile = RESOURCE_FOLDER + "init-properties-config";
-	public static final String xmlIntegrationCSV = "TestDataAPI/csv/xml_Loader.csv";
-	public static final String testRail_URL = "https://avanti.testrail.com/";
-	public static final String testRail_Username = "testautomationavanti@gmail.com";
-	public static final String testRail_Password = "Avanti313";
-	public static final String shopFloorEmployeeCode = "Andy";
-	public static final String shopFloorPassword = "";
+	public static final String PROPERTY_FILE = RESOURCE_FOLDER + "init-properties-config";
+	public static final String XML_INTEGRATION_CSV = "TestDataAPI/csv/xml_Loader.csv";
+	public static final String TEST_RAIL_URL = "https://avanti.testrail.com/";
+	public static final String TEST_RAIL_USERNAME = "testautomationavanti@gmail.com";
+	public static final String TEST_RAIL_PASSWORD = "Avanti313";
 	
 	public static final String SQL_EXAMPLE_001 = 
 			"SELECT Name\n" + 
@@ -64,10 +62,19 @@ public final class Constants {
 		SUBMIT, 
 		RUNJS
 	}
-	public static enum AlertMethods {
-		SWITCHTO, NO, YES, OK, CANCEL
+	public static enum ALLERT_METHOD_ENUM {
+		SWITCHTO, 
+		NO, 
+		YES, 
+		OK, 
+		CANCEL
 	}
-	public static enum SlingshotMudules {
-		PURCHASING, SCHEDULING, SHIPPING, BILLING, ACCOUNTING, PRODUCTION
+	public static enum SLING_SHOT_MODULE {
+		PURCHASING, 
+		SCHEDULING, 
+		SHIPPING, 
+		BILLING, 
+		ACCOUNTING, 
+		PRODUCTION
 	}
 }

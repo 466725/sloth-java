@@ -60,7 +60,7 @@ public class HomePage extends LoginPage
 	@FindBy(id = "idf6")
 	public static WebElement productionModule;
 	
-	public boolean gotoSlingshotModules(Constants.SlingshotMudules mudule)
+	public boolean gotoSlingshotModules(Constants.SLING_SHOT_MODULE mudule)
 	{
 		switch (mudule)
 		{

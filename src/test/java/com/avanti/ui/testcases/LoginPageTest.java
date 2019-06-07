@@ -9,10 +9,10 @@ import com.framework.templates.GuiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.JavascriptExecutor;
 
-public class LoginPageTests extends GuiTestCase
+public class LoginPageTest extends GuiTestCase
 {
 	
-	protected final static Logger logger = LogManager.getLogger(LoginPageTests.class.getName());
+	protected final static Logger logger = LogManager.getLogger(LoginPageTest.class.getName());
 	protected LoginPage loginPage;
 	
 	@Test(priority = 1)

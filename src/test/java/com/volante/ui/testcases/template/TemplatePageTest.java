@@ -31,7 +31,7 @@ public class TemplatePageTest extends GuiTestCase {
 		softly.assertAll();
 	}
 
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	public void deleteConcept() {
 		test = extent.startTest("Try to delete a concept");
 		SoftAssertions softly = new SoftAssertions();
@@ -42,7 +42,7 @@ public class TemplatePageTest extends GuiTestCase {
 		softly.assertAll();
 	}
 
-//	@Test(priority = 9)
+	@Test(priority = 9)
 	public void editConcept() {
 		test = extent.startTest("Try to edit an existing concept name");
 		SoftAssertions softly = new SoftAssertions();

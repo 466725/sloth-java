@@ -1,6 +1,6 @@
 package com.gurock.testrail;
 
-import config.HTTPStatusCodes;
+import config.HttpStatusCodeEnum;
 
 /**
  * HttpResponseDataObject class for REST API HttpResponse data
@@ -32,7 +32,7 @@ public class HttpResponseDataObject {
 	}
 
 	public boolean isCallSuccesfull() {
-		String code = String.valueOf(HTTPStatusCodes.OK.getCode());
+		String code = String.valueOf(HttpStatusCodeEnum.OK.getCode());
 		if (statusCode.compareTo(code) == 0)
 			return true;
 		return false;

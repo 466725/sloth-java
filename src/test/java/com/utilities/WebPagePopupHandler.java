@@ -24,7 +24,7 @@ public class WebPagePopupHandler extends WebPageUtils {
 		}
 	}
 
-	public static void switchToAlert(WebDriver driver, String parentWindow, Constants.AlertMethods alertMethods) {
+	public static void switchToAlert(WebDriver driver, String parentWindow, Constants.ALLERT_METHOD_ENUM alertMethods) {
 		ArrayList<String> windows = new ArrayList<String>(driver.getWindowHandles());
 		logger.info("driver.getWindowHandle(): " + parentWindow);
 		logger.info("driver.getWindowHandles().size(): " + windows.size());

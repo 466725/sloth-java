@@ -13,8 +13,8 @@ public class PropertiesFileReader {
 
 	private static Properties initializePropertyFile() throws Exception {
 		Properties properties = new Properties();
-		properties.load(FileUtils.openFileAsInputStream(Constants.propertyFile));
-		logger.info("Initializing property file \"" + Constants.propertyFile + "\". ");
+		properties.load(FileUtils.openFileAsInputStream(Constants.PROPERTY_FILE));
+		logger.info("Initializing property file \"" + Constants.PROPERTY_FILE + "\". ");
 		return properties;
 	}
 
@@ -27,10 +27,10 @@ public class PropertiesFileReader {
 				}
 				return properties;
 			}
-			logger.info("Property file \"" + Constants.propertyFile + "\" is already loaded. ");
+			logger.info("Property file \"" + Constants.PROPERTY_FILE + "\" is already loaded. ");
 			return properties;
 		} catch (Exception e) {
-			logger.fatal("Failed to load property file \"" + Constants.propertyFile + "\". ");
+			logger.fatal("Failed to load property file \"" + Constants.PROPERTY_FILE + "\". ");
 			logger.error("Exception is: ", e);
 			return null;
 		}

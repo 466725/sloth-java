@@ -20,10 +20,10 @@ import com.utilities.FileUtils;
 
 import config.Constants;
 
-@DataSource(source = Constants.xmlIntegrationCSV)
-public class CSVHandlerTests extends UnitTestCase {
+@DataSource(source = Constants.XML_INTEGRATION_CSV)
+public class CsvHandlerTest extends UnitTestCase {
 
-	protected final static Logger logger = LogManager.getLogger(CSVHandlerTests.class.getName());
+	protected final static Logger logger = LogManager.getLogger(CsvHandlerTest.class.getName());
 
 	@DataProvider(name = "csvData")
 	public Iterator<Object[]> data(ITestContext context, Method method) throws Exception {

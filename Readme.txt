@@ -13,4 +13,8 @@ Note:
 1, Supported OS: Windows, Mac, Linux
 2, Supprorted Browser: Chrome, Firefox, IE
 
+To do list: 
+1, Polish modal solution, create base classes
+2, Headless support
+
 Author: Weipeng Zheng (weipeng.zheng.ca@gmail.com)

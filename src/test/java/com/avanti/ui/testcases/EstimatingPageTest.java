@@ -8,9 +8,9 @@ import com.avanti.ui.webpages.EstimatingPage;
 import com.framework.templates.GuiTestCase;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class EstimatingPageTests extends GuiTestCase
+public class EstimatingPageTest extends GuiTestCase
 {
-	protected final static Logger logger = LogManager.getLogger(EstimatingPageTests.class.getName());
+	protected final static Logger logger = LogManager.getLogger(EstimatingPageTest.class.getName());
 	protected EstimatingPage estimatingPage;
 	
 	@Test(priority = 1)
