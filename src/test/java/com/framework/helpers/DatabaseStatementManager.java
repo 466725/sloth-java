@@ -37,13 +37,13 @@ public class DatabaseStatementManager {
 	public static Statement createStatement(Constants.DB_CONN_ENUM dbConn) {
 		if (DatabaseStatementMaster.databaseStatement == null) {
 			try {
-				DatabaseStatementMaster.databaseStatement = DatabaseConnectionManager.getConnection(dbConn)
-						.createStatement();
+				DatabaseStatementMaster.databaseStatement = DatabaseConnectionManager.getConnection(dbConn).createStatement();
+				logger.info("Database statement has been created");
 			} catch (Throwable e) {
-				logger.fatal("Exception is: ", e);
+				//logger.fatal("Exception is: ", e);
+				logger.fatal("Failed to create database statement!");
 			}
 		}
-		logger.info("Database statement has been created");
 		return DatabaseStatementMaster.databaseStatement;
 	}
 

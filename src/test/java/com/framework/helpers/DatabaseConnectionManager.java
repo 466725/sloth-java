@@ -50,8 +50,10 @@ public class DatabaseConnectionManager {
 					DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
 							Constants.LOCALHOST_POSTGRE_JDBC_URL, Constants.LOCALHOST_POSTGRE_JDBC_USERNAME,
 							Constants.LOCALHOST_POSTGRE_JDBC_PASSWORD);
+					logger.info("Connected to database");
 				} catch (Throwable e) {
-					logger.fatal("Exception is: ", e);
+					//logger.fatal("Exception is: ", e);
+					logger.fatal("Postgre driver not found!");
 				}
 				break;
 			case LOCALHOST_SYBASE:
@@ -60,8 +62,10 @@ public class DatabaseConnectionManager {
 					DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
 							Constants.LOCALHOST_SYBASE_JDBC_URL, Constants.LOCALHOST_SYBASE_JDBC_USERNAME,
 							Constants.LOCALHOST_SYBASE_JDBC_PASSWORD);
+					logger.info("Connected to database");
 				} catch (Throwable e) {
-					logger.fatal("Exception is: ", e);
+					//logger.fatal("Exception is: ", e);
+					logger.fatal("Sybase driver not found!");
 				}
 				break;
 			default:
@@ -70,13 +74,14 @@ public class DatabaseConnectionManager {
 					DatabaseConnectionMaster.databaseConnection = DriverManager.getConnection(
 							Constants.LOCALHOST_POSTGRE_JDBC_URL, Constants.LOCALHOST_POSTGRE_JDBC_USERNAME,
 							Constants.LOCALHOST_POSTGRE_JDBC_PASSWORD);
+					logger.info("Connected to database");
 				} catch (Throwable e) {
-					logger.fatal("Exception is: ", e);
+					//logger.fatal("Exception is: ", e);
+					logger.fatal("Postgre driver not found!");
 				}
 				break;
 			}
 		}
-		logger.info("Connected to database");
 		return DatabaseConnectionMaster.databaseConnection;
 	}
 
