@@ -41,7 +41,7 @@
           <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
           <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
           <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
-          <stringProp name="ChromeDriverConfig.chromedriver_path">C:\Users\wzheng\eclipse-workspace\test-automation-demo\src\test\resources\ChromeDrivers\win\chromedriver-64.exe</stringProp>
+          <stringProp name="ChromeDriverConfig.chromedriver_path">C:\Users\wzheng\git\test-automation-demo\src\test\resources\ChromeDrivers\win\chromedriver-64.exe</stringProp>
           <boolProp name="ChromeDriverConfig.android_enabled">false</boolProp>
           <boolProp name="ChromeDriverConfig.headless_enabled">false</boolProp>
           <boolProp name="ChromeDriverConfig.insecurecerts_enabled">false</boolProp>
