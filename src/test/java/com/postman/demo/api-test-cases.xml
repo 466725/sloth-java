@@ -6,7 +6,7 @@
 		<!-- For both API and GUI test cases -->
 		<parameter name="browser" value="Chrome"></parameter>
 		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
-		<parameter name="baseURI" value="https://dev.volantecloud.com"></parameter>
+		<parameter name="baseURI" value="https://uat-search.cineplex.com"></parameter>
 		<classes>
 			<!-- API test cases -->
 			<class name="com.postman.demo.DemoTest" />
