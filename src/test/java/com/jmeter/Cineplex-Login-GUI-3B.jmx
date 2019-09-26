@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Cineplex-Login-GUI" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Cineplex-Login-GUI-3B" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
@@ -16,7 +16,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -52,32 +52,81 @@
 WDS.sampleResult.sampleStart()
 
 //Declare variables
-var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui)
-var wait = new pkg.WebDriverWait(WDS.browser, 10)
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui, org.openqa.selenium.Keys)
+var wait = new pkg.WebDriverWait(WDS.browser, 1000)
 var username = WDS.args[0];
 var password = WDS.args[1];
+var Thread = {
+	sleep: function(ms) {
+		var start = Date.now();
+		while (true) {
+			var clock = (Date.now() - start);
+			if (clock &gt;= ms) break;
+		}
+	}
+};
 
 //Navigate to login web page
 WDS.browser.get(&apos;https://uat-www.cineplex.com/&apos;)
-WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;site-navbar-wrap&apos;]/nav/div[4]/nav/ul/li[2]/a[1]&quot;)).click();
+
+//Click Showtimes
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;site-navbar-wrap&apos;]/nav/div[2]/ul/li[1]/a&quot;)).click();
+Thread.sleep(1000);
+
+//Pick a date and show results of movies for that date
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;showtimesDate&apos;]&quot;)).click();
+Thread.sleep(500);
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;showtimesDate&apos;]/option[13]&quot;)).click();
+Thread.sleep(500);
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;ShowtimesWidget&apos;]/div[2]/button&quot;)).click();
+
+//Select Movie and Time
+Thread.sleep(1000);
+wait.until(pkg.ExpectedConditions.elementToBeClickable(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;showtimes-partial-update&apos;]/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span[3]&quot;)))
+Thread.sleep(10000);
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;showtimes-partial-update&apos;]/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span[3]&quot;)).click();
+wait.until(pkg.ExpectedConditions.elementToBeClickable(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;l_7997_s_417298_c_0000000001&apos;]&quot;)))
+Thread.sleep(5000);
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;l_7997_s_417298_c_0000000001&apos;]&quot;)).click();
+Thread.sleep(4000);
+
+//Login from modal
 WDS.browser.switchTo().frame(&quot;bootstrapModalIframe&quot;);
 wait.until(pkg.ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;txtEmailAddress&apos;]&quot;)))
-
-//Login
 WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;txtEmailAddress&apos;]&quot;)).sendKeys(username);
 WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;txtPassword&apos;]&quot;)).sendKeys(password);
 WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;btnLogin&apos;]&quot;)).click()
-wait.until(pkg.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;site-navbar-wrap&apos;]/nav/div[2]/ul/li[2]&quot;)))
+WDS.browser.switchTo().defaultContent();
 
-//Do what ever test you want
-WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;site-navbar-wrap&apos;]/nav/div[2]/ul/li[2]&quot;)).click();
-wait.until(pkg.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;Wrapper&apos;]/div[2]/div/div/div/div/nav/ul/li[2]/a&quot;)))
-WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;Wrapper&apos;]/div[2]/div/div/div/div/nav/ul/li[2]/a&quot;)).click();
+//Workaround for bug in UAT
+WDS.browser.executeScript(&quot;location.reload()&quot;);
+Thread.sleep(5000);
+//Select the Move and Time again due to Login bug in UAT
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;showtimes-partial-update&apos;]/div[2]/div[1]/div/div[2]/div[2]/div[2]/a/span[3]&quot;)).click();
+wait.until(pkg.ExpectedConditions.elementToBeClickable(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;l_7997_s_417298_c_0000000001&apos;]&quot;)))
+Thread.sleep(5000);
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;l_7997_s_417298_c_0000000001&apos;]&quot;)).click();
 
+Thread.sleep(5000);
+//Click Add Button
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(&quot;/html/body/section/div[1]/div/div/div[2]/section[2]/div/article/div[1]/div&quot;)));
+//Add VIP Ticket
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;collapse0000000001&apos;]/div/div[2]/section/section/div/div/div[2]/div[1]/button&quot;)).click();
+//Click Proceed button
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;proceedBar&apos;]/div/div/div[3]/div/div/div[4]/button&quot;)).click();
+//Click Proceed again
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;seatmap&apos;]/h3&quot;)));
+WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;proceedBar&apos;]/div/div/div[3]/div/div/div[5]/button&quot;)).click();
+
+//Wait for Timeout
+Thread.sleep(20000);
+
+//Click Cineplex Logo
+//WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;/html/body/section/div/header/div[2]/div/div[1]/a/img&quot;)).click();
 //Logout
-WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;ccoptions&apos;]/div/ul/li[2]/a&quot;)).click();
-wait.until(pkg.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;site-navbar-wrap&apos;]/nav/div[2]/ul/li[2]&quot;)))
-java.lang.Thread.sleep(500)
+//WDS.browser.findElement(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;ccoptions&apos;]/div/ul/li[2]/a&quot;)).click();
+//wait.until(pkg.ExpectedConditions.presenceOfElementLocated(org.openqa.selenium.By.xpath(&quot;//*[@id=&apos;site-navbar-wrap&apos;]/nav/div[2]/ul/li[2]&quot;)))
+
 
 //Test sample ends here
 WDS.sampleResult.sampleEnd()
@@ -86,43 +135,6 @@ WDS.sampleResult.sampleEnd()
           <stringProp name="WebDriverSampler.language">javascript</stringProp>
         </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
         <hashTree>
-          <com.blazemeter.jmeter.http2.visualizers.ResultCollector guiclass="com.blazemeter.jmeter.http2.visualizers.ViewResultsFullVisualizer" testclass="com.blazemeter.jmeter.http2.visualizers.ResultCollector" testname="View Result Tree Http2" enabled="true">
-            <boolProp name="ResultCollector.error_logging">false</boolProp>
-            <objProp>
-              <name>saveConfig</name>
-              <value class="SampleSaveConfiguration">
-                <time>true</time>
-                <latency>true</latency>
-                <timestamp>true</timestamp>
-                <success>true</success>
-                <label>true</label>
-                <code>true</code>
-                <message>true</message>
-                <threadName>true</threadName>
-                <dataType>true</dataType>
-                <encoding>false</encoding>
-                <assertions>true</assertions>
-                <subresults>true</subresults>
-                <responseData>false</responseData>
-                <samplerData>false</samplerData>
-                <xml>false</xml>
-                <fieldNames>true</fieldNames>
-                <responseHeaders>false</responseHeaders>
-                <requestHeaders>false</requestHeaders>
-                <responseDataOnError>false</responseDataOnError>
-                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                <assertionsResultsToSave>0</assertionsResultsToSave>
-                <bytes>true</bytes>
-                <sentBytes>true</sentBytes>
-                <url>true</url>
-                <threadCounts>true</threadCounts>
-                <idleTime>true</idleTime>
-                <connectTime>true</connectTime>
-              </value>
-            </objProp>
-            <stringProp name="filename"></stringProp>
-          </com.blazemeter.jmeter.http2.visualizers.ResultCollector>
-          <hashTree/>
           <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="Login/Password" enabled="true">
             <stringProp name="filename">Cineplex-Login-Users.csv</stringProp>
             <stringProp name="fileEncoding">UTF-8</stringProp>
@@ -135,6 +147,11 @@ WDS.sampleResult.sampleEnd()
           </com.blazemeter.jmeter.RandomCSVDataSetConfig>
           <hashTree/>
         </hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        </CookieManager>
+        <hashTree/>
       </hashTree>
     </hashTree>
   </hashTree>
