@@ -9,4 +9,4 @@ execution:
 
 scenarios:
   simple:
-    script: CineplexPerfTest1junit.java
+    script: BlazemeterSeleniumPerformanceDemo.java

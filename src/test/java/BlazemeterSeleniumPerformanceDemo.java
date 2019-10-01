@@ -1,4 +1,4 @@
-package com.jmeter;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
