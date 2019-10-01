@@ -1,0 +1,12 @@
+execution:
+- executor: selenium
+  language: java-junit
+  concurrency: 5
+  iteration: 2
+  hold-for: 5m
+  ramp-up: 5s 
+  scenario: simple
+
+scenarios:
+  simple:
+    script: CineplexPerfTest1junit.java
