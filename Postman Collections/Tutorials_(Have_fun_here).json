@@ -7,121 +7,6 @@
   },
   "item": [
     {
-      "name": "User story test",
-      "item": [
-        {
-          "name": "Get movie by distance radius Copy",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "6c0d553e-e4d8-4fef-94a0-e3ef3c803119",
-                "exec": [
-                  "var moment = require('moment');\r",
-                  "pm.globals.set(\"timestamp\", moment().format(\"YYYY-MM-DD\"));"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "12237008-9841-4b1e-bd20-ffa2cd98507f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is successful\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.null;",
-                  "});",
-                  "",
-                  "pm.test(\"Movies list is defined\", function(){",
-                  "    pm.expect(jsonBody.data).to.not.be.undefined;",
-                  "});",
-                  "",
-                  "//User Story 31461: WatchList: Remove \"isWatchlisted\" flag from all APIs so they can be cached on the cloud",
-                  "if (pm.request.url.getPath().has('v1')){",
-                  "    pm.test(\"isWatchListed flag is available\", function(){",
-                  "        for(var i = 0; i < jsonBody.data.length; i++){",
-                  "            pm.expect(jsonBody.data[i].isWatchListed).to.not.eql(null);",
-                  "        }",
-                  "    });",
-                  "} else {",
-                  "    pm.test(\"isWatchListed flag is not available\", function(){",
-                  "        for(var i = 0; i < jsonBody.data.length; i++){",
-                  "            pm.expect(jsonBody.data[i].isWatchListed).to.eql(undefined);",
-                  "        }",
-                  "    });",
-                  "}",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "e5ce3e76-9e9e-4f86-853e-cf57fec94fda",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{ocp-apim-subscription-key}}",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "{{cineplex_url}}/movies/{{api_version}}/getmoviesbydistanceradius?Language={{language}}&Latitude={{latitude}}&Longitude={{longitude}}&Range={{radius}}&ShowDate=2019-10-07",
-              "host": [
-                "{{cineplex_url}}"
-              ],
-              "path": [
-                "movies",
-                "{{api_version}}",
-                "getmoviesbydistanceradius"
-              ],
-              "query": [
-                {
-                  "key": "Language",
-                  "value": "{{language}}"
-                },
-                {
-                  "key": "Latitude",
-                  "value": "{{latitude}}"
-                },
-                {
-                  "key": "Longitude",
-                  "value": "{{longitude}}"
-                },
-                {
-                  "key": "Range",
-                  "value": "{{radius}}"
-                },
-                {
-                  "key": "ShowDate",
-                  "value": "2019-10-07"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "63d480c5-f716-469b-9882-a72e77600994"
-    },
-    {
       "name": "Handle Environment Difference",
       "item": [
         {
@@ -1673,37 +1558,37 @@
   ],
   "variable": [
     {
-      "id": "638f2fef-bead-4fa2-bd3c-e65a9fd86044",
+      "id": "9e7cca57-12fb-4eac-8694-7e4c1806d5dd",
       "key": "collection_version",
       "value": "v2",
       "type": "string"
     },
     {
-      "id": "f1d15f3e-94b5-4aba-83a2-71d3120e3744",
+      "id": "1993e6fc-233e-4651-9697-78e608ede848",
       "key": "max_response_time",
       "value": "800",
       "type": "string"
     },
     {
-      "id": "860bc784-15ce-48a3-8dbd-f063393129af",
+      "id": "9e6d81a7-87dc-492c-bd42-6aba3577f7c1",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "99ab3818-78c5-4a08-addb-6fe872c3b345",
+      "id": "12bdfc83-966a-43fe-a806-e53990cca7c1",
       "key": "password",
       "value": "Cineplex@1307",
       "type": "string"
     },
     {
-      "id": "213afc81-5a8a-46d7-b095-edb5b855b627",
+      "id": "d1a6b8f4-9dbe-43f0-b1fb-18e10d9df1d0",
       "key": "username2",
       "value": "weipeng2.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "63597766-1949-47a8-90ca-03dde456d60a",
+      "id": "b12a03a0-204f-436b-9747-3217b38c2dd0",
       "key": "username3",
       "value": "weipeng3.zheng@cineplex.com",
       "type": "string"
