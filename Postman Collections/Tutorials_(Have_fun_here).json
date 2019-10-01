@@ -1563,37 +1563,37 @@
   ],
   "variable": [
     {
-      "id": "2696c09c-15ab-4548-9250-6a8b5bff8683",
+      "id": "4ea17dda-20c6-405d-b15d-75f36f810d7d",
       "key": "collection_version",
       "value": "v2",
       "type": "string"
     },
     {
-      "id": "bfe0393a-e76e-4a3e-b4f5-0782ad8c6bda",
+      "id": "a9829020-fa06-47d7-bf6d-c37ab0e3911b",
       "key": "max_response_time",
       "value": "800",
       "type": "string"
     },
     {
-      "id": "b04786f2-2184-4fdf-9b5c-9f6c2754e79d",
+      "id": "a977c7eb-cdf7-47e0-9434-c2fd434e7179",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "4366301f-d055-49c8-b1dc-62778f46737a",
+      "id": "99615e6e-d22b-47cc-b736-9e72408ffef6",
       "key": "password",
       "value": "Cineplex@1307",
       "type": "string"
     },
     {
-      "id": "e2f6ddf1-c2da-4fe6-87ae-29c839afc1b8",
+      "id": "fcf287d6-dc9e-452c-be72-7058a01c5f48",
       "key": "username2",
       "value": "weipeng2.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "91a2c606-739a-4848-ad56-90b01a52e732",
+      "id": "8a080a6b-b062-460b-8401-b2caad728ceb",
       "key": "username3",
       "value": "weipeng3.zheng@cineplex.com",
       "type": "string"
