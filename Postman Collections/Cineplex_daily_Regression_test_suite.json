@@ -8022,7 +8022,57 @@
     },
     {
       "name": "Fix-MissingPosterIssue",
-      "item": [],
+      "item": [
+        {
+          "name": "Fix missing poster issue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c2d86856-74a8-4efc-b7cc-97aea7861ae6",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "148f13b7-ca56-4907-b747-b38712cc02f5",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9e959a7c-9e71-4e93-b7e6-c04bfeacf28e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"LanguageType\":\"1\",\r\n\t\"SessionToken\":\"{{session_token}}\",\r\n    \"UserSessionToken\":\"{{user_session_token}}\"\r\n}"
+            },
+            "url": "http://appserver.cineplex.com/CentralDataFeeds/FilmDataConnect/SynchronizeFilmPosterByFilmIdToCineplexCom/FilmId",
+            "description": "Copy filmID from film central website, and then run this API."
+          },
+          "response": []
+        }
+      ],
       "_postman_id": "0512458b-fa63-45d3-8f7a-311d8ef59c8b"
     }
   ],
@@ -8076,55 +8126,55 @@
   ],
   "variable": [
     {
-      "id": "423b2b9b-4ccb-4f78-88de-3b07fc9c4d71",
+      "id": "dad8d462-1906-42a4-810b-69c0e316ba52",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "b782baae-a291-4cc6-aa34-26d377443313",
+      "id": "fa087fa2-66e3-420b-85eb-a3a21e7348b4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "b514997a-55da-42cc-8831-0f0988509da0",
+      "id": "a2bef4ef-6c29-4fdb-b5ba-389203bc5524",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4d484a27-e8e7-48e1-9ece-2099b8f86325",
+      "id": "e4aeac8b-66ff-4a13-843f-7df2264f69f5",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "f00c3871-a005-4042-8596-9871b203ef8b",
+      "id": "f5a8957a-bfde-4e5f-8119-a9842aff859b",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "12367529-de0a-4d2d-930b-81018642b4c6",
+      "id": "0aab2d8d-a25f-4a96-8fcc-fafdd73a6cef",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "426e3590-d04d-452f-ad9b-da8d6eb47d73",
+      "id": "66cd0e95-67c2-48b7-825e-e72a941f8e72",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6e66358f-06e2-43c6-8fb8-249956c4fa4f",
+      "id": "28e97398-22a1-448d-9a32-bbfb2b93e659",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "109579b6-1ec5-483e-aa2e-8b1056b7f846",
+      "id": "c24d054e-4f03-4de3-957a-cc047340f150",
       "key": "radius",
       "value": "50",
       "type": "string"
