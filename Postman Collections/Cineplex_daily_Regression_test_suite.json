@@ -8019,6 +8019,11 @@
           }
         }
       ]
+    },
+    {
+      "name": "Fix-MissingPosterIssue",
+      "item": [],
+      "_postman_id": "0512458b-fa63-45d3-8f7a-311d8ef59c8b"
     }
   ],
   "event": [
@@ -8071,55 +8076,55 @@
   ],
   "variable": [
     {
-      "id": "d00e1acc-4573-4e9f-841d-e48966c30a08",
+      "id": "fe8b448e-6bb4-40a6-b82a-578977b3c5c8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "835cbf44-4dc6-4bb6-a6df-3843b35063ad",
+      "id": "abff0b0a-863a-4a62-aa7e-6927a0bf397f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "1243fbd1-5a3a-4f5b-a745-66385accc762",
+      "id": "0b96a5c2-9360-43d3-b7e8-c7185914f615",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ee42350a-1182-4e7b-ae54-7b95ff7d9d4a",
+      "id": "847c8dd5-c315-4f99-a66d-ff00c997daaa",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "f0892d54-2b5e-4930-8f84-d3621f546a1b",
+      "id": "fc79ddad-5a0d-4de6-a89f-90238f0ff096",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "1f231504-fff1-41db-a542-2da19dd1346e",
+      "id": "7d2b175e-390e-45ad-9ea7-c8a902a755df",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "2050deae-f37a-4abe-9ae7-bf6fb7ca5f94",
+      "id": "9813be95-6a10-4e3c-8398-f21558052283",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8bc20fd3-2220-44f0-b2ed-74870c85aad8",
+      "id": "6ad39132-77b3-418e-b9ac-0b92683fed55",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "93ac53b3-2c08-49f4-b521-8075650b50fd",
+      "id": "2e8644ad-1366-41da-9aa6-b7b3d996d8b3",
       "key": "radius",
       "value": "50",
       "type": "string"
