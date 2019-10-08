@@ -7905,7 +7905,7 @@
           "response": []
         },
         {
-          "name": "Advanced Sales Test Copy",
+          "name": "Get movies by distance radius PROD - www02",
           "event": [
             {
               "listen": "prerequest",
@@ -8170,55 +8170,55 @@
   ],
   "variable": [
     {
-      "id": "9c86f361-017e-4d22-88f6-0cbffc519fe5",
+      "id": "9b0a5498-25a1-403b-bbc7-8cfde1a3d796",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "534e4a63-4c71-4db6-bfb5-9c8af7be0424",
+      "id": "9fded364-c074-41c2-8cde-4cf9b4bb5c84",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8f12363c-9a9d-4700-927b-adff5ce543d5",
+      "id": "2b264243-5f75-43d9-bc6a-2de21ecf8cf4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "52cffa32-da5b-49c8-b86b-60f4cd96c511",
+      "id": "bb2bb129-95a9-489f-8cbd-aa930e71645c",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "8e45d063-d6e1-4c70-a1cd-b7cbba92767a",
+      "id": "c2046501-aa7f-44a5-84fe-2ca7d092a266",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "75308fce-0b7c-480e-b862-7aca2159284e",
+      "id": "12308dad-7fcf-4738-9896-df9d2d2873ba",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cdf369e3-015a-43fc-b62b-0728c1d84395",
+      "id": "37b1f762-4f9e-43b0-a61b-08a3e3961e0e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4d6de464-c852-4013-b9c1-e8c614627e4d",
+      "id": "8b05ba5d-040c-4f72-a2d2-07afcab9a635",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a8ed1bed-caf9-4f35-b23c-07c280b31364",
+      "id": "d9ee266d-5842-4fd6-a686-fd54bf3339b5",
       "key": "radius",
       "value": "50",
       "type": "string"
