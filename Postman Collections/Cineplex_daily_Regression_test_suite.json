@@ -7699,39 +7699,7 @@
                   "var jsonBody = pm.response.json();",
                   "",
                   "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is successful\", function(){",
-                  "    pm.expect(jsonBody.message).eql(\"Successful\");",
-                  "});",
-                  "",
-                  "pm.test(\"Movies list is not empty\", function(){",
-                  "    pm.expect(jsonBody.data.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "//User Story 31461: WatchList: Remove \"isWatchlisted\" flag from all APIs so they can be cached on the cloud",
-                  "if (pm.request.url.getPath().has('v1')){",
-                  "    pm.test(\"isWatchListed flag is available\", function(){",
-                  "        for(var i = 0; i < jsonBody.data.length; i++){",
-                  "            pm.expect(jsonBody.data[i].isWatchListed).to.not.eql(null);",
-                  "        }",
-                  "    });",
-                  "} else {",
-                  "    pm.test(\"isWatchListed flag is not available\", function(){",
-                  "        for(var i = 0; i < jsonBody.data.length; i++){",
-                  "            pm.expect(jsonBody.data[i].isWatchListed).to.eql(undefined);",
-                  "        }",
-                  "    });",
-                  "}",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
                 ],
                 "type": "text/javascript"
               }
@@ -8234,55 +8202,55 @@
   ],
   "variable": [
     {
-      "id": "cb84df15-4f77-4ce5-9f81-0d2b8c17a854",
+      "id": "86a27dcd-32ea-4b64-ba35-35a9d272a29f",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "f20c8899-62a5-4f4c-97ce-897f248c8b32",
+      "id": "cc637877-ed31-499b-87fb-75b3f8749318",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f98ad612-319f-4d4d-912f-0efdab408065",
+      "id": "7a6fb03c-7eb8-468e-ba80-2f2863b3b8f9",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "943bfb62-dea1-494f-902e-f29fe3710cdd",
+      "id": "3e761cd3-888d-47c1-b322-bc5c4f5fcc33",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "ec4bf8f9-cb28-4afe-be2f-59eeef913712",
+      "id": "252e481a-ac23-448a-9a69-116bfd0f37d6",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "9fc16268-6392-4ed7-9f48-c7cc39fdda07",
+      "id": "29065699-8e38-48f5-9997-3d52fa7f485e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "fd02778f-f15f-4741-9d1d-9fda38d8b4d5",
+      "id": "0f46a11f-ad96-4969-b267-5ceafb6da52c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c45a9065-502d-4cf8-8353-9cd0ad29b7e3",
+      "id": "d18856e9-9287-47ea-9552-8bac1ced537a",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "68570721-4cb6-4e72-a6f1-5f8f84eef099",
+      "id": "47ffeb73-46b1-4b7d-b167-8f8399e1a344",
       "key": "radius",
       "value": "50",
       "type": "string"
