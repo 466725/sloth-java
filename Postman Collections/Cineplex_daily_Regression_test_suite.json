@@ -7836,7 +7836,7 @@
               }
             ],
             "url": {
-              "raw": "https://apis.cineplex.com/uat/cpx/api/movies/v1?language=en-us",
+              "raw": "https://apis.cineplex.com/uat/cpx/movies/v1?language=en-us",
               "protocol": "https",
               "host": [
                 "apis",
@@ -7846,7 +7846,6 @@
               "path": [
                 "uat",
                 "cpx",
-                "api",
                 "movies",
                 "v1"
               ],
@@ -8235,55 +8234,55 @@
   ],
   "variable": [
     {
-      "id": "78511af7-9e61-4f57-94fc-35c86466417b",
+      "id": "a75fc3fc-65ed-49b6-8c82-acec13183b54",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d461f404-ed3b-4f32-8134-09c4804b24f3",
+      "id": "5eb2ec96-54a3-4863-9f68-8628a920948f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "b2cf8470-0b38-43ee-a2c8-2d21f64c1710",
+      "id": "e7d93ad0-2709-44d6-850a-9862c5185394",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "1ddba565-41f4-4497-bbc5-9465336c7569",
+      "id": "c1775337-9582-41f9-83b2-f6f28c4f3dc1",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "35ce38ba-c42c-4d97-8dfe-e79108d300c4",
+      "id": "113faed2-bc02-4850-9a39-3bf9b19ddb2b",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "e64371ab-b903-472e-89fd-141ded29cb25",
+      "id": "3954f809-4aa8-4c6e-9aeb-befe2fda8675",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "828a9cb0-f199-4891-b1e3-9809d31afbc4",
+      "id": "0d7f75b6-3517-4e3c-af0b-7bcacb4bc13f",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "27e8fbd6-71a8-4799-8e2d-ff0541423ce0",
+      "id": "63014865-7969-440d-8568-c3fcdd64a582",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "02d21ddf-61e9-4161-b35b-268f720247a2",
+      "id": "efd7c4c9-6a64-4173-a154-1f14055773ec",
       "key": "radius",
       "value": "50",
       "type": "string"
