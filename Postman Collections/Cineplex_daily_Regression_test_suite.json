@@ -7901,7 +7901,7 @@
               }
             ],
             "url": {
-              "raw": "https://prestage.cineplex.com/api/v1/movies/getmoviesforoneposter?Skip=0&Take=1000&language=en-us&marketLanguageCodeFilter=true&movieType=0&showTimeType=0&showtimeSta",
+              "raw": "https://prestage.cineplex.com/api/v1/theatres/7403/availablemoviesoneposter/dates?language=en-us&marketLanguageCodeFilter=false&skip=0&take=10000",
               "protocol": "https",
               "host": [
                 "prestage",
@@ -7911,37 +7911,27 @@
               "path": [
                 "api",
                 "v1",
-                "movies",
-                "getmoviesforoneposter"
+                "theatres",
+                "7403",
+                "availablemoviesoneposter",
+                "dates"
               ],
               "query": [
-                {
-                  "key": "Skip",
-                  "value": "0"
-                },
-                {
-                  "key": "Take",
-                  "value": "1000"
-                },
                 {
                   "key": "language",
                   "value": "en-us"
                 },
                 {
                   "key": "marketLanguageCodeFilter",
-                  "value": "true"
+                  "value": "false"
                 },
                 {
-                  "key": "movieType",
+                  "key": "skip",
                   "value": "0"
                 },
                 {
-                  "key": "showTimeType",
-                  "value": "0"
-                },
-                {
-                  "key": "showtimeSta",
-                  "value": null
+                  "key": "take",
+                  "value": "10000"
                 }
               ]
             },
@@ -8369,55 +8359,55 @@
   ],
   "variable": [
     {
-      "id": "dee9ac89-9b92-4cb4-b5f9-43e254fe52e5",
+      "id": "c9418aa5-00b4-46c9-abae-7bba821a9393",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "38e9c89b-5900-40ab-ade7-d95adc563d49",
+      "id": "1e7c3a5d-ec1d-463c-94af-1e45e5c3d553",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "036ec303-3799-4a79-b4ff-9d2ec2fb2c39",
+      "id": "57780411-3dc9-4f60-be16-c24729735404",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "c78aaa08-9ac5-4a42-8b8c-b45ad45d3eca",
+      "id": "8124b651-17ac-4a0a-99d3-9232653ae043",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "cda33ce8-3070-4a1f-8a60-bc7ffd701adb",
+      "id": "cd6602d1-c377-4eed-bf39-ed3a40cc4645",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "8b60d1f0-58c4-4c22-972e-c257ffd3cfa0",
+      "id": "9f635b34-1ce9-492a-b737-1975ff3be619",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ea96852c-0fa5-46e5-ab93-7720baf34d9d",
+      "id": "91cd0250-782c-4ac2-ad69-beec547ee6d1",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f85a7046-f2cd-4d86-ac08-f91eb0787291",
+      "id": "dea70790-1bd4-4d1c-b3a6-1fd3161ae2b8",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "85467879-bfac-46ff-a9b9-4034865fd592",
+      "id": "98540960-71a0-458d-bca6-2bf326b1e250",
       "key": "radius",
       "value": "50",
       "type": "string"
