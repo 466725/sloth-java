@@ -7551,7 +7551,7 @@
       ]
     },
     {
-      "name": "Test-ApplePassKit",
+      "name": "UserStory-ApplePassKit",
       "item": [
         {
           "name": "Register a device",
@@ -7708,7 +7708,7 @@
       ]
     },
     {
-      "name": "Test-AdvancedSales",
+      "name": "UserStory-AdvancedSales",
       "item": [
         {
           "name": "Get movies",
@@ -8198,7 +8198,7 @@
       ]
     },
     {
-      "name": "Test-MissingPoster",
+      "name": "UserStory-MissingPoster",
       "item": [
         {
           "name": "Fix missing poster issue",
@@ -8327,55 +8327,55 @@
   ],
   "variable": [
     {
-      "id": "827df6dd-4622-496a-bad9-03ff4878c238",
+      "id": "50e6868f-5c88-4402-82d0-1ef7b1f537ff",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "2826ac95-7126-45aa-b5ac-bd97d8e7225b",
+      "id": "5cb15b64-47be-4222-86c6-e0b065eecd3c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "22566b30-07f8-45ff-b9cd-a84666255494",
+      "id": "15e0c94c-1991-44c0-a703-8b935923d8d1",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "93811110-b8a2-4164-851b-7565d95ceb95",
+      "id": "7edc6dfa-6379-4417-81af-2673c6d93321",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "9c154503-05ae-44f2-bbb7-f75feb7e8ea9",
+      "id": "ddf38959-abbc-475a-8a21-4c7da0c29fff",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "c838a302-0df0-4b9d-b0b9-3696dafbbadd",
+      "id": "55655541-3146-4011-bc90-25074b9a47f8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "936706d7-7479-4b3b-84cf-5a6bcef3ec7e",
+      "id": "063b02c3-b4cc-46b2-8a56-dfe5c9da11af",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "bbf8b53f-8993-443c-bf4c-f47ec1cbe7cb",
+      "id": "73201396-7b3b-4191-8393-5ca16ea54cac",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a17ce737-ed22-41ba-8561-3ed0fa7c1909",
+      "id": "959210b0-9fe2-4785-9815-639e1f52bbaf",
       "key": "radius",
       "value": "50",
       "type": "string"
