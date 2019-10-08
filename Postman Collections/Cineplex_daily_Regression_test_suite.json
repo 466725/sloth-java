@@ -7551,7 +7551,7 @@
       ]
     },
     {
-      "name": ".com-ApplePassKit",
+      "name": "Test-ApplePassKit",
       "item": [
         {
           "name": "Register a device",
@@ -7683,7 +7683,29 @@
           "response": []
         }
       ],
-      "_postman_id": "24fe8b85-d6a4-4986-8cde-cae371b80de6"
+      "_postman_id": "24fe8b85-d6a4-4986-8cde-cae371b80de6",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "a2bd1305-6bb0-4ee8-87d9-58aea1911216",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "74b7ac35-190a-4013-9ac2-8ec234a54bc8",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Test-AdvancedSales",
@@ -8108,55 +8130,55 @@
   ],
   "variable": [
     {
-      "id": "37f470b8-5211-4a0d-aea3-e17b5f8d796f",
+      "id": "8c1499ec-8d10-45d6-8a36-8c0e1dc802ef",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "15253c04-aefd-43ec-9abd-ed27456d3b06",
+      "id": "bc9e01a2-dd38-4d8a-ba44-0510bae470be",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "31b62e7b-474a-44e9-81a8-fb5d28b82897",
+      "id": "81fe539e-6371-4d5a-8954-da76baf2a4f4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "c8c1c528-d286-4d06-893b-423ebd67c21e",
+      "id": "6db72459-b3c8-4994-97d7-ba6d259eebbb",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "72df4bf4-d576-4deb-805a-857cdf540790",
+      "id": "88f26cae-cbf0-4778-a615-5f8a104f07ab",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "a62e2172-80d3-4d9a-8cf9-3226bb2267d9",
+      "id": "31934fde-5a9e-4bb9-bd80-3320ef45b6bd",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "888168b0-3031-41d3-8181-4f75ccb7a380",
+      "id": "caba4a0a-bb61-41e5-a76c-fe19850d9031",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b16beec3-a60c-4cea-8b60-d18f7a7aae46",
+      "id": "1a41d052-8e12-4d8e-ae22-74f310538994",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "29c3c5e8-b1bb-478d-8bfd-bfaaf6dfed93",
+      "id": "f72b427f-0378-44a1-b50b-6d4a24845747",
       "key": "radius",
       "value": "50",
       "type": "string"
