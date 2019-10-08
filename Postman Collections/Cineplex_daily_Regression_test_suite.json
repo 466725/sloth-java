@@ -7711,7 +7711,7 @@
       "name": "Test-AdvancedSales",
       "item": [
         {
-          "name": "Get movies Copy",
+          "name": "Get movies",
           "event": [
             {
               "listen": "test",
@@ -8211,55 +8211,55 @@
   ],
   "variable": [
     {
-      "id": "a4eec8f7-c147-4ada-a5d0-5917f7cdb108",
+      "id": "c845365e-fac8-4e79-b127-247762c9d605",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "70722cee-ed74-41e2-bc4f-103e666364d8",
+      "id": "74fa7946-df29-47c4-a898-caa8613df46c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ac2aa9ae-5c13-4c20-b108-ebd2c4ce6999",
+      "id": "87171563-dd8f-4352-90c5-c8fdbb74e48d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5d4fcfe1-7cac-4b91-81d5-8e74f82063de",
+      "id": "c77d77c3-6f61-43c8-9090-3c39cca4c624",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "78624f02-d1ef-4c51-aaf6-1f78fdb693f5",
+      "id": "e6bfc5ca-52f8-40de-bdf7-b7fed64b976b",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "f2846542-dd86-408e-9ae4-1c0536b016ca",
+      "id": "730001df-b8d0-4adc-86ae-3bb024bac635",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "054f74c5-2d90-402e-a94b-b7e3048cd45e",
+      "id": "73d27c8e-78ff-46b3-a7af-2b7906fa6509",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7c51534f-565e-4865-a3fc-90cc7a8912ef",
+      "id": "658ceaa6-9d41-4be3-887b-44cc6204e103",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ae23150e-0b03-460b-90cd-0578f380ca98",
+      "id": "0a3d6e9a-4ec0-4059-a351-f036027bda34",
       "key": "radius",
       "value": "50",
       "type": "string"
