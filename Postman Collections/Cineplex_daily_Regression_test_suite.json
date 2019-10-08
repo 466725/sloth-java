@@ -7591,6 +7591,19 @@
         },
         {
           "name": "RegisteringDevice No Serial Number",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b892316-9cd4-41b5-b113-b7ad9e23c77c",
+                "exec": [
+                  "tests[\"Status code is 201\"] = responseCode.code === 201;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "22535036-f0dc-46ef-b222-24affbe31355",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -7616,7 +7629,8 @@
               "script": {
                 "id": "cbee5d4b-13d0-43d6-b6fb-8b8e20c08e8b",
                 "exec": [
-                  "tests[\"Status code is 304\"] = responseCode.code === 304;"
+                  "tests[\"Status code is 304\"] = responseCode.code === 304;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
                 ],
                 "type": "text/javascript"
               }
@@ -8328,55 +8342,55 @@
   ],
   "variable": [
     {
-      "id": "8addf3e0-b889-454c-be4a-8c030588b533",
+      "id": "46214f6d-0e5f-47fe-a19d-549afcb10813",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "19f0811c-8c95-4515-ade1-5da3966142e9",
+      "id": "764cafc0-3438-4471-be58-a99c7e741877",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2e6ddfc7-cd4c-4370-98c8-e71b6c7303f3",
+      "id": "3bdb5ff0-0684-427b-a3ba-f790c221b03f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "57a4a41f-2816-42fc-a7ac-bfe375320550",
+      "id": "57ed605f-1662-4435-96b4-8b93f0ef6d55",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "a298ecbe-825e-4b3f-8ba6-fb8aa36a1d1c",
+      "id": "36ae82ea-e3f3-4cfb-8022-a34240a60b3c",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "921aa449-522b-4982-8742-8215a749afd8",
+      "id": "d86ab50d-b3f1-4680-8b01-7ee1ed4bb9cc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8ec49423-0a52-460f-8ed6-c202cbf6a255",
+      "id": "3789eb55-cc8e-4897-bc99-d77d360fd85e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3bc3adb5-f097-4f76-a7bd-abb92db7722d",
+      "id": "87047041-fa3d-40b6-96c1-dc4803421f3f",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "67c7b658-28fb-4631-8206-1ba7a0882486",
+      "id": "e3b0469b-ba8e-45b5-a465-4f4aca153d25",
       "key": "radius",
       "value": "50",
       "type": "string"
