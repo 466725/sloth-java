@@ -7845,13 +7845,13 @@
               }
             ],
             "url": {
-              "raw": "{{cineplex_url}}/movies/{{api_version}}/getmoviesbydate?language={{language}}&showDate=2019-10-12&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
+              "raw": "{{cineplex_url}}/movies/v1/getmoviesbydate?language={{language}}&showDate=2019-10-12&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
               "host": [
                 "{{cineplex_url}}"
               ],
               "path": [
                 "movies",
-                "{{api_version}}",
+                "v1",
                 "getmoviesbydate"
               ],
               "query": [
@@ -8301,55 +8301,55 @@
   ],
   "variable": [
     {
-      "id": "07e8dc4a-9280-4419-9dce-f75c87215091",
+      "id": "d349bf84-a718-4865-be29-de2a0c70644b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "bcbbaf51-bfbf-42e5-886c-eacc651ed043",
+      "id": "12ac8303-2af1-4253-9bb5-8c363b333e14",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "985481d1-9c78-4964-a9af-1a455b858405",
+      "id": "fdc7024d-cdb5-4a55-8d6d-312304348f6f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "238eef15-7af0-4c3a-935f-5ca1c528cb9d",
+      "id": "86991cbd-849f-416c-afe1-0f766c8d063f",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "6e200233-cd77-4955-ab3b-529218fbc17c",
+      "id": "647d5b83-df11-405f-bad5-fc02521dff5d",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "a4687923-d790-4e41-8d37-146a6bc64822",
+      "id": "1d7d46a6-22ec-4c3e-b109-5584a6481939",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "87f54f1a-deb5-4365-83f6-1362f66da766",
+      "id": "89f10701-b446-41b9-a645-1c644e027841",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7073e5f9-2553-4044-95f2-37f142645f78",
+      "id": "d7c29157-ccd5-4426-a180-a72561a3c4c1",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f08b9396-64d5-417b-9fb2-fdf00e070844",
+      "id": "28a5cf79-a3d2-49f7-8576-9bcbd6878af5",
       "key": "radius",
       "value": "50",
       "type": "string"
