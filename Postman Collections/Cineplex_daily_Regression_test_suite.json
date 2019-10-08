@@ -2892,96 +2892,6 @@
           "response": []
         },
         {
-          "name": "Get movie by date Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "8e4677ab-e57f-4889-b41f-be02ecaf7629",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "if (pm.request.url.getPath().has('v1')){",
-                  "\tpm.test(\"Status code is 400\", function(){",
-                  "\t\tpm.response.to.have.status(400);",
-                  "\t});",
-                  "} else {",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
-                  "\t\tpm.expect(jsonBody.status).to.be.above(0);",
-                  "\t});",
-                  "",
-                  "    pm.test(\"jsonBody.message is successful\", function(){",
-                  "        pm.expect((jsonBody.message === \"NotFound\") || (jsonBody.message === \"Successful\")).to.be.true;",
-                  "    });",
-                  "\t",
-                  "\tpm.test(\"jsonBody.data is defined\", function(){",
-                  "\t\tpm.expect(jsonBody.data).to.not.be.null;",
-                  "\t});",
-                  "",
-                  "    //User Story 33807: Create Versioning in Cineplex.com",
-                  "    pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "        pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "    });",
-                  "}"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "a6c809b8-9267-4c93-a10a-94aa62df31ef",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Ocp-Apim-Subscription-Key",
-                "type": "text",
-                "value": "{{ocp-apim-subscription-key}}"
-              }
-            ],
-            "url": {
-              "raw": "{{cineplex_url}}/movies/{{api_version}}/getmoviesbydate?language={{language}}&showDate={{timestamp}}&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
-              "host": [
-                "{{cineplex_url}}"
-              ],
-              "path": [
-                "movies",
-                "{{api_version}}",
-                "getmoviesbydate"
-              ],
-              "query": [
-                {
-                  "key": "language",
-                  "value": "{{language}}"
-                },
-                {
-                  "key": "showDate",
-                  "value": "{{timestamp}}"
-                },
-                {
-                  "key": "request.marketLanguageCodeFilter",
-                  "value": "true"
-                },
-                {
-                  "key": "request.movieType",
-                  "value": "1"
-                },
-                {
-                  "key": "request.showTimeType",
-                  "value": "1"
-                }
-              ]
-            },
-            "description": "https://apis.cineplex.com/uat/cpx/movies/v1/29373/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=50&Request.Skip=0&Request.Take=2147483647"
-          },
-          "response": []
-        },
-        {
           "name": "Get available cacheable theatres",
           "event": [
             {
@@ -7882,6 +7792,96 @@
           "response": []
         },
         {
+          "name": "Get movie by date Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8e4677ab-e57f-4889-b41f-be02ecaf7629",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "if (pm.request.url.getPath().has('v1')){",
+                  "\tpm.test(\"Status code is 400\", function(){",
+                  "\t\tpm.response.to.have.status(400);",
+                  "\t});",
+                  "} else {",
+                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
+                  "\t\tpm.expect(jsonBody.status).to.be.above(0);",
+                  "\t});",
+                  "",
+                  "    pm.test(\"jsonBody.message is successful\", function(){",
+                  "        pm.expect((jsonBody.message === \"NotFound\") || (jsonBody.message === \"Successful\")).to.be.true;",
+                  "    });",
+                  "\t",
+                  "\tpm.test(\"jsonBody.data is defined\", function(){",
+                  "\t\tpm.expect(jsonBody.data).to.not.be.null;",
+                  "\t});",
+                  "",
+                  "    //User Story 33807: Create Versioning in Cineplex.com",
+                  "    pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+                  "        pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a6c809b8-9267-4c93-a10a-94aa62df31ef",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{cineplex_url}}/movies/{{api_version}}/getmoviesbydate?language={{language}}&showDate={{timestamp}}&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
+              "host": [
+                "{{cineplex_url}}"
+              ],
+              "path": [
+                "movies",
+                "{{api_version}}",
+                "getmoviesbydate"
+              ],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "{{language}}"
+                },
+                {
+                  "key": "showDate",
+                  "value": "{{timestamp}}"
+                },
+                {
+                  "key": "request.marketLanguageCodeFilter",
+                  "value": "true"
+                },
+                {
+                  "key": "request.movieType",
+                  "value": "1"
+                },
+                {
+                  "key": "request.showTimeType",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "https://apis.cineplex.com/uat/cpx/movies/v1/29373/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=50&Request.Skip=0&Request.Take=2147483647"
+          },
+          "response": []
+        },
+        {
           "name": "Get movies UAT",
           "event": [
             {
@@ -8301,55 +8301,55 @@
   ],
   "variable": [
     {
-      "id": "45659eda-748e-43ef-a1e7-0809dd487f04",
+      "id": "da802b54-5d2c-4bf2-8740-f812782e6e94",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "28b4e9a5-3ae7-466e-8eb3-fe62c8c74050",
+      "id": "37094736-6fce-4b93-8b52-8d41eaa8b3b0",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4f23cc57-d0d7-4771-bf35-ebce1991f733",
+      "id": "341a22dd-c2f5-4a79-970c-322acd9f248d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "f338471a-e490-4e45-8fdd-82fb3956c1bf",
+      "id": "838f6c9a-c93a-4594-9706-1e69901cdd9e",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "2132203c-a02e-4394-87d5-993314175855",
+      "id": "d940d038-b735-4f82-b8c8-865e68389933",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "a7efb650-2896-4c96-b1c8-298e35c5f243",
+      "id": "94194b53-fc59-46b2-9797-fc97e73b61df",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "b11331a4-0217-412d-a022-e2bec61180d6",
+      "id": "a1cc1408-c81b-4a99-81fa-ff92c0181560",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "101b8f0a-d956-4ebc-85da-2d73d2c1e839",
+      "id": "03973259-dc02-4fea-a6e8-68d63f3862de",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "4c26971d-c59b-48eb-803a-57e68b582eef",
+      "id": "bbabb9d5-c08b-4bd3-a557-f1d5f1e616f1",
       "key": "radius",
       "value": "50",
       "type": "string"
