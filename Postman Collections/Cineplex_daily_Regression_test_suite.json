@@ -7973,8 +7973,8 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{ocp-apim-subscription-key}}",
-                "type": "text"
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
               }
             ],
             "url": {
@@ -8170,55 +8170,55 @@
   ],
   "variable": [
     {
-      "id": "9b0a5498-25a1-403b-bbc7-8cfde1a3d796",
+      "id": "5339f63b-f9f2-403f-8bd7-78aea21ad313",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "9fded364-c074-41c2-8cde-4cf9b4bb5c84",
+      "id": "13863a69-9a7c-40f4-bbd5-97e0f9afb993",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2b264243-5f75-43d9-bc6a-2de21ecf8cf4",
+      "id": "1ce95968-4672-48b7-8a2c-83c134631da4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "bb2bb129-95a9-489f-8cbd-aa930e71645c",
+      "id": "4b614e8d-d6eb-4cf9-b7c2-bc3de8707e71",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "c2046501-aa7f-44a5-84fe-2ca7d092a266",
+      "id": "bcdb2bfd-5624-4ffb-9106-dc587b738d87",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "12308dad-7fcf-4738-9896-df9d2d2873ba",
+      "id": "bf883a3e-4b65-4768-a101-7dc71b342810",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "37b1f762-4f9e-43b0-a61b-08a3e3961e0e",
+      "id": "8a0fecb4-044d-46eb-a1e4-ada48b5c934e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8b05ba5d-040c-4f72-a2d2-07afcab9a635",
+      "id": "a57b719c-012d-43a2-bea4-b1caa76a0748",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d9ee266d-5842-4fd6-a686-fd54bf3339b5",
+      "id": "b2af7c40-5d94-4d33-9d86-c92b31775c31",
       "key": "radius",
       "value": "50",
       "type": "string"
