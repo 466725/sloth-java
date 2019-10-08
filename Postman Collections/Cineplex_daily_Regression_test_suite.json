@@ -7590,7 +7590,7 @@
           "response": []
         },
         {
-          "name": "RegisteringDevice No Serial Number",
+          "name": "Register device no serial number",
           "event": [
             {
               "listen": "test",
@@ -8344,55 +8344,55 @@
   ],
   "variable": [
     {
-      "id": "40905714-d127-4957-9f18-4b5d99f754ee",
+      "id": "12eb0a4f-96d6-4b33-a73a-cc4106512fcf",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "9c25706e-4151-4ce1-900f-8da1f743d1f9",
+      "id": "d61aaa66-02fa-42fc-86ef-0ddcff78a391",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c8a0e305-815b-4849-9dbe-f5c85ed71929",
+      "id": "c378d435-2186-481e-a40e-765c013882ec",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "f339a837-a23d-4628-a3dd-f9fddfcb427c",
+      "id": "d572741d-985f-4fd2-bc1d-6c67237d42ee",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "9e33ab57-650a-460a-91c2-1e6a6172c460",
+      "id": "f92ac306-a0d3-4f2f-88b9-a7ea264cc44f",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "6fdd4437-c73b-4f8e-abb4-6c0c9882ab8a",
+      "id": "8e89e6af-bf2c-4e16-8223-c3e4e913c375",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "96f7e309-7566-454e-9f55-5f2a685e096d",
+      "id": "de554e34-a40e-47ec-8029-1be1e779a851",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7a866e21-0c9a-41ae-8bcd-040c4f118350",
+      "id": "5bd44a9a-507a-4e23-a45f-9a10830aa49b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "27d3bddf-2de8-48cf-918e-eb20de205b8e",
+      "id": "0b9d03a8-ef9c-4181-8a0a-f02c97301dc8",
       "key": "radius",
       "value": "50",
       "type": "string"
