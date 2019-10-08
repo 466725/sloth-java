@@ -7845,35 +7845,47 @@
               }
             ],
             "url": {
-              "raw": "{{cineplex_url}}/movies/v1/getmoviesbydate?language={{language}}&showDate=2019-10-12&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
+              "raw": "https://prestage.cineplex.com/api/v1/movies/getmoviesforoneposter?Skip=0&Take=1000&language=en-us&marketLanguageCodeFilter=true&movieType=0&showTimeType=0&showtimeSta",
+              "protocol": "https",
               "host": [
-                "{{cineplex_url}}"
+                "prestage",
+                "cineplex",
+                "com"
               ],
               "path": [
-                "movies",
+                "api",
                 "v1",
-                "getmoviesbydate"
+                "movies",
+                "getmoviesforoneposter"
               ],
               "query": [
                 {
+                  "key": "Skip",
+                  "value": "0"
+                },
+                {
+                  "key": "Take",
+                  "value": "1000"
+                },
+                {
                   "key": "language",
-                  "value": "{{language}}"
+                  "value": "en-us"
                 },
                 {
-                  "key": "showDate",
-                  "value": "2019-10-12"
-                },
-                {
-                  "key": "request.marketLanguageCodeFilter",
+                  "key": "marketLanguageCodeFilter",
                   "value": "true"
                 },
                 {
-                  "key": "request.movieType",
-                  "value": "1"
+                  "key": "movieType",
+                  "value": "0"
                 },
                 {
-                  "key": "request.showTimeType",
-                  "value": "1"
+                  "key": "showTimeType",
+                  "value": "0"
+                },
+                {
+                  "key": "showtimeSta",
+                  "value": null
                 }
               ]
             },
@@ -8301,55 +8313,55 @@
   ],
   "variable": [
     {
-      "id": "dcd8dd80-5ae7-4e75-91f2-89e16bb16dde",
+      "id": "1e2acd04-3ae3-40b8-aa7a-b837b0fc4847",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4760b4a4-62d6-4a38-9df0-867fcb1e5b91",
+      "id": "5820c983-0b7f-443d-a676-3db24c697fbe",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "9103a940-391e-4d2d-8404-90a7e344a4c8",
+      "id": "b9cf32ae-9fcf-4dff-993a-2cc86a8a76c1",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "bc811284-ac83-4f16-b3c0-7f2fe1121c46",
+      "id": "ffd16311-20c7-4e95-93c9-76df08eb544c",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "c6c3ce41-487b-4d03-89f3-707cc376db11",
+      "id": "0957ad78-5a35-410c-af07-04629f27fadb",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "69a15942-5a6f-4240-8e4c-bcb1e9824a1e",
+      "id": "7d7f83d9-48b5-4560-a925-2669089ace6d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "90bf54c2-3488-4985-94a4-ffaa42cf225d",
+      "id": "34dcf530-43c5-46d8-a0c7-c4884dd1f3ab",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "dd51d7a0-6b10-4361-9f78-bae685731dc0",
+      "id": "beef773d-0c25-4d2e-af1c-7ddd848fa4c3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d0a0181d-4b1d-4507-9e35-3165b9949203",
+      "id": "6b4aa09e-b65f-4d19-b28e-adf8073f2b2f",
       "key": "radius",
       "value": "50",
       "type": "string"
