@@ -7689,59 +7689,6 @@
       "name": "Test-AdvancedSales",
       "item": [
         {
-          "name": "Get movies PROD - www02",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "f43f6ea3-a451-4791-a631-10002127746f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "02a83a0b-0fe0-4b8c-81d0-15dce689bde0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Ocp-Apim-Subscription-Key",
-                "type": "text",
-                "value": "{{ocp-apim-subscription-key}}"
-              }
-            ],
-            "url": {
-              "raw": "https://www02.cineplex.com/api/v1/movies?language=en-us",
-              "protocol": "https",
-              "host": [
-                "www02",
-                "cineplex",
-                "com"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "movies"
-              ],
-              "query": [
-                {
-                  "key": "language",
-                  "value": "en-us"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "Get movies UAT",
           "event": [
             {
@@ -7784,6 +7731,59 @@
                 "cpx",
                 "movies",
                 "v1"
+              ],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en-us"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get movies PROD - www02",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f43f6ea3-a451-4791-a631-10002127746f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "02a83a0b-0fe0-4b8c-81d0-15dce689bde0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "https://www02.cineplex.com/api/v1/movies?language=en-us",
+              "protocol": "https",
+              "host": [
+                "www02",
+                "cineplex",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movies"
               ],
               "query": [
                 {
@@ -8170,55 +8170,55 @@
   ],
   "variable": [
     {
-      "id": "c356d05f-d4ec-4a2f-a192-f176f76d5386",
+      "id": "c49c5cbc-9e7c-46e7-a37d-3756743cc4e4",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "fab09eb8-c001-4029-8e8a-42ef8072874e",
+      "id": "f800ac7c-1209-4b65-8d32-39c73a9f6a42",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "9bcd7f54-9ca6-4aad-badf-325252fd2a4a",
+      "id": "2627b3bd-49ff-4670-a5de-5f319c39f919",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "d1134e3b-1b32-4a03-be95-1f17f7b8a5dd",
+      "id": "fd6c0e39-0d4f-468e-84fb-b6313081d266",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "9968e890-9d2f-4449-9395-cc4070532466",
+      "id": "82992042-12a7-472c-8137-1f9ce45b089a",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "aa6114eb-ec90-4fef-ab8e-c66150543b50",
+      "id": "d337aa27-bd49-4daf-8c17-ddb804da1ecb",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1011320b-562d-47b3-8797-4e3f45775c42",
+      "id": "c12c9b95-5753-4dfc-82c6-c7889c71579e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c3c63a6b-c061-4a7f-b2a4-5572683ffd71",
+      "id": "e4485ace-8f5f-4e9a-9a0a-49ca4ce9cd99",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "864ce363-b61b-43f9-9f74-4f4396e0bf1b",
+      "id": "8c45a99c-9687-49d6-91f5-bb62f87dc36e",
       "key": "radius",
       "value": "50",
       "type": "string"
