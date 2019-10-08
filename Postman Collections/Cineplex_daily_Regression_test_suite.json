@@ -7845,7 +7845,7 @@
               }
             ],
             "url": {
-              "raw": "{{cineplex_url}}/movies/{{api_version}}/getmoviesbydate?language={{language}}&showDate={{timestamp}}&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
+              "raw": "{{cineplex_url}}/movies/{{api_version}}/getmoviesbydate?language={{language}}&showDate=2019-10-12&request.marketLanguageCodeFilter=true&request.movieType=1&request.showTimeType=1",
               "host": [
                 "{{cineplex_url}}"
               ],
@@ -7861,7 +7861,7 @@
                 },
                 {
                   "key": "showDate",
-                  "value": "{{timestamp}}"
+                  "value": "2019-10-12"
                 },
                 {
                   "key": "request.marketLanguageCodeFilter",
@@ -8301,55 +8301,55 @@
   ],
   "variable": [
     {
-      "id": "da802b54-5d2c-4bf2-8740-f812782e6e94",
+      "id": "07e8dc4a-9280-4419-9dce-f75c87215091",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "37094736-6fce-4b93-8b52-8d41eaa8b3b0",
+      "id": "bcbbaf51-bfbf-42e5-886c-eacc651ed043",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "341a22dd-c2f5-4a79-970c-322acd9f248d",
+      "id": "985481d1-9c78-4964-a9af-1a455b858405",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "838f6c9a-c93a-4594-9706-1e69901cdd9e",
+      "id": "238eef15-7af0-4c3a-935f-5ca1c528cb9d",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "d940d038-b735-4f82-b8c8-865e68389933",
+      "id": "6e200233-cd77-4955-ab3b-529218fbc17c",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "94194b53-fc59-46b2-9797-fc97e73b61df",
+      "id": "a4687923-d790-4e41-8d37-146a6bc64822",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a1cc1408-c81b-4a99-81fa-ff92c0181560",
+      "id": "87f54f1a-deb5-4365-83f6-1362f66da766",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "03973259-dc02-4fea-a6e8-68d63f3862de",
+      "id": "7073e5f9-2553-4044-95f2-37f142645f78",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "bbabb9d5-c08b-4bd3-a557-f1d5f1e616f1",
+      "id": "f08b9396-64d5-417b-9fb2-fdf00e070844",
       "key": "radius",
       "value": "50",
       "type": "string"
