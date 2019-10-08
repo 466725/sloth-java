@@ -7711,6 +7711,87 @@
       "name": "Test-AdvancedSales",
       "item": [
         {
+          "name": "Get movies Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f43f6ea3-a451-4791-a631-10002127746f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "    pm.expect(jsonBody.status).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.test(\"jsonBody.message is successful\", function(){",
+                  "    pm.expect(jsonBody.message).eql(\"Successful\");",
+                  "});",
+                  "",
+                  "pm.test(\"Movies list is not empty\", function(){",
+                  "    pm.expect(jsonBody.data.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "//User Story 31461: WatchList: Remove \"isWatchlisted\" flag from all APIs so they can be cached on the cloud",
+                  "if (pm.request.url.getPath().has('v1')){",
+                  "    pm.test(\"isWatchListed flag is available\", function(){",
+                  "        for(var i = 0; i < jsonBody.data.length; i++){",
+                  "            pm.expect(jsonBody.data[i].isWatchListed).to.not.eql(null);",
+                  "        }",
+                  "    });",
+                  "} else {",
+                  "    pm.test(\"isWatchListed flag is not available\", function(){",
+                  "        for(var i = 0; i < jsonBody.data.length; i++){",
+                  "            pm.expect(jsonBody.data[i].isWatchListed).to.eql(undefined);",
+                  "        }",
+                  "    });",
+                  "}",
+                  "",
+                  "//User Story 33807: Create Versioning in Cineplex.com",
+                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "32a358ba-6c26-4606-a33d-5e17d202d0b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "{{ocp-apim-subscription-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{cineplex_url}}/movies/{{api_version}}?language={{language}}",
+              "host": [
+                "{{cineplex_url}}"
+              ],
+              "path": [
+                "movies",
+                "{{api_version}}"
+              ],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "{{language}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Get movies UAT",
           "event": [
             {
@@ -7974,87 +8055,6 @@
             }
           },
           "response": []
-        },
-        {
-          "name": "Get movies Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "f43f6ea3-a451-4791-a631-10002127746f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is successful\", function(){",
-                  "    pm.expect(jsonBody.message).eql(\"Successful\");",
-                  "});",
-                  "",
-                  "pm.test(\"Movies list is not empty\", function(){",
-                  "    pm.expect(jsonBody.data.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "//User Story 31461: WatchList: Remove \"isWatchlisted\" flag from all APIs so they can be cached on the cloud",
-                  "if (pm.request.url.getPath().has('v1')){",
-                  "    pm.test(\"isWatchListed flag is available\", function(){",
-                  "        for(var i = 0; i < jsonBody.data.length; i++){",
-                  "            pm.expect(jsonBody.data[i].isWatchListed).to.not.eql(null);",
-                  "        }",
-                  "    });",
-                  "} else {",
-                  "    pm.test(\"isWatchListed flag is not available\", function(){",
-                  "        for(var i = 0; i < jsonBody.data.length; i++){",
-                  "            pm.expect(jsonBody.data[i].isWatchListed).to.eql(undefined);",
-                  "        }",
-                  "    });",
-                  "}",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "32a358ba-6c26-4606-a33d-5e17d202d0b2",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{ocp-apim-subscription-key}}",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "{{cineplex_url}}/movies/{{api_version}}?language={{language}}",
-              "host": [
-                "{{cineplex_url}}"
-              ],
-              "path": [
-                "movies",
-                "{{api_version}}"
-              ],
-              "query": [
-                {
-                  "key": "language",
-                  "value": "{{language}}"
-                }
-              ]
-            }
-          },
-          "response": []
         }
       ],
       "_postman_id": "c2cc027c-cb44-4844-8817-18e05015d11f",
@@ -8211,55 +8211,55 @@
   ],
   "variable": [
     {
-      "id": "291f9235-bd4b-4aa9-b8c8-e8e3b6af8086",
+      "id": "a4eec8f7-c147-4ada-a5d0-5917f7cdb108",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "55a006cc-a4a2-4949-94a1-a5b07b4a4d5f",
+      "id": "70722cee-ed74-41e2-bc4f-103e666364d8",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "6ee38c11-e1c7-4e7d-8193-1a2e9d6704dd",
+      "id": "ac2aa9ae-5c13-4c20-b108-ebd2c4ce6999",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "c4757c64-6701-4a19-a546-7ef2e9f859c5",
+      "id": "5d4fcfe1-7cac-4b91-81d5-8e74f82063de",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "f15dae82-a5ae-4685-bc89-0b7d81239066",
+      "id": "78624f02-d1ef-4c51-aaf6-1f78fdb693f5",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "d7db279e-436e-46ec-b383-2ca331fc2365",
+      "id": "f2846542-dd86-408e-9ae4-1c0536b016ca",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "603f8f5e-f336-4419-9b2e-c91a921baff1",
+      "id": "054f74c5-2d90-402e-a94b-b7e3048cd45e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "14cee5a1-9f05-4372-9fb8-64e793916680",
+      "id": "7c51534f-565e-4865-a3fc-90cc7a8912ef",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8ec037e6-8a5d-4c35-bdcd-574d2946e7d3",
+      "id": "ae23150e-0b03-460b-90cd-0578f380ca98",
       "key": "radius",
       "value": "50",
       "type": "string"
