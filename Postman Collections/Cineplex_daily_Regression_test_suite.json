@@ -7801,37 +7801,93 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "if (pm.request.url.getPath().has('v1')){",
-                  "\tpm.test(\"Status code is 400\", function(){",
-                  "\t\tpm.response.to.have.status(400);",
-                  "\t});",
-                  "} else {",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
-                  "\t\tpm.expect(jsonBody.status).to.be.above(0);",
-                  "\t});",
-                  "",
-                  "    pm.test(\"jsonBody.message is successful\", function(){",
-                  "        pm.expect((jsonBody.message === \"NotFound\") || (jsonBody.message === \"Successful\")).to.be.true;",
-                  "    });",
-                  "\t",
-                  "\tpm.test(\"jsonBody.data is defined\", function(){",
-                  "\t\tpm.expect(jsonBody.data).to.not.be.null;",
-                  "\t});",
-                  "",
-                  "    //User Story 33807: Create Versioning in Cineplex.com",
-                  "    pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "        pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "    });",
-                  "}"
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
                 ],
                 "type": "text/javascript"
               }
             }
           ],
           "_postman_id": "a6c809b8-9267-4c93-a10a-94aa62df31ef",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "https://prestage.cineplex.com/api/v1/movies/getmoviesforoneposter?Skip=0&Take=1000&language=en-us&marketLanguageCodeFilter=true&movieType=0&showTimeType=0&showtimeSta",
+              "protocol": "https",
+              "host": [
+                "prestage",
+                "cineplex",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movies",
+                "getmoviesforoneposter"
+              ],
+              "query": [
+                {
+                  "key": "Skip",
+                  "value": "0"
+                },
+                {
+                  "key": "Take",
+                  "value": "1000"
+                },
+                {
+                  "key": "language",
+                  "value": "en-us"
+                },
+                {
+                  "key": "marketLanguageCodeFilter",
+                  "value": "true"
+                },
+                {
+                  "key": "movieType",
+                  "value": "0"
+                },
+                {
+                  "key": "showTimeType",
+                  "value": "0"
+                },
+                {
+                  "key": "showtimeSta",
+                  "value": null
+                }
+              ]
+            },
+            "description": "https://apis.cineplex.com/uat/cpx/movies/v1/29373/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=50&Request.Skip=0&Request.Take=2147483647"
+          },
+          "response": []
+        },
+        {
+          "name": "Get movie for one poster Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8e4677ab-e57f-4889-b41f-be02ecaf7629",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "856bc554-2fbd-4888-bcd4-55621def0a15",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -8313,55 +8369,55 @@
   ],
   "variable": [
     {
-      "id": "96213a5a-4850-49eb-be1c-70d8210de262",
+      "id": "dee9ac89-9b92-4cb4-b5f9-43e254fe52e5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "42738463-bef2-49da-bde6-b8b9f02bd570",
+      "id": "38e9c89b-5900-40ab-ade7-d95adc563d49",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "daef9877-8a74-4ffd-89d6-8e224a5dabb6",
+      "id": "036ec303-3799-4a79-b4ff-9d2ec2fb2c39",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ff02afa3-4348-414b-b509-f0b7fc206a75",
+      "id": "c78aaa08-9ac5-4a42-8b8c-b45ad45d3eca",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "2b0e140f-94d2-45c5-a11e-f1496b8486b4",
+      "id": "cda33ce8-3070-4a1f-8a60-bc7ffd701adb",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "8aad4863-d242-4632-b88a-bdfc34a4de36",
+      "id": "8b60d1f0-58c4-4c22-972e-c257ffd3cfa0",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "382d2939-12bb-45ea-a84e-ec2a13999f29",
+      "id": "ea96852c-0fa5-46e5-ab93-7720baf34d9d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ad96ef64-d71d-4442-a4a9-7c9f01f418a3",
+      "id": "f85a7046-f2cd-4d86-ac08-f91eb0787291",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ab1db10b-647e-4847-a8ca-7120c522f9e4",
+      "id": "85467879-bfac-46ff-a9b9-4034865fd592",
       "key": "radius",
       "value": "50",
       "type": "string"
