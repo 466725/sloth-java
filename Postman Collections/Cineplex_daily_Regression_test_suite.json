@@ -7856,7 +7856,7 @@
           "response": []
         },
         {
-          "name": "Get movie for one poster - Staging Copy",
+          "name": "Get movie for one poster - Prod",
           "event": [
             {
               "listen": "test",
@@ -8492,55 +8492,55 @@
   ],
   "variable": [
     {
-      "id": "15b6a817-471a-4882-bfce-568561d351c2",
+      "id": "c4014498-3a59-4f78-a5d7-ad0aab8c8cf6",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "8c126878-85a5-441b-9028-be3476843468",
+      "id": "cd8ad560-c8e3-4caf-9cbc-ffaaf8e13728",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "eea33907-14e2-4e9c-8a56-782383a68466",
+      "id": "50805ea5-ad78-45d1-8d0d-85313a75df40",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "273dbf74-d7a9-45f7-b2f6-88faa51ceeed",
+      "id": "f69e7c8b-9425-4f34-8384-9ba87dc05806",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "1b53d55c-28db-4af8-90c0-95868e40fb70",
+      "id": "3c251966-3e8a-4336-a664-ad136293b411",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "968af3a3-031b-44c5-ba3b-e4015870dbe0",
+      "id": "12cd372c-2387-4b03-894b-fdbc1edd367a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "bf152f88-c51f-4a72-a83a-029458c80dad",
+      "id": "99e0d7b9-5544-479e-824f-ef5a0e9a13a7",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ef61e4be-a047-41fa-a208-d5e43c2693a3",
+      "id": "ae3a4359-7c6c-47fc-a1a4-eb4a523a4875",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "49eaabff-57ef-4120-b4e7-9f5804b42f65",
+      "id": "9b36e9f5-b96f-4e2c-bf8a-d71245c9d062",
       "key": "radius",
       "value": "50",
       "type": "string"
