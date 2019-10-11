@@ -8545,7 +8545,7 @@
               "mode": "raw",
               "raw": "{\r\n\t\"LanguageType\":\"1\",\r\n\t\"SessionToken\":\"{{session_token}}\",\r\n    \"UserSessionToken\":\"{{user_session_token}}\"\r\n}"
             },
-            "url": "http://appserver.cineplex.com/CentralDataFeeds/FilmDataConnect/SynchronizeFilmPosterByFilmIdToCineplexCom/FilmId",
+            "url": "https://apis.cineplex.com/uat/cineplex/store/v1",
             "description": "Copy filmID from film central website, and then run this API."
           },
           "response": []
@@ -8626,55 +8626,55 @@
   ],
   "variable": [
     {
-      "id": "758e3fc5-f0d5-4a61-94fe-6277dff4d9d2",
+      "id": "bc3bee50-13d0-4c08-8d56-a1a38e9bb9d0",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "57f751aa-3e1f-40f3-98aa-91764b57ea57",
+      "id": "418e1651-03e3-4b28-9b95-be43d3521a39",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2c5b5689-3c06-492d-ac50-f5641725e697",
+      "id": "f20f649f-1fc7-4270-8892-e35b6c566d95",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "74becd45-7ef2-4705-8628-7c4a2f6b3679",
+      "id": "4c6ccce0-11a0-455c-ac9f-c90b71ee3ac0",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "b11fbfec-e2dd-4509-bd99-fad15a715061",
+      "id": "f027748e-c64b-4860-8435-c53127dd0fd3",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "c08da274-061e-4fb7-8b66-d59bdd134c66",
+      "id": "309ad97e-8c8f-4a57-938c-9c8d64f068ce",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1bc38afe-aee8-4c93-bc5c-dd2e1cfc3f4c",
+      "id": "d4f0f128-cf92-40a8-a214-a37ce9323c42",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6e19bcb8-f07b-4584-9b73-b84eb44362a6",
+      "id": "d7ab4eea-0d36-4f26-97e6-2611c1c4523b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a10df2c4-ae63-4a0b-9dcd-46b7a55d3f75",
+      "id": "4d725642-afae-4ec8-b9c0-8231bffc6ae5",
       "key": "radius",
       "value": "50",
       "type": "string"
