@@ -1,0 +1,17 @@
+execution:
+-  executor: selenium
+   runner: junit
+   concurrency: 5
+   locations:
+      ca-central-1: 1
+      azure-central-ca: 1
+      northamerica-northeast1-a: 1
+      azure-central-us-1: 1
+      azure-east-ca: 1
+   iteration: 2
+   hold-for: 30m
+   ramp-up: 15m
+   scenario: simple
+scenarios:
+   simple:
+      script: BlazemeterSeleniumPerformanceTest.java
