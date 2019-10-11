@@ -1698,6 +1698,61 @@
           "response": []
         },
         {
+          "name": "Get product full details - logged out Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"Body matches string\", function(){",
+                  "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully.\");",
+                  "});",
+                  "",
+                  "pm.test(\"Verify Response status\", function(){",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "var metaCriticRating= jsonBody.MetacriticData.MetaCriticRating;",
+                  "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
+                  "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
+                  "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a354dd44-1ffc-482c-990e-6ce8d3e577ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
+            },
+            "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
+          },
+          "response": []
+        },
+        {
           "name": "Get product full details - logged out 4K",
           "event": [
             {
@@ -8571,55 +8626,55 @@
   ],
   "variable": [
     {
-      "id": "4bb80e08-52bf-4dcc-b5f3-74fd1632ad01",
+      "id": "723b11f2-469b-4d94-bf0b-08a0eed7ff61",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "a87d6e4e-d174-4505-8502-7bd568964627",
+      "id": "d1f5c9ad-faf3-4e5d-8343-9adf67c3181d",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a6f8ab44-cd19-4f4b-bbf6-8987ce4bc37c",
+      "id": "c7162480-f9a6-43f1-acba-ed86ea894f20",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "33a3eb73-88fe-4513-a1c3-99adea14d104",
+      "id": "fc34d90f-58cb-41f6-8553-ade63c4dcdba",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "cb87c7d0-df2d-4581-946c-73c3d83f85d5",
+      "id": "34e70b29-4076-4c1b-a7a6-4db2a886622f",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "4c3c8b94-14ef-47cb-a053-23dfc8bda51a",
+      "id": "6a7c3bba-e0db-42a9-8c82-da33bb908dc8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "903b626a-2189-4db1-b497-7a5997515ea4",
+      "id": "c51ffe01-a6ab-4b61-97ba-5d1c40b4a470",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3387c739-d912-4f5f-b43b-a1a54669ced6",
+      "id": "df5cc900-2234-49a8-bf7a-ea6dc78c7615",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d9cdc6e8-1b8f-41c1-bb51-17cade9cf30b",
+      "id": "fef5900a-55c4-4e9c-9c91-7249871b7455",
       "key": "radius",
       "value": "50",
       "type": "string"
