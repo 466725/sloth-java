@@ -1698,61 +1698,6 @@
           "response": []
         },
         {
-          "name": "Get product full details - logged out Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Body matches string\", function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully.\");",
-                  "});",
-                  "",
-                  "pm.test(\"Verify Response status\", function(){",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "var metaCriticRating= jsonBody.MetacriticData.MetaCriticRating;",
-                  "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
-                  "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "a354dd44-1ffc-482c-990e-6ce8d3e577ea",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
-            },
-            "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
-          },
-          "response": []
-        },
-        {
           "name": "Get product full details - logged out 4K",
           "event": [
             {
@@ -8549,6 +8494,61 @@
             "description": "Copy filmID from film central website, and then run this API."
           },
           "response": []
+        },
+        {
+          "name": "Get product full details - logged out Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"Body matches string\", function(){",
+                  "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully.\");",
+                  "});",
+                  "",
+                  "pm.test(\"Verify Response status\", function(){",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "var metaCriticRating= jsonBody.MetacriticData.MetaCriticRating;",
+                  "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
+                  "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
+                  "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a354dd44-1ffc-482c-990e-6ce8d3e577ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
+            },
+            "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
+          },
+          "response": []
         }
       ],
       "_postman_id": "29852050-ade5-4417-a9e0-df100468a2a9",
@@ -8626,55 +8626,55 @@
   ],
   "variable": [
     {
-      "id": "723b11f2-469b-4d94-bf0b-08a0eed7ff61",
+      "id": "553624a4-f745-49e9-a6e5-3d92529dcc71",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d1f5c9ad-faf3-4e5d-8343-9adf67c3181d",
+      "id": "677fb643-36e9-4e0e-a1ab-7a45d95c6abb",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c7162480-f9a6-43f1-acba-ed86ea894f20",
+      "id": "2e2cc9ec-7268-4755-8d95-93e870261181",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "fc34d90f-58cb-41f6-8553-ade63c4dcdba",
+      "id": "59ecf878-2c8a-4f71-9a44-d6b57dfe144b",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "34e70b29-4076-4c1b-a7a6-4db2a886622f",
+      "id": "c5731234-2fd7-4bd0-99e8-caa5defc8838",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "6a7c3bba-e0db-42a9-8c82-da33bb908dc8",
+      "id": "26f76340-bb24-494f-8a11-948835608035",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "c51ffe01-a6ab-4b61-97ba-5d1c40b4a470",
+      "id": "7686bd29-bc0d-417b-a6a1-bb7eedd7aa02",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "df5cc900-2234-49a8-bf7a-ea6dc78c7615",
+      "id": "749a683b-79ff-423e-98ba-7660d21b59d5",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "fef5900a-55c4-4e9c-9c91-7249871b7455",
+      "id": "0fe01afe-caa5-4513-a021-3b8b78d0b509",
       "key": "radius",
       "value": "50",
       "type": "string"
