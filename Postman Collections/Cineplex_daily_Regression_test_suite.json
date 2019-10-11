@@ -8442,7 +8442,7 @@
       ]
     },
     {
-      "name": "UserStory-MissingPoster Copy",
+      "name": "UserStory-AddCorsPolicy",
       "item": [
         {
           "name": "Get product full details - logged out Copy",
@@ -8575,55 +8575,55 @@
   ],
   "variable": [
     {
-      "id": "3c9107d7-d8dd-4db7-9e2d-fe37e739005f",
+      "id": "68cfad8d-80b4-4b3a-83b4-848dc79704cf",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "0042c534-7c9c-4ed6-b213-4e614e4a1ac8",
+      "id": "2a696175-d496-45eb-8467-c2c3a9a0e30c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "717205be-28c2-474c-918b-f172f4d29f7b",
+      "id": "c445b43a-1af7-4865-b700-bb91db148a29",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "27757ce8-d081-4895-870c-f1c5d1e8a279",
+      "id": "d085e63b-d51e-4f16-8124-fbe50e56d42a",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "5cac3636-49a1-4dff-800e-af576812bfad",
+      "id": "aaddd8e5-833b-49da-8621-ab199b22091f",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "ce7dbbd3-415b-4be7-a830-d3500806f8ea",
+      "id": "4cf0b7ba-c05a-408a-a124-51966bb8c52b",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "dcef1f45-e474-4ab5-a8ca-a569592c00cb",
+      "id": "81db0f8b-fb9c-4c96-b9bf-a5f20c9520b5",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "63d5a84d-7f35-49b0-8885-7533b23f64c2",
+      "id": "1185880d-8839-427b-9755-2ab89150841b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "955e74e6-dd9b-4ba5-a8e2-e0087490cbd5",
+      "id": "1392f12d-aafb-44b8-8434-4c80673769be",
       "key": "radius",
       "value": "50",
       "type": "string"
