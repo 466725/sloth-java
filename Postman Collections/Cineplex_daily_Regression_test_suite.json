@@ -8440,6 +8440,85 @@
           }
         }
       ]
+    },
+    {
+      "name": "UserStory-MissingPoster Copy",
+      "item": [
+        {
+          "name": "Fix missing poster issue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c2d86856-74a8-4efc-b7cc-97aea7861ae6",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "148f13b7-ca56-4907-b747-b38712cc02f5",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f9049243-6f94-46f3-9f2d-bdf424dfaaf9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"LanguageType\":\"1\",\r\n\t\"SessionToken\":\"{{session_token}}\",\r\n    \"UserSessionToken\":\"{{user_session_token}}\"\r\n}"
+            },
+            "url": "http://appserver.cineplex.com/CentralDataFeeds/FilmDataConnect/SynchronizeFilmPosterByFilmIdToCineplexCom/FilmId",
+            "description": "Copy filmID from film central website, and then run this API."
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "29852050-ade5-4417-a9e0-df100468a2a9",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "34db3feb-9c35-4102-b4f3-779b1981219e",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "5fe41ede-c5cb-4969-a72b-a17f452bc0b2",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -8492,55 +8571,55 @@
   ],
   "variable": [
     {
-      "id": "5bdddf31-2ca8-4bba-9a5f-fe745115f72b",
+      "id": "d43b7729-ae1c-4200-a304-c551849df83e",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7ce564da-947f-4d55-bba1-0898bc5268f7",
+      "id": "2914b498-3a15-4f41-83e3-cbed37afc89a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "dcd908c4-335a-4a51-b987-a80eb3c5d9c3",
+      "id": "73c74981-8c57-409f-9c17-027a9a0d57ff",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "efec44f1-d495-438e-bd20-369320179670",
+      "id": "96c3033c-2b8a-4322-ba47-33377b62aee3",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "2959645a-da28-456f-b8fc-1e70481cb384",
+      "id": "0cff88a3-bcea-4b0d-9b16-51777ea35e4b",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "485e8711-b968-41f3-b083-bd636172eca7",
+      "id": "cf277fb0-3f26-4e58-b02f-574c51f99a50",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cf099fe4-ff53-44ee-baf1-43089a5f66d9",
+      "id": "6a5b4b48-f6a3-422b-b0a0-f0ad64d48a15",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "bea03ceb-5ead-4991-a51b-38fcc60740ce",
+      "id": "c0cfddec-c30e-48ff-b36c-d7018d0bd6e5",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9bf7bd5d-a03f-4446-b20b-1184f022afdd",
+      "id": "88689f23-4d01-45f1-80be-eb638002f95e",
       "key": "radius",
       "value": "50",
       "type": "string"
