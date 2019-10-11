@@ -8445,57 +8445,6 @@
       "name": "UserStory-MissingPoster Copy",
       "item": [
         {
-          "name": "Fix missing poster issue",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "c2d86856-74a8-4efc-b7cc-97aea7861ae6",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "148f13b7-ca56-4907-b747-b38712cc02f5",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "f9049243-6f94-46f3-9f2d-bdf424dfaaf9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\t\"LanguageType\":\"1\",\r\n\t\"SessionToken\":\"{{session_token}}\",\r\n    \"UserSessionToken\":\"{{user_session_token}}\"\r\n}"
-            },
-            "url": "http://appserver.cineplex.com/CentralDataFeeds/FilmDataConnect/SynchronizeFilmPosterByFilmIdToCineplexCom/FilmId",
-            "description": "Copy filmID from film central website, and then run this API."
-          },
-          "response": []
-        },
-        {
           "name": "Get product full details - logged out Copy",
           "event": [
             {
@@ -8547,6 +8496,57 @@
               "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
+          },
+          "response": []
+        },
+        {
+          "name": "Fix missing poster issue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c2d86856-74a8-4efc-b7cc-97aea7861ae6",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "148f13b7-ca56-4907-b747-b38712cc02f5",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f9049243-6f94-46f3-9f2d-bdf424dfaaf9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"LanguageType\":\"1\",\r\n\t\"SessionToken\":\"{{session_token}}\",\r\n    \"UserSessionToken\":\"{{user_session_token}}\"\r\n}"
+            },
+            "url": "http://appserver.cineplex.com/CentralDataFeeds/FilmDataConnect/SynchronizeFilmPosterByFilmIdToCineplexCom/FilmId",
+            "description": "Copy filmID from film central website, and then run this API."
           },
           "response": []
         }
@@ -8626,55 +8626,55 @@
   ],
   "variable": [
     {
-      "id": "553624a4-f745-49e9-a6e5-3d92529dcc71",
+      "id": "6c6c3af0-4a40-474f-aff0-1614ec864251",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "677fb643-36e9-4e0e-a1ab-7a45d95c6abb",
+      "id": "803e1f3a-2c78-480f-bfea-f67c9e1b1f4f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2e2cc9ec-7268-4755-8d95-93e870261181",
+      "id": "88f4d60b-9fdf-4b6c-8d97-d55d1bc64262",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "59ecf878-2c8a-4f71-9a44-d6b57dfe144b",
+      "id": "8e8b4e16-542c-4728-ad9f-0e7961158063",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "c5731234-2fd7-4bd0-99e8-caa5defc8838",
+      "id": "14d0e479-33fa-4de6-8288-d666676eff4b",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "26f76340-bb24-494f-8a11-948835608035",
+      "id": "ac7afe47-4d05-4dd3-8e44-07a3efbd945a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7686bd29-bc0d-417b-a6a1-bb7eedd7aa02",
+      "id": "919d61a6-ccf5-44c2-b26e-5c851b077e73",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "749a683b-79ff-423e-98ba-7660d21b59d5",
+      "id": "03fa13c6-c4f3-4ce0-91a4-9ecd4de04577",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "0fe01afe-caa5-4513-a021-3b8b78d0b509",
+      "id": "66d5cb8e-c7be-44f2-85cf-c2ea3c149a4b",
       "key": "radius",
       "value": "50",
       "type": "string"
