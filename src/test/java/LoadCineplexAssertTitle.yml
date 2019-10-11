@@ -1,0 +1,17 @@
+execution:
+-  executor: selenium
+   runner: junit
+   concurrency: 10
+   locations:
+      ca-central-1: 2
+      azure-central-ca: 2
+      northamerica-northeast1-a: 2
+      azure-central-us-1: 2
+      azure-east-ca: 2
+   iteration: 2
+   hold-for: 30m
+   ramp-up: 15m
+   scenario: simple
+scenarios:
+   simple:
+      script: LoadCineplexAssertTitle.java
