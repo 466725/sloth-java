@@ -1,14 +1,15 @@
 execution:
 -  executor: selenium
    runner: junit
-   concurrency: 5
+   concurrency: 35
    locations:
-      ca-central-1: 1
-      azure-central-ca: 1
-      northamerica-northeast1-a: 1
-      azure-central-us-1: 1
-      azure-east-ca: 1
-   iteration: 2
+      ca-central-1: 5
+      azure-central-ca: 6
+      northamerica-northeast1-a: 7
+      azure-central-us-1: 8
+      azure-east-ca: 9
+   locations-weighted: false
+   iteration: 4
    hold-for: 30m
    ramp-up: 15m
    scenario: simple
