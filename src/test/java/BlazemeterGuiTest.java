@@ -44,7 +44,6 @@ public class BlazemeterGuiTest {
 
 	@Test(priority = 5)
 	public void startTest2() throws Exception {
-		Assert.assertTrue(false);
 		throw new Exception("00000000000000000000000+++++++++++++++++++++++");
 	}
 }
