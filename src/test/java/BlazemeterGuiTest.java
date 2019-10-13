@@ -8,9 +8,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class BlazemeterSeleniumPerformanceTestNG {
-	private static WebDriver driver;
-	private static WebDriverWait wait;
+public class BlazemeterGuiTest {
+	private WebDriver driver;
+	private WebDriverWait wait;
 
 	@BeforeTest
 	public void setUp() {
@@ -65,12 +65,13 @@ public class BlazemeterSeleniumPerformanceTestNG {
 	}
 
 	@Test(priority = 7)
-	public void signOut() {
+	public void signOut() throws Exception {
 		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
 		sleepInSeconds(10);
+		throw new Exception("Signout problem! ");
 	}
 
-	private static void sleepInSeconds(int seconds) {
+	private void sleepInSeconds(int seconds) {
 		try {
 			Thread.sleep(1000 * seconds);
 		} catch (InterruptedException e) {

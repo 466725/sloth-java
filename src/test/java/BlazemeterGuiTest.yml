@@ -1,7 +1,7 @@
 execution:
 -  executor: selenium
    runner: testng
-   concurrency: 100
+   concurrency: 500
    locations:
       azure-west-europe-1: 5
       northamerica-northeast1-a: 5
@@ -24,10 +24,10 @@ execution:
       azure-central-us-1: 5
       us-central1-a: 5
    locations-weighted: false
-   iteration: 1
+   iteration: 2
    hold-for: 30m
-   ramp-up: 5m
+   ramp-up: 15m
    scenario: simple
 scenarios:
    simple:
-      script: BlazemeterSeleniumPerformanceTestNG.java
+      script: BlazemeterGuiTest.java
