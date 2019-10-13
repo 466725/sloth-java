@@ -1,7 +1,7 @@
 execution:
 -  executor: selenium
    runner: testng
-   concurrency: 500
+   concurrency: 100
    locations:
       azure-west-europe-1: 5
       northamerica-northeast1-a: 5
@@ -24,9 +24,9 @@ execution:
       azure-central-us-1: 5
       us-central1-a: 5
    locations-weighted: false
-   iteration: 2
+   iteration: 1
    hold-for: 30m
-   ramp-up: 15m
+   ramp-up: 5m
    scenario: simple
 scenarios:
    simple:
