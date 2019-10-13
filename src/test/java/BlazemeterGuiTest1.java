@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class BlazemeterGuiTest {
+public class BlazemeterGuiTest1 {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
@@ -28,13 +28,13 @@ public class BlazemeterGuiTest {
 		if (driver != null) {
 			driver.quit();
 		}
-		throw new Exception("00000000000000000000000000000000000000000000000");
+		throw new Exception("11111111111111111111111111111111111111111111111");
 	}
 
 	@Test(priority = 1)
 	public void startTest() throws Exception {
 		Assert.assertTrue(true);
-		throw new Exception("00000000000000000000000000000000000000000000000");
+		throw new Exception("11111111111111111111111111111111111111111111111");
 	}
 	
 	@Test(priority = 3)

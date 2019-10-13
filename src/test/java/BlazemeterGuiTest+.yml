@@ -31,4 +31,4 @@ execution:
 scenarios:
    simple:
       script: BlazemeterGuiTest.java
-      script: BlazemeterGuiTest2.java
+      script: BlazemeterGuiTest1.java
