@@ -31,3 +31,4 @@ execution:
 scenarios:
    ticket:
       script: BlazemeterGuiTest.java
+      script: BlazemeterGuiTest.xml
