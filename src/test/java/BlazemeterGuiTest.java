@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class BlazemeterGuiTest {
 	private static WebDriver driver;
 	private static WebDriverWait wait;
-	private static int extraWait = 3000;
+	private static int extraWait = 2000;
 
 	@BeforeTest
 	public void setUp() {
