@@ -4,7 +4,6 @@ execution:
    concurrency: 200
    locations:
       ca-central-1: 5
-      northamerica-northeast1-a: 5
       us-east-1: 5
       us-east-2: 5
       us-east1-b: 5
@@ -12,8 +11,9 @@ execution:
       us-west-1: 5
       us-west-2: 5
       us-west1-a: 5
-      azure-west-us-2: 5
+      us-central1-a: 5
       azure-west-us-1: 5
+      azure-west-us-2: 5
       azure-us-west-central: 5
       azure-south-central-us-1: 5
       azure-north-central-us-1: 5
@@ -22,7 +22,7 @@ execution:
       azure-east-ca: 5
       azure-central-ca: 5
       azure-central-us-1: 5
-      us-central1-a: 5
+      northamerica-northeast1-a: 5
    locations-weighted: false
    iteration: 3
    hold-for: 30m
