@@ -21,5 +21,6 @@ scenarios:
       script: ScenarioTwo.java
    ticketThree:
       script: ScenarioThree.java
+      script: ScenarioTwo.java
    ticketFour:
       script: ScenarioFour.java
