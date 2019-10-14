@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -33,14 +32,14 @@ public class BlazemeterGuiTest {
 	}
 
 	@Test(priority = 3)
-	public void displayModal() {
-		String modal = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
-		waitClick(modal);
+	public void showLoginPopup() {
+		String loginButton = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
+		waitClick(loginButton);
 	}
 
 	@Test(priority = 4)
 	public void login() {
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 			stangeSleep();
 		}
 
@@ -48,10 +47,10 @@ public class BlazemeterGuiTest {
 		driver.switchTo().frame("bootstrapModalIframe");
 		stangeSleep();
 
-		driver.findElement(By.xpath("//*[@id='txtEmailAddress']")).sendKeys("glory.leung@cineplex.com");
+		driver.findElement(By.xpath("//*[@id='txtEmailAddress']")).sendKeys("weipeng.zheng@cineplex.com");
 		stangeSleep();
 
-		driver.findElement(By.xpath("//*[@id='txtPassword']")).sendKeys("Cineplex@2019");
+		driver.findElement(By.xpath("//*[@id='txtPassword']")).sendKeys("Cineplex@1303");
 		stangeSleep();
 
 		driver.findElement(By.xpath("//*[@id='btnLogin']")).click();
@@ -119,7 +118,6 @@ public class BlazemeterGuiTest {
 				e.printStackTrace();
 			}
 		}
-		Assert.assertTrue(driver.getTitle().contains("Ticket Cart"));
 	}
 
 	@Test(priority = 10)
