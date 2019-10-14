@@ -5,7 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class BlazemeterGuiTest {
+public class BlazemeterGuiTest1 {
 	private WebDriver driver;
 
 	@BeforeTest
@@ -21,7 +21,7 @@ public class BlazemeterGuiTest {
 		if (driver != null) {
 			driver.quit();
 		}
-		throw new Exception("00000000000000000000000000000000000000000000000");
+		throw new Exception("11111111111111111111111111111111111111111111111");
 	}
 
 	private void sleepInSeconds(int seconds) {
@@ -31,7 +31,7 @@ public class BlazemeterGuiTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(priority = 1)
 	public void startTest() throws Exception {
 		Assert.assertTrue(true);
@@ -44,6 +44,7 @@ public class BlazemeterGuiTest {
 
 	@Test(priority = 5)
 	public void startTest2() throws Exception {
-		throw new Exception("00000000000000000000000+++++++++++++++++++++++");
+		Assert.assertTrue(true);
+		throw new Exception("11111111111111111111+++++++++++++++++++++++++++");
 	}
 }
