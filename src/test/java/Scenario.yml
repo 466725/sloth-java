@@ -1,0 +1,20 @@
+execution:
+-  executor: selenium
+   runner: testng
+   concurrency: 10
+   locations:
+      us-east-1: 5
+      us-east-2: 5
+   locations-weighted: false
+   iteration: 1
+   hold-for: 5m
+   ramp-up: 1m
+   scenario: ticketOne
+   scenario: ticketTwo
+scenarios:
+   ticketOne:
+      script: ScenarioOne.java
+      script: ScenarioTwo.java
+   ticketTwo:
+      script: ScenarioOne.java
+      script: ScenarioTwo.java
