@@ -15,14 +15,14 @@ public class ScenarioOne {
 	}
 
 	@Test(priority = 6)
-	public void testTrue() {
+	public void testTrueOne() {
 		System.out.println("==========================111111-True==========================");
 		Assert.assertTrue(true);
 	}
 
 	@Test(priority = 8)
-	public void testFalse() {
+	public void testFalseOne() throws Exception {
 		System.out.println("==========================111111-False==========================");
-		Assert.assertTrue(false);
+		throw new Exception("==========================111111-False==========================");
 	}
 }

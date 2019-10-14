@@ -7,14 +7,19 @@ execution:
       us-east-2: 5
    locations-weighted: false
    iteration: 1
-   hold-for: 5m
    ramp-up: 1m
    scenario: ticketOne
+   hold-for: 2m
    scenario: ticketTwo
+   hold-for: 2m
+   scenario: ticketThree
+   hold-for: 2m
 scenarios:
    ticketOne:
       script: ScenarioOne.java
-      script: ScenarioTwo.java
    ticketTwo:
-      script: ScenarioOne.java
       script: ScenarioTwo.java
+   ticketThree:
+      script: ScenarioThree.java
+   ticketFour:
+      script: ScenarioFour.java
