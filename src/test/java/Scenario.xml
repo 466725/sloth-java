@@ -8,7 +8,7 @@
 		<parameter name="password" value="Cineplex@1303"></parameter>
 		<classes>
 			<!-- GUI test cases -->
-			<class name="BlazemeterGuiTest" />
+			<class name="ScenarioOne" />
 		</classes>
 	</test>
 </suite>
