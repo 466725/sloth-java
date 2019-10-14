@@ -14,13 +14,18 @@ import org.testng.annotations.Test;
 public class BlazemeterGuiTest {
 	private static WebDriver driver;
 	private static WebDriverWait wait;
-	private static int extraWait = 2000;
+	private static int extraWait = 2;
+	public static boolean exitFlow = true;
+	public static boolean onUAT = true;
 
 	@BeforeTest
 	public void setUp() {
 		driver = new FirefoxDriver();
 		wait = new WebDriverWait(driver, extraWait * 10, 250);
-		driver.get("https://uat-www.cineplex.com");
+		if (onUAT)
+			driver.get("https://uat-www.cineplex.com");
+		else
+			driver.get("https://www.cineplex.com/");
 		driver.manage().window().maximize();
 	}
 
@@ -33,7 +38,12 @@ public class BlazemeterGuiTest {
 
 	@Test(priority = 3)
 	public void showLoginPopup() {
-		String loginButton = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
+		String loginButton;
+		if (onUAT) {
+			loginButton = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
+		} else {
+			loginButton = "";
+		}
 		waitClick(loginButton);
 	}
 
@@ -134,16 +144,20 @@ public class BlazemeterGuiTest {
 
 	@Test(priority = 99)
 	public void exitCOTFlow() {
-		String logo = "//div[@class='col-xs-6 text-left']//img[@alt='Cineplex Logo']";
-		waitClick(logo);
-		for (int i = 0; i < 10; i++) {
-			stangeSleep();
-		}
+		if (exitFlow) {
+			String logo = "//div[@class='col-xs-6 text-left']//img[@alt='Cineplex Logo']";
+			waitClick(logo);
+			for (int i = 0; i < 10; i++) {
+				stangeSleep();
+			}
 
-		String homePage = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
-		waitClick(homePage);
-		for (int i = 0; i < 10; i++) {
-			stangeSleep();
+			String homePage = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
+			waitClick(homePage);
+			for (int i = 0; i < 10; i++) {
+				stangeSleep();
+			}
+		} else {
+			// Do nothing
 		}
 	}
 
@@ -154,7 +168,7 @@ public class BlazemeterGuiTest {
 			e1.printStackTrace();
 		}
 		try {
-			Thread.sleep(extraWait);
+			Thread.sleep(extraWait * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -167,7 +181,7 @@ public class BlazemeterGuiTest {
 			e1.printStackTrace();
 		}
 		try {
-			Thread.sleep(extraWait);
+			Thread.sleep(extraWait * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -180,7 +194,7 @@ public class BlazemeterGuiTest {
 			e1.printStackTrace();
 		}
 		try {
-			Thread.sleep(extraWait);
+			Thread.sleep(extraWait * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -188,7 +202,7 @@ public class BlazemeterGuiTest {
 
 	private static void stangeSleep() {
 		try {
-			Thread.sleep(extraWait);
+			Thread.sleep(extraWait * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
