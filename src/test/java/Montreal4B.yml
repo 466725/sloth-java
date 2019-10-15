@@ -1,0 +1,16 @@
+execution:
+-  executor: selenium
+   runner: testng
+   concurrency: 5
+   locations:
+      ca-central-1: 5
+ 
+   locations-weighted: false
+   iteration: 1
+   hold-for: 30m
+   ramp-up: 10m
+   scenario: ticket
+scenarios:
+   ticket:
+      script: Montreal4B.java
+
