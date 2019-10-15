@@ -51,14 +51,14 @@ public class Ottawa4B {
 		String password;
 
 		if (onUAT)
-			username = "glory.leung@cineplex.com";
+			username = "weipeng.zheng@cineplex.com";
 		else
-			username = "glory.leung@cineplex.com";
+			username = "weipeng.zheng@cineplex.com";
 
 		if (onUAT)
-			password = "Cineplex@2019";
+			password = "Cineplex@1303";
 		else
-			password = "Password1";
+			password = "Cineplex@1303";
 
 		for (int i = 0; i < 3; i++) {
 			letsSleep();
