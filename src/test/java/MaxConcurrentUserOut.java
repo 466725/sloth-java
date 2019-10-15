@@ -5,7 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class MaxConcurrentcyOnly {
+public class MaxConcurrentUserOut {
 	private static WebDriver driver;
 
 	@BeforeTest

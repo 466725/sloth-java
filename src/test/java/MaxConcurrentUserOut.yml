@@ -24,11 +24,11 @@ execution:
       azure-central-us-1: 5
       us-central1-a: 5
    locations-weighted: false
-   iteration: 5
-   hold-for: 30m
-   ramp-up: 10m
+   iteration: 1
+   hold-for: 5m
+   ramp-up: 1m
    scenario: ticket
 scenarios:
    ticket:
-      script: BlazemeterGuiTest.java
-      script: BlazemeterGuiTest.xml
+      script: MaxConcurrentUserOut.java
+
