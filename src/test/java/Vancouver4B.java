@@ -182,7 +182,7 @@ public class Vancouver4B {
 				letsSleep();
 			}
 		} else {
-			for (int i = 0; i < 200; i++) {
+			for (int i = 0; i < 20; i++) {
 				letsSleep();
 			}
 			// Nothing else
