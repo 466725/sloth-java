@@ -18,7 +18,7 @@ public class YongeEglinton4B {
 	private static WebDriverWait wait;
 	private static int extraWait = 3;
 	public static boolean exitFlow = false;
-	public static boolean onUAT = false;
+	public static boolean onUAT = true;
 
 	@BeforeTest
 	public void setUp() {
@@ -96,7 +96,7 @@ public class YongeEglinton4B {
 		String movieName;
 
 		if (onUAT)
-			movieName = "Ant-Man";
+			movieName = "Mamma";
 		else
 			movieName = "Joker";
 
@@ -119,7 +119,7 @@ public class YongeEglinton4B {
 	public void selectTime() {
 		String time;
 		if (onUAT)
-			time = ".//a[contains(text(), '9:30 am')]";
+			time = ".//a[contains(text(), '6:30 pm')]";
 		else
 			time = ".//a[contains(text(), '10:00 pm')]";
 		waitSendKeys(time, Keys.ENTER);
