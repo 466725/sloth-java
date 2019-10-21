@@ -8440,89 +8440,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "UserStory-AddCorsPolicy",
-      "item": [
-        {
-          "name": "Get product full details - logged out Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Body matches string\", function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully.\");",
-                  "});",
-                  "",
-                  "pm.test(\"Verify Response status\", function(){",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "var metaCriticRating= jsonBody.MetacriticData.MetaCriticRating;",
-                  "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
-                  "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "a354dd44-1ffc-482c-990e-6ce8d3e577ea",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
-            },
-            "url": "https://apis.cineplex.com/uat/cineplex/store/v1/GetProductFullDetails"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "29852050-ade5-4417-a9e0-df100468a2a9",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "34db3feb-9c35-4102-b4f3-779b1981219e",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "5fe41ede-c5cb-4969-a72b-a17f452bc0b2",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
     }
   ],
   "event": [
@@ -8575,55 +8492,55 @@
   ],
   "variable": [
     {
-      "id": "81aa7ece-0f19-4f0e-84b1-0f7c3bd044fb",
+      "id": "8b77ba5f-799c-4f7a-a561-5878b2e16a6c",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "f37393a0-c532-4fd1-b23d-8ebeff16cbe1",
+      "id": "bbc9f213-8b42-4c4b-ae8a-994f99c6e2c3",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "90f94b18-1eb5-41b9-bac7-a8961b3cd95c",
+      "id": "a2a11761-6592-4164-ac00-1c98523c7be8",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "3eae8d62-147c-48a5-9935-c905f0455a40",
+      "id": "caaa048f-2ded-4eff-88f1-63f4304a382a",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "1eb9c73f-251c-4598-9cf3-76968d2cfa78",
+      "id": "ba206cd7-8ba2-44dd-8725-6f6cc2c7c281",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "9df5bcfe-9ac4-4870-96e8-39c0e9e6f3c3",
+      "id": "a8217f41-0ece-42b7-9f66-850ec5e762ea",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "4598195a-aefe-48ea-a861-b2bb23ea1ebb",
+      "id": "43bd0fb3-bb15-4290-83dd-65f3fca484ea",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b75e5176-7214-45a4-99d9-97badd9bd470",
+      "id": "aa17d904-cf2f-46cd-8635-ed2572efae5a",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "3416f188-4a26-4911-817e-455cfa5e8fbe",
+      "id": "9c7f1761-f0cb-4efe-ae21-f7e08bd8a758",
       "key": "radius",
       "value": "50",
       "type": "string"
