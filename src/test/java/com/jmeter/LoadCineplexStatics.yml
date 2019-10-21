@@ -29,4 +29,4 @@ execution:
   locations-weighted: false
 scenarios:
   pages:
-    script: Cineplex-Load-Scenario-1-PROD.jmx
+    script: LoadCineplexStatics.jmx
