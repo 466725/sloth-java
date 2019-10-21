@@ -8523,303 +8523,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "Connect-Login Copy",
-      "item": [
-        {
-          "name": "Create session_token",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "f97d978c-df01-4141-8215-c5c0a8744835",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "pm.test(\"Result message is successful\", function(){",
-                  "    pm.expect(jsonBody.Result.Message[0]).to.eql(\"Successful\");",
-                  "});",
-                  "",
-                  "pm.test(\"Got valid session token\", function(){",
-                  "    pm.expect(jsonBody.SessionToken).to.not.be.null;",
-                  "    pm.expect(jsonBody.SessionToken).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.SessionToken.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "console.log(\"Created session_token: \" + jsonBody.SessionToken);",
-                  "pm.environment.set(\"session_token\", jsonBody.SessionToken);"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "df9f71a4-27e6-4c1d-a9e7-8241b93fc959",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "8f421659-48cc-40a5-a6c1-6a5e0f17e0ee",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ApplicationKey\": {{ApplicationKey}}\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/CreateApplicationSession"
-          },
-          "response": []
-        },
-        {
-          "name": "Login with username and password",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "c7b4b1ce-4f2d-4ca2-81cb-c0ba034835f8",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "ae65f4de-7007-48e3-833f-4ee520bfc7cd",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "console.log(\"Username: \" + pm.variables.get(\"username\"));",
-                  "console.log(\"Password: \" + pm.variables.get(\"password\"));",
-                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "pm.test(\"UserProfileGuid generated\", function(){",
-                  "    pm.expect(jsonBody.UserProfileGuid).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserProfileGuid).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.UserProfileGuid.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"UserSessionToken generated\", function(){",
-                  "    pm.expect(jsonBody.UserSessionToken).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserSessionToken).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.UserSessionToken.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "console.log(\"user_profile_guid: \" + jsonBody.UserProfileGuid);",
-                  "pm.environment.set(\"user_profile_guid\", jsonBody.UserProfileGuid);",
-                  "console.log(\"user_session_token: \" + jsonBody.UserSessionToken);",
-                  "pm.environment.set(\"user_session_token\", jsonBody.UserSessionToken);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "5202c87e-1bb5-49f2-824b-d5cc9d60e6f0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"SessionToken\":\"{{session_token}}\",\n\t\"Password\":\"{{password}}\",\n\t\"Email\":\"{{username}}\",\n\t\"Source\":\"1\",\n\t\"LanguageType\":\"1\"\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login"
-          },
-          "response": []
-        },
-        {
-          "name": "Verify login status",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "c2d86856-74a8-4efc-b7cc-97aea7861ae6",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "pm.test(\"UserProfileId generated\", function(){",
-                  "    pm.expect(jsonBody.UserProfileId).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserProfileId).to.be.above(0);",
-                  "});",
-                  "",
-                  "console.log(\"UserProfileId: \" + jsonBody.UserProfileId);",
-                  "pm.environment.set(\"user_profile_id\", jsonBody.UserProfileId);"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "148f13b7-ca56-4907-b747-b38712cc02f5",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "5343dea9-dee0-4979-bf40-7bff6c4674ed",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\t\"LanguageType\":\"1\",\r\n\t\"SessionToken\":\"{{session_token}}\",\r\n    \"UserSessionToken\":\"{{user_session_token}}\"\r\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetLoginStatus"
-          },
-          "response": []
-        },
-        {
-          "name": "Acquire CSG session",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b258b1f2-0ab9-44fc-8404-b79cb792d854",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"CSG session Acquired successfully\", function(){",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1)",
-                  "});",
-                  "",
-                  "pm.test(\"Map To CSG Session Result successful\", function(){",
-                  "    pm.expect(jsonBody.StoreSessionResult.Result.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "pm.test(\"Got valid Session Id\", function(){",
-                  "   pm.expect(jsonBody.StoreSessionResult.SessionId).to.not.be.null;",
-                  "});",
-                  "",
-                  "console.log(\"cineplex_connect_Id: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
-                  "pm.environment.set(\"cineplex_connect_Id\", jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
-                  "console.log(\"cineplex_token_expiry: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
-                  "pm.environment.set(\"cineplex_token_expiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
-                  "console.log(\"session_Id: \" + jsonBody.StoreSessionResult.SessionId);",
-                  "pm.environment.set(\"session_Id\", jsonBody.StoreSessionResult.SessionId);",
-                  "console.log(\"first_name: \" + jsonBody.StoreSessionResult.SessionInfo.FirstName);",
-                  "pm.environment.set(\"first_name\", jsonBody.StoreSessionResult.SessionInfo.FirstName);",
-                  "console.log(\"last_name: \" + jsonBody.StoreSessionResult.SessionInfo.LastName);",
-                  "pm.environment.set(\"last_name\", jsonBody.StoreSessionResult.SessionInfo.LastName);",
-                  "console.log(\"username: \" + jsonBody.StoreSessionResult.SessionInfo.Email);",
-                  "pm.environment.set(\"username\", jsonBody.StoreSessionResult.SessionInfo.Email);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "92177d7f-0b61-4866-a085-fc92335593c5",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\t\"ApplicationRequest\":{\r\n\t\t\"LanguageType\":\"1\",\r\n\t\t\"SessionToken\":\"{{session_token}}\",\r\n\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\r\n\t\t\"UserSessionToken\":\"{{user_session_token}}\"\r\n\t},\r\n    \"Language\":\"en-CA\",\r\n    \"SessionQuery\":{\r\n        \"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\r\n        \"Email\":\"{{username}}\",\r\n        \"FirstName\":\"{{first_name}}\",\r\n        \"LastName\":\"{{last_name}}\",\r\n        \"Login\":\"{{username}}\"\r\n    }\r\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreReacquireSessionIfNecessary"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "e1c60660-fabf-489e-992e-87b152ffc194",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "66383334-796b-4a5e-9c4d-b4c9eb03d9ad",
-            "type": "text/javascript",
-            "exec": [
-              "console.log(\"**********Daily regression sub-folder started running!**********\");"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "adf1ea49-2521-4527-aecc-08054676109c",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
     }
   ],
   "event": [
@@ -8872,55 +8575,55 @@
   ],
   "variable": [
     {
-      "id": "26b3bed8-6d87-4f45-be2f-c9963e339095",
+      "id": "a8d20214-a554-4fae-8a13-28ffeae7616d",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "dd411f7c-fcc5-4908-a9ad-d0996abb8ea5",
+      "id": "73d4f671-9f1b-475e-8ea4-fa2105071651",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "096aabf1-4d70-48be-b12f-9ee7002c190f",
+      "id": "51ddbef9-c665-487a-b11c-86a7a5bb9258",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a7942ed2-8f67-4f7b-8994-2e93fad1c504",
+      "id": "6b2fc181-6315-415d-ad4b-0cf376a8f240",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "844a5fd6-ecda-477f-82d2-3db7b7f40ffe",
+      "id": "a51bac71-0a36-40db-890f-aaae0d2e22ef",
       "key": "password",
       "value": "Cineplex@1303",
       "type": "string"
     },
     {
-      "id": "4e6556dc-4c83-441e-b6d9-108072515047",
+      "id": "9e22358e-5b06-4e2b-b3c5-10a506b5c87c",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "16cf3f9e-0673-4a81-98f8-5b7764db25bb",
+      "id": "a6fef7e2-08f4-4ced-ac94-898b0479f745",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "36f42ea8-a932-4222-807f-2312e5ce85d8",
+      "id": "8e00f1f5-c921-4936-b51a-69d1a81f3aa6",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "e46f8096-83d6-4ae5-8f51-7a355b4b8013",
+      "id": "f95429ee-f2c6-4746-98ba-7b7c079e5f22",
       "key": "radius",
       "value": "50",
       "type": "string"
