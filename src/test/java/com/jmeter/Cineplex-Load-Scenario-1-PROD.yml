@@ -1,8 +1,11 @@
 execution:
--  executor: selenium
-   runner: testng
-   concurrency: 1000
-   locations:
+- scenario: pages
+  concurrency: 50000
+  iterations: 50
+  hold-for: 30m
+  ramp-up: 5m
+  step-up: 1m
+  locations:
       ca-central-1: 5
       northamerica-northeast1-a: 5
       us-east-1: 5
@@ -23,12 +26,7 @@ execution:
       azure-central-ca: 5
       azure-central-us-1: 5
       us-central1-a: 5
-   locations-weighted: false
-   iteration: 5
-   hold-for: 30m
-   ramp-up: 10m
-   scenario: ticket
+  locations-weighted: false
 scenarios:
-   ticket:
-      script: YongeDundas4B.java
-
+  pages:
+    script: Cineplex-Load-Scenario-1-PROD.jmx

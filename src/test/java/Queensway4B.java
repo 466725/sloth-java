@@ -3,12 +3,14 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,7 +19,7 @@ public class Queensway4B {
 	private static WebDriver driver;
 	private static WebDriverWait wait;
 	private static int extraWait = 3;
-	public static boolean exitFlow = false;
+	public static boolean exitFlow = true;
 	public static boolean onUAT = false;
 
 	@BeforeTest
@@ -51,14 +53,14 @@ public class Queensway4B {
 		String password;
 
 		if (onUAT)
-			username = "weipeng.zheng@cineplex.com";
+			username = "glory.leung@cineplex.com";
 		else
-			username = "weipeng.zheng@cineplex.com";
+			username = "glory.leung@cineplex.com";
 
 		if (onUAT)
-			password = "Cineplex@1303";
+			password = "Cineplex@2019";
 		else
-			password = "Cineplex@1303";
+			password = "Password1";
 
 		for (int i = 0; i < 3; i++) {
 			letsSleep();
@@ -75,7 +77,7 @@ public class Queensway4B {
 		letsSleep();
 		driver.switchTo().defaultContent();
 	}
-	
+
 	@Test(priority = 6)
 	public void selectTheatre() {
 		String theatreDropDown = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-theatre-selection-area']";
@@ -96,7 +98,8 @@ public class Queensway4B {
 		String movieName;
 
 		if (onUAT)
-			movieName = "Ant-Man";
+			movieName = "Mamma";
+			//movieName = "Ant-Man";
 		else
 			movieName = "Joker";
 
@@ -111,7 +114,9 @@ public class Queensway4B {
 		String selectDateDropDown = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-time-selection-area']";
 		waitClick(selectDateDropDown);
 
-		String selectDateAndClick = "//div[contains(@class,'optgroup')]//div[contains(text(), 'Thu, Oct 17 2019')]";
+		String selectDateAndClick = "//div[contains(@class,'optgroup')]//div[contains(text(), 'Mon, Oct 21 2019')]";
+		//String selectDateAndClick = "//div[contains(@class,'optgroup')]//div[contains(text(), 'Thu, Oct 17 2019')]";
+
 		waitClick(selectDateAndClick);
 	}
 
@@ -119,9 +124,10 @@ public class Queensway4B {
 	public void selectTime() {
 		String time;
 		if (onUAT)
-			time = ".//a[contains(text(), '9:30 am')]";
+			time = ".//a[contains(text(), '3:33 pm')]";
+			//time = ".//a[contains(text(), '6:30 pm')]";
 		else
-			time = ".//a[contains(text(), '4:00 pm')]";
+			time = ".//a[contains(text(), '7:00 pm')]";
 		waitSendKeys(time, Keys.ENTER);
 	}
 
@@ -131,26 +137,26 @@ public class Queensway4B {
 		for (int i = 0; i < 5; i++) {
 			letsSleep();
 		}
+		driver.findElement(By.xpath(addbutton)).click();
+//		List<WebElement> allAdd = driver.findElements(By.xpath(addbutton));
+//		for (WebElement ele : allAdd) {
+//			ele.click();
+//			letsSleep();
+//		}
 
-		List<WebElement> allAdd = driver.findElements(By.xpath(addbutton));
-		for (WebElement ele : allAdd) {
-			ele.click();
-			letsSleep();
-		}
-
-		String plusButton = "//div[contains(@class,'btn-plus increment')]";
-		letsSleep();
-		List<WebElement> allPlus = driver.findElements(By.xpath(plusButton));
-		for (WebElement ele : allPlus) {
-			try {
-				for (int i = 0; i < 2; i++) {
-					ele.click();
-					letsSleep();
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+//		String plusButton = "//div[contains(@class,'btn-plus increment')]";
+//		letsSleep();
+//		List<WebElement> allPlus = driver.findElements(By.xpath(plusButton));
+//		for (WebElement ele : allPlus) {
+//			try {
+//				for (int i = 0; i < 2; i++) {
+//					ele.click();
+//					letsSleep();
+//				}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 
 	@Test(priority = 11)
@@ -160,9 +166,41 @@ public class Queensway4B {
 		waitClick(proceedButton);
 	}
 
+	@Test(priority = 12)
+	public void clickProceedButtonOnSeatMapPage() {
+		letsSleep();
+		boolean isSeatMapPage;
+		try {
+			driver.findElement(By.xpath("//*[@id='seatmap']/h3"));
+			isSeatMapPage = true;
+		} catch (NoSuchElementException e) {
+			isSeatMapPage = false;
+		}
+
+		if (isSeatMapPage) {
+			String seatsPageTitle = "Select Seats - Cineplex Ticketing Mvc";
+			Assert.assertEquals(driver.getTitle(), seatsPageTitle);
+			String proceedButton = "//button[contains(@data-bind,'Proceed')]";
+			waitClick(proceedButton);
+		} else {
+			// Do Nothing
+		}
+	}
+
 	@Test(priority = 30)
 	public void clickProceedButtonOnExtrasPage() {
 		letsSleep();
+		String extrasPageTitle = "Extras - Cineplex Ticketing Mvc";
+		Assert.assertEquals(driver.getTitle(), extrasPageTitle);
+		String proceedButton = "//button[contains(@data-bind,'Proceed')]";
+		waitClick(proceedButton);
+	}
+
+	@Test(priority = 40)
+	public void clickProceedButtonOnPaymentOptionsPage() {
+		letsSleep();
+		String paymentOptionsPageTitle = "Payment Options - Cineplex Ticketing Mvc";
+		Assert.assertEquals(driver.getTitle(), paymentOptionsPageTitle);
 		String proceedButton = "//button[contains(@data-bind,'Proceed')]";
 		waitClick(proceedButton);
 	}
