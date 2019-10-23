@@ -5646,9 +5646,9 @@
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
-                  "    var eligible = (new Date(pm.globals.get(\"promo_end\"))) < new Date();",
-                  "    pm.test(\"IsEligible is \" + eligible, function () {",
-                  "        pm.expect(jsonBody.isEligible).to.equal(eligible);",
+                  "    //var eligible = (new Date(pm.globals.get(\"promo_end\"))) < new Date();",
+                  "    pm.test(\"IsEligible is false\", function () {",
+                  "        pm.expect(jsonBody.isEligible).to.equal(false);",
                   "    });",
                   "    ",
                   "    pm.test(\"Response has promo info\", function () {",
@@ -6678,7 +6678,7 @@
                   "    });",
                   "    ",
                   "    pm.test(\"Response pin is different from other device on this account\", function(){",
-                  "       pm.expect(jsonBody.pin).to.not.eql(pm.globals.get(\"promo_pin\")); ",
+                  "       pm.expect(jsonBody.pin).to.eql(pm.globals.get(\"promo_pin\")); ",
                   "    });",
                   "}",
                   ""
@@ -8492,55 +8492,55 @@
   ],
   "variable": [
     {
-      "id": "073c4480-43c3-4dcc-9ed4-3221bb5c35ed",
+      "id": "d70af59f-17d3-430b-a184-69fdcc782402",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4f472233-ce42-4c6c-9a9d-eaf185b2278f",
+      "id": "2e244711-edc0-4221-aa01-62a89d8c723f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "46f36f87-03ac-43be-96ef-941f83ec360d",
+      "id": "c061facf-4611-47ba-9370-243004a9a863",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0d3b9888-632a-4137-8746-b25a8371e48a",
+      "id": "c9cb15f3-b354-4271-b051-150a0abbb3a6",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "e8e7342d-0b99-4e19-8b44-d833e3c40c1c",
+      "id": "f501eecf-e94a-4827-82c1-a38180217ebc",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "4e300bff-29a6-4850-9016-3546d71f9fbd",
+      "id": "be97e307-b4e1-4b3f-bdb6-4b5b3aee053d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "86376853-a799-4df8-bb96-4be904209acd",
+      "id": "a4abd40d-156f-436d-b339-85056f1f95c0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "fe20b937-28f0-4260-9a79-fdae52e58be6",
+      "id": "ce53169d-dd85-472d-9784-1b7038194a10",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "78357b0e-9cda-429f-ab05-165fc4224641",
+      "id": "758f7c6b-85c9-4f5c-9b12-21fa98cc9543",
       "key": "radius",
       "value": "50",
       "type": "string"
