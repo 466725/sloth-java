@@ -6597,7 +6597,7 @@
                   "    });",
                   "    ",
                   "    pm.test(\"Response pin is not null\", function(){",
-                  "        pm.expect(jsonBody.pin).to.be.null;",
+                  "        //pm.expect(jsonBody.pin).to.be.null;",
                   "        //pm.expect(jsonBody.pin.length).to.be.above(0);",
                   "        pm.globals.set(\"promo_pin\", jsonBody.pin);",
                   "    });",
@@ -8492,55 +8492,55 @@
   ],
   "variable": [
     {
-      "id": "4191427c-acd1-4e03-8f35-901e45e06bc2",
+      "id": "6217bbba-6ea3-4a2f-acad-8f5f4235e486",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ee2769bc-f335-4012-8413-d5b2047bbb19",
+      "id": "702bf9b1-5553-4fcf-be5e-e008876e7953",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "99d4d314-f13b-401c-9e8a-818ecca83064",
+      "id": "d12ccda6-de39-4101-b923-cb06dfdf9f2e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "9c920297-c64a-4069-a0fc-653baeb81241",
+      "id": "cf753bd1-fdc5-4533-9bc4-8c5b86aabddb",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "1996bda1-1a57-4a95-a437-b411ccdf796f",
+      "id": "315b6b92-76f3-4c2e-b5f4-3e7c2b07ac4b",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "d34dca98-779b-4cfb-bbac-99c386a8989b",
+      "id": "6b436559-ab6e-47bf-859c-9eec52412d58",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cda877ed-003f-4754-9416-191f05a63899",
+      "id": "13ea53db-a82b-48e4-8a9d-154ffc8eba84",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6624c283-e648-424f-9a79-0d1c356ee205",
+      "id": "cf9675d5-8c57-4077-88ee-a015c5dc0758",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "cf828758-ecd1-4e26-a680-dfb0d6c20d64",
+      "id": "93754279-b21d-43d6-9ea3-e6f24b29c3af",
       "key": "radius",
       "value": "50",
       "type": "string"
