@@ -8073,6 +8073,75 @@
           "response": []
         },
         {
+          "name": "Available movie one poster - Prod Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8e4677ab-e57f-4889-b41f-be02ecaf7629",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "043c7942-8365-4109-8bcf-29c8c35d2dc8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "https://www.cineplex.com/api/v1/theatres/7403/availablemoviesoneposter/dates?language=en-us&marketLanguageCodeFilter=false&skip=0&take=10000",
+              "protocol": "https",
+              "host": [
+                "www",
+                "cineplex",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "theatres",
+                "7403",
+                "availablemoviesoneposter",
+                "dates"
+              ],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en-us"
+                },
+                {
+                  "key": "marketLanguageCodeFilter",
+                  "value": "false"
+                },
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "take",
+                  "value": "10000"
+                }
+              ]
+            },
+            "description": "https://apis.cineplex.com/uat/cpx/movies/v1/29373/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=50&Request.Skip=0&Request.Take=2147483647"
+          },
+          "response": []
+        },
+        {
           "name": "Get movies UAT",
           "event": [
             {
@@ -8492,55 +8561,55 @@
   ],
   "variable": [
     {
-      "id": "80e755d8-ff70-48fe-bbbf-74dac2c067fd",
+      "id": "879f8c65-9de4-4a08-a9b3-fa0e86861399",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4466a6df-83e4-4912-a0a9-05d0b1d0766f",
+      "id": "4bb0a87a-b044-4d14-9edf-60e56c68ba66",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "57e4709a-d217-4c9b-aa5c-57477e5c4616",
+      "id": "e073f58c-740d-4c41-a7f1-edf17aae0b2c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0cfc3451-d1d4-420f-a252-50a93c4e3bca",
+      "id": "2c2ec015-a746-40ae-adae-be3140fe4d1f",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "6e2c65eb-218e-4a13-84b4-90b8cc3b902c",
+      "id": "e744d96a-4528-45f5-b091-d986444a03a7",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "ec81fef7-bccc-4ba5-9456-50da86940dfb",
+      "id": "28848b27-b001-4bf5-8de8-2f846446714a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ff46bed5-5b87-4ed9-a3d5-e15855d8080d",
+      "id": "e16bf999-5a1f-45a6-97a2-d3bbb037632b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ece016f2-e7d1-4b80-a3c2-6bf1cd3e610a",
+      "id": "389aa028-6128-4e4a-8f5e-d5dda377e283",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "5297a5d6-ae45-4e47-9cc8-683e2f6b4a53",
+      "id": "ccac6589-68fc-4bbf-9952-b6460c3e46e8",
       "key": "radius",
       "value": "50",
       "type": "string"
