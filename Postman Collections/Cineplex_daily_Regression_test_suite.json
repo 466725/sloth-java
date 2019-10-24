@@ -7807,47 +7807,24 @@
               }
             ],
             "url": {
-              "raw": "https://www.cineplex.com/api/v1/movies/getmoviesforoneposter?Skip=0&Take=1000&language=en-us&marketLanguageCodeFilter=true&movieType=0&showTimeType=0&showtimeSta",
+              "raw": "https://apis.cineplex.com/uat/cpx/movies/v1/getmoviesforoneposter?language=en-us",
               "protocol": "https",
               "host": [
-                "www",
+                "apis",
                 "cineplex",
                 "com"
               ],
               "path": [
-                "api",
-                "v1",
+                "uat",
+                "cpx",
                 "movies",
+                "v1",
                 "getmoviesforoneposter"
               ],
               "query": [
                 {
-                  "key": "Skip",
-                  "value": "0"
-                },
-                {
-                  "key": "Take",
-                  "value": "1000"
-                },
-                {
                   "key": "language",
                   "value": "en-us"
-                },
-                {
-                  "key": "marketLanguageCodeFilter",
-                  "value": "true"
-                },
-                {
-                  "key": "movieType",
-                  "value": "0"
-                },
-                {
-                  "key": "showTimeType",
-                  "value": "0"
-                },
-                {
-                  "key": "showtimeSta",
-                  "value": null
                 }
               ]
             },
@@ -8641,55 +8618,55 @@
   ],
   "variable": [
     {
-      "id": "76e1ad90-4c4f-4496-bef8-5365345e081f",
+      "id": "68c44024-9708-4de5-9296-1079f7f4ef8e",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "9a86d30e-4928-47c1-9a18-758ae0b72766",
+      "id": "3f700456-753e-4466-9899-8100e46c6ac8",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "68584d7e-1ef0-4ff3-a4cb-2d3a7abc56ca",
+      "id": "3378c849-adf7-4ca4-afaf-32619cacfb75",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "75d4b41d-f9bc-4c87-922c-0e0720858c3c",
+      "id": "7cd0cbf2-d21c-42dc-801f-0b8eba7c1941",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "f54744f2-6195-433a-abdd-7b3ccd3327a6",
+      "id": "a66526d5-9784-4b5e-9b97-4c32de69e4a1",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "1d1e3e92-cc6e-4cde-b26e-21ced9e944c8",
+      "id": "3fef55eb-d767-4617-b572-dac5b4f7e2e9",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "00ec338a-c1b2-4f39-b780-6e88a6d34bf1",
+      "id": "7aa2654f-e3d1-459f-bb2b-e877aff511fe",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ae22fb2d-8e06-4fde-9065-78cf4d5f10f7",
+      "id": "a32aec6e-5f39-4888-8f8c-7d13e9e9a1af",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "3d6c28be-f317-4445-a538-82578fe8dba7",
+      "id": "1abd394c-b5f2-4023-849e-650ddb6f245b",
       "key": "radius",
       "value": "50",
       "type": "string"
