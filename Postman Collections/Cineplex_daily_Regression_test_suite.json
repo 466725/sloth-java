@@ -7777,6 +7777,62 @@
           "response": []
         },
         {
+          "name": "Get movie for one poster - UAT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8e4677ab-e57f-4889-b41f-be02ecaf7629",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8bf410b6-3677-4bf4-92a7-6d3501e8bdc8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "https://apis.cineplex.com/uat/cpx/movies/v1/getmoviesforoneposter?request.language=en-us",
+              "protocol": "https",
+              "host": [
+                "apis",
+                "cineplex",
+                "com"
+              ],
+              "path": [
+                "uat",
+                "cpx",
+                "movies",
+                "v1",
+                "getmoviesforoneposter"
+              ],
+              "query": [
+                {
+                  "key": "request.language",
+                  "value": "en-us"
+                }
+              ]
+            },
+            "description": "https://apis.cineplex.com/uat/cpx/movies/v1/29373/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=50&Request.Skip=0&Request.Take=2147483647"
+          },
+          "response": []
+        },
+        {
           "name": "Get movie for one poster - Staging",
           "event": [
             {
@@ -7965,7 +8021,7 @@
               }
             ],
             "url": {
-              "raw": "https://apis.cineplex.com/uat/cpx/theatres/v1/2112/availablemoviesoneposter/dates?language=en-us&marketLanguageCodeFilter=false&skip=0&take=10000",
+              "raw": "https://apis.cineplex.com/uat/cpx/theatres/v1/2112/availablemoviesoneposter/dates?language=en-us",
               "protocol": "https",
               "host": [
                 "apis",
@@ -7988,15 +8044,18 @@
                 },
                 {
                   "key": "marketLanguageCodeFilter",
-                  "value": "false"
+                  "value": "false",
+                  "disabled": true
                 },
                 {
                   "key": "skip",
-                  "value": "0"
+                  "value": "0",
+                  "disabled": true
                 },
                 {
                   "key": "take",
-                  "value": "10000"
+                  "value": "10000",
+                  "disabled": true
                 }
               ]
             },
@@ -8562,55 +8621,55 @@
   ],
   "variable": [
     {
-      "id": "b9778faa-5769-4175-85a1-f6fc3a7fdbf8",
+      "id": "394c0d94-1a07-4683-96d9-a7ed3eec785d",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c162b1c8-3c6f-425c-b1ad-6bbf74d9fdc7",
+      "id": "4b6c617d-abe4-4b71-b1c2-0df6ec690508",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "01953691-d12a-4b94-8fa2-86e5333e25d7",
+      "id": "b04863e9-59d5-4f73-b6ef-7e39fe028251",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ced1f8a4-a25a-4120-9ad4-9f8c059ce7e2",
+      "id": "6e4f011d-5179-47d4-bdba-4d291f28bf28",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "dffceb2b-c72f-4375-a266-7eaf5444cf14",
+      "id": "85c06988-fdfc-4461-b099-9ec7c7c2e061",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "2a0597ff-e667-472c-9ea5-dcae166214d9",
+      "id": "0fd2c181-c8ee-40a3-8313-6e8cc1517a0a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "88947a9f-6470-4391-9da0-ef3c5f4da275",
+      "id": "10bde5d2-b96b-481c-8fb3-446e88b7638c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "779327af-5e6e-4bef-9b20-66161fdd0f8b",
+      "id": "b455c99f-8c01-423e-a6ce-32566e74f739",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "2a2d094c-11f0-46b5-8b98-cb6fc2be74ac",
+      "id": "9616d772-1646-413a-b1e7-af4a4424c18c",
       "key": "radius",
       "value": "50",
       "type": "string"
