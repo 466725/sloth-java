@@ -5391,6 +5391,69 @@
             "description": "User Story 33366: Create a new API that retrieves the users lat/long (ideally including city/country) based on their IP"
           },
           "response": []
+        },
+        {
+          "name": "Get terms conditions Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2f38900f-3034-4363-bb9d-a47558773c85",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "    pm.expect(jsonBody.status).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.test(\"jsonBody.message is not undefined\", function(){",
+                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
+                  "});",
+                  "",
+                  "//User Story 33807: Create Versioning in Cineplex.com",
+                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1b21a42e-6a69-4a48-ab2d-d4337c067365",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{cineplex_url}}/settings/{{api_version}}/termsconditions?language={{language}}",
+              "host": [
+                "{{cineplex_url}}"
+              ],
+              "path": [
+                "settings",
+                "{{api_version}}",
+                "termsconditions"
+              ],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "{{language}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "10cb3c86-eada-432d-ad78-acbe995ace11",
@@ -8621,55 +8684,55 @@
   ],
   "variable": [
     {
-      "id": "dd09d9a5-79cc-4f5f-be2d-0e9efd49e8b0",
+      "id": "ab552eb4-b958-44a5-addc-266872a24001",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c746eecb-a603-44d2-a3c2-c3cee66fdf2a",
+      "id": "e0a0609c-2c1a-42eb-ade0-8e6395407815",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f06cf340-2971-4ef7-b749-37bde1f54b77",
+      "id": "784c3127-e49e-43c4-8a36-0577294752d0",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ecdaba35-71f7-4b74-ab35-4b3e0241d715",
+      "id": "01533ccf-f268-4dbd-bac5-c3ab8bed3ae5",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "70bea03c-d3ca-4e55-bbdf-b977a1c0bdf4",
+      "id": "7136dabf-bbd3-40dd-b291-577e5b5df376",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "7ffd1cf0-19a8-405f-afe0-1fa67cc556d5",
+      "id": "538f3843-fa94-4194-be19-5cd99654ce17",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "167b40dc-4dab-4213-8c4f-d6afcd798745",
+      "id": "9e9776dc-2ea1-4265-a342-88b5bf1d998b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "5b0c0bcf-950f-49c9-9d96-5e469bfa94ca",
+      "id": "60db7401-8a3c-4ba2-943d-9379b10796fc",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "187aede0-8dfa-4691-b63d-444ac6f68dea",
+      "id": "2ed3ab6d-3f38-44d0-9b08-c0bdf1968158",
       "key": "radius",
       "value": "50",
       "type": "string"
