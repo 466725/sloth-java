@@ -6143,8 +6143,11 @@
                   "    console.log(\"We are runing on Staging environment!\");",
                   "    tests[\"Status code is 404\"] = responseCode.code === 404;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "} else if(pm.environment.get(\"cineplex_url\").has(\"uat\")){",
+                  "    console.log(\"We are runing on UAT environment!\");",
+                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "} else {",
-                  "    console.log(\"We are not runing on Staging environment!\");",
+                  "    console.log(\"We are runing on PROD environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
@@ -8625,55 +8628,55 @@
   ],
   "variable": [
     {
-      "id": "2d52573c-b1a7-408e-b40f-0ea40e1dc76a",
+      "id": "3f618e02-6962-4f83-a478-438bfc221e13",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "f4f64a27-5637-46e9-9110-4d290646ade4",
+      "id": "c92800fa-c3e0-43c1-aa5b-e14da68c8b05",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "bed50289-b098-4a27-90cc-e5e1cfa8ead2",
+      "id": "c0ea4189-6ccc-4ff1-8faa-e9d528c42f47",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5566be9c-2777-4a95-b265-845f77b3cc6c",
+      "id": "66704827-a69e-4fed-9594-9ede43943793",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "19f1a2b7-dcec-4933-a8c5-5c0476adbe9e",
+      "id": "a6ef9e5b-4690-4c10-b71f-13746cd794f7",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "356fc42d-8657-422c-a8a5-9f5d9918b8b9",
+      "id": "89d1ddf1-4986-4264-b468-40b53b4d9d08",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "943463cb-7d63-4519-9f0f-45d4fa21d027",
+      "id": "253f6a7b-16e4-4263-a49b-f0d7071f9bbb",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f648470d-b09e-4bdc-bdee-16ded6b874dd",
+      "id": "862bb2a7-6092-4b91-adbd-dc348a979e44",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ec9fa59c-17f4-4102-ac89-4b5c9b7328c5",
+      "id": "9747c89f-a514-4a09-88e2-8819467ce7df",
       "key": "radius",
       "value": "50",
       "type": "string"
