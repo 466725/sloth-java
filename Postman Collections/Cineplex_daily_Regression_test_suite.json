@@ -6198,13 +6198,16 @@
                   "    console.log(\"We are runing on Staging environment!\");",
                   "    tests[\"Status code is 404\"] = responseCode.code === 404;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "} else if(pm.environment.get(\"cineplex_url\").has(\"uat\")){",
+                  "    console.log(\"We are runing on UAT environment!\");",
+                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "} else {",
-                  "    console.log(\"We are not runing on Staging environment!\");",
+                  "    console.log(\"We are runing on PROD environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
-                  "    pm.test(\"Response is not enrolled\", function () {",
-                  "        pm.expect(jsonBody.enrollmentComplete).to.be.false;",
+                  "    pm.test(\"Response is enrolled\", function () {",
+                  "        pm.expect(jsonBody.enrollmentComplete).to.be.true;",
                   "    });",
                   "}"
                 ],
@@ -6456,10 +6459,6 @@
                   "    ",
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
-                  "    });",
-                  "    ",
-                  "    pm.test(\"Device is enrolled with another account\", function(){",
-                  "       pm.expect(jsonBody.isEnrolledWithOtherAccount).to.be.true; ",
                   "    });",
                   "}"
                 ],
@@ -8628,55 +8627,55 @@
   ],
   "variable": [
     {
-      "id": "8e0bfeee-9c40-4738-bdf8-4ba620a6e85d",
+      "id": "68db500e-d76a-47a6-89a5-bc630688b168",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "1497a3c7-0d74-4206-95a0-f65f87bae12d",
+      "id": "5440a983-44f8-4553-81f9-f2c69919854a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "d5fdfb92-6a6c-49dd-b4ae-75d78b66d650",
+      "id": "b120efea-b03f-459d-a7c4-1f35bef11a37",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6350c5df-5d0c-45de-9605-24ada26d5382",
+      "id": "3f68528a-1ae7-40cf-abe3-a74aa10332e2",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "38b14071-6c21-4874-b872-75722f66df07",
+      "id": "b118c11c-0ae9-4716-aa87-6c2b3cee0828",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "5072f562-4698-4552-a896-f1fd0686f0c6",
+      "id": "8f961a50-cd2c-487d-ab00-b219343f6498",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "28cda118-d2fa-409c-a924-db1613aad816",
+      "id": "18ded960-90a8-4bc0-a06f-dcab3a4cecfd",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7dad1f6f-fe7d-4ea2-aaed-a56e97eedaa6",
+      "id": "61cb5ee9-d4f6-4149-b389-d9c1f86fc4be",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ec2869b7-9f75-4906-8208-8078b72b9879",
+      "id": "de380374-3ba3-46e1-bc26-8d8ac986f864",
       "key": "radius",
       "value": "50",
       "type": "string"
