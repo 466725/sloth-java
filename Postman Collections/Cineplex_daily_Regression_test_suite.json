@@ -6251,8 +6251,10 @@
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "} else if(pm.environment.get(\"cineplex_url\").has(\"uat\")){",
                   "    console.log(\"We are runing on UAT environment!\");",
+                  "    //More tests will be added here",
+                  "    //Getting 500 Internal server error, and Leo Wong is fixing it",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "}else{",
+                  "} else{",
                   "    console.log(\"We are runing on PROD environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
@@ -8623,55 +8625,55 @@
   ],
   "variable": [
     {
-      "id": "3cbdc18e-12a7-4066-80f1-b87479122eb5",
+      "id": "5f19fe59-0516-4f5b-b5fb-2c1960f4c76b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "84206509-8d50-4c64-ab36-e508a8079f73",
+      "id": "9f613e96-8bd5-4d13-b601-3c5fdf295fbc",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "34b422d4-ef0b-4fc7-a665-9a2d855bcc50",
+      "id": "c1b02bb3-3f35-4ed2-97b5-505c80aeee10",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ef1ecea2-389b-4e50-ae8e-97de6af41636",
+      "id": "f99257f2-693f-4dc3-bbe5-7633dc2ec132",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "b08e5808-dbf6-4633-ba79-3c14457a9d81",
+      "id": "f0d4d893-7d98-4111-bef5-d4f95d5d87ed",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "5501b084-0f10-46da-b1ae-7f65fe5a4c9c",
+      "id": "d4dfc225-62bd-4d8c-9421-15a61012ad37",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f1d16c66-6612-4c85-a0ce-4ca008912e1b",
+      "id": "851b9e18-4ca0-471a-b706-8dff8db8a7e1",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "e1d7f65b-6456-45ae-8025-5c05d575b198",
+      "id": "eb42e6c6-f18b-4f6c-8433-39cfacca0ea2",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "427682b1-ef68-4f8c-b9d9-5f7b1b4e12ad",
+      "id": "d1324d44-78e8-46b6-bf4f-e574888a997a",
       "key": "radius",
       "value": "50",
       "type": "string"
