@@ -7,6 +7,8 @@
 		<parameter name="URL" value="https://tlau.conciergeplus.com/"></parameter>
 		<parameter name="userName" value="tina.lau@conciergeplus.com"></parameter>
 		<parameter name="password" value="Concierge2019"></parameter>
+		<parameter name="dbConnection" value="Localhost_Sybase"></parameter>
+		<parameter name="baseURI" value="https://aries-qa.volantecloud.com/aries/api"></parameter>
 		<classes>
 			<class name="com.concierge.testcases.LoginPageTest" />
 			<class name="com.concierge.testcases.HomePageTest" />

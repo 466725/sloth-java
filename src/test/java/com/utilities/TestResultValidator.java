@@ -1,7 +1,9 @@
 package com.utilities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.LogManager;
@@ -28,7 +30,7 @@ public class TestResultValidator extends WebPageUtils {
 		}
 	}
 
-	public static boolean isElementsAscendingOrdered(List<WebElement> elements) {
+	public static boolean isStringElementsAscendingOrdered(List<WebElement> elements) {
 		List<String> stringList = new ArrayList<>();
 		boolean isAscending = true;
 		try {
@@ -47,5 +49,53 @@ public class TestResultValidator extends WebPageUtils {
 		}
 		logger.info("Is ascending ordered: " + isAscending);
 		return isAscending;
+	}
+
+	public static boolean isIntegerElementsAscendingOrdered(List<WebElement> elements) {
+		List<Integer> intList = new ArrayList<>();
+		try {
+			for (int i = 0; i < elements.size(); i++) {
+				intList.add(Integer.parseInt(elements.get(i).getText()));
+			}
+			logger.info("Elements before: " + intList);
+			for (int i = 0; i < intList.size(); i++) {
+				if ((i + 1) < intList.size())
+					if (intList.get(i) > intList.get(i + 1)) {
+						return false;
+					}
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return true;
+		}
+		return true;
+	}
+
+	public static boolean isDateElementsAscendingOrdered(List<WebElement> elements) {
+		List<Long> intList = new ArrayList<>();
+		try {
+			for (int i = 0; i < elements.size(); i++) {
+				String string_date = elements.get(i).getText();
+				SimpleDateFormat f = new SimpleDateFormat("Mmm dd, yyyy");
+				try {
+					Date d = f.parse(string_date);
+					long milliseconds = d.getTime();
+					intList.add(milliseconds);
+				} catch (Exception e) {
+					logger.error(e.getMessage());
+				}
+			}
+			logger.info("Elements before: " + intList);
+			for (int i = 0; i < intList.size(); i++) {
+				if ((i + 1) < intList.size())
+					if (intList.get(i) > intList.get(i + 1)) {
+						return false;
+					}
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return true;
+		}
+		return true;
 	}
 }
