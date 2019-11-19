@@ -6205,9 +6205,6 @@
                   "    console.log(\"We are runing on PROD environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "    pm.test(\"Response is enrolled\", function () {",
-                  "        pm.expect(jsonBody.enrollmentComplete).to.be.true;",
-                  "    });",
                   "}"
                 ],
                 "type": "text/javascript"
@@ -6674,15 +6671,6 @@
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "    ",
-                  "    pm.test(\"Response is enrolled\", function(){",
-                  "        pm.expect(jsonBody.isEnrolled).to.be.true;",
-                  "    });",
-                  "    ",
-                  "    pm.test(\"Response consent is not null\", function(){",
-                  "        pm.expect(jsonBody.isConsented).to.not.be.null;",
-                  "        pm.expect(jsonBody.isConsented.length).to.be.above(0);",
-                  "    });",
                   "    ",
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
@@ -8632,55 +8620,55 @@
   ],
   "variable": [
     {
-      "id": "79fd097d-9481-4440-b349-db50a1e9d9a4",
+      "id": "6cbaa7c3-b5fa-40ee-9427-8825016a5bfc",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "bf6db8e6-c166-4d85-ac43-02813682cc4c",
+      "id": "744f8ac1-5f5a-4e0f-b97c-0fc84a13d51e",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "65d6cd2a-e6fe-479c-a6cf-83c258d0d333",
+      "id": "3c0d3aa3-ff62-4365-aef5-21957fbc7bce",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4a1e7382-e7b7-42d5-b9d0-5a376fdad7fb",
+      "id": "bee00fd4-6f03-4d3f-83d5-57639ac6629f",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "671a31dd-3a8d-4ad3-9e71-5b7a69772dd1",
+      "id": "8d144317-5db8-4742-bada-c48e11d0dcac",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "4991f0b8-bd1d-44ec-a2bb-dbb84b9ce027",
+      "id": "e7b7787d-946a-4e32-bcfc-0fb6be4c2438",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "852ffd39-012f-4e26-a58f-3ce572dfc201",
+      "id": "7cd1b44a-d353-473d-8ca0-a0734f77712d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "94ebf285-48cd-46d1-9458-39c57a014a7f",
+      "id": "66b30577-b37c-4d1e-bc22-fd55c80261f7",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "bb1a641a-1645-4665-92b4-d7f2975368a5",
+      "id": "fe11e9d9-d4b2-4cf5-be74-1d8abe896fd9",
       "key": "radius",
       "value": "50",
       "type": "string"
