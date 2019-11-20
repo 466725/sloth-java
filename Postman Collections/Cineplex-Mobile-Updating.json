@@ -3311,13 +3311,13 @@
 	],
 	"variable": [
 		{
-			"id": "2fa2b2d8-bf3c-48a1-a641-8b8fc8488c2e",
+			"id": "241ae674-52b6-4883-9516-4fb4af40af56",
 			"key": "username",
 			"value": "weipeng.zheng@cineplex.com",
 			"type": "string"
 		},
 		{
-			"id": "7830c4f0-4402-4b83-9fda-dbd0afa9ee17",
+			"id": "8069e947-951d-4c2c-a87a-749fbcac1499",
 			"key": "password",
 			"value": "Weipeng@1300",
 			"type": "string"
