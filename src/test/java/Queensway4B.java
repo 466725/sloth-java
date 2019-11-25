@@ -1,11 +1,9 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -19,14 +17,18 @@ public class Queensway4B {
 	private String password = "Cineplex@2019";
 	private String baseURL_UAT = "https://uat-www.cineplex.com";
 	private String baseURL_PROD = "https://www.cineplex.com/";
+	private String theatreName = "Cineplex Cinemas Queensway and VIP";
+	private String theatreShowTime = "(//div[@id='quick-tickets-theatre-showtimes']//a[@id])[3]";
 
 	@BeforeTest
 	public void setUp() {
 		driver = new FirefoxDriver();
 		wait = new WebDriverWait(driver, 30, 250);
-		if (onUAT)
+		if (onUAT) {
 			driver.get(baseURL_UAT);
-		else
+			theatreShowTime = "(//div[@id='quick-tickets-theatre-showtimes']//a[@id])[3]";
+			theatreName = "H0";
+		} else
 			driver.get(baseURL_PROD);
 		driver.manage().window().maximize();
 	}
@@ -55,9 +57,6 @@ public class Queensway4B {
 
 	@Test(priority = 6)
 	public void selectTheatre() {
-		String theatreName = "Cineplex Cinemas Queensway and VIP";
-		if (onUAT)
-			theatreName = "H0";
 		waitClick("//div[contains(@class,'visible')]//div[contains(@id,'theatre-selection')]");
 		waitSendString("//input[@title='Search by Theatre or City' and @tabindex='0']", theatreName + Keys.ENTER);
 	}
@@ -76,10 +75,7 @@ public class Queensway4B {
 
 	@Test(priority = 9)
 	public void selectTime() {
-		String time = "(//div[@id='quick-tickets-theatre-showtimes']//a[@id])[3]";
-		if (onUAT)
-			time = "(//div[@id='quick-tickets-theatre-showtimes']//a[@id])[3]";
-		waitSendKeys(time, Keys.ENTER);
+		waitSendKeys(theatreShowTime, Keys.ENTER);
 	}
 
 	@Test(priority = 10)
@@ -94,23 +90,17 @@ public class Queensway4B {
 
 	@Test(priority = 12)
 	public void clickProceedButtonOnSeatMapPage() {
-		try {
-			driver.findElement(By.xpath("//*[@id='seatmap']/h3"));
+		if (driver.findElement(By.xpath("//*[@id='seatmap']/h3")) != null)
 			waitClick("//button[contains(@data-bind,'Proceed')]");
-		} catch (NoSuchElementException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Test(priority = 30)
 	public void clickProceedButtonOnExtrasPage() {
-		Assert.assertEquals(driver.getTitle(), "Extras - Cineplex Ticketing Mvc");
 		waitClick("//button[contains(@data-bind,'Proceed')]");
 	}
 
 	@Test(priority = 40)
 	public void clickProceedButtonOnPaymentOptionsPage() {
-		Assert.assertEquals(driver.getTitle(), "Payment Options - Cineplex Ticketing Mvc");
 		waitClick("//button[contains(@data-bind,'Proceed')]");
 	}
 
