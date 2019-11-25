@@ -1,14 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -18,18 +13,21 @@ import org.testng.annotations.Test;
 public class Queensway4B {
 	private static WebDriver driver;
 	private static WebDriverWait wait;
-	private static int extraWait = 3;
-	public static boolean exitFlow = true;
-	public static boolean onUAT = false;
+	private boolean onUAT = true;
+	private boolean exitFlow = false;
+	private String username = "glory.leung@cineplex.com";
+	private String password = "Cineplex@2019";
+	private String baseURL_UAT = "https://uat-www.cineplex.com";
+	private String baseURL_PROD = "https://www.cineplex.com/";
 
 	@BeforeTest
 	public void setUp() {
 		driver = new FirefoxDriver();
-		wait = new WebDriverWait(driver, extraWait * 10, 250);
+		wait = new WebDriverWait(driver, 30, 250);
 		if (onUAT)
-			driver.get("https://uat-www.cineplex.com");
+			driver.get(baseURL_UAT);
 		else
-			driver.get("https://www.cineplex.com/");
+			driver.get(baseURL_PROD);
 		driver.manage().window().maximize();
 	}
 
@@ -42,213 +40,100 @@ public class Queensway4B {
 
 	@Test(priority = 3)
 	public void showLoginPopup() {
-		String loginButton = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
-		waitClick(loginButton);
+		waitClick("//*[@class='loginSignUp'][1]");
 	}
 
 	@Test(priority = 4)
 	public void login() {
-
-		String username;
-		String password;
-
-		if (onUAT)
-			username = "glory.leung@cineplex.com";
-		else
-			username = "glory.leung@cineplex.com";
-
-		if (onUAT)
-			password = "Cineplex@2019";
-		else
-			password = "Password1";
-
-		for (int i = 0; i < 3; i++) {
-			letsSleep();
-		}
-
 		driver.switchTo().activeElement();
 		driver.switchTo().frame("bootstrapModalIframe");
-		letsSleep();
-		driver.findElement(By.xpath("//*[@id='txtEmailAddress']")).sendKeys(username);
-		letsSleep();
-		driver.findElement(By.xpath("//*[@id='txtPassword']")).sendKeys(password);
-		letsSleep();
-		driver.findElement(By.xpath("//*[@id='btnLogin']")).click();
-		letsSleep();
+		waitSendString("//*[@id='txtEmailAddress']", username);
+		waitSendString("//*[@id='txtPassword']", password);
+		waitClick("//*[@id='btnLogin']");
 		driver.switchTo().defaultContent();
 	}
 
 	@Test(priority = 6)
 	public void selectTheatre() {
-		String theatreDropDown = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-theatre-selection-area']";
-		String theatreDropDownTextBox = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-theatre-selection-area']/div/selectize-input/div/div[1]/input";
-		String theatreName;
-
+		String theatreName = "Cineplex Cinemas Queensway and VIP";
 		if (onUAT)
 			theatreName = "H0";
-		else
-			theatreName = "Cineplex Cinemas Queensway and VIP";
-
-		waitClick(theatreDropDown);
-		waitSendKeys(theatreDropDownTextBox, theatreName + Keys.ENTER);
+		waitClick("//div[contains(@class,'visible')]//div[contains(@id,'theatre-selection')]");
+		waitSendString("//input[@title='Search by Theatre or City' and @tabindex='0']", theatreName + Keys.ENTER);
 	}
 
 	@Test(priority = 7)
 	public void selectMovie() {
-		String movieName;
-
-		if (onUAT)
-			movieName = "Mamma";
-			//movieName = "Ant-Man";
-		else
-			movieName = "Joker";
-
-		String movieDropDown = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-movie-selection-area']/div/selectize-input/div/div[1]/input";
-		waitClick(movieDropDown);
-		String movieDropDownTextBox = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-movie-selection-area']/div/selectize-input/div/div[1]/input";
-		waitSendKeys(movieDropDownTextBox, movieName + Keys.ENTER);
+		waitClick("//div[contains(@class,'visible')]//div[contains(@id,'movie-selection')]");
+		waitClick("//div[@data-group='mov']//div[@class='option'][3]");
 	}
 
 	@Test(priority = 8)
 	public void selectDate() {
-		String selectDateDropDown = "//div[contains(@class,'tabs-container visible')]//div[@id='search-by-theatre-time-selection-area']";
-		waitClick(selectDateDropDown);
-
-		String selectDateAndClick = "//div[contains(@class,'optgroup')]//div[contains(text(), 'Mon, Oct 21 2019')]";
-		//String selectDateAndClick = "//div[contains(@class,'optgroup')]//div[contains(text(), 'Thu, Oct 17 2019')]";
-
-		waitClick(selectDateAndClick);
+		waitClick("//div[contains(@class,'visible')]//div[contains(@id,'time-selection')]");
+		waitClick("//div[@data-group='date']//div[@class='option'][1]");
 	}
 
 	@Test(priority = 9)
 	public void selectTime() {
-		String time;
+		String time = "(//div[@id='quick-tickets-theatre-showtimes']//a[@id])[3]";
 		if (onUAT)
-			time = ".//a[contains(text(), '3:33 pm')]";
-			//time = ".//a[contains(text(), '6:30 pm')]";
-		else
-			time = ".//a[contains(text(), '7:00 pm')]";
+			time = "(//div[@id='quick-tickets-theatre-showtimes']//a[@id])[3]";
 		waitSendKeys(time, Keys.ENTER);
 	}
 
 	@Test(priority = 10)
 	public void clickAddTicketButton() {
-		String addbutton = "//button[contains(@class,'add-qty-btn')]";
-		for (int i = 0; i < 5; i++) {
-			letsSleep();
-		}
-		driver.findElement(By.xpath(addbutton)).click();
-//		List<WebElement> allAdd = driver.findElements(By.xpath(addbutton));
-//		for (WebElement ele : allAdd) {
-//			ele.click();
-//			letsSleep();
-//		}
-
-//		String plusButton = "//div[contains(@class,'btn-plus increment')]";
-//		letsSleep();
-//		List<WebElement> allPlus = driver.findElements(By.xpath(plusButton));
-//		for (WebElement ele : allPlus) {
-//			try {
-//				for (int i = 0; i < 2; i++) {
-//					ele.click();
-//					letsSleep();
-//				}
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
+		waitClick("(//*[@id=\"collapse0000000001\"]//button)[1]");
 	}
 
 	@Test(priority = 11)
 	public void clickProceedButtonOnTicketCartPage() {
-		letsSleep();
-		String proceedButton = "//button[contains(@data-bind,'Proceed')]";
-		waitClick(proceedButton);
+		waitClick("//button[contains(@data-bind,'Proceed')]");
 	}
 
 	@Test(priority = 12)
 	public void clickProceedButtonOnSeatMapPage() {
-		letsSleep();
-		boolean isSeatMapPage;
 		try {
 			driver.findElement(By.xpath("//*[@id='seatmap']/h3"));
-			isSeatMapPage = true;
+			waitClick("//button[contains(@data-bind,'Proceed')]");
 		} catch (NoSuchElementException e) {
-			isSeatMapPage = false;
-		}
-
-		if (isSeatMapPage) {
-			String seatsPageTitle = "Select Seats - Cineplex Ticketing Mvc";
-			Assert.assertEquals(driver.getTitle(), seatsPageTitle);
-			String proceedButton = "//button[contains(@data-bind,'Proceed')]";
-			waitClick(proceedButton);
-		} else {
-			// Do Nothing
+			e.printStackTrace();
 		}
 	}
 
 	@Test(priority = 30)
 	public void clickProceedButtonOnExtrasPage() {
-		letsSleep();
-		String extrasPageTitle = "Extras - Cineplex Ticketing Mvc";
-		Assert.assertEquals(driver.getTitle(), extrasPageTitle);
-		String proceedButton = "//button[contains(@data-bind,'Proceed')]";
-		waitClick(proceedButton);
+		Assert.assertEquals(driver.getTitle(), "Extras - Cineplex Ticketing Mvc");
+		waitClick("//button[contains(@data-bind,'Proceed')]");
 	}
 
 	@Test(priority = 40)
 	public void clickProceedButtonOnPaymentOptionsPage() {
-		letsSleep();
-		String paymentOptionsPageTitle = "Payment Options - Cineplex Ticketing Mvc";
-		Assert.assertEquals(driver.getTitle(), paymentOptionsPageTitle);
-		String proceedButton = "//button[contains(@data-bind,'Proceed')]";
-		waitClick(proceedButton);
+		Assert.assertEquals(driver.getTitle(), "Payment Options - Cineplex Ticketing Mvc");
+		waitClick("//button[contains(@data-bind,'Proceed')]");
 	}
 
 	@Test(priority = 99)
-	public void exitCOTFlow() {
+	public void exitTicketingFlow() {
 		if (exitFlow) {
-			String logo = "//div[@class='col-xs-6 text-left']//img[@alt='Cineplex Logo']";
-			waitClick(logo);
-			for (int i = 0; i < 10; i++) {
-				letsSleep();
-			}
-
-			String homePage = "//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]";
-			waitClick(homePage);
-			for (int i = 0; i < 10; i++) {
-				letsSleep();
-			}
-		} else {
-			for (int i = 0; i < 20; i++) {
-				letsSleep();
-			}
-			// Nothing else
+			waitClick("//div[@class='col-xs-6 text-left']//img[@alt='Cineplex Logo']");
+			waitClick("//*[@id='site-navbar-wrap']/nav/div[4]/nav/ul/li[2]/a[1]");
 		}
 	}
 
 	private static void waitClick(String locator) {
 		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator))).click();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		try {
-			Thread.sleep(extraWait * 1000);
-		} catch (InterruptedException e) {
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator))).click();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static void waitSendKeys(String locator, String keysToSend) {
+	private static void waitSendString(String locator, String input) {
 		try {
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator))).sendKeys(keysToSend);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		try {
-			Thread.sleep(extraWait * 1000);
-		} catch (InterruptedException e) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator))).sendKeys(input);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -256,31 +141,8 @@ public class Queensway4B {
 	private void waitSendKeys(String locator, Keys key) {
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator))).sendKeys(key);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		try {
-			Thread.sleep(extraWait * 1000);
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
-	private static void letsSleep() {
-		try {
-			Thread.sleep(extraWait * 1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
-	List<String> getAllOptions(By by) {
-		List<String> options = new ArrayList<String>();
-		for (WebElement option : new Select(driver.findElement(by)).getOptions()) {
-			if (option.getAttribute("value") != "")
-				options.add(option.getText());
-		}
-		return options;
-	}
-
 }
