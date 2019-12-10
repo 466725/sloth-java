@@ -3331,8 +3331,9 @@
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"Theatres and Movie list is not empty\", function(){",
-                  "    pm.expect(TheatreData.length).to.be.above(0);",
+                  "    pm.expect(TheatreData.length >= 0).to.be.true;",
                   "});",
+                  "",
                   "var theatreNames =[];",
                   "var theatreIds =[];",
                   "for(var i= 0 ; i<TheatreData.length ; i++ ){",
@@ -8541,55 +8542,55 @@
   ],
   "variable": [
     {
-      "id": "baa79564-2fd3-48da-9a33-a8d485288639",
+      "id": "bc5d7a64-5b70-4441-b0c0-d1e7867f40dd",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ea1cbc93-543b-42a4-9cf2-50a1c4c16539",
+      "id": "d3ca2001-7726-4867-a382-43a611be4cef",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4a779aba-dc5f-447d-9388-5ef2d9224ebf",
+      "id": "7dffb8be-6a94-4a12-8e82-c54e63d530d3",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4b1f9fe8-4f4d-4fdb-991e-01c9fe827f7b",
+      "id": "3fffee01-944e-48a7-ad8b-cf7db8f6914c",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "b29100e3-744c-4b3a-b0c3-cd44691ae29a",
+      "id": "3c31b75a-0fa4-42ec-9b6f-82c3f150ba6d",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "d5e9fe44-995f-44ca-9233-853105ffbad3",
+      "id": "6b3ea5fe-4596-4fa5-96e3-5eda2a0afb2a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f060fb52-5e20-4d37-8e8a-74e576ff866a",
+      "id": "5ac258ad-a909-4840-b164-ef13b3ba7dff",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "378a1f1a-b9d3-41f0-99a2-8b824e6a2652",
+      "id": "4dc734e6-3d10-4d6e-a493-dcfc933b70ae",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "6bc2c9b0-3a0f-4aae-99e1-be262a2357fe",
+      "id": "bbf8570d-3446-49ac-a6b1-b8ac1642eb64",
       "key": "radius",
       "value": "50",
       "type": "string"
