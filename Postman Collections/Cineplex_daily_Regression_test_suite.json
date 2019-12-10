@@ -5739,8 +5739,8 @@
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
                   "    //var eligible = (new Date(pm.globals.get(\"promo_end\"))) < new Date();",
-                  "    pm.test(\"IsEligible is false\", function () {",
-                  "        pm.expect(jsonBody.isEligible).to.equal(false);",
+                  "    pm.test(\"IsEligible is defined\", function () {",
+                  "        pm.expect(jsonBody.isEligible).not.to.be.undefined;",
                   "    });",
                   "    ",
                   "    pm.test(\"Response has promo info\", function () {",
@@ -8542,55 +8542,55 @@
   ],
   "variable": [
     {
-      "id": "3863dba4-1a2d-4d2b-9c60-60658da864e9",
+      "id": "71ec30e6-b5c8-4e08-b26d-c7ffff48e3e5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "790b3605-394d-40d3-ba84-4ad1cf2e7841",
+      "id": "b38717a8-1908-4208-b95a-1146b56b163b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "25a0d385-3e10-4434-b33d-4245cbdfcec4",
+      "id": "60f2a046-7ce7-4160-9de2-fc57a9064272",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "d1b44a4d-ff7c-4bdd-886e-ff52847b3af0",
+      "id": "484ba1d2-4dba-4a7f-bdfc-88eaafe1df25",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "c5bdc048-c697-455b-834e-d8787ddcf7e0",
+      "id": "ee1e71c7-3e07-4b23-896f-3ea619f74aa4",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "e4a41bd8-f25f-48cc-84c9-9e8258c8d59d",
+      "id": "73f54111-0537-4a76-92d0-ef4bc8bd337e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "e8527769-f0e1-4da1-9640-4675df5bc5fd",
+      "id": "f10b84b8-f78f-4b28-a853-0008a9e61eb4",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "54cee238-81bf-453f-baa5-0af90019d8c0",
+      "id": "85cd335a-a7c8-4369-b120-3928bf04f337",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "e5ccfaac-9696-40ac-81d0-7459af0aa188",
+      "id": "fe04bd96-d472-49f0-8b46-abde7049c863",
       "key": "radius",
       "value": "50",
       "type": "string"
