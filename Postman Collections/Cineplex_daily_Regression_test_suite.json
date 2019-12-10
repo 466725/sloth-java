@@ -5652,8 +5652,8 @@
                   "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
                   "    //var eligible = (new Date(pm.globals.get(\"promo_end\"))) < new Date();",
-                  "    pm.test(\"IsEligible is false\", function () {",
-                  "        pm.expect(jsonBody.isEligible).not.to.be.undefined;//.equal(false);",
+                  "    pm.test(\"IsEligible is defined\", function () {",
+                  "        pm.expect(jsonBody.isEligible).not.to.be.undefined;",
                   "    });",
                   "    ",
                   "    pm.test(\"Response has promo info\", function () {",
@@ -8542,55 +8542,55 @@
   ],
   "variable": [
     {
-      "id": "25918368-c32c-4ba1-90e5-6128a807801d",
+      "id": "3863dba4-1a2d-4d2b-9c60-60658da864e9",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d11c0b59-db98-4d0c-a2cf-54b945db9cec",
+      "id": "790b3605-394d-40d3-ba84-4ad1cf2e7841",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f724ab4c-ad9e-46fb-8c25-600bc8c2778a",
+      "id": "25a0d385-3e10-4434-b33d-4245cbdfcec4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "c552e768-0d3e-4494-a0e3-8d2793e51204",
+      "id": "d1b44a4d-ff7c-4bdd-886e-ff52847b3af0",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "fc2f59f4-0424-42e3-8a40-6da6d05f4779",
+      "id": "c5bdc048-c697-455b-834e-d8787ddcf7e0",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "323ae2d0-fddc-4787-92d4-fc785d1600ed",
+      "id": "e4a41bd8-f25f-48cc-84c9-9e8258c8d59d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f14f166b-9901-47dc-8356-3bec5002da6c",
+      "id": "e8527769-f0e1-4da1-9640-4675df5bc5fd",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "335980d9-e97f-4201-8c87-71af5cd5e0e8",
+      "id": "54cee238-81bf-453f-baa5-0af90019d8c0",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "554aaed2-2364-4c0b-baf1-fee6181a15bd",
+      "id": "e5ccfaac-9696-40ac-81d0-7459af0aa188",
       "key": "radius",
       "value": "50",
       "type": "string"
