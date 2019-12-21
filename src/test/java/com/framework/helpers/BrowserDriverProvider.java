@@ -1,6 +1,8 @@
 package com.framework.helpers;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.LogManager;
@@ -10,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -28,7 +31,7 @@ public class BrowserDriverProvider {
 	protected final static Logger logger = LogManager.getLogger(BrowserDriverProvider.class.getName());
 
 	/**
-	 * Private Constructor, to make this class a singleton one. 
+	 * Private Constructor, to make this class a singleton one.
 	 * 
 	 */
 	private BrowserDriverProvider() {
@@ -62,6 +65,28 @@ public class BrowserDriverProvider {
 	}
 
 	/**
+	 * Create a web browser driver
+	 * 
+	 * @param browser Firefox or Chrome or IE...
+	 * @return WebDriver, create one of them and then return
+	 */
+	public static WebDriver createDriver(String browser, boolean blockPopup) {
+		if (browser.toString().equalsIgnoreCase("Firefox")) {
+			if (blockPopup)
+				DriverMaster.driver = createFirefoxDriver(true);
+			DriverMaster.driver = createFirefoxDriver();
+		} else if (browser.toString().equalsIgnoreCase("IE")) {
+			DriverMaster.driver = createIEDriver();
+		} else {
+			if (blockPopup)
+				DriverMaster.driver = createChromeDriver(true);
+			DriverMaster.driver = createChromeDriver();
+		}
+		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		return DriverMaster.driver;
+	}
+
+	/**
 	 * Create a web browser driver, per Chrome
 	 * 
 	 * @return WebDriver, create a driver for Chrome and then return
@@ -80,7 +105,38 @@ public class BrowserDriverProvider {
 			logger.info(System.getProperty("webdriver.chrome.driver"));
 			return new ChromeDriver();
 		} else {
-			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
+			logger.fatal("Platform is: " + PlatformDetector.getOS());
+			logger.fatal("oops ^_^, failed to validate OS version!");
+			logger.fatal("Driver is null!");
+			return null;
+		}
+	}
+
+	/**
+	 * Create a web browser driver, per Chrome
+	 * 
+	 * @return WebDriver, create a driver for Chrome and then return
+	 */
+	private static WebDriver createChromeDriver(boolean blockPopup) {
+		if (!blockPopup)
+			return createChromeDriver();
+		if (PlatformDetector.isWindows()) {
+			File file = new File(Constants.WIN64_DRIVER_CHROME);
+			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+			logger.info(System.getProperty("webdriver.chrome.driver"));
+			ChromeOptions options = new ChromeOptions();
+			Map<String, Object> prefs = new HashMap<String, Object>();
+			prefs.put("profile.default_content_setting_values.notifications", 2);
+			options.setExperimentalOption("prefs", prefs);
+			options.addArguments("--start-maximized");
+			return new ChromeDriver(options);
+		} else if (PlatformDetector.isMac()) {
+			File file = new File(Constants.OSX64_DRIVER_CHROME);
+			System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+			logger.info(System.getProperty("webdriver.chrome.driver"));
+			return new ChromeDriver();
+		} else {
+			logger.fatal("Platform is: " + PlatformDetector.getOS());
 			logger.fatal("oops ^_^, failed to validate OS version!");
 			logger.fatal("Driver is null!");
 			return null;
@@ -107,7 +163,41 @@ public class BrowserDriverProvider {
 			logger.info(System.getProperty("webdriver.gecko.driver"));
 			return new FirefoxDriver();
 		} else {
-			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
+			logger.fatal("Platform is: " + PlatformDetector.getOS());
+			logger.fatal("oops ^_^, failed to validate OS version!");
+			logger.fatal("Driver is null!");
+			return null;
+		}
+	}
+
+	/**
+	 * Create a web browser driver, per Firefox
+	 * 
+	 * @return WebDriver, create a driver for Firefox and then return
+	 */
+	private static WebDriver createFirefoxDriver(boolean blockPopup) {
+		if (!blockPopup)
+			return createFirefoxDriver();
+		if (PlatformDetector.isWindows()) {
+			File file = new File(Constants.WIN64_DRIVER_FIREFOX);
+			System.setProperty("webdriver.gecko.driver", file.getAbsolutePath());
+			logger.info(System.getProperty("webdriver.gecko.driver"));
+
+			FirefoxOptions options = new FirefoxOptions();
+//			options.setCapability("dom.webnotifications.enabled", false);
+//			options.setCapability("dom.push.enabled", false);
+
+			WebDriver driver = new FirefoxDriver(options);
+			driver.manage().window().maximize();
+			((JavascriptExecutor) driver).executeScript("window.focus();");
+			return driver;
+		} else if (PlatformDetector.isMac()) {
+			File file = new File(Constants.OSX64_DRIVER_FIREFOX);
+			System.setProperty("webdriver.gecko.driver", file.getAbsolutePath());
+			logger.info(System.getProperty("webdriver.gecko.driver"));
+			return new FirefoxDriver();
+		} else {
+			logger.fatal("Platform is: " + PlatformDetector.getOS());
 			logger.fatal("oops ^_^, failed to validate OS version!");
 			logger.fatal("Driver is null!");
 			return null;
@@ -131,12 +221,12 @@ public class BrowserDriverProvider {
 			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
 			return new InternetExplorerDriver();
 		} else if (PlatformDetector.isMac()) {
-			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
+			logger.fatal("Platform is: " + PlatformDetector.getOS());
 			logger.fatal("oops ^_^, mission impossible, ie not available on osx!");
 			logger.fatal("Driver is null!");
 			return null;
 		} else {
-			logger.fatal("Platform is: " + PlatformDetector.getOS()); 
+			logger.fatal("Platform is: " + PlatformDetector.getOS());
 			logger.fatal("oops ^_^, failed to validate OS version!");
 			logger.fatal("Driver is null!");
 			return null;
