@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.eefun.automation.framework</groupId>
-	<artifactId>test-automation-demo</artifactId>
+	<artifactId>sloth-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>test-automation-demo</name>
+	<name>sloth-java</name>
 	<description>Best automation demo ever, have fun, haha! </description>
 
 	<build>
