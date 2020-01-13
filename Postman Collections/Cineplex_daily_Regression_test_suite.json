@@ -4901,6 +4901,101 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get show time Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "a00f3b71-af57-4492-b126-07077bc0192b",
+                "exec": [
+                  "var CryptoJS = require(\"crypto-js\");\r",
+                  "\r",
+                  "//Encrypt\r",
+                  "var rawStr = CryptoJS.enc.Utf8.parse(pm.globals.get(\"user_guid\") + \":\" + pm.globals.get(\"user_session_token\"));\r",
+                  "var base64 = CryptoJS.enc.Base64.stringify(rawStr);\r",
+                  "\r",
+                  "pm.environment.set(\"authorization\", \"Basic \" + base64);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "4fc29faa-d7b1-4958-82f2-92d58de81c34",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "    pm.expect(jsonBody.status).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.test(\"jsonBody.message is not undefined\", function(){",
+                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
+                  "});",
+                  "",
+                  "//User Story 33807: Create Versioning in Cineplex.com",
+                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "43e6135b-4bee-4235-b507-80a1f83b2c11",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{authorization}}",
+                "type": "text"
+              },
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "{{ocp-apim-subscription-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{cineplex_url}}/showtimes/{{api_version}}?date={{timestamp}}&locationId={{theatre_id}}&filmId={{movie_id}}&language={{language}}",
+              "host": [
+                "{{cineplex_url}}"
+              ],
+              "path": [
+                "showtimes",
+                "{{api_version}}"
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{timestamp}}"
+                },
+                {
+                  "key": "locationId",
+                  "value": "{{theatre_id}}"
+                },
+                {
+                  "key": "filmId",
+                  "value": "{{movie_id}}"
+                },
+                {
+                  "key": "language",
+                  "value": "{{language}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "c31293c4-d6b1-4bfb-ab18-7235b6fd0f68",
@@ -8542,55 +8637,55 @@
   ],
   "variable": [
     {
-      "id": "630f85bb-448d-4387-9549-70f052c2f9c0",
+      "id": "14c8eaeb-1053-4b63-9080-6e65f060ab95",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "3fc5f31c-3f26-46b0-a159-e27d78deb5c4",
+      "id": "43b0ca6b-39b7-43e9-85dd-a87a9924d6a7",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "74a0dcc7-6c1c-46f9-96dc-bd5b5f223364",
+      "id": "ab6fa638-f87f-4362-93bb-146229bdebf5",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "e66082e1-1f06-47f9-8614-12cef5e32e60",
+      "id": "303e8b06-14b5-471d-b72f-1bb399fa48f5",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "989548a1-2c42-4753-9621-68ee8b5f4b9a",
+      "id": "6d1cb154-1d9e-40fa-895e-765f50b9ee66",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "cca1d54f-dcd4-44ba-8e4d-e84c7a6c2f6a",
+      "id": "eaf5ac5d-e0f2-441b-b9a7-0645783d1051",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f1d9cb57-9958-40c2-9d5c-f22c324a538c",
+      "id": "cd88d621-9019-41f9-9b66-c505b748a001",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "68ba5c4c-78b5-45c9-b828-e9fd2c87d32b",
+      "id": "95715587-2ca5-4ce4-9d79-afb6cea7f0b5",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "013afdb4-e82a-4e29-99b1-644af62389da",
+      "id": "9d58b2e1-a6aa-446e-a94d-3e377edadb26",
       "key": "radius",
       "value": "50",
       "type": "string"
