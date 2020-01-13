@@ -8542,55 +8542,55 @@
   ],
   "variable": [
     {
-      "id": "00e4ac4d-0d46-4059-82e3-362e12a899df",
+      "id": "630f85bb-448d-4387-9549-70f052c2f9c0",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "5a8956ae-bdaf-4b22-a320-42cdc1ee1a88",
+      "id": "3fc5f31c-3f26-46b0-a159-e27d78deb5c4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "1f4d9b23-9452-4f07-b145-8d5a922aa914",
+      "id": "74a0dcc7-6c1c-46f9-96dc-bd5b5f223364",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0a04e3a5-9a2b-4ead-9531-7a120025fb64",
+      "id": "e66082e1-1f06-47f9-8614-12cef5e32e60",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "48f20761-d033-4f43-930a-030171286e5d",
+      "id": "989548a1-2c42-4753-9621-68ee8b5f4b9a",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "2eb143c7-af54-42ce-88d6-9c25dfdd316d",
+      "id": "cca1d54f-dcd4-44ba-8e4d-e84c7a6c2f6a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8fe24ea8-4d74-4887-bb4e-8f7f23b32980",
+      "id": "f1d9cb57-9958-40c2-9d5c-f22c324a538c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "df547c78-c2e5-4953-875c-e5d516bab009",
+      "id": "68ba5c4c-78b5-45c9-b828-e9fd2c87d32b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "025321bd-34e6-456d-bdfe-52bfe3a17f41",
+      "id": "013afdb4-e82a-4e29-99b1-644af62389da",
       "key": "radius",
       "value": "50",
       "type": "string"
