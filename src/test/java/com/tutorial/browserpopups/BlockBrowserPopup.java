@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import com.framework.helpers.BrowserDriverProvider;
 
+//https://www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
 public class BlockBrowserPopup {
 	protected final static Logger logger = LogManager.getLogger(BlockBrowserPopup.class.getName());
 	private static WebDriver driver;
