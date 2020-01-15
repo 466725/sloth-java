@@ -5,9 +5,7 @@
 
 Sloth is lazy, he has to automate as much as he can to be lazy. Here he is trying to get automation done with Java!
 
-Sloth Java features include:
-
-Ability to load and performance test many different applications/server/protocol types: 
+Sloth Java features/abilities to load and performance test many different applications/server/protocol types: 
  -  Web - HTTP, HTTPS 
  -  SOAP / REST Webservices
  -  FTP
@@ -23,7 +21,7 @@ Details of the latest version, actually all versions, can only be found on githu
 
 The following requirements exist for running sloth-java:
 
-*  Python Interpreter:
+*  Java Interpreter:
 
     A fully compliant Java Environment is required 
 
