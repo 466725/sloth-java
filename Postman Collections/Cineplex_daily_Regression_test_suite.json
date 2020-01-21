@@ -1198,6 +1198,15 @@
                   "pm.test(\"Credit Card List not Empty\", function(){",
                   "    pm.expect(creditCardInfo.length).to.eql(0);",
                   "});",
+                  "",
+                  "//User Story 41189: Support 4K and Harmonized Pricing",
+                  "pm.test(\"PricingPlanType to be defined\",function() {",
+                  "    if (pm.globals.get(\"4K_Supported\") == 1) {",
+                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
+                  "    } else {",
+                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
+                  "    }",
+                  "});",
                   "/*",
                   "for(var i =0; i< creditCardInfo.length; i++){",
                   "    var cardHoldername= creditCardInfo[i].CardHolderName;",
@@ -8554,55 +8563,55 @@
   ],
   "variable": [
     {
-      "id": "ca3e62c4-fdd4-430b-9e29-edbd0b04e418",
+      "id": "c9ec7995-afd7-4bfc-9be5-bb56892a97b4",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "31d14a72-f36c-4384-8d55-719ef7c76409",
+      "id": "a22a8439-d575-4fc1-90ed-b7e7b4bb9f8c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "500b31d7-b552-4f65-a37b-72e67406082b",
+      "id": "7c004b4f-ca75-499e-b064-7742ff2d6392",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "08f5c137-b593-4b9f-aac3-7f8332fd72d0",
+      "id": "93ecd748-52e5-4ce6-bc78-a9b8072f2aca",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "0171b2fa-7db1-421d-97f3-c0dd6c5a82d0",
+      "id": "b0226055-3ca8-402e-a3a7-9ff3da4ce0cc",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "28177b2d-fd8b-40db-ba28-538c46cc1907",
+      "id": "47421c66-af3f-4879-8dac-019e7b7ce5d2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "d7bce186-0979-41f8-be89-5ee38180cbb2",
+      "id": "646e3c30-558c-4bdb-86b1-888398ad6c9a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "398da7f9-546e-4cb7-a695-85ff53804d7a",
+      "id": "be819f6c-e235-4405-be81-acad8e7040f4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "932ce2c6-059a-41a9-a107-b43ff84503c3",
+      "id": "c33a1d45-bace-4141-b384-404e03366030",
       "key": "radius",
       "value": "50",
       "type": "string"
