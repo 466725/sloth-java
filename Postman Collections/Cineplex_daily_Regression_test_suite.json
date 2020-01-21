@@ -1620,6 +1620,15 @@
                   "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
                   "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
                   "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
+                  "});",
+                  "",
+                  "//User Story 41189: Support 4K and Harmonized Pricing",
+                  "pm.test(\"PricingPlanType to be defined\",function() {",
+                  "    if (pm.globals.get(\"4K_Supported\") == 1) {",
+                  "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.not.be.undefined;",
+                  "    } else {",
+                  "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.be.undefined;",
+                  "    }",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -8539,14 +8548,14 @@
           "    console.log(\"movie_id is set as UAT movie id 24400\");",
           "    pm.globals.set(\"theatre_id\", 7995);",
           "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
-          "    pm.globals.set(\"4K_Supported\", 1);",
+          "    pm.globals.set(\"4K_Supported\", 1); //User Story 41189",
           "} else {",
           "    console.log(\"We are not runing on UAT environment!\");",
           "    pm.globals.set(\"movie_id\", 31131);",
           "    console.log(\"movie_id is set as PROD movie id 31131\");",
           "    pm.globals.set(\"theatre_id\", 1151);",
           "    console.log(\"theatre_id is set as PROD theatre id 1151\");",
-          "    pm.globals.set(\"4K_Supported\", 0);",
+          "    pm.globals.set(\"4K_Supported\", 0); //User Story 41189",
           "}",
           "",
           "if (pm.environment.get(\"cineplex_url\").has(\"com/api\")) {",
@@ -8571,55 +8580,55 @@
   ],
   "variable": [
     {
-      "id": "efcc7cbb-35fc-43de-92e8-2e7b11cb49e5",
+      "id": "b3a75b12-aec8-4d7c-9bab-b69a1dc2a4b8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "9aa09223-5eae-439b-b6f4-fed16eaab5a6",
+      "id": "3e4b7ac7-f851-47b2-916e-cb93f3751c6f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "bc8a8202-d789-41f3-aae2-ddd40baf2dba",
+      "id": "23bdba73-ad13-4132-ab57-ee8022c1f29a",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "79b5880d-4b11-4656-9efb-da573e652d07",
+      "id": "8806371e-20a4-4b16-ae67-9a60c4a37ef6",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "98699762-6321-45b0-886f-dc70a13bf9e8",
+      "id": "0083bb6f-d532-45ab-b46c-dcd935eb67f7",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "f5e9bed2-4f0e-4897-ba0a-0bec4f3f8d01",
+      "id": "f347809b-c421-425e-ac1d-ba17558d7b11",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "918fdf88-71ad-4d40-94ea-4411205a85a5",
+      "id": "7a63f860-5030-4ace-91e1-b9775d246dd8",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "9d9d6797-fd56-4fbb-bcaa-6cf0e994694e",
+      "id": "1a273cfc-c717-41fd-91ae-868373a7a68e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "72d6d805-08c3-4e93-832b-6d772087de76",
+      "id": "9ccae4eb-7b09-4481-847c-b4b4d744ac53",
       "key": "radius",
       "value": "50",
       "type": "string"
