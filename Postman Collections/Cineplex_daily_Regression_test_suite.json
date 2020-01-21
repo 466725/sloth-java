@@ -1204,7 +1204,7 @@
                   "    if (pm.globals.get(\"4K_Supported\") == 1) {",
                   "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
                   "    } else {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
+                  "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
                   "    }",
                   "});",
                   "/*",
@@ -1281,7 +1281,6 @@
                   "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
                   "    }",
                   "});",
-                  "",
                   "/*",
                   "for(var i =0; i< creditCardInfo.length; i++){",
                   "    var cardHoldername= creditCardInfo[i].CardHolderName;",
@@ -1741,6 +1740,15 @@
                   "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
                   "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
                   "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
+                  "});",
+                  "",
+                  "//User Story 41189: Support 4K and Harmonized Pricing",
+                  "pm.test(\"PricingPlanType to be defined\",function() {",
+                  "    if (pm.globals.get(\"4K_Supported\") == 1) {",
+                  "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.not.be.undefined;",
+                  "    } else {",
+                  "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.be.undefined;",
+                  "    }",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -8563,55 +8571,55 @@
   ],
   "variable": [
     {
-      "id": "65a0287b-5949-4afa-86f7-66734b87a63c",
+      "id": "efcc7cbb-35fc-43de-92e8-2e7b11cb49e5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c3e6390e-dcc0-40da-90fa-ebf417c7b22b",
+      "id": "9aa09223-5eae-439b-b6f4-fed16eaab5a6",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7f271672-e26c-46ca-a423-c27ebe02ad55",
+      "id": "bc8a8202-d789-41f3-aae2-ddd40baf2dba",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7467c68e-4ffc-4778-b4ac-a0029ee46555",
+      "id": "79b5880d-4b11-4656-9efb-da573e652d07",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "d3a28909-3035-4530-a497-f03c78526321",
+      "id": "98699762-6321-45b0-886f-dc70a13bf9e8",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "011f2ee6-8d1b-4871-9ac1-ae5387d4681d",
+      "id": "f5e9bed2-4f0e-4897-ba0a-0bec4f3f8d01",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "e79e4766-963d-4234-a1cb-1b0918887ead",
+      "id": "918fdf88-71ad-4d40-94ea-4411205a85a5",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1f18f5e0-0f65-465f-8e42-7ef31aedcb3f",
+      "id": "9d9d6797-fd56-4fbb-bcaa-6cf0e994694e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "b6689ecb-3f50-4cd0-b3b5-7ffe95c06d3e",
+      "id": "72d6d805-08c3-4e93-832b-6d772087de76",
       "key": "radius",
       "value": "50",
       "type": "string"
