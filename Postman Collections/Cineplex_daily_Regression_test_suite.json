@@ -4577,6 +4577,70 @@
             "description": "https://apis.cineplex.com/uat/cpx/movies/v1/29373/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=50&Request.Skip=0&Request.Take=2147483647"
           },
           "response": []
+        },
+        {
+          "name": "Get theatre available date movies one poster Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ce76c99d-ed65-4730-958f-6cf0ea0c525b",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "    pm.expect(jsonBody.status).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.test(\"jsonBody.message is successful\", function(){",
+                  "    pm.expect(jsonBody.message).eql(\"Successful\");",
+                  "});",
+                  "",
+                  "//User Story 33807: Create Versioning in Cineplex.com",
+                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "41b5727a-190c-4d19-a3c7-f92bbba4008d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": {
+              "raw": "{{cineplex_url}}/theatres/{{api_version}}/{{theatre_id}}/availablemoviesoneposter/dates?language={{language}}",
+              "host": [
+                "{{cineplex_url}}"
+              ],
+              "path": [
+                "theatres",
+                "{{api_version}}",
+                "{{theatre_id}}",
+                "availablemoviesoneposter",
+                "dates"
+              ],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "{{language}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "3fdb64a3-35b9-4a68-9cfe-f0cb884b4fdb",
@@ -8580,55 +8644,55 @@
   ],
   "variable": [
     {
-      "id": "fd3d7be9-96de-4252-89f9-711bf6aad667",
+      "id": "b98c4c1d-e12a-490a-aa92-2da801db29c8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "532ea8ba-5f7b-450a-80e9-5fd13c109c35",
+      "id": "96a3e803-d781-4b7c-8aa7-33399ca4c17f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "b6ebd810-04df-4393-8776-19f7a80d2afa",
+      "id": "1f45011b-3c07-498c-a71b-9f4ce757fbf3",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "9e8406e6-e711-46a7-8e41-31aecab34cdc",
+      "id": "7cf81232-dcb5-42d2-8fed-230d4cdd5e58",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "704118e1-d893-442a-a407-7eab1b22f281",
+      "id": "733dc865-12ed-4ccb-b033-ffb5671f5a36",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "165822d4-153e-4352-b2c3-4a7309f779f6",
+      "id": "fa01427d-6b71-405f-a8e5-0530f00345ff",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1935a1c9-3452-4a2a-9470-30ab79574d95",
+      "id": "2e5276a4-abc4-42bb-85c7-8a54e8834a66",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "bb4280f5-1f98-44e2-803a-93db34e52f15",
+      "id": "8a103a47-67f5-482f-b599-1e89c2695541",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d6fd063e-5802-486d-933d-4d727a4a68f2",
+      "id": "995288cc-86af-460f-a1cb-afef70cba7a8",
       "key": "radius",
       "value": "50",
       "type": "string"
