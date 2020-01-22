@@ -3287,72 +3287,6 @@
           "response": []
         },
         {
-          "name": "Get movies Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "0b090bfe-28ef-4c29-8a38-fcadaa38ecca",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "var MoviesData = jsonBody.data;",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Movies list is not empty\", function(){",
-                  "    pm.expect(MoviesData.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "var theatre_Id = pm.variables.get(\"theatre_id\");",
-                  "pm.test(\"List of Movies for theatre \" + theatre_Id + \" (OnePoster) is successfully retrieved\", function(){",
-                  "    pm.expect(jsonBody.status).to.eql(1);",
-                  "});",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "a75aa65a-070c-4b5e-a7a1-ab66455019dd",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{ocp-apim-subscription-key}}",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "{{cineplex_url}}/theatres/{{api_version}}/{{theatre_id}}/movies?language={{language}}",
-              "host": [
-                "{{cineplex_url}}"
-              ],
-              "path": [
-                "theatres",
-                "{{api_version}}",
-                "{{theatre_id}}",
-                "movies"
-              ],
-              "query": [
-                {
-                  "key": "language",
-                  "value": "{{language}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "Get movies one poster",
           "event": [
             {
@@ -8646,55 +8580,55 @@
   ],
   "variable": [
     {
-      "id": "3dbb3a52-08d8-4fb2-a640-dcedc2ccc522",
+      "id": "f461652e-ccad-487c-8774-790845f3ee14",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "a59ce335-1718-4f3f-95ad-8780d98bc225",
+      "id": "2ef56130-03b8-42ca-a1e0-c366f9985a7c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "240e85af-71c9-459f-bfee-ac256c0963bb",
+      "id": "06ac9986-10dd-4a0d-a7db-48108ce476e7",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "181fb269-9f56-4088-af45-d09b3814d899",
+      "id": "f6bf3a09-01a3-43f5-bf9a-0dfd69e74802",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "32f73a04-dc06-4461-a426-74f5a194050a",
+      "id": "f4cec051-4e09-498f-9eb1-b34ca7d1f79e",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "5b0dab07-d497-4380-a83f-5a63f0af7aba",
+      "id": "1c2331ef-3c09-4247-85b9-baf16fca3be8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "43b74471-d066-412a-bc92-f3ab3aa7f095",
+      "id": "dd822be4-d6c7-4921-bd01-290d1a238e54",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "e3ba604a-73de-43b6-8093-1670003184d8",
+      "id": "42542dc2-1589-44ef-bf0a-584af5094522",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "21f14bb5-2dda-4492-955d-9562f29d4a4f",
+      "id": "d8b5868b-553a-4859-a713-63ff19b99651",
       "key": "radius",
       "value": "50",
       "type": "string"
