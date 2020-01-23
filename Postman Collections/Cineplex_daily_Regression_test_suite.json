@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "8851ad1f-9c69-4069-8efa-23e7f9e7bc66",
     "name": "Cineplex daily Regression test suite",
-    "description": "All api supposed to be here, and could be run as a test suite on daily basis.",
+    "description": "All api supposed to be here, and could be run as a test suite on daily basis.\n\nUser Story 41864 - Daily Regression Suite for Connect APIs",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -14932,61 +14932,61 @@
   ],
   "variable": [
     {
-      "id": "3f0f1797-3194-4ee9-be70-492c7c5c92a3",
+      "id": "f73a3195-d449-4b4a-a1ec-61af6e50ffc5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "1093f418-5704-413b-ad62-979f2ca21b83",
+      "id": "66d05f8f-2e15-40b8-890b-f6ab2f1e2169",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ccec336f-4fbe-491f-bb36-7b6d27cd7814",
+      "id": "37398c18-3b69-4760-90df-9df26c0dc8ac",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "e6b8e99d-202e-4598-b5ff-40538c6177ad",
+      "id": "d88f100a-aa0a-4485-b626-7c6e1409c647",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "f520692d-1429-4317-907d-774ebcece255",
+      "id": "2ffb3c0e-3986-4e9a-90b4-7469ba697907",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "56b53019-35e8-4ee1-923c-3c7e71b9db61",
+      "id": "ff8c9102-1ef5-48b4-a39f-1605e03d34e2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0b62f56e-49c0-42d7-9a96-86cf16d51514",
+      "id": "6ff20f4c-11cc-4ee1-85f8-b1b485ecca48",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ccaf99e3-d99b-4b5c-99cb-cdae424e9d74",
+      "id": "61247294-f988-461b-9cc4-8c9e11574612",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "eec76771-5295-42bb-9a9c-6fcc35b2784e",
+      "id": "c6071d8c-6391-42a4-a791-db981e3fb694",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "9d3decf8-f493-4219-9cfe-840334d635d7",
+      "id": "2ac4f36e-5bbb-4651-a8b0-50920adb51e4",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
