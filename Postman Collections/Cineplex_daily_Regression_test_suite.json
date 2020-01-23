@@ -13262,9 +13262,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/RemoveFavouriteTheatre"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/RemoveFavouriteTheatre"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "6728ac1e-3558-4564-be57-8373c56ccf6a",
+      "id": "8e144e52-b44d-4445-96e1-fd42db9d887c",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "a947a93d-b24e-4017-8b3e-d39189ae9e2f",
+      "id": "7a7d6aa9-1942-4958-8a60-c339fbe2a0a4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c329f655-f448-4ada-a520-5669a8227904",
+      "id": "f583b22b-12e2-46be-bde5-9ea69a9a4edd",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "81f1828c-7acb-4efd-858e-ca178597866c",
+      "id": "3424ea44-a953-448a-9291-0e541acaeb6b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d20ac50d-0ccd-4dc0-a147-c4adfaf62340",
+      "id": "73436d58-7786-45d1-9988-c063ddf1d7ea",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "5625028f-a9c9-44d5-9305-3355a3e33cce",
+      "id": "2c80c044-d132-4d27-9ba7-34d186e0c85c",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "000aa534-edc2-44fd-ad56-deac342a3ae1",
+      "id": "65fa0a87-222f-404f-bfe4-93e3fe84a718",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c8abb215-6ab3-4c9c-bf92-adb8b8b97036",
+      "id": "6c58b430-e5e7-4ba7-92d6-16c88d574c54",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "bb433d3a-76e5-4d4c-9ef3-b60133156895",
+      "id": "7dbcf2cb-26b9-43a3-b41d-2b4f1429719a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "739f8977-5f01-4a1c-9031-7ebb4182e48d",
+      "id": "0797bbdd-4661-4f04-ba8e-a324c250c59c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
