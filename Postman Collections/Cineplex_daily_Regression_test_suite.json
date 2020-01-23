@@ -15083,57 +15083,63 @@
   ],
   "variable": [
     {
-      "id": "c2616199-bf4c-4698-b2c9-aa5c8405ddf5",
+      "id": "dba9ddfe-3c96-4304-b3ed-feff35a66eb3",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "649563c2-014c-472c-94fd-1238ec90ffc7",
+      "id": "31287585-1994-4bb4-97a4-2874f90b7766",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4b140e0e-80da-43ac-ae16-5edc9734121f",
+      "id": "1e1f5ecf-745a-442e-9754-5e40781518b0",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "c2f8f7b2-cfeb-4bfa-88fb-12e72728ba7d",
+      "id": "2479bbca-d29c-4d3f-bd6a-b47546d57a7f",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "84231b6a-2f6c-4c5c-bec8-cd6109aea4e3",
+      "id": "43c214d4-bbce-47c0-93ab-70ad3f123c7f",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "dec39120-cd1b-4593-b13b-928f93d9f898",
+      "id": "12492b8a-16a0-465e-98df-e2affacda75b",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "36a3f248-8264-42f2-8931-cdbca5e87e87",
+      "id": "f24783a7-7bb7-410f-b3ae-4fb27648b469",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ff1dfa41-1601-4ad4-b7f9-ae0bf270dcaf",
+      "id": "79c82c20-be57-4944-8767-1fcfc92944f4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "0f000348-3a51-4aa9-a3ae-6369b7d8f651",
+      "id": "aa2db22b-6e12-46cb-b1d0-e79919d7060e",
       "key": "radius",
       "value": "50",
+      "type": "string"
+    },
+    {
+      "id": "d7c4f853-f247-44d6-a210-93c708224cf2",
+      "key": "ConnectPin",
+      "value": "1234",
       "type": "string"
     }
   ]
