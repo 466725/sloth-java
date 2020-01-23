@@ -1784,7 +1784,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
           },
@@ -14871,61 +14871,61 @@
   ],
   "variable": [
     {
-      "id": "55902639-5dd3-46ec-894d-e1ff9650b7eb",
+      "id": "9b51d1c0-db71-4e21-9d49-8b454ad62c0e",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d812cf66-40e3-445b-bcdb-396f90d401e3",
+      "id": "c7cae12f-4030-4d3c-8a54-476bbc1a31e3",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "6da5e3e0-901a-4424-b3df-08456218ac7a",
+      "id": "004560df-3b52-430a-a219-9790be5c80e8",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "1932d003-28d9-450e-838a-a2e766589420",
+      "id": "922416a0-d85c-495b-b285-c221b2488767",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "0306906e-403e-4258-a619-79ae739ab3a3",
+      "id": "e4c120fd-54d7-404a-9991-21ccd820546e",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "3be825fc-81ff-4c02-b9d3-daa18e76499e",
+      "id": "4c87a301-0e16-41dd-9e06-927eda58a07e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "eed76aa3-d0f8-4c21-bc10-65840b124379",
+      "id": "d7200e84-b59e-464e-a28c-4baa651e4d99",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b8348e34-d58f-46a8-9131-c76ae644efd3",
+      "id": "7c445d79-1278-4af5-b75f-a3609f8123ea",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "dbd14cd7-1516-4ceb-a793-8ae7d57919b3",
+      "id": "18d86420-78ec-44d4-acda-a3fd5e290032",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d0623927-e77d-44a1-ad31-87f798d15274",
+      "id": "d4d878fb-43f9-466e-ab4b-7d0e9a59658e",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
