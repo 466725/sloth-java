@@ -8668,7 +8668,7 @@
               "mode": "raw",
               "raw": "{\n    \"Source\": 1,\n    \"SourceInfo\": {\n        \"FirstName\": \"tes\",\n        \"LastName\": \"this\",\n        \"Email\": \"rando12341234m@gmail.com\",\n        \"PrepopulatedEmail\": null,\n        \"MobileNumber\": 0,\n        \"Gender\": 0,\n        \"Language\": 0,\n        \"Birthday\": null,\n        \"AddressLine1\": null,\n        \"AddressLine2\": null,\n        \"City\": {\n            \"Id\": 0,\n            \"Name\": \"\"\n        },\n        \"ProvinceCode\": null,\n        \"PostalCode\": null,\n        \"CountryCode\": null\n    },\n    \"CineplexPassword\": \"Cineplex@2020\",\n    \"Facebook\": {\n        \"FacebookUserId\": null\n    },\n    \"Twitter\": {\n        \"TwitterUserId\": -1,\n        \"TwitterScreenName\": null,\n        \"TwitterToken\": null,\n        \"TwitterTokenSecret\": null,\n        \"ProfileImageUrl\": null\n    },\n    \"MicrosoftAccount\": {\n        \"MicrosoftAccountUserId\": null\n    },\n    \"GooglePlus\": {\n        \"GooglePlusUserId\": null,\n        \"ProfileImageUrl\": null,\n        \"IdToken\": null\n    },\n    \"SceneCards\": [],\n    \"IsEmailFromSource\": false,\n    \"SubscribeNewsletter\": false,\n    \"ActivationType\": 1\n}"
             },
-            "url": "{{Connect_URL}}/SignUp"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/SignUp"
           },
           "response": [
             {
@@ -15083,55 +15083,55 @@
   ],
   "variable": [
     {
-      "id": "935b5c20-fb49-4105-920d-5055e3bddb25",
+      "id": "a3cbe76b-e85e-4187-a7ed-ce1d5f4a68ec",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "53a313e3-f487-40d4-b955-ee576286bab4",
+      "id": "abb0a4fe-b521-42f1-a0e0-9ec554bea5ab",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "38b6451c-75d0-4b23-b62d-2c66ec4d2c63",
+      "id": "2a49a90b-e06d-42f5-a228-5ef5b8474d00",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6e49326b-ba7d-4e69-8125-48304b298ae1",
+      "id": "e782ade1-1ed5-4203-a17c-a186092d773e",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "7fdca40e-16c6-4f0d-8924-0401d60d551f",
+      "id": "6252e205-fbbf-419b-bf90-edb33a878430",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "88aa40cc-ee38-47fc-8ef6-219d277e842d",
+      "id": "3a47d1f5-e44c-4ace-ae6d-c0cf38b27017",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "4f0ca9b0-9f40-49b2-88ca-1bd81dee4cd0",
+      "id": "46acebd0-89c9-47e0-856d-30b97e898f78",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6abede65-bb76-4351-b5aa-ba020c85f8b6",
+      "id": "b58f12ee-c228-42e2-98ab-5a52c1c3e13b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "45ae9993-21b0-46b2-8603-ff95b507a959",
+      "id": "362872be-4c2f-42b6-8afe-3cb62e5bdf54",
       "key": "radius",
       "value": "50",
       "type": "string"
