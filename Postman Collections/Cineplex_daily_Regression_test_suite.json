@@ -9721,9 +9721,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateUserProfileInfo"
+            "url": "{{Connect_URL}}/UpdateUserProfileInfo"
           },
           "response": [
             {
@@ -9793,9 +9793,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserProfileInfo"
+            "url": "{{Connect_URL}}/GetUserProfileInfo"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "12e48ca6-c0f2-409c-87a9-6f3852faf6ed",
+      "id": "134de216-bde1-48de-8657-14db4444bf29",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "f3302a83-1868-4b93-b37e-976bd33b2965",
+      "id": "014b0296-e5b9-4d17-b050-495b811e072d",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "61e4373e-8378-4853-9967-6b984778863a",
+      "id": "6101edd3-aebb-473e-ba6f-fabef0731227",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "b9dbb78b-656f-4755-92ec-969216399011",
+      "id": "8d0007a2-f52d-40ea-8869-4b79434fa77a",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d2f45be2-b313-45e0-b613-cb960f1a0c83",
+      "id": "b36c305f-a411-4d75-8dc3-5bba09de5986",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "9b95e136-05a8-4973-9a61-353a770c7102",
+      "id": "4a3e9c54-9b13-4a6b-9865-73fb46556cf6",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8d83658a-8c4d-496d-91bd-83730030270f",
+      "id": "00a61e84-f338-4ac8-a14e-ed34559bc6f7",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "61f20a2a-2390-478b-a491-c0702e0e0af9",
+      "id": "c1cc91ee-3a6d-420d-9bb1-8f235642b2cc",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "690da1d6-372c-4cd9-9e7c-b6eedd00a6f5",
+      "id": "73e947b5-aad9-4ea1-bbe8-176468cc1651",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "392f966a-4c2a-4303-9494-806be3e08ae3",
+      "id": "f346ee2d-1dd6-4be5-bb7c-ab6d862b2f61",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
