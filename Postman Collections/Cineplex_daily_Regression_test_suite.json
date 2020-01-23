@@ -11622,9 +11622,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
             },
-            "url": "{{Connect_URL}}/GetTicketingOrderHistory"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetTicketingOrderHistory"
           },
           "response": [
             {
@@ -11670,7 +11670,7 @@
                   "var jsonBody = pm.response.json();",
                   "",
                   "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -11694,9 +11694,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"LocationID\": \"{{theatre_id}}\",\n        \"VistaBookingID\": \"WTQ4KG4\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"LocationID\": \"{{theatre_id}}\",\n        \"VistaBookingID\": \"WTQ4KG4\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/GetBookingDetails"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetBookingDetails"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "9b107d80-c397-430c-8248-515dfcaa5cd1",
+      "id": "cf43f9fb-0ff6-4445-980e-1007a1b5bb95",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7c33e17f-813e-4d7d-b269-eed08d74ef8a",
+      "id": "0da21ab2-b9d1-4172-9bf8-08d5124dc87c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a7776dea-6d19-4b48-9a15-06510f4c39bd",
+      "id": "f8b88989-be82-42a1-8c1f-6ceff6b5d390",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a3b107d8-8582-46ee-82f4-5964b54c77c1",
+      "id": "c8a98b28-53ff-4153-8861-c4601253530f",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "53f6a58c-93f3-49b6-ad1e-f6e46f054f01",
+      "id": "d6e49fb9-69ba-48a1-9230-53cef8efd064",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4c078abe-0a2c-48d0-8fb2-2d1663cc16a0",
+      "id": "ee2f6606-8f1a-4f7b-8b4d-3f86468a7621",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "c446268d-e98c-4891-8f68-caa7a806795e",
+      "id": "9df800b4-a60b-4665-9879-44c967569d49",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b4b0cb01-560b-4d18-b443-3167abbff949",
+      "id": "55e6e4d7-82c3-4846-8e67-26a895594058",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "54cfc685-0048-4c30-b522-cbb8ec2a049e",
+      "id": "f1da63f2-f6e7-46d6-96d8-6b54ed4f3f5f",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "6a4c6dcd-ed4e-4804-9cb0-8636ff170f94",
+      "id": "c1b9167e-f204-475d-bcf7-fc660b9dc94d",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
