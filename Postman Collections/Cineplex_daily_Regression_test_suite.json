@@ -10801,9 +10801,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
             },
-            "url": "{{Connect_URL}}/IsItemWatchListed"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
           },
           "response": [
             {
@@ -10881,9 +10881,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/GetGiftCards"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCards"
           },
           "response": [
             {
@@ -10940,7 +10940,7 @@
               "script": {
                 "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
                 "exec": [
-                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
                   "    console.log(\"setting the giftcard number - UAT\");",
                   "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
                   "    console.log(\"setting the giftcard PIN - UAT\");",
@@ -10976,7 +10976,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"CardNumber\": \"{{giftcardNumber}}\",\n    \"Pin\": \"{{giftcardPin}}\"\n}"
             },
-            "url": "{{Connect_URL}}/GetGiftCardBalance"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCardBalance"
           },
           "response": [
             {
@@ -11046,9 +11046,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/ChangeAddressBookSortOrder"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ChangeAddressBookSortOrder"
           },
           "response": [
             {
@@ -11120,7 +11120,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"PostalCode\": \"M1M1M1\"\n}"
             },
-            "url": "{{Connect_URL}}/GetAddressesByPostalCode"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetAddressesByPostalCode"
           },
           "response": [
             {
@@ -11190,9 +11190,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{Connect_URL}}/GetAddressBook"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetAddressBook"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "5501359e-0f76-4172-8024-bd69760d2d31",
+      "id": "ac9cf418-73ba-4a18-9a9f-c9369edf5744",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "829748f4-fa37-4186-889e-deeb2d77f297",
+      "id": "d27e49f2-f8da-4142-bff5-50fec73b7b09",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "44b8453a-7d8e-4a4d-a701-8564cfa0fa8d",
+      "id": "b14a43b2-615c-425b-824d-9b7cc88ba737",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6b59ca29-1dff-4a31-b593-e9db85202922",
+      "id": "dbc88733-5053-44af-8c71-5d4ae7672ce0",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c94bf6aa-5c58-46f1-92f9-5e1f06981e3d",
+      "id": "8a02e829-73ff-4b85-8bc2-e3dda59dd997",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "1726bd2c-6ec5-402f-b866-63765bb76681",
+      "id": "b9f11679-3591-4f59-ad4c-82d765fb340e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "75a6097b-6627-4b66-a92e-f52791c017a1",
+      "id": "7e5633cb-3e48-4c6b-96e3-9eedecd4e48d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c7744132-302a-46a4-8749-4eff3f0c401f",
+      "id": "0c1d0cbb-df7e-4643-9bae-3a5eeaf54f6b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8be5b78e-c254-4718-a16f-1db741d48272",
+      "id": "73ba1329-68f9-43fd-90e8-0713552617bd",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4e492db7-385e-46f7-9de3-c6610518f99f",
+      "id": "bee3e91f-6484-45af-a8f5-439f3e51974a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
