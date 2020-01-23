@@ -14646,7 +14646,7 @@
                   "var jsonBody = pm.response.json();",
                   "",
                   "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -14871,61 +14871,61 @@
   ],
   "variable": [
     {
-      "id": "8b880519-4b4a-4159-a989-095c13290219",
+      "id": "45bd2223-a4e8-4cce-b31d-f5172e1180c8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "3ec28272-ee84-4669-986c-ef70adad8518",
+      "id": "4abf6acc-80d0-4338-9803-59a6c7f29312",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a14beaea-5ff9-427f-9d28-ca3775d6b4ae",
+      "id": "2a5ac6d7-290a-463b-b78f-01056cefe69f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "8645bd4b-fc8b-4ad4-af6c-7e6ef11f4ca7",
+      "id": "79549a91-d56e-4b5d-a153-96f70d23c30a",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a3d245c9-0f24-4cea-8acd-4d22337583ac",
+      "id": "af3d76b4-f21b-4643-b6a9-188374375bf8",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c26f0b92-33be-4d98-a110-81a19aeeb12f",
+      "id": "b88faa31-814d-4f6e-8080-c72c924e952e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "202f9194-98c7-404a-9100-a973db002654",
+      "id": "1f525eb3-7d49-4a42-92ba-122953538bb0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "05104522-6294-496a-a0f0-618f0306ffbf",
+      "id": "faacfec2-2bc1-49f9-9ecb-b060863a8031",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "71d6b6b5-9c6b-4232-9aa8-e5d6a75223b6",
+      "id": "c65e8c7b-6556-4f27-9b55-ef7c5e523523",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "6ba2d3b2-c89b-4b7f-b52b-4bd822a3fada",
+      "id": "afa4167e-fa4e-45ae-b44a-fa14404d38dc",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
