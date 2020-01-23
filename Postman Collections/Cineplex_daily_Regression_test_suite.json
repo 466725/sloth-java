@@ -10881,9 +10881,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/GetGiftCards"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCards"
           },
           "response": [
             {
@@ -10940,7 +10940,7 @@
               "script": {
                 "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
                 "exec": [
-                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
                   "    console.log(\"setting the giftcard number - UAT\");",
                   "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
                   "    console.log(\"setting the giftcard PIN - UAT\");",
@@ -10976,7 +10976,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"CardNumber\": \"{{giftcardNumber}}\",\n    \"Pin\": \"{{giftcardPin}}\"\n}"
             },
-            "url": "{{Connect_URL}}/GetGiftCardBalance"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCardBalance"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "33cd8d5f-eb37-40b3-996d-9ae0e39b3a41",
+      "id": "06f7b8d5-bfc2-44b0-bb73-cd1965440552",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "613e081b-7966-4715-85b1-e0ccb68729c1",
+      "id": "8d14a61f-2d2b-4131-88e3-ce450968d2f6",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "0be9de45-9f85-476d-a9af-fe4068299a5a",
+      "id": "f74367f8-b6d0-4f94-a2f6-51f93e0172b4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "48e49057-9550-4cff-9b46-e3820d3b1e7b",
+      "id": "06df4350-7b88-46ce-a59c-23e0cc4f675a",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "45aeeda3-ab76-4897-9e03-bbfea3f0b3e6",
+      "id": "468e4ca8-0cfc-48c2-ba91-e72047bbd520",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d88fd5cf-6678-4a3f-93bd-0e175c584409",
+      "id": "bc490d99-5a03-4ac7-9f64-9d56f01c99bc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "fdc0fb6e-ef3a-4a1c-b6a2-d17262946a97",
+      "id": "4b4e4683-cf0e-42fd-841d-81074251cb1b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "dfe3ba1d-eb70-44a1-9ac2-a7cfbeaaf550",
+      "id": "36209039-d619-43f8-9cc7-c1679cb3e455",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "88aa9766-5f00-462e-8129-4052e0df7072",
+      "id": "52de6e0b-008c-4f6a-8e7f-59ceb430417a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d09e65ab-80f2-49ba-ae1c-defeb2a404cd",
+      "id": "0e6bd19e-5dbf-4184-bb97-031ebe59bb8a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
