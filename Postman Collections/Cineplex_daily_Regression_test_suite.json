@@ -10801,9 +10801,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
             },
-            "url": "{{Connect_URL}}/IsItemWatchListed"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
           },
           "response": [
             {
@@ -10881,9 +10881,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/GetGiftCards"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCards"
           },
           "response": [
             {
@@ -10940,7 +10940,7 @@
               "script": {
                 "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
                 "exec": [
-                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
                   "    console.log(\"setting the giftcard number - UAT\");",
                   "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
                   "    console.log(\"setting the giftcard PIN - UAT\");",
@@ -10976,7 +10976,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"CardNumber\": \"{{giftcardNumber}}\",\n    \"Pin\": \"{{giftcardPin}}\"\n}"
             },
-            "url": "{{Connect_URL}}/GetGiftCardBalance"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCardBalance"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "9d8fc366-c05c-4f76-982c-bd87b9a30625",
+      "id": "449b67a7-cc1a-431f-b40d-ee3da9ad9683",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "97a667b1-e8ba-4856-9f0a-61b5ecc7f657",
+      "id": "d2e8b27f-6f2f-407c-a8af-4542b526e8b6",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a36330d9-e85f-4383-852d-e17267d121f9",
+      "id": "b5c8019a-f564-4760-992f-84416cebbb0d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "dc4f1f71-7b9d-4d22-90d4-a1552f32b0cf",
+      "id": "51cbae14-a302-43b4-9a08-843286723d13",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "0e5884aa-eb6d-4a9e-8bc0-fd0578873fbe",
+      "id": "ac107c8f-6583-4deb-b5d2-5d881c0c1f6e",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "5aa9c8d0-88b4-43f3-b125-530ca6dba136",
+      "id": "f98351f9-3066-4ac3-baec-80405a400a03",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7ef6461a-7549-46cd-a846-1f0f2239fdff",
+      "id": "5f5ba275-d846-434a-a998-daf4e21e994c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b7ce2527-8f58-405b-8776-25ea63684b64",
+      "id": "cbdc76b0-9631-4930-972d-5e8ff59ae73c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ffd30e45-f2e2-4577-b98d-b7c2fdc2b983",
+      "id": "4b7271db-9fac-4ec0-adaf-48c1b6d206e4",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "454bfcb2-8b88-4e13-a542-db1825ecfe4b",
+      "id": "0fd80b20-8f22-4b40-b57f-876a4bc77f81",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
