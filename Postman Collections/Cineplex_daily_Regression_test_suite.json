@@ -8627,6 +8627,330 @@
           }
         }
       ]
+    },
+    {
+      "name": "Connect-Initialization",
+      "item": [
+        {
+          "name": "Get Resource Strings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c14d8cb-239f-47d8-8086-9b7868f3acd8",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2b54d3f0-5bd2-4605-af38-cfd5edf947f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ResourceStringKeys\": [\n        7000,\n        7001\n    ]\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetResourceStrings"
+          },
+          "response": [
+            {
+              "id": "255914da-f4d4-454c-8059-dd049004a9bd",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ResourceStringKeys\": [\n        \"<string>\",\n        \"<string>\"\n    ]\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetResourceStrings"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"ResourceStrings\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Agreement",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a82cb6cf-1f78-4f20-aa5d-25b88f39faf4",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "773b648b-bcad-4c58-bd0b-c013b09d03e7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserAgreement"
+          },
+          "response": [
+            {
+              "id": "fa8730aa-1921-4e19-9c3c-547d1c6d2e08",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserAgreement"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"UserAgreement\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Countries Code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "90de4ef1-6d6d-4c97-9986-8ced6101eed0",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7daa67e0-8bbf-49ee-8c17-84eb81dee72a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetCountriesCode"
+          },
+          "response": [
+            {
+              "id": "8abaeb8d-6653-4e8c-8acb-125b74c039d9",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetCountriesCode"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Countries\": [\n  {\n   \"Id\": \"<integer>\",\n   \"Code\": \"<string>\",\n   \"Description\": \"<string>\"\n  },\n  {\n   \"Id\": \"<integer>\",\n   \"Code\": \"<string>\",\n   \"Description\": \"<string>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Provinces Code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "accfb03b-52ac-4ad4-8c69-0976f73f648d",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2b6b506f-3839-4ab6-88d4-3fb78ee10631",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetProvincesCode"
+          },
+          "response": [
+            {
+              "id": "ca007bc4-5d84-416b-98ce-513f54e6df28",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetProvincesCode"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Provinces\": [\n  {\n   \"Id\": \"<integer>\",\n   \"Code\": \"<string>\",\n   \"Name\": \"<string>\",\n   \"CountryCode\": \"<string>\",\n   \"PostalCodeFirstLetter\": \"<string>\"\n  },\n  {\n   \"Id\": \"<integer>\",\n   \"Code\": \"<string>\",\n   \"Name\": \"<string>\",\n   \"CountryCode\": \"<string>\",\n   \"PostalCodeFirstLetter\": \"<string>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "3dc02303-770c-466e-ad09-a822d4d2d81e",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "bcb707b2-c983-4bd1-9c58-94973ceda6d1",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "ebb1993c-fc71-4a69-93c9-e5809d2b6750",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -8681,55 +9005,55 @@
   ],
   "variable": [
     {
-      "id": "47d7b3db-d136-4aaa-bf51-879db60e44f5",
+      "id": "d7e80c9b-9e74-4264-ae46-769d61dee4e2",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "b70fd202-52f1-4cff-969c-3fc79783e107",
+      "id": "534feb5b-e1c4-485c-a73e-146d4915ae26",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2579a9f9-2e55-4648-9095-be5ef197b8af",
+      "id": "a8e8404d-3293-42a1-8c1e-e69745e84444",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "575210ae-e18f-4194-9cae-5b9415478fb4",
+      "id": "f635d870-584a-49cd-8a9f-7c9ebeb1e247",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "c7a116fb-e040-4e97-89dc-964a86969193",
+      "id": "6c53f05c-2589-4ebc-82c6-b522e653a8f9",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "4e522373-2b9c-492c-855b-63121481a137",
+      "id": "31a35440-027b-435c-85b7-30608207f180",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ec74eb00-c9cc-4316-8e28-6d1809956b8e",
+      "id": "1b50b620-a98a-4276-98a4-19139fa55e11",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "baa45d4d-d9ae-4be8-b1b5-f58ac9072db0",
+      "id": "9a4af57b-893d-4c62-8239-f238685eb9eb",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "69a4a09a-4c3e-4642-a2a4-64cc25e16776",
+      "id": "00f02c71-7e0b-415f-ad4f-e579a082957f",
       "key": "radius",
       "value": "50",
       "type": "string"
