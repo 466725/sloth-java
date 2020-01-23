@@ -14670,7 +14670,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-CA\",\n    \"ProductId\": \"{{ProductId}}\",\n    \"PricingPlanId\": 28459,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-CA\",\n    \"ProductId\": \"{{product_id}}\",\n    \"PricingPlanId\": 28459,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetProductDetailPageInfo"
           },
@@ -14867,61 +14867,61 @@
   ],
   "variable": [
     {
-      "id": "053b5b39-2e08-4188-b639-9f76f210cca8",
+      "id": "96f7ece5-75bd-4c38-bd7a-cff5c2ae2701",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "40016f55-b3ef-45f7-b4b7-66c5eb13c378",
+      "id": "2d4924aa-ec30-4112-b68d-48594a2200c9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "890b38be-d870-4665-8fe9-41566a3e840f",
+      "id": "458afb26-e091-40e6-ba14-6529a403642c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "92ea624f-2e34-4d5b-84d5-79b99eadb216",
+      "id": "ccdc8f26-9b92-4093-9fbf-a3d258cb3df7",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "de41f344-cf58-4dcb-9d89-d54abefa30f9",
+      "id": "40c61f66-b9f0-4361-8e4f-16f294980156",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "622df892-8428-4ec0-93de-bb1bf5de5e73",
+      "id": "6a8c5400-99ed-41fb-a683-70cc755094e8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "29cc425a-1192-43fe-a0b4-91b0a11226c0",
+      "id": "559ca0bb-e806-4ca6-aad9-2a577c46ca90",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d43abed3-e540-45be-b50c-92f0e131b595",
+      "id": "10a53388-fe87-4db6-8989-3840b7a36d09",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "851548ff-3f77-4dd8-8532-297d504c320b",
+      "id": "927bc2d7-5b23-4437-bef8-8407dcaff610",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "a7bd7a29-8b53-4b0f-917d-fe0ac544feb7",
+      "id": "ac28b4f6-1890-4477-8479-3aed01667e38",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
