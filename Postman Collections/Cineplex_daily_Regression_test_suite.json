@@ -1198,7 +1198,7 @@
                   "",
                   "var creditCardInfo = jsonBody.CreditCards;",
                   "pm.test(\"Credit Card List Empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be(0);",
+                  "    pm.expect(creditCardInfo.length).to.eql(0);",
                   "});",
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
@@ -1271,8 +1271,8 @@
                   "});",
                   "",
                   "var creditCardInfo = jsonBody.CreditCards;",
-                  "pm.test(\"Credit Card List not Empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be(0);",
+                  "pm.test(\"Credit Card List Empty\", function(){",
+                  "    pm.expect(creditCardInfo.length).to.eql(0);",
                   "});",
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
@@ -14831,8 +14831,8 @@
           "    console.log(\"movie_id is set as UAT movie id 31484\");",
           "    pm.environment.set(\"theatre_id\", 7995);",
           "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
-          "    pm.environment.set(\"ProductId\", 646716);",
-          "    console.log(\"ProductId is set in UAT as ProductId 646716\");",
+          "    pm.environment.set(\"ProductId\", 671899);",
+          "    console.log(\"ProductId is set in UAT as ProductId 671899\");",
           "    pm.environment.set(\"4K_Supported\", 1); //User Story 41189",
           "} else {",
           "    console.log(\"We are not runing on UAT environment!\");",
@@ -14865,69 +14865,63 @@
   ],
   "variable": [
     {
-      "id": "919813df-7c81-469f-9ccb-f2c2bf980a62",
+      "id": "3d549046-31e6-4638-b5d3-8218ecb8f244",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "914fc43e-5a82-4961-a451-fb1349522c3a",
+      "id": "a5c6598c-90e6-4ede-a49c-68b4270aa2e2",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7eeaed57-8fc0-460b-881c-ebe059a6b7f3",
+      "id": "4d0a97a8-7391-48c5-98ca-2bf91735e6ec",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "f5b3d30a-8802-4369-8c6d-6a7d026dc9d4",
+      "id": "1be010a1-6a21-4c2a-b4ec-b1d9563df7b0",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "68e30dff-e9db-4d75-82f1-173f4a4a746a",
+      "id": "d5c86e01-555f-4e45-8fd4-c51278fd933c",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d341e96c-5d6c-4523-965b-e01cabc817c6",
+      "id": "7b7ff9a3-47ff-4acb-a3fd-fcf17c0783c9",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7ba705f8-7bf3-483d-8e90-d5d8d331a013",
+      "id": "0e81ac41-a4e0-4776-b195-4b717956cb65",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b4c51c42-8f8a-4a81-ac23-749a31ece864",
+      "id": "cc6f5563-24cd-4b77-a7bc-9ca1bd5a0691",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "bed1ffdb-8fe7-41b3-b6a6-47c1383913de",
+      "id": "e3bf0fd5-9a2a-4737-b9d3-e858478c1974",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4a66a4dc-0636-4d6c-bf46-82a77fa72c31",
+      "id": "9bc05813-bc48-4975-b267-9c688a23dd1f",
       "key": "ConnectPin",
       "value": "1234",
-      "type": "string"
-    },
-    {
-      "id": "707e341b-3982-412a-9a31-ad9a98b19863",
-      "key": "product_id",
-      "value": "671899",
       "type": "string"
     }
   ]
