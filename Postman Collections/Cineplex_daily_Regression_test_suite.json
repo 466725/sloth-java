@@ -9145,7 +9145,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetConnectUser"
           },
@@ -9217,7 +9217,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetConnectedNetworks"
           },
@@ -9289,9 +9289,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\",\n    \"ConnectPassword\": \"{{password}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\",\n    \"ConnectPassword\": \"{{ConnectPassword}}\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/CreateConnectPin"
+            "url": "{{Connect_URL}}/CreateConnectPin"
           },
           "response": [
             {
@@ -9361,9 +9361,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ValidateConnectPin"
+            "url": "{{Connect_URL}}/ValidateConnectPin"
           },
           "response": [
             {
@@ -9433,9 +9433,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\"\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ValidateConnectUser"
+            "url": "{{Connect_URL}}/ValidateConnectUser"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "f0b9ee68-850e-4d8f-b42a-db131a77e968",
+      "id": "dba9ddfe-3c96-4304-b3ed-feff35a66eb3",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c0f7473a-3b49-46dd-a858-9d1cad83f73e",
+      "id": "31287585-1994-4bb4-97a4-2874f90b7766",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ad4f0389-0f00-486b-83e1-f559f6a763be",
+      "id": "1e1f5ecf-745a-442e-9754-5e40781518b0",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7111b33a-7ee8-436a-9f3c-d4527b118dd2",
+      "id": "2479bbca-d29c-4d3f-bd6a-b47546d57a7f",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "2402331f-013a-4fbd-ae89-ef7935c56887",
+      "id": "43c214d4-bbce-47c0-93ab-70ad3f123c7f",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "72ec6042-5118-4eb1-ad58-e75ddfe9f1eb",
+      "id": "12492b8a-16a0-465e-98df-e2affacda75b",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "2ea2a5f4-14fe-4414-b887-f8658c015224",
+      "id": "f24783a7-7bb7-410f-b3ae-4fb27648b469",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "efa37fde-4a83-4c45-952a-6e16664d7937",
+      "id": "79c82c20-be57-4944-8767-1fcfc92944f4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "556f7a99-7379-4e7e-96ed-b664e77a9a86",
+      "id": "aa2db22b-6e12-46cb-b1d0-e79919d7060e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "ab5633f0-24aa-4d0d-b1c5-6b9a55f7f370",
+      "id": "d7c4f853-f247-44d6-a210-93c708224cf2",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
