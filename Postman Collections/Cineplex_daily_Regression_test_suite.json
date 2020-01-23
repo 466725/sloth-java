@@ -11478,9 +11478,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetSceneInfo"
+            "url": "{{Connect_URL}}/GetSceneInfo"
           },
           "response": [
             {
@@ -11550,9 +11550,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateSceneSortOrder"
+            "url": "{{Connect_URL}}/UpdateSceneSortOrder"
           },
           "response": [
             {
@@ -11622,9 +11622,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetTicketingOrderHistory"
+            "url": "{{Connect_URL}}/GetTicketingOrderHistory"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "fe980b4f-f785-4b8d-9dea-14111420a0ea",
+      "id": "ae33cdab-c999-47df-83d1-ec2888c9da8d",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ba96f85e-0b02-49dd-b1e4-562b30d3b374",
+      "id": "94857490-5629-4c30-9a33-af9596aa5ab4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "44a10699-d262-4fd7-8e25-cfb9d270e711",
+      "id": "b6c39ede-1293-47cd-9a27-591709954112",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "b84d0073-80ff-4f0f-a42b-7bf263c9705c",
+      "id": "983782b3-1bd1-497b-a6a9-ef09434c12ee",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d198debe-d053-4262-8456-4225a07cf27a",
+      "id": "b116e0d8-d4be-4421-a98a-58d9fc49fd5b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "dea6c9dc-3432-4d84-a054-03d974bc1c88",
+      "id": "6d97472d-346c-4c2c-a2ec-5879757d8bdc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7eb5973c-29ba-4078-adeb-af02fb9255a3",
+      "id": "b5bf79d8-8cf1-402c-bc52-c7283aaccf7e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "21f9f55e-b964-44c4-a5a7-8b840c369a82",
+      "id": "72444996-d965-460c-a082-445d8d871971",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "0d0f57d5-e8eb-4687-9ace-8198242a8720",
+      "id": "560afce8-eb2e-4d36-b34e-91a9641ca8d4",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "95cc922d-6def-4b43-b2b3-e02a65aa1556",
+      "id": "19edb09b-c67f-4a02-abf8-91afe3c3921e",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
