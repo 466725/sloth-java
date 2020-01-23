@@ -11824,6 +11824,673 @@
           }
         }
       ]
+    },
+    {
+      "name": "Connect-Newsletters",
+      "item": [
+        {
+          "name": "Get Newsletter Subscriptions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9a8216f9-c79e-4ecf-8569-804dc153ca59",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "007a94da-5e85-4f14-be7d-5c371eeea91c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetNewsletterSubscriptions"
+          },
+          "response": [
+            {
+              "id": "709039d1-2677-401e-9e17-4db74275f451",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetNewsletterSubscriptions"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"NewsletterSubscriptionInfo\": {\n  \"NewsletterSubscriptions\": [\n   {\n    \"CommunicationNewsletterId\": \"<integer>\"\n   },\n   {\n    \"CommunicationNewsletterId\": \"<integer>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Save Newsletter Subscription",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e399564d-45a3-4681-9076-4f905c05b00b",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d3d4dbd9-b80e-4675-811c-52ec6b62ddce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"NewsletterId\": 4,\n    \"EmailOptIn\": true\n}"
+            },
+            "url": "{{Connect_URL}}/SaveNewsletterSubscription"
+          },
+          "response": [
+            {
+              "id": "ffea4a04-290d-4408-823d-f72e2b7c07be",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"NewsletterId\": \"<integer>\",\n    \"EmailOptIn\": \"<boolean>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/SaveNewsletterSubscription"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"SaveNewsletterSubscriptionResult\": {\n  \"LastUpdated\": \"<dateTime>\",\n  \"Result\": {\n   \"CommandResult\": {\n    \"Status\": \"<enum>\",\n    \"Message\": \"<string>\",\n    \"MessageDetails\": \"<string>\"\n   },\n   \"UserProfileId\": \"<long>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"UserProfileGuid\": \"<guid>\",\n   \"ConciergeUserId\": \"<long>\",\n   \"Language\": \"<enum>\",\n   \"ConnectAccountType\": \"<enum>\",\n   \"TrustedClientRedirectUrl\": \"<string>\",\n   \"IsCineplexUser\": \"<boolean>\",\n   \"CSGSubscriberId\": \"<long>\",\n   \"EmailId\": \"<string>\",\n   \"IsStoreVIP\": \"<boolean>\",\n   \"PrimarySceneCardNumber\": \"<string>\",\n   \"ProfileOverrides\": {\n    \"AllowPremiereCard\": \"<boolean>\",\n    \"DisableDeviceLimit\": \"<boolean>\",\n    \"AllowSeriesBackdoor\": \"<boolean>\"\n   },\n   \"UserSessionToken\": \"<guid>\",\n   \"CorporateAccountType\": \"<enum>\",\n   \"TokenExpiryDate\": \"<dateTime>\",\n   \"ActivateRedirectUrl\": \"<string>\",\n   \"IsNotificationEnabled\": \"<boolean>\",\n   \"IsNotificationEnabledForPrimarySceneCard\": \"<boolean>\",\n   \"PrimarySceneCardHolderProfileId\": \"<long>\",\n   \"CSGPaymentInstrumentId\": \"<long>\",\n   \"IsSignUp\": \"<boolean>\",\n   \"BrandImageUrl\": \"<string>\",\n   \"DeviceGuid\": \"<string>\",\n   \"CELPDataSetId\": \"<integer>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Save Newsletter Subscription By Email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "93fabedf-7b3b-4eea-84f8-0544dac706c6",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9d737970-4e0d-4b0d-9f56-88c68e69c679",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"EmailAddress\": \"{{ConnectEmail}}\",\n    \"NewsletterId\": 5,\n    \"IsSubscribe\": true\n}"
+            },
+            "url": "{{Connect_URL}}/SaveNewsletterSubscriptionByEmail"
+          },
+          "response": [
+            {
+              "id": "9bf5932d-450e-40de-b493-d3c3a088b40f",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"LanguageType\": \"<enum>\",\n    \"EmailAddress\": \"<string>\",\n    \"NewsletterId\": \"<integer>\",\n    \"IsSubscribe\": \"<boolean>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/SaveNewsletterSubscriptionByEmail"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "04597923-dfe2-42c5-8b68-299e09f6bab5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "6999a6d2-770d-4a1f-8c55-210d80d2cbcc",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "7dcbf6e4-f43d-4c33-a51b-1eba3ecdebd9",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Connect-Theatres",
+      "item": [
+        {
+          "name": "Get Favourite Theatres",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f2bef4b8-42a2-4cba-8863-ea3f59ff5dec",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8049df8b-54db-4a2b-a37e-fc48aa4d7fb8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetFavouriteTheatres"
+          },
+          "response": [
+            {
+              "id": "256dd312-0387-40dc-96b2-9889d5909622",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetFavouriteTheatres"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"FavouriteTheatres\": {\n  \"UserProfileId\": \"<long>\",\n  \"Theatres\": [\n   {\n    \"Id\": \"<integer>\",\n    \"LocationId\": \"<integer>\",\n    \"LocationGuid\": \"<guid>\",\n    \"Name\": \"<string>\",\n    \"City\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"Province\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"IsStarsAndStrollers\": \"<boolean>\",\n    \"UserLocationIsStarsAndStrollers\": \"<boolean>\",\n    \"SortOrder\": \"<integer>\",\n    \"Image_Url\": \"<string>\",\n    \"Is_VIP\": \"<boolean>\",\n    \"Is_Atmos\": \"<boolean>\",\n    \"Is_Avx\": \"<boolean>\",\n    \"Is_Imax\": \"<boolean>\",\n    \"Is_3D\": \"<boolean>\",\n    \"Is_DBOX\": \"<boolean>\",\n    \"Is_Select\": \"<boolean>\",\n    \"Longitude\": \"<float>\",\n    \"Latitude\": \"<float>\",\n    \"DisplayValue\": \"<string>\",\n    \"IsCineplexTheatre\": \"<boolean>\"\n   },\n   {\n    \"Id\": \"<integer>\",\n    \"LocationId\": \"<integer>\",\n    \"LocationGuid\": \"<guid>\",\n    \"Name\": \"<string>\",\n    \"City\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"Province\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"IsStarsAndStrollers\": \"<boolean>\",\n    \"UserLocationIsStarsAndStrollers\": \"<boolean>\",\n    \"SortOrder\": \"<integer>\",\n    \"Image_Url\": \"<string>\",\n    \"Is_VIP\": \"<boolean>\",\n    \"Is_Atmos\": \"<boolean>\",\n    \"Is_Avx\": \"<boolean>\",\n    \"Is_Imax\": \"<boolean>\",\n    \"Is_3D\": \"<boolean>\",\n    \"Is_DBOX\": \"<boolean>\",\n    \"Is_Select\": \"<boolean>\",\n    \"Longitude\": \"<float>\",\n    \"Latitude\": \"<float>\",\n    \"DisplayValue\": \"<string>\",\n    \"IsCineplexTheatre\": \"<boolean>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Favourite Theatre",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3a55ff56-b966-41ba-8654-f84ce2c1475e",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "ef7dfa5b-97da-4d69-ae9b-856afaac8dee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/RemoveFavouriteTheatre"
+          },
+          "response": [
+            {
+              "id": "c5be1b48-1496-4043-9d59-7d4f6b4c97d6",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"Theatre\": {\n        \"Id\": \"<integer>\",\n        \"IsStarsAndStrollers\": \"<boolean>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/RemoveFavouriteTheatre"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Favourite Theatre",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d7991aa1-ee68-46b4-a620-f543173e1db1",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "574086b1-8b84-4aa9-9613-f1f5e6902311",
+                "exec": [
+                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "    console.log(\"setting the theatre_id - UAT\");",
+                  "    pm.environment.set(\"theatre_id\", 7995)",
+                  "} else {",
+                  "    console.log(\"setting the theatre_id - Prod\");",
+                  "    pm.environment.set(\"theatre_id\", 1151)",
+                  "}    ",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "0967fc7d-6825-4f9a-86dc-42195afcc5b4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/AddFavouriteTheatre"
+          },
+          "response": [
+            {
+              "id": "efbd0477-1624-428c-bb40-81bbf1e3d17a",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"Theatre\": {\n        \"Id\": \"<integer>\",\n        \"IsStarsAndStrollers\": \"<boolean>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddFavouriteTheatre"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Favourite Theatre Sort Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "eb218818-edb2-409e-a0b2-caf2787b0c6a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "322ff9ec-7563-44af-a03d-fcef64f8c99e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/UpdateFavouriteTheatreSortOrder"
+          },
+          "response": [
+            {
+              "id": "2817649e-e041-4ecf-b6d3-b09739e22d61",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"<integer>\",\n        \"NewSortOrder\": \"<integer>\",\n        \"CSGSubscriberId\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateFavouriteTheatreSortOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Visited Theatres",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b228bf54-3694-4e9c-8e68-9282d7a03e92",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Logged in successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"locationid\", jsonBody.VisitedTheatres.LocationId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b96497db-43fa-4330-923c-29fc7b01d9b8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetVisitedTheatres"
+          },
+          "response": [
+            {
+              "id": "ea3a2f0c-bbec-4aad-9af4-9f7bb9044998",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetVisitedTheatres"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"VisitedTheatres\": [\n  {\n   \"LocationId\": \"<integer>\",\n   \"InteractiveName\": \"<string>\",\n   \"TotalVisits\": \"<integer>\",\n   \"LastVisited\": \"<string>\",\n   \"Longitude\": \"<float>\",\n   \"Latitude\": \"<float>\"\n  },\n  {\n   \"LocationId\": \"<integer>\",\n   \"InteractiveName\": \"<string>\",\n   \"TotalVisits\": \"<integer>\",\n   \"LastVisited\": \"<string>\",\n   \"Longitude\": \"<float>\",\n   \"Latitude\": \"<float>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "88f84c05-52bf-4387-bd18-d91b71302375",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "e1015c0b-5ad3-4c4a-bc3c-4feb1d5ba817",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "01c70836-f3a2-426a-a656-a4fefa1036d4",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -11878,55 +12545,55 @@
   ],
   "variable": [
     {
-      "id": "767019ec-c9f3-4874-9b8d-3f70b98374d8",
+      "id": "124112ba-bd23-4148-bef8-153171eb8ad5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "f2ccf9ef-bc89-41e8-a2e0-13aca3c41b70",
+      "id": "b53dcd06-7252-401b-8621-1d19d729ade5",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a4fac1e6-6716-4fd7-98d4-64c60640b751",
+      "id": "32ef8e0b-4a09-4eb6-8e84-fbf0d6f816c7",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "67fb7b1e-14e7-4b41-924c-ea2b3a978414",
+      "id": "8c279d9d-2bb6-486b-a498-8b17f52e1de6",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "c60938ef-4532-42d3-84e9-2419e8fb786c",
+      "id": "a424b134-3889-4520-a8cc-c0d8c8e1e9a5",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "1c525b67-e83d-4175-b97c-0d76f539e99a",
+      "id": "d5747e82-afa2-4759-8587-b2a0a161f16a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "6190f463-69ac-4d08-9989-99c5623f2d4a",
+      "id": "1f6f4ee3-ce85-494e-a7a7-dd4b03ce0d52",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6bc8e7e0-c6e6-4afa-a59d-00a7424795ed",
+      "id": "e00a90c8-dbf0-4a72-b6d6-42ce377a51ea",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f8a71ed5-604f-4874-85b8-ecb7c8a698aa",
+      "id": "bad3a7b0-4906-4fc1-bff5-3d1a52a02b1c",
       "key": "radius",
       "value": "50",
       "type": "string"
