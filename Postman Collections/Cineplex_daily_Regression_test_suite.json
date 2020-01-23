@@ -10881,9 +10881,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCards"
+            "url": "{{Connect_URL}}/GetGiftCards"
           },
           "response": [
             {
@@ -10940,7 +10940,7 @@
               "script": {
                 "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
                 "exec": [
-                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
                   "    console.log(\"setting the giftcard number - UAT\");",
                   "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
                   "    console.log(\"setting the giftcard PIN - UAT\");",
@@ -10976,7 +10976,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"CardNumber\": \"{{giftcardNumber}}\",\n    \"Pin\": \"{{giftcardPin}}\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCardBalance"
+            "url": "{{Connect_URL}}/GetGiftCardBalance"
           },
           "response": [
             {
@@ -11046,9 +11046,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ChangeAddressBookSortOrder"
+            "url": "{{Connect_URL}}/ChangeAddressBookSortOrder"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "0425e8aa-399d-4599-85d5-6aeea6de3ea4",
+      "id": "33cd8d5f-eb37-40b3-996d-9ae0e39b3a41",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "34d8d5c8-7def-4694-8692-33a5f290f625",
+      "id": "613e081b-7966-4715-85b1-e0ccb68729c1",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "6f1d87ab-fc0e-4cd3-974f-70eeab5c9d87",
+      "id": "0be9de45-9f85-476d-a9af-fe4068299a5a",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "607cced4-739d-4cf9-865a-4b205454556f",
+      "id": "48e49057-9550-4cff-9b46-e3820d3b1e7b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "db058585-dd39-43db-8721-c39786b6945d",
+      "id": "45aeeda3-ab76-4897-9e03-bbfea3f0b3e6",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "991a1b42-5d2b-492b-9b06-e5b8513e28ff",
+      "id": "d88fd5cf-6678-4a3f-93bd-0e175c584409",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "b6c590b9-070f-483e-bf51-cd7c37abb3c4",
+      "id": "fdc0fb6e-ef3a-4a1c-b6a2-d17262946a97",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "efd3e0c1-b857-4481-9a96-cebde3034d70",
+      "id": "dfe3ba1d-eb70-44a1-9ac2-a7cfbeaaf550",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "146e94b7-703d-44b3-96c4-514bf6c1b526",
+      "id": "88aa9766-5f00-462e-8129-4052e0df7072",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "e1479edb-79a1-4751-857f-18b6a63d772c",
+      "id": "d09e65ab-80f2-49ba-ae1c-defeb2a404cd",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
