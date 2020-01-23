@@ -4868,7 +4868,8 @@
                   "value": "{{language}}"
                 }
               ]
-            }
+            },
+            "description": "This call is to set the parameters for Connect API to trigger a Create Order call.  We need a movie one day in the future and that movie's vista_sessionid"
           },
           "response": []
         },
@@ -8680,55 +8681,55 @@
   ],
   "variable": [
     {
-      "id": "fdd9e5f4-4f7e-4fd6-b558-103ceb0ce609",
+      "id": "47d7b3db-d136-4aaa-bf51-879db60e44f5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c8eea1f4-0bcc-493b-9103-ab747f5a646b",
+      "id": "b70fd202-52f1-4cff-969c-3fc79783e107",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "22cf55fd-42ba-4a7d-8cce-c7c874866bdf",
+      "id": "2579a9f9-2e55-4648-9095-be5ef197b8af",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7b4c80cf-2f7e-40df-9bde-94504724e348",
+      "id": "575210ae-e18f-4194-9cae-5b9415478fb4",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "69c3be10-f157-444a-a887-740378d73d61",
+      "id": "c7a116fb-e040-4e97-89dc-964a86969193",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "e917f3d3-c85d-468d-bd1c-f24a1e3dcb3e",
+      "id": "4e522373-2b9c-492c-855b-63121481a137",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "41874395-e4a3-461c-977b-0a943a915b44",
+      "id": "ec74eb00-c9cc-4316-8e28-6d1809956b8e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3b01604b-21f9-4208-84d0-803ca540d941",
+      "id": "baa45d4d-d9ae-4be8-b1b5-f58ac9072db0",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "354fd765-b2e2-4b18-9d76-069a5993fc61",
+      "id": "69a4a09a-4c3e-4642-a2a4-64cc25e16776",
       "key": "radius",
       "value": "50",
       "type": "string"
