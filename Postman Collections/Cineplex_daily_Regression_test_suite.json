@@ -14740,7 +14740,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"StoreCouponRedemptionCodeRequest\": {\r\n    \"Language\": \"en-CA\",\r\n    \"RedemptionCode\": \"joshtestmasterpin27\",\r\n    \"RedemptionCouponValue\": \"4105\",\r\n    \"CDUserEmail\": \"webmaster@cineplex.com\",\r\n    \"CDPassword\": \"Inter@ctive1303\"\r\n  }\r\n}"
+              "raw": "{\r\n  \"StoreCouponRedemptionCodeRequest\": {\r\n    \"Language\": \"en-CA\",\r\n    \"RedemptionCode\": \"pin{{$timestamp}}\",\r\n    \"RedemptionCouponValue\": \"4105\",\r\n    \"CDUserEmail\": \"webmaster@cineplex.com\",\r\n    \"CDPassword\": \"Inter@ctive1303\"\r\n  }\r\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreCreateCouponRedemptionCode"
           },
@@ -14865,61 +14865,61 @@
   ],
   "variable": [
     {
-      "id": "e2ec72b9-85a6-4943-9583-06c3e7312a41",
+      "id": "b373337c-b8a8-4766-aec3-a7882f7313a0",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "cfae4cf2-7341-4d63-9f24-026616c2ae62",
+      "id": "d8965b4a-5658-4d9f-a522-15b9ae78d8f4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "159b5c59-3254-478e-ba28-ce61c9e6bc6d",
+      "id": "895e24b2-c908-446e-b48e-8541028f9496",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "e8b271c1-b3c0-418d-8ed8-14ad368d920b",
+      "id": "e4ca89c8-4df9-4806-a519-6ddf26b99338",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "dc2aa1ad-64d5-471d-b1a6-6e4089195aa0",
+      "id": "f993a135-d18a-4f59-8a35-9c2d944abad2",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a52eb3cf-71a1-4b4d-9cb6-8a25c754d59c",
+      "id": "19c44046-8858-4a7f-8c16-09fa937fe447",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "54d5af74-3be5-4bf8-b52f-759d86603384",
+      "id": "6bff94d7-9797-4cc4-8312-210914f9e1da",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "69b9b942-4959-4c41-9017-0b9e1e5fad85",
+      "id": "5b301679-d83b-48ba-adbb-bb53dc6a336c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "2d449954-514a-453d-8217-56f3f217ed53",
+      "id": "d294069c-c925-4b9d-b642-3488595edef3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "524a6efb-7dee-4d73-9ffa-432f1859e38f",
+      "id": "c8dcceb5-ed86-417c-997f-6d522f37537e",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
