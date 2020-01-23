@@ -13321,7 +13321,7 @@
               "script": {
                 "id": "574086b1-8b84-4aa9-9613-f1f5e6902311",
                 "exec": [
-                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
                   "    console.log(\"setting the theatre_id - UAT\");",
                   "    pm.environment.set(\"theatre_id\", 7995)",
                   "} else {",
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "daa20822-fb68-478d-a18b-366b548427d3",
+      "id": "789d7d14-8aff-47ca-93ad-6a48f3fb8bd4",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "76118929-f21d-4502-a9b8-b6d4c78a8fe4",
+      "id": "2700eca9-9663-472e-b786-0afbd8d249a5",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "9e00cf88-0067-4f9b-99c7-7ef197ee75ae",
+      "id": "e3014211-a54a-4844-8d65-07f5f596b5c3",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "407349e1-f7b4-4d0d-a22d-0d4a9b846a4f",
+      "id": "2f217266-b0ff-4710-8997-0630db10331e",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "bda1a5c5-5887-4408-ba04-706c90a63395",
+      "id": "7c3d25cc-2601-449c-8aed-e6d75b53c8e1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "6a5cfd42-50a6-4182-881f-aeb0a97267bf",
+      "id": "45e23275-3b56-4148-ac7d-649b7fec2a23",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a0c8748a-dd7e-4677-925f-0aa75bf6b243",
+      "id": "4e750c5c-22ff-43be-9b54-d227ebaf7a04",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "80cb3ed3-9fb5-42f1-a773-e4cc4e23445a",
+      "id": "9a82db62-f1e2-4290-ba85-0cd9d60fdeb3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "fa29b990-50d8-4aa7-baae-57f308f0b64f",
+      "id": "270f7caf-592b-47f3-be60-539b058dd50b",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "597dcc25-e437-4c35-9e01-f662cdeab3cc",
+      "id": "160261af-760b-4253-a84d-0094c371b247",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
