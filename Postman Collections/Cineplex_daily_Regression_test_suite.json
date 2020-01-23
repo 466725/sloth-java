@@ -3161,7 +3161,8 @@
                   "    pm.test(\"isFavourite flag is not available\", function(){",
                   "        for(var i = 0; i < jsonBody.data.length; i++){",
                   "            console.log(\"Number \" + i+1 + \" movie has no isFavourite flag\");",
-                  "            pm.expect(jsonBody.data[i].isFavourite).to.eql(null);",
+                  "            //pm.expect(jsonBody.data[i].isFavourite).to.eql(null);",
+                  "            pm.expect(jsonBody.data[i].isFavourite).to.be.undefined;",
                   "        }",
                   "    });",
                   "}"
@@ -14452,7 +14453,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"StoreProductQuery\": {\n        \"ProductId\": \"{{ProductId}}\",\n        \"DeviceTypeCode\": 16\n    }\n}"
+              "raw": "{\n    \"StoreProductQuery\": {\n        \"ProductId\": \"{{product_id}}\",\n        \"DeviceTypeCode\": 16\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetProductInfo"
           },
@@ -14865,61 +14866,61 @@
   ],
   "variable": [
     {
-      "id": "cd9b50a5-45ad-4214-b9c6-b12f65e7bb8e",
+      "id": "3cce7ddb-8e6b-4e84-ab76-1e2bfcfa7191",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4e3d2d08-10d1-43ea-8d17-4d83b40af866",
+      "id": "bb6b5815-2da1-4be5-bfbe-ef5b6e38068a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "5ba5f25b-cf88-41ce-9cae-2e4a848fbdd7",
+      "id": "fbceec99-ae54-46e8-a0e7-b8029905af1f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "2fb7fc2f-7ae6-4291-af11-ed044219ea3e",
+      "id": "bdde7598-0659-4075-ac2c-d53d701d8d2b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "dd816c95-96cb-433d-b298-5ed9cd164a4c",
+      "id": "5859098d-0151-4b91-bd57-93fa0428e63a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c4f7e946-5de6-4638-a751-4088a09caea3",
+      "id": "e76a5b9a-6138-4b5c-950e-cfcb8954efac",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "9be9cf9f-a555-4723-88fd-cee8337abe2b",
+      "id": "558a45db-a248-4d20-b4a8-0d797254a354",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "fe2e0647-dd2e-4c1d-8162-ba3a14fa943d",
+      "id": "954efa66-8e09-4439-bebf-afbce6824aa4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "5feb8078-8797-45bc-a56b-9cfa9cdeffb6",
+      "id": "27cfed30-cdab-4bb1-83e9-2a274ce17d0a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d5278acb-c3bb-457a-b65e-b8d801813bb1",
+      "id": "9e99288d-d4d9-4725-abdc-9a51d516cfb6",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
