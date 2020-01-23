@@ -11876,9 +11876,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"VISTASessionId\": \"{{vista_session_id}}\",\n    \"SeatInformation\": \"D-14\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"VISTASessionId\": \"{{vista_session_id}}\",\n    \"SeatInformation\": \"D-14\"\n}"
             },
-            "url": "{{Connect_URL}}/FoodAndConcession/CreateOrder"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/CreateOrder"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "c3e17782-4721-4f6e-8c72-d8e1710f0c38",
+      "id": "a5ec0445-eca4-4e7d-b30c-9b4ac61bc21b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "858d2af0-a4e9-4fd3-a589-0cb169b59308",
+      "id": "ec78d959-d695-401d-bec3-1316d9219d3f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "5bc751cd-bf21-49cf-95c6-f1edc616488f",
+      "id": "82af908f-9870-4665-91b2-1bcbb113ffb4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "edc8edf1-599a-4219-8a4a-80b9e799078b",
+      "id": "94b5e407-9dc4-4881-bc4b-5bdb40195f7f",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d973d14d-0e75-4f4e-8014-22b3c4740945",
+      "id": "1894b004-869f-46b7-9da6-1d7d0c5d4c38",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ab906aee-c9c7-4a61-a1d8-9e932cbefd7b",
+      "id": "8ad00430-5af7-4ae6-9c64-5dc0e2e2ddb0",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "c321e97a-a465-453c-8747-c0050ebea49a",
+      "id": "636d17b4-6cb1-4dad-800f-526526ff8c7d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "042a9b75-bb02-42b1-90b3-7393d9f2cfa9",
+      "id": "956518db-15dc-45f2-ae75-ffd7069a65dd",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9573ac62-5c4a-4d9d-ac72-ce8f312e09c8",
+      "id": "9ab10dcc-e0df-41e0-8a2d-2d1d4228c46e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "3b855cfd-99b8-4050-b5d9-4a13b0dc0671",
+      "id": "c1e6768f-837b-4686-829f-6051c5666e22",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
