@@ -14742,7 +14742,7 @@
               "mode": "raw",
               "raw": "{\r\n  \"StoreCouponRedemptionCodeRequest\": {\r\n    \"Language\": \"en-CA\",\r\n    \"RedemptionCode\": \"joshtestmasterpin27\",\r\n    \"RedemptionCouponValue\": \"4105\",\r\n    \"CDUserEmail\": \"webmaster@cineplex.com\",\r\n    \"CDPassword\": \"Inter@ctive1303\"\r\n  }\r\n}"
             },
-            "url": "{{Connect_URL}}/StoreCreateCouponRedemptionCode"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreCreateCouponRedemptionCode"
           },
           "response": [
             {
@@ -14865,61 +14865,61 @@
   ],
   "variable": [
     {
-      "id": "a82312bb-1a47-423c-96be-7d4543555f89",
+      "id": "ebfdcab4-0d5d-48f9-a4f2-6e2a56b4931f",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "87402bff-b428-4d85-8923-c2632e9f2aae",
+      "id": "cd27bf2f-1e8c-4f4a-b543-11cdf558c4b2",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "e512219b-1050-40dd-a81a-f735f3d78dfb",
+      "id": "69ad7d7b-255f-42dc-b036-7f70a9a53840",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ef881588-6fe0-498b-8ac8-2ceabc049564",
+      "id": "e05dee33-f1b6-443d-afb9-3be83952c3d2",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "1f20b37a-941e-4d56-ae32-f941c7cc77ad",
+      "id": "c3f6aa67-ad49-4c45-99a7-dcbf3876155c",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "48f290c9-a88e-4b69-ba39-1523c010a675",
+      "id": "4052bd2b-a50b-4099-adfb-d9ddb9cdeaa4",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f38221ee-4c9e-4754-b4c0-8b63ab717d8c",
+      "id": "f52e6418-8566-417b-8ad6-9bfb15c123fd",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d109935e-9412-4820-9d95-d0a565f6345c",
+      "id": "0546dee2-921f-4674-9524-9c29650fcd70",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c1a97d23-cbba-4176-8412-051a409b9bf7",
+      "id": "902d9f80-55ab-4680-8c01-2d789dbc971e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "7d1fbe1b-d34a-41ae-8d29-75565ab2b355",
+      "id": "6b66e2b4-157d-4fa3-a06b-719c2e762c90",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
