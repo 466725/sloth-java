@@ -12303,7 +12303,7 @@
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
                   "",
-                  "pm.globals.set(\"order_item_id\", jsonBody.UnprocessedItems[0].OrderItemId);"
+                  "pm.environment.set(\"order_item_id\", jsonBody.UnprocessedItems[0].OrderItemId);"
                 ],
                 "type": "text/javascript"
               }
@@ -12328,7 +12328,7 @@
               "mode": "raw",
               "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"ProcessOrder\": false\n}"
             },
-            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderDetails"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderDetails"
           },
           "response": [
             {
@@ -12400,7 +12400,7 @@
               "mode": "raw",
               "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"OrderItemId\": \"{{order_item_id}}\"\n}"
             },
-            "url": "{{Connect_URL}}/FoodAndConcession/RemoveItemFromOrder"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/RemoveItemFromOrder"
           },
           "response": [
             {
@@ -12472,7 +12472,7 @@
               "mode": "raw",
               "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"Item\": {\n        \"ItemId\": \"{{concession_item_id}}\",\n        \"Quantity\": \"1\",\n        \"SpecialInstructions\": \"Special Instructions\",\n        \"SelectedExtraModifier\": []\n    }\n}"
             },
-            "url": "{{Connect_URL}}/FoodAndConcession/AddItemToOrder"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddItemToOrder"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "4d6b3e3c-53e3-4755-bea6-6abb96e56f94",
+      "id": "b9b6cfa1-6805-4902-8c39-400549088bd9",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "6aba50d1-e9eb-43a0-a456-b0461cb3ba98",
+      "id": "b3aa328c-fa2a-4817-b8df-7e68866a5153",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "532351d0-b837-4ce3-873c-f260504776f5",
+      "id": "9d37b461-d2f5-435d-b545-dc0e411c4cbf",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cd1366b0-5f56-47f0-9640-9fad07de2b9b",
+      "id": "321dc7fd-1eec-452d-98ee-c00dac0eab2f",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "6a4c90d1-3f80-4d71-8eb3-0d9734d7de40",
+      "id": "450f9667-b3fa-4f0e-af85-db908b9208e6",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4789803d-ee87-4094-9631-7eb921a5e919",
+      "id": "3c269928-b803-4f12-979b-fdc093813b6b",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "5eb5468a-7df8-4fbb-9090-1c9514943740",
+      "id": "d5e24f6c-19f8-4fff-8372-602d8b664dc6",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "14d841ec-868c-47c0-8233-244d9334fcd1",
+      "id": "651d2c5d-6440-4b40-9727-42c4a0243339",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "29450202-9d92-4fb0-b97f-77b9ef933f97",
+      "id": "baaa083b-e232-4bce-a499-b9b81bf305b6",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "b116d29c-af3e-482d-9753-a4c3b2ffd9dd",
+      "id": "cb9ca907-6238-4ebb-bd16-3017442c6daf",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
