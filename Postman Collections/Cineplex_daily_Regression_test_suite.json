@@ -13679,7 +13679,7 @@
               "mode": "raw",
               "raw": "{\n    \"UserProfileId\": 0,\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"HashValue\": \"0151e8568408f8a0514356fbe36cb6e59478cbc5c34a30e8e7a519fd535a1aa7\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/ShareTicketReject"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketReject"
           },
           "response": [
             {
@@ -13751,7 +13751,7 @@
               "mode": "raw",
               "raw": "{\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TransactionId\": 87059,\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/ShareTicketCancel"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketCancel"
           },
           "response": [
             {
@@ -13823,7 +13823,7 @@
               "mode": "raw",
               "raw": "{\n    \"HashValue\": \"77604a9d99b333a767323e915850f531ff4689342118dde689ba05594d41db37\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/ShareTicketAccept"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketAccept"
           },
           "response": [
             {
@@ -14863,61 +14863,61 @@
   ],
   "variable": [
     {
-      "id": "8c0cbb93-a540-4f2a-b4e1-5afd3fe69923",
+      "id": "8968e7d7-762a-479f-bba5-9ac40f8671a2",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ac297d51-0c68-442d-89f1-b850eceefa2c",
+      "id": "a1facee7-f0e9-4853-90aa-a0dcfbe9dd83",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "fdcee7dc-1922-4e8f-bf57-2f8464a22dfd",
+      "id": "6fe00d30-c3dc-4f25-9466-bbb0022b9074",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cccb441b-f81e-48f5-9f5e-79d8e440f50f",
+      "id": "2db20975-aa5f-43de-a85e-6f3cbc9978df",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a7ba7d1f-903b-426c-8792-2e3c78dbf64d",
+      "id": "390ba1ec-2b99-441b-a67b-ae4934bf17e4",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "7ebd83a6-20bd-4d9e-ad7e-4a24b9896e81",
+      "id": "ecf8c978-98e8-4c72-9cdc-67437f0be263",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "5f5751db-09a8-4ef4-9d4f-2ac4d3e4a9f1",
+      "id": "ac2b2921-74dd-4856-baff-7ea26b1e1342",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "36e683e7-a107-4f5c-b315-79b446124bd2",
+      "id": "899bfc2a-7948-457c-bf67-16c73f0538ab",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "78e32e02-4bd4-4b32-b65d-b17e9426a8ed",
+      "id": "622bd7d8-6594-48c0-afb9-894dd7417ed3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c0c0e523-7f81-4b75-8bf3-1e9dfc5f7674",
+      "id": "9ea05c1e-1498-4092-966f-9c465a93b9d4",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
