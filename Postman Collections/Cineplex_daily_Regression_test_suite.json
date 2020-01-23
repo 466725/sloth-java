@@ -12076,6 +12076,2802 @@
           }
         }
       ]
+    },
+    {
+      "name": "Connect-Theatres",
+      "item": [
+        {
+          "name": "Get Favourite Theatres",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f2bef4b8-42a2-4cba-8863-ea3f59ff5dec",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8049df8b-54db-4a2b-a37e-fc48aa4d7fb8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetFavouriteTheatres"
+          },
+          "response": [
+            {
+              "id": "256dd312-0387-40dc-96b2-9889d5909622",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetFavouriteTheatres"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"FavouriteTheatres\": {\n  \"UserProfileId\": \"<long>\",\n  \"Theatres\": [\n   {\n    \"Id\": \"<integer>\",\n    \"LocationId\": \"<integer>\",\n    \"LocationGuid\": \"<guid>\",\n    \"Name\": \"<string>\",\n    \"City\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"Province\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"IsStarsAndStrollers\": \"<boolean>\",\n    \"UserLocationIsStarsAndStrollers\": \"<boolean>\",\n    \"SortOrder\": \"<integer>\",\n    \"Image_Url\": \"<string>\",\n    \"Is_VIP\": \"<boolean>\",\n    \"Is_Atmos\": \"<boolean>\",\n    \"Is_Avx\": \"<boolean>\",\n    \"Is_Imax\": \"<boolean>\",\n    \"Is_3D\": \"<boolean>\",\n    \"Is_DBOX\": \"<boolean>\",\n    \"Is_Select\": \"<boolean>\",\n    \"Longitude\": \"<float>\",\n    \"Latitude\": \"<float>\",\n    \"DisplayValue\": \"<string>\",\n    \"IsCineplexTheatre\": \"<boolean>\"\n   },\n   {\n    \"Id\": \"<integer>\",\n    \"LocationId\": \"<integer>\",\n    \"LocationGuid\": \"<guid>\",\n    \"Name\": \"<string>\",\n    \"City\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"Province\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"IsStarsAndStrollers\": \"<boolean>\",\n    \"UserLocationIsStarsAndStrollers\": \"<boolean>\",\n    \"SortOrder\": \"<integer>\",\n    \"Image_Url\": \"<string>\",\n    \"Is_VIP\": \"<boolean>\",\n    \"Is_Atmos\": \"<boolean>\",\n    \"Is_Avx\": \"<boolean>\",\n    \"Is_Imax\": \"<boolean>\",\n    \"Is_3D\": \"<boolean>\",\n    \"Is_DBOX\": \"<boolean>\",\n    \"Is_Select\": \"<boolean>\",\n    \"Longitude\": \"<float>\",\n    \"Latitude\": \"<float>\",\n    \"DisplayValue\": \"<string>\",\n    \"IsCineplexTheatre\": \"<boolean>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Favourite Theatre",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3a55ff56-b966-41ba-8654-f84ce2c1475e",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "ef7dfa5b-97da-4d69-ae9b-856afaac8dee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/RemoveFavouriteTheatre"
+          },
+          "response": [
+            {
+              "id": "c5be1b48-1496-4043-9d59-7d4f6b4c97d6",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"Theatre\": {\n        \"Id\": \"<integer>\",\n        \"IsStarsAndStrollers\": \"<boolean>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/RemoveFavouriteTheatre"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Favourite Theatre",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d7991aa1-ee68-46b4-a620-f543173e1db1",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "574086b1-8b84-4aa9-9613-f1f5e6902311",
+                "exec": [
+                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "    console.log(\"setting the theatre_id - UAT\");",
+                  "    pm.environment.set(\"theatre_id\", 7995)",
+                  "} else {",
+                  "    console.log(\"setting the theatre_id - Prod\");",
+                  "    pm.environment.set(\"theatre_id\", 1151)",
+                  "}    ",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "0967fc7d-6825-4f9a-86dc-42195afcc5b4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/AddFavouriteTheatre"
+          },
+          "response": [
+            {
+              "id": "efbd0477-1624-428c-bb40-81bbf1e3d17a",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"Theatre\": {\n        \"Id\": \"<integer>\",\n        \"IsStarsAndStrollers\": \"<boolean>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddFavouriteTheatre"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Favourite Theatre Sort Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "eb218818-edb2-409e-a0b2-caf2787b0c6a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "322ff9ec-7563-44af-a03d-fcef64f8c99e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/UpdateFavouriteTheatreSortOrder"
+          },
+          "response": [
+            {
+              "id": "2817649e-e041-4ecf-b6d3-b09739e22d61",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"<integer>\",\n        \"NewSortOrder\": \"<integer>\",\n        \"CSGSubscriberId\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateFavouriteTheatreSortOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Visited Theatres",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b228bf54-3694-4e9c-8e68-9282d7a03e92",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Logged in successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"locationid\", jsonBody.VisitedTheatres.LocationId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b96497db-43fa-4330-923c-29fc7b01d9b8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetVisitedTheatres"
+          },
+          "response": [
+            {
+              "id": "ea3a2f0c-bbec-4aad-9af4-9f7bb9044998",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetVisitedTheatres"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"VisitedTheatres\": [\n  {\n   \"LocationId\": \"<integer>\",\n   \"InteractiveName\": \"<string>\",\n   \"TotalVisits\": \"<integer>\",\n   \"LastVisited\": \"<string>\",\n   \"Longitude\": \"<float>\",\n   \"Latitude\": \"<float>\"\n  },\n  {\n   \"LocationId\": \"<integer>\",\n   \"InteractiveName\": \"<string>\",\n   \"TotalVisits\": \"<integer>\",\n   \"LastVisited\": \"<string>\",\n   \"Longitude\": \"<float>\",\n   \"Latitude\": \"<float>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "88f84c05-52bf-4387-bd18-d91b71302375",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "e1015c0b-5ad3-4c4a-bc3c-4feb1d5ba817",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "01c70836-f3a2-426a-a656-a4fefa1036d4",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Connect-Share Ticket",
+      "item": [
+        {
+          "name": "Share Ticket Send",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "51097cf6-0962-4028-91a0-7e6711788c2f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "15f0bee5-e111-43f0-94f4-625264895f91",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/ShareTicketSend"
+          },
+          "response": [
+            {
+              "id": "0b998d51-7b5c-4460-b386-37867bd23232",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RecipientShareTicketName\": \"<string>\",\n    \"ShareTicketBarCode\": \"<string>\",\n    \"TicketId\": \"<long>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"FirstName\": \"<string>\",\n \"LastName\": \"<string>\",\n \"LocationName\": \"<string>\",\n \"FilmName\": \"<string>\",\n \"SessionDate\": \"<string>\",\n \"SessionTime\": \"<string>\",\n \"SessionDayOfWeek\": \"<string>\",\n \"HashValue\": \"<string>\",\n \"RecipientMessage\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Share Ticket Reject",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "09a0da23-8a4b-4103-b439-926e7b514658",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e1ec0b4d-55ba-4455-abd2-977754cf3122",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"UserProfileId\": 0,\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"HashValue\": \"0151e8568408f8a0514356fbe36cb6e59478cbc5c34a30e8e7a519fd535a1aa7\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/ShareTicketReject"
+          },
+          "response": [
+            {
+              "id": "81c465a2-99ff-48bb-be4d-472c01d32769",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"UserProfileId\": \"<long>\",\n    \"ShareTicketBarCode\": \"<string>\",\n    \"HashValue\": \"<string>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ClientUserRequest\": {\n        \"Token\": \"<guid>\",\n        \"UserAgent\": \"<string>\",\n        \"ClientIP4Address\": \"<string>\",\n        \"ClientDeviceDescription\": \"<string>\",\n        \"Language\": \"<enum>\",\n        \"BaseClientUrl\": \"<string>\",\n        \"TrustedApplicationId\": \"<long>\",\n        \"AccountType\": \"<enum>\",\n        \"PlatformId\": \"<string>\",\n        \"LanguageCode\": \"<string>\",\n        \"DeviceUID\": \"<string>\",\n        \"ParsedUserAgent\": {\n            \"BrowserFamily\": \"<string>\",\n            \"OSDescription\": \"<string>\",\n            \"BrowserVersion\": \"<string>\",\n            \"DeviceType\": \"<string>\"\n        }\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketReject"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"hashValue\": \"<string>\",\n \"SenderEmailAddress\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Share Ticket Cancel",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "08ccfd9e-5182-41c7-9d03-964168bbfa32",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "044af9e4-36e9-4132-8ccd-10208acbcfda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TransactionId\": 87059,\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/ShareTicketCancel"
+          },
+          "response": [
+            {
+              "id": "343a7530-12e1-4517-aeaa-487739d51b15",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ShareTicketBarCode\": \"<string>\",\n    \"TransactionId\": \"<long>\",\n    \"TicketId\": \"<long>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketCancel"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"HashValue\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Share Ticket Accept",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a76e44ee-bee2-429f-993a-b7a6530b71a9",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(2);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3150899c-ddf4-4701-b561-37b585b57445",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"HashValue\": \"77604a9d99b333a767323e915850f531ff4689342118dde689ba05594d41db37\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/ShareTicketAccept"
+          },
+          "response": [
+            {
+              "id": "115ee5dc-16e5-4ee7-a0d1-f77d65db38e5",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"HashValue\": \"<string>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketAccept"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"SenderEmailAddress\": \"<string>\",\n \"TransactionUid\": \"<guid>\",\n \"SenderUserProfileID\": \"<long>\",\n \"Order\": {\n  \"TicketOrder\": [\n   {\n    \"TicketId\": \"<long>\",\n    \"Amount\": \"<decimal>\",\n    \"Movie\": \"<string>\",\n    \"MovieID\": \"<string>\",\n    \"FilmId\": \"<integer>\",\n    \"Showtime\": \"<string>\",\n    \"ShowtimeDateTime\": \"<dateTime>\",\n    \"ReservedSeats\": \"<string>\",\n    \"NumberOfTickets\": \"<integer>\",\n    \"TypeOfTicket\": \"<string>\",\n    \"ScreenName\": \"<string>\",\n    \"SessionId\": \"<long>\",\n    \"VistaSessionId\": \"<integer>\",\n    \"TransactionId\": \"<long>\",\n    \"SeriesName\": \"<string>\",\n    \"PosterImageUrl\": \"<string>\",\n    \"SequenceNumber\": \"<int16>\",\n    \"IsSuperTicketEligible\": \"<boolean>\",\n    \"IsRefunded\": \"<boolean>\",\n    \"UpgradeToSuperTicketUrl\": \"<string>\",\n    \"TicketStatus\": \"<enum>\",\n    \"TicketStatusDateTime\": \"<dateTime>\",\n    \"ShareTicketStatus\": \"<enum>\",\n    \"ShareTicketRecipientName\": \"<string>\",\n    \"ShareTicketSenderName\": \"<string>\",\n    \"ShareTicketDateTime\": \"<dateTime>\",\n    \"LocationIPAddress\": \"<string>\",\n    \"IsLike\": \"<enum>\",\n    \"BarCode\": \"<string>\",\n    \"IsVIP\": \"<boolean>\",\n    \"TransactionRowType\": \"<string>\",\n    \"SuperTicketPriceString\": \"<string>\",\n    \"SuperTicketSceneString\": \"<string>\",\n    \"ShowtimeDateString\": \"<string>\",\n    \"ShowtimeTimeString\": \"<string>\"\n   },\n   {\n    \"TicketId\": \"<long>\",\n    \"Amount\": \"<decimal>\",\n    \"Movie\": \"<string>\",\n    \"MovieID\": \"<string>\",\n    \"FilmId\": \"<integer>\",\n    \"Showtime\": \"<string>\",\n    \"ShowtimeDateTime\": \"<dateTime>\",\n    \"ReservedSeats\": \"<string>\",\n    \"NumberOfTickets\": \"<integer>\",\n    \"TypeOfTicket\": \"<string>\",\n    \"ScreenName\": \"<string>\",\n    \"SessionId\": \"<long>\",\n    \"VistaSessionId\": \"<integer>\",\n    \"TransactionId\": \"<long>\",\n    \"SeriesName\": \"<string>\",\n    \"PosterImageUrl\": \"<string>\",\n    \"SequenceNumber\": \"<int16>\",\n    \"IsSuperTicketEligible\": \"<boolean>\",\n    \"IsRefunded\": \"<boolean>\",\n    \"UpgradeToSuperTicketUrl\": \"<string>\",\n    \"TicketStatus\": \"<enum>\",\n    \"TicketStatusDateTime\": \"<dateTime>\",\n    \"ShareTicketStatus\": \"<enum>\",\n    \"ShareTicketRecipientName\": \"<string>\",\n    \"ShareTicketSenderName\": \"<string>\",\n    \"ShareTicketDateTime\": \"<dateTime>\",\n    \"LocationIPAddress\": \"<string>\",\n    \"IsLike\": \"<enum>\",\n    \"BarCode\": \"<string>\",\n    \"IsVIP\": \"<boolean>\",\n    \"TransactionRowType\": \"<string>\",\n    \"SuperTicketPriceString\": \"<string>\",\n    \"SuperTicketSceneString\": \"<string>\",\n    \"ShowtimeDateString\": \"<string>\",\n    \"ShowtimeTimeString\": \"<string>\"\n   }\n  ],\n  \"VoucherOrder\": [\n   {\n    \"BarCode\": \"<string>\",\n    \"InformationTitle\": \"<string>\",\n    \"InformationBodyHeader\": \"<string>\",\n    \"InformationBody\": \"<string>\"\n   },\n   {\n    \"BarCode\": \"<string>\",\n    \"InformationTitle\": \"<string>\",\n    \"InformationBodyHeader\": \"<string>\",\n    \"InformationBody\": \"<string>\"\n   }\n  ],\n  \"DateTimePurchased\": \"<dateTime>\",\n  \"TheatreName\": \"<string>\",\n  \"CityLocation\": \"<string>\",\n  \"ProvinceLocation\": \"<string>\",\n  \"AddressLine1\": \"<string>\",\n  \"AddressLine2\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"MobilePickup\": \"<boolean>\",\n  \"Guid\": \"<guid>\",\n  \"CurrentPage\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"TotalRows\": \"<integer>\",\n  \"TransactionId\": \"<long>\",\n  \"BookingId\": \"<string>\",\n  \"TransactionNumber\": \"<integer>\",\n  \"LocationId\": \"<integer>\",\n  \"LocationGuid\": \"<guid>\",\n  \"PurchaseSource\": \"<enum>\",\n  \"YearsOfPurchase\": \"<string>\",\n  \"FilmEnhancementCode\": \"<string>\",\n  \"FilmRating\": \"<string>\",\n  \"FilmRatingImageUrl\": \"<string>\",\n  \"FilmRuntime\": \"<integer>\",\n  \"PosterImageUrl\": \"<string>\",\n  \"UserRating\": {\n   \"RatingContentType\": \"<integer>\",\n   \"ContentId\": \"<long>\",\n   \"IsLike\": \"<boolean>\",\n   \"CommandStatus\": \"<enum>\"\n  },\n  \"IsMovieFinished\": \"<boolean>\",\n  \"ScenePointsEarned\": \"<integer>\",\n  \"ScenePointsRedeemed\": \"<integer>\",\n  \"AllTicketsRefunded\": \"<boolean>\",\n  \"ShowUpgradeSuperticket\": \"<boolean>\",\n  \"DateTimePurchasedString\": \"<string>\",\n  \"PurchaseDateString\": \"<string>\",\n  \"PurchaseTimeString\": \"<string>\",\n  \"IsShowReceipt\": \"<boolean>\"\n }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "dbd6aaf6-37b3-492e-82dd-1fff29b08dcc",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "618c5407-742e-4ac5-951e-7deb5ac26ba2",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "f504a3ed-2481-454f-b03f-ef61fa811428",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Connect-Mobile Order",
+      "item": [
+        {
+          "name": "Order - Create Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "67d872b3-e688-4f52-a222-d464720e0a23",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"cineplex_order_id\", jsonBody.CineplexOrderId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4fca59be-c236-4b0e-962e-4099d7586310",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"VISTASessionId\": \"{{vista_session_id}}\",\n    \"SeatInformation\": \"D-14\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/CreateOrder"
+          },
+          "response": [
+            {
+              "id": "35090283-7e77-46d0-9784-b88eb58b9386",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\",\n    \"VISTASessionId\": \"<integer>\",\n    \"SeatInformation\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/CreateOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Menu",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7f94c264-07fb-469f-bd52-9e4432a96c20",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"menu_id\", jsonBody.Menus[0].Id);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c872810-8d2e-4f89-ac65-1f51318bc131",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6383ca94-b14a-4792-947b-5b6126398964",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetMenu"
+          },
+          "response": [
+            {
+              "id": "df3b12d0-b444-436e-88a1-16ab078d024d",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetMenu"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"Menus\": [\n  {\n   \"Id\": \"<string>\",\n   \"Name\": \"<string>\",\n   \"BackgroundImageURL\": \"<string>\",\n   \"IsOrderingAvailable\": \"<boolean>\",\n   \"OrderingAvailableMessage\": \"<string>\"\n  },\n  {\n   \"Id\": \"<string>\",\n   \"Name\": \"<string>\",\n   \"BackgroundImageURL\": \"<string>\",\n   \"IsOrderingAvailable\": \"<boolean>\",\n   \"OrderingAvailableMessage\": \"<string>\"\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Concession Categories",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4efe135e-fe37-477a-89fc-021a6619391a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"concession_category_id\", jsonBody.ConcessionCategories[0].Id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6bba5ca2-18a9-4582-9bc8-c42742a24b82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"MenuId\": \"{{menu_id}}\",\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionCategories"
+          },
+          "response": [
+            {
+              "id": "cedf836e-504d-4538-99f0-8c6cf15e43b9",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"MenuId\": \"<string>\",\n    \"LocationId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionCategories"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"ConcessionCategories\": [\n  {\n   \"Id\": \"<string>\",\n   \"SortOrder\": \"<integer>\",\n   \"Name\": \"<string>\",\n   \"Description\": \"<string>\",\n   \"SmallImageURL\": \"<string>\",\n   \"LargeImageURL\": \"<string>\"\n  },\n  {\n   \"Id\": \"<string>\",\n   \"SortOrder\": \"<integer>\",\n   \"Name\": \"<string>\",\n   \"Description\": \"<string>\",\n   \"SmallImageURL\": \"<string>\",\n   \"LargeImageURL\": \"<string>\"\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Concession Items By Category",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e8a1dbf-48e7-4a35-8a7c-54667b5afa4c",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"concession_item_id\", jsonBody.SubCategories[0].Items[0].Id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a9ad326e-9775-4e3c-bcea-0478f7aada64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"MenuId\": \"{{menu_id}}\",\n    \"CategoryId\": \"{{concession_category_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionItemsByCategory"
+          },
+          "response": [
+            {
+              "id": "60080e1b-7a63-430a-9ca1-cff71248ce82",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\",\n    \"MenuId\": \"<string>\",\n    \"CategoryId\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemsByCategory"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"SmallImageURL\": \"<string>\",\n \"LargeImageURL\": \"<string>\",\n \"CategoryName\": \"<string>\",\n \"ShowAlcoholCalorieChart\": \"<boolean>\",\n \"AlcoholCalorieChartURL\": \"<string>\",\n \"SubCategories\": [\n  {\n   \"Name\": \"<string>\",\n   \"Id\": \"<long>\",\n   \"SortOrder\": \"<integer>\",\n   \"Items\": [\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    },\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    }\n   ],\n   \"ContainsAlcoholicItems\": \"<boolean>\"\n  },\n  {\n   \"Name\": \"<string>\",\n   \"Id\": \"<long>\",\n   \"SortOrder\": \"<integer>\",\n   \"Items\": [\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    },\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    }\n   ],\n   \"ContainsAlcoholicItems\": \"<boolean>\"\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Concession Item Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9332f5fe-81dc-43df-b353-ef0be96ce4bb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2b88a852-b466-4918-a6c0-26bf25bf7d8c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConcessionId\": \"{{concession_item_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionItemDetails"
+          },
+          "response": [
+            {
+              "id": "ec1a1e58-7869-41e3-a099-ca9890860f4f",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ConcessionId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemDetails"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"SmallImageURL\": \"<string>\",\n \"LargeImageURL\": \"<string>\",\n \"Description\": \"<string>\",\n \"Name\": \"<string>\",\n \"Price\": \"<decimal>\",\n \"ExtraInformation\": \"<string>\",\n \"MaxQuantity\": \"<integer>\",\n \"ShowAlcoholCalorieChart\": \"<boolean>\",\n \"ModifierGroups\": [\n  {\n   \"PromptText\": \"<string>\",\n   \"Id\": \"<integer>\",\n   \"IsMandatory\": \"<boolean>\",\n   \"MaxQuantity\": \"<integer>\",\n   \"ExtraModifiers\": [\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    },\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"PromptText\": \"<string>\",\n   \"Id\": \"<integer>\",\n   \"IsMandatory\": \"<boolean>\",\n   \"MaxQuantity\": \"<integer>\",\n   \"ExtraModifiers\": [\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    },\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    }\n   ]\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Add Item To Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cb1b57fd-61d4-4813-a242-584f5f66fb1f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7a25df91-724c-427f-affd-f8898c463fbd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"Item\": {\n        \"ItemId\": \"{{concession_item_id}}\",\n        \"Quantity\": \"1\",\n        \"SpecialInstructions\": \"Special Instructions\",\n        \"SelectedExtraModifier\": []\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/AddItemToOrder"
+          },
+          "response": [
+            {
+              "id": "235d1582-2855-4267-8666-21d600e8d370",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"Item\": {\n        \"ItemId\": \"<long>\",\n        \"Quantity\": \"<integer>\",\n        \"SpecialInstructions\": \"<string>\",\n        \"SelectedExtraModifier\": [\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            },\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            }\n        ]\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddItemToOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Order Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f6afa149-5e7d-42fa-bd06-9adcdfbd6a9b",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"order_item_id\", jsonBody.UnprocessedItems[0].OrderItemId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2ac049ed-3b9e-4ba2-942b-87a71327be3a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"ProcessOrder\": false\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderDetails"
+          },
+          "response": [
+            {
+              "id": "b4f029b9-b799-4ca3-b77e-02eb8ce4d1ca",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"ProcessOrder\": \"<boolean>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderDetails"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"Items\": [\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  },\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  }\n ],\n \"UnprocessedItems\": [\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  },\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  }\n ],\n \"SubTotal\": \"<decimal>\",\n \"ServiceCharge\": \"<decimal>\",\n \"Tax\": \"<decimal>\",\n \"Total\": \"<decimal>\",\n \"TipAmount\": \"<decimal>\",\n \"CartCount\": \"<integer>\",\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Remove Item From Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "65bf14dd-acf0-44f9-9664-7d794880f807",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5f30b45f-9f2b-4f9a-891d-88cb33ef9092",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"OrderItemId\": \"{{order_item_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/RemoveItemFromOrder"
+          },
+          "response": [
+            {
+              "id": "807cdec6-c01a-479c-a222-216456b168ae",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"OrderItemId\": \"<long>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/RemoveItemFromOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Add Removed Item back to Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0d15f38d-0dd6-4593-abcd-ca1204618d98",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6efbb786-612f-4efa-9eff-8287d085a867",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"Item\": {\n        \"ItemId\": \"{{concession_item_id}}\",\n        \"Quantity\": \"1\",\n        \"SpecialInstructions\": \"Special Instructions\",\n        \"SelectedExtraModifier\": []\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/AddItemToOrder"
+          },
+          "response": [
+            {
+              "id": "8377d543-68e9-4d33-99ab-6abd9ee2f548",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"Item\": {\n        \"ItemId\": \"<long>\",\n        \"Quantity\": \"<integer>\",\n        \"SpecialInstructions\": \"<string>\",\n        \"SelectedExtraModifier\": [\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            },\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            }\n        ]\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddItemToOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Order Window Times",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "dd1e1788-75d8-49b4-bb4e-7ca7eb58cc34",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cf50a17c-5e1c-484e-a4db-832261fcf0b1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderWindowTimes"
+          },
+          "response": [
+            {
+              "id": "91fc3ad2-d0fe-465d-9c95-ee3a74267dcb",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderWindowTimes"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"TimeWindows\": [\n  {\n   \"Description\": \"<string>\",\n   \"IsActive\": \"<boolean>\",\n   \"StartTime\": \"<string>\",\n   \"EndTime\": \"<string>\",\n   \"StartTimeDateTime\": \"<dateTime>\",\n   \"EndTimeDateTime\": \"<dateTime>\"\n  },\n  {\n   \"Description\": \"<string>\",\n   \"IsActive\": \"<boolean>\",\n   \"StartTime\": \"<string>\",\n   \"EndTime\": \"<string>\",\n   \"StartTimeDateTime\": \"<dateTime>\",\n   \"EndTimeDateTime\": \"<dateTime>\"\n  }\n ],\n \"CurrentTimeDateTime\": \"<dateTime>\",\n \"CurrentTime\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Add Tip To Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "896aafc9-fa6a-4556-b193-27852f6dcd18",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1aab817d-ce03-4673-9b6a-4e23a1d7bd01",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"TipAmount\": \"1.23\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/AddTipToOrder"
+          },
+          "response": [
+            {
+              "id": "45fb002f-caf6-48a3-a540-4a6aacc6a490",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"TipAmount\": \"<decimal>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddTipToOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Complete Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "de155ee2-af63-46c1-b37f-15d28de19dfb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(3);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "c1d1fc55-72da-47af-b495-b0672d99b225",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/CompleteOrder"
+          },
+          "response": [
+            {
+              "id": "3633d3df-db1e-4aca-9d32-c3700bb4b580",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/CompleteOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"VistaBookingId\": \"<string>\",\n \"VistaBookingNumber\": \"<string>\",\n \"VistaTransNumber\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Order Confirmation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1ed56192-2765-4eb4-a4d2-ecc0433e5275",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(3);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "86b6835f-4781-4213-8834-12056634bba8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderConfirmation"
+          },
+          "response": [
+            {
+              "id": "fba9c7b5-cc28-4dc6-aed7-2aca840a9167",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderConfirmation"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"Order\": {\n  \"TransactionId\": \"<long>\",\n  \"TransactionGuid\": \"<guid>\",\n  \"ShowStartDateTime\": \"<dateTime>\",\n  \"Items\": [\n   {\n    \"OrderItemId\": \"<long>\",\n    \"ItemId\": \"<long>\",\n    \"Quantity\": \"<integer>\",\n    \"SpecialInstructions\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"OrderExtraModifiers\": [\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     },\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     }\n    ],\n    \"Price\": \"<decimal>\",\n    \"ItemTax\": \"<decimal>\",\n    \"ItemSubTotal\": \"<decimal>\",\n    \"ItemTotal\": \"<decimal>\",\n    \"IsAvailable\": \"<boolean>\"\n   },\n   {\n    \"OrderItemId\": \"<long>\",\n    \"ItemId\": \"<long>\",\n    \"Quantity\": \"<integer>\",\n    \"SpecialInstructions\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"OrderExtraModifiers\": [\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     },\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     }\n    ],\n    \"Price\": \"<decimal>\",\n    \"ItemTax\": \"<decimal>\",\n    \"ItemSubTotal\": \"<decimal>\",\n    \"ItemTotal\": \"<decimal>\",\n    \"IsAvailable\": \"<boolean>\"\n   }\n  ],\n  \"SubTotal\": \"<decimal>\",\n  \"Tax\": \"<decimal>\",\n  \"Total\": \"<decimal>\"\n },\n \"IsEmailSent\": \"<boolean>\",\n \"EmailAddress\": \"<string>\",\n \"ScenePoints\": \"<integer>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Recent Orders By Location",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ef7d7a4f-7f22-4c1e-bf57-c685a2c36cb2",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "79f1a167-e608-42ab-a4e3-86ece4983370",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetRecentOrdersByLocation"
+          },
+          "response": [
+            {
+              "id": "0af9614d-cb8d-4e78-878a-65fbe2cc3a28",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetRecentOrdersByLocation"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"RecentOrders\": [\n  {\n   \"TransactionId\": \"<long>\",\n   \"TransactionGuid\": \"<guid>\",\n   \"ShowStartDateTime\": \"<dateTime>\",\n   \"Items\": [\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    },\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    }\n   ],\n   \"SubTotal\": \"<decimal>\",\n   \"Tax\": \"<decimal>\",\n   \"Total\": \"<decimal>\"\n  },\n  {\n   \"TransactionId\": \"<long>\",\n   \"TransactionGuid\": \"<guid>\",\n   \"ShowStartDateTime\": \"<dateTime>\",\n   \"Items\": [\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    },\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    }\n   ],\n   \"SubTotal\": \"<decimal>\",\n   \"Tax\": \"<decimal>\",\n   \"Total\": \"<decimal>\"\n  }\n ]\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "73107dc4-9eda-4601-9cb4-680da0ae0df7",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "0d301333-18f0-4806-bc0b-a17af281f7bb",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "aad3c6a0-fbc6-4db5-979c-3b163e4dba5f",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Connect-Store",
+      "item": [
+        {
+          "name": "Merge Connect Account To CSG",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ebe66c79-828f-4c11-b1e1-3098593a26be",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3b62ec2d-8ad4-4c93-a5d4-c6f1fa684953",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"CSGSubscriberId\": 3878584,\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/MergeConnectAccountToCSG"
+          },
+          "response": [
+            {
+              "id": "5c50838b-3ad3-4502-a46b-6e2a3000ee55",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"CSGSubscriberId\": \"<long>\",\n    \"LanguageType\": \"<enum>\",\n    \"GetSessionTokenGuid\": \"<guid>\",\n    \"GetUserSessionTokenGuid\": \"<guid>\",\n    \"GetUserProfileGuid\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/MergeConnectAccountToCSG"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Reacquire Session If Necessary",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "41b27743-fff6-4708-ac8c-383ee4cd4958",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"cineplexTokenExpiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
+                  "pm.environment.set(\"session_id\", jsonBody.StoreSessionResult.SessionId);",
+                  "pm.environment.set(\"user_profile_id\", jsonBody.StoreSessionResult.SubscriberId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1b208346-f338-4100-b4fd-d7d333593676",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\":{\n\t    \"LanguageType\":\"1\",\n\t    \"SessionToken\":\"{{session_token}}\",\n\t    \"UserProfileGuid\":\"{{user_guid}}\",\n\t    \"UserSessionToken\":\"{{user_session_token}}\"\n\t},\n    \"Language\":\"en-CA\",\n    \"SessionQuery\":{\n        \"CineplexConnectId\":\"{{user_guid}}\",\n        \"Email\":\"{{ConnectEmail}}\",\n        \"FirstName\":\"{{firstName}}\",\n        \"LastName\":\"{{lastName}}\",\n        \"Login\":\"{{ConnectEmail}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreReacquireSessionIfNecessary"
+          },
+          "response": [
+            {
+              "id": "d177c082-2b7d-432c-a8b1-abd2ecba7921",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreReacquireSessionIfNecessary"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreSessionResult\": {\n  \"JSONData\": \"<string>\",\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"SubscriberId\": \"<long>\",\n  \"SessionId\": \"<string>\",\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Content List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "00b7dbe6-6244-4d48-9a90-b25115dfacba",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "0375b23c-cdc1-47a3-97fe-dd6853d36bea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CSGSessionInfo\": {\n        \"SessionId\": \"{{session_id}}\",\n        \"Login\": \"{{ConnectEmail}}\",\n        \"Email\": \"{{ConnectEmail}}\",\n        \"CineplexConnectId\": \"{{user_guid}}\",\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"Language\": \"en-CA\",\n        \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreGetContentList"
+          },
+          "response": [
+            {
+              "id": "a6c1bdb5-1af4-4cd9-acc6-67c965053f2a",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CSGSessionInfo\": {\n        \"SessionId\": \"<string>\",\n        \"Login\": \"<string>\",\n        \"Email\": \"<string>\",\n        \"CineplexConnectId\": \"<string>\",\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"CineplexTokenExpiry\": \"<dateTime>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreGetContentList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreContentResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"ContentData\": {\n   \"IsUltraVioletLoggedIn\": \"<boolean>\",\n   \"DigitalPurchaseInfoList\": [\n    {\n     \"CSGLockerId\": \"<long>\",\n     \"CSGPricingPlanId\": \"<integer>\",\n     \"CSGProductId\": \"<integer>\",\n     \"CSGProductContextId\": \"<integer>\",\n     \"IsWatching\": \"<boolean>\",\n     \"IsUV\": \"<boolean>\",\n     \"ScreenQualityType\": \"<enum>\",\n     \"DigitalPurchaseType\": \"<enum>\",\n     \"FilmTitle\": \"<string>\",\n     \"FilmImageURL\": \"<string>\",\n     \"FilmRating\": \"<string>\",\n     \"FilmDescription\": \"<string>\",\n     \"FilmWatchedInMinute\": \"<integer>\",\n     \"FilmWatchedInMinuteDisplay\": \"<integer>\",\n     \"LastViewedDateTime\": \"<dateTime>\",\n     \"LastViewedDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTime\": \"<dateTime>\",\n     \"PurchaseDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n     \"IsComingSoon\": \"<boolean>\",\n     \"AvailableDateTime\": \"<dateTime>\",\n     \"AvailableDateDisplay\": \"<string>\",\n     \"CSGPricingPlanName\": \"<string>\",\n     \"ContentProgressPercentage\": \"<integer>\",\n     \"ContentProgressSeconds\": \"<integer>\",\n     \"IsUpgradeToHD\": \"<boolean>\"\n    },\n    {\n     \"CSGLockerId\": \"<long>\",\n     \"CSGPricingPlanId\": \"<integer>\",\n     \"CSGProductId\": \"<integer>\",\n     \"CSGProductContextId\": \"<integer>\",\n     \"IsWatching\": \"<boolean>\",\n     \"IsUV\": \"<boolean>\",\n     \"ScreenQualityType\": \"<enum>\",\n     \"DigitalPurchaseType\": \"<enum>\",\n     \"FilmTitle\": \"<string>\",\n     \"FilmImageURL\": \"<string>\",\n     \"FilmRating\": \"<string>\",\n     \"FilmDescription\": \"<string>\",\n     \"FilmWatchedInMinute\": \"<integer>\",\n     \"FilmWatchedInMinuteDisplay\": \"<integer>\",\n     \"LastViewedDateTime\": \"<dateTime>\",\n     \"LastViewedDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTime\": \"<dateTime>\",\n     \"PurchaseDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n     \"IsComingSoon\": \"<boolean>\",\n     \"AvailableDateTime\": \"<dateTime>\",\n     \"AvailableDateDisplay\": \"<string>\",\n     \"CSGPricingPlanName\": \"<string>\",\n     \"ContentProgressPercentage\": \"<integer>\",\n     \"ContentProgressSeconds\": \"<integer>\",\n     \"IsUpgradeToHD\": \"<boolean>\"\n    }\n   ],\n   \"RentalInfoList\": [\n    {\n     \"CSGLockerId\": \"<long>\",\n     \"CSGPricingPlanId\": \"<integer>\",\n     \"CSGProductId\": \"<integer>\",\n     \"CSGProductContextId\": \"<integer>\",\n     \"IsWatching\": \"<boolean>\",\n     \"ScreenQualityType\": \"<enum>\",\n     \"FilmTitle\": \"<string>\",\n     \"FilmImageURL\": \"<string>\",\n     \"FilmRating\": \"<string>\",\n     \"FilmDescription\": \"<string>\",\n     \"FilmWatchedInMinute\": \"<integer>\",\n     \"FilmWatchedInMinuteDisplay\": \"<integer>\",\n     \"IsExpired\": \"<boolean>\",\n     \"WatchBeginDateTime\": \"<dateTime>\",\n     \"WatchBeginDateTimeDisplay\": \"<string>\",\n     \"ExpiryDateTime\": \"<dateTime>\",\n     \"ExpiryDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTime\": \"<dateTime>\",\n     \"PurchaseDateTimeDisplay\": \"<string>\",\n     \"FirstAccessDateTime\": \"<dateTime>\",\n     \"FirstAccessDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n     \"IsComingSoon\": \"<boolean>\",\n     \"AvailableDateTime\": \"<dateTime>\",\n     \"IsNeverWatched\": \"<boolean>\",\n     \"ContentProgressPercentage\": \"<integer>\",\n     \"ContentProgressSeconds\": \"<integer>\",\n     \"CSGPricingPlanName\": \"<string>\"\n    },\n    {\n     \"CSGLockerId\": \"<long>\",\n     \"CSGPricingPlanId\": \"<integer>\",\n     \"CSGProductId\": \"<integer>\",\n     \"CSGProductContextId\": \"<integer>\",\n     \"IsWatching\": \"<boolean>\",\n     \"ScreenQualityType\": \"<enum>\",\n     \"FilmTitle\": \"<string>\",\n     \"FilmImageURL\": \"<string>\",\n     \"FilmRating\": \"<string>\",\n     \"FilmDescription\": \"<string>\",\n     \"FilmWatchedInMinute\": \"<integer>\",\n     \"FilmWatchedInMinuteDisplay\": \"<integer>\",\n     \"IsExpired\": \"<boolean>\",\n     \"WatchBeginDateTime\": \"<dateTime>\",\n     \"WatchBeginDateTimeDisplay\": \"<string>\",\n     \"ExpiryDateTime\": \"<dateTime>\",\n     \"ExpiryDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTime\": \"<dateTime>\",\n     \"PurchaseDateTimeDisplay\": \"<string>\",\n     \"FirstAccessDateTime\": \"<dateTime>\",\n     \"FirstAccessDateTimeDisplay\": \"<string>\",\n     \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n     \"IsComingSoon\": \"<boolean>\",\n     \"AvailableDateTime\": \"<dateTime>\",\n     \"IsNeverWatched\": \"<boolean>\",\n     \"ContentProgressPercentage\": \"<integer>\",\n     \"ContentProgressSeconds\": \"<integer>\",\n     \"CSGPricingPlanName\": \"<string>\"\n    }\n   ]\n  },\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Order List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d490c769-b9c5-4725-b50f-750cf82a3cfb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"csgOrderNumber\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
+                  "",
+                  "pm.environment.set(\"csrPricingPlanId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
+                  "pm.environment.set(\"csrPricingProductId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e5396a90-ff24-478d-b07a-b9f14546a62d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CSGSessionInfo\": {\n        \"SessionId\": \"{{session_id}}\",\n        \"Login\": \"{{ConnectEmail}}\",\n        \"Email\": \"{{ConnectEmail}}\",\n        \"CineplexConnectId\": \"{{user_guid}}\",\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"Language\": \"en-CA\",\n        \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreGetOrderList"
+          },
+          "response": [
+            {
+              "id": "21b9daa2-739a-4d34-890b-bbcc35b84711",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CSGSessionInfo\": {\n        \"SessionId\": \"<string>\",\n        \"Login\": \"<string>\",\n        \"Email\": \"<string>\",\n        \"CineplexConnectId\": \"<string>\",\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"CineplexTokenExpiry\": \"<dateTime>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreGetOrderList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreOrderResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"OrderData\": {\n   \"DigitalPurchaseOrderList\": [\n    {\n     \"DigitalPurchaseOrderInfo\": {\n      \"CSGLockerId\": \"<long>\",\n      \"CSGPricingPlanId\": \"<integer>\",\n      \"CSGProductId\": \"<integer>\",\n      \"IsUV\": \"<boolean>\",\n      \"ScreenQualityType\": \"<enum>\",\n      \"FilmTitle\": \"<string>\",\n      \"FilmImageURL\": \"<string>\",\n      \"FilmRating\": \"<string>\",\n      \"FilmDescription\": \"<string>\",\n      \"PurchaseDateTime\": \"<dateTime>\",\n      \"PurchaseDateTimeDisplay\": \"<string>\",\n      \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n      \"IsComingSoon\": \"<boolean>\",\n      \"AvailableDateTime\": \"<dateTime>\"\n     },\n     \"OrderDetail\": {\n      \"CSGOrderId\": \"<integer>\",\n      \"CSGOrderItemId\": \"<integer>\",\n      \"OrderNumber\": \"<string>\",\n      \"TotalAmount\": \"<double>\",\n      \"TypeName\": \"<string>\"\n     }\n    },\n    {\n     \"DigitalPurchaseOrderInfo\": {\n      \"CSGLockerId\": \"<long>\",\n      \"CSGPricingPlanId\": \"<integer>\",\n      \"CSGProductId\": \"<integer>\",\n      \"IsUV\": \"<boolean>\",\n      \"ScreenQualityType\": \"<enum>\",\n      \"FilmTitle\": \"<string>\",\n      \"FilmImageURL\": \"<string>\",\n      \"FilmRating\": \"<string>\",\n      \"FilmDescription\": \"<string>\",\n      \"PurchaseDateTime\": \"<dateTime>\",\n      \"PurchaseDateTimeDisplay\": \"<string>\",\n      \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n      \"IsComingSoon\": \"<boolean>\",\n      \"AvailableDateTime\": \"<dateTime>\"\n     },\n     \"OrderDetail\": {\n      \"CSGOrderId\": \"<integer>\",\n      \"CSGOrderItemId\": \"<integer>\",\n      \"OrderNumber\": \"<string>\",\n      \"TotalAmount\": \"<double>\",\n      \"TypeName\": \"<string>\"\n     }\n    }\n   ],\n   \"RentalOrderList\": [\n    {\n     \"RentalOrderInfo\": {\n      \"CSGLockerId\": \"<long>\",\n      \"CSGPricingPlanId\": \"<integer>\",\n      \"CSGProductId\": \"<integer>\",\n      \"ScreenQualityType\": \"<enum>\",\n      \"FilmTitle\": \"<string>\",\n      \"FilmImageURL\": \"<string>\",\n      \"FilmRating\": \"<string>\",\n      \"FilmDescription\": \"<string>\",\n      \"PurchaseDateTime\": \"<dateTime>\",\n      \"PurchaseDateTimeDisplay\": \"<string>\",\n      \"FirstAccessDateTime\": \"<dateTime>\",\n      \"FirstAccessDateTimeDisplay\": \"<string>\",\n      \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n      \"IsComingSoon\": \"<boolean>\",\n      \"AvailableDateTime\": \"<dateTime>\",\n      \"IsNeverWatched\": \"<boolean>\",\n      \"ContentProgressPercentage\": \"<integer>\",\n      \"ContentProgressSeconds\": \"<integer>\"\n     },\n     \"OrderDetail\": {\n      \"CSGOrderId\": \"<integer>\",\n      \"CSGOrderItemId\": \"<integer>\",\n      \"OrderNumber\": \"<string>\",\n      \"TotalAmount\": \"<double>\",\n      \"TypeName\": \"<string>\"\n     }\n    },\n    {\n     \"RentalOrderInfo\": {\n      \"CSGLockerId\": \"<long>\",\n      \"CSGPricingPlanId\": \"<integer>\",\n      \"CSGProductId\": \"<integer>\",\n      \"ScreenQualityType\": \"<enum>\",\n      \"FilmTitle\": \"<string>\",\n      \"FilmImageURL\": \"<string>\",\n      \"FilmRating\": \"<string>\",\n      \"FilmDescription\": \"<string>\",\n      \"PurchaseDateTime\": \"<dateTime>\",\n      \"PurchaseDateTimeDisplay\": \"<string>\",\n      \"FirstAccessDateTime\": \"<dateTime>\",\n      \"FirstAccessDateTimeDisplay\": \"<string>\",\n      \"PurchaseDateTimeInMilliseconds\": \"<double>\",\n      \"IsComingSoon\": \"<boolean>\",\n      \"AvailableDateTime\": \"<dateTime>\",\n      \"IsNeverWatched\": \"<boolean>\",\n      \"ContentProgressPercentage\": \"<integer>\",\n      \"ContentProgressSeconds\": \"<integer>\"\n     },\n     \"OrderDetail\": {\n      \"CSGOrderId\": \"<integer>\",\n      \"CSGOrderItemId\": \"<integer>\",\n      \"OrderNumber\": \"<string>\",\n      \"TotalAmount\": \"<double>\",\n      \"TypeName\": \"<string>\"\n     }\n    }\n   ]\n  },\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Store Get Order Detail",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5c99e3d3-3542-4775-a60b-8070716c29b7",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "88640cda-b380-48b9-918d-4972e0422760",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\t\t\t\"Login\": \"{{ConnectEmail}}\",\n            \"Email\": \"{{ConnectEmail}}\",\n\t\t\t\"CineplexConnectId\": \"{{user_guid}}\",\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"OrderId\": \"{{csgOrderNumber}}\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreGetOrderDetail"
+          },
+          "response": [
+            {
+              "id": "fb0f35d1-f31a-48f4-bc5b-6c0988c7f95d",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"OrderId\": \"<integer>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreGetOrderDetail"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreOrderDetailResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"OrderDetailItem\": {\n   \"CSGOrderId\": \"<integer>\",\n   \"OrderedDateTime\": \"<dateTime>\",\n   \"Currency\": \"<string>\",\n   \"PaymentInstrumentList\": [\n    {\n     \"Amount\": \"<decimal>\",\n     \"PaymentInstrument\": {\n      \"BillingAddress\": {\n       \"City\": \"<string>\",\n       \"Country\": \"<string>\",\n       \"DefaultBilling\": \"<boolean>\",\n       \"LineOne\": \"<string>\",\n       \"LineTwo\": \"<string>\",\n       \"Name\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"PostalCode\": \"<string>\",\n       \"State\": \"<string>\",\n       \"Status\": \"<string>\",\n       \"StatusName\": \"<enum>\"\n      },\n      \"CreditCard\": {\n       \"AccountNumber\": \"<string>\",\n       \"Cvv\": \"<string>\",\n       \"ExpirationMonth\": \"<string>\",\n       \"ExpirationYear\": \"<string>\",\n       \"NameOnCard\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"Type\": \"<enum>\"\n      },\n      \"Default\": \"<boolean>\",\n      \"DirectDebit\": {\n       \"AccountNumber\": \"<string>\",\n       \"BankAddressLineOne\": \"<string>\",\n       \"BankAddressLineTwo\": \"<string>\",\n       \"BankCity\": \"<string>\",\n       \"BankCode\": \"<string>\",\n       \"BankCounty\": \"<string>\",\n       \"BankName\": \"<string>\",\n       \"BankPostalCode\": \"<string>\",\n       \"Iban\": \"<string>\",\n       \"NameOnAccount\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"Type\": \"<enum>\"\n      },\n      \"ECheck\": {\n       \"AccountNumber\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"RoutingNumber\": \"<string>\"\n      },\n      \"ExternalBill\": {\n       \"AccountNumber\": \"<string>\",\n       \"Currency\": \"<string>\",\n       \"ExternalBillData\": \"<string>\",\n       \"NameOnAccount\": \"<string>\",\n       \"Type\": \"<integer>\"\n      },\n      \"ExternalGiftCard\": {\n       \"AccountNumber\": \"<string>\",\n       \"AuthorizationKey\": \"<string>\",\n       \"Balance\": \"<double>\",\n       \"Currency\": \"<string>\",\n       \"ExternalData\": \"<string>\",\n       \"Type\": \"<integer>\"\n      },\n      \"FacebookAccount\": {\n       \"ApplicationId\": \"<string>\",\n       \"BuyerId\": \"<string>\",\n       \"FacebookOrderId\": \"<string>\",\n       \"ReceiverId\": \"<string>\",\n       \"SignedRequest\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"GiftCard\": {\n       \"AccountNumber\": \"<string>\",\n       \"Balance\": \"<double>\",\n       \"BrandableCurrency\": \"<integer>\",\n       \"Currency\": \"<string>\",\n       \"Type\": \"<integer>\",\n       \"TypeName\": \"<string>\"\n      },\n      \"GooglePlayAccount\": {\n       \"PurchaseToken\": \"<string>\"\n      },\n      \"Id\": \"<integer>\",\n      \"ITunesAccount\": {\n       \"TransactionReceipt\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"Name\": \"<string>\",\n      \"PayPalAccount\": {\n       \"Currency\": \"<string>\",\n       \"PayerId\": \"<string>\",\n       \"PayPalToken\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"RokuAccount\": {\n       \"TransactionId\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"StoredValueAccount\": {\n       \"AccountNumber\": \"<string>\",\n       \"Balance\": \"<double>\",\n       \"BrandableCurrency\": \"<integer>\",\n       \"ChargeCurrency\": \"<string>\",\n       \"ChargePaymentInstrumentId\": \"<integer>\",\n       \"Currency\": \"<integer>\",\n       \"InitialAmount\": \"<double>\",\n       \"LoyaltyCard\": \"<boolean>\",\n       \"RechargeAmount\": \"<double>\",\n       \"RechargeDate\": \"<dateTime>\",\n       \"RechargeDays\": \"<integer>\",\n       \"RechargePolicy\": \"<enum>\"\n      },\n      \"Type\": \"<enum>\",\n      \"TypeName\": \"<string>\",\n      \"XboxAccount\": {\n       \"Type\": \"<enum>\",\n       \"XboxReceipt\": \"<string>\",\n       \"XboxUserId\": \"<string>\"\n      },\n      \"RecordPaymentInformation\": \"<boolean>\"\n     },\n     \"PaymentStatus\": \"<enum>\",\n     \"PaymentStatusName\": \"<string>\",\n     \"RemainingBalance\": \"<decimal>\"\n    },\n    {\n     \"Amount\": \"<decimal>\",\n     \"PaymentInstrument\": {\n      \"BillingAddress\": {\n       \"City\": \"<string>\",\n       \"Country\": \"<string>\",\n       \"DefaultBilling\": \"<boolean>\",\n       \"LineOne\": \"<string>\",\n       \"LineTwo\": \"<string>\",\n       \"Name\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"PostalCode\": \"<string>\",\n       \"State\": \"<string>\",\n       \"Status\": \"<string>\",\n       \"StatusName\": \"<enum>\"\n      },\n      \"CreditCard\": {\n       \"AccountNumber\": \"<string>\",\n       \"Cvv\": \"<string>\",\n       \"ExpirationMonth\": \"<string>\",\n       \"ExpirationYear\": \"<string>\",\n       \"NameOnCard\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"Type\": \"<enum>\"\n      },\n      \"Default\": \"<boolean>\",\n      \"DirectDebit\": {\n       \"AccountNumber\": \"<string>\",\n       \"BankAddressLineOne\": \"<string>\",\n       \"BankAddressLineTwo\": \"<string>\",\n       \"BankCity\": \"<string>\",\n       \"BankCode\": \"<string>\",\n       \"BankCounty\": \"<string>\",\n       \"BankName\": \"<string>\",\n       \"BankPostalCode\": \"<string>\",\n       \"Iban\": \"<string>\",\n       \"NameOnAccount\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"Type\": \"<enum>\"\n      },\n      \"ECheck\": {\n       \"AccountNumber\": \"<string>\",\n       \"PhoneNumber\": \"<string>\",\n       \"RoutingNumber\": \"<string>\"\n      },\n      \"ExternalBill\": {\n       \"AccountNumber\": \"<string>\",\n       \"Currency\": \"<string>\",\n       \"ExternalBillData\": \"<string>\",\n       \"NameOnAccount\": \"<string>\",\n       \"Type\": \"<integer>\"\n      },\n      \"ExternalGiftCard\": {\n       \"AccountNumber\": \"<string>\",\n       \"AuthorizationKey\": \"<string>\",\n       \"Balance\": \"<double>\",\n       \"Currency\": \"<string>\",\n       \"ExternalData\": \"<string>\",\n       \"Type\": \"<integer>\"\n      },\n      \"FacebookAccount\": {\n       \"ApplicationId\": \"<string>\",\n       \"BuyerId\": \"<string>\",\n       \"FacebookOrderId\": \"<string>\",\n       \"ReceiverId\": \"<string>\",\n       \"SignedRequest\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"GiftCard\": {\n       \"AccountNumber\": \"<string>\",\n       \"Balance\": \"<double>\",\n       \"BrandableCurrency\": \"<integer>\",\n       \"Currency\": \"<string>\",\n       \"Type\": \"<integer>\",\n       \"TypeName\": \"<string>\"\n      },\n      \"GooglePlayAccount\": {\n       \"PurchaseToken\": \"<string>\"\n      },\n      \"Id\": \"<integer>\",\n      \"ITunesAccount\": {\n       \"TransactionReceipt\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"Name\": \"<string>\",\n      \"PayPalAccount\": {\n       \"Currency\": \"<string>\",\n       \"PayerId\": \"<string>\",\n       \"PayPalToken\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"RokuAccount\": {\n       \"TransactionId\": \"<string>\",\n       \"UserName\": \"<string>\"\n      },\n      \"StoredValueAccount\": {\n       \"AccountNumber\": \"<string>\",\n       \"Balance\": \"<double>\",\n       \"BrandableCurrency\": \"<integer>\",\n       \"ChargeCurrency\": \"<string>\",\n       \"ChargePaymentInstrumentId\": \"<integer>\",\n       \"Currency\": \"<integer>\",\n       \"InitialAmount\": \"<double>\",\n       \"LoyaltyCard\": \"<boolean>\",\n       \"RechargeAmount\": \"<double>\",\n       \"RechargeDate\": \"<dateTime>\",\n       \"RechargeDays\": \"<integer>\",\n       \"RechargePolicy\": \"<enum>\"\n      },\n      \"Type\": \"<enum>\",\n      \"TypeName\": \"<string>\",\n      \"XboxAccount\": {\n       \"Type\": \"<enum>\",\n       \"XboxReceipt\": \"<string>\",\n       \"XboxUserId\": \"<string>\"\n      },\n      \"RecordPaymentInformation\": \"<boolean>\"\n     },\n     \"PaymentStatus\": \"<enum>\",\n     \"PaymentStatusName\": \"<string>\",\n     \"RemainingBalance\": \"<decimal>\"\n    }\n   ],\n   \"TaxItemList\": [\n    {\n     \"Amount\": \"<decimal>\",\n     \"Name\": \"<string>\"\n    },\n    {\n     \"Amount\": \"<decimal>\",\n     \"Name\": \"<string>\"\n    }\n   ],\n   \"LoyaltyRewardsAmount\": \"<decimal>\",\n   \"DiscountAmount\": \"<decimal>\",\n   \"TotalAmount\": \"<decimal>\",\n   \"SubTotal\": \"<decimal>\",\n   \"TaxAmount\": \"<decimal>\",\n   \"OrderNumber\": \"<string>\",\n   \"OrderItemlist\": [\n    {\n     \"Amount\": \"<double>\",\n     \"BundleId\": \"<integer>\",\n     \"ChangeFromPricingPlan\": {\n      \"AvailabilityEnd\": \"<dateTime>\",\n      \"AvailabilityStart\": \"<dateTime>\",\n      \"BrandableCurrency\": \"<integer>\",\n      \"BrandableCurrencyName\": \"<string>\",\n      \"ChargeAmount\": \"<decimal>\",\n      \"ComingSoon\": \"<boolean>\",\n      \"Currency\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Id\": \"<integer>\",\n      \"ListAmount\": \"<decimal>\",\n      \"Name\": \"<string>\",\n      \"OfferingEnd\": \"<dateTime>\",\n      \"OfferingStart\": \"<dateTime>\",\n      \"RenewalChargeAmount\": \"<decimal>\",\n      \"RequiresAuthentication\": \"<boolean>\",\n      \"Shipped\": \"<boolean>\",\n      \"Subscription\": \"<boolean>\",\n      \"SubscriptionBillingCycle\": \"<integer>\",\n      \"SubscriptionBillingCycleIterations\": \"<integer>\",\n      \"SubscriptionBillingCycleName\": \"<string>\",\n      \"Type\": \"<integer>\",\n      \"Uv\": \"<boolean>\",\n      \"BillerRuleInstanceAmount\": \"<decimal>\"\n     },\n     \"Discounts\": [\n      {\n       \"BillerRuleConfigurationId\": \"<integer>\",\n       \"Coupon\": {\n        \"Description\": \"<string>\",\n        \"DiscountId\": \"<integer>\",\n        \"Id\": \"<integer>\",\n        \"MarketingText\": \"<string>\",\n        \"Name\": \"<string>\",\n        \"OfferEnd\": \"<dateTime>\",\n        \"OfferStart\": \"<dateTime>\",\n        \"RequiredRedemptionCodes\": \"<integer>\"\n       },\n       \"Discount\": {\n        \"Amount\": \"<decimal>\",\n        \"BrandableCurrency\": \"<integer>\",\n        \"BrandableCurrencyName\": \"<string>\",\n        \"Currency\": \"<string>\",\n        \"Id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"RenewalCount\": \"<integer>\",\n        \"StorefrontText\": \"<string>\",\n        \"Type\": \"<enum>\"\n       },\n       \"DiscountSource\": \"<enum>\",\n       \"DiscountSourceName\": \"<string>\",\n       \"PurchaseAmount\": \"<decimal>\",\n       \"RedemptionCode\": \"<string>\"\n      },\n      {\n       \"BillerRuleConfigurationId\": \"<integer>\",\n       \"Coupon\": {\n        \"Description\": \"<string>\",\n        \"DiscountId\": \"<integer>\",\n        \"Id\": \"<integer>\",\n        \"MarketingText\": \"<string>\",\n        \"Name\": \"<string>\",\n        \"OfferEnd\": \"<dateTime>\",\n        \"OfferStart\": \"<dateTime>\",\n        \"RequiredRedemptionCodes\": \"<integer>\"\n       },\n       \"Discount\": {\n        \"Amount\": \"<decimal>\",\n        \"BrandableCurrency\": \"<integer>\",\n        \"BrandableCurrencyName\": \"<string>\",\n        \"Currency\": \"<string>\",\n        \"Id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"RenewalCount\": \"<integer>\",\n        \"StorefrontText\": \"<string>\",\n        \"Type\": \"<enum>\"\n       },\n       \"DiscountSource\": \"<enum>\",\n       \"DiscountSourceName\": \"<string>\",\n       \"PurchaseAmount\": \"<decimal>\",\n       \"RedemptionCode\": \"<string>\"\n      }\n     ],\n     \"ExternalReference\": \"<string>\",\n     \"ExternalSkuId\": \"<string>\",\n     \"FulfillmentEnd\": \"<dateTime>\",\n     \"FulfillmentStart\": \"<dateTime>\",\n     \"GrossAmount\": \"<double>\",\n     \"Id\": \"<integer>\",\n     \"InstanceProperties\": \"<integer>\",\n     \"JoinSubscriptionId\": \"<integer>\",\n     \"LockerItemId\": \"<integer>\",\n     \"OfferingId\": \"<integer>\",\n     \"OfferingOptionPriceId\": \"<integer>\",\n     \"OrderedOfferingId\": \"<integer>\",\n     \"ParentOrderItemId\": \"<integer>\",\n     \"PricingPlanId\": \"<integer>\",\n     \"PricingPlan\": {\n      \"AvailabilityEnd\": \"<dateTime>\",\n      \"AvailabilityStart\": \"<dateTime>\",\n      \"BrandableCurrency\": \"<integer>\",\n      \"BrandableCurrencyName\": \"<string>\",\n      \"ChargeAmount\": \"<decimal>\",\n      \"ComingSoon\": \"<boolean>\",\n      \"Currency\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Id\": \"<integer>\",\n      \"ListAmount\": \"<decimal>\",\n      \"Name\": \"<string>\",\n      \"OfferingEnd\": \"<dateTime>\",\n      \"OfferingStart\": \"<dateTime>\",\n      \"RenewalChargeAmount\": \"<decimal>\",\n      \"RequiresAuthentication\": \"<boolean>\",\n      \"Shipped\": \"<boolean>\",\n      \"Subscription\": \"<boolean>\",\n      \"SubscriptionBillingCycle\": \"<integer>\",\n      \"SubscriptionBillingCycleIterations\": \"<integer>\",\n      \"SubscriptionBillingCycleName\": \"<string>\",\n      \"Type\": \"<integer>\",\n      \"Uv\": \"<boolean>\",\n      \"BillerRuleInstanceAmount\": \"<decimal>\"\n     },\n     \"Product\": {\n      \"AllowMultiplePurchases\": \"<boolean>\",\n      \"EpisodeNumber\": \"<integer>\",\n      \"ExternalId\": \"<string>\",\n      \"GuidanceRatings\": [\n       {\n        \"CategoryCode\": \"<integer>\",\n        \"CategoryName\": \"<string>\",\n        \"Code\": \"<integer>\",\n        \"ExternalCode\": \"<string>\",\n        \"Name\": \"<string>\"\n       },\n       {\n        \"CategoryCode\": \"<integer>\",\n        \"CategoryName\": \"<string>\",\n        \"Code\": \"<integer>\",\n        \"ExternalCode\": \"<string>\",\n        \"Name\": \"<string>\"\n       }\n      ],\n      \"HtmlTarget\": \"<string>\",\n      \"Id\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"IndexName\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"ReferenceDate\": \"<dateTime>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"Runtime\": \"<integer>\",\n      \"SeasonHtmlTarget\": \"<string>\",\n      \"SeasonId\": \"<integer>\",\n      \"SeasonName\": \"<string>\",\n      \"SeasonNumber\": \"<integer>\",\n      \"SeriesHtmlTarget\": \"<string>\",\n      \"SeriesId\": \"<integer>\",\n      \"SeriesName\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"Standalone\": \"<boolean>\",\n      \"StructureType\": \"<integer>\",\n      \"ThumbnailUrl\": \"<string>\",\n      \"LineOfBusiness\": \"<integer>\"\n     },\n     \"ReturnAmount\": \"<double>\",\n     \"Shipped\": \"<boolean>\",\n     \"Status\": \"<enum>\",\n     \"StatusName\": \"<string>\",\n     \"Subscription\": \"<boolean>\",\n     \"SubscriptionItemId\": \"<integer>\",\n     \"Text\": \"<string>\",\n     \"WishlistItemId\": \"<integer>\"\n    },\n    {\n     \"Amount\": \"<double>\",\n     \"BundleId\": \"<integer>\",\n     \"ChangeFromPricingPlan\": {\n      \"AvailabilityEnd\": \"<dateTime>\",\n      \"AvailabilityStart\": \"<dateTime>\",\n      \"BrandableCurrency\": \"<integer>\",\n      \"BrandableCurrencyName\": \"<string>\",\n      \"ChargeAmount\": \"<decimal>\",\n      \"ComingSoon\": \"<boolean>\",\n      \"Currency\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Id\": \"<integer>\",\n      \"ListAmount\": \"<decimal>\",\n      \"Name\": \"<string>\",\n      \"OfferingEnd\": \"<dateTime>\",\n      \"OfferingStart\": \"<dateTime>\",\n      \"RenewalChargeAmount\": \"<decimal>\",\n      \"RequiresAuthentication\": \"<boolean>\",\n      \"Shipped\": \"<boolean>\",\n      \"Subscription\": \"<boolean>\",\n      \"SubscriptionBillingCycle\": \"<integer>\",\n      \"SubscriptionBillingCycleIterations\": \"<integer>\",\n      \"SubscriptionBillingCycleName\": \"<string>\",\n      \"Type\": \"<integer>\",\n      \"Uv\": \"<boolean>\",\n      \"BillerRuleInstanceAmount\": \"<decimal>\"\n     },\n     \"Discounts\": [\n      {\n       \"BillerRuleConfigurationId\": \"<integer>\",\n       \"Coupon\": {\n        \"Description\": \"<string>\",\n        \"DiscountId\": \"<integer>\",\n        \"Id\": \"<integer>\",\n        \"MarketingText\": \"<string>\",\n        \"Name\": \"<string>\",\n        \"OfferEnd\": \"<dateTime>\",\n        \"OfferStart\": \"<dateTime>\",\n        \"RequiredRedemptionCodes\": \"<integer>\"\n       },\n       \"Discount\": {\n        \"Amount\": \"<decimal>\",\n        \"BrandableCurrency\": \"<integer>\",\n        \"BrandableCurrencyName\": \"<string>\",\n        \"Currency\": \"<string>\",\n        \"Id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"RenewalCount\": \"<integer>\",\n        \"StorefrontText\": \"<string>\",\n        \"Type\": \"<enum>\"\n       },\n       \"DiscountSource\": \"<enum>\",\n       \"DiscountSourceName\": \"<string>\",\n       \"PurchaseAmount\": \"<decimal>\",\n       \"RedemptionCode\": \"<string>\"\n      },\n      {\n       \"BillerRuleConfigurationId\": \"<integer>\",\n       \"Coupon\": {\n        \"Description\": \"<string>\",\n        \"DiscountId\": \"<integer>\",\n        \"Id\": \"<integer>\",\n        \"MarketingText\": \"<string>\",\n        \"Name\": \"<string>\",\n        \"OfferEnd\": \"<dateTime>\",\n        \"OfferStart\": \"<dateTime>\",\n        \"RequiredRedemptionCodes\": \"<integer>\"\n       },\n       \"Discount\": {\n        \"Amount\": \"<decimal>\",\n        \"BrandableCurrency\": \"<integer>\",\n        \"BrandableCurrencyName\": \"<string>\",\n        \"Currency\": \"<string>\",\n        \"Id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"RenewalCount\": \"<integer>\",\n        \"StorefrontText\": \"<string>\",\n        \"Type\": \"<enum>\"\n       },\n       \"DiscountSource\": \"<enum>\",\n       \"DiscountSourceName\": \"<string>\",\n       \"PurchaseAmount\": \"<decimal>\",\n       \"RedemptionCode\": \"<string>\"\n      }\n     ],\n     \"ExternalReference\": \"<string>\",\n     \"ExternalSkuId\": \"<string>\",\n     \"FulfillmentEnd\": \"<dateTime>\",\n     \"FulfillmentStart\": \"<dateTime>\",\n     \"GrossAmount\": \"<double>\",\n     \"Id\": \"<integer>\",\n     \"InstanceProperties\": \"<integer>\",\n     \"JoinSubscriptionId\": \"<integer>\",\n     \"LockerItemId\": \"<integer>\",\n     \"OfferingId\": \"<integer>\",\n     \"OfferingOptionPriceId\": \"<integer>\",\n     \"OrderedOfferingId\": \"<integer>\",\n     \"ParentOrderItemId\": \"<integer>\",\n     \"PricingPlanId\": \"<integer>\",\n     \"PricingPlan\": {\n      \"AvailabilityEnd\": \"<dateTime>\",\n      \"AvailabilityStart\": \"<dateTime>\",\n      \"BrandableCurrency\": \"<integer>\",\n      \"BrandableCurrencyName\": \"<string>\",\n      \"ChargeAmount\": \"<decimal>\",\n      \"ComingSoon\": \"<boolean>\",\n      \"Currency\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Id\": \"<integer>\",\n      \"ListAmount\": \"<decimal>\",\n      \"Name\": \"<string>\",\n      \"OfferingEnd\": \"<dateTime>\",\n      \"OfferingStart\": \"<dateTime>\",\n      \"RenewalChargeAmount\": \"<decimal>\",\n      \"RequiresAuthentication\": \"<boolean>\",\n      \"Shipped\": \"<boolean>\",\n      \"Subscription\": \"<boolean>\",\n      \"SubscriptionBillingCycle\": \"<integer>\",\n      \"SubscriptionBillingCycleIterations\": \"<integer>\",\n      \"SubscriptionBillingCycleName\": \"<string>\",\n      \"Type\": \"<integer>\",\n      \"Uv\": \"<boolean>\",\n      \"BillerRuleInstanceAmount\": \"<decimal>\"\n     },\n     \"Product\": {\n      \"AllowMultiplePurchases\": \"<boolean>\",\n      \"EpisodeNumber\": \"<integer>\",\n      \"ExternalId\": \"<string>\",\n      \"GuidanceRatings\": [\n       {\n        \"CategoryCode\": \"<integer>\",\n        \"CategoryName\": \"<string>\",\n        \"Code\": \"<integer>\",\n        \"ExternalCode\": \"<string>\",\n        \"Name\": \"<string>\"\n       },\n       {\n        \"CategoryCode\": \"<integer>\",\n        \"CategoryName\": \"<string>\",\n        \"Code\": \"<integer>\",\n        \"ExternalCode\": \"<string>\",\n        \"Name\": \"<string>\"\n       }\n      ],\n      \"HtmlTarget\": \"<string>\",\n      \"Id\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"IndexName\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"ReferenceDate\": \"<dateTime>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"Runtime\": \"<integer>\",\n      \"SeasonHtmlTarget\": \"<string>\",\n      \"SeasonId\": \"<integer>\",\n      \"SeasonName\": \"<string>\",\n      \"SeasonNumber\": \"<integer>\",\n      \"SeriesHtmlTarget\": \"<string>\",\n      \"SeriesId\": \"<integer>\",\n      \"SeriesName\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"Standalone\": \"<boolean>\",\n      \"StructureType\": \"<integer>\",\n      \"ThumbnailUrl\": \"<string>\",\n      \"LineOfBusiness\": \"<integer>\"\n     },\n     \"ReturnAmount\": \"<double>\",\n     \"Shipped\": \"<boolean>\",\n     \"Status\": \"<enum>\",\n     \"StatusName\": \"<string>\",\n     \"Subscription\": \"<boolean>\",\n     \"SubscriptionItemId\": \"<integer>\",\n     \"Text\": \"<string>\",\n     \"WishlistItemId\": \"<integer>\"\n    }\n   ],\n   \"paymentDetailList\": [\n    {\n     \"Id\": \"<long>\",\n     \"PaymentSessionId\": \"<long>\",\n     \"Status\": \"<enum>\",\n     \"Type\": \"<enum>\",\n     \"ResponseCode\": \"<string>\",\n     \"ResponseMessage\": \"<string>\",\n     \"BankResponseCode\": \"<string>\",\n     \"BankResponseMessage\": \"<string>\",\n     \"ErrorNumber\": \"<string>\",\n     \"ErrorDescription\": \"<string>\",\n     \"AuthorizationNumber\": \"<string>\",\n     \"DetailAmount\": \"<decimal>\",\n     \"RequestDate\": \"<dateTime>\",\n     \"ResponseDate\": \"<dateTime>\",\n     \"BankName\": \"<string>\",\n     \"BankConfirmationCode\": \"<string>\",\n     \"CardNumber\": \"<string>\",\n     \"ExpiryDate\": \"<dateTime>\",\n     \"EncryptedExpiryDate\": \"<string>\",\n     \"CardHolderName\": \"<string>\",\n     \"EncryptedCardHolderName\": \"<string>\",\n     \"PhoneNumber\": \"<string>\",\n     \"PostalCode\": \"<string>\",\n     \"PaymentDetailTransactionId\": \"<string>\",\n     \"WalletType\": \"<enum>\",\n     \"Token\": \"<string>\",\n     \"DetailRefundedAmount\": \"<decimal>\",\n     \"SceneCostPerPoint\": \"<decimal>\",\n     \"ScenePoints\": \"<integer>\",\n     \"IsCreditCard\": \"<boolean>\",\n     \"IsExact\": \"<boolean>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"PaymentSessionId\": \"<long>\",\n     \"Status\": \"<enum>\",\n     \"Type\": \"<enum>\",\n     \"ResponseCode\": \"<string>\",\n     \"ResponseMessage\": \"<string>\",\n     \"BankResponseCode\": \"<string>\",\n     \"BankResponseMessage\": \"<string>\",\n     \"ErrorNumber\": \"<string>\",\n     \"ErrorDescription\": \"<string>\",\n     \"AuthorizationNumber\": \"<string>\",\n     \"DetailAmount\": \"<decimal>\",\n     \"RequestDate\": \"<dateTime>\",\n     \"ResponseDate\": \"<dateTime>\",\n     \"BankName\": \"<string>\",\n     \"BankConfirmationCode\": \"<string>\",\n     \"CardNumber\": \"<string>\",\n     \"ExpiryDate\": \"<dateTime>\",\n     \"EncryptedExpiryDate\": \"<string>\",\n     \"CardHolderName\": \"<string>\",\n     \"EncryptedCardHolderName\": \"<string>\",\n     \"PhoneNumber\": \"<string>\",\n     \"PostalCode\": \"<string>\",\n     \"PaymentDetailTransactionId\": \"<string>\",\n     \"WalletType\": \"<enum>\",\n     \"Token\": \"<string>\",\n     \"DetailRefundedAmount\": \"<decimal>\",\n     \"SceneCostPerPoint\": \"<decimal>\",\n     \"ScenePoints\": \"<integer>\",\n     \"IsCreditCard\": \"<boolean>\",\n     \"IsExact\": \"<boolean>\"\n    }\n   ]\n  },\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Profile Info From CSG Subscriber Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ed6ee1c4-7a13-47fc-86d6-df5bd67b0de9",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8075108b-e0de-4fb6-b811-ee08b6e59a4b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CSGSubscriberId\": 3878584\n}"
+            },
+            "url": "{{Connect_URL}}/GetProfileInfoFromCSGSubscriberId"
+          },
+          "response": [
+            {
+              "id": "32a75269-7742-4701-b40e-2bdf4b7eb9ea",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CSGSubscriberId\": \"<long>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetProfileInfoFromCSGSubscriberId"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"UserProfileId\": \"<long>\",\n \"UserProfileGuid\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Store Activate Device",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4ecc870c-5466-43b6-947f-a0840d0f2601",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "440fd218-92d8-48ad-bbd5-8cbf67a2f603",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\n            \"Email\": \"{{ConnectEmail}}\",\n\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"\",\n            \"CineplexTokenExpiry\": \"{{token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/StoreActivateDevice",
+            "description": "This method must be called to activate a user device. For store users, the device will also be registered on CSG."
+          },
+          "response": [
+            {
+              "id": "7de39550-02a7-4f09-a2c2-154507d307c9",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"Nickname\": \"<string>\",\n    \"PlatformId\": \"<string>\",\n    \"DeviceId\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreActivateDevice"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreAddDeviceResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"PhysicalDevice\": {\n   \"ActivationKey\": \"<string>\",\n   \"AddDate\": \"<dateTime>\",\n   \"AuthenticationKey\": \"<string>\",\n   \"DeviceId\": \"<string>\",\n   \"DeviceTypeCode\": \"<integer>\",\n   \"DeviceTypeName\": \"<string>\",\n   \"Id\": \"<integer>\",\n   \"ModDate\": \"<dateTime>\",\n   \"PhysicalDeviceTypeCode\": \"<integer>\",\n   \"ProductLobCode\": \"<integer>\",\n   \"SerialNumber\": \"<string>\",\n   \"Status\": \"<enum>\",\n   \"StatusName\": \"<string>\"\n  },\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Device List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1dd0a541-da1d-4fe8-ba9f-1f4c9bbf1cfb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"device_description\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceDescription);",
+                  "pm.environment.set(\"device_dateadded\", jsonBody.StoreDeviceResult.DeviceList[0].DateAdded);",
+                  "pm.environment.set(\"device_deviceid\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceId);",
+                  "pm.environment.set(\"device_name\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceName);",
+                  "pm.environment.set(\"device_type\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceType);",
+                  "pm.environment.set(\"device_id\", jsonBody.StoreDeviceResult.DeviceList[0].Id);",
+                  "pm.environment.set(\"device_physicaldevicetype\", jsonBody.StoreDeviceResult.DeviceList[0].PhysicalDeviceType);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "aad6a5f4-d32c-486c-a0d9-fb20a785c69b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreGetDeviceList"
+          },
+          "response": [
+            {
+              "id": "52d1101c-9038-4662-9d2d-1be76d4159e1",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CSGSessionInfo\": {\n        \"SessionId\": \"<string>\",\n        \"Login\": \"<string>\",\n        \"Email\": \"<string>\",\n        \"CineplexConnectId\": \"<string>\",\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"CineplexTokenExpiry\": \"<dateTime>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreGetDeviceList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreDeviceResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"DeviceList\": [\n   {\n    \"Id\": \"<integer>\",\n    \"DeviceId\": \"<string>\",\n    \"DeviceName\": \"<string>\",\n    \"DateAdded\": \"<dateTime>\",\n    \"DateAddedDisplay\": \"<string>\",\n    \"DeviceImageURL\": \"<string>\",\n    \"DeviceType\": \"<integer>\",\n    \"PhysicalDeviceType\": \"<integer>\",\n    \"DeviceDescription\": \"<string>\"\n   },\n   {\n    \"Id\": \"<integer>\",\n    \"DeviceId\": \"<string>\",\n    \"DeviceName\": \"<string>\",\n    \"DateAdded\": \"<dateTime>\",\n    \"DateAddedDisplay\": \"<string>\",\n    \"DeviceImageURL\": \"<string>\",\n    \"DeviceType\": \"<integer>\",\n    \"PhysicalDeviceType\": \"<integer>\",\n    \"DeviceDescription\": \"<string>\"\n   }\n  ],\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  },\n  \"MaxDeviceLimit\": \"<integer>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n },\n \"MaxDeviceLimit\": \"<integer>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Product Info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "419c94df-38e1-40da-871e-8648e9d2b24e",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "bc0d482c-05b4-4570-9d7a-cfb6a8ded4ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"StoreProductQuery\": {\n        \"ProductId\": \"{{ProductId}}\",\n        \"DeviceTypeCode\": 16\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreGetProductInfo"
+          },
+          "response": [
+            {
+              "id": "9199be02-9ce9-483d-944b-35219adf8ea4",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"StoreProductQuery\": {\n        \"DistributionChannelId\": \"<guid>\",\n        \"ProductId\": \"<integer>\",\n        \"DeviceTypeCode\": \"<integer>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreGetProductInfo"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreProductResult\": {\n  \"ProductInfo\": {\n   \"DeliveryCapabilityId\": \"<integer>\",\n   \"PricingPlanList\": [\n    {\n     \"AdditionalInformationText\": \"<string>\",\n     \"AdditionalInformationURL\": \"<string>\",\n     \"AvailabilityEnd\": \"<dateTime>\",\n     \"AvailabilityStart\": \"<dateTime>\",\n     \"Balance\": \"<integer>\",\n     \"BrandableCurrency\": \"<integer>\",\n     \"BrandableCurrencyName\": \"<string>\",\n     \"ChangePricingPlanIds\": [\n      \"<integer>\",\n      \"<integer>\"\n     ],\n     \"ComingSoon\": \"<boolean>\",\n     \"Currency\": \"<string>\",\n     \"Default\": \"<boolean>\",\n     \"DeliveryCapabilityActions\": [\n      {\n       \"Code\": \"<integer>\",\n       \"DeliveryCapabilities\": [\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        },\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        }\n       ],\n       \"MaxAccessCount\": \"<integer>\",\n       \"MaxHoursPostInitialAccess\": \"<integer>\",\n       \"MaxHoursPostPurchase\": \"<integer>\",\n       \"MaxLicenseCount\": \"<integer>\",\n       \"Name\": \"<string>\"\n      },\n      {\n       \"Code\": \"<integer>\",\n       \"DeliveryCapabilities\": [\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        },\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        }\n       ],\n       \"MaxAccessCount\": \"<integer>\",\n       \"MaxHoursPostInitialAccess\": \"<integer>\",\n       \"MaxHoursPostPurchase\": \"<integer>\",\n       \"MaxLicenseCount\": \"<integer>\",\n       \"Name\": \"<string>\"\n      }\n     ],\n     \"Description\": \"<string>\",\n     \"Giftable\": \"<boolean>\",\n     \"Id\": \"<integer>\",\n     \"LicenseExpirationDays\": \"<integer>\",\n     \"LicenseFirstPlayExpirationDays\": \"<integer>\",\n     \"ListAmount\": \"<decimal>\",\n     \"OfferingEnd\": \"<dateTime>\",\n     \"OfferingStart\": \"<dateTime>\",\n     \"RenewalChargeAmount\": \"<decimal>\",\n     \"RentalPolicyMessage\": \"<string>\",\n     \"RequiresAuthentication\": \"<boolean>\",\n     \"RequiresCoupon\": \"<boolean>\",\n     \"Retired\": \"<boolean>\",\n     \"Shipped\": \"<boolean>\",\n     \"ShipsFree\": \"<boolean>\",\n     \"Standalone\": \"<boolean>\",\n     \"Subscription\": \"<boolean>\",\n     \"SubscriptionBillingCycle\": \"<integer>\",\n     \"SubscriptionBillingCycleIterations\": \"<integer>\",\n     \"SubscriptionBillingCycleName\": \"<string>\",\n     \"TermsAndConditions\": \"<string>\",\n     \"Type\": \"<integer>\",\n     \"UserOnly\": \"<boolean>\",\n     \"Uv\": \"<boolean>\",\n     \"BillerRuleInstanceAmount\": \"<decimal>\",\n     \"ChargeAmount\": \"<decimal>\",\n     \"Name\": \"<string>\"\n    },\n    {\n     \"AdditionalInformationText\": \"<string>\",\n     \"AdditionalInformationURL\": \"<string>\",\n     \"AvailabilityEnd\": \"<dateTime>\",\n     \"AvailabilityStart\": \"<dateTime>\",\n     \"Balance\": \"<integer>\",\n     \"BrandableCurrency\": \"<integer>\",\n     \"BrandableCurrencyName\": \"<string>\",\n     \"ChangePricingPlanIds\": [\n      \"<integer>\",\n      \"<integer>\"\n     ],\n     \"ComingSoon\": \"<boolean>\",\n     \"Currency\": \"<string>\",\n     \"Default\": \"<boolean>\",\n     \"DeliveryCapabilityActions\": [\n      {\n       \"Code\": \"<integer>\",\n       \"DeliveryCapabilities\": [\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        },\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        }\n       ],\n       \"MaxAccessCount\": \"<integer>\",\n       \"MaxHoursPostInitialAccess\": \"<integer>\",\n       \"MaxHoursPostPurchase\": \"<integer>\",\n       \"MaxLicenseCount\": \"<integer>\",\n       \"Name\": \"<string>\"\n      },\n      {\n       \"Code\": \"<integer>\",\n       \"DeliveryCapabilities\": [\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        },\n        {\n         \"Code\": \"<integer>\",\n         \"DisplayTag\": \"<string>\",\n         \"ExternalReference\": \"<string>\",\n         \"MediaIds\": [\n          \"<integer>\",\n          \"<integer>\"\n         ],\n         \"Name\": \"<string>\",\n         \"Shipped\": \"<boolean>\"\n        }\n       ],\n       \"MaxAccessCount\": \"<integer>\",\n       \"MaxHoursPostInitialAccess\": \"<integer>\",\n       \"MaxHoursPostPurchase\": \"<integer>\",\n       \"MaxLicenseCount\": \"<integer>\",\n       \"Name\": \"<string>\"\n      }\n     ],\n     \"Description\": \"<string>\",\n     \"Giftable\": \"<boolean>\",\n     \"Id\": \"<integer>\",\n     \"LicenseExpirationDays\": \"<integer>\",\n     \"LicenseFirstPlayExpirationDays\": \"<integer>\",\n     \"ListAmount\": \"<decimal>\",\n     \"OfferingEnd\": \"<dateTime>\",\n     \"OfferingStart\": \"<dateTime>\",\n     \"RenewalChargeAmount\": \"<decimal>\",\n     \"RentalPolicyMessage\": \"<string>\",\n     \"RequiresAuthentication\": \"<boolean>\",\n     \"RequiresCoupon\": \"<boolean>\",\n     \"Retired\": \"<boolean>\",\n     \"Shipped\": \"<boolean>\",\n     \"ShipsFree\": \"<boolean>\",\n     \"Standalone\": \"<boolean>\",\n     \"Subscription\": \"<boolean>\",\n     \"SubscriptionBillingCycle\": \"<integer>\",\n     \"SubscriptionBillingCycleIterations\": \"<integer>\",\n     \"SubscriptionBillingCycleName\": \"<string>\",\n     \"TermsAndConditions\": \"<string>\",\n     \"Type\": \"<integer>\",\n     \"UserOnly\": \"<boolean>\",\n     \"Uv\": \"<boolean>\",\n     \"BillerRuleInstanceAmount\": \"<decimal>\",\n     \"ChargeAmount\": \"<decimal>\",\n     \"Name\": \"<string>\"\n    }\n   ],\n   \"PreviewThumbnailList\": [\n    {\n     \"Description\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"PeerRating\": \"<string>\",\n     \"PeerRatingCount\": \"<integer>\",\n     \"ThumbnailUrl\": \"<string>\"\n    },\n    {\n     \"Description\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"PeerRating\": \"<string>\",\n     \"PeerRatingCount\": \"<integer>\",\n     \"ThumbnailUrl\": \"<string>\"\n    }\n   ],\n   \"SuggestedProductList\": [\n    {\n     \"AllowMultiplePurchases\": \"<boolean>\",\n     \"EpisodeNumber\": \"<integer>\",\n     \"ExternalId\": \"<string>\",\n     \"GuidanceRatings\": [\n      {\n       \"CategoryCode\": \"<integer>\",\n       \"CategoryName\": \"<string>\",\n       \"Code\": \"<integer>\",\n       \"ExternalCode\": \"<string>\",\n       \"Name\": \"<string>\"\n      },\n      {\n       \"CategoryCode\": \"<integer>\",\n       \"CategoryName\": \"<string>\",\n       \"Code\": \"<integer>\",\n       \"ExternalCode\": \"<string>\",\n       \"Name\": \"<string>\"\n      }\n     ],\n     \"HtmlTarget\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"ImageUrl\": \"<string>\",\n     \"IndexName\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"ReferenceDate\": \"<dateTime>\",\n     \"ReleaseDate\": \"<dateTime>\",\n     \"Runtime\": \"<integer>\",\n     \"SeasonHtmlTarget\": \"<string>\",\n     \"SeasonId\": \"<integer>\",\n     \"SeasonName\": \"<string>\",\n     \"SeasonNumber\": \"<integer>\",\n     \"SeriesHtmlTarget\": \"<string>\",\n     \"SeriesId\": \"<integer>\",\n     \"SeriesName\": \"<string>\",\n     \"ShortDescription\": \"<string>\",\n     \"Standalone\": \"<boolean>\",\n     \"StructureType\": \"<integer>\",\n     \"ThumbnailUrl\": \"<string>\",\n     \"LineOfBusiness\": \"<integer>\"\n    },\n    {\n     \"AllowMultiplePurchases\": \"<boolean>\",\n     \"EpisodeNumber\": \"<integer>\",\n     \"ExternalId\": \"<string>\",\n     \"GuidanceRatings\": [\n      {\n       \"CategoryCode\": \"<integer>\",\n       \"CategoryName\": \"<string>\",\n       \"Code\": \"<integer>\",\n       \"ExternalCode\": \"<string>\",\n       \"Name\": \"<string>\"\n      },\n      {\n       \"CategoryCode\": \"<integer>\",\n       \"CategoryName\": \"<string>\",\n       \"Code\": \"<integer>\",\n       \"ExternalCode\": \"<string>\",\n       \"Name\": \"<string>\"\n      }\n     ],\n     \"HtmlTarget\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"ImageUrl\": \"<string>\",\n     \"IndexName\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"ReferenceDate\": \"<dateTime>\",\n     \"ReleaseDate\": \"<dateTime>\",\n     \"Runtime\": \"<integer>\",\n     \"SeasonHtmlTarget\": \"<string>\",\n     \"SeasonId\": \"<integer>\",\n     \"SeasonName\": \"<string>\",\n     \"SeasonNumber\": \"<integer>\",\n     \"SeriesHtmlTarget\": \"<string>\",\n     \"SeriesId\": \"<integer>\",\n     \"SeriesName\": \"<string>\",\n     \"ShortDescription\": \"<string>\",\n     \"Standalone\": \"<boolean>\",\n     \"StructureType\": \"<integer>\",\n     \"ThumbnailUrl\": \"<string>\",\n     \"LineOfBusiness\": \"<integer>\"\n    }\n   ],\n   \"AdditionalProperties\": [\n    {\n     \"ExternalReference\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Values\": [\n      \"<string>\",\n      \"<string>\"\n     ]\n    },\n    {\n     \"ExternalReference\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Values\": [\n      \"<string>\",\n      \"<string>\"\n     ]\n    }\n   ]\n  },\n  \"JSONData\": \"<string>\",\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Store Update Device Content",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "42baf3c7-3188-4c0b-930c-50dd78b62446",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8382cc16-be46-49a2-8b4f-275d366205b7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"UpdateDeviceRequest\": {\n        \"SubscriberDevice\": {\n            \"Description\": \"{{device_description}}\",\n            \"DeviceId\": \"{{device_deviceid}}\",\n            \"DeviceType\": \"{{device_type}}\",\n            \"Id\": \"{{device_id}}\",\n            \"Nickname\": \"{{$randomProductName}}\",\n            \"PhysicalDeviceType\": \"{{device_physicaldevicetype}}\"\n\n        }\n    },\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{ConnectEmail}}\",\n            \"Email\": \"{{ConnectEmail}}\",\n            \"CineplexConnectId\": \"{{user_guid}}\",\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"en-CA\",\n            \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n        },\n        \"IsSSO\": true,\n        \"Language\": \"en-CA\"\n    },\n    \"Language\": \"en-CA\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreUpdateDeviceContent"
+          },
+          "response": [
+            {
+              "id": "6975c482-4e5d-4f05-bc8e-387770dc40b4",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"UpdateDeviceRequest\": {\n        \"SubscriberDevice\": {\n            \"Description\": \"<string>\",\n            \"DeviceId\": \"<string>\",\n            \"DeviceType\": \"<integer>\",\n            \"Id\": \"<integer>\",\n            \"Nickname\": \"<string>\",\n            \"PhysicalDeviceType\": \"<integer>\",\n            \"Start\": \"<dateTime>\",\n            \"Status\": \"<enum>\",\n            \"StatusName\": \"<string>\"\n        }\n    },\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreUpdateDeviceContent"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreUpdateDeviceContentResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"DeviceInfo\": {\n   \"Description\": \"<string>\",\n   \"DeviceId\": \"<string>\",\n   \"DeviceType\": \"<integer>\",\n   \"Id\": \"<integer>\",\n   \"Nickname\": \"<string>\",\n   \"PhysicalDeviceType\": \"<integer>\",\n   \"Start\": \"<dateTime>\",\n   \"Status\": \"<enum>\",\n   \"StatusName\": \"<string>\"\n  },\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Store Remove Device Content",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2434a507-ede6-4d54-939a-d92bad57c27e",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "605834f8-3171-44e9-85b0-9edcc1418cc2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{ConnectEmail}}\",\n            \"Email\": \"{{ConnectEmail}}\",\n            \"CineplexConnectId\": \"{{cineplexConnectId}}\",\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"en-CA\",\n            \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n        },\n        \"IsSSO\": true,\n        \"Language\": \"en-CA\"\n    },\n    \"Language\": \"en-CA\",\n    \"UnregisterDeviceRequest\": {\n        \"DeviceId\": \"{{device_deviceid}}\",\n        \"IncludeExternalData\": \"true\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreRemoveDeviceContent"
+          },
+          "response": [
+            {
+              "id": "1e09e6e9-0b3c-42b5-937f-f3e36c50d063",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"UnregisterDeviceRequest\": {\n        \"AuthenticationKey\": \"<string>\",\n        \"DeviceId\": \"<string>\",\n        \"IncludeExternalData\": \"<boolean>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreRemoveDeviceContent"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreRemoveDeviceResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Store Get Product Detail Page Info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ac8e7da7-20af-4ecc-bfba-95a809bdfbce",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f77ced95-c422-4c2d-bea2-17f1206dd5c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{ConnectEmail}}\",\n            \"Email\": \"{{ConnectEmail}}\",\n            \"CineplexConnectId\": \"{{cineplexConnectId}}\",\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"en-CA\",\n            \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n        },\n        \"IsSSO\": true,\n        \"Language\": \"en-CA\"\n    },\n    \"Language\": \"en-CA\",\n    \"ProductId\": \"{{ProductId}}\",\n    \"PricingPlanId\": 28459,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreGetProductDetailPageInfo"
+          },
+          "response": [
+            {
+              "id": "6fa25046-3d0e-40e2-b4ce-11efc6c599a1",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RedemptionCodes\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"ProductId\": \"<integer>\",\n    \"PricingPlanId\": \"<integer>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreGetProductDetailPageInfo"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "null"
+            }
+          ]
+        },
+        {
+          "name": "Store Create Coupon Redemption Code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a080ef59-9dc3-4433-9feb-caf7c41a0c68",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f5510c88-a894-412a-8366-fcb3ffafc878",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"StoreCouponRedemptionCodeRequest\": {\r\n    \"Language\": \"en-CA\",\r\n    \"RedemptionCode\": \"joshtestmasterpin27\",\r\n    \"RedemptionCouponValue\": \"4105\",\r\n    \"CDUserEmail\": \"webmaster@cineplex.com\",\r\n    \"CDPassword\": \"Inter@ctive1303\"\r\n  }\r\n}"
+            },
+            "url": "{{Connect_URL}}/StoreCreateCouponRedemptionCode"
+          },
+          "response": [
+            {
+              "id": "84b1fda2-aa7b-4538-b547-860325f8f7e0",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"StoreCouponRedemptionCodeRequest\": {\n        \"Language\": \"<string>\",\n        \"RedemptionCode\": \"<string>\",\n        \"RedemptionCouponValue\": \"<string>\",\n        \"CDUserEmail\": \"<string>\",\n        \"CDPassword\": \"<string>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreCreateCouponRedemptionCode"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreCouponRedemptionCodeResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"CouponRedemptionCode\": {\n   \"CouponId\": {\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n   },\n   \"Expiration\": \"<dateTime>\",\n   \"RedemptionCode\": \"<string>\",\n   \"Status\": \"<enum>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "3e17a978-7f92-4393-a80c-7e3e27b88fa5",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "cc82d9cd-385c-436e-a8ba-2dd75fed2d05",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "ef8a8085-fc13-407b-848e-b2ebbab44cf7",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -12130,55 +14926,55 @@
   ],
   "variable": [
     {
-      "id": "721c317a-b9d5-4904-a0d4-2d269c8979f0",
+      "id": "f9578579-2927-4f3a-aedc-dbc3867d2918",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "b32c2b16-a04a-4a28-9bf6-40c75370d670",
+      "id": "31740ccf-d73c-4db6-90d1-75609bd8c707",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8327a545-0129-4b99-8372-2ef0b7e2aaff",
+      "id": "1f168fb4-593f-4a48-80ee-2c7d835e7708",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5cc26773-6809-4ccd-a089-510dac6bb4ef",
+      "id": "32ee36b9-4ec5-4d36-9182-e53e9106a34f",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "4699c4df-8f73-4153-b34f-e7e3629f333c",
+      "id": "25c05384-ebb8-4ab5-a057-1af353919f6e",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "46c9c3c4-7b48-48e9-b28b-8a3c96a20083",
+      "id": "1823c1b9-bd3f-4125-8315-65fcdf8c02c7",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ac953c23-cb2a-4335-a5b1-beff8622e897",
+      "id": "a1a7932f-0021-4a81-9731-b4b756c489cf",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "23096161-83c1-49b9-bb4d-a75b2b50f294",
+      "id": "5223715a-dada-4010-b2e7-b53a24ce9529",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7697107a-9182-43cc-844a-d3a6f828a7e9",
+      "id": "91aa19c3-8c78-4568-bee4-209df138e452",
       "key": "radius",
       "value": "50",
       "type": "string"
