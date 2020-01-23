@@ -8951,6 +8951,2879 @@
           }
         }
       ]
+    },
+    {
+      "name": "Connect-Profile",
+      "item": [
+        {
+          "name": "Get Connect User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3f8300d1-e4df-480a-8cbf-9f2355147223",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "230959fc-4d00-4b37-a4e2-6082ff873749",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetConnectUser"
+          },
+          "response": [
+            {
+              "id": "59cc17bb-fba1-4c80-97aa-1666d9b89fff",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetConnectUser"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"ConnectUser\": {\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"MobileNumber\": \"<long>\",\n  \"Gender\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"Birthday\": \"<string>\",\n  \"AddressLine1\": \"<string>\",\n  \"AddressLine2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"ProvinceCode\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"CountryCode\": \"<string>\",\n  \"ProfilePictureUrl\": \"<string>\",\n  \"MemberSinceDate\": \"<dateTime>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Connected Networks",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "94c39d02-17f9-4db2-ae85-f3f9ceb2018a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a2e86e25-5eec-4223-ae9c-fe78b8bc988e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetConnectedNetworks"
+          },
+          "response": [
+            {
+              "id": "a2561c4d-4824-4818-ab1f-73f7bcfac749",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetConnectedNetworks"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"ConnectedNetworks\": {\n  \"IsFacebookConnected\": \"<boolean>\",\n  \"FacebookUserId\": \"<string>\",\n  \"IsTwitterConnected\": \"<boolean>\",\n  \"TwitterUserId\": \"<long>\",\n  \"TwitterScreenName\": \"<string>\",\n  \"IsGooglePlusConnected\": \"<boolean>\",\n  \"GooglePlusUserId\": \"<string>\",\n  \"IsMicrosoftAccountConnected\": \"<boolean>\",\n  \"MicrosoftAccountUserId\": \"<string>\",\n  \"IsCineplexConnected\": \"<boolean>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Connect Pin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "884c2f17-7654-4b4d-9904-c68461df8def",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "be20a360-4fa0-425a-aa77-17f1b061c762",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\",\n    \"ConnectPassword\": \"{{ConnectPassword}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/CreateConnectPin"
+          },
+          "response": [
+            {
+              "id": "9c9d3efd-ced8-4c4e-8273-3a3a3a336fde",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ConnectPin\": \"<string>\",\n    \"ConnectPassword\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/CreateConnectPin"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Validate Connect Pin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "26ffce5f-16a9-4dfe-930d-9386203c4ee3",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b3e08bf7-bc39-4fb1-9a08-29db77cd4690",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/ValidateConnectPin"
+          },
+          "response": [
+            {
+              "id": "36f48d5b-1da1-47f1-b20c-c33c4ce1d131",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ConnectPin\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ValidateConnectPin"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Validate Connect User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ee78eded-fcbf-4bde-bef0-22719e15588e",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "514866ba-9508-41e0-ad5d-e40ca7edb6a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/ValidateConnectUser"
+          },
+          "response": [
+            {
+              "id": "2c7ca1a5-5152-4506-8aad-e6258d2c6925",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"GetUserProfileGuid\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ValidateConnectUser"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Email\": \"<string>\",\n \"IsCineplexUser\": \"<boolean>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Forgot Connect Pin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0c5e59db-93b7-4c33-94d4-1765329a6d34",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e5e0d064-e526-46f1-a316-0ba6cd1f2ff9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/ForgotConnectPin"
+          },
+          "response": [
+            {
+              "id": "7dc27e77-a248-416e-bafa-f5b2e0a2ea61",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ForgotConnectPin"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Validate Connect Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "32aa1fcb-767e-4175-bdbc-65f41f1f4d41",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b7b60731-e812-47b3-b827-14dd33ec105d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPassword\": \"{{ConnectPassword}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/ValidateConnectPassword"
+          },
+          "response": [
+            {
+              "id": "f45aa0f0-ba9e-40af-aa0f-3f9fc9389aaa",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ConnectPassword\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ValidateConnectPassword"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Connect User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "94a53ae0-92a2-490b-a4e6-36fd4e3d65eb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(2);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "df3ceebe-9943-490a-88c1-ff9e05cbe999",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfile\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\",\n        \"AddressLine1\": \"1300 Yonge St\",\n        \"AddressLine2\": \"\",\n        \"City\": \"TORONTO\",\n        \"ProvinceCode\": \"ON\",\n        \"PostalCode\": \"M4T1X3\",\n        \"CountryCode\": \"CA\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/UpdateConnectUser"
+          },
+          "response": [
+            {
+              "id": "27290fee-910d-4037-8a4a-bb94ac3bac63",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"UserProfile\": {\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"MobileNumber\": \"<long>\",\n        \"Gender\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"Birthday\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"CountryCode\": \"<string>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateConnectUser"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update User Profile Info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "af2fbea9-53eb-433e-9199-aacf08893c88",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(2);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "acfc5ac1-c850-42cc-b0ee-6bcca15fb9f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/UpdateUserProfileInfo"
+          },
+          "response": [
+            {
+              "id": "a9e25f3e-7241-43e5-b71e-63c92ea033b2",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"MobileNumber\": \"<long>\",\n        \"Gender\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"Birthday\": \"<string>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateUserProfileInfo"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Profile Info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "13dd7e76-0e69-4e17-8b4a-d8c4dcc77971",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7ca263bd-22cf-4c0f-b83b-e5568c4e4513",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserProfileInfo"
+          },
+          "response": [
+            {
+              "id": "6e75a0fb-87e5-41cd-8886-7831763d1388",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserProfileInfo"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"ConnectUser\": {\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"MobileNumber\": \"<long>\",\n  \"Gender\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"Birthday\": \"<string>\",\n  \"AddressLine1\": \"<string>\",\n  \"AddressLine2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"ProvinceCode\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"CountryCode\": \"<string>\",\n  \"ProfilePictureUrl\": \"<string>\",\n  \"MemberSinceDate\": \"<dateTime>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Vouchers",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "511430c4-8013-4574-bbfb-7d8dacc18999",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a2de0ee5-8a73-43f6-981e-c29258360c03",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetVouchers"
+          },
+          "response": [
+            {
+              "id": "4801590b-8dc5-4fa4-95b9-3a80732671c6",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetVouchers"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Vouchers\": [\n  {\n   \"Id\": \"<long>\",\n   \"Code\": \"<string>\",\n   \"System\": \"<enum>\",\n   \"DescriptionEnglish\": \"<string>\",\n   \"DescriptionFrench\": \"<string>\",\n   \"ExpiryDate\": \"<dateTime>\",\n   \"IsGeneric\": \"<boolean>\",\n   \"Type\": \"<enum>\",\n   \"Language\": \"<enum>\",\n   \"DateRedeemed\": \"<dateTime>\",\n   \"DateAwarded\": \"<dateTime>\",\n   \"VHODescriptionEnglish\": \"<string>\",\n   \"VHODescriptionFrench\": \"<string>\",\n   \"VHODescriptionTypeId\": \"<integer>\",\n   \"VoucherImageEnglishUrl\": \"<string>\",\n   \"VoucherImageFrenchUrl\": \"<string>\",\n   \"VoucherBackgroundImageUrl\": \"<string>\",\n   \"ViewMoreEnglishUrl\": \"<string>\",\n   \"ViewMoreFrenchUrl\": \"<string>\",\n   \"TermsAndConditionsEnglish\": \"<string>\",\n   \"TermsAndConditionsFrench\": \"<string>\",\n   \"COTDateRedeemed\": \"<dateTime>\",\n   \"COTEmailAddress\": \"<string>\",\n   \"COTOrderCode\": \"<dateTime>\",\n   \"COTTrustedClientId\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"LocationName\": \"<string>\",\n   \"LocationId\": \"<integer>\",\n   \"VISTABookingId\": \"<string>\",\n   \"FilmName\": \"<string>\",\n   \"RedeemedShowTime\": \"<dateTime>\",\n   \"ShowBarcode\": \"<boolean>\",\n   \"DisplayExpiryDate\": \"<dateTime>\",\n   \"IsActive\": \"<boolean>\",\n   \"DisplayExpiryDateString\": \"<string>\",\n   \"DateAwardedString\": \"<string>\",\n   \"RedeemedShowTimeString\": \"<string>\",\n   \"DateRedeemedString\": \"<string>\"\n  },\n  {\n   \"Id\": \"<long>\",\n   \"Code\": \"<string>\",\n   \"System\": \"<enum>\",\n   \"DescriptionEnglish\": \"<string>\",\n   \"DescriptionFrench\": \"<string>\",\n   \"ExpiryDate\": \"<dateTime>\",\n   \"IsGeneric\": \"<boolean>\",\n   \"Type\": \"<enum>\",\n   \"Language\": \"<enum>\",\n   \"DateRedeemed\": \"<dateTime>\",\n   \"DateAwarded\": \"<dateTime>\",\n   \"VHODescriptionEnglish\": \"<string>\",\n   \"VHODescriptionFrench\": \"<string>\",\n   \"VHODescriptionTypeId\": \"<integer>\",\n   \"VoucherImageEnglishUrl\": \"<string>\",\n   \"VoucherImageFrenchUrl\": \"<string>\",\n   \"VoucherBackgroundImageUrl\": \"<string>\",\n   \"ViewMoreEnglishUrl\": \"<string>\",\n   \"ViewMoreFrenchUrl\": \"<string>\",\n   \"TermsAndConditionsEnglish\": \"<string>\",\n   \"TermsAndConditionsFrench\": \"<string>\",\n   \"COTDateRedeemed\": \"<dateTime>\",\n   \"COTEmailAddress\": \"<string>\",\n   \"COTOrderCode\": \"<dateTime>\",\n   \"COTTrustedClientId\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"LocationName\": \"<string>\",\n   \"LocationId\": \"<integer>\",\n   \"VISTABookingId\": \"<string>\",\n   \"FilmName\": \"<string>\",\n   \"RedeemedShowTime\": \"<dateTime>\",\n   \"ShowBarcode\": \"<boolean>\",\n   \"DisplayExpiryDate\": \"<dateTime>\",\n   \"IsActive\": \"<boolean>\",\n   \"DisplayExpiryDateString\": \"<string>\",\n   \"DateAwardedString\": \"<string>\",\n   \"RedeemedShowTimeString\": \"<string>\",\n   \"DateRedeemedString\": \"<string>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get PayPal Information",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "511430c4-8013-4574-bbfb-7d8dacc18999",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5d7a7c2b-d68d-4113-83a3-a8f8660ab5ce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetPayPalInformation"
+          },
+          "response": [
+            {
+              "id": "dda2123a-32ed-4f38-bc8f-e5f98ba52ac2",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetVouchers"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Vouchers\": [\n  {\n   \"Id\": \"<long>\",\n   \"Code\": \"<string>\",\n   \"System\": \"<enum>\",\n   \"DescriptionEnglish\": \"<string>\",\n   \"DescriptionFrench\": \"<string>\",\n   \"ExpiryDate\": \"<dateTime>\",\n   \"IsGeneric\": \"<boolean>\",\n   \"Type\": \"<enum>\",\n   \"Language\": \"<enum>\",\n   \"DateRedeemed\": \"<dateTime>\",\n   \"DateAwarded\": \"<dateTime>\",\n   \"VHODescriptionEnglish\": \"<string>\",\n   \"VHODescriptionFrench\": \"<string>\",\n   \"VHODescriptionTypeId\": \"<integer>\",\n   \"VoucherImageEnglishUrl\": \"<string>\",\n   \"VoucherImageFrenchUrl\": \"<string>\",\n   \"VoucherBackgroundImageUrl\": \"<string>\",\n   \"ViewMoreEnglishUrl\": \"<string>\",\n   \"ViewMoreFrenchUrl\": \"<string>\",\n   \"TermsAndConditionsEnglish\": \"<string>\",\n   \"TermsAndConditionsFrench\": \"<string>\",\n   \"COTDateRedeemed\": \"<dateTime>\",\n   \"COTEmailAddress\": \"<string>\",\n   \"COTOrderCode\": \"<dateTime>\",\n   \"COTTrustedClientId\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"LocationName\": \"<string>\",\n   \"LocationId\": \"<integer>\",\n   \"VISTABookingId\": \"<string>\",\n   \"FilmName\": \"<string>\",\n   \"RedeemedShowTime\": \"<dateTime>\",\n   \"ShowBarcode\": \"<boolean>\",\n   \"DisplayExpiryDate\": \"<dateTime>\",\n   \"IsActive\": \"<boolean>\",\n   \"DisplayExpiryDateString\": \"<string>\",\n   \"DateAwardedString\": \"<string>\",\n   \"RedeemedShowTimeString\": \"<string>\",\n   \"DateRedeemedString\": \"<string>\"\n  },\n  {\n   \"Id\": \"<long>\",\n   \"Code\": \"<string>\",\n   \"System\": \"<enum>\",\n   \"DescriptionEnglish\": \"<string>\",\n   \"DescriptionFrench\": \"<string>\",\n   \"ExpiryDate\": \"<dateTime>\",\n   \"IsGeneric\": \"<boolean>\",\n   \"Type\": \"<enum>\",\n   \"Language\": \"<enum>\",\n   \"DateRedeemed\": \"<dateTime>\",\n   \"DateAwarded\": \"<dateTime>\",\n   \"VHODescriptionEnglish\": \"<string>\",\n   \"VHODescriptionFrench\": \"<string>\",\n   \"VHODescriptionTypeId\": \"<integer>\",\n   \"VoucherImageEnglishUrl\": \"<string>\",\n   \"VoucherImageFrenchUrl\": \"<string>\",\n   \"VoucherBackgroundImageUrl\": \"<string>\",\n   \"ViewMoreEnglishUrl\": \"<string>\",\n   \"ViewMoreFrenchUrl\": \"<string>\",\n   \"TermsAndConditionsEnglish\": \"<string>\",\n   \"TermsAndConditionsFrench\": \"<string>\",\n   \"COTDateRedeemed\": \"<dateTime>\",\n   \"COTEmailAddress\": \"<string>\",\n   \"COTOrderCode\": \"<dateTime>\",\n   \"COTTrustedClientId\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"LocationName\": \"<string>\",\n   \"LocationId\": \"<integer>\",\n   \"VISTABookingId\": \"<string>\",\n   \"FilmName\": \"<string>\",\n   \"RedeemedShowTime\": \"<dateTime>\",\n   \"ShowBarcode\": \"<boolean>\",\n   \"DisplayExpiryDate\": \"<dateTime>\",\n   \"IsActive\": \"<boolean>\",\n   \"DisplayExpiryDateString\": \"<string>\",\n   \"DateAwardedString\": \"<string>\",\n   \"RedeemedShowTimeString\": \"<string>\",\n   \"DateRedeemedString\": \"<string>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get The REC Room Events",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "eaa3ce84-6d33-44f1-b578-4fc924113097",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d9e625e7-67a9-4b2a-8fa5-80480e8cbdb4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": \"5\",\n        \"RequestedPage\": \"1\",\n        \"PageSize\": \"20\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetEvents"
+          },
+          "response": [
+            {
+              "id": "9e71fbeb-e623-419d-b6fd-bdb275e51e6e",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": \"<enum>\",\n        \"RequestedPage\": \"<integer>\",\n        \"PageSize\": \"<integer>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetEvents"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"OrderHistory\": [\n  {\n   \"TicketOrder\": [\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    },\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    }\n   ],\n   \"VoucherOrder\": [\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    },\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    }\n   ],\n   \"DateTimePurchased\": \"<dateTime>\",\n   \"TheatreName\": \"<string>\",\n   \"CityLocation\": \"<string>\",\n   \"ProvinceLocation\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"MobilePickup\": \"<boolean>\",\n   \"Guid\": \"<guid>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TransactionId\": \"<long>\",\n   \"BookingId\": \"<string>\",\n   \"TransactionNumber\": \"<integer>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationGuid\": \"<guid>\",\n   \"PurchaseSource\": \"<enum>\",\n   \"YearsOfPurchase\": \"<string>\",\n   \"FilmEnhancementCode\": \"<string>\",\n   \"FilmRating\": \"<string>\",\n   \"FilmRatingImageUrl\": \"<string>\",\n   \"FilmRuntime\": \"<integer>\",\n   \"PosterImageUrl\": \"<string>\",\n   \"UserRating\": {\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\",\n    \"CommandStatus\": \"<enum>\"\n   },\n   \"IsMovieFinished\": \"<boolean>\",\n   \"ScenePointsEarned\": \"<integer>\",\n   \"ScenePointsRedeemed\": \"<integer>\",\n   \"AllTicketsRefunded\": \"<boolean>\",\n   \"ShowUpgradeSuperticket\": \"<boolean>\",\n   \"DateTimePurchasedString\": \"<string>\",\n   \"PurchaseDateString\": \"<string>\",\n   \"PurchaseTimeString\": \"<string>\",\n   \"IsShowReceipt\": \"<boolean>\"\n  },\n  {\n   \"TicketOrder\": [\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    },\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    }\n   ],\n   \"VoucherOrder\": [\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    },\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    }\n   ],\n   \"DateTimePurchased\": \"<dateTime>\",\n   \"TheatreName\": \"<string>\",\n   \"CityLocation\": \"<string>\",\n   \"ProvinceLocation\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"MobilePickup\": \"<boolean>\",\n   \"Guid\": \"<guid>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TransactionId\": \"<long>\",\n   \"BookingId\": \"<string>\",\n   \"TransactionNumber\": \"<integer>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationGuid\": \"<guid>\",\n   \"PurchaseSource\": \"<enum>\",\n   \"YearsOfPurchase\": \"<string>\",\n   \"FilmEnhancementCode\": \"<string>\",\n   \"FilmRating\": \"<string>\",\n   \"FilmRatingImageUrl\": \"<string>\",\n   \"FilmRuntime\": \"<integer>\",\n   \"PosterImageUrl\": \"<string>\",\n   \"UserRating\": {\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\",\n    \"CommandStatus\": \"<enum>\"\n   },\n   \"IsMovieFinished\": \"<boolean>\",\n   \"ScenePointsEarned\": \"<integer>\",\n   \"ScenePointsRedeemed\": \"<integer>\",\n   \"AllTicketsRefunded\": \"<boolean>\",\n   \"ShowUpgradeSuperticket\": \"<boolean>\",\n   \"DateTimePurchasedString\": \"<string>\",\n   \"PurchaseDateString\": \"<string>\",\n   \"PurchaseTimeString\": \"<string>\",\n   \"IsShowReceipt\": \"<boolean>\"\n  }\n ],\n \"ReservationHistory\": [\n  {\n   \"TransactionId\": \"<long>\",\n   \"TransactionGuid\": \"<guid>\",\n   \"EditUrlString\": \"<string>\",\n   \"CancelUrlString\": \"<string>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationName\": \"<string>\",\n   \"City\": \"<string>\",\n   \"ProvinceCode\": \"<string>\",\n   \"VistaBookingId\": \"<string>\",\n   \"ReservationDateTime\": \"<dateTime>\",\n   \"NumberOfGuests\": \"<integer>\",\n   \"ReservationVenueCode\": \"<string>\",\n   \"ReservationVenueName\": \"<string>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\"\n  },\n  {\n   \"TransactionId\": \"<long>\",\n   \"TransactionGuid\": \"<guid>\",\n   \"EditUrlString\": \"<string>\",\n   \"CancelUrlString\": \"<string>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationName\": \"<string>\",\n   \"City\": \"<string>\",\n   \"ProvinceCode\": \"<string>\",\n   \"VistaBookingId\": \"<string>\",\n   \"ReservationDateTime\": \"<dateTime>\",\n   \"NumberOfGuests\": \"<integer>\",\n   \"ReservationVenueCode\": \"<string>\",\n   \"ReservationVenueName\": \"<string>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Corporate User Profile",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "59d5dc54-9888-4d3a-882b-67362aa94fc2",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "eb1e8f38-1436-4655-a936-07ff1803dbf4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetCorporateUserProfile"
+          },
+          "response": [
+            {
+              "id": "4cd20a10-abf5-48e1-b2a4-933672126cf4",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetCorporateUserProfile"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"CorporateUser\": {\n  \"ProfileId\": \"<long>\",\n  \"ProfileGuid\": \"<guid>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"MobileNumber\": \"<long>\",\n  \"Extension\": \"<long>\",\n  \"Language\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"CompanyEmail\": \"<string>\",\n  \"CompanyContact\": \"<long>\",\n  \"CompanyContactExtension\": \"<long>\",\n  \"CorporateUsageId\": \"<integer>\",\n  \"IsReceivePromotions\": \"<boolean>\",\n  \"IsPaymentEFT\": \"<boolean>\",\n  \"IsPaymentCheque\": \"<boolean>\",\n  \"IsAR\": \"<boolean>\",\n  \"CorporateShippingAddress\": {\n   \"AttentionTo\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"City\": \"<string>\",\n   \"Province\": \"<string>\",\n   \"Country\": \"<string>\",\n   \"PostalCode\": \"<string>\",\n   \"PhoneNumber\": \"<string>\",\n   \"PhoneExtension\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"CompanyName\": \"<string>\",\n   \"IsBillingBoolean\": \"<boolean>\"\n  },\n  \"CorporateBillingAddress\": {\n   \"AttentionTo\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"City\": \"<string>\",\n   \"Province\": \"<string>\",\n   \"Country\": \"<string>\",\n   \"PostalCode\": \"<string>\",\n   \"PhoneNumber\": \"<string>\",\n   \"PhoneExtension\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"CompanyName\": \"<string>\",\n   \"IsBillingBoolean\": \"<boolean>\"\n  },\n  \"ShippingEmail\": \"<string>\",\n  \"BillingEmail\": \"<string>\",\n  \"ShipToCompany\": \"<string>\",\n  \"EPPLocationId\": \"<integer>\",\n  \"IsActive\": \"<boolean>\",\n  \"ActivatedOn\": \"<dateTime>\",\n  \"LastLoginDate\": \"<dateTime>\",\n  \"LastAccessedDate\": \"<dateTime>\",\n  \"LastAccessedDevice\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"PasswordLockout\": \"<boolean>\",\n  \"NoEmailActivation\": \"<boolean>\",\n  \"AccountStatus\": \"<string>\",\n  \"RejectReason\": \"<string>\",\n  \"RejectReasonId\": \"<enum>\",\n  \"ContactStatus\": \"<enum>\",\n  \"IsCRMSynchronized\": \"<boolean>\",\n  \"IsConciergeSubscribed\": \"<boolean>\",\n  \"IsNotificationAllowed\": \"<boolean>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Profile Info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6530573a-7074-4851-95f7-fe4c4e26eb52",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "48d439e8-799f-4272-a7b7-99d6062a42f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserProfileInfo"
+          },
+          "response": [
+            {
+              "id": "89f7b40c-ab6a-4917-9a43-55eb091ea2e1",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserProfileInfo"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"ConnectUser\": {\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"MobileNumber\": \"<long>\",\n  \"Gender\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"Birthday\": \"<string>\",\n  \"AddressLine1\": \"<string>\",\n  \"AddressLine2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"ProvinceCode\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"CountryCode\": \"<string>\",\n  \"ProfilePictureUrl\": \"<string>\",\n  \"MemberSinceDate\": \"<dateTime>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Watch List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "39f20859-9f59-4612-844a-0ef27a365373",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "99596584-2444-433c-9a15-b18314493185",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserWatchList"
+          },
+          "response": [
+            {
+              "id": "e78be35d-7f53-4ee1-8af1-6a6e42af6e55",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserWatchList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"WatchList\": {\n  \"WatchListItem\": [\n   {\n    \"WatchListEntry\": [\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     },\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     }\n    ],\n    \"WatchListEntityStateID\": \"<integer>\",\n    \"UserWatchListID\": \"<long>\",\n    \"DateAdded\": \"<dateTime>\",\n    \"ProductName\": \"<string>\",\n    \"Result\": {\n     \"Status\": \"<enum>\",\n     \"Message\": [\n      \"<string>\",\n      \"<string>\"\n     ],\n     \"MessageDetails\": \"<string>\"\n    }\n   },\n   {\n    \"WatchListEntry\": [\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     },\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     }\n    ],\n    \"WatchListEntityStateID\": \"<integer>\",\n    \"UserWatchListID\": \"<long>\",\n    \"DateAdded\": \"<dateTime>\",\n    \"ProductName\": \"<string>\",\n    \"Result\": {\n     \"Status\": \"<enum>\",\n     \"Message\": [\n      \"<string>\",\n      \"<string>\"\n     ],\n     \"MessageDetails\": \"<string>\"\n    }\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Watch List By Entity Type",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d83bdbd0-b66d-46fd-b384-63eae87081d2",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1a3f93e2-65a7-408b-a680-1c6005a24ce0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"EntityTypeId\": 1,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserWatchListByEntityType"
+          },
+          "response": [
+            {
+              "id": "35c621e0-c439-4a88-af45-847c99a54e64",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"EntityTypeId\": \"<integer>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserWatchListByEntityType"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"EntityIdList\": [\n  \"<long>\",\n  \"<long>\"\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Item From Watch List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d7f509b7-4dab-4bf9-8516-6c1c949eacbb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "bb3c6476-0ee7-488f-babb-06e9322aa2d5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"RemoveItemFromWatchList\": {\n        \"EntityID\": \"21755\",\n        \"EntityTypeID\": \"1\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/RemoveItemFromWatchList"
+          },
+          "response": [
+            {
+              "id": "d5f30397-9551-4bd5-848f-2fdb52230ba8",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RemoveItemFromWatchList\": {\n        \"EntityID\": \"<long>\",\n        \"EntityTypeID\": \"<integer>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/RemoveItemFromWatchList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Item To Watch List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "755e5493-8c29-4cdd-954f-082463f70398",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7f7c31be-eb2c-4eb9-95ac-7a82f1f9227d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"AddItemToWatchList\": {\n        \"EntityID\": \"21755\",\n        \"EntityTypeID\": \"1\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/AddItemToWatchList"
+          },
+          "response": [
+            {
+              "id": "b07b56df-d079-485c-9caf-4b7b7a60f375",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"AddItemToWatchList\": {\n        \"EntityID\": \"<long>\",\n        \"EntityTypeID\": \"<integer>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddItemToWatchList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Ratings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8ff750c3-2a81-4d9c-9b02-877568bddcc7",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "383eb245-d6f8-4818-b818-decfa3d9e28a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"RatingContentType\": 1,\n    \"ContentId\": 22996\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserRatings"
+          },
+          "response": [
+            {
+              "id": "af9d16d2-6d73-4add-abf4-8739379bb577",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserRatings"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": \"<string>\",\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Set User Ratings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c6f7340d-368a-44af-a741-92e3a4d72cbe",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "c42225cf-b7e4-44b3-adab-f42be7f07d18",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"RatingContentType\": 1,\n    \"ContentId\": 22996,\n    \"IsLike\": false\n}"
+            },
+            "url": "{{Connect_URL}}/SetUserRatings"
+          },
+          "response": [
+            {
+              "id": "d06c3bc8-83de-4539-a871-b3fa342cf3a4",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/SetUserRatings"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Watch List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2eccd41d-aede-4839-985c-416d9edfed08",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2e96245b-d563-4993-bc85-1b7828e92abf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserWatchList"
+          },
+          "response": [
+            {
+              "id": "68d4230e-e72b-411b-ac68-4f6f0226114f",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserWatchList"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"WatchList\": {\n  \"WatchListItem\": [\n   {\n    \"WatchListEntry\": [\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     },\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     }\n    ],\n    \"WatchListEntityStateID\": \"<integer>\",\n    \"UserWatchListID\": \"<long>\",\n    \"DateAdded\": \"<dateTime>\",\n    \"ProductName\": \"<string>\",\n    \"Result\": {\n     \"Status\": \"<enum>\",\n     \"Message\": [\n      \"<string>\",\n      \"<string>\"\n     ],\n     \"MessageDetails\": \"<string>\"\n    }\n   },\n   {\n    \"WatchListEntry\": [\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     },\n     {\n      \"EntityID\": \"<long>\",\n      \"EntityTypeID\": \"<integer>\",\n      \"WatchListSortOrder\": \"<integer>\",\n      \"ProductName\": \"<string>\",\n      \"SortOrder\": \"<integer>\",\n      \"ImageUrl\": \"<string>\",\n      \"Action_Url\": \"<string>\",\n      \"Is_Available\": \"<boolean>\",\n      \"ReleaseDate\": \"<dateTime>\",\n      \"TrailerUrl\": \"<string>\"\n     }\n    ],\n    \"WatchListEntityStateID\": \"<integer>\",\n    \"UserWatchListID\": \"<long>\",\n    \"DateAdded\": \"<dateTime>\",\n    \"ProductName\": \"<string>\",\n    \"Result\": {\n     \"Status\": \"<enum>\",\n     \"Message\": [\n      \"<string>\",\n      \"<string>\"\n     ],\n     \"MessageDetails\": \"<string>\"\n    }\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Watch List By Entity Type",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6ce9399b-9bcf-4b58-8e65-b7d7ade65403",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a9731a94-9b53-4691-aa71-e05c7d63aa50",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"EntityTypeId\": 1,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetUserWatchListByEntityType"
+          },
+          "response": [
+            {
+              "id": "a7bd2854-5123-494b-87cc-8936007377ae",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"EntityTypeId\": \"<integer>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserWatchListByEntityType"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"EntityIdList\": [\n  \"<long>\",\n  \"<long>\"\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Is Item Watch Listed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "be827d78-5e28-4f59-9cc3-92f4d9e45e75",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f6ffac1b-0e75-431a-bef9-386c71bd4842",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
+            },
+            "url": "{{Connect_URL}}/IsItemWatchListed"
+          },
+          "response": [
+            {
+              "id": "dbf1b71a-9436-4038-945c-51242d57ce7b",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"EntityID\": \"<long>\",\n    \"EntityTypeID\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Gift Cards",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8c83195e-0d30-492d-a9e2-d960995f84c9",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "var cardsInfo = jsonBody.GiftCardInfo.Cards;",
+                  "",
+                  "for (i=0; i<cardsInfo.length; i++) {",
+                  "  pm.test(\"Card Number :\" + cardsInfo[i].CardNumber + \" \" + \"Card Balance :\" + cardsInfo[i].Balance); ",
+                  "}",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"giftcardNumber\", jsonBody.GiftCardInfo.Cards[0].CardNumber);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "298bc696-3f72-4475-a1dc-afc17ca9654a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetGiftCards"
+          },
+          "response": [
+            {
+              "id": "cc9a3c9e-b350-4e4c-83d3-5a4545c69822",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ForceBalanceUpdate\": \"<boolean>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetGiftCards"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"GiftCardInfo\": {\n  \"Cards\": [\n   {\n    \"CardNumber\": \"<string>\",\n    \"Balance\": \"<decimal>\",\n    \"SortOrder\": \"<int16>\",\n    \"BalanceLastUpdated\": \"<dateTime>\",\n    \"Status\": \"<enum>\",\n    \"CSGPaymentInstrumentId\": \"<integer>\"\n   },\n   {\n    \"CardNumber\": \"<string>\",\n    \"Balance\": \"<decimal>\",\n    \"SortOrder\": \"<int16>\",\n    \"BalanceLastUpdated\": \"<dateTime>\",\n    \"Status\": \"<enum>\",\n    \"CSGPaymentInstrumentId\": \"<integer>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Gift Card Balance",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "32409c4a-bf7f-417b-b0db-e4c929d7928b",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
+                "exec": [
+                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "    console.log(\"setting the giftcard number - UAT\");",
+                  "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
+                  "    console.log(\"setting the giftcard PIN - UAT\");",
+                  "    pm.environment.set(\"giftcardPin\", 19632363)",
+                  "} else {",
+                  "    console.log(\"setting the giftcard number - Prod\");",
+                  "    pm.environment.set(\"giftcardNumber\", 6173227373558019);",
+                  "    console.log(\"setting the giftcard PIN - Prod\");",
+                  "    pm.environment.set(\"giftcardPin\", 17943595)",
+                  "}    ",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8a5c3a7a-a312-4dd3-931d-21e887386399",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"CardNumber\": \"{{giftcardNumber}}\",\n    \"Pin\": \"{{giftcardPin}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/GetGiftCardBalance"
+          },
+          "response": [
+            {
+              "id": "aa358cb8-8e10-4f1e-9652-ec7e9ee5293a",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"LanguageType\": \"<enum>\",\n    \"Pin\": \"<string>\",\n    \"CardNumber\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetGiftCardBalance"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n },\n \"Balance\": \"<decimal>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Change Address Book Sort Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ab1e65f8-4c1d-444a-9ba0-4517573aebda",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8aa48d75-6aab-468b-9053-7d46c4af5f5b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/ChangeAddressBookSortOrder"
+          },
+          "response": [
+            {
+              "id": "a3e3001b-7ac8-4f68-88db-043c6c0cfe26",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"<integer>\",\n        \"NewSortOrder\": \"<integer>\",\n        \"CSGSubscriberId\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ChangeAddressBookSortOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Addresses By Postal Code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a8d38388-bd33-4f58-8460-0e600180f8d3",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "65875ec8-9166-4e26-845f-8d2d1ee77e6d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"PostalCode\": \"M1M1M1\"\n}"
+            },
+            "url": "{{Connect_URL}}/GetAddressesByPostalCode"
+          },
+          "response": [
+            {
+              "id": "6f6a2051-7633-42be-9fcd-eee92a7def06",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"LanguageType\": \"<enum>\",\n    \"PostalCode\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetAddressesByPostalCode"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"AddressBook\": {\n  \"AddressBookEntries\": [\n   {\n    \"FullName\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"PhoneNumber\": \"<long>\",\n    \"Extension\": \"<long>\",\n    \"SortOrder\": \"<integer>\",\n    \"IsBilling\": \"<boolean>\",\n    \"NickName\": \"<string>\",\n    \"AddressBookType\": \"<enum>\"\n   },\n   {\n    \"FullName\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"PhoneNumber\": \"<long>\",\n    \"Extension\": \"<long>\",\n    \"SortOrder\": \"<integer>\",\n    \"IsBilling\": \"<boolean>\",\n    \"NickName\": \"<string>\",\n    \"AddressBookType\": \"<enum>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Address Book",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f37ae171-88d5-4fe1-93d4-a7ac020bcc59",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8a8bccd5-3502-408a-9092-d350cec4aa27",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetAddressBook"
+          },
+          "response": [
+            {
+              "id": "53fe2c14-8fa1-46a5-8cb7-ef2b5f210db3",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetAddressBook"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"AddressBook\": {\n  \"AddressBookEntries\": [\n   {\n    \"FullName\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"PhoneNumber\": \"<long>\",\n    \"Extension\": \"<long>\",\n    \"SortOrder\": \"<integer>\",\n    \"IsBilling\": \"<boolean>\",\n    \"NickName\": \"<string>\",\n    \"AddressBookType\": \"<enum>\"\n   },\n   {\n    \"FullName\": \"<string>\",\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"PhoneNumber\": \"<long>\",\n    \"Extension\": \"<long>\",\n    \"SortOrder\": \"<integer>\",\n    \"IsBilling\": \"<boolean>\",\n    \"NickName\": \"<string>\",\n    \"AddressBookType\": \"<enum>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Address Book Entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bebf980b-7eaa-42c5-87d1-0f2be2479cd7",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8fbb580d-f460-4472-a077-5fc78643507e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"SortOrder\": \"7\"\n}"
+            },
+            "url": "{{Connect_URL}}/RemoveAddressBookEntry"
+          },
+          "response": [
+            {
+              "id": "782456eb-0cd1-4bbe-b109-3c4536fdeabd",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"SortOrder\": \"<integer>\",\n    \"IsBilling\": \"<boolean>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/RemoveAddressBookEntry"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Address Book Entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e72b1a20-0ad6-44c7-bef8-b75de3294f3a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4b106e63-491a-4a99-85c2-109f6df437f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"SortOrder\": \"7\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"NickName\": \"abcdefg\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/UpdateAddressBookEntry"
+          },
+          "response": [
+            {
+              "id": "b801bf7a-e3c3-4a6e-a9e7-12b71fa2d316",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"PhoneNumber\": \"<long>\",\n        \"Extension\": \"<long>\",\n        \"SortOrder\": \"<integer>\",\n        \"IsBilling\": \"<boolean>\",\n        \"NickName\": \"<string>\",\n        \"AddressBookType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateAddressBookEntry"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Address Book Entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a2830f52-65e2-4747-ba32-a724a78d672d",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "76912e12-614b-45a3-8efa-df4079536b66",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/AddAddressBookEntry"
+          },
+          "response": [
+            {
+              "id": "924f068f-99a9-421b-95c1-7b2b86609329",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"IsBilling\": \"<boolean>\",\n        \"PhoneNumber\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Is Item Watch Listed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1f79298f-1496-4cb9-80fa-f987f9bfe690",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e0027938-eca2-4daf-8223-bdd81c716b2b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
+            },
+            "url": "{{Connect_URL}}/IsItemWatchListed"
+          },
+          "response": [
+            {
+              "id": "c9b5eb2c-dd85-4c9b-aae0-724b1a03e13d",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"EntityID\": \"<long>\",\n    \"EntityTypeID\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Scene Points History",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4d60cda1-7fc4-4b08-a61d-24b134b98e9f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d3261f7d-63f5-40b8-bf21-aec26bbd8ed2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SortOrder\": \"1\",\n    \"RequestedPage\": \"1\",\n    \"PageSize\": \"10\",\n    \"RequestedYear\": \"2019\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetScenePointsHistory"
+          },
+          "response": [
+            {
+              "id": "ba3d3966-037c-475c-8ce6-84a1da4051db",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SortOrder\": \"<integer>\",\n    \"RequestedPage\": \"<integer>\",\n    \"PageSize\": \"<integer>\",\n    \"RequestedYear\": \"<integer>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetScenePointsHistory"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"SceneCardHistory\": [\n  {\n   \"TransactionId\": \"<string>\",\n   \"Points\": \"<integer>\",\n   \"PointReportingTypeCode\": \"<string>\",\n   \"PointMetaDataCode\": \"<string>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TransactionCreated\": \"<dateTime>\",\n   \"TransactionTime\": \"<dateTime>\",\n   \"TransactionTimeDateString\": \"<string>\",\n   \"TransactionTimeTimeString\": \"<string>\"\n  },\n  {\n   \"TransactionId\": \"<string>\",\n   \"Points\": \"<integer>\",\n   \"PointReportingTypeCode\": \"<string>\",\n   \"PointMetaDataCode\": \"<string>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TransactionCreated\": \"<dateTime>\",\n   \"TransactionTime\": \"<dateTime>\",\n   \"TransactionTimeDateString\": \"<string>\",\n   \"TransactionTimeTimeString\": \"<string>\"\n  }\n ],\n \"Status\": \"<enum>\",\n \"Message\": \"<string>\",\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Scene Info",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f608a182-f32b-4ca4-bdb0-52a05b1de504",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a0fe5ad5-5cdc-4f36-8a79-7f78b90e9357",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetSceneInfo"
+          },
+          "response": [
+            {
+              "id": "218a84bc-2386-4fd7-b287-08bcf1ef8f15",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetSceneInfo"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"SceneInfo\": {\n  \"Cards\": [\n   {\n    \"CardNumber\": \"<string>\",\n    \"CardMemberName\": \"<string>\",\n    \"MembershipId\": \"<string>\",\n    \"PointsBalance\": \"<integer>\",\n    \"SortOrder\": \"<int16>\",\n    \"PointsLastUpdated\": \"<dateTime>\",\n    \"CSGPaymentInstrumentId\": \"<integer>\",\n    \"MaskedCardNumber\": \"<string>\",\n    \"MembershipLevel\": \"<enum>\",\n    \"MembershipLevelExpiryDate\": \"<dateTime>\"\n   },\n   {\n    \"CardNumber\": \"<string>\",\n    \"CardMemberName\": \"<string>\",\n    \"MembershipId\": \"<string>\",\n    \"PointsBalance\": \"<integer>\",\n    \"SortOrder\": \"<int16>\",\n    \"PointsLastUpdated\": \"<dateTime>\",\n    \"CSGPaymentInstrumentId\": \"<integer>\",\n    \"MaskedCardNumber\": \"<string>\",\n    \"MembershipLevel\": \"<enum>\",\n    \"MembershipLevelExpiryDate\": \"<dateTime>\"\n   }\n  ]\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Scene Sort Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "831bcb52-e6d5-44c9-b5fc-f5d9e158bfbb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f3160394-947c-48df-9c67-85ae94e13599",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/UpdateSceneSortOrder"
+          },
+          "response": [
+            {
+              "id": "885f8e9d-a8cb-45e1-b35f-6b4125896859",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"<integer>\",\n        \"NewSortOrder\": \"<integer>\",\n        \"CSGSubscriberId\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateSceneSortOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Ticketing Order History",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4895f8ed-7845-4f06-9373-c04320bcf5d6",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3ab29313-e136-409f-b755-7d464ab21b8c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetTicketingOrderHistory"
+          },
+          "response": [
+            {
+              "id": "eda9f1cf-ee52-4da1-b5cd-f8b9ff8b09fa",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": \"<enum>\",\n        \"RequestedPage\": \"<integer>\",\n        \"PageSize\": \"<integer>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetTicketingOrderHistory"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"OrderHistory\": [\n  {\n   \"TicketOrder\": [\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    },\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    }\n   ],\n   \"VoucherOrder\": [\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    },\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    }\n   ],\n   \"DateTimePurchased\": \"<dateTime>\",\n   \"TheatreName\": \"<string>\",\n   \"CityLocation\": \"<string>\",\n   \"ProvinceLocation\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"MobilePickup\": \"<boolean>\",\n   \"Guid\": \"<guid>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TransactionId\": \"<long>\",\n   \"BookingId\": \"<string>\",\n   \"TransactionNumber\": \"<integer>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationGuid\": \"<guid>\",\n   \"PurchaseSource\": \"<enum>\",\n   \"YearsOfPurchase\": \"<string>\",\n   \"FilmEnhancementCode\": \"<string>\",\n   \"FilmRating\": \"<string>\",\n   \"FilmRatingImageUrl\": \"<string>\",\n   \"FilmRuntime\": \"<integer>\",\n   \"PosterImageUrl\": \"<string>\",\n   \"UserRating\": {\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\",\n    \"CommandStatus\": \"<enum>\"\n   },\n   \"IsMovieFinished\": \"<boolean>\",\n   \"ScenePointsEarned\": \"<integer>\",\n   \"ScenePointsRedeemed\": \"<integer>\",\n   \"AllTicketsRefunded\": \"<boolean>\",\n   \"ShowUpgradeSuperticket\": \"<boolean>\",\n   \"DateTimePurchasedString\": \"<string>\",\n   \"PurchaseDateString\": \"<string>\",\n   \"PurchaseTimeString\": \"<string>\",\n   \"IsShowReceipt\": \"<boolean>\"\n  },\n  {\n   \"TicketOrder\": [\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    },\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    }\n   ],\n   \"VoucherOrder\": [\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    },\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    }\n   ],\n   \"DateTimePurchased\": \"<dateTime>\",\n   \"TheatreName\": \"<string>\",\n   \"CityLocation\": \"<string>\",\n   \"ProvinceLocation\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"MobilePickup\": \"<boolean>\",\n   \"Guid\": \"<guid>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TransactionId\": \"<long>\",\n   \"BookingId\": \"<string>\",\n   \"TransactionNumber\": \"<integer>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationGuid\": \"<guid>\",\n   \"PurchaseSource\": \"<enum>\",\n   \"YearsOfPurchase\": \"<string>\",\n   \"FilmEnhancementCode\": \"<string>\",\n   \"FilmRating\": \"<string>\",\n   \"FilmRatingImageUrl\": \"<string>\",\n   \"FilmRuntime\": \"<integer>\",\n   \"PosterImageUrl\": \"<string>\",\n   \"UserRating\": {\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\",\n    \"CommandStatus\": \"<enum>\"\n   },\n   \"IsMovieFinished\": \"<boolean>\",\n   \"ScenePointsEarned\": \"<integer>\",\n   \"ScenePointsRedeemed\": \"<integer>\",\n   \"AllTicketsRefunded\": \"<boolean>\",\n   \"ShowUpgradeSuperticket\": \"<boolean>\",\n   \"DateTimePurchasedString\": \"<string>\",\n   \"PurchaseDateString\": \"<string>\",\n   \"PurchaseTimeString\": \"<string>\",\n   \"IsShowReceipt\": \"<boolean>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Booking Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "018fa72b-0f7e-4fa0-bc5a-d09741c91314",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8d3bef66-3859-4421-9c31-63870ce93489",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"LocationID\": \"{{theatre_id}}\",\n        \"VistaBookingID\": \"WTQ4KG4\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetBookingDetails"
+          },
+          "response": [
+            {
+              "id": "4906f56d-85d6-420a-80f9-56fdb5677270",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"OrderRequest\": {\n        \"LocationID\": \"<integer>\",\n        \"VistaBookingID\": \"<string>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetBookingDetails"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"OrderHistory\": [\n  {\n   \"TicketOrder\": [\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    },\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    }\n   ],\n   \"VoucherOrder\": [\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    },\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    }\n   ],\n   \"DateTimePurchased\": \"<dateTime>\",\n   \"TheatreName\": \"<string>\",\n   \"CityLocation\": \"<string>\",\n   \"ProvinceLocation\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"MobilePickup\": \"<boolean>\",\n   \"Guid\": \"<guid>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TransactionId\": \"<long>\",\n   \"BookingId\": \"<string>\",\n   \"TransactionNumber\": \"<integer>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationGuid\": \"<guid>\",\n   \"PurchaseSource\": \"<enum>\",\n   \"YearsOfPurchase\": \"<string>\",\n   \"FilmEnhancementCode\": \"<string>\",\n   \"FilmRating\": \"<string>\",\n   \"FilmRatingImageUrl\": \"<string>\",\n   \"FilmRuntime\": \"<integer>\",\n   \"PosterImageUrl\": \"<string>\",\n   \"UserRating\": {\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\",\n    \"CommandStatus\": \"<enum>\"\n   },\n   \"IsMovieFinished\": \"<boolean>\",\n   \"ScenePointsEarned\": \"<integer>\",\n   \"ScenePointsRedeemed\": \"<integer>\",\n   \"AllTicketsRefunded\": \"<boolean>\",\n   \"ShowUpgradeSuperticket\": \"<boolean>\",\n   \"DateTimePurchasedString\": \"<string>\",\n   \"PurchaseDateString\": \"<string>\",\n   \"PurchaseTimeString\": \"<string>\",\n   \"IsShowReceipt\": \"<boolean>\"\n  },\n  {\n   \"TicketOrder\": [\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    },\n    {\n     \"TicketId\": \"<long>\",\n     \"Amount\": \"<decimal>\",\n     \"Movie\": \"<string>\",\n     \"MovieID\": \"<string>\",\n     \"FilmId\": \"<integer>\",\n     \"Showtime\": \"<string>\",\n     \"ShowtimeDateTime\": \"<dateTime>\",\n     \"ReservedSeats\": \"<string>\",\n     \"NumberOfTickets\": \"<integer>\",\n     \"TypeOfTicket\": \"<string>\",\n     \"ScreenName\": \"<string>\",\n     \"SessionId\": \"<long>\",\n     \"VistaSessionId\": \"<integer>\",\n     \"TransactionId\": \"<long>\",\n     \"SeriesName\": \"<string>\",\n     \"PosterImageUrl\": \"<string>\",\n     \"SequenceNumber\": \"<int16>\",\n     \"IsSuperTicketEligible\": \"<boolean>\",\n     \"IsRefunded\": \"<boolean>\",\n     \"UpgradeToSuperTicketUrl\": \"<string>\",\n     \"TicketStatus\": \"<enum>\",\n     \"TicketStatusDateTime\": \"<dateTime>\",\n     \"ShareTicketStatus\": \"<enum>\",\n     \"ShareTicketRecipientName\": \"<string>\",\n     \"ShareTicketSenderName\": \"<string>\",\n     \"ShareTicketDateTime\": \"<dateTime>\",\n     \"LocationIPAddress\": \"<string>\",\n     \"IsLike\": \"<enum>\",\n     \"BarCode\": \"<string>\",\n     \"IsVIP\": \"<boolean>\",\n     \"TransactionRowType\": \"<string>\",\n     \"SuperTicketPriceString\": \"<string>\",\n     \"SuperTicketSceneString\": \"<string>\",\n     \"ShowtimeDateString\": \"<string>\",\n     \"ShowtimeTimeString\": \"<string>\"\n    }\n   ],\n   \"VoucherOrder\": [\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    },\n    {\n     \"BarCode\": \"<string>\",\n     \"InformationTitle\": \"<string>\",\n     \"InformationBodyHeader\": \"<string>\",\n     \"InformationBody\": \"<string>\"\n    }\n   ],\n   \"DateTimePurchased\": \"<dateTime>\",\n   \"TheatreName\": \"<string>\",\n   \"CityLocation\": \"<string>\",\n   \"ProvinceLocation\": \"<string>\",\n   \"AddressLine1\": \"<string>\",\n   \"AddressLine2\": \"<string>\",\n   \"EmailAddress\": \"<string>\",\n   \"MobilePickup\": \"<boolean>\",\n   \"Guid\": \"<guid>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TransactionId\": \"<long>\",\n   \"BookingId\": \"<string>\",\n   \"TransactionNumber\": \"<integer>\",\n   \"LocationId\": \"<integer>\",\n   \"LocationGuid\": \"<guid>\",\n   \"PurchaseSource\": \"<enum>\",\n   \"YearsOfPurchase\": \"<string>\",\n   \"FilmEnhancementCode\": \"<string>\",\n   \"FilmRating\": \"<string>\",\n   \"FilmRatingImageUrl\": \"<string>\",\n   \"FilmRuntime\": \"<integer>\",\n   \"PosterImageUrl\": \"<string>\",\n   \"UserRating\": {\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\",\n    \"IsLike\": \"<boolean>\",\n    \"CommandStatus\": \"<enum>\"\n   },\n   \"IsMovieFinished\": \"<boolean>\",\n   \"ScenePointsEarned\": \"<integer>\",\n   \"ScenePointsRedeemed\": \"<integer>\",\n   \"AllTicketsRefunded\": \"<boolean>\",\n   \"ShowUpgradeSuperticket\": \"<boolean>\",\n   \"DateTimePurchasedString\": \"<string>\",\n   \"PurchaseDateString\": \"<string>\",\n   \"PurchaseTimeString\": \"<string>\",\n   \"IsShowReceipt\": \"<boolean>\"\n  }\n ],\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Payment Cards",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "42b57e9f-3797-4c76-9489-4ff07bcc0a5a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e36b443d-43b3-47ce-ad52-cd3580f00342",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_grid}}\",\n    \"LanguageType\": 1\n}"
+            },
+            "url": "{{Connect_URL}}/GetPaymentCards"
+          },
+          "response": [
+            {
+              "id": "55f89c3c-1877-42b8-97b7-acdbeaaea079",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"LanguageType\": \"<enum>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetPaymentCards"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"PaymentCardInfo\": {\n  \"Cards\": [\n   {\n    \"Type\": \"<enum>\",\n    \"CardHolderName\": \"<string>\",\n    \"CardNumber\": \"<string>\",\n    \"ExpiryDate\": \"<string>\",\n    \"SortOrder\": \"<integer>\",\n    \"CSGPaymentInstrumentId\": \"<integer>\",\n    \"FriendlyName\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"PostalCode\": \"<string>\"\n   },\n   {\n    \"Type\": \"<enum>\",\n    \"CardHolderName\": \"<string>\",\n    \"CardNumber\": \"<string>\",\n    \"ExpiryDate\": \"<string>\",\n    \"SortOrder\": \"<integer>\",\n    \"CSGPaymentInstrumentId\": \"<integer>\",\n    \"FriendlyName\": \"<string>\",\n    \"ProvinceCode\": \"<string>\",\n    \"CountryCode\": \"<string>\",\n    \"PostalCode\": \"<string>\"\n   }\n  ],\n  \"SecurityType\": \"<enum>\"\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "1d27ff61-983c-4956-9285-7a2e7646c4d1",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "177c53f1-a2ae-4413-889c-2c0eec461315",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "aca3994a-b471-4439-822a-86e417972243",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -9005,55 +11878,55 @@
   ],
   "variable": [
     {
-      "id": "4240e10c-b71d-4b10-a415-19a46ed643bc",
+      "id": "767019ec-c9f3-4874-9b8d-3f70b98374d8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "070c3e65-6934-429a-94f4-907f3c10e0d5",
+      "id": "f2ccf9ef-bc89-41e8-a2e0-13aca3c41b70",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c7d28461-e125-4891-89b6-b65e872cf047",
+      "id": "a4fac1e6-6716-4fd7-98d4-64c60640b751",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6ec2d8c2-7d36-41b9-a2a1-e140d1dfeea2",
+      "id": "67fb7b1e-14e7-4b41-924c-ea2b3a978414",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "65824d5d-80a1-4335-b164-d7e5dd10306b",
+      "id": "c60938ef-4532-42d3-84e9-2419e8fb786c",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "0d34fd06-670a-43a7-9d41-64c3dcdc9453",
+      "id": "1c525b67-e83d-4175-b97c-0d76f539e99a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "46ca717c-1805-4d80-923c-f1b868deafe5",
+      "id": "6190f463-69ac-4d08-9989-99c5623f2d4a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3c2ee07a-542a-4e3d-91bb-7700f35e1ea3",
+      "id": "6bc8e7e0-c6e6-4afa-a59d-00a7424795ed",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "85aeb3e8-3c3e-4f68-83ec-eedc937a93e6",
+      "id": "f8a71ed5-604f-4874-85b8-ecb7c8a698aa",
       "key": "radius",
       "value": "50",
       "type": "string"
