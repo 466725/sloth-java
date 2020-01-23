@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "dba9ddfe-3c96-4304-b3ed-feff35a66eb3",
+      "id": "e86571a4-fb45-445d-bb6b-a14e7687bef6",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "31287585-1994-4bb4-97a4-2874f90b7766",
+      "id": "5f2d02bb-c227-4881-bc79-537bbeba699f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "1e1f5ecf-745a-442e-9754-5e40781518b0",
+      "id": "32e7c7ec-f24d-45ba-ae08-c5dae574e10f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "2479bbca-d29c-4d3f-bd6a-b47546d57a7f",
+      "id": "b10a7e62-18e4-4c4f-8620-41980c3cfb39",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "43c214d4-bbce-47c0-93ab-70ad3f123c7f",
+      "id": "b3dc30f3-6af0-4bca-8cf0-f34d2a2290fc",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "12492b8a-16a0-465e-98df-e2affacda75b",
+      "id": "f8eb1c5e-825d-499e-abe4-ebbc6a8a6038",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f24783a7-7bb7-410f-b3ae-4fb27648b469",
+      "id": "5ede0137-43cc-45c1-ae9c-c3e7a67fa441",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "79c82c20-be57-4944-8767-1fcfc92944f4",
+      "id": "860cb28f-7a5b-448c-a5b1-5c1347d22346",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "aa2db22b-6e12-46cb-b1d0-e79919d7060e",
+      "id": "428c7c4e-39cb-46d4-aec5-7c6a713e2a9c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d7c4f853-f247-44d6-a210-93c708224cf2",
+      "id": "7084ca74-99d2-4622-be70-9f8cc00d088a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
