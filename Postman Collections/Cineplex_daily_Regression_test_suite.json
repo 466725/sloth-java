@@ -9433,9 +9433,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\"\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\"\n}"
             },
-            "url": "{{Connect_URL}}/ValidateConnectUser"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ValidateConnectUser"
           },
           "response": [
             {
@@ -9505,9 +9505,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{Connect_URL}}/ForgotConnectPin"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ForgotConnectPin"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "b5464cd3-eb8e-464e-8a87-79d09a52f02d",
+      "id": "771a67f7-eec4-4869-9045-04fe196c1075",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7de7c7ea-61da-4796-aeea-ca6491450bbd",
+      "id": "f2305127-fb6a-49e9-b67d-638a4d1aed8f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "77a66679-1e40-4c17-92d5-3887076b0cfe",
+      "id": "d0fa0655-6615-4546-a3a9-31d061b0651f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cfff484e-b6af-4d7f-a1b1-082adc55d874",
+      "id": "ad8b0205-16b7-4172-97a0-0a83a49dd63b",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "55d8caac-a0ad-4924-8256-d6ccd94d2a87",
+      "id": "42c50e9b-ffea-469b-8aa4-8e7c09921b67",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "2b817ae1-fc8e-48d8-a049-95a274c254a1",
+      "id": "be929c2c-bf68-4264-a8c9-0686d2e4251e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "02963b28-b9de-4179-b105-b471222804e9",
+      "id": "a8b5a861-e806-4dec-9ff0-9adef7089c13",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "69f61486-f536-4fd6-9883-5f3b56bf805c",
+      "id": "48149cee-fb6a-40c3-b89c-606c26fbc53e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "16d042fe-d811-45d4-94d7-d4a85d17ff3f",
+      "id": "ebb5b3b4-8f85-4123-82b6-4916bf9d3744",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "7548664c-76ed-46cd-94b4-9e8cd1b88688",
+      "id": "a3322a89-50fd-4d39-88d7-7aee9de59af5",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
