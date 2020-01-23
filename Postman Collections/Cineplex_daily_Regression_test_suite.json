@@ -9577,9 +9577,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPassword\": \"{{ConnectPassword}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPassword\": \"{{password}}\"\n}"
             },
-            "url": "{{Connect_URL}}/ValidateConnectPassword"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ValidateConnectPassword"
           },
           "response": [
             {
@@ -9649,9 +9649,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfile\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\",\n        \"AddressLine1\": \"1300 Yonge St\",\n        \"AddressLine2\": \"\",\n        \"City\": \"TORONTO\",\n        \"ProvinceCode\": \"ON\",\n        \"PostalCode\": \"M4T1X3\",\n        \"CountryCode\": \"CA\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfile\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\",\n        \"AddressLine1\": \"1300 Yonge St\",\n        \"AddressLine2\": \"\",\n        \"City\": \"TORONTO\",\n        \"ProvinceCode\": \"ON\",\n        \"PostalCode\": \"M4T1X3\",\n        \"CountryCode\": \"CA\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/UpdateConnectUser"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateConnectUser"
           },
           "response": [
             {
@@ -9721,9 +9721,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/UpdateUserProfileInfo"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateUserProfileInfo"
           },
           "response": [
             {
@@ -9793,9 +9793,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{Connect_URL}}/GetUserProfileInfo"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserProfileInfo"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "134de216-bde1-48de-8657-14db4444bf29",
+      "id": "9703dea8-6826-4209-b0ff-ea5d2a76dee6",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "014b0296-e5b9-4d17-b050-495b811e072d",
+      "id": "12a4aaa4-521b-47fa-9f02-2e6aded950b9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "6101edd3-aebb-473e-ba6f-fabef0731227",
+      "id": "cd4d326d-bcc7-4c5c-a12d-4a3f4a9f0874",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "8d0007a2-f52d-40ea-8869-4b79434fa77a",
+      "id": "d7da1c39-88d0-4108-ba6f-a00903db4d39",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "b36c305f-a411-4d75-8dc3-5bba09de5986",
+      "id": "ec8a9a8d-9e57-4b83-951c-ae8dd2f97c15",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4a3e9c54-9b13-4a6b-9865-73fb46556cf6",
+      "id": "6d505ee3-e48a-4d9f-8b67-f477c18dd1b4",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "00a61e84-f338-4ac8-a14e-ed34559bc6f7",
+      "id": "00ec4ea3-8a3e-44db-a306-12702d6db416",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c1cc91ee-3a6d-420d-9bb1-8f235642b2cc",
+      "id": "d381ce6e-6b8f-4551-b50c-afbcee7df342",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "73e947b5-aad9-4ea1-bbe8-176468cc1651",
+      "id": "fc23be30-17b9-46a2-8404-e0b8dd017dd6",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "f346ee2d-1dd6-4be5-bb7c-ab6d862b2f61",
+      "id": "06f63e13-9ce2-45b0-8dce-923021b8142f",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
