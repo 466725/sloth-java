@@ -13423,9 +13423,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateFavouriteTheatreSortOrder"
+            "url": "{{Connect_URL}}/UpdateFavouriteTheatreSortOrder"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "b71d6f86-8c68-449d-ae9d-6c700c2b6a83",
+      "id": "cd4c2829-8e5e-482b-b9b9-2cb96d78748d",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "5623e56d-c1aa-4019-8b8a-c7c3a4ae2ebd",
+      "id": "225f12ee-4333-44ef-b49a-df1736cf83ec",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "d530d04c-121f-45a3-899a-1c9a44e4f240",
+      "id": "00c063d6-618e-4f38-a2dd-3526dff8edc1",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "534b15f0-33f2-47ca-a393-825125f09758",
+      "id": "de623f54-df7d-40e0-8716-36aa1bbed415",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4ecb8036-57aa-4461-bef8-07cd1dfc9c4d",
+      "id": "5447d0e3-79c8-4907-a616-53eae35c44ff",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f9c8faec-d632-42d3-ad88-67cffc7fb20f",
+      "id": "56ab18e0-de7a-4c31-9df2-30fb0c3a3353",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1b7ed49d-d6cd-4cf1-91fa-74b43e56b7c3",
+      "id": "bea8af27-7490-4b3b-8541-39ec32824858",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "0a549066-b3bd-458a-bf85-5d9cc0ef8986",
+      "id": "e4da970b-710f-4dd7-a15f-1e77eec4ea53",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "23434164-ecfb-48ae-886a-e230411bd793",
+      "id": "ce2db1c1-47d8-4f5f-baa9-dcf49bca460c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "556e3e36-6acd-4127-83a3-3cd2378a9b3e",
+      "id": "3519270b-911e-4c0a-a357-1a7717b6b8af",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
