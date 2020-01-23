@@ -14454,7 +14454,7 @@
               "mode": "raw",
               "raw": "{\n    \"StoreProductQuery\": {\n        \"ProductId\": \"{{ProductId}}\",\n        \"DeviceTypeCode\": 16\n    }\n}"
             },
-            "url": "{{Connect_URL}}/StoreGetProductInfo"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetProductInfo"
           },
           "response": [
             {
@@ -14865,61 +14865,61 @@
   ],
   "variable": [
     {
-      "id": "8633acbc-6b91-403d-889b-7ec41f107a3e",
+      "id": "3b315964-ce40-466d-8522-344d7b5453a1",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "815bc45d-a22c-4e30-b183-606aaaf6c888",
+      "id": "0de38f4c-4b00-490b-a3b2-c48e353f22e2",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "86737367-2e1a-4b35-9b1a-6c1034bb6daf",
+      "id": "760344c0-ebd7-4af3-8670-44e73d46f211",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "c770b70a-caf7-49e5-80b7-77d385715dda",
+      "id": "f25e2c16-9343-49c3-bb88-7f6d2f759616",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d640236d-4ce1-42b5-9ab8-d0022d38c1f8",
+      "id": "bdcc7de9-d689-4897-8cf8-a6b8f227cb1b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "8b4ed7a0-f6b8-45ad-b99b-eea8e2bcedd4",
+      "id": "8d09430c-6bbb-4baa-9f43-2ae8f0587abc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "77d6ff31-103e-4291-9416-9f311a01d91e",
+      "id": "d6495614-a21f-4fe0-a744-217ae58debfd",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b9c63109-db0f-42d5-8487-e9209daa32ba",
+      "id": "27d1dd0d-0e94-42ee-bf02-2b7eeb238f95",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "94b6a197-f892-4464-8a2a-a0a3d63f648d",
+      "id": "1ec3686e-95ee-4f11-9f18-dbf0560b4fd3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "a5609e92-6560-4861-a984-e4176ee62ec7",
+      "id": "8b4f2624-fe69-4b55-91eb-1b8bc0a601d4",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
