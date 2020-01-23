@@ -1198,7 +1198,7 @@
                   "",
                   "var creditCardInfo = jsonBody.CreditCards;",
                   "pm.test(\"Credit Card List not Empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
+                  "    pm.expect(creditCardInfo.length).to.be(0);",
                   "});",
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
@@ -1272,7 +1272,7 @@
                   "",
                   "var creditCardInfo = jsonBody.CreditCards;",
                   "pm.test(\"Credit Card List not Empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
+                  "    pm.expect(creditCardInfo.length).to.be(0);",
                   "});",
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
@@ -14865,67 +14865,67 @@
   ],
   "variable": [
     {
-      "id": "eae888aa-a8e4-44ad-9527-662bb76ce775",
+      "id": "ff898292-d7dc-4a4a-93a9-780e12913c9c",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "cc60c11f-b7aa-4a43-91a6-ebba9334737d",
+      "id": "783e42b8-a961-49e5-ac62-861a65f55e36",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "288fdf11-9e5d-4d61-8896-ee25ad725261",
+      "id": "e392acb3-b27f-4fea-b26d-f74e6d5618df",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0188eee5-4bb6-4c53-82da-4459ce8c98c3",
+      "id": "d5f5743a-4e41-488b-b0a4-6edba49e8fb8",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "81f990f6-6fc1-4840-a0d0-99ed9a52d3e8",
+      "id": "6d5437bf-f915-4941-8702-bfbeb9d99397",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "69657b55-f658-4102-a21d-1e1e2022ac72",
+      "id": "a60eb3c3-aeda-4baf-af4b-84183b5994d9",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "2c2abc58-6536-411d-a922-ec308c0154f0",
+      "id": "b73dbb11-9e94-48e2-a62c-c004e2207cad",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d6b1af11-e5c9-4b75-867d-30a0adb17db6",
+      "id": "38133eed-a90f-487b-a579-06bb02f18949",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ced6b917-5154-4156-b8f1-6436c1e19a42",
+      "id": "b3d6bfc1-7201-4a7f-bcef-18c29d94e714",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4eb0fa8d-253f-4d46-9e07-b150a2be589f",
+      "id": "42e309e6-12ff-4c0b-880c-f83bc78fdab1",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
     },
     {
-      "id": "e659f22b-bdb6-47cf-bccf-d036d395d7f1",
+      "id": "7e9bc854-209f-436f-b2ec-e49be3590120",
       "key": "product_id",
       "value": "671899",
       "type": "string"
