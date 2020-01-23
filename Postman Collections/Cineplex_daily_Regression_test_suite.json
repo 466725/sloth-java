@@ -10729,9 +10729,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"EntityTypeId\": 1,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"EntityTypeId\": 1,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserWatchListByEntityType"
+            "url": "{{Connect_URL}}/GetUserWatchListByEntityType"
           },
           "response": [
             {
@@ -10801,9 +10801,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
+            "url": "{{Connect_URL}}/IsItemWatchListed"
           },
           "response": [
             {
@@ -10881,9 +10881,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ForceBalanceUpdate\": false,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCards"
+            "url": "{{Connect_URL}}/GetGiftCards"
           },
           "response": [
             {
@@ -10940,7 +10940,7 @@
               "script": {
                 "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
                 "exec": [
-                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
                   "    console.log(\"setting the giftcard number - UAT\");",
                   "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
                   "    console.log(\"setting the giftcard PIN - UAT\");",
@@ -10976,7 +10976,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"CardNumber\": \"{{giftcardNumber}}\",\n    \"Pin\": \"{{giftcardPin}}\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetGiftCardBalance"
+            "url": "{{Connect_URL}}/GetGiftCardBalance"
           },
           "response": [
             {
@@ -11046,9 +11046,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ChangeAddressBookSortOrder"
+            "url": "{{Connect_URL}}/ChangeAddressBookSortOrder"
           },
           "response": [
             {
@@ -11120,7 +11120,7 @@
               "mode": "raw",
               "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"PostalCode\": \"M1M1M1\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetAddressesByPostalCode"
+            "url": "{{Connect_URL}}/GetAddressesByPostalCode"
           },
           "response": [
             {
@@ -11190,9 +11190,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetAddressBook"
+            "url": "{{Connect_URL}}/GetAddressBook"
           },
           "response": [
             {
@@ -11262,9 +11262,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"SortOrder\": \"7\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"SortOrder\": \"7\"\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/RemoveAddressBookEntry"
+            "url": "{{Connect_URL}}/RemoveAddressBookEntry"
           },
           "response": [
             {
@@ -11334,9 +11334,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"SortOrder\": \"7\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"NickName\": \"abcdefg\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"SortOrder\": \"7\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"NickName\": \"abcdefg\",\n        \"AddressBookType\": \"2\"\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateAddressBookEntry"
+            "url": "{{Connect_URL}}/UpdateAddressBookEntry"
           },
           "response": [
             {
@@ -11406,9 +11406,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
+            "url": "{{Connect_URL}}/AddAddressBookEntry"
           },
           "response": [
             {
@@ -11440,6 +11440,150 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Is Item Watch Listed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1f79298f-1496-4cb9-80fa-f987f9bfe690",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e0027938-eca2-4daf-8223-bdd81c716b2b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
+            },
+            "url": "{{Connect_URL}}/IsItemWatchListed"
+          },
+          "response": [
+            {
+              "id": "c9b5eb2c-dd85-4c9b-aae0-724b1a03e13d",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"EntityID\": \"<long>\",\n    \"EntityTypeID\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Scene Points History",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4d60cda1-7fc4-4b08-a61d-24b134b98e9f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d3261f7d-63f5-40b8-bf21-aec26bbd8ed2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SortOrder\": \"1\",\n    \"RequestedPage\": \"1\",\n    \"PageSize\": \"10\",\n    \"RequestedYear\": \"2019\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/GetScenePointsHistory"
+          },
+          "response": [
+            {
+              "id": "ba3d3966-037c-475c-8ce6-84a1da4051db",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SortOrder\": \"<integer>\",\n    \"RequestedPage\": \"<integer>\",\n    \"PageSize\": \"<integer>\",\n    \"RequestedYear\": \"<integer>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetScenePointsHistory"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"SceneCardHistory\": [\n  {\n   \"TransactionId\": \"<string>\",\n   \"Points\": \"<integer>\",\n   \"PointReportingTypeCode\": \"<string>\",\n   \"PointMetaDataCode\": \"<string>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TransactionCreated\": \"<dateTime>\",\n   \"TransactionTime\": \"<dateTime>\",\n   \"TransactionTimeDateString\": \"<string>\",\n   \"TransactionTimeTimeString\": \"<string>\"\n  },\n  {\n   \"TransactionId\": \"<string>\",\n   \"Points\": \"<integer>\",\n   \"PointReportingTypeCode\": \"<string>\",\n   \"PointMetaDataCode\": \"<string>\",\n   \"CurrentPage\": \"<integer>\",\n   \"TotalRows\": \"<integer>\",\n   \"TotalPages\": \"<integer>\",\n   \"TransactionCreated\": \"<dateTime>\",\n   \"TransactionTime\": \"<dateTime>\",\n   \"TransactionTimeDateString\": \"<string>\",\n   \"TransactionTimeTimeString\": \"<string>\"\n  }\n ],\n \"Status\": \"<enum>\",\n \"Message\": \"<string>\",\n \"MessageDetails\": \"<string>\"\n}"
             }
           ]
         },
@@ -11478,9 +11622,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetSceneInfo"
+            "url": "{{Connect_URL}}/GetSceneInfo"
           },
           "response": [
             {
@@ -11550,9 +11694,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateSceneSortOrder"
+            "url": "{{Connect_URL}}/UpdateSceneSortOrder"
           },
           "response": [
             {
@@ -14939,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "ced1971d-13b6-4241-86a3-868555408f30",
+      "id": "cb01bd4d-2395-44f0-abfc-74551cbb217b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "2dc25565-15d9-41d5-a608-dcbaaee3b1a0",
+      "id": "cb22e0ce-eaff-4acc-9118-b5af4348d673",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4ca2b728-73ec-4ab2-b597-e87a2c8ca8dc",
+      "id": "2c74e505-c5b1-45a1-a7c2-ad31a6b12b42",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5673d169-b865-4a48-b256-b44f396ff66d",
+      "id": "8250a184-ba7f-4531-a146-e751010d8680",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "8bfad797-4652-4d4e-b97a-bbc73ced336b",
+      "id": "704930da-5ff7-4c13-958a-d2e2d9348b40",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "6cfb59fa-e2cf-4662-8a2c-326a52c80236",
+      "id": "229775fa-11b5-400a-9f46-d53db55ace21",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "02c3a7c1-75ad-4175-8821-a82ae5285a7d",
+      "id": "5942431d-21a0-404a-a0a3-80d94928693f",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "370378fc-abf7-4a88-9fdd-f48583f71542",
+      "id": "0c339869-9c7c-43cd-8cc7-ab33a1e016e3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "be4cd5da-80c2-4ff9-b5a7-aad5e6bf9b02",
+      "id": "e60a03ea-a24b-4cd8-99a4-bb8a63c9282c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "045196d8-4e27-471a-b889-042a44d49f43",
+      "id": "474e6cd2-af98-4e4f-903d-14f9cb9d7ea0",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
