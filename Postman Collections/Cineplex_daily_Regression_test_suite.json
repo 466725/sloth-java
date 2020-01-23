@@ -11927,7 +11927,7 @@
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
                   "",
-                  "pm.globals.set(\"menu_id\", jsonBody.Menus[0].Id);"
+                  "pm.environment.set(\"menu_id\", jsonBody.Menus[0].Id);"
                 ],
                 "type": "text/javascript"
               }
@@ -12110,7 +12110,7 @@
               "mode": "raw",
               "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"MenuId\": \"{{menu_id}}\",\n    \"CategoryId\": \"{{concession_category_id}}\"\n}"
             },
-            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionItemsByCategory"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemsByCategory"
           },
           "response": [
             {
@@ -12182,7 +12182,7 @@
               "mode": "raw",
               "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConcessionId\": \"{{concession_item_id}}\"\n}"
             },
-            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionItemDetails"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemDetails"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "dc468f0a-e985-4896-ab60-fa79cb4b84f5",
+      "id": "5037ab48-886b-40e7-a76b-12565c028e2f",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7e22aacf-3dd2-459d-8fdd-9397be5c352b",
+      "id": "303a1677-849c-40d5-8d49-fce133219d1d",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a37c0450-9a3a-43e3-a4c3-176c500c551c",
+      "id": "509c103c-7068-4bcc-be31-6925e8ef68df",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5f3a48ab-2383-4ad2-be3a-3e481a80c6a1",
+      "id": "88964e98-8d44-4894-b5d9-1f358dddca2e",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4156c3dd-1c34-4112-82f2-386f4974c3c8",
+      "id": "f7032d84-bcf1-45e4-b129-d653db64452b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "2d70d2fe-d479-49f4-9fab-58a487f37e85",
+      "id": "ae699161-fb52-4d91-a978-ddae9cdf3b74",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0292ff4c-595c-463b-8618-10d19add717e",
+      "id": "d4c1b6ca-a32b-46d1-9a06-9adf4cdbe9be",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "640615b9-fed0-45af-8cda-551ddc95be71",
+      "id": "27dc5287-dc29-4eb5-822c-05b917dd66dc",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7263d41c-6c4e-4c6a-be6d-1f47f4ace87c",
+      "id": "dc07fd27-fd50-482e-abf7-dc0ec01c3a7a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "8a7fa8b4-ac6a-437d-90d6-020c90eb013c",
+      "id": "9d1dec85-e795-4a8b-a533-31e36faed98e",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
