@@ -13607,7 +13607,7 @@
               "mode": "raw",
               "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
+            "url": "{{Connect_URL}}/ShareTicketSend"
           },
           "response": [
             {
@@ -13964,6 +13964,82 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Reacquire Session If Necessary",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "41b27743-fff6-4708-ac8c-383ee4cd4958",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"cineplexTokenExpiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
+                  "pm.environment.set(\"session_id\", jsonBody.StoreSessionResult.SessionId);",
+                  "pm.environment.set(\"user_profile_id\", jsonBody.StoreSessionResult.SubscriberId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1b208346-f338-4100-b4fd-d7d333593676",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\":{\n\t    \"LanguageType\":\"1\",\n\t    \"SessionToken\":\"{{session_token}}\",\n\t    \"UserProfileGuid\":\"{{user_guid}}\",\n\t    \"UserSessionToken\":\"{{user_session_token}}\"\n\t},\n    \"Language\":\"en-CA\",\n    \"SessionQuery\":{\n        \"CineplexConnectId\":\"{{user_guid}}\",\n        \"Email\":\"{{ConnectEmail}}\",\n        \"FirstName\":\"{{firstName}}\",\n        \"LastName\":\"{{lastName}}\",\n        \"Login\":\"{{ConnectEmail}}\"\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/StoreReacquireSessionIfNecessary"
+          },
+          "response": [
+            {
+              "id": "d177c082-2b7d-432c-a8b1-abd2ecba7921",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"<long>\",\n        \"SessionInfo\": {\n            \"SessionId\": \"<string>\",\n            \"Login\": \"<string>\",\n            \"Email\": \"<string>\",\n            \"CineplexConnectId\": \"<string>\",\n            \"FirstName\": \"<string>\",\n            \"LastName\": \"<string>\",\n            \"Language\": \"<string>\",\n            \"CineplexTokenExpiry\": \"<dateTime>\"\n        },\n        \"IsSSO\": \"<boolean>\",\n        \"Language\": \"<string>\"\n    },\n    \"Language\": \"<string>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/StoreReacquireSessionIfNecessary"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"StoreSessionResult\": {\n  \"JSONData\": \"<string>\",\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"SubscriberId\": \"<long>\",\n  \"SessionId\": \"<string>\",\n  \"SessionInfo\": {\n   \"SessionId\": \"<string>\",\n   \"Login\": \"<string>\",\n   \"Email\": \"<string>\",\n   \"CineplexConnectId\": \"<string>\",\n   \"FirstName\": \"<string>\",\n   \"LastName\": \"<string>\",\n   \"Language\": \"<string>\",\n   \"CineplexTokenExpiry\": \"<dateTime>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
             }
           ]
         },
@@ -14863,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "d0c7a63b-3923-49b1-8b80-9b4c08fda998",
+      "id": "2f2d7030-b944-4728-929d-3362335b3846",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "146b4d23-e773-4f55-94cb-aea8bf823c90",
+      "id": "ccdcb364-8a36-4871-b74f-32363e0ac1d4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c8d0290e-12c1-489a-a8ff-495824404966",
+      "id": "ac57918a-6995-44db-8a1f-9a9b85e96f13",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "719a410b-5752-430d-b9b0-d1304b07d96a",
+      "id": "b12fe5c8-8fec-4ec4-966a-49aac27f36ee",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d26636d2-868e-48a8-a7f0-a2ef5840b0b7",
+      "id": "fdc3a7ce-20d9-4f3f-9555-6d0e02ceeafe",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a312d087-595a-428d-a440-f9f42bf505fd",
+      "id": "eb93aa2c-c4a8-409c-8809-d736b423d18f",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "37a18532-f007-4f15-bc8a-514c1903cca3",
+      "id": "183406be-fe62-4c9b-ab35-8528302b0f7b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4ec82f93-581d-4571-85dc-79ddaef877ef",
+      "id": "1e109a1c-e0e7-4ef8-bfc6-18e2e2555bd9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d50b8344-60d6-438e-a8ae-422c5264c52c",
+      "id": "9d0b0a54-b5b1-4281-9183-08f0ce899f59",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "f2d4a8bf-99ed-4b7f-974b-0488c1699022",
+      "id": "05433f77-ef81-4ed3-b6c8-54111bc2c760",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
