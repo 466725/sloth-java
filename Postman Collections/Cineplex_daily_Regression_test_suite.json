@@ -13321,7 +13321,7 @@
               "script": {
                 "id": "574086b1-8b84-4aa9-9613-f1f5e6902311",
                 "exec": [
-                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
                   "    console.log(\"setting the theatre_id - UAT\");",
                   "    pm.environment.set(\"theatre_id\", 7995)",
                   "} else {",
@@ -13423,9 +13423,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/UpdateFavouriteTheatreSortOrder"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateFavouriteTheatreSortOrder"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "a1bfb220-1dac-42e9-881a-be5168a32502",
+      "id": "17ddd149-58b4-446c-b7fe-c94bb7201169",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7ccd6f00-a0e1-4b37-9587-274748ec62fb",
+      "id": "2202d5d8-d7f2-46ff-bf5c-c53d583ff610",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "9b7c28a7-8440-4f2a-b400-b1825a301d0c",
+      "id": "18cd93b0-4d1a-4b04-93e3-cb486b764cb2",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a0baab4c-4e9c-4463-8ed8-152bdf37a704",
+      "id": "73787150-9cc6-4630-9b50-9a1b096dcd87",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "bfce8b82-1600-4c6b-afc6-410851fbfe88",
+      "id": "626f9bb4-a0ee-478b-8f46-4b61ccc268e4",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0097283a-5617-449f-82b5-1ad77edb05f6",
+      "id": "76533cb7-f2dd-43b0-952c-e9fcfbe8f9ab",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "9ecde805-4677-4c3b-9bce-5cd13ae49307",
+      "id": "51a148b6-e0fb-4c4c-9bf5-f47768d426c4",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "129431f0-6083-4225-918f-c699ae83bc8f",
+      "id": "64f3b9e9-b652-46d1-a8c1-2f01e2c311a1",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d6e58421-7aa7-499a-a180-68b3a5a1d8f6",
+      "id": "6f98593e-a1f6-4129-81c8-4bacadc36042",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0be3e8cc-287f-423a-b50e-d8fc154538fc",
+      "id": "e911f441-931c-49b4-ae5a-db844168ed43",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
