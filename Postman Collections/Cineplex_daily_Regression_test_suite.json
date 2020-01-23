@@ -13321,7 +13321,7 @@
               "script": {
                 "id": "574086b1-8b84-4aa9-9613-f1f5e6902311",
                 "exec": [
-                  "if (pm.environment.get(\"Connect_URL\").has(\"uat\")) {",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
                   "    console.log(\"setting the theatre_id - UAT\");",
                   "    pm.environment.set(\"theatre_id\", 7995)",
                   "} else {",
@@ -13351,9 +13351,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/AddFavouriteTheatre"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/AddFavouriteTheatre"
           },
           "response": [
             {
@@ -13423,9 +13423,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ChangeSortOrder\": {\n        \"OldSortOrder\": \"1\",\n        \"NewSortOrder\": \"2\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/UpdateFavouriteTheatreSortOrder"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateFavouriteTheatreSortOrder"
           },
           "response": [
             {
@@ -13474,7 +13474,7 @@
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
                   "",
-                  "pm.environment.set(\"locationid\", jsonBody.VisitedTheatres.LocationId);"
+                  "//pm.environment.set(\"locationid\", jsonBody.VisitedTheatres.LocationId);"
                 ],
                 "type": "text/javascript"
               }
@@ -13497,9 +13497,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{Connect_URL}}/GetVisitedTheatres"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetVisitedTheatres"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "de11d0d1-4d3c-4ef0-84e0-56131486c8f2",
+      "id": "86958d6b-f6d2-472e-84d0-6e00cc5cb9a7",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "cc7c2daf-d29b-46a9-a1ea-2ec2543a1453",
+      "id": "bac29480-f19d-4e49-b7d4-aaf4824ec36c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "50023ba6-7b56-4fc0-a4f2-52771967d58a",
+      "id": "e3faf9c5-0baa-49b1-8fe7-ee0755f7f530",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "80afa15f-04ab-4715-befa-ce1ff6d51ab2",
+      "id": "7104c078-bf83-48ba-8b29-77b661eccc67",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "dc594ff0-dc58-47d4-98ed-f6e11f01bc13",
+      "id": "ad1623ce-5fbe-497a-bbbc-1c5ffcdf3dbb",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "66ad5a8a-4613-42c3-9de1-49c8fa151606",
+      "id": "b603577f-8e09-4d40-b0e5-876da0445cc5",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "db712849-3105-4462-be47-40beb39d2de7",
+      "id": "fe35b761-de2b-4d93-94fc-429169d33550",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "cd1ce493-957d-4333-b733-3f0f87f5bb70",
+      "id": "b5739dbc-1154-41b3-b815-cac4fd78e1fd",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "fac06c0f-0196-408c-8f09-bd2f8344a344",
+      "id": "05446618-578c-481f-9197-ba57cbe47fd5",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "bdf8a024-1a46-4ed5-9b88-56156402f4f2",
+      "id": "f6644f3c-e36e-46c9-ac91-95cdd4c8b1cd",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
