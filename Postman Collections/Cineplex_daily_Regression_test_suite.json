@@ -1826,7 +1826,12 @@
               "script": {
                 "id": "d620a331-5b9b-4596-a3fb-bf75f60281cf",
                 "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});",
+                  "",
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
                 ],
                 "type": "text/javascript"
@@ -1849,7 +1854,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{user_profile_guid}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"CouponCode\":\"{{coupon_code}}\",\n\t\"ProductId\":{{product_id}},\n\t\"PricingPlanId\":{{pricing_plan_id}}\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{user_profile_guid}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"CouponCode\":\"{{coupon_code}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetPromoCodeInfo"
           },
@@ -14871,61 +14876,61 @@
   ],
   "variable": [
     {
-      "id": "13933bc0-776b-4809-84aa-4016f2375136",
+      "id": "9e4e771b-2eff-4756-b0c7-631beb0d916d",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "18d99f7a-355f-4284-b302-378096748315",
+      "id": "16d64a69-7727-467e-8d66-2326252c2e13",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "46ac1fa5-1b28-4af9-b9a6-11898d1e1140",
+      "id": "e423c15d-4385-4dc4-b5ef-92bd20bf475c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "530c099f-739d-44a2-bf86-e5d739eac8b6",
+      "id": "64fb09ac-1591-4037-9c49-0a3ec565a632",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "ce6fc2a4-5cac-41bd-bd36-4b6e0e00a2c8",
+      "id": "4e801ec0-f3cc-43d0-b627-17b90c2c6325",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "e956c044-3537-45a6-8868-e7a5c5ccef37",
+      "id": "d18c7656-249c-49ed-8901-3046f754dc1c",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7523b4af-d456-4540-b616-7a262f64a5f8",
+      "id": "5b06799a-91f3-41e9-ad92-e7a11388eaa8",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f5a109ec-7118-428b-bbbd-952617be8206",
+      "id": "abebd511-30e8-47e3-a9cc-028cc0a7c849",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c57e8bd7-5b11-41a0-bd19-91ba416a5a48",
+      "id": "c2f8f803-9f8b-4f3f-a79a-c7efb02b839a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "76df60b3-4968-4e0a-accb-eeaed9ce9149",
+      "id": "5cefd615-0752-4918-a4b1-2f78975ee222",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
