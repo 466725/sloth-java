@@ -14596,9 +14596,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{ConnectEmail}}\",\n            \"Email\": \"{{ConnectEmail}}\",\n            \"CineplexConnectId\": \"{{cineplexConnectId}}\",\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"en-CA\",\n            \"CineplexTokenExpiry\": \"{{cineplexTokenExpiry}}\"\n        },\n        \"IsSSO\": true,\n        \"Language\": \"en-CA\"\n    },\n    \"Language\": \"en-CA\",\n    \"UnregisterDeviceRequest\": {\n        \"DeviceId\": \"{{device_deviceid}}\",\n        \"IncludeExternalData\": \"true\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\t\t\t\"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n\t\t\t\"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-CA\",\n    \"UnregisterDeviceRequest\": {\n        \"DeviceId\": \"{{device_deviceid}}\",\n        \"IncludeExternalData\": \"true\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/StoreRemoveDeviceContent"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreRemoveDeviceContent"
           },
           "response": [
             {
@@ -14865,61 +14865,61 @@
   ],
   "variable": [
     {
-      "id": "d6bcf5f3-628b-4ee8-8dcf-de7713f949de",
+      "id": "fb8e9f4b-5785-43b1-87fe-403278eb9faf",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "5290c8aa-95c2-4818-be12-ab84c2ff55f3",
+      "id": "008b6c6c-49dd-4f50-ae59-432e5e5f8ea4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7e49660a-2cb8-4b41-9e2c-247cad900f7c",
+      "id": "0aab9e1f-3e7a-452b-b1ab-e02b3d07b981",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4463db69-2640-4374-a050-cdfb9e2f0600",
+      "id": "d0553de0-e685-4da8-a6f9-c9025b3956d6",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "130cad9d-7ca5-4e56-aea0-fb020fd65ca2",
+      "id": "ad6c7c39-2f1e-471a-907d-84e24acd8577",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "b0497e94-239e-4636-829e-ba97ef120ec9",
+      "id": "bf86a9e6-6d4a-4297-9fd3-cb760eede1a6",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "2da74ae5-eb50-4ce5-98f4-6f23a358171d",
+      "id": "b8968591-202b-449c-abeb-323b8291c04b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f6530fda-01ca-4993-a906-f793b71e690b",
+      "id": "af973123-7f62-4db4-a27c-408604cdc196",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c9b2319b-c909-411f-b18f-d6e21fc3fced",
+      "id": "4cc6489a-6c7c-4c16-b991-09cf2d0fe07a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "72c0928b-2a52-4049-a9d4-30f1cef4ad9a",
+      "id": "de141b62-15e9-4607-b233-372362d5eb2c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
