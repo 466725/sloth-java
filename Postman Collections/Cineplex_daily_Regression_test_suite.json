@@ -11694,9 +11694,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"LocationID\": \"{{theatre_id}}\",\n        \"VistaBookingID\": \"WTQ4KG4\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"LocationID\": \"{{theatre_id}}\",\n        \"VistaBookingID\": \"WTQ4KG4\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/GetBookingDetails"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetBookingDetails"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "dc24563f-1ebd-4e79-8478-bce37a5be41e",
+      "id": "e0cb611a-94e2-458e-8c9e-c1e155e300b3",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7683a1de-7b85-4c25-bc31-617cb4fd7db6",
+      "id": "fd346502-67c0-4e32-be62-764e93c5577c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "0ca484fc-351f-46d2-aa48-33b55f0c9f09",
+      "id": "2b192f5d-4443-4175-b400-30a40267e7d6",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "82773fc6-5fbf-44e2-82cb-390696d52e3c",
+      "id": "d42e7319-8a46-4fa7-90c1-b68f0a4d3792",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "48866665-da70-46c0-8dc1-edea4523b78a",
+      "id": "878f9bf5-f0c9-4c17-94cb-4033f5183f34",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "dcedefca-8e7f-4f52-bea1-4d1e263a083d",
+      "id": "05db4ce3-d0c1-4e12-ae6f-2749c0d2721f",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "fa1b8d50-df5c-48ec-9ef5-aca06d78e84d",
+      "id": "71b0b86d-a88a-451a-8d54-fbffcc8a8ee5",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3263d6ba-b787-4920-b1fd-9091267d20a1",
+      "id": "67a8c04c-0d08-47dd-b360-5f9185ef36f7",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "20c985ec-f999-4e03-b110-6fc7d22b6350",
+      "id": "7af76938-1bcf-4241-97fb-ef13ee829808",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d3c3d634-d554-49af-b8e0-5b27b486ae69",
+      "id": "11ade32d-d309-496b-b168-da0e3db269d0",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
