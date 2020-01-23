@@ -14865,63 +14865,69 @@
   ],
   "variable": [
     {
-      "id": "b373337c-b8a8-4766-aec3-a7882f7313a0",
+      "id": "18a7c996-a8e5-43c0-bff5-fdd762691ec6",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d8965b4a-5658-4d9f-a522-15b9ae78d8f4",
+      "id": "1dc4f140-a349-438f-a4cd-2435555f0472",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "895e24b2-c908-446e-b48e-8541028f9496",
+      "id": "77512777-e52c-4440-b23b-4193457fffe9",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "e4ca89c8-4df9-4806-a519-6ddf26b99338",
+      "id": "a1dfba7b-ecaa-4567-895b-30fd97b728f7",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "f993a135-d18a-4f59-8a35-9c2d944abad2",
+      "id": "29f53cce-9c97-4664-ab27-59d8cfd111c4",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "19c44046-8858-4a7f-8c16-09fa937fe447",
+      "id": "702baf6a-17b8-451d-a89e-8054d0fb0fc5",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "6bff94d7-9797-4cc4-8312-210914f9e1da",
+      "id": "4e5edd8f-9d5b-415c-8a7f-438643b1f3e5",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "5b301679-d83b-48ba-adbb-bb53dc6a336c",
+      "id": "411f7223-7019-4d41-9ca2-38fc07592d67",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d294069c-c925-4b9d-b642-3488595edef3",
+      "id": "7bf88c15-fc35-4e0f-8d9d-0893700deeab",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c8dcceb5-ed86-417c-997f-6d522f37537e",
+      "id": "5867131a-6ee1-49e9-97ae-3cac850b7003",
       "key": "ConnectPin",
       "value": "1234",
+      "type": "string"
+    },
+    {
+      "id": "8937d879-e654-49e3-8431-b0e970914a0c",
+      "key": "product_id",
+      "value": "671899",
       "type": "string"
     }
   ]
