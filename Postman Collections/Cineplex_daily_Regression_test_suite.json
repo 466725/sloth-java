@@ -12815,6 +12815,1070 @@
           }
         }
       ]
+    },
+    {
+      "name": "Connect-Mobile Order",
+      "item": [
+        {
+          "name": "Order - Create Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "67d872b3-e688-4f52-a222-d464720e0a23",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"cineplex_order_id\", jsonBody.CineplexOrderId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4fca59be-c236-4b0e-962e-4099d7586310",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"VISTASessionId\": \"{{vista_session_id}}\",\n    \"SeatInformation\": \"D-14\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/CreateOrder"
+          },
+          "response": [
+            {
+              "id": "35090283-7e77-46d0-9784-b88eb58b9386",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\",\n    \"VISTASessionId\": \"<integer>\",\n    \"SeatInformation\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/CreateOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Menu",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7f94c264-07fb-469f-bd52-9e4432a96c20",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"menu_id\", jsonBody.Menus[0].Id);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c872810-8d2e-4f89-ac65-1f51318bc131",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6383ca94-b14a-4792-947b-5b6126398964",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetMenu"
+          },
+          "response": [
+            {
+              "id": "df3b12d0-b444-436e-88a1-16ab078d024d",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetMenu"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"Menus\": [\n  {\n   \"Id\": \"<string>\",\n   \"Name\": \"<string>\",\n   \"BackgroundImageURL\": \"<string>\",\n   \"IsOrderingAvailable\": \"<boolean>\",\n   \"OrderingAvailableMessage\": \"<string>\"\n  },\n  {\n   \"Id\": \"<string>\",\n   \"Name\": \"<string>\",\n   \"BackgroundImageURL\": \"<string>\",\n   \"IsOrderingAvailable\": \"<boolean>\",\n   \"OrderingAvailableMessage\": \"<string>\"\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Concession Categories",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4efe135e-fe37-477a-89fc-021a6619391a",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"concession_category_id\", jsonBody.ConcessionCategories[0].Id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6bba5ca2-18a9-4582-9bc8-c42742a24b82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"MenuId\": \"{{menu_id}}\",\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionCategories"
+          },
+          "response": [
+            {
+              "id": "cedf836e-504d-4538-99f0-8c6cf15e43b9",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"MenuId\": \"<string>\",\n    \"LocationId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionCategories"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"ConcessionCategories\": [\n  {\n   \"Id\": \"<string>\",\n   \"SortOrder\": \"<integer>\",\n   \"Name\": \"<string>\",\n   \"Description\": \"<string>\",\n   \"SmallImageURL\": \"<string>\",\n   \"LargeImageURL\": \"<string>\"\n  },\n  {\n   \"Id\": \"<string>\",\n   \"SortOrder\": \"<integer>\",\n   \"Name\": \"<string>\",\n   \"Description\": \"<string>\",\n   \"SmallImageURL\": \"<string>\",\n   \"LargeImageURL\": \"<string>\"\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Concession Items By Category",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9e8a1dbf-48e7-4a35-8a7c-54667b5afa4c",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"concession_item_id\", jsonBody.SubCategories[0].Items[0].Id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a9ad326e-9775-4e3c-bcea-0478f7aada64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"MenuId\": \"{{menu_id}}\",\n    \"CategoryId\": \"{{concession_category_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionItemsByCategory"
+          },
+          "response": [
+            {
+              "id": "60080e1b-7a63-430a-9ca1-cff71248ce82",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\",\n    \"MenuId\": \"<string>\",\n    \"CategoryId\": \"<string>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemsByCategory"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"SmallImageURL\": \"<string>\",\n \"LargeImageURL\": \"<string>\",\n \"CategoryName\": \"<string>\",\n \"ShowAlcoholCalorieChart\": \"<boolean>\",\n \"AlcoholCalorieChartURL\": \"<string>\",\n \"SubCategories\": [\n  {\n   \"Name\": \"<string>\",\n   \"Id\": \"<long>\",\n   \"SortOrder\": \"<integer>\",\n   \"Items\": [\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    },\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    }\n   ],\n   \"ContainsAlcoholicItems\": \"<boolean>\"\n  },\n  {\n   \"Name\": \"<string>\",\n   \"Id\": \"<long>\",\n   \"SortOrder\": \"<integer>\",\n   \"Items\": [\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    },\n    {\n     \"Id\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"SortOrder\": \"<integer>\",\n     \"ExtraInformation\": \"<string>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"Price\": \"<decimal>\",\n     \"IsAlcohol\": \"<boolean>\"\n    }\n   ],\n   \"ContainsAlcoholicItems\": \"<boolean>\"\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Concession Item Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9332f5fe-81dc-43df-b353-ef0be96ce4bb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2b88a852-b466-4918-a6c0-26bf25bf7d8c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConcessionId\": \"{{concession_item_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetConcessionItemDetails"
+          },
+          "response": [
+            {
+              "id": "ec1a1e58-7869-41e3-a099-ca9890860f4f",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"ConcessionId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemDetails"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"SmallImageURL\": \"<string>\",\n \"LargeImageURL\": \"<string>\",\n \"Description\": \"<string>\",\n \"Name\": \"<string>\",\n \"Price\": \"<decimal>\",\n \"ExtraInformation\": \"<string>\",\n \"MaxQuantity\": \"<integer>\",\n \"ShowAlcoholCalorieChart\": \"<boolean>\",\n \"ModifierGroups\": [\n  {\n   \"PromptText\": \"<string>\",\n   \"Id\": \"<integer>\",\n   \"IsMandatory\": \"<boolean>\",\n   \"MaxQuantity\": \"<integer>\",\n   \"ExtraModifiers\": [\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    },\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    }\n   ]\n  },\n  {\n   \"PromptText\": \"<string>\",\n   \"Id\": \"<integer>\",\n   \"IsMandatory\": \"<boolean>\",\n   \"MaxQuantity\": \"<integer>\",\n   \"ExtraModifiers\": [\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    },\n    {\n     \"Name\": \"<string>\",\n     \"Id\": \"<integer>\",\n     \"SortOrder\": \"<integer>\",\n     \"Price\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\",\n     \"IsSide\": \"<boolean>\",\n     \"MaxQuantity\": \"<integer>\",\n     \"ParentId\": \"<integer>\",\n     \"ParentPromptText\": \"<string>\",\n     \"ExtraInformation\": \"<string>\"\n    }\n   ]\n  }\n ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Add Item To Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cb1b57fd-61d4-4813-a242-584f5f66fb1f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "7a25df91-724c-427f-affd-f8898c463fbd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"Item\": {\n        \"ItemId\": \"{{concession_item_id}}\",\n        \"Quantity\": \"1\",\n        \"SpecialInstructions\": \"Special Instructions\",\n        \"SelectedExtraModifier\": []\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/AddItemToOrder"
+          },
+          "response": [
+            {
+              "id": "235d1582-2855-4267-8666-21d600e8d370",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"Item\": {\n        \"ItemId\": \"<long>\",\n        \"Quantity\": \"<integer>\",\n        \"SpecialInstructions\": \"<string>\",\n        \"SelectedExtraModifier\": [\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            },\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            }\n        ]\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddItemToOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Order Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f6afa149-5e7d-42fa-bd06-9adcdfbd6a9b",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.globals.set(\"order_item_id\", jsonBody.UnprocessedItems[0].OrderItemId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2ac049ed-3b9e-4ba2-942b-87a71327be3a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"ProcessOrder\": false\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderDetails"
+          },
+          "response": [
+            {
+              "id": "b4f029b9-b799-4ca3-b77e-02eb8ce4d1ca",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"ProcessOrder\": \"<boolean>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderDetails"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"Items\": [\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  },\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  }\n ],\n \"UnprocessedItems\": [\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  },\n  {\n   \"OrderItemId\": \"<long>\",\n   \"ItemId\": \"<long>\",\n   \"Quantity\": \"<integer>\",\n   \"SpecialInstructions\": \"<string>\",\n   \"OrderExtraModifiers\": [\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    },\n    {\n     \"Id\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"Name\": \"<string>\",\n     \"Price\": \"<decimal>\",\n     \"IsSide\": \"<boolean>\",\n     \"Description\": \"<string>\"\n    }\n   ],\n   \"ItemTotal\": \"<decimal>\",\n   \"ItemSubTotal\": \"<decimal>\",\n   \"ItemTax\": \"<decimal>\",\n   \"Price\": \"<decimal>\",\n   \"Name\": \"<string>\"\n  }\n ],\n \"SubTotal\": \"<decimal>\",\n \"ServiceCharge\": \"<decimal>\",\n \"Tax\": \"<decimal>\",\n \"Total\": \"<decimal>\",\n \"TipAmount\": \"<decimal>\",\n \"CartCount\": \"<integer>\",\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Remove Item From Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "65bf14dd-acf0-44f9-9664-7d794880f807",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5f30b45f-9f2b-4f9a-891d-88cb33ef9092",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"OrderItemId\": \"{{order_item_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/RemoveItemFromOrder"
+          },
+          "response": [
+            {
+              "id": "807cdec6-c01a-479c-a222-216456b168ae",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"OrderItemId\": \"<long>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/RemoveItemFromOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Add Removed Item back to Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0d15f38d-0dd6-4593-abcd-ca1204618d98",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6efbb786-612f-4efa-9eff-8287d085a867",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"Item\": {\n        \"ItemId\": \"{{concession_item_id}}\",\n        \"Quantity\": \"1\",\n        \"SpecialInstructions\": \"Special Instructions\",\n        \"SelectedExtraModifier\": []\n    }\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/AddItemToOrder"
+          },
+          "response": [
+            {
+              "id": "8377d543-68e9-4d33-99ab-6abd9ee2f548",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"Item\": {\n        \"ItemId\": \"<long>\",\n        \"Quantity\": \"<integer>\",\n        \"SpecialInstructions\": \"<string>\",\n        \"SelectedExtraModifier\": [\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            },\n            {\n                \"Id\": \"<long>\",\n                \"Quantity\": \"<integer>\",\n                \"IsSide\": \"<boolean>\"\n            }\n        ]\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddItemToOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"CineplexOrderId\": \"<guid>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Order Window Times",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "dd1e1788-75d8-49b4-bb4e-7ca7eb58cc34",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cf50a17c-5e1c-484e-a4db-832261fcf0b1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderWindowTimes"
+          },
+          "response": [
+            {
+              "id": "91fc3ad2-d0fe-465d-9c95-ee3a74267dcb",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderWindowTimes"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"TimeWindows\": [\n  {\n   \"Description\": \"<string>\",\n   \"IsActive\": \"<boolean>\",\n   \"StartTime\": \"<string>\",\n   \"EndTime\": \"<string>\",\n   \"StartTimeDateTime\": \"<dateTime>\",\n   \"EndTimeDateTime\": \"<dateTime>\"\n  },\n  {\n   \"Description\": \"<string>\",\n   \"IsActive\": \"<boolean>\",\n   \"StartTime\": \"<string>\",\n   \"EndTime\": \"<string>\",\n   \"StartTimeDateTime\": \"<dateTime>\",\n   \"EndTimeDateTime\": \"<dateTime>\"\n  }\n ],\n \"CurrentTimeDateTime\": \"<dateTime>\",\n \"CurrentTime\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Add Tip To Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "896aafc9-fa6a-4556-b193-27852f6dcd18",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1aab817d-ce03-4673-9b6a-4e23a1d7bd01",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\",\n    \"TipAmount\": \"1.23\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/AddTipToOrder"
+          },
+          "response": [
+            {
+              "id": "45fb002f-caf6-48a3-a540-4a6aacc6a490",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\",\n    \"TipAmount\": \"<decimal>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/AddTipToOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Complete Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "de155ee2-af63-46c1-b37f-15d28de19dfb",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(3);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "c1d1fc55-72da-47af-b495-b0672d99b225",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/CompleteOrder"
+          },
+          "response": [
+            {
+              "id": "3633d3df-db1e-4aca-9d32-c3700bb4b580",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/CompleteOrder"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"VistaBookingId\": \"<string>\",\n \"VistaBookingNumber\": \"<string>\",\n \"VistaTransNumber\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Order Confirmation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1ed56192-2765-4eb4-a4d2-ecc0433e5275",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(3);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "86b6835f-4781-4213-8834-12056634bba8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetOrderConfirmation"
+          },
+          "response": [
+            {
+              "id": "fba9c7b5-cc28-4dc6-aed7-2aca840a9167",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"CineplexOrderId\": \"<guid>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderConfirmation"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"Order\": {\n  \"TransactionId\": \"<long>\",\n  \"TransactionGuid\": \"<guid>\",\n  \"ShowStartDateTime\": \"<dateTime>\",\n  \"Items\": [\n   {\n    \"OrderItemId\": \"<long>\",\n    \"ItemId\": \"<long>\",\n    \"Quantity\": \"<integer>\",\n    \"SpecialInstructions\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"OrderExtraModifiers\": [\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     },\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     }\n    ],\n    \"Price\": \"<decimal>\",\n    \"ItemTax\": \"<decimal>\",\n    \"ItemSubTotal\": \"<decimal>\",\n    \"ItemTotal\": \"<decimal>\",\n    \"IsAvailable\": \"<boolean>\"\n   },\n   {\n    \"OrderItemId\": \"<long>\",\n    \"ItemId\": \"<long>\",\n    \"Quantity\": \"<integer>\",\n    \"SpecialInstructions\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"OrderExtraModifiers\": [\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     },\n     {\n      \"Id\": \"<long>\",\n      \"Quantity\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"Price\": \"<decimal>\",\n      \"IsSide\": \"<boolean>\",\n      \"Description\": \"<string>\"\n     }\n    ],\n    \"Price\": \"<decimal>\",\n    \"ItemTax\": \"<decimal>\",\n    \"ItemSubTotal\": \"<decimal>\",\n    \"ItemTotal\": \"<decimal>\",\n    \"IsAvailable\": \"<boolean>\"\n   }\n  ],\n  \"SubTotal\": \"<decimal>\",\n  \"Tax\": \"<decimal>\",\n  \"Total\": \"<decimal>\"\n },\n \"IsEmailSent\": \"<boolean>\",\n \"EmailAddress\": \"<string>\",\n \"ScenePoints\": \"<integer>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Order - Get Recent Orders By Location",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ef7d7a4f-7f22-4c1e-bf57-c685a2c36cb2",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "79f1a167-e608-42ab-a4e3-86ece4983370",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+            },
+            "url": "{{Connect_URL}}/FoodAndConcession/GetRecentOrdersByLocation"
+          },
+          "response": [
+            {
+              "id": "0af9614d-cb8d-4e78-878a-65fbe2cc3a28",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"LocationId\": \"<integer>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetRecentOrdersByLocation"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"RecentOrders\": [\n  {\n   \"TransactionId\": \"<long>\",\n   \"TransactionGuid\": \"<guid>\",\n   \"ShowStartDateTime\": \"<dateTime>\",\n   \"Items\": [\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    },\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    }\n   ],\n   \"SubTotal\": \"<decimal>\",\n   \"Tax\": \"<decimal>\",\n   \"Total\": \"<decimal>\"\n  },\n  {\n   \"TransactionId\": \"<long>\",\n   \"TransactionGuid\": \"<guid>\",\n   \"ShowStartDateTime\": \"<dateTime>\",\n   \"Items\": [\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    },\n    {\n     \"OrderItemId\": \"<long>\",\n     \"ItemId\": \"<long>\",\n     \"Quantity\": \"<integer>\",\n     \"SpecialInstructions\": \"<string>\",\n     \"Name\": \"<string>\",\n     \"OrderExtraModifiers\": [\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      },\n      {\n       \"Id\": \"<long>\",\n       \"Quantity\": \"<integer>\",\n       \"Name\": \"<string>\",\n       \"Price\": \"<decimal>\",\n       \"IsSide\": \"<boolean>\",\n       \"Description\": \"<string>\"\n      }\n     ],\n     \"Price\": \"<decimal>\",\n     \"ItemTax\": \"<decimal>\",\n     \"ItemSubTotal\": \"<decimal>\",\n     \"ItemTotal\": \"<decimal>\",\n     \"IsAvailable\": \"<boolean>\"\n    }\n   ],\n   \"SubTotal\": \"<decimal>\",\n   \"Tax\": \"<decimal>\",\n   \"Total\": \"<decimal>\"\n  }\n ]\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "73107dc4-9eda-4601-9cb4-680da0ae0df7",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "0d301333-18f0-4806-bc0b-a17af281f7bb",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "aad3c6a0-fbc6-4db5-979c-3b163e4dba5f",
+            "type": "text/javascript",
+            "exec": [
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response time is less than 10s\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(10000);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -12869,55 +13933,55 @@
   ],
   "variable": [
     {
-      "id": "511f819b-2379-4827-95d3-6c28ccd30366",
+      "id": "39ff5d23-e183-45f0-9732-e0fee910dd00",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d35cab41-1f3b-4677-bb7a-fdcdcf66b595",
+      "id": "e3c419d3-153f-4db2-abaf-2144db122f05",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8b011560-df7d-49c2-a8e4-4b8047f84f2e",
+      "id": "e0ce5664-aa1e-4a8b-99fd-492664476be2",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "377afd95-fe5d-43b4-823a-535269257685",
+      "id": "8abffe57-07ac-4557-87f9-efd946a2ff1d",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "931c9022-5cda-4696-bcc3-5c094176f999",
+      "id": "bdc2e50e-b8ca-4584-9a49-d9583e4b2da7",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "4d1c0364-8dba-4b01-b7ef-316e98f7c023",
+      "id": "740f8c80-f6bd-4a48-9691-9b03fa1abb70",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1a76659e-0357-4031-bd2b-028008aac78e",
+      "id": "e6bf3f58-f5f8-44a4-92b1-bc1bb9139eb1",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c532944a-f584-4747-b039-36afc317a63a",
+      "id": "6ca8c962-ea20-4304-a0da-5ffd27eac722",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1d64b776-384d-4762-89f1-2ed855968bbe",
+      "id": "ce5e8dde-9ffa-4661-b4f0-921a08ddc10d",
       "key": "radius",
       "value": "50",
       "type": "string"
