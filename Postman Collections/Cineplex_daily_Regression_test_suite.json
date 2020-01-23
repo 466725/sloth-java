@@ -1272,7 +1272,7 @@
                   "",
                   "var creditCardInfo = jsonBody.CreditCards;",
                   "pm.test(\"Credit Card List not Empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
+                  "    pm.expect(creditCardInfo.length).be.eql(0);",
                   "});",
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
@@ -14865,67 +14865,67 @@
   ],
   "variable": [
     {
-      "id": "bcb1b4e3-4d8b-4461-83ab-ea908c31ea12",
+      "id": "79536a9e-6ccb-4a69-9c8d-30f96b400a98",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c10be365-4bf2-460d-b57b-793be8ef0493",
+      "id": "cdc40539-e7d3-4eb5-8567-1e6024b95681",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "5c9812c0-16cb-40b9-8cc1-adc96be20d28",
+      "id": "e2013e0b-69df-40ff-aefe-753c6dc6c1cf",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6fe3f1ba-c72a-4823-a6b0-6b2defb6de45",
+      "id": "811c18f0-60a4-46e8-a002-11a06ecedecf",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "1fda4a4c-2914-4a41-a300-cd75482b02ad",
+      "id": "f8299097-10df-423c-97bb-f36026590b25",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "e3fdb005-9e66-4aef-84e1-ac54a3447d08",
+      "id": "ee2ba0bb-858a-4756-9d63-8dffb547a8ce",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "fbe842ca-e3e8-48a1-828b-467ab4f2ea47",
+      "id": "3c75365a-7fa9-4fbf-b014-15772ae39e2e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "46682093-7987-4d64-9a68-066514d64046",
+      "id": "94cb33e1-1bc0-4977-b8dc-7be908b0c859",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9faef201-e26c-46b7-9e56-6211e08f7dca",
+      "id": "ebb74914-7dd7-4f5a-99c7-45b63e8d79b1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "a6d300cc-ec3d-4ded-9644-a0fe23266dfa",
+      "id": "5d3cd385-1bf6-4cd4-a767-823788be1040",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
     },
     {
-      "id": "0bda95e4-239a-46bf-bf08-58f80a1b7395",
+      "id": "e5b7a1a2-ed18-4d22-a62b-319bdb706c4a",
       "key": "product_id",
       "value": "671899",
       "type": "string"
