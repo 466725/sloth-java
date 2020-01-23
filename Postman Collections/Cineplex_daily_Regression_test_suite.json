@@ -13474,7 +13474,7 @@
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
                   "",
-                  "pm.environment.set(\"locationid\", jsonBody.VisitedTheatres.LocationId);"
+                  "//pm.environment.set(\"locationid\", jsonBody.VisitedTheatres.LocationId);"
                 ],
                 "type": "text/javascript"
               }
@@ -13497,9 +13497,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
-            "url": "{{Connect_URL}}/GetVisitedTheatres"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetVisitedTheatres"
           },
           "response": [
             {
@@ -14939,61 +14939,61 @@
   ],
   "variable": [
     {
-      "id": "efa9042a-1b5e-47ec-b740-38fe95ce4e58",
+      "id": "7b49dfb3-81aa-4225-8111-378f9aa269f8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ec0dacad-bb0b-4add-9c67-c16b54880e32",
+      "id": "4eb30e8e-04f0-4dbc-a673-29a81733149a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "3190136d-0061-4853-9acc-18a21ceca7fa",
+      "id": "e0fe9c70-089c-4e77-82dc-2c0cbe8845fd",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5c43a09f-d91c-4551-9a6d-b4c8bb6311bf",
+      "id": "9403f17f-d39c-4df2-a6cc-f47a14b5ccc9",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "44e609dd-8caf-445b-bfca-582c804c2648",
+      "id": "5796fde7-41d0-4af1-9f8b-403a6208b67b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "88ae3e57-7fb3-443d-bebb-24d09df3f143",
+      "id": "20679330-cfd1-4455-953f-3048b14dc375",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "de93d3f5-5530-4f41-bcdb-00d8c84438e5",
+      "id": "0ef1303e-7e25-4cf5-813d-618cd63cdb87",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "e567a535-a9cd-4314-a1ae-2703f08bb901",
+      "id": "59109888-effa-458f-94d2-ea6ceb60ff3a",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "23fe4174-d0d2-48e6-a708-d7a9414b3327",
+      "id": "533dd7cb-409c-4e99-923c-3378aa8a9063",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "660509c9-51ba-433f-b245-029f0738fd42",
+      "id": "4c0da17c-0ad5-4c81-9e89-6cfddb7af1c8",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
