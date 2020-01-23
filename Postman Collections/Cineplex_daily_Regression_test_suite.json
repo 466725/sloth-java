@@ -14299,9 +14299,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\n            \"Email\": \"{{ConnectEmail}}\",\n\n            \"FirstName\": \"{{firstName}}\",\n            \"LastName\": \"{{lastName}}\",\n            \"Language\": \"\",\n            \"CineplexTokenExpiry\": \"{{token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
             },
-            "url": "{{Connect_URL}}/StoreActivateDevice",
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreActivateDevice",
             "description": "This method must be called to activate a user device. For store users, the device will also be registered on CSG."
           },
           "response": [
@@ -14380,9 +14380,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
-            "url": "{{Connect_URL}}/StoreGetDeviceList"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetDeviceList"
           },
           "response": [
             {
@@ -14865,61 +14865,61 @@
   ],
   "variable": [
     {
-      "id": "6c94a427-d877-4c34-bfa6-1b58252c7a24",
+      "id": "079c8d86-9518-4e52-9176-1e830668b89c",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ea40f44b-227e-46dd-b38a-b7c489c06bb3",
+      "id": "af66e464-5e61-46c4-878e-942b5c41ea3c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "1119d113-c074-4b2e-9ea4-9eeffa63b7f9",
+      "id": "fdb5393f-c2a9-4aa7-8098-e4f8737544ba",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "935f636d-249b-4235-be73-2115dc90f96c",
+      "id": "eef0e5f5-16b0-40a0-b778-9937d7e03407",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "6c427fd0-ac7b-4700-8dd6-14172d4de24c",
+      "id": "f1dc0ea7-5d53-494f-8c46-ad8ce78a5a55",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "76437a9a-04c6-452f-a10b-c63bc93b6f5a",
+      "id": "c9fae941-964b-47f2-ace6-af6e9dea06fe",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "16607f7b-1c9d-4106-b785-2f8242d69b4c",
+      "id": "6c73b65d-5d36-4bb2-9521-02a524f54828",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "32e9aaff-1481-4ca2-b75b-4d61122c8683",
+      "id": "0221a524-5141-4b82-beab-7419f0654b0d",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "0accd80d-d8d3-4ce4-b8c8-a12ed882893f",
+      "id": "632138f8-673a-4394-957c-5479932aa833",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "6ad25e30-bb84-41c9-884b-69b12405fd6d",
+      "id": "fa5c58de-6eb0-44f0-ac10-8fa2762c633f",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
