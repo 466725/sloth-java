@@ -11406,9 +11406,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/AddAddressBookEntry"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
           },
           "response": [
             {
@@ -11427,78 +11427,6 @@
                   "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"IsBilling\": \"<boolean>\",\n        \"PhoneNumber\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    }\n}"
                 },
                 "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "Is Item Watch Listed",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "1f79298f-1496-4cb9-80fa-f987f9bfe690",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "e0027938-eca2-4daf-8223-bdd81c716b2b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"EntityID\": \"21755\",\n    \"EntityTypeID\": \"1\"\n}"
-            },
-            "url": "{{Connect_URL}}/IsItemWatchListed"
-          },
-          "response": [
-            {
-              "id": "c9b5eb2c-dd85-4c9b-aae0-724b1a03e13d",
-              "name": "not available",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"EntityID\": \"<long>\",\n    \"EntityTypeID\": \"<integer>\"\n}"
-                },
-                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/IsItemWatchListed"
               },
               "status": "Internal Server Error",
               "code": 500,
@@ -15083,61 +15011,61 @@
   ],
   "variable": [
     {
-      "id": "c045570e-f0c1-41d9-baa9-d099506d563a",
+      "id": "e35f49bf-b71f-49b0-9c15-ebe4eea59b4f",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "3a52f160-d916-4175-b2ba-0fa2cb12cd8f",
+      "id": "5b3e083a-900a-4fbb-bfe4-ea24481f48ba",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "fa76cb5a-903c-4868-b5ff-c11b8c842916",
+      "id": "00028b3b-3e5f-4ed4-a4f5-3c1150759886",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "865f9804-589c-4f57-af39-8dad39ed3e72",
+      "id": "4ee787f9-dc1b-4a29-9513-aeee03656312",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "88ef1fa3-a800-4f27-8f93-dd7006a8a34a",
+      "id": "08dd084c-db85-456a-9fbf-352ba70dd0ca",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "2041321d-6c13-4308-ab16-4472128ead75",
+      "id": "691466dd-3eb5-45b1-9805-14b738a5f28e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "99b404cc-fbb5-4b91-aa4f-33e200fa3f26",
+      "id": "c3282ebc-d7f2-4cc1-9271-5c3b23f02a6d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d89cb549-0798-41b3-840a-e3496c1958b3",
+      "id": "7a82382f-2c18-45e4-8f7b-bf3c51614f3c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "dfa69102-8ee9-40c0-b480-115871316eea",
+      "id": "ae1cd983-f86e-40dc-bf81-c02752d07e60",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "5bb432b2-9b9b-4bd4-8b36-ee1b6bd050d2",
+      "id": "c437c5e8-8db9-4f39-afd5-f0c791567d92",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
