@@ -1626,7 +1626,7 @@
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
                   "pm.test(\"PricingPlanType to be defined\",function() {",
-                  "    if (pm.globals.get(\"4K_Supported\") == 1) {",
+                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
                   "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.not.be.undefined;",
                   "    } else {",
                   "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.be.undefined;",
@@ -1755,7 +1755,7 @@
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
                   "pm.test(\"PricingPlanType to be defined\",function() {",
-                  "    if (pm.globals.get(\"4K_Supported\") == 1) {",
+                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
                   "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.not.be.undefined;",
                   "    } else {",
                   "        pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.be.undefined;",
@@ -14865,61 +14865,61 @@
   ],
   "variable": [
     {
-      "id": "f7328e0f-dcae-4034-a064-e0878226cc83",
+      "id": "c986f1cb-3d34-4fc4-beb6-350451a80eb9",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "dcce24d5-77e5-423e-8435-99daa2d4f416",
+      "id": "75541c70-2acb-4f10-9133-667fdc6546d7",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ee8242e0-a9bc-435b-a492-9202db3d09ba",
+      "id": "319422b8-819e-4c45-a2de-3879637a5884",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "978d50c5-9cb5-423a-a38b-dbb9909c63ce",
+      "id": "50262a7f-7a2f-497b-a690-1fa9b1d8772d",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "2c2c431c-0ba0-42fb-aef8-cc8bf97f61c1",
+      "id": "e0a1bbeb-ff7f-461e-ad3a-af820e1748a2",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "e061af70-5d6b-43ff-9285-0f3d74ae6b12",
+      "id": "d02e7a16-a5eb-4db7-ac1a-a6b8a8421488",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "03db5caf-c2aa-4fad-ad38-319cbd3c2fb4",
+      "id": "6c5bbba5-d537-428f-a00d-8b72cca620c6",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4f57c37f-b48e-453b-867a-c8f8fba1119e",
+      "id": "e77f55c8-5352-477d-842f-76555888277c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7be10c15-35f3-45cc-8926-abea6c5ae1bc",
+      "id": "178ee53d-54b1-4d25-bcab-bf244c7033f8",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "02c0bfcd-df24-4555-8d44-1447c439f90d",
+      "id": "977e75f3-b6cf-42e0-ac7d-54e784c98843",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
