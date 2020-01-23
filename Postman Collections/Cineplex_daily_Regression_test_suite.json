@@ -15045,18 +15045,20 @@
           "",
           "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
           "    console.log(\"We are runing on UAT environment!\");",
-          "    pm.globals.set(\"movie_id\", 24400);",
-          "    console.log(\"movie_id is set as UAT movie id 24400\");",
-          "    pm.globals.set(\"theatre_id\", 7995);",
+          "    pm.environment.set(\"movie_id\", 31484);",
+          "    console.log(\"movie_id is set as UAT movie id 31484\");",
+          "    pm.environment.set(\"theatre_id\", 7995);",
           "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
-          "    pm.globals.set(\"4K_Supported\", 1); //User Story 41189",
+          "    pm.environment.set(\"ProductId\", 646716);",
+          "    console.log(\"ProductId is set in UAT as ProductId 646716\");",
+          "    pm.environment.set(\"4K_Supported\", 1); //User Story 41189",
           "} else {",
           "    console.log(\"We are not runing on UAT environment!\");",
-          "    pm.globals.set(\"movie_id\", 31131);",
+          "    pm.environment.set(\"movie_id\", 31131);",
           "    console.log(\"movie_id is set as PROD movie id 31131\");",
-          "    pm.globals.set(\"theatre_id\", 1151);",
+          "    pm.environment.set(\"theatre_id\", 1151);",
           "    console.log(\"theatre_id is set as PROD theatre id 1151\");",
-          "    pm.globals.set(\"4K_Supported\", 0); //User Story 41189",
+          "    pm.environment.set(\"4K_Supported\", 0); //User Story 41189",
           "}",
           "",
           "if (pm.environment.get(\"cineplex_url\").has(\"com/api\")) {",
@@ -15081,55 +15083,55 @@
   ],
   "variable": [
     {
-      "id": "0cdd4e24-9ada-431e-95c1-32aea05662c7",
+      "id": "935b5c20-fb49-4105-920d-5055e3bddb25",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "afe07180-cdc7-4a0b-8b5b-e1d92f7bc481",
+      "id": "53a313e3-f487-40d4-b955-ee576286bab4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a397e06a-7b78-4e81-bd92-d0778cca6924",
+      "id": "38b6451c-75d0-4b23-b62d-2c66ec4d2c63",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a98ada45-ec97-4923-b1c6-a2c952b094f1",
+      "id": "6e49326b-ba7d-4e69-8125-48304b298ae1",
       "key": "username",
       "value": "weipeng.zheng@cineplex.com",
       "type": "string"
     },
     {
-      "id": "8756203b-5d8a-4f09-82a0-dd5ab001c69d",
+      "id": "7fdca40e-16c6-4f0d-8924-0401d60d551f",
       "key": "password",
       "value": "Weipeng@1300",
       "type": "string"
     },
     {
-      "id": "724342de-ad67-4c2b-b4ef-a231aecdd49b",
+      "id": "88aa40cc-ee38-47fc-8ef6-219d277e842d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "d2c2b5af-4c8e-4be6-afe2-fa1ca8a48b7a",
+      "id": "4f0ca9b0-9f40-49b2-88ca-1bd81dee4cd0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "184d786c-ab88-456e-a3e5-c035d6a684a0",
+      "id": "6abede65-bb76-4351-b5aa-ba020c85f8b6",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "e5696f14-9c05-4a17-a812-312eb1b28a15",
+      "id": "45ae9993-21b0-46b2-8603-ff95b507a959",
       "key": "radius",
       "value": "50",
       "type": "string"
