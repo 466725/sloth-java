@@ -1476,7 +1476,7 @@
                   "}",
                   "",
                   "pm.test(\"Found ProductId: \" + productId, function(){",
-                  "    pm.expect(pm.globals.get(\"product_id\")).to.not.be.null;",
+                  "    pm.expect(pm.environment.get(\"product_Id\")).to.not.be.null;",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -14871,61 +14871,61 @@
   ],
   "variable": [
     {
-      "id": "45bd2223-a4e8-4cce-b31d-f5172e1180c8",
+      "id": "55902639-5dd3-46ec-894d-e1ff9650b7eb",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4abf6acc-80d0-4338-9803-59a6c7f29312",
+      "id": "d812cf66-40e3-445b-bcdb-396f90d401e3",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2a5ac6d7-290a-463b-b78f-01056cefe69f",
+      "id": "6da5e3e0-901a-4424-b3df-08456218ac7a",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "79549a91-d56e-4b5d-a153-96f70d23c30a",
+      "id": "1932d003-28d9-450e-838a-a2e766589420",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "af3d76b4-f21b-4643-b6a9-188374375bf8",
+      "id": "0306906e-403e-4258-a619-79ae739ab3a3",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "b88faa31-814d-4f6e-8080-c72c924e952e",
+      "id": "3be825fc-81ff-4c02-b9d3-daa18e76499e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1f525eb3-7d49-4a42-92ba-122953538bb0",
+      "id": "eed76aa3-d0f8-4c21-bc10-65840b124379",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "faacfec2-2bc1-49f9-9ecb-b060863a8031",
+      "id": "b8348e34-d58f-46a8-9131-c76ae644efd3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c65e8c7b-6556-4f27-9b55-ef7c5e523523",
+      "id": "dbd14cd7-1516-4ceb-a793-8ae7d57919b3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "afa4167e-fa4e-45ae-b44a-fa14404d38dc",
+      "id": "d0623927-e77d-44a1-ad31-87f798d15274",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
