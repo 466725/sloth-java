@@ -11334,9 +11334,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"SortOrder\": \"7\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"NickName\": \"abcdefg\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"SortOrder\": \"7\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"NickName\": \"abcdefg\",\n        \"AddressBookType\": \"2\"\n    }\n}"
             },
-            "url": "{{Connect_URL}}/UpdateAddressBookEntry"
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateAddressBookEntry"
           },
           "response": [
             {
@@ -15083,61 +15083,61 @@
   ],
   "variable": [
     {
-      "id": "02c8341d-7225-47f1-b0e9-775ce80a786b",
+      "id": "c045570e-f0c1-41d9-baa9-d099506d563a",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "a9904bce-18b3-466f-89d1-64f618b7197f",
+      "id": "3a52f160-d916-4175-b2ba-0fa2cb12cd8f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8a67e420-3d2f-4b97-a9df-269b8fd9290e",
+      "id": "fa76cb5a-903c-4868-b5ff-c11b8c842916",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cb863556-fca9-4ae0-a992-ae162fac8d8c",
+      "id": "865f9804-589c-4f57-af39-8dad39ed3e72",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "64cca30b-9dd3-4a4a-ad7a-6f008ccf604d",
+      "id": "88ef1fa3-a800-4f27-8f93-dd7006a8a34a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ea05b68e-89fd-4326-af52-d664f47ea975",
+      "id": "2041321d-6c13-4308-ab16-4472128ead75",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "56ff5204-0345-4034-83c0-a672468e4773",
+      "id": "99b404cc-fbb5-4b91-aa4f-33e200fa3f26",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4a69821b-fdf1-4319-bf86-ca4244375861",
+      "id": "d89cb549-0798-41b3-840a-e3496c1958b3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "897e7379-f8c7-4104-9b55-e2397691fbde",
+      "id": "dfa69102-8ee9-40c0-b480-115871316eea",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d31c0896-accb-4df4-8264-ea755fb7b027",
+      "id": "5bb432b2-9b9b-4bd4-8b36-ee1b6bd050d2",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
