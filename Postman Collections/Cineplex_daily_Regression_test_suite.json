@@ -442,6 +442,82 @@
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreReacquireSessionIfNecessary"
           },
           "response": []
+        },
+        {
+          "name": "Get CSG product ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "36e34408-b36c-4a46-8884-0fddcc5e21aa",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"Got products successfully\", function(){",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "var Items = jsonBody.Items;",
+                  "var ItemsLength =jsonBody.Items.length; ",
+                  "pm.test(\"Product list is not empty\", function(){",
+                  "    pm.expect(ItemsLength).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);",
+                  "",
+                  "/*",
+                  "for(var i= 0; i < ItemsLength; i++){",
+                  "    var productId = Items[i].ProductId;",
+                  "    console.log(\"productId: \" + productId);",
+                  "    pm.environment.set(\"product_Id\", productId );",
+                  "    break;",
+                  "    ",
+                  "    pm.test(\"Found ProductId: \" + productId, function(){",
+                  "    pm.expect(pm.environment.get(\"product_Id\")).to.not.be.null;",
+                  "});",
+                  "}*/",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "3c8ed2c3-86fd-4a36-ae04-ffbb26a1b4fd",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "dc23bd77-60f4-4cc8-b112-49b61e275fa5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{store_url}}/CSWebConnect/GetAllCsgProductUrls"
+          },
+          "response": []
         }
       ],
       "_postman_id": "8f69f6b6-63b7-4822-82b0-711369fb8e5f",
@@ -1265,82 +1341,6 @@
       "name": "Store-ProductDetails",
       "item": [
         {
-          "name": "Get CSG product ID",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "36e34408-b36c-4a46-8884-0fddcc5e21aa",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Got products successfully\", function(){",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "var Items = jsonBody.Items;",
-                  "var ItemsLength =jsonBody.Items.length; ",
-                  "pm.test(\"Product list is not empty\", function(){",
-                  "    pm.expect(ItemsLength).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);",
-                  "",
-                  "/*",
-                  "for(var i= 0; i < ItemsLength; i++){",
-                  "    var productId = Items[i].ProductId;",
-                  "    console.log(\"productId: \" + productId);",
-                  "    pm.environment.set(\"product_Id\", productId );",
-                  "    break;",
-                  "    ",
-                  "    pm.test(\"Found ProductId: \" + productId, function(){",
-                  "    pm.expect(pm.environment.get(\"product_Id\")).to.not.be.null;",
-                  "});",
-                  "}*/",
-                  "",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "3c8ed2c3-86fd-4a36-ae04-ffbb26a1b4fd",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "dc23bd77-60f4-4cc8-b112-49b61e275fa5",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "{{store_url}}/CSWebConnect/GetAllCsgProductUrls"
-          },
-          "response": []
-        },
-        {
           "name": "Get product full details - logged in",
           "event": [
             {
@@ -1724,7 +1724,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.response.to.be.success;",
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
@@ -14956,61 +14955,61 @@
   ],
   "variable": [
     {
-      "id": "8dcbf8de-426b-43a8-85ea-1d896e0cdfad",
+      "id": "85155498-0961-462c-abcc-54a1d6601756",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "3b012486-7fef-41cd-9183-b7d50658c103",
+      "id": "c935ae20-f2a6-4df5-9dc8-f1295b289868",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "e7fbe837-97cd-4a8a-b162-70bd3a07d84a",
+      "id": "8270a3af-3299-4006-898c-f0486997a7d6",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "e7e0bfb4-b97b-4fbd-b857-d281c3ffe826",
+      "id": "c04b6c71-d248-4bb2-b359-c17dbb71fbaa",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "eceaad44-c160-4798-be41-350d97279533",
+      "id": "8d4909f0-bbc1-4333-8423-991d563caa3f",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f57d4e9c-5db4-4e3d-8f23-4bbbee353b3c",
+      "id": "d9446f6d-04ba-4515-b0ff-e5a286722959",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "b781471b-6f84-49f4-8b10-7bb1546006c4",
+      "id": "f1010b2b-e2ec-4e15-b018-03b2507b0d77",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3d07897f-17e8-430a-a960-7bf756fe6540",
+      "id": "498cca8c-339d-4572-bfb7-24f2ff6d31d9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "6a017ec6-29c7-46b0-ae4a-2f1681a6e8aa",
+      "id": "be7b6fef-9a5e-4421-b124-ae0e3e97ec9e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "b0fc4ff1-9612-42e3-91a5-97a3ee88246d",
+      "id": "3af966f2-dc8e-4235-9095-013584560b2f",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
