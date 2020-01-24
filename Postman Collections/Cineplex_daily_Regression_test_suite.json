@@ -1557,7 +1557,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"Body matches string\", function(){",
@@ -1649,7 +1648,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.response.to.be.success;",
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
@@ -1726,7 +1724,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.response.to.be.success;",
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
@@ -14958,61 +14955,61 @@
   ],
   "variable": [
     {
-      "id": "d5d4675d-9050-477d-b53a-293dd0e1436c",
+      "id": "f561a519-d4c8-415e-ac50-9a7e9a0d5d7e",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "6afcd94b-84d4-4d93-b6e9-74eff8c80290",
+      "id": "3b35d6f1-0b9f-4801-aa4e-d879d4fd89fc",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4d6a68d1-4ba6-4ddf-908f-74e668c611b5",
+      "id": "1a3f1484-1989-4a34-b853-af39d74f5ae7",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5fe7cbeb-0e83-4e2d-8408-42c7469bfa5e",
+      "id": "7077e81d-4a67-4b8f-a2ee-77ff9c8deab0",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c5b25ca8-2398-496f-ae59-7c08bb6ee1ce",
+      "id": "a23b15c4-e9e2-4a28-84ba-f17bcf93a244",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d7a94abb-5cd4-41d2-b5b7-cf4e48833dc6",
+      "id": "f808cc56-6426-4a43-bfc1-b51817b5232a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "9cc17bf4-e750-4de6-b43b-460dfa5f5d2e",
+      "id": "ec66e657-7e35-4ec1-8a0f-116b7795b8c9",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f83d8200-89ac-43f7-8297-0b45998e675d",
+      "id": "3a1c7137-ae69-48ab-9eb4-594ee937a132",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8cb12794-fe8e-4412-a3b8-185cc512006d",
+      "id": "0f75d993-2c8e-489e-9102-7cae673d0f9c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "58845ef0-0d23-4bc2-b190-45d00d927a2e",
+      "id": "b63af17a-94c4-4cd8-af09-3e43d7807d90",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
