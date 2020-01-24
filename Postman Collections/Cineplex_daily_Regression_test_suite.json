@@ -1458,11 +1458,11 @@
                   "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully\");",
                   "});",
                   "",
-                  "var pricingPlanId = jsonBody.BuyPricingPlans[0].PricingPlanId;",
-                  "pm.environment.set(\"pricing_plan_id\",pricingPlanId);",
-                  "",
-                  "pm.test(\"Pricing Plan Id retrieved\" + \" \"+pricingPlanId, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"PricingPlanId\");",
+                  "pm.test(\"Set Pricing Plan if exists\", function(){",
+                  "    if (jsonBody.BuyPricingPlans.length > 0) {",
+                  "        var pricingPlanId = jsonBody.BuyPricingPlans[0].PricingPlanId;",
+                  "        pm.environment.set(\"pricing_plan_id\", pricingPlanId);",
+                  "    }",
                   "});",
                   "",
                   "var metaCriticRating= jsonBody.MetacriticData.MetaCriticRating;",
@@ -14981,61 +14981,61 @@
   ],
   "variable": [
     {
-      "id": "28aa32c2-5f4c-479d-b5de-cb2031426fca",
+      "id": "67904045-c222-4314-85ee-f4f5392fd9bc",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d2b8b9c5-7664-4a01-ac07-41ab031d10f1",
+      "id": "3f5d0bc3-f955-4b1e-84f0-d1872dc60ad7",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "64cbbbe8-e07c-478a-8c10-dc910d6d8a50",
+      "id": "c79199fb-0dd9-4024-bde7-ed118a773252",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "15db0e0d-1f1f-44f3-997f-668c589d5b42",
+      "id": "bb69b441-9479-4a0f-9ba4-7a9776c9c55c",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "b50efc38-bfbb-472f-b586-20a0f6a43695",
+      "id": "51ee8521-c56a-4615-89be-0f82b3fb223d",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "fe4e6079-8456-4cab-8d89-aace92379095",
+      "id": "c3309ac6-7c53-4b32-9909-d151affb879d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8061b330-e4c1-4647-9695-2db1ad409f56",
+      "id": "c9b24552-0dd5-4123-be46-f518b2e738e7",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "a70801ed-7756-40d6-9320-7de976353678",
+      "id": "84cc931e-aed4-4773-84e3-6bd41e9f4b8e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9d9a27da-af4c-4e24-ad75-e3d3c9b82727",
+      "id": "e9741cac-12e3-4425-85c5-52c624d29f84",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "7077340e-769e-4761-ad94-82f05ac1458f",
+      "id": "df1d0bcb-5d13-4edc-87b2-a57b5e45ba30",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
