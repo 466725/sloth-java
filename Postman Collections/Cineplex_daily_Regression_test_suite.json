@@ -466,7 +466,13 @@
                   "    pm.expect(ItemsLength).to.be.above(0);",
                   "});",
                   "",
-                  "pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);",
+                  "pm.test(\"Set product_id\",function() {",
+                  "    if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
+                  "        pm.environment.set(\"product_Id\", 671899);  //hardcode for 4k test",
+                  "    } else {",
+                  "        pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);",
+                  "    }",
+                  "});",
                   "",
                   "/*",
                   "for(var i= 0; i < ItemsLength; i++){",
@@ -1332,7 +1338,7 @@
             "id": "4c0a3818-45c8-4589-8a3f-111221d794fe",
             "type": "text/javascript",
             "exec": [
-              ""
+              "pm.test(\"Response is successful\",pm.response.to.be.success);"
             ]
           }
         }
@@ -1630,7 +1636,7 @@
             "id": "f6ed93e8-5d54-4b6a-9468-60a5865f59cc",
             "type": "text/javascript",
             "exec": [
-              ""
+              "pm.test(\"Response is successful\",pm.response.to.be.success);"
             ]
           }
         }
@@ -1810,7 +1816,7 @@
             "id": "02bca300-6926-4614-ba79-b379c1906daf",
             "type": "text/javascript",
             "exec": [
-              ""
+              "pm.test(\"Response is successful\",pm.response.to.be.success);"
             ]
           }
         }
@@ -1943,7 +1949,7 @@
             "id": "bd708749-55dd-49ea-bba3-9582e377eaa1",
             "type": "text/javascript",
             "exec": [
-              ""
+              "pm.test(\"Response is successful\",pm.response.to.be.success);"
             ]
           }
         }
@@ -6603,7 +6609,9 @@
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
                   "    });",
-                  "}"
+                  "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -6673,7 +6681,9 @@
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
                   "    });",
-                  "}"
+                  "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -6760,7 +6770,9 @@
                   "    pm.test(\"Device enrolled into correct promo\", function(){",
                   "       pm.expect(jsonBody.promotion.name).to.equal(pm.globals.get(\"promo_name\")); ",
                   "    });",
-                  "}"
+                  "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -14953,61 +14965,61 @@
   ],
   "variable": [
     {
-      "id": "ab89d27c-9df3-41da-be34-4da50aa2ed19",
+      "id": "13d47fa7-f0dd-449e-8066-f93d7f1b28da",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "df654918-5fb7-4487-86a8-987575b1bd71",
+      "id": "59ee0ed1-63dc-4e30-8149-2bc18e6835b1",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ad738c95-7617-4ddc-b9d6-7e862503d27f",
+      "id": "866572f7-f3c2-4bd2-a79b-a21996adfe04",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "b7735e69-4504-4f3c-9dc5-ca3d73317359",
+      "id": "63748cb7-0916-4fa8-9d24-f3b8567ff74c",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "25c8dc01-c491-43a1-8756-bc670a8fd18c",
+      "id": "ee94cfa3-0e5c-4fc8-ab87-ea036fae1077",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ca2a2567-fe3a-4d5e-a78a-d2466f197aa5",
+      "id": "f27aff61-c2a5-4220-b95c-668b0c616e51",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "615a6800-1358-43e4-879b-fc06450d2452",
+      "id": "59302f83-d9fa-4612-932e-b0e8c482e3c0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "3dfc9746-7d8e-4894-971f-e24e1f748467",
+      "id": "089e18bf-178c-43cd-96f6-d7ee34e112da",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "49108f58-c439-47d8-bae5-f1613a48c065",
+      "id": "ea9b779c-bf50-4467-8cc4-aa29730ca33e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "2d366551-6ce5-496e-a84c-0d7cae87be79",
+      "id": "9ec17eb7-c20d-4755-849f-9aa0a5fc5928",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
