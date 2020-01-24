@@ -1203,7 +1203,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "pm.response.to.be.success;",
                   "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
@@ -14932,8 +14932,8 @@
           "    console.log(\"movie_id is set as UAT movie id 31484\");",
           "    pm.environment.set(\"theatre_id\", 7995);",
           "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
-          "    pm.environment.set(\"ProductId\", 671899);",
-          "    console.log(\"ProductId is set in UAT as ProductId 671899\");",
+          "    pm.environment.set(\"product_id\", 671899);",
+          "    console.log(\"product_id is set in UAT as product_id 671899\");",
           "    pm.environment.set(\"4K_Supported\", 1); //User Story 41189",
           "} else {",
           "    console.log(\"We are not running on UAT environment!\");",
@@ -14966,61 +14966,61 @@
   ],
   "variable": [
     {
-      "id": "5ad85931-c5b5-4e77-942f-9b723fa2fb8a",
+      "id": "86121efd-2493-4a0d-b3c9-4220ba22f713",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c4744532-7ec3-4dc6-b9b0-05f223e1574e",
+      "id": "15384428-3805-407f-931a-0994f08e049b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8298ddbd-a880-4a93-9d0d-2378d61e1b4b",
+      "id": "37c9f0b4-2739-4f70-9ccc-9b2d7cdb47b6",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "f174a5a8-fe9a-4cb6-9a21-1ab649ac2639",
+      "id": "ed3fe73d-f6e6-4552-9469-f6c74306d1c1",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c87e11f2-130f-4602-bf7e-a3d6ea51b02a",
+      "id": "53161de4-21a5-4096-8fa5-941f790097d7",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "8b334c00-bdaa-49c3-a05d-d8058a396249",
+      "id": "91686c44-ba19-42c7-881e-bf9ecf735b86",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "893efc99-6fe9-4ba8-b891-2c8d50cbe479",
+      "id": "5dce66e5-d309-477e-b5de-c57664c00185",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4d6702af-fa11-472d-a984-7b1507b58718",
+      "id": "0c2e482d-a832-4f90-ae0f-96fa24584fd9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "5722f617-35dd-442a-b232-030d225edf6b",
+      "id": "4caedb5d-14e1-4458-a938-5ec4ba0fa899",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0001d2a9-cb44-467a-be6c-691c95b00986",
+      "id": "9f04c94e-4d76-4834-80f6-fa6ca34b1dbf",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
