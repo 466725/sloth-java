@@ -650,7 +650,6 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                       "",
                       "pm.test(\"SuperTicket pricing plan successfully retrieved\", function(){",
@@ -698,7 +697,6 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                       "",
                       "pm.test(\"Got user profile successfully\", function(){",
@@ -739,7 +737,6 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                       "",
                       "pm.test(\"The application session token was approved\", function(){",
@@ -14972,61 +14969,61 @@
   ],
   "variable": [
     {
-      "id": "6d1b4a00-4e21-4e91-9906-d2509890b3ad",
+      "id": "1c375bf7-a46d-42fc-aa26-99b993ade3f5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "ba221082-700e-46da-ba96-8b85cdbf3d0b",
+      "id": "bcf815ab-be2d-4dd4-96ac-25ab9d74d3ad",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "12a1627c-774c-4d6c-81ac-c05bda6b98da",
+      "id": "48710ac5-6879-4466-89bb-4611004448d6",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "23e17a7e-765d-4efc-8ef5-021583cda0ac",
+      "id": "ac7ca989-6281-4592-9cb9-3125c5c3976c",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "10f9ee2e-d936-4e69-9d52-6ce0a24d5468",
+      "id": "1fff51ee-bbf4-4167-94e5-77039772263b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "839c601c-4c47-4abe-a3da-93c48e2b0b41",
+      "id": "9feebdb9-bd89-4d0e-a45e-a1e43ce8de08",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7c7f7468-892a-4f91-a53c-6a759832650e",
+      "id": "e9bf7652-cb8a-4d45-b9c3-6b1f3869b776",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8d44c9a2-e885-4be5-9037-521bb0c099d4",
+      "id": "d1d138e1-6f6b-4a59-9199-7380ad452cf2",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "6b35ceed-86ca-487b-aa17-d9efbc0298ac",
+      "id": "9d6ac062-f4c8-4e19-826a-2b3458701b74",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "66cc20f3-156f-4afa-9a73-c32c470a7955",
+      "id": "ebf8b6e4-0fdd-45cb-96cf-e4535124aa9f",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
