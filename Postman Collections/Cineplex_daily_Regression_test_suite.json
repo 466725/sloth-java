@@ -6465,7 +6465,9 @@
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 400\"] = responseCode.code === 400;",
                   "}",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -6539,7 +6541,9 @@
                   "    pm.test(\"Device is not enrolled with any account\", function(){",
                   "       pm.expect(jsonBody.isEnrolledWithOtherAccount).to.be.false; ",
                   "    });",
-                  "}"
+                  "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -6609,7 +6613,9 @@
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
                   "    });",
-                  "}"
+                  "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -6679,7 +6685,9 @@
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
                   "    });",
-                  "}"
+                  "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
               }
@@ -6835,6 +6843,8 @@
                   "       pm.expect(jsonBody.pin).to.not.be.undefined; ",
                   "    });",
                   "}",
+                  "",
+                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin",
                   ""
                 ],
                 "type": "text/javascript"
@@ -14961,61 +14971,61 @@
   ],
   "variable": [
     {
-      "id": "bf8450d6-d103-4b1c-a328-a54d0c219918",
+      "id": "7ef71aa9-5932-4565-97cd-baa0c169edf9",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "79333987-7b77-4bfe-bf03-f251696c6a1d",
+      "id": "c05fceb5-7fe3-468a-973f-5de8e275b1c7",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "97444fd9-060f-4e6c-a90a-7d0bf539dcc6",
+      "id": "f7bc2024-edc2-487d-90e3-6e6eb2fd8260",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0c8ca5ea-0297-48db-ae7b-0a7a54ab358e",
+      "id": "d9a4ac82-daad-4612-81f0-f73ceb2d520c",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "f85414c7-9566-43b1-9f77-b27cb4d9f0b0",
+      "id": "a1b74a67-b6cc-4dbc-beba-cf62788e2989",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "58ece94f-2706-4631-9771-70d2aaf4a849",
+      "id": "8e79c500-d790-4de5-9ac8-a591ab584a0d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "e8ac69dd-852c-4714-9c62-68dcd607fb0e",
+      "id": "ec41e563-c682-4a77-be80-b2cb80b58b95",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4496818d-2401-4077-a1f1-5d012cbf39c0",
+      "id": "819b3603-d129-4ebf-a4ba-7b6b512d2840",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a039ce84-b16b-4791-8ef8-b066a791cf46",
+      "id": "abbe7d1e-0961-43fd-bb61-5d426f648c35",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "42cacc55-657b-447f-aebf-27b6a6d23f39",
+      "id": "093cfc4b-b022-42ab-a819-0a9386df9f88",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
