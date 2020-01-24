@@ -13904,6 +13904,73 @@
       "name": "Connect-Store",
       "item": [
         {
+          "name": "Acquire CSG session Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b258b1f2-0ab9-44fc-8404-b79cb792d854",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"CSG session Acquired successfully\", function(){",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1)",
+                  "});",
+                  "",
+                  "pm.test(\"Map To CSG Session Result successful\", function(){",
+                  "    pm.expect(jsonBody.StoreSessionResult.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.test(\"Got valid Session Id\", function(){",
+                  "   pm.expect(jsonBody.StoreSessionResult.SessionId).to.not.be.null;",
+                  "});",
+                  "",
+                  "console.log(\"cineplex_connect_Id: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
+                  "pm.environment.set(\"cineplex_connect_Id\", jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
+                  "console.log(\"cineplex_token_expiry: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
+                  "pm.environment.set(\"cineplex_token_expiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
+                  "console.log(\"session_Id: \" + jsonBody.StoreSessionResult.SessionId);",
+                  "pm.environment.set(\"session_Id\", jsonBody.StoreSessionResult.SessionId);",
+                  "console.log(\"first_name: \" + jsonBody.StoreSessionResult.SessionInfo.FirstName);",
+                  "pm.environment.set(\"first_name\", jsonBody.StoreSessionResult.SessionInfo.FirstName);",
+                  "console.log(\"last_name: \" + jsonBody.StoreSessionResult.SessionInfo.LastName);",
+                  "pm.environment.set(\"last_name\", jsonBody.StoreSessionResult.SessionInfo.LastName);",
+                  "console.log(\"username: \" + jsonBody.StoreSessionResult.SessionInfo.Email);",
+                  "pm.environment.set(\"username\", jsonBody.StoreSessionResult.SessionInfo.Email);",
+                  "console.log(\"user_profile_id:\" + jsonBody.StoreSessionResult.SubscriberId);",
+                  "pm.environment.set(\"user_profile_id\", jsonBody.StoreSessionResult.SubscriberId);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8dd0c17b-e48f-44b9-85dd-256649517c02",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"ApplicationRequest\":{\r\n\t\t\"LanguageType\":\"1\",\r\n\t\t\"SessionToken\":\"{{session_token}}\",\r\n\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\r\n\t\t\"UserSessionToken\":\"{{user_session_token}}\"\r\n\t},\r\n    \"Language\":\"en-CA\",\r\n    \"SessionQuery\":{\r\n        \"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\r\n        \"Email\":\"{{username}}\",\r\n        \"FirstName\":\"{{first_name}}\",\r\n        \"LastName\":\"{{last_name}}\",\r\n        \"Login\":\"{{username}}\"\r\n    }\r\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreReacquireSessionIfNecessary"
+          },
+          "response": []
+        },
+        {
           "name": "Merge Connect Account To CSG",
           "event": [
             {
@@ -14876,61 +14943,61 @@
   ],
   "variable": [
     {
-      "id": "9e4e771b-2eff-4756-b0c7-631beb0d916d",
+      "id": "e87a444b-23e0-4244-8b7b-5a8e541a9c7a",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "16d64a69-7727-467e-8d66-2326252c2e13",
+      "id": "62fc701f-d9e3-45c6-80eb-0164bce1885c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "e423c15d-4385-4dc4-b5ef-92bd20bf475c",
+      "id": "c8aa2468-f84a-4500-81fc-3d95b833507c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "64fb09ac-1591-4037-9c49-0a3ec565a632",
+      "id": "18daf6a8-4cfb-4a8d-bc6a-7ac0e5f8b181",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4e801ec0-f3cc-43d0-b627-17b90c2c6325",
+      "id": "e6688370-e1e1-4510-8b72-8007a280f417",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d18c7656-249c-49ed-8901-3046f754dc1c",
+      "id": "d3e0ca56-053d-4d6c-92a6-423f6a9407aa",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "5b06799a-91f3-41e9-ad92-e7a11388eaa8",
+      "id": "599738fa-128d-41db-bdd3-ddf4dbe11185",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "abebd511-30e8-47e3-a9cc-028cc0a7c849",
+      "id": "b2b61a92-cf45-417c-a1ee-af50ac3a4880",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c2f8f803-9f8b-4f3f-a79a-c7efb02b839a",
+      "id": "6dbba554-b68e-4c1d-84cb-1be084d216ed",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "5cefd615-0752-4918-a4b1-2f78975ee222",
+      "id": "30969571-0941-4180-a1a9-191885a2edae",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
