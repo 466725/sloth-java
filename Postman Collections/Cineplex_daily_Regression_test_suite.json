@@ -14396,7 +14396,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_Id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreActivateDevice",
             "description": "This method must be called to activate a user device. For store users, the device will also be registered on CSG."
@@ -14966,61 +14966,61 @@
   ],
   "variable": [
     {
-      "id": "3b5c4d53-9486-44e5-9d45-bab7e582e630",
+      "id": "7a53d434-cd0d-4187-aaa2-b9d7569d40b8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "497330da-510a-41c7-af15-826f18a66113",
+      "id": "70f302e6-eb03-45f1-be91-e6dbd250cf5a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "e1192930-6907-4eb0-879a-53ce3d96fed4",
+      "id": "e95e9dc7-7d85-43f7-abe2-08ae459d9b0b",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6f4bb5d3-91e3-4eba-ab01-d3c4e9c8c4df",
+      "id": "7fa91134-8365-4047-86b9-e7c0d9a30930",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "fb4a52cb-8953-480f-abe2-cd2a677293b3",
+      "id": "4326fecb-e308-45c3-bb6d-f1f090d215ad",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "b0517019-a95b-4509-8e60-06fc4fea6acd",
+      "id": "920b223c-6490-4e12-9827-27078d3bdc4b",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7001f14f-e919-42e9-bd1b-82b144c4ac74",
+      "id": "8f96c1a2-1c9b-45db-bf4e-0f773ca85e25",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "a0af98fe-5a67-45f6-bf61-518c10019a0d",
+      "id": "cb6f0caa-8bc8-4f20-a8d4-24486fda94e5",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1f31f754-c0b2-41e5-bb84-40ceee8ce8e4",
+      "id": "aafd64b9-697c-45a5-b253-955bc839eb63",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4a1db248-2750-49fe-b056-bbe4057a083c",
+      "id": "b7986417-08de-433d-b078-694367ffa1ef",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
