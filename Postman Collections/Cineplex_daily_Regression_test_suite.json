@@ -1191,188 +1191,6 @@
       ]
     },
     {
-      "name": "Store-CheckoutDetails",
-      "item": [
-        {
-          "name": "Get checkout details",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "498c6693-168e-4ebf-9cc1-3763e941421f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.response.to.be.success;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
-                  "    pm.expect(jsonBody.Status).to.be.above(0);",
-                  "});",
-                  "",
-                  "var creditCardInfo = jsonBody.CreditCards;",
-                  "pm.test(\"Credit Card List not empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "//User Story 41189: Support 4K and Harmonized Pricing",
-                  "pm.test(\"PricingPlanType to be defined\",function() {",
-                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
-                  "    } else {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
-                  "    }",
-                  "});",
-                  "",
-                  "console.log(pm.response.json());",
-                  "",
-                  "/*",
-                  "for(var i =0; i< creditCardInfo.length; i++){",
-                  "    var cardHoldername= creditCardInfo[i].CardHolderName;",
-                  "    var cardNumber = creditCardInfo[i].CardNumber;",
-                  "    var expiryDate =creditCardInfo[i].ExpiryDate;",
-                  "    var paymentInstrumentId =creditCardInfo[i].PaymentInstrumentId;",
-                  "}",
-                  "pm.test(\"Credit Card Info available, CardHolderName: \" + cardHoldername + \" CardNumber: \" + cardNumber + \" PaymentInstrumentId: \" + paymentInstrumentId, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"CreditCards\");",
-                  "});",
-                  "",
-                  "pm.variables.set(\"cardholder\", jsonBody.CreditCards[0].CardHolderName);",
-                  "pm.variables.set(\"card_number\", jsonBody.CreditCards[0].CardNumber);",
-                  "pm.variables.set(\"card_country\", jsonBody.CreditCards[0].CountryCode);",
-                  "pm.variables.set(\"card_expiry\", jsonBody.CreditCards[0].ExpiryDate);",
-                  "pm.variables.set(\"card_id\", jsonBody.CreditCards[0].PaymentInstrumentId);",
-                  "pm.variables.set(\"postal_code\", jsonBody.CreditCards[0].PostalCode);",
-                  "pm.variables.set(\"card_province\", jsonBody.CreditCards[0].ProvinceCode);",
-                  "*/"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "a975bbca-490b-4052-9f82-a0ac5471f105",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_Id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{cineplex_token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
-            },
-            "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
-          },
-          "response": []
-        },
-        {
-          "name": "Get checkout details - 4K",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "498c6693-168e-4ebf-9cc1-3763e941421f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.response.to.be.success;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
-                  "    pm.expect(jsonBody.Status).to.be.above(0);",
-                  "});",
-                  "",
-                  "var creditCardInfo = jsonBody.CreditCards;",
-                  "pm.test(\"Credit Card List not Empty\", function(){",
-                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "//User Story 41189: Support 4K and Harmonized Pricing",
-                  "pm.test(\"PricingPlanType to be defined\",function() {",
-                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
-                  "    } else {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
-                  "    }",
-                  "});",
-                  "",
-                  "console.log(pm.response.json());",
-                  "",
-                  "/*",
-                  "for(var i =0; i< creditCardInfo.length; i++){",
-                  "    var cardHoldername= creditCardInfo[i].CardHolderName;",
-                  "    var cardNumber = creditCardInfo[i].CardNumber;",
-                  "    var expiryDate =creditCardInfo[i].ExpiryDate;",
-                  "    var paymentInstrumentId =creditCardInfo[i].PaymentInstrumentId;",
-                  "}",
-                  "pm.test(\"Credit Card Info available, CardHolderName: \" + cardHoldername + \" CardNumber: \" + cardNumber + \" PaymentInstrumentId: \" + paymentInstrumentId, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"CreditCards\");",
-                  "});",
-                  "",
-                  "pm.variables.set(\"cardholder\", jsonBody.CreditCards[0].CardHolderName);",
-                  "pm.variables.set(\"card_number\", jsonBody.CreditCards[0].CardNumber);",
-                  "pm.variables.set(\"card_country\", jsonBody.CreditCards[0].CountryCode);",
-                  "pm.variables.set(\"card_expiry\", jsonBody.CreditCards[0].ExpiryDate);",
-                  "pm.variables.set(\"card_id\", jsonBody.CreditCards[0].PaymentInstrumentId);",
-                  "pm.variables.set(\"postal_code\", jsonBody.CreditCards[0].PostalCode);",
-                  "pm.variables.set(\"card_province\", jsonBody.CreditCards[0].ProvinceCode);",
-                  "*/"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "fa8e306d-e9e1-4e71-8f21-30159fec3f89",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_Id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{cineplex_token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\n\t\"LanguageType\":1,\n\t\"Is4KSupported\":\"true\",\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
-            },
-            "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "8c0efb52-7563-48d0-b916-e38403d01f6f",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "6fe95845-8063-43f8-8618-436cfec7a5f4",
-            "type": "text/javascript",
-            "exec": [
-              "console.log(\"**********Daily regression sub-folder started running!**********\");"
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "02bca300-6926-4614-ba79-b379c1906daf",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
       "name": "Store-UserLockerContents",
       "item": [
         {
@@ -1827,6 +1645,188 @@
           "listen": "test",
           "script": {
             "id": "f6ed93e8-5d54-4b6a-9468-60a5865f59cc",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Store-CheckoutDetails",
+      "item": [
+        {
+          "name": "Get checkout details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "498c6693-168e-4ebf-9cc1-3763e941421f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.response.to.be.success;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});",
+                  "",
+                  "var creditCardInfo = jsonBody.CreditCards;",
+                  "pm.test(\"Credit Card List not empty\", function(){",
+                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "//User Story 41189: Support 4K and Harmonized Pricing",
+                  "pm.test(\"PricingPlanType to be defined\",function() {",
+                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
+                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
+                  "    } else {",
+                  "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
+                  "    }",
+                  "});",
+                  "",
+                  "console.log(pm.response.json());",
+                  "",
+                  "/*",
+                  "for(var i =0; i< creditCardInfo.length; i++){",
+                  "    var cardHoldername= creditCardInfo[i].CardHolderName;",
+                  "    var cardNumber = creditCardInfo[i].CardNumber;",
+                  "    var expiryDate =creditCardInfo[i].ExpiryDate;",
+                  "    var paymentInstrumentId =creditCardInfo[i].PaymentInstrumentId;",
+                  "}",
+                  "pm.test(\"Credit Card Info available, CardHolderName: \" + cardHoldername + \" CardNumber: \" + cardNumber + \" PaymentInstrumentId: \" + paymentInstrumentId, function(){",
+                  "    pm.expect(pm.response.text()).to.include(\"CreditCards\");",
+                  "});",
+                  "",
+                  "pm.variables.set(\"cardholder\", jsonBody.CreditCards[0].CardHolderName);",
+                  "pm.variables.set(\"card_number\", jsonBody.CreditCards[0].CardNumber);",
+                  "pm.variables.set(\"card_country\", jsonBody.CreditCards[0].CountryCode);",
+                  "pm.variables.set(\"card_expiry\", jsonBody.CreditCards[0].ExpiryDate);",
+                  "pm.variables.set(\"card_id\", jsonBody.CreditCards[0].PaymentInstrumentId);",
+                  "pm.variables.set(\"postal_code\", jsonBody.CreditCards[0].PostalCode);",
+                  "pm.variables.set(\"card_province\", jsonBody.CreditCards[0].ProvinceCode);",
+                  "*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "a975bbca-490b-4052-9f82-a0ac5471f105",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_Id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{cineplex_token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
+            },
+            "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
+          },
+          "response": []
+        },
+        {
+          "name": "Get checkout details - 4K",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "498c6693-168e-4ebf-9cc1-3763e941421f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.response.to.be.success;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"CheckoutDetails retrieved successfully\", function(){",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
+                  "});",
+                  "",
+                  "var creditCardInfo = jsonBody.CreditCards;",
+                  "pm.test(\"Credit Card List not Empty\", function(){",
+                  "    pm.expect(creditCardInfo.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "//User Story 41189: Support 4K and Harmonized Pricing",
+                  "pm.test(\"PricingPlanType to be defined\",function() {",
+                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
+                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
+                  "    } else {",
+                  "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
+                  "    }",
+                  "});",
+                  "",
+                  "console.log(pm.response.json());",
+                  "",
+                  "/*",
+                  "for(var i =0; i< creditCardInfo.length; i++){",
+                  "    var cardHoldername= creditCardInfo[i].CardHolderName;",
+                  "    var cardNumber = creditCardInfo[i].CardNumber;",
+                  "    var expiryDate =creditCardInfo[i].ExpiryDate;",
+                  "    var paymentInstrumentId =creditCardInfo[i].PaymentInstrumentId;",
+                  "}",
+                  "pm.test(\"Credit Card Info available, CardHolderName: \" + cardHoldername + \" CardNumber: \" + cardNumber + \" PaymentInstrumentId: \" + paymentInstrumentId, function(){",
+                  "    pm.expect(pm.response.text()).to.include(\"CreditCards\");",
+                  "});",
+                  "",
+                  "pm.variables.set(\"cardholder\", jsonBody.CreditCards[0].CardHolderName);",
+                  "pm.variables.set(\"card_number\", jsonBody.CreditCards[0].CardNumber);",
+                  "pm.variables.set(\"card_country\", jsonBody.CreditCards[0].CountryCode);",
+                  "pm.variables.set(\"card_expiry\", jsonBody.CreditCards[0].ExpiryDate);",
+                  "pm.variables.set(\"card_id\", jsonBody.CreditCards[0].PaymentInstrumentId);",
+                  "pm.variables.set(\"postal_code\", jsonBody.CreditCards[0].PostalCode);",
+                  "pm.variables.set(\"card_province\", jsonBody.CreditCards[0].ProvinceCode);",
+                  "*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "fa8e306d-e9e1-4e71-8f21-30159fec3f89",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_Id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{cineplex_token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\n\t\"LanguageType\":1,\n\t\"Is4KSupported\":\"true\",\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
+            },
+            "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "8c0efb52-7563-48d0-b916-e38403d01f6f",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "6fe95845-8063-43f8-8618-436cfec7a5f4",
+            "type": "text/javascript",
+            "exec": [
+              "console.log(\"**********Daily regression sub-folder started running!**********\");"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "02bca300-6926-4614-ba79-b379c1906daf",
             "type": "text/javascript",
             "exec": [
               ""
@@ -14972,61 +14972,61 @@
   ],
   "variable": [
     {
-      "id": "0878cdd5-227e-44a4-88e7-ebe3b4523c88",
+      "id": "c25b9d87-b837-4bfa-9e9a-a6a22e21e4b6",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "217040ef-09c4-4fef-b8f1-e07c93d2961f",
+      "id": "3e746c6d-3daf-48f5-939c-84405e996274",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "e1dc7e61-7ae0-47c6-a2c2-3c0bf39e2646",
+      "id": "c61a1e79-c149-46b1-a023-7a89c8a84b42",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "656d634d-66b0-42aa-be4c-9abb537db756",
+      "id": "8531d806-dbc0-483c-a430-02d47eb53ea0",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "e7b99829-0d78-4c6a-bdd4-235464155ec0",
+      "id": "74d1c188-d15f-474a-838a-c2ef9b104c33",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0127d267-d575-43e0-8b57-c87f56f6b5df",
+      "id": "cb4ac37f-0402-414c-ae0f-4241542afc9f",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "85e9a204-a53b-41d0-a84b-16ac1d9c7aec",
+      "id": "de6bee14-6ba0-42db-9494-fa5160a91a69",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8c8881bb-0240-4086-946e-9d1f6c818ad8",
+      "id": "592dc822-d83f-468a-bfbc-5f4b73a51128",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "b5fbf352-286d-4e26-a4e0-7568f0afdc77",
+      "id": "2f87db41-8009-494e-ab91-5c85065d9226",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "47b97744-3bb0-4044-9806-e9dfcbd65b8a",
+      "id": "8cf0221b-584d-49a5-8b05-a49adfc9ee49",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
