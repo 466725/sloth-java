@@ -1619,6 +1619,7 @@
         }
       ],
       "_postman_id": "b6e56175-fb57-45e2-9afe-d45330585171",
+      "description": "Depends on Get CSG Product ID in Connect-Login folder",
       "event": [
         {
           "listen": "prerequest",
@@ -1799,6 +1800,7 @@
         }
       ],
       "_postman_id": "8c0efb52-7563-48d0-b916-e38403d01f6f",
+      "description": "Depends on Store-ProductDetails",
       "event": [
         {
           "listen": "prerequest",
@@ -14971,61 +14973,61 @@
   ],
   "variable": [
     {
-      "id": "7ef71aa9-5932-4565-97cd-baa0c169edf9",
+      "id": "ec7b6b87-2eb5-43d3-8714-c7610af0ca87",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c05fceb5-7fe3-468a-973f-5de8e275b1c7",
+      "id": "fa5a33c5-eacb-41a1-aa79-e96310cd80e9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f7bc2024-edc2-487d-90e3-6e6eb2fd8260",
+      "id": "dbb4dacf-5644-4073-b80d-f366761bb23d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "d9a4ac82-daad-4612-81f0-f73ceb2d520c",
+      "id": "bad92e45-c975-460b-8872-1d31e7bd9697",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a1b74a67-b6cc-4dbc-beba-cf62788e2989",
+      "id": "4b2fbff3-e54e-4ebc-b209-f87c78a22813",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "8e79c500-d790-4de5-9ac8-a591ab584a0d",
+      "id": "e69bf0a8-014c-4275-88cb-a43f121cae17",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ec41e563-c682-4a77-be80-b2cb80b58b95",
+      "id": "c306474c-5084-4bb3-a045-44748907703d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "819b3603-d129-4ebf-a4ba-7b6b512d2840",
+      "id": "db536e98-f558-402d-b5b0-28da572759ba",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "abbe7d1e-0961-43fd-bb61-5d426f648c35",
+      "id": "4ebe8d44-f61d-4f95-ac6f-30b81daa08a3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "093cfc4b-b022-42ab-a819-0a9386df9f88",
+      "id": "434c64a4-b45c-4819-ab6e-aee6dd96ed87",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
