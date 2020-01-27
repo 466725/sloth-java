@@ -890,11 +890,11 @@
                       "var productList = jsonBody.BuyPricingPlans.ProductDetailPageInfoList;",
                       "productList.forEach((product) => {",
                       "    if (product.PricingPlanName === \"Redeem SuperTicket\"){",
-                      "        pm.globals.set(\"pricing_plan_id\", product.PricingPlanId);",
+                      "        pm.environment.set(\"pricing_plan_id\", product.PricingPlanId);",
                       "    }",
                       "});",
                       "pm.test(\"Got pricing plan for SuperTicket\", () => {",
-                      "    pm.expect(pm.globals.get(\"pricing_plan_id\")).to.be.above(0);",
+                      "    pm.expect(pm.environment.get(\"pricing_plan_id\")).to.be.above(0);",
                       "});",
                       "*/"
                     ],
@@ -906,7 +906,7 @@
                   "script": {
                     "id": "31e921bc-462b-4b1b-8dd0-debf14da32cc",
                     "exec": [
-                      "pm.globals.set(\"pricing_plan_id\", 0);"
+                      "pm.environment.set(\"pricing_plan_id\", 0);"
                     ],
                     "type": "text/javascript"
                   }
@@ -15007,61 +15007,61 @@
   ],
   "variable": [
     {
-      "id": "a43f6eab-444e-4298-a12e-f3c524f7ead0",
+      "id": "d4dc4b9c-4103-4253-b762-6ceea447e2a0",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "8871d00a-593f-473b-8e83-e51c73e26415",
+      "id": "2f9824e7-13ed-46bb-9485-c4114b0e9eeb",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7ff79e87-32ce-484b-ab10-60d07d4761ec",
+      "id": "fbe481eb-86b7-4509-aa7d-4f916477fae5",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "b342a9f5-5182-4ec3-ae54-62268e8a856a",
+      "id": "637bb64a-f80e-4eed-932d-bca732027152",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "374e2738-391a-4b6e-961e-4e661bfdc9cc",
+      "id": "60d81b41-e0ef-44ac-ae6c-bb9b4afd7565",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "3042ce00-fa80-49d2-b62a-2ca3d7b63bb1",
+      "id": "d29b9b8d-cb0e-4b18-ab1d-d8b86bc46b22",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "4d95e073-a185-47e9-9add-d5cda025db3d",
+      "id": "a7c0402f-663e-4850-9fbd-c5435dce0f59",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "eeef989c-5265-40de-b6b9-9c41ad00a051",
+      "id": "7d89ea89-f7d8-4a17-8c81-2f3d468bddd9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "00829e2a-2b94-43e7-bc78-788802712d06",
+      "id": "38aa10b5-d0d8-4159-966a-2a7503c250ec",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c52c3605-71e6-4ddc-9d76-c39a0ed19e37",
+      "id": "aebb9a23-8a46-4815-b69b-a30b7b388a9c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
