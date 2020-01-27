@@ -10880,15 +10880,23 @@
                   "",
                   "var cardsInfo = jsonBody.GiftCardInfo.Cards;",
                   "",
-                  "for (i=0; i<cardsInfo.length; i++) {",
-                  "  pm.test(\"Card Number :\" + cardsInfo[i].CardNumber + \" \" + \"Card Balance :\" + cardsInfo[i].Balance); ",
-                  "}",
+                  "pm.test(\"Checking if cards exist\",function() {",
+                  "    if (cardsInfo.length === 0) {",
+                  "        console.log(\"There are no gift cards!\");",
+                  "    } else {",
+                  "        for (i=0; i<cardsInfo.length; i++) {",
+                  "            pm.test(\"Card Number :\" + cardsInfo[i].CardNumber + \" \" + \"Card Balance :\" + cardsInfo[i].Balance); ",
+                  "        }",
+                  "        console.log(\"Set the Gift Card to variable.\")",
+                  "        pm.environment.set(\"giftcardNumber\", jsonBody.GiftCardInfo.Cards[0].CardNumber);",
+                  "    }",
+                  "});",
+                  "        ",
                   "",
                   "pm.test(\"Session created successfully\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
-                  "",
-                  "pm.environment.set(\"giftcardNumber\", jsonBody.GiftCardInfo.Cards[0].CardNumber);"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -14978,61 +14986,61 @@
   ],
   "variable": [
     {
-      "id": "c829c013-cc50-4972-824f-91732ef7d644",
+      "id": "6e046d8d-2c14-4df2-b82c-04999bf4918b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "c88a580a-ee52-42d4-ad44-718916c0280c",
+      "id": "4b3363e2-6522-455d-a084-ebdfee08f3cf",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "3b224bc0-fc8a-4c72-8789-15f61e38c952",
+      "id": "bf850139-2784-4062-a9c5-f85f2af17d5e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0c447932-7b2b-48f5-9039-c7086acbc8ea",
+      "id": "ad0348ea-1b17-41bc-acf8-22bb3e60fa17",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "285f1119-79a7-45e6-9816-d02ec6d51d10",
+      "id": "ddc7579d-a503-49d5-829a-a7379e2d8125",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "57127c94-bb40-430a-9f04-bba2c0e787a4",
+      "id": "839cb39f-9757-424f-bc6d-0e86e2f2b53e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "bb0ea338-446c-466a-9866-45c1d2f054ac",
+      "id": "a6dedcc7-5b73-442c-8588-973107ad14cf",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "89eee439-2c65-48aa-806d-699c4917488c",
+      "id": "ffc74d60-edba-49cb-9746-d2015c1a3a4f",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9c15cf36-d68b-4b3a-8523-65030ca593f8",
+      "id": "29cf7abe-39c4-4603-8231-76c6493a835e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "b2455792-a210-4d77-9294-224edca51662",
+      "id": "7adc3568-7eec-4307-b7ff-ec2f88419ba8",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
