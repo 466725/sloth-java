@@ -14166,21 +14166,34 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "var digitalPurchaseOrderList = jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList;",
+                  "var rentalPurchaseOrderList = jsonBody.StoreOrderResult.OrderData.RentalOrderList;",
                   "",
                   "pm.test(\"Session created successfully\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
                   "",
                   "pm.test(\"Checking if OrderDetails exist\",function() {  //Workaround if OrderDetail does not exist",
-                  "    if (digitalPurchaseOrderList.length === 0) {",
-                  "        console.log(\"There are no OrderDetails\");",
-                  "    } else {",
-                  "        console.log(\"Set the csgOrderNumber, PricingPlan and ProductId\")",
+                  "    if ((digitalPurchaseOrderList.length === 0) && (rentalPurchaseOrderList.length === 0)) {",
+                  "        console.log(\"There are no OrderDetails at all\");",
+                  "    } else if ((rentalPurchaseOrderList.length === 0) || (digitalPurchaseOrderList.length > 0)) {",
+                  "        console.log(\"digitalPurchaseOrderList exists! Set the csgOrderNumber, PricingPlan and ProductId\");",
                   "        pm.environment.set(\"csgOrderNumber\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
-                  "        pm.environment.set(\"csrPricingPlanId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
-                  "        pm.environment.set(\"csrPricingProductId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
+                  "        console.log(\"csgOrderNumber is:\" + jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csgPricingPlanId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
+                  "        console.log(\"csgPricingPlanId is:\" + jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
+                  "        pm.environment.set(\"csgPricingProductId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
+                  "        console.log(\"csgProductId is:\" + jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
+                  "    } else if ((digitalPurchaseOrderList.length === 0) || (rentalPurchaseOrderList.length > 0)) {",
+                  "        console.log(\"rentalPurchaseOrderList exists! Set the csgOrderNumber, PricingPlan and ProductId\");",
+                  "        pm.environment.set(\"csgOrderNumber\", jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].OrderDetail.CSGOrderId);",
+                  "        console.log(\"csgOrderNumber is:\" + jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csgPricingPlanId\", jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
+                  "        console.log(\"csgPricingPlanId is:\" + jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
+                  "        pm.environment.set(\"csgPricingProductId\", jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGProductId);",
+                  "        console.log(\"csgProductId is:\" + jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGProductId);",
                   "    }",
-                  "});"
+                  "});",
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -14993,61 +15006,61 @@
   ],
   "variable": [
     {
-      "id": "723db18e-04cb-4831-a04c-1f084272264e",
+      "id": "88dadaf6-f7e2-476e-aaf2-5b4ef5e719d1",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "9e7e39d5-59b5-44eb-9566-42f313550889",
+      "id": "e61e5234-269b-4beb-98f2-a5c530555299",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "37ddecde-9b71-485d-8644-1b7555d107e8",
+      "id": "17e6864b-da6e-4bff-9fea-09ed8adcf12e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "80999d2f-321e-4d7b-ab79-189c6a790e5d",
+      "id": "dc3ff993-6fb9-49ac-ba15-2c92fc7cfdee",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "e017e0d1-e659-4dac-a255-009fc396894f",
+      "id": "95565d9a-095d-44b6-a728-f4f1a1e2e04a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "49e871d3-fa4b-4cf1-ab97-c837441b6e5f",
+      "id": "81f54600-b96b-44d5-8653-aa4527b79770",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "96c3e6ce-dc15-4eb7-a02a-f898eb95a850",
+      "id": "132d7fa9-6f60-494a-a30e-dcd6f56b313b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "a1c747a4-120a-4af0-b68a-536a5d34e609",
+      "id": "8acf8401-74a1-45da-beb6-28ab569cbd61",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ba87ae1e-84fc-48bf-8faa-038c50bf959a",
+      "id": "b796ebb9-7e1f-452d-b596-578bce9035d0",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "aa18c82b-1290-4786-a99f-97ed17fc7bbc",
+      "id": "df94d301-a26a-4a38-b99b-adcafab7441c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
