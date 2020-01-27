@@ -11266,6 +11266,78 @@
           ]
         },
         {
+          "name": "Add Address Book Entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a2830f52-65e2-4747-ba32-a724a78d672d",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "76912e12-614b-45a3-8efa-df4079536b66",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
+          },
+          "response": [
+            {
+              "id": "924f068f-99a9-421b-95c1-7b2b86609329",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"IsBilling\": \"<boolean>\",\n        \"PhoneNumber\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
           "name": "Remove Address Book Entry",
           "event": [
             {
@@ -11393,78 +11465,6 @@
                   "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"PhoneNumber\": \"<long>\",\n        \"Extension\": \"<long>\",\n        \"SortOrder\": \"<integer>\",\n        \"IsBilling\": \"<boolean>\",\n        \"NickName\": \"<string>\",\n        \"AddressBookType\": \"<enum>\"\n    }\n}"
                 },
                 "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/UpdateAddressBookEntry"
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "Add Address Book Entry",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "a2830f52-65e2-4747-ba32-a724a78d672d",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "76912e12-614b-45a3-8efa-df4079536b66",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"Sister\",\n        \"AddressLine1\": \"2559 KINGSTON RD\",\n        \"AddressLine2\": \"\",\n        \"City\": \"SCARBOROUGH\",\n        \"ProvinceCode\": \"ON\",\n        \"CountryCode\": \"CA\",\n        \"PostalCode\": \"M1M1M1\",\n        \"IsBilling\": false,\n        \"PhoneNumber\": \"4169761111\",\n        \"AddressBookType\": \"2\"\n    }\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
-          },
-          "response": [
-            {
-              "id": "924f068f-99a9-421b-95c1-7b2b86609329",
-              "name": "not available",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"AddressBookEntryInfo\": {\n        \"FullName\": \"<string>\",\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"City\": \"<string>\",\n        \"ProvinceCode\": \"<string>\",\n        \"CountryCode\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"IsBilling\": \"<boolean>\",\n        \"PhoneNumber\": \"<long>\",\n        \"AddressBookType\": \"<enum>\"\n    }\n}"
-                },
-                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/AddAddressBookEntry"
               },
               "status": "Internal Server Error",
               "code": 500,
@@ -14986,61 +14986,61 @@
   ],
   "variable": [
     {
-      "id": "6e046d8d-2c14-4df2-b82c-04999bf4918b",
+      "id": "b8923b5f-1dcc-4bf1-8370-70664ca56ae5",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4b3363e2-6522-455d-a084-ebdfee08f3cf",
+      "id": "db0f5efe-b04b-493f-9b5f-0ef89d9a1fdf",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "bf850139-2784-4062-a9c5-f85f2af17d5e",
+      "id": "9ff42cea-ac84-4997-aa48-809f222ec109",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ad0348ea-1b17-41bc-acf8-22bb3e60fa17",
+      "id": "466cd40b-d02a-49a6-bfb3-97521d5af941",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "ddc7579d-a503-49d5-829a-a7379e2d8125",
+      "id": "5e410c23-d812-400e-895b-87dbedd192f2",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "839cb39f-9757-424f-bc6d-0e86e2f2b53e",
+      "id": "ac142428-480f-49f4-b8bf-e4f98e1b7c70",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a6dedcc7-5b73-442c-8588-973107ad14cf",
+      "id": "ebf52b62-08c1-4f68-9015-46b306c7c81f",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ffc74d60-edba-49cb-9746-d2015c1a3a4f",
+      "id": "1319d011-a1b0-490e-a6cc-6efac1ca12c6",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "29cf7abe-39c4-4603-8231-76c6493a835e",
+      "id": "f12e9b68-dc09-4304-a423-4dbf4b721aa9",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "7adc3568-7eec-4307-b7ff-ec2f88419ba8",
+      "id": "5ccd6d27-327a-4c2f-bc8c-5de319444bc8",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
