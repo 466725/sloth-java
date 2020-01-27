@@ -14172,25 +14172,27 @@
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});",
                   "",
+                  "pm.test(\"Checking if OrderDetails exist\", function(){",
+                  "    pm.expect(digitalPurchaseOrderList.length || rentalPurchaseOrderList.length).to.be.above(0);",
+                  "});",
+                  "",
                   "pm.test(\"Checking if OrderDetails exist\",function() {  //Workaround if OrderDetail does not exist",
-                  "    if ((digitalPurchaseOrderList.length === 0) && (rentalPurchaseOrderList.length === 0)) {",
-                  "        console.log(\"There are no OrderDetails at all\");",
-                  "    } else if ((rentalPurchaseOrderList.length === 0) || (digitalPurchaseOrderList.length > 0)) {",
-                  "        console.log(\"digitalPurchaseOrderList exists! Set the csgOrderNumber, PricingPlan and ProductId\");",
-                  "        pm.environment.set(\"csgOrderNumber\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
-                  "        console.log(\"csgOrderNumber is:\" + jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
-                  "        pm.environment.set(\"csgPricingPlanId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
-                  "        console.log(\"csgPricingPlanId is:\" + jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
-                  "        pm.environment.set(\"csgPricingProductId\", jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
-                  "        console.log(\"csgProductId is:\" + jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
-                  "    } else if ((digitalPurchaseOrderList.length === 0) || (rentalPurchaseOrderList.length > 0)) {",
+                  "    if ((digitalPurchaseOrderList.length === 0) || (rentalPurchaseOrderList.length > 0)) {",
                   "        console.log(\"rentalPurchaseOrderList exists! Set the csgOrderNumber, PricingPlan and ProductId\");",
-                  "        pm.environment.set(\"csgOrderNumber\", jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].OrderDetail.CSGOrderId);",
-                  "        console.log(\"csgOrderNumber is:\" + jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].OrderDetail.CSGOrderId);",
-                  "        pm.environment.set(\"csgPricingPlanId\", jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
-                  "        console.log(\"csgPricingPlanId is:\" + jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
-                  "        pm.environment.set(\"csgPricingProductId\", jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGProductId);",
-                  "        console.log(\"csgProductId is:\" + jsonBody.StoreOrderResult.OrderData.RentalOrderList[0].RentalOrderInfo.CSGProductId);",
+                  "        pm.environment.set(\"csgOrderNumber\", rentalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
+                  "        console.log(\"csgOrderNumber is:\" + rentalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csgPricingPlanId\", rentalPurchaseOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
+                  "        console.log(\"csgPricingPlanId is:\" + rentalPurchaseOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
+                  "        pm.environment.set(\"csgPricingProductId\", rentalPurchaseOrderList[0].RentalOrderInfo.CSGProductId);",
+                  "        console.log(\"csgProductId is:\" + rentalPurchaseOrderList[0].RentalOrderInfo.CSGProductId);",
+                  "    } else {",
+                  "        console.log(\"digitalPurchaseOrderList exists! Set the csgOrderNumber, PricingPlan and ProductId\");",
+                  "        pm.environment.set(\"csgOrderNumber\", digitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
+                  "        console.log(\"csgOrderNumber is:\" + digitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csgPricingPlanId\", digitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
+                  "        console.log(\"csgPricingPlanId is:\" + digitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
+                  "        pm.environment.set(\"csgPricingProductId\", digitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
+                  "        console.log(\"csgProductId is:\" + digitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGProductId);",
                   "    }",
                   "});",
                   ""
@@ -14489,7 +14491,6 @@
                   "});",
                   "",
                   "pm.environment.set(\"device_description\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceDescription);",
-                  "pm.environment.set(\"device_dateadded\", jsonBody.StoreDeviceResult.DeviceList[0].DateAdded);",
                   "pm.environment.set(\"device_deviceid\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceId);",
                   "pm.environment.set(\"device_name\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceName);",
                   "pm.environment.set(\"device_type\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceType);",
@@ -15006,61 +15007,61 @@
   ],
   "variable": [
     {
-      "id": "88dadaf6-f7e2-476e-aaf2-5b4ef5e719d1",
+      "id": "279320a0-b42f-439b-9410-6b84c6c2ca0f",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "e61e5234-269b-4beb-98f2-a5c530555299",
+      "id": "3f854c9f-c373-4d02-b5b8-2d583a20cf15",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "17e6864b-da6e-4bff-9fea-09ed8adcf12e",
+      "id": "b77efb6c-a17c-4a62-a117-99f2fe5c5eea",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "dc3ff993-6fb9-49ac-ba15-2c92fc7cfdee",
+      "id": "57ac96a1-49dc-4ae0-825b-d23d916c3ccb",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "95565d9a-095d-44b6-a728-f4f1a1e2e04a",
+      "id": "94176ca3-037f-45c8-9ac7-9c6be986b040",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "81f54600-b96b-44d5-8653-aa4527b79770",
+      "id": "592c3c9c-84d2-4cd2-800f-8e7beb26c861",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "132d7fa9-6f60-494a-a30e-dcd6f56b313b",
+      "id": "aec42927-899f-4a67-aeba-63ec15dda4ae",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8acf8401-74a1-45da-beb6-28ab569cbd61",
+      "id": "58dcf81f-7b05-410f-bb48-f6344a920625",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "b796ebb9-7e1f-452d-b596-578bce9035d0",
+      "id": "ae3fdc30-5740-433e-bb78-fff345b3a175",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "df94d301-a26a-4a38-b99b-adcafab7441c",
+      "id": "79f95af2-ef40-42bd-acb0-942d55f9d598",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
