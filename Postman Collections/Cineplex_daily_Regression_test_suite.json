@@ -1070,8 +1070,6 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                      "",
                       "pm.test(\"Got products successfully\", function(){",
                       "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                       "});",
@@ -1130,8 +1128,6 @@
                     "id": "ce3898f5-5967-4ec8-97f8-8ad1bcc204e6",
                     "exec": [
                       "var jsonBody = pm.response.json();",
-                      "",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                       "",
                       "pm.test(\"Status is 1\", function(){",
                       "    pm.expect(jsonBody.Status).to.be.above(0);",
@@ -1227,8 +1223,6 @@
                   "var moviesPurchased =[];",
                   "var moviesRented =[];",
                   "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"User locker contents retrieved successfully\", function(){",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});",
@@ -1314,8 +1308,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"Fetch product full details successfully\", function(){",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});",
@@ -1386,8 +1378,6 @@
                 "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"Content-Type is present\", function(){",
                   "    pm.response.to.have.header(\"Content-Type\");",
@@ -14940,61 +14930,61 @@
   ],
   "variable": [
     {
-      "id": "300976f3-8913-453d-a20b-a64586520738",
+      "id": "ef0c49d7-11f0-4509-b76c-8bdcc0dcc639",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "8d315421-1a53-4efc-ad32-32836bb9187a",
+      "id": "9a84267d-0824-4204-86c9-d0f3e7b5c7b6",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "309090af-34a5-4716-b709-98f0e4edc052",
+      "id": "c53d33a1-3fe9-448c-a29b-3ba7320cae3f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "3d058960-9e49-4822-b628-2ccfda9f6014",
+      "id": "468b5309-c904-4b7e-9d3b-9279fccb4399",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "551b4b5c-e660-4b4d-a64f-1d3e6dc1b384",
+      "id": "29b47f11-1906-4c94-9a55-4ab809bfafce",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d4b5cb3d-28dd-46e7-9718-ac81268e27ad",
+      "id": "67f3398a-2b4d-4115-b887-37823734bd39",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "29183d63-d1ae-4c2d-a5cc-6f4b0ffcbebc",
+      "id": "cdd7a25b-5391-49f8-9ded-d1fcdbcd3e3a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b6fc7247-559b-4a7c-84f4-2ab46f893c08",
+      "id": "a4622f0b-84eb-4626-872a-69525b4af6ad",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "042cc7b2-d266-4909-9f1d-490b355c6566",
+      "id": "b224333b-7d77-40cb-8b22-61da94f774f5",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "979b317f-89d3-4247-8723-68b92c32f989",
+      "id": "37aaf6e2-a18b-434d-bf85-b2e0501f691e",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
