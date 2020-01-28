@@ -13686,78 +13686,6 @@
           ]
         },
         {
-          "name": "Share Ticket Send Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "51097cf6-0962-4028-91a0-7e6711788c2f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "d80b47c3-45a2-41c0-a1d6-85b28e95f234",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
-          },
-          "response": [
-            {
-              "id": "31c600dd-f3ad-4a16-96c9-665928694ab2",
-              "name": "not available",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"RecipientShareTicketName\": \"<string>\",\n    \"ShareTicketBarCode\": \"<string>\",\n    \"TicketId\": \"<long>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
-                },
-                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n \"FirstName\": \"<string>\",\n \"LastName\": \"<string>\",\n \"LocationName\": \"<string>\",\n \"FilmName\": \"<string>\",\n \"SessionDate\": \"<string>\",\n \"SessionTime\": \"<string>\",\n \"SessionDayOfWeek\": \"<string>\",\n \"HashValue\": \"<string>\",\n \"RecipientMessage\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
-            }
-          ]
-        },
-        {
           "name": "Share Ticket Reject",
           "event": [
             {
@@ -14990,6 +14918,78 @@
               "body": "{\n \"StoreCouponRedemptionCodeResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"CouponRedemptionCode\": {\n   \"CouponId\": {\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n   },\n   \"Expiration\": \"<dateTime>\",\n   \"RedemptionCode\": \"<string>\",\n   \"Status\": \"<enum>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
             }
           ]
+        },
+        {
+          "name": "Share Ticket Send Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "51097cf6-0962-4028-91a0-7e6711788c2f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d80b47c3-45a2-41c0-a1d6-85b28e95f234",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
+          },
+          "response": [
+            {
+              "id": "31c600dd-f3ad-4a16-96c9-665928694ab2",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RecipientShareTicketName\": \"<string>\",\n    \"ShareTicketBarCode\": \"<string>\",\n    \"TicketId\": \"<long>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"FirstName\": \"<string>\",\n \"LastName\": \"<string>\",\n \"LocationName\": \"<string>\",\n \"FilmName\": \"<string>\",\n \"SessionDate\": \"<string>\",\n \"SessionTime\": \"<string>\",\n \"SessionDayOfWeek\": \"<string>\",\n \"HashValue\": \"<string>\",\n \"RecipientMessage\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
         }
       ],
       "_postman_id": "3e17a978-7f92-4393-a80c-7e3e27b88fa5",
@@ -15079,61 +15079,61 @@
   ],
   "variable": [
     {
-      "id": "ec917f44-55d3-48a0-8c06-0741903daaab",
+      "id": "4e386470-7a05-4ac1-8ceb-4c8ff237941a",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "b62f0d76-d22b-4e5d-8ddf-ea5fa0fd6e5f",
+      "id": "c024f891-f7f5-4e0c-91ba-d1630be721ea",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "94f45952-f150-4d4c-9127-182f53348be7",
+      "id": "590cc330-63f5-4db3-9771-5808455dfef3",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cf4b5ff1-dfe0-4cff-aed2-8801d48da72d",
+      "id": "871b9780-e812-4257-8d82-a4d86051b3f2",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "568d6068-dc0e-4fc8-88db-559c2f70886f",
+      "id": "eff151de-18c7-40d4-86a7-554793cc6dd1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c9d8594d-c8b9-474d-b961-2999823bcc1c",
+      "id": "1a4c1384-8426-46c3-876a-312cb187a8aa",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "baddff89-db58-4807-a49a-7f0532f948e5",
+      "id": "047606ef-206f-4334-9df5-e4376b5ddb10",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1387d920-d5b8-4ee7-a8a0-c3b429eb2fd7",
+      "id": "3ac43752-1bab-435b-b60b-d3621c876f14",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a3789794-bfdd-4394-8dd4-9aecb76b4d15",
+      "id": "ab6b19c7-07c2-4c8d-ad0b-a2b252d2f6cf",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0523bdb6-98ee-4b21-b1c2-20c8810f4737",
+      "id": "b7a5b7d2-d753-4c1a-be82-f399f4852964",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
