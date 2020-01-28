@@ -8739,7 +8739,13 @@
           },
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "{{store_url}}/Checkout/GetTaxInfoByProvince?provinceCode=BC&countryCode=CA",
               "host": [
@@ -14966,61 +14972,61 @@
   ],
   "variable": [
     {
-      "id": "a05ac90a-5b60-47b7-961a-1ce8fc49c76b",
+      "id": "150e4eb3-80bf-4314-bd7c-38a7d6bce075",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "3b3fe7b7-6f2d-470c-b158-7ab96b75c2e4",
+      "id": "165f22ac-7b32-42ad-b94f-a66acba9c4fe",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "fb5fd7bf-cc18-42b6-bfc9-85beaed60a1a",
+      "id": "bcd595b8-44d7-4e6e-a7c6-4f6689eb678c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4348b39c-ebb6-4ccb-91a4-6ab441970608",
+      "id": "8a0d4246-82f7-44ec-8d96-6389e7c45730",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "122f960e-9dd0-46eb-869c-f71d6614a3b8",
+      "id": "43c44635-40eb-4055-adc4-a316326093ff",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d93296a0-a177-426f-8593-2c557fda854e",
+      "id": "c72582b1-5fbc-45d0-bd51-efc4b34781c1",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "771ee939-6bd4-47ce-bfc5-c054a15d92cf",
+      "id": "4ab76a74-2355-4494-8781-c2ceef058e6f",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4a15bdb0-e219-4363-ab7a-a676de6ba9c5",
+      "id": "a5357e34-0e56-4352-892b-8b01d4b192d1",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ac86a542-bf8e-4b85-b7b1-71f91177d7a0",
+      "id": "98f4c568-8fa7-48fc-a6c6-5d86edceb49e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "02d7ab08-2859-4192-afeb-f3be63c0c2f4",
+      "id": "a9ec8398-5eb0-438b-8d1a-621b3fdd95ea",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
