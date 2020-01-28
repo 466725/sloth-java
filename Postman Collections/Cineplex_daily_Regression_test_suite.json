@@ -1149,7 +1149,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"ApplicationRequest\":\n\t{\n\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\"UserProfileGuid\":\"{{user_guid}}\"\n\t},\n\t\"ProductId\":{{product_id}},\n\t\"LanguageType\":1,\n\t\"SessionQuery\":\n\t{\n\t\t\"SessionInfo\":\n\t\t{\n\t\t\t\"Login\":\"{{email}}\",\n\t\t\t\"Email\":\"{{email}}\",\n\t\t\t\"CineplexConnectId\":\"{{user_guid}}\",\n\t\t\t\"FirstName\":\"{{first_name}}\",\n\t\t\t\"LastName\":\"{{last_name}}\"\n\t\t}\n\t},\n\t\"RedemptionCodes\":[\"{{redemption_code}}\"]\n}"
+                  "raw": "{\n\t\"ApplicationRequest\":\n\t{\n\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\"UserProfileGuid\":\"{{user_guid}}\"\n\t},\n\t\"ProductId\":{{product_Id}},\n\t\"LanguageType\":1,\n\t\"SessionQuery\":\n\t{\n\t\t\"SessionInfo\":\n\t\t{\n\t\t\t\"Login\":\"{{email}}\",\n\t\t\t\"Email\":\"{{email}}\",\n\t\t\t\"CineplexConnectId\":\"{{user_guid}}\",\n\t\t\t\"FirstName\":\"{{first_name}}\",\n\t\t\t\"LastName\":\"{{last_name}}\"\n\t\t}\n\t}\n}"
                 },
                 "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetProductDetailPageInfo"
               },
@@ -1189,7 +1189,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_id}}\r\n\t}]\r\n}"
+                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_Id}}\r\n\t}]\r\n}"
                 },
                 "url": "{{store_url}}/CSWebConnect/GetMovies"
               },
@@ -14974,61 +14974,61 @@
   ],
   "variable": [
     {
-      "id": "ed3bc1a0-364b-468b-866a-5348fcd3c2cb",
+      "id": "e22c2de8-75f9-4c1d-8acf-09fa669c1896",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "8059038b-1d36-4927-a796-92d19f7fa753",
+      "id": "44498f8b-fa49-45df-a215-504098c0937b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "da11be95-02c4-46ff-bd16-1b3e1c365542",
+      "id": "f77acf73-7162-4df6-9c82-b7a76f065648",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4b66bd4f-0678-4dbc-8fb8-018aa070eb64",
+      "id": "473124f0-db6a-47ad-8b91-7828b80422f5",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "df9bb201-eaea-4440-9729-1320111c1af2",
+      "id": "7a5219af-6669-498e-a97b-5a740b46ac7d",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4c85c816-1ced-40c0-94e6-093bc3ab945b",
+      "id": "f375e5f8-29aa-47f2-b4ee-44fc0d8b3371",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "47f50228-49e9-4c6d-a018-9e398a6277b3",
+      "id": "4ab69ae5-19d8-40af-a1ba-6cc0388f68e0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "df075d29-2c9f-42af-b542-b502bc9aaec1",
+      "id": "7229d5c9-932d-4548-a6e9-94c2ffbdc797",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "24b203c0-f900-4b67-b13e-689870c39dab",
+      "id": "8a182a36-1ae2-41b3-8cfe-90e7346c67d5",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4324e774-6841-4e59-9cf6-dd8ebc18bbd8",
+      "id": "c6ffd935-b2c2-4049-8a3c-ea130a3c94d7",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
