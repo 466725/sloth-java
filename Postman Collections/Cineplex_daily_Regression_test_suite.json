@@ -7238,11 +7238,8 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                      "",
                       "pm.test(\"TheRecRoom location game by ID is successfully retrieved.\", function(){",
-                      "    pm.expect(jsonBody.Status).to.be.above(0)",
+                      "    pm.expect(jsonBody.Status).to.be.above(0);",
                       "});",
                       "",
                       "/*",
@@ -7327,11 +7324,8 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                      "",
                       "pm.test(\"TheRecRoom location game rate is successfully retrieved.\", function(){",
-                      "    pm.expect(jsonBody.Status).to.eql(1)",
+                      "    pm.expect(jsonBody.Status).to.eql(1);",
                       "});",
                       "",
                       "var items = jsonBody.Items;",
@@ -14728,61 +14722,61 @@
   ],
   "variable": [
     {
-      "id": "585b1584-2dd9-4256-8c8e-4025340ea3e8",
+      "id": "3f609c09-ce22-4b22-8b4c-cd80eeb0801b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4064f257-0200-40e7-a411-ac1359090524",
+      "id": "c46202e6-0b59-48f4-9909-8035a53292c4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "d194e0d4-b0f1-45d7-bc69-d80c44805289",
+      "id": "c706849f-a5d5-4158-8c83-520aeab312c9",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "58f4a136-a7c4-4350-86f5-69c58cc05664",
+      "id": "06825b8f-9821-4d73-b9b0-aef8caa81e7d",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4f54b569-21fe-4b10-9971-e97aa4dcd221",
+      "id": "764f3679-1b03-41cf-85b9-90aad54bec54",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4ab97a0b-fb06-4516-ad35-182c51a045c2",
+      "id": "b7e67fe4-3dab-448c-9419-ceec34e12535",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a69f053e-f0d5-4a47-8749-7149f7f8a92d",
+      "id": "8810fd26-a647-4baf-8c82-cee98e8bdcf7",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b47d7087-825c-45e6-9da7-254d5b5cf643",
+      "id": "9eb5dd14-4a09-4561-901f-ad5aba8734f6",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8ca2d6cc-0b55-4579-b1a4-dbc6a81aab2f",
+      "id": "2a79e6ac-1826-4bfd-9224-a62ec14a5859",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "2cdbc362-2555-4077-82e1-9e76883be235",
+      "id": "559dd31b-3484-457b-a334-285f6d79b1b9",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
