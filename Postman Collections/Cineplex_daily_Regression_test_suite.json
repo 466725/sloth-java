@@ -3484,9 +3484,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3545,9 +3542,6 @@
                 "id": "fa21a6c6-49e0-4e01-b887-e6a4aa1e494d",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3723,9 +3717,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3789,9 +3780,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3851,9 +3839,6 @@
                 "id": "773b8cb3-43a3-4206-a962-d4b29029d9b9",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3916,9 +3901,6 @@
                 "id": "eb85c262-51d4-4c97-b485-60de04ded6b7",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -4003,9 +3985,6 @@
                 "id": "6e22155c-a104-4549-9543-ff64a566f94b",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -4203,9 +4182,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -4308,9 +4284,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -4387,9 +4360,6 @@
                   "\t\tpm.response.to.have.status(404);",
                   "\t});",
                   "} else {",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "\tpm.test(\"jsonBody.status is above zero\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
@@ -4940,7 +4910,7 @@
             "id": "8ab04a3a-c5be-4415-a1e5-ab75d0b5d19e",
             "type": "text/javascript",
             "exec": [
-              ""
+              "pm.test(\"Response is successful\",pm.response.to.be.success);"
             ]
           }
         }
@@ -14856,61 +14826,61 @@
   ],
   "variable": [
     {
-      "id": "119ec4f5-ef7e-44c4-8f52-f212af4c1e27",
+      "id": "fbf87735-fd9c-442d-8d50-65a76516f3e2",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "462feea5-2639-48f0-91f9-dade035af98f",
+      "id": "ff9f47c1-24c0-42be-b6c0-d50f60b1964e",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "d51f9499-1634-402c-b480-3f6754437f54",
+      "id": "b3a04a75-f170-4afd-aae4-fb947d4f2a0b",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "f790b3d8-1d15-48aa-843d-127d89718775",
+      "id": "7306fc47-6a02-44af-ac1a-7f934eaf8d19",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "5679636e-79cb-4e53-8ea9-67504e63dcc9",
+      "id": "e970e382-9981-4404-81b7-8c20634c74b4",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "32e327b7-983f-431d-b8ff-b4f3d14dec00",
+      "id": "f1f7c97e-28d5-47d8-a89f-88249ec6c998",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0839aa0e-8951-4720-8460-1cb1ad3cbd05",
+      "id": "2c833e9f-fddd-43ae-bf96-9c7acb43fe48",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "20195b6f-fa13-4871-8806-d732bf4b8087",
+      "id": "e9f611c7-40b3-43e1-9b58-9a40e3d8eeb9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1a7be742-4db7-40e9-b56a-0c038a534014",
+      "id": "46651cf3-a578-4032-b093-eab0b26fdb6a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d73b955b-6e2c-42e8-8e79-1ab70c1a452d",
+      "id": "6ce48a72-7166-4000-b1c3-5aa81e6784dd",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
