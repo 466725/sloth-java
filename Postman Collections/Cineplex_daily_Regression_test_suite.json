@@ -10969,17 +10969,6 @@
               "script": {
                 "id": "a07cad92-a2d9-4997-8b56-abf321763b69",
                 "exec": [
-                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-                  "    console.log(\"setting the giftcard number - UAT\");",
-                  "    pm.environment.set(\"giftcardNumber\", 7777031539847595);",
-                  "    console.log(\"setting the giftcard PIN - UAT\");",
-                  "    pm.environment.set(\"giftcardPin\", 19632363)",
-                  "} else {",
-                  "    console.log(\"setting the giftcard number - Prod\");",
-                  "    pm.environment.set(\"giftcardNumber\", 6173227373558019);",
-                  "    console.log(\"setting the giftcard PIN - Prod\");",
-                  "    pm.environment.set(\"giftcardPin\", 17943595)",
-                  "}    ",
                   ""
                 ],
                 "type": "text/javascript"
@@ -14993,61 +14982,61 @@
   ],
   "variable": [
     {
-      "id": "c536fc20-cdb3-4dee-833c-b9eb2108c584",
+      "id": "c69fd652-f499-4690-8477-fd6d32c828c7",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "e860084a-3dd8-46c1-bb66-4dbf88444306",
+      "id": "11ed318e-c745-4bc4-b36f-0a16b06e1817",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c6e71536-4f79-4176-8155-41bca2fc2e4e",
+      "id": "fa83f5aa-46bb-4e23-82d2-6353b07df3dc",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "38556c85-0f12-4a74-84e2-0b56164bf33c",
+      "id": "788ab4d0-deed-4eaa-a729-512dd82c2dbf",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "def5c863-72ed-46d8-8323-40daae7f8dd5",
+      "id": "563ca115-f992-4973-99aa-d2fb6a9e27e1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "01b7f3a7-5022-4be0-a054-c0b3005b8999",
+      "id": "2ddb7296-197a-4c9b-8af5-5467f7b14a25",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "60100923-be83-4916-b20b-bc011f03b8f7",
+      "id": "985b5a4d-1362-4ee6-bb5a-200969221de8",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "aab84da6-1b46-4336-b82a-a7ecc05324d8",
+      "id": "3b9fa6bf-02c4-42f9-9fcc-089d199b4bba",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "95dfaf08-0ad3-4b1d-8fae-733fd6146a0d",
+      "id": "81fe7409-28df-4e9b-bdb6-d0613db6fe31",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "fbc7ba56-bd78-4c31-a38e-c720951e8845",
+      "id": "33166e70-69be-49c1-bb3e-ea3f9538643c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
