@@ -389,23 +389,23 @@
                   "});",
                   "",
                   "pm.test(\"Set Session if session is acquired successfully\", function(){",
-                  "    if (jsonBody.Result.Status == 1) {",
-                  "        console.log(\"cineplex_connect_Id: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
-                  "        pm.environment.set(\"cineplex_connect_Id\", jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
-                  "        console.log(\"cineplex_token_expiry: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
-                  "        pm.environment.set(\"cineplex_token_expiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
-                  "        console.log(\"session_Id: \" + jsonBody.StoreSessionResult.SessionId);",
-                  "        pm.environment.set(\"session_Id\", jsonBody.StoreSessionResult.SessionId);",
-                  "        console.log(\"first_name: \" + jsonBody.StoreSessionResult.SessionInfo.FirstName);",
-                  "        pm.environment.set(\"first_name\", jsonBody.StoreSessionResult.SessionInfo.FirstName);",
-                  "        console.log(\"last_name: \" + jsonBody.StoreSessionResult.SessionInfo.LastName);",
-                  "        pm.environment.set(\"last_name\", jsonBody.StoreSessionResult.SessionInfo.LastName);",
-                  "        console.log(\"username: \" + jsonBody.StoreSessionResult.SessionInfo.Email);",
-                  "        pm.environment.set(\"username\", jsonBody.StoreSessionResult.SessionInfo.Email);",
-                  "        console.log(\"user_profile_id:\" + jsonBody.StoreSessionResult.SubscriberId);",
-                  "        pm.environment.set(\"user_profile_id\", jsonBody.StoreSessionResult.SubscriberId);",
-                  "    }",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);    ",
+                  "    pm.environment.set(\"cineplex_connect_Id\", jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
+                  "    pm.environment.set(\"cineplex_token_expiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
+                  "    pm.environment.set(\"session_Id\", jsonBody.StoreSessionResult.SessionId);",
+                  "    pm.environment.set(\"first_name\", jsonBody.StoreSessionResult.SessionInfo.FirstName);",
+                  "    pm.environment.set(\"last_name\", jsonBody.StoreSessionResult.SessionInfo.LastName);",
+                  "    pm.environment.set(\"username\", jsonBody.StoreSessionResult.SessionInfo.Email);",
+                  "    pm.environment.set(\"user_profile_id\", jsonBody.StoreSessionResult.SubscriberId);",
                   "});",
+                  "",
+                  "console.info(\"cineplex_connect_Id: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
+                  "console.info(\"cineplex_token_expiry: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
+                  "console.info(\"session_Id: \" + jsonBody.StoreSessionResult.SessionId);",
+                  "console.info(\"first_name: \" + jsonBody.StoreSessionResult.SessionInfo.FirstName);",
+                  "console.info(\"last_name: \" + jsonBody.StoreSessionResult.SessionInfo.LastName);",
+                  "console.info(\"username: \" + jsonBody.StoreSessionResult.SessionInfo.Email);",
+                  "console.info(\"user_profile_id:\" + jsonBody.StoreSessionResult.SubscriberId);",
                   ""
                 ],
                 "type": "text/javascript"
@@ -14991,61 +14991,61 @@
   ],
   "variable": [
     {
-      "id": "5d7a09ce-b772-4632-9e22-20458ae4d5eb",
+      "id": "c0508a56-5445-489d-bf1d-015380f6ddb6",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "4dc753fe-1d54-4b01-8f31-03eadb505312",
+      "id": "0a0ec88c-4937-428f-be5a-c00125a10d7a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "bc6e9bc2-b214-455d-9244-e07b8ba24960",
+      "id": "0cf22736-f2d9-4858-8b18-da2cdfd0d84b",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cfd18bf1-b67d-449a-8d1c-b24693ee9076",
+      "id": "78bfd52e-ba80-43ff-a4f7-4200c943b75b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "dc85a8b0-ab25-4340-82e9-76c8403bd6c1",
+      "id": "e5f56dd6-5cb7-4750-8af7-ea30db9d3293",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "3bc23026-f150-4524-aa1f-8b00d90ecfb7",
+      "id": "2c6bb307-c99e-4f52-847e-299717211ae8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "c4b6e68c-8580-4285-9c46-c75234229b12",
+      "id": "d1bba42b-da2a-4a36-82b6-1fc7ea7b38ff",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "dc68ab54-454c-4c33-83cd-d0304bea152c",
+      "id": "9ec5f820-a925-474b-a752-dfb76ec16e6e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d8cd4435-34af-4792-b383-dc2b363bfc2e",
+      "id": "e8e2ad7d-510b-4660-993b-b02349f6c972",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "a9484649-ba04-4b83-89b7-b18c34703c92",
+      "id": "7f14899a-1ca7-4b66-bfe4-cf8f17cd51f6",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
