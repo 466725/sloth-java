@@ -10512,78 +10512,6 @@
           ]
         },
         {
-          "name": "Get User Ratings",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "8ff750c3-2a81-4d9c-9b02-877568bddcc7",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "383eb245-d6f8-4818-b818-decfa3d9e28a",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"RatingContentType\": 1,\n    \"ContentId\": 22996\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserRatings"
-          },
-          "response": [
-            {
-              "id": "af9d16d2-6d73-4add-abf4-8739379bb577",
-              "name": "not available",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\"\n}"
-                },
-                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserRatings"
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": \"<string>\",\n \"MessageDetails\": \"<string>\"\n}"
-            }
-          ]
-        },
-        {
           "name": "Set User Ratings",
           "event": [
             {
@@ -10652,6 +10580,78 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Ratings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8ff750c3-2a81-4d9c-9b02-877568bddcc7",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "383eb245-d6f8-4818-b818-decfa3d9e28a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"RatingContentType\": 1,\n    \"ContentId\": 22996\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserRatings"
+          },
+          "response": [
+            {
+              "id": "af9d16d2-6d73-4add-abf4-8739379bb577",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    },\n    \"RatingContentType\": \"<integer>\",\n    \"ContentId\": \"<long>\"\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/GetUserRatings"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": \"<string>\",\n \"MessageDetails\": \"<string>\"\n}"
             }
           ]
         },
@@ -14984,61 +14984,61 @@
   ],
   "variable": [
     {
-      "id": "6eb7cc2d-2e2c-47eb-ac75-8b808b1deedf",
+      "id": "8656bdac-5747-4e71-89b7-59f44491e566",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "56686849-58c2-4ce6-a314-d896bcd09928",
+      "id": "9e33bd85-c2d0-47ab-8ac6-084a9343d204",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "3ba01750-345a-4548-a37f-7b6de66be41e",
+      "id": "8b0c6c02-65a2-402c-8216-7ab7c4f16aa3",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "3a17f9e7-27cc-4480-9b9f-ffffa03769d1",
+      "id": "2408b74e-f09b-4320-adce-e969692ccabc",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "41b69b41-e395-45a2-bee7-06c1252a2db1",
+      "id": "fa84d953-a29c-4f61-a359-ba326a6a6406",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f23f832b-8080-44cc-b774-d4800b755dbb",
+      "id": "557e9203-c75d-4072-b3b9-3730fc8651d0",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "9c919390-43a6-4e0f-84b8-dc275da71be7",
+      "id": "e190cbb9-8b30-46e9-8e30-b2d35fb2cb96",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "81b54828-1d37-406f-8140-fe4074d990b8",
+      "id": "a5bf02cf-b2a8-49dc-a27c-f40c977ffa98",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "249361b0-5bd5-4f63-9e34-f6ef4a1d8d76",
+      "id": "aa538583-b943-4d54-8e25-c77d9056156b",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4723ca1e-febd-4028-8aeb-a9e8b715732d",
+      "id": "09c13b3c-1f44-4349-856c-d98219e4f399",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
