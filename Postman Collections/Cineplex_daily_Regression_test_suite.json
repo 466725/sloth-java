@@ -6990,7 +6990,7 @@
                       "var jsonBody = pm.response.json();",
                       "",
                       "pm.test(\"TheRecRoom location restaurant by id successfully retrieved.\", function(){",
-                      "    pm.expect(jsonBody.Status).to.eql(1)",
+                      "    pm.expect(jsonBody.Status).to.eql(1);",
                       "});",
                       "",
                       "var newLocation = jsonBody.Item;",
@@ -7035,11 +7035,8 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                      "",
                       "pm.test(\"TheRecRoom location restaurant by id successfully retrieved.\", function(){",
-                      "    pm.expect(jsonBody.Status).to.eql(1)",
+                      "    pm.expect(jsonBody.Status).to.eql(1);",
                       "});",
                       "",
                       "var newLocation = jsonBody.Item;",
@@ -14737,61 +14734,61 @@
   ],
   "variable": [
     {
-      "id": "8050f662-bc54-4247-80de-6e0bd0d673bc",
+      "id": "706df35b-1034-46b6-8b84-fb82ceaa204b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "003ad63a-ea12-4129-8a81-56113115fbe3",
+      "id": "65977f6a-4109-4461-a4a3-83d02f9c8c83",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "e8cd2cd5-9df8-4983-8e42-4c882756b9c0",
+      "id": "4c6bb69e-4381-4d90-a445-ebe9ae43069b",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "207bb0c1-72e6-44a8-ac13-52ed07d5631e",
+      "id": "212013d7-23ad-45ab-a60b-1f760b08c9a9",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "db37de8a-f38f-4395-b920-0aa5a959f378",
+      "id": "0566c5bd-5f3e-4006-b590-b32e1ab25440",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c785500f-1192-49b2-a53b-bf5b269327c4",
+      "id": "25406b23-23df-47cd-a7ee-dd0df89bf057",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "e8ee7f0f-1ef7-4ee0-abaf-bd2462507c75",
+      "id": "f6a02d8b-2a28-4c24-8449-d405eee7a12a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "29490fa8-da08-48da-b752-f4904caaae68",
+      "id": "c495798b-4b7f-470e-891d-d3982968ff55",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "53c7e9b4-7873-48a5-9539-d9b83b56f683",
+      "id": "5b540f3c-deaf-445a-a553-7127897fee2a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "560721b0-5dad-4ea1-8dbc-5a9fd9321b90",
+      "id": "1206a9fe-b6dc-4271-ad96-715f36f62a1a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
