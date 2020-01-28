@@ -8149,7 +8149,8 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds"
                 ],
                 "type": "text/javascript"
               }
@@ -14708,61 +14709,61 @@
   ],
   "variable": [
     {
-      "id": "a0ac4cda-dd63-41a7-b8f8-0670084f5953",
+      "id": "b3a0ba7b-2ec8-4031-a6f9-930e56858fbf",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "6f709841-3fc7-4eed-a7de-278b8b2ff75e",
+      "id": "f7d582e7-d70c-4543-95b9-817a3904dd4d",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "68168743-7554-49c9-b8fe-b3511c63f908",
+      "id": "fd8601c9-b304-401b-861a-daba6f81f54f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "8ff9f754-e342-43e1-9f42-b7933492cdc7",
+      "id": "b68d0417-75d0-45fc-8236-030e434693b7",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "9a283647-ce67-4404-ae79-9d30e79a7142",
+      "id": "9f67a723-1f2f-431b-abae-d133983983cb",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "43426d71-91f6-4d3f-af48-71540b01076b",
+      "id": "d4efadd4-972b-455f-af8a-567bbb1412e1",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1ae439a4-d99f-41de-be94-236e180a26eb",
+      "id": "b98b34a8-29eb-423a-a5d2-d0441c69b95d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b669e498-cb6d-4bee-bfc5-05f83993aaa5",
+      "id": "1e963de4-bf4e-448f-86d5-3f9504a8ffb4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1965dc82-78ce-433e-a969-a857aac5ede6",
+      "id": "a40e9a97-31e3-41dc-84ec-10cf601bef3b",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "e1b7a824-b6b9-440b-8928-c9917d2e488e",
+      "id": "f4dd854f-96be-4743-a983-6d926156ce71",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
