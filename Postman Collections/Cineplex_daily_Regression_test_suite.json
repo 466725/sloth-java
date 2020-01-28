@@ -15001,78 +15001,6 @@
               "body": "{\n \"StoreCouponRedemptionCodeResult\": {\n  \"Result\": {\n   \"Status\": \"<enum>\",\n   \"Message\": \"<string>\",\n   \"MessageDetails\": \"<string>\"\n  },\n  \"JSONData\": \"<string>\",\n  \"CouponRedemptionCode\": {\n   \"CouponId\": {\n    \"Type\": \"<string>\",\n    \"Value\": \"<string>\"\n   },\n   \"Expiration\": \"<dateTime>\",\n   \"RedemptionCode\": \"<string>\",\n   \"Status\": \"<enum>\"\n  }\n },\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"MessageDetails\": \"<string>\"\n }\n}"
             }
           ]
-        },
-        {
-          "name": "Share Ticket Send Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "51097cf6-0962-4028-91a0-7e6711788c2f",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "d80b47c3-45a2-41c0-a1d6-85b28e95f234",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
-          },
-          "response": [
-            {
-              "id": "31c600dd-f3ad-4a16-96c9-665928694ab2",
-              "name": "not available",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"RecipientShareTicketName\": \"<string>\",\n    \"ShareTicketBarCode\": \"<string>\",\n    \"TicketId\": \"<long>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
-                },
-                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n \"FirstName\": \"<string>\",\n \"LastName\": \"<string>\",\n \"LocationName\": \"<string>\",\n \"FilmName\": \"<string>\",\n \"SessionDate\": \"<string>\",\n \"SessionTime\": \"<string>\",\n \"SessionDayOfWeek\": \"<string>\",\n \"HashValue\": \"<string>\",\n \"RecipientMessage\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
-            }
-          ]
         }
       ],
       "_postman_id": "3e17a978-7f92-4393-a80c-7e3e27b88fa5",
@@ -15162,61 +15090,61 @@
   ],
   "variable": [
     {
-      "id": "ddcd2eab-99bc-4074-9f3d-653448d0069b",
+      "id": "368b4331-3b94-48ea-b883-cf919b365e68",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "2effc0f7-cc70-4ce3-99be-9fbde897e1ae",
+      "id": "a92639f6-a294-44f5-839f-3443f52f9e42",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "99ca9598-7d3c-4508-af2a-0290ec0c369e",
+      "id": "0a674f66-47b6-446d-84a7-7eb9d136c16b",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a38a000d-5ceb-4423-aa25-b47bebaa07c6",
+      "id": "3615f90f-dee9-4e75-b781-9fc4bfc2b434",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "0386b8c8-2ef3-43a9-8032-0e4dee1bf557",
+      "id": "998e3df6-ec98-4ee1-84b4-6f76e5eac6c6",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a9db0203-c1af-4235-b1dd-9e0b4bffb559",
+      "id": "fadbda0a-bbef-4364-88e0-3839adedfec7",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ee33f4e6-863e-4355-9256-8422c38a39fa",
+      "id": "db7a8efb-cf20-43bd-8268-51478da19b16",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "0b10a7fa-3281-4756-bcce-4b7b6ebe1ae7",
+      "id": "0445f250-56f9-4dbc-9483-e0b7c3a8b99e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "4b99accd-1df3-496a-84f1-f24a4f07818a",
+      "id": "03f33ef9-f3da-4f4d-8900-d128627e486c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "8fd0437c-4813-4f06-8b64-c47a41c2e3bf",
+      "id": "2ead14d3-2333-4d6b-8729-bf23c3cce616",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
