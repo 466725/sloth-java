@@ -829,7 +829,7 @@
                       "var productList = jsonBody.StoreProductDetailPageInfoResult.ProductDetailPageInfoList;",
                       "productList.forEach((product) => {",
                       "    if (product.PricingPlanName === \"Redeem SuperTicket\"){",
-                      "        pm.globals.set(\"pricing_plan_id\", product.PricingPlanId);",
+                      "        pm.environment.set(\"pricing_plan_id\", product.PricingPlanId);",
                       "    }",
                       "});",
                       "",
@@ -845,7 +845,7 @@
                   "script": {
                     "id": "31e921bc-462b-4b1b-8dd0-debf14da32cc",
                     "exec": [
-                      "pm.globals.set(\"pricing_plan_id\", 0);"
+                      "pm.environment.set(\"pricing_plan_id\", 0);"
                     ],
                     "type": "text/javascript"
                   }
@@ -13900,6 +13900,78 @@
               "body": "{\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n },\n \"SenderEmailAddress\": \"<string>\",\n \"TransactionUid\": \"<guid>\",\n \"SenderUserProfileID\": \"<long>\",\n \"Order\": {\n  \"TicketOrder\": [\n   {\n    \"TicketId\": \"<long>\",\n    \"Amount\": \"<decimal>\",\n    \"Movie\": \"<string>\",\n    \"MovieID\": \"<string>\",\n    \"FilmId\": \"<integer>\",\n    \"Showtime\": \"<string>\",\n    \"ShowtimeDateTime\": \"<dateTime>\",\n    \"ReservedSeats\": \"<string>\",\n    \"NumberOfTickets\": \"<integer>\",\n    \"TypeOfTicket\": \"<string>\",\n    \"ScreenName\": \"<string>\",\n    \"SessionId\": \"<long>\",\n    \"VistaSessionId\": \"<integer>\",\n    \"TransactionId\": \"<long>\",\n    \"SeriesName\": \"<string>\",\n    \"PosterImageUrl\": \"<string>\",\n    \"SequenceNumber\": \"<int16>\",\n    \"IsSuperTicketEligible\": \"<boolean>\",\n    \"IsRefunded\": \"<boolean>\",\n    \"UpgradeToSuperTicketUrl\": \"<string>\",\n    \"TicketStatus\": \"<enum>\",\n    \"TicketStatusDateTime\": \"<dateTime>\",\n    \"ShareTicketStatus\": \"<enum>\",\n    \"ShareTicketRecipientName\": \"<string>\",\n    \"ShareTicketSenderName\": \"<string>\",\n    \"ShareTicketDateTime\": \"<dateTime>\",\n    \"LocationIPAddress\": \"<string>\",\n    \"IsLike\": \"<enum>\",\n    \"BarCode\": \"<string>\",\n    \"IsVIP\": \"<boolean>\",\n    \"TransactionRowType\": \"<string>\",\n    \"SuperTicketPriceString\": \"<string>\",\n    \"SuperTicketSceneString\": \"<string>\",\n    \"ShowtimeDateString\": \"<string>\",\n    \"ShowtimeTimeString\": \"<string>\"\n   },\n   {\n    \"TicketId\": \"<long>\",\n    \"Amount\": \"<decimal>\",\n    \"Movie\": \"<string>\",\n    \"MovieID\": \"<string>\",\n    \"FilmId\": \"<integer>\",\n    \"Showtime\": \"<string>\",\n    \"ShowtimeDateTime\": \"<dateTime>\",\n    \"ReservedSeats\": \"<string>\",\n    \"NumberOfTickets\": \"<integer>\",\n    \"TypeOfTicket\": \"<string>\",\n    \"ScreenName\": \"<string>\",\n    \"SessionId\": \"<long>\",\n    \"VistaSessionId\": \"<integer>\",\n    \"TransactionId\": \"<long>\",\n    \"SeriesName\": \"<string>\",\n    \"PosterImageUrl\": \"<string>\",\n    \"SequenceNumber\": \"<int16>\",\n    \"IsSuperTicketEligible\": \"<boolean>\",\n    \"IsRefunded\": \"<boolean>\",\n    \"UpgradeToSuperTicketUrl\": \"<string>\",\n    \"TicketStatus\": \"<enum>\",\n    \"TicketStatusDateTime\": \"<dateTime>\",\n    \"ShareTicketStatus\": \"<enum>\",\n    \"ShareTicketRecipientName\": \"<string>\",\n    \"ShareTicketSenderName\": \"<string>\",\n    \"ShareTicketDateTime\": \"<dateTime>\",\n    \"LocationIPAddress\": \"<string>\",\n    \"IsLike\": \"<enum>\",\n    \"BarCode\": \"<string>\",\n    \"IsVIP\": \"<boolean>\",\n    \"TransactionRowType\": \"<string>\",\n    \"SuperTicketPriceString\": \"<string>\",\n    \"SuperTicketSceneString\": \"<string>\",\n    \"ShowtimeDateString\": \"<string>\",\n    \"ShowtimeTimeString\": \"<string>\"\n   }\n  ],\n  \"VoucherOrder\": [\n   {\n    \"BarCode\": \"<string>\",\n    \"InformationTitle\": \"<string>\",\n    \"InformationBodyHeader\": \"<string>\",\n    \"InformationBody\": \"<string>\"\n   },\n   {\n    \"BarCode\": \"<string>\",\n    \"InformationTitle\": \"<string>\",\n    \"InformationBodyHeader\": \"<string>\",\n    \"InformationBody\": \"<string>\"\n   }\n  ],\n  \"DateTimePurchased\": \"<dateTime>\",\n  \"TheatreName\": \"<string>\",\n  \"CityLocation\": \"<string>\",\n  \"ProvinceLocation\": \"<string>\",\n  \"AddressLine1\": \"<string>\",\n  \"AddressLine2\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"MobilePickup\": \"<boolean>\",\n  \"Guid\": \"<guid>\",\n  \"CurrentPage\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"TotalRows\": \"<integer>\",\n  \"TransactionId\": \"<long>\",\n  \"BookingId\": \"<string>\",\n  \"TransactionNumber\": \"<integer>\",\n  \"LocationId\": \"<integer>\",\n  \"LocationGuid\": \"<guid>\",\n  \"PurchaseSource\": \"<enum>\",\n  \"YearsOfPurchase\": \"<string>\",\n  \"FilmEnhancementCode\": \"<string>\",\n  \"FilmRating\": \"<string>\",\n  \"FilmRatingImageUrl\": \"<string>\",\n  \"FilmRuntime\": \"<integer>\",\n  \"PosterImageUrl\": \"<string>\",\n  \"UserRating\": {\n   \"RatingContentType\": \"<integer>\",\n   \"ContentId\": \"<long>\",\n   \"IsLike\": \"<boolean>\",\n   \"CommandStatus\": \"<enum>\"\n  },\n  \"IsMovieFinished\": \"<boolean>\",\n  \"ScenePointsEarned\": \"<integer>\",\n  \"ScenePointsRedeemed\": \"<integer>\",\n  \"AllTicketsRefunded\": \"<boolean>\",\n  \"ShowUpgradeSuperticket\": \"<boolean>\",\n  \"DateTimePurchasedString\": \"<string>\",\n  \"PurchaseDateString\": \"<string>\",\n  \"PurchaseTimeString\": \"<string>\",\n  \"IsShowReceipt\": \"<boolean>\"\n }\n}"
             }
           ]
+        },
+        {
+          "name": "Share Ticket Send Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "51097cf6-0962-4028-91a0-7e6711788c2f",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Session created successfully\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d80b47c3-45a2-41c0-a1d6-85b28e95f234",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
+          },
+          "response": [
+            {
+              "id": "31c600dd-f3ad-4a16-96c9-665928694ab2",
+              "name": "not available",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RecipientShareTicketName\": \"<string>\",\n    \"ShareTicketBarCode\": \"<string>\",\n    \"TicketId\": \"<long>\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"<string>\",\n        \"UserSessionToken\": \"<string>\",\n        \"UserProfileGuid\": \"<string>\",\n        \"LanguageType\": \"<enum>\"\n    }\n}"
+                },
+                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"FirstName\": \"<string>\",\n \"LastName\": \"<string>\",\n \"LocationName\": \"<string>\",\n \"FilmName\": \"<string>\",\n \"SessionDate\": \"<string>\",\n \"SessionTime\": \"<string>\",\n \"SessionDayOfWeek\": \"<string>\",\n \"HashValue\": \"<string>\",\n \"RecipientMessage\": \"<string>\",\n \"Result\": {\n  \"Status\": \"<enum>\",\n  \"Message\": \"<string>\",\n  \"MessageDetails\": \"<string>\"\n }\n}"
+            }
+          ]
         }
       ],
       "_postman_id": "dbd6aaf6-37b3-492e-82dd-1fff29b08dcc",
@@ -14973,7 +15045,7 @@
           "    console.log(\"movie_id is set as UAT movie id 31484\");",
           "    pm.environment.set(\"theatre_id\", 7995);",
           "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
-          "    pm.environment.set(\"product_id\", 671899);",
+          "    pm.environment.set(\"product_Id\", 671899);",
           "    console.log(\"product_id is set in UAT as product_id 671899\");",
           "    pm.environment.set(\"4K_Supported\", 1); //User Story 41189",
           "} else {",
@@ -15007,61 +15079,61 @@
   ],
   "variable": [
     {
-      "id": "fbfd35d1-24e0-43e5-bb3b-f05d39b14c39",
+      "id": "ed3f4a78-fbcf-42af-b173-e7d6b6f7ff59",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "d4189794-7117-4f6f-8a5c-092b6d789ebe",
+      "id": "f3a2ffa8-c4ed-4678-8c96-149392fffbf8",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "59038940-4159-4007-9f25-b1e77360a7ba",
+      "id": "ee947497-7980-4d7a-b492-57737aff1eb9",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "603b3db5-9f40-4594-a914-92729ab4ae34",
+      "id": "f21c373d-b302-4b09-a8c8-806e5671ec51",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "6f6aeeaf-eaa9-4bf1-a899-81de43ebd5f0",
+      "id": "f5539ae2-1362-4a99-b2e4-731645d8f2c1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "9d5b7f95-3433-478b-a478-51433180a9a8",
+      "id": "4ca4a5bb-945c-4e24-895a-ed08dd992302",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "456e3afb-2a1c-4074-92f8-bd56d742c738",
+      "id": "0eae29b7-c29c-4f7b-8d3d-5800c4b53e47",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f829a054-c21d-4caf-bd24-6f13bd0abab8",
+      "id": "7e146517-5af7-4e89-8621-b6d6d124d36e",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7221b27d-8a6f-4c3a-ac1f-f2d2ee13193b",
+      "id": "563784cf-81fe-46f5-a561-2e9e00767997",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "e4f960b5-f909-4639-a8a9-f7f12818b3be",
+      "id": "56323297-1a50-48bc-8b53-d1e765cfbeca",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
