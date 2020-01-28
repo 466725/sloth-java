@@ -313,6 +313,89 @@
           "response": []
         },
         {
+          "name": "Login with username and password Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "c7b4b1ce-4f2d-4ca2-81cb-c0ba034835f8",
+                "exec": [
+                  "pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
+                  "",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
+                  "    pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
+                  "    pm.environment.set(\"password\", \"Glass7\");",
+                  "} else {",
+                  "    pm.environment.set(\"username\", \"srrao.gp@hotmail.com\");",
+                  "    pm.environment.set(\"password\", \"Cineplex123\");",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "ae65f4de-7007-48e3-833f-4ee520bfc7cd",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "console.log(\"Username: \" + pm.variables.get(\"username\"));",
+                  "console.log(\"Password: \" + pm.variables.get(\"password\"));",
+                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
+                  "",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"Result status is correct\", function(){",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.test(\"UserProfileGuid generated\", function(){",
+                  "    pm.expect(jsonBody.UserProfileGuid).to.not.be.null;",
+                  "    pm.expect(jsonBody.UserProfileGuid).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
+                  "    pm.expect(jsonBody.UserProfileGuid.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.test(\"UserSessionToken generated\", function(){",
+                  "    pm.expect(jsonBody.UserSessionToken).to.not.be.null;",
+                  "    pm.expect(jsonBody.UserSessionToken).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
+                  "    pm.expect(jsonBody.UserSessionToken.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "console.log(\"user_profile_guid: \" + jsonBody.UserProfileGuid);",
+                  "pm.environment.set(\"user_profile_guid\", jsonBody.UserProfileGuid);",
+                  "console.log(\"user_session_token: \" + jsonBody.UserSessionToken);",
+                  "pm.environment.set(\"user_session_token\", jsonBody.UserSessionToken);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b2d8a84e-9c0b-45fa-9618-613e3c33765e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"Password\": \"{{password}}\",\n    \"Email\": \"{{username}}\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login"
+          },
+          "response": []
+        },
+        {
           "name": "Verify login status",
           "event": [
             {
@@ -523,89 +606,6 @@
               "raw": ""
             },
             "url": "{{store_url}}/CSWebConnect/GetAllCsgProductUrls"
-          },
-          "response": []
-        },
-        {
-          "name": "Login with username and password Copy",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "c7b4b1ce-4f2d-4ca2-81cb-c0ba034835f8",
-                "exec": [
-                  "pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
-                  "",
-                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-                  "    pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
-                  "    pm.environment.set(\"password\", \"Glass7\");",
-                  "} else {",
-                  "    pm.environment.set(\"username\", \"srrao.gp@hotmail.com\");",
-                  "    pm.environment.set(\"password\", \"Cineplex123\");",
-                  "}",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "ae65f4de-7007-48e3-833f-4ee520bfc7cd",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "console.log(\"Username: \" + pm.variables.get(\"username\"));",
-                  "console.log(\"Password: \" + pm.variables.get(\"password\"));",
-                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
-                  "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "pm.test(\"UserProfileGuid generated\", function(){",
-                  "    pm.expect(jsonBody.UserProfileGuid).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserProfileGuid).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.UserProfileGuid.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"UserSessionToken generated\", function(){",
-                  "    pm.expect(jsonBody.UserSessionToken).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserSessionToken).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.UserSessionToken.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "console.log(\"user_profile_guid: \" + jsonBody.UserProfileGuid);",
-                  "pm.environment.set(\"user_profile_guid\", jsonBody.UserProfileGuid);",
-                  "console.log(\"user_session_token: \" + jsonBody.UserSessionToken);",
-                  "pm.environment.set(\"user_session_token\", jsonBody.UserSessionToken);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "b2d8a84e-9c0b-45fa-9618-613e3c33765e",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"Password\": \"{{password}}\",\n    \"Email\": \"{{username}}\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login"
           },
           "response": []
         }
@@ -15162,61 +15162,61 @@
   ],
   "variable": [
     {
-      "id": "094c5c43-5702-4710-b09c-bab3edabc1d2",
+      "id": "ddcd2eab-99bc-4074-9f3d-653448d0069b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "7ee6dcab-6964-41dd-8d08-99886aec84ce",
+      "id": "2effc0f7-cc70-4ce3-99be-9fbde897e1ae",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f827419e-a88a-402e-ad67-55a7648431d6",
+      "id": "99ca9598-7d3c-4508-af2a-0290ec0c369e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "1a0c9656-26ca-4ed0-9153-308d6f0c8887",
+      "id": "a38a000d-5ceb-4423-aa25-b47bebaa07c6",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "37bf8753-9725-4c85-a3bd-c6e8f45bd8f2",
+      "id": "0386b8c8-2ef3-43a9-8032-0e4dee1bf557",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "7c36dce1-d332-49eb-82e2-38a3f212021f",
+      "id": "a9db0203-c1af-4235-b1dd-9e0b4bffb559",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "fbaa3e77-825b-4412-8fed-f145e22f8e29",
+      "id": "ee33f4e6-863e-4355-9256-8422c38a39fa",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "e0384d2b-ee55-4a19-8a4d-f37186c5b5d4",
+      "id": "0b10a7fa-3281-4756-bcce-4b7b6ebe1ae7",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f9381ea9-2543-4733-b378-c6720f2ccfa9",
+      "id": "4b99accd-1df3-496a-84f1-f24a4f07818a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "a2d3d58f-7487-4ec7-81f6-e481610b41ae",
+      "id": "8fd0437c-4813-4f06-8b64-c47a41c2e3bf",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
