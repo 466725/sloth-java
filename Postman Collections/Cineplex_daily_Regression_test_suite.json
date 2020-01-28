@@ -3128,9 +3128,6 @@
                   "var jsonBody = pm.response.json();",
                   "var MoviesData = jsonBody.data;",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"Movies list is not empty\", function(){",
                   "    pm.expect(MoviesData.length).to.be.above(0);",
                   "});",
@@ -3194,9 +3191,6 @@
                   "var jsonBody = pm.response.json();",
                   "var MoviesData = jsonBody.data;",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"Movies list is not empty\", function(){",
                   "    pm.expect(MoviesData.length).to.be.above(0);",
                   "});",
@@ -3259,9 +3253,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "var TheatreData = jsonBody.data;",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"Theatres and Movie list is not empty\", function(){",
                   "    pm.expect(TheatreData.length >= 0).to.be.true;",
@@ -14871,61 +14862,61 @@
   ],
   "variable": [
     {
-      "id": "876c95df-abfe-46ca-8bca-88d23252f8c1",
+      "id": "5a53c587-4e4e-41b3-8739-a8ce0d42c2af",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "0cb654a2-fd20-4cca-82a7-1fef7a417148",
+      "id": "82c54e33-8941-46c7-a6a6-7d6db8658d84",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c17eb637-11a3-45e7-9b0e-d03c1a681be7",
+      "id": "01de130a-7709-4c05-8665-9697dd5bb646",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "eb19f3b5-f6fc-4c3f-8482-da6adb0a4695",
+      "id": "09b67dd9-95f0-4f8a-846d-d74b85edf050",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "5454584f-ec01-4494-bdff-51b5c8ed897d",
+      "id": "789feca6-ea5d-4629-b148-d3cc9b2298a9",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "cea291c6-ad72-4c6e-af55-c388523f96f3",
+      "id": "0f1652b6-b8be-48bd-a85f-135165a8a15d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a6e72b5b-b972-4cf3-a8c1-e80f4ee4e40c",
+      "id": "1bb3bef1-8710-4d42-9ddf-7452ac5b91f1",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ede464db-e080-4b00-af9c-9b1d3eea11f1",
+      "id": "7981df9e-afcc-4e35-8cdf-5b74421017be",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "37d9f4d4-5b1c-4af1-8cba-6f76ba2ba994",
+      "id": "b6b6066f-24d7-4ae2-8e3a-39973ad621ae",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "756eadd4-09ea-43b1-ac1f-3f7c72c65daa",
+      "id": "c939add8-2152-4d24-bba6-a36468f87fa9",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
