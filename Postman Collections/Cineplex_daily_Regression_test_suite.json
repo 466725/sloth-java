@@ -313,89 +313,6 @@
           "response": []
         },
         {
-          "name": "Login with username and password Copy",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "c7b4b1ce-4f2d-4ca2-81cb-c0ba034835f8",
-                "exec": [
-                  "pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
-                  "",
-                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-                  "    pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
-                  "    pm.environment.set(\"password\", \"Glass7\");",
-                  "} else {",
-                  "    pm.environment.set(\"username\", \"srrao.gp@hotmail.com\");",
-                  "    pm.environment.set(\"password\", \"Cineplex123\");",
-                  "}",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "ae65f4de-7007-48e3-833f-4ee520bfc7cd",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "console.log(\"Username: \" + pm.variables.get(\"username\"));",
-                  "console.log(\"Password: \" + pm.variables.get(\"password\"));",
-                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
-                  "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "pm.test(\"UserProfileGuid generated\", function(){",
-                  "    pm.expect(jsonBody.UserProfileGuid).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserProfileGuid).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.UserProfileGuid.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"UserSessionToken generated\", function(){",
-                  "    pm.expect(jsonBody.UserSessionToken).to.not.be.null;",
-                  "    pm.expect(jsonBody.UserSessionToken).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
-                  "    pm.expect(jsonBody.UserSessionToken.length).to.be.above(0);",
-                  "});",
-                  "",
-                  "console.log(\"user_profile_guid: \" + jsonBody.UserProfileGuid);",
-                  "pm.environment.set(\"user_profile_guid\", jsonBody.UserProfileGuid);",
-                  "console.log(\"user_session_token: \" + jsonBody.UserSessionToken);",
-                  "pm.environment.set(\"user_session_token\", jsonBody.UserSessionToken);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "b2d8a84e-9c0b-45fa-9618-613e3c33765e",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"Password\": \"{{password}}\",\n    \"Email\": \"{{username}}\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login"
-          },
-          "response": []
-        },
-        {
           "name": "Verify login status",
           "event": [
             {
@@ -15090,61 +15007,61 @@
   ],
   "variable": [
     {
-      "id": "5e23068c-06f9-43a4-899e-7f82d09686dc",
+      "id": "4971ef28-3f4b-425f-b47d-a27cd0af12cd",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "8f690d42-b7b4-4fac-9335-03bccf4e3dd5",
+      "id": "30c9e1c9-d710-44a8-93c4-4406d49d3844",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "df893997-6923-414c-a759-8dab1339bc16",
+      "id": "7431788e-6ae3-4468-b06f-90b9d407f2ce",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "02f071cf-609f-4b58-a367-0305749558cd",
+      "id": "d6d1a34c-7bb3-40a4-a096-94c2bd095fbd",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4a387269-746f-4484-b842-842bfbe81e7b",
+      "id": "1536c727-944b-4bfd-8c1b-727bb0139858",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c42df880-f6de-42c3-ae39-dbc0b15730e8",
+      "id": "0dc2d79e-0b7d-44a0-b0d6-691d3117c15c",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0991be3c-a387-4bec-96f4-a1ad5986b8ca",
+      "id": "c17b99d0-9170-4542-80fc-9b049c4d4f64",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7e19a55c-3a98-4c36-b117-44d2a670bcbb",
+      "id": "71312062-4365-40bd-b25b-2b096fcd0969",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "bdb153e8-484f-47c2-9fde-009e8989a969",
+      "id": "ba0b6b9b-682a-4e33-bf50-8159dd6b86d1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "b31bf708-7354-4cc2-aa2d-fdb8e7d43547",
+      "id": "b8309d5e-2f0a-4c9c-bd68-fd1c473b4dd1",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
