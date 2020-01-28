@@ -3425,9 +3425,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3487,9 +3484,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3548,9 +3542,6 @@
                 "id": "fa21a6c6-49e0-4e01-b887-e6a4aa1e494d",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3725,9 +3716,6 @@
                 "id": "ce76c99d-ed65-4730-958f-6cf0ea0c525b",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -14859,61 +14847,61 @@
   ],
   "variable": [
     {
-      "id": "c2185aa4-54b2-4d12-8146-a474ccad9e0a",
+      "id": "ae2ccc97-504a-44c6-adec-1918cbb22902",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "60753833-a0d7-48e1-9a20-ecd1237a8499",
+      "id": "2e62aafc-0efc-4eaf-bedd-3e781b686301",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "fb4e5c70-2cf2-4670-9568-defdddbecff9",
+      "id": "1a54e79b-5447-4e3a-b843-c9858060b7c5",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "e19fe748-cc9e-4872-9283-bb24aacd426e",
+      "id": "3a2b2dc3-753e-4fb9-92d0-1e8bf0ffd999",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "63f8d8d8-da4f-4751-8a36-b90bc744805b",
+      "id": "4e6207d9-1732-49c2-9714-123bfd7e5398",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0246235a-7d8f-4e1e-a655-ef778af7dea4",
+      "id": "d122c4a2-833d-4bb1-857c-aaf6cac87b38",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "471086d6-a8ba-4eab-ac7c-b39974a2a60a",
+      "id": "677b5bf8-a36c-48b0-a64a-bdff90679382",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "de418496-8460-4fe4-a735-787cf720f44b",
+      "id": "861495d2-4d3d-4e83-bcc3-9cd07b1bfc28",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8b5b1d74-7465-4b62-8429-a4c6c7734ce8",
+      "id": "abe52086-3580-469d-b15f-111a2f85e61a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "859613e4-f827-4239-8ea3-14fbbfcaa324",
+      "id": "dfd0675f-5c7a-464d-abfc-b38764a4771a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
