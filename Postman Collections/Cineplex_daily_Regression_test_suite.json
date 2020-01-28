@@ -5537,11 +5537,9 @@
                   "if (pm.environment.get(\"cineplex_url\").has(\"stage\")) {",
                   "    console.log(\"We are runing on Staging environment!\");",
                   "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "} else {",
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
                   "    pm.test(\"Response is not eligible\", function () {",
                   "        pm.expect(jsonBody.isEligible).to.be.false;",
@@ -5597,11 +5595,9 @@
                   "if (pm.environment.get(\"cineplex_url\").has(\"stage\")) {",
                   "    console.log(\"We are runing on Staging environment!\");",
                   "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "} else {",
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "    tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "    ",
                   "    //var eligible = (new Date(pm.globals.get(\"promo_end\"))) < new Date();",
                   "    pm.test(\"IsEligible is defined\", function () {",
@@ -14789,61 +14785,61 @@
   ],
   "variable": [
     {
-      "id": "9cecd9e5-8b48-4f47-87f2-892702f8df14",
+      "id": "7c6a84fa-cb5a-4f42-ae83-56c0380d0a56",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "265cfbf7-6bcf-4cd9-a24b-9f3ad599315f",
+      "id": "87f0e0e7-6a70-4292-bf79-8e3ab3636e0e",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "c72e338e-094a-474a-bdc8-b86d55bdb194",
+      "id": "1de2b428-9f25-4ad3-a6c6-164a0b15c6ca",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "9940cb57-1651-40fb-89f9-ee1b3780dc39",
+      "id": "5eb2ee2a-88cd-4217-a317-a55eb8389bd0",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c855ad57-b1aa-4b59-a665-46b954915f22",
+      "id": "f5f740e4-e7e8-4f57-9f9b-c0eb5e5650ac",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "fa135a08-50af-4ecf-aa71-e0f2ee436f04",
+      "id": "be14f9ca-7d9b-4fd9-b84d-fd8755192be3",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "3a1ea020-64cc-49ea-a786-f2e6ebac09cb",
+      "id": "d4b1d366-7d0b-405c-a2e3-7f3bfcda0fc0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "33a26f7d-a76a-4f06-a0d8-6eddd4c73cde",
+      "id": "2c8db301-b9ba-4644-b7be-7207d4704c4b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8a290a36-8c8b-427b-9553-16428a7d27bc",
+      "id": "88018fef-bd53-491e-a61c-647e66e28b33",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "5bb6bc56-8a5e-4626-9d21-b19107eebda1",
+      "id": "0004d7e5-31ef-47a2-8c85-8d571d6a277a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
