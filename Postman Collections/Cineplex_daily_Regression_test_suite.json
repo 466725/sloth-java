@@ -525,6 +525,89 @@
             "url": "{{store_url}}/CSWebConnect/GetAllCsgProductUrls"
           },
           "response": []
+        },
+        {
+          "name": "Login with username and password Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "c7b4b1ce-4f2d-4ca2-81cb-c0ba034835f8",
+                "exec": [
+                  "pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
+                  "",
+                  "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
+                  "    pm.environment.set(\"username\", \"uatapitester@gmail.com\");",
+                  "    pm.environment.set(\"password\", \"Glass7\");",
+                  "} else {",
+                  "    pm.environment.set(\"username\", \"srrao.gp@hotmail.com\");",
+                  "    pm.environment.set(\"password\", \"Cineplex123\");",
+                  "}",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "ae65f4de-7007-48e3-833f-4ee520bfc7cd",
+                "exec": [
+                  "var jsonBody = pm.response.json();",
+                  "",
+                  "console.log(\"Username: \" + pm.variables.get(\"username\"));",
+                  "console.log(\"Password: \" + pm.variables.get(\"password\"));",
+                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
+                  "",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
+                  "pm.test(\"Result status is correct\", function(){",
+                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
+                  "});",
+                  "",
+                  "pm.test(\"UserProfileGuid generated\", function(){",
+                  "    pm.expect(jsonBody.UserProfileGuid).to.not.be.null;",
+                  "    pm.expect(jsonBody.UserProfileGuid).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
+                  "    pm.expect(jsonBody.UserProfileGuid.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "pm.test(\"UserSessionToken generated\", function(){",
+                  "    pm.expect(jsonBody.UserSessionToken).to.not.be.null;",
+                  "    pm.expect(jsonBody.UserSessionToken).to.not.eql(\"00000000-0000-0000-0000-000000000000\");",
+                  "    pm.expect(jsonBody.UserSessionToken.length).to.be.above(0);",
+                  "});",
+                  "",
+                  "console.log(\"user_profile_guid: \" + jsonBody.UserProfileGuid);",
+                  "pm.environment.set(\"user_profile_guid\", jsonBody.UserProfileGuid);",
+                  "console.log(\"user_session_token: \" + jsonBody.UserSessionToken);",
+                  "pm.environment.set(\"user_session_token\", jsonBody.UserSessionToken);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b2d8a84e-9c0b-45fa-9618-613e3c33765e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"Password\": \"{{password}}\",\n    \"Email\": \"{{username}}\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}"
+            },
+            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login"
+          },
+          "response": []
         }
       ],
       "_postman_id": "8f69f6b6-63b7-4822-82b0-711369fb8e5f",
@@ -15079,61 +15162,61 @@
   ],
   "variable": [
     {
-      "id": "0d0bf66a-06e6-427d-a644-31bb239cd483",
+      "id": "094c5c43-5702-4710-b09c-bab3edabc1d2",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "9749b884-c911-4122-b035-35f7b9ca470e",
+      "id": "7ee6dcab-6964-41dd-8d08-99886aec84ce",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "60617817-b32b-4b4b-9f2b-498c59d079f8",
+      "id": "f827419e-a88a-402e-ad67-55a7648431d6",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "afffeed8-d7d2-4555-aacd-9b851a67a43d",
+      "id": "1a0c9656-26ca-4ed0-9153-308d6f0c8887",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "1462171c-f628-434e-afed-0a2901875577",
+      "id": "37bf8753-9725-4c85-a3bd-c6e8f45bd8f2",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a08f4033-480e-4c39-a956-cd2c36e296db",
+      "id": "7c36dce1-d332-49eb-82e2-38a3f212021f",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "84f01766-dac6-4a23-be05-1a353b70b8cd",
+      "id": "fbaa3e77-825b-4412-8fed-f145e22f8e29",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "65f5b3e6-b7a7-48cf-afe1-6959f9217176",
+      "id": "e0384d2b-ee55-4a19-8a4d-f37186c5b5d4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "2d94849e-81bc-40a7-860c-722839a88b3e",
+      "id": "f9381ea9-2543-4733-b378-c6720f2ccfa9",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "92404b34-a8d6-4165-a014-19eccc27a803",
+      "id": "a2d3d58f-7487-4ec7-81f6-e481610b41ae",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
