@@ -3543,6 +3543,9 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3717,6 +3720,9 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3780,6 +3786,9 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3839,6 +3848,9 @@
                 "id": "773b8cb3-43a3-4206-a962-d4b29029d9b9",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3901,6 +3913,9 @@
                 "id": "eb85c262-51d4-4c97-b485-60de04ded6b7",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3985,6 +4000,9 @@
                 "id": "6e22155c-a104-4549-9543-ff64a566f94b",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -4182,6 +4200,9 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -4283,6 +4304,9 @@
                 "id": "ff84a217-c06f-4011-a808-2a73c19fa9b4",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -14829,61 +14853,61 @@
   ],
   "variable": [
     {
-      "id": "86db23a3-8d01-42be-a122-e16480bf0dba",
+      "id": "6bb45e8a-2919-4f77-8f32-333a6080f216",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "fffa6f3d-40b7-4758-b2ff-31da9d09b798",
+      "id": "43df1bcd-71bc-4616-96bb-d2088598cb72",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "893fa899-8b11-4f77-8563-2874a2624160",
+      "id": "2ba717fa-0348-4a3d-acca-c4d136b84628",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6bf5d784-a656-43de-bb26-67486328a8b3",
+      "id": "ee0a287e-2e88-447c-8728-efd3a056ea63",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "6832def2-97cb-420f-9397-99cd9e268724",
+      "id": "203dc4f1-58c0-4426-9d28-04d9b71931a7",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c0d6ea65-fae1-43c2-b692-45593de53134",
+      "id": "11846570-dbd8-4e8e-90ac-c36333968ed2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "31fe52ad-fd28-4cd3-a25d-2558f1a49271",
+      "id": "426b1a9a-dbcd-4f28-ba69-4ef74fd541d3",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "16a583b6-1d7f-4325-8d0c-82e0e426494a",
+      "id": "5fb71a47-88aa-4c76-871c-8ed405e84ab7",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1dec843d-ad0e-4add-b5ca-12db0fe42eec",
+      "id": "fcd5b17d-f249-4378-bbbc-b535c093a1a1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "71529f76-31fc-4a4c-9731-ec99a57c8059",
+      "id": "70e82437-fd26-4c54-bf5e-1e27f0f9e1ec",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
