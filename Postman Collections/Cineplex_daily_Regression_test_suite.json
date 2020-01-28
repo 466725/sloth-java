@@ -461,7 +461,7 @@
                   "    if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
                   "        pm.environment.set(\"product_Id\", 671899);  //hardcode for 4k test",
                   "    } else {",
-                  "        pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);",
+                  "        pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);  //pick fourth ID",
                   "    }",
                   "});",
                   "",
@@ -14153,7 +14153,7 @@
                   "    if ((digitalPurchaseOrderList.length === 0) || (rentalPurchaseOrderList.length > 0)) {",
                   "        pm.environment.set(\"csgOrderNumber\", rentalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", rentalPurchaseOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
-                  "        pm.environment.set(\"csgPricingProductId\", rentalPurchaseOrderList.RentalOrderInfo.CSGProductId);",
+                  "        pm.environment.set(\"csgPricingProductId\", rentalPurchaseOrderList[0].RentalOrderInfo.CSGProductId);",
                   "    } else {",
                   "        pm.environment.set(\"csgOrderNumber\", digitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", digitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
@@ -14974,61 +14974,61 @@
   ],
   "variable": [
     {
-      "id": "fc71c1ee-a398-4ae4-b86e-0c243b836d9d",
+      "id": "d892e15d-30cd-479d-9e7a-f48cedabb167",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "8eb642f6-0085-4dfc-a4ce-28939040d5c6",
+      "id": "4ad3a162-f510-4acc-b0bd-c689196181d9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "5746d121-960e-49dd-9272-575b88a88f77",
+      "id": "b6aaf463-1cee-4f5a-a182-d246d5aa793f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4a474a66-d4fd-48a7-8c4e-63432d746bcb",
+      "id": "7dd342be-f839-4310-b300-ce38fc0a947b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "2ab179f8-6dbf-4cc6-a64e-0782fcba8031",
+      "id": "7fa73880-965a-46e0-8a20-c44de80cb22b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f3c82dcf-7705-40e7-bd00-50984bbe05e4",
+      "id": "aeaefd2f-eeb9-4fe8-9977-4af852bf8607",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8ad2f1e1-88f2-4982-9a94-de4aa6ab9eaf",
+      "id": "026c61bf-d046-47f9-b57f-dbb7e84559af",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d3e50516-1015-42cd-932e-b6b724aabe44",
+      "id": "3faca864-154d-48d7-94e6-5f8327a2f5a2",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f1656698-253c-4e1a-a53f-c53427a6f0e4",
+      "id": "c471b550-d8e0-42fa-a413-44c8a304b8a9",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "1d3e71eb-78f6-4224-8289-7080fc532ed6",
+      "id": "a07cfa7f-7868-4333-9b2b-178840d03142",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
