@@ -7160,11 +7160,8 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                      "",
                       "pm.test(\"TheRecRoom location restaurant menu list successfully retrieved.\", function(){",
-                      "    pm.expect(jsonBody.Status).to.eql(1)",
+                      "    pm.expect(jsonBody.Status).to.eql(1);",
                       "});",
                       "",
                       "var items = jsonBody.Items;",
@@ -14731,61 +14728,61 @@
   ],
   "variable": [
     {
-      "id": "35fbb4e0-93e8-423e-b2a2-94f5da207856",
+      "id": "585b1584-2dd9-4256-8c8e-4025340ea3e8",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "3e28769a-c9ae-4270-a67c-a176ebdedc8e",
+      "id": "4064f257-0200-40e7-a411-ac1359090524",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "12aa5acf-7733-46b6-bbc3-70d3bdddc11d",
+      "id": "d194e0d4-b0f1-45d7-bc69-d80c44805289",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4d8d2dae-8071-4fd5-ac66-e57a44615381",
+      "id": "58f4a136-a7c4-4350-86f5-69c58cc05664",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "55ebd019-a758-4716-9a2d-2175f31a27f8",
+      "id": "4f54b569-21fe-4b10-9971-e97aa4dcd221",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "938acd70-596f-45b3-979f-0f6334a02eb8",
+      "id": "4ab97a0b-fb06-4516-ad35-182c51a045c2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "6c2c73be-1ee3-4447-b2e7-f9fb30dfce68",
+      "id": "a69f053e-f0d5-4a47-8749-7149f7f8a92d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "a625af37-ebdb-40d6-8b20-b12c28fa451a",
+      "id": "b47d7087-825c-45e6-9da7-254d5b5cf643",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "83dcbbf6-ceb1-4d50-9cb6-4f74d9b08612",
+      "id": "8ca2d6cc-0b55-4579-b1a4-dbc6a81aab2f",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "fd7fabf1-073a-411d-8dc4-a96fb97d9b12",
+      "id": "2cdbc362-2555-4077-82e1-9e76883be235",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
