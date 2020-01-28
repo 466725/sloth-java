@@ -2490,9 +2490,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "",
                   "console.log(\"Response size is: \" + pm.response.responseSize);",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
@@ -2569,9 +2566,6 @@
                 "id": "12237008-9841-4b1e-bd20-ffa2cd98507f",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -2677,9 +2671,6 @@
                 "id": "636a0c1b-97ed-4962-9e53-371f3b29a913",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -14890,61 +14881,61 @@
   ],
   "variable": [
     {
-      "id": "d1a31ba1-dc1c-43d0-8552-8410fcf4ee9b",
+      "id": "db077277-51c5-43e8-8f55-89c9e1e0403b",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "60ddd93a-39f1-463d-ac03-a83215caf496",
+      "id": "5f07a76f-f5a3-4d21-9e0a-48dd3a3b12a6",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a46ab8d2-61aa-41cb-ac59-2e32880c36f1",
+      "id": "d0ea3593-c4b5-44f7-bb12-70ecb218f4c3",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4836ba24-bfb1-43fd-ba83-19d696a2df8b",
+      "id": "f119009d-5e01-4f6e-83ad-d5f26850f2c2",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "3b3c4df2-6b87-4f0a-83bb-3209d87c1734",
+      "id": "d65b821d-7d5e-48d9-8a3d-e27e1431f0ce",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d7a6d5d2-caeb-468e-8a06-0084aa5d8efc",
+      "id": "44de84e3-22de-4a07-98d6-d887e7995cc1",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "95afd3e0-c5bb-4fb5-aec6-02e32ebb0dab",
+      "id": "3e4d2b38-ffbc-4810-b876-030eeeff7540",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7a65d398-c6f1-4471-9bce-4906954475f2",
+      "id": "bcd16725-6889-41af-b0af-a5e23257832b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "07334478-4c11-4749-8e14-b843cecdd4a9",
+      "id": "b3e97d2b-9640-4283-8734-ccfc580ca83e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "2c7deae9-a49c-40ee-80ae-1b3e957eed9a",
+      "id": "8732a96c-3830-425d-9813-ae5262445730",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
