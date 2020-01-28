@@ -897,7 +897,7 @@
                   "script": {
                     "id": "31e921bc-462b-4b1b-8dd0-debf14da32cc",
                     "exec": [
-                      "pm.environment.set(\"pricing_plan_id\", 0);"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -1088,7 +1088,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"SeqId\":1,\r\n\t\"TheatreId\":7995,\r\n\t\"TransactionId\":6857571\r\n}"
+                  "raw": "{\r\n\t\"SeqId\":1,\r\n\t\"TheatreId\":{{theatre_id}},\r\n\t\"TransactionId\":6857571\r\n}"
                 },
                 "url": "{{store_url}}/CSWebConnect/VerifySuperTicketUpgradeVoucher"
               },
@@ -14974,61 +14974,61 @@
   ],
   "variable": [
     {
-      "id": "73fa7cb2-a306-44b9-8d86-0eae92951d71",
+      "id": "8bada408-cd0b-4141-9cf9-6bc9281f7ff7",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "e8362806-efbf-471a-9734-68cf699b3546",
+      "id": "44c034f1-f390-46ae-b4cf-06c10bf51997",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "686a4643-a556-4d0e-be2f-5a9735ca5b11",
+      "id": "ad0c753b-38e1-4eba-824c-1c22a36b8065",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cb9a4e1d-cea1-4ebc-91e9-30907baa17e2",
+      "id": "b43e748a-9e27-425a-ba6c-b25926be85ee",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a88b1d14-e95d-454c-a413-6f0933923967",
+      "id": "6e06be5c-da1f-47ae-af35-4b6007a6c678",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "6a1e4cae-bf13-478e-ba37-6e93a4dbc1b9",
+      "id": "13ec6143-ab2a-4ab4-a4ad-5a3b732a2242",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "e45f77a4-5e92-4057-b585-528193697b20",
+      "id": "d9b6e142-eef8-4d81-ad92-bde13a1dad3e",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "84d24016-7b6a-45d2-9bdd-ea723744d4c8",
+      "id": "d2792de5-171f-46b1-ab79-98cc5fa68d1d",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "6d697228-8f80-4c59-8ad7-a4b4410f4827",
+      "id": "cb2645a4-13f6-4ff7-b10c-b10be15b19e7",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "905e0681-4eb3-4af2-9f22-6a17c7b45da6",
+      "id": "df573c88-7110-4706-87c3-d05e86518a6a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
