@@ -583,8 +583,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                  "    ",
                   "pm.test(\"Fetch genres successfully\", function(){",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});",
@@ -660,8 +658,6 @@
                     "exec": [
                       "var jsonBody = pm.response.json();",
                       "",
-                      "//tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
-                      "",
                       "pm.test(\"Voucher is valid\", function(){",
                       "    pm.expect(jsonBody.CommandResult.Status).to.be.above(0);",
                       "    pm.expect(jsonBody.CommandResult.Message).to.not.be.null;",
@@ -707,8 +703,6 @@
                     "id": "4ee98af1-b3f1-4b6a-ad15-d6db5eee5209",
                     "exec": [
                       "var jsonBody = pm.response.json();",
-                      "",
-                      "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                       "",
                       "pm.test(\"SuperTicket pricing plan successfully retrieved\", function(){",
                       "    pm.expect(jsonBody.Status).to.be.above(0);",
@@ -14958,61 +14952,61 @@
   ],
   "variable": [
     {
-      "id": "50176cec-bbae-4d46-b246-e2ddbe40efbf",
+      "id": "09c51f6d-8b91-4557-9348-f09a25f15b32",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "6d7230e8-1818-478e-b3bb-f89f1ca6f1be",
+      "id": "404a37b0-7102-4a82-b8c4-650aeb305809",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "65cf5d69-d3fb-4970-adb1-513456286a52",
+      "id": "3c3fc00c-e63a-4a76-b7ab-3bd149d4313d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "749e73fd-fcac-44a1-9761-d93cf8cba65a",
+      "id": "86aa46d6-c397-4e14-afbd-f94913ba0605",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "ac85eac2-39d1-4569-8c7d-2ee5477736bf",
+      "id": "72837a8e-4b71-48cd-b79a-b51721c912cb",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f425642e-33a8-4918-b5bd-014e7fad7e7c",
+      "id": "3febc2e0-8520-4df2-ae06-2dddcd25b831",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cb9e5de6-b84b-44aa-83b7-0a866752b3b8",
+      "id": "b465c792-7e6d-46a5-abf7-8fb009baf3a1",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "41c39ad5-2648-4a09-960c-4900c10a7087",
+      "id": "62176e51-2be2-43f6-97f1-ef8426575bac",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7ff64ab1-5af9-4e56-90ad-a61f2653b957",
+      "id": "4fb87aa5-35c0-49d7-8744-d01aeb5c9d2c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "2777b9a6-f830-4ac6-8ba0-b3a57bc814f0",
+      "id": "1a57d4e5-b3f1-4f9b-ab6c-a275342c4093",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
