@@ -3717,6 +3717,9 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3780,6 +3783,9 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
+                  "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
@@ -3839,6 +3845,9 @@
                 "id": "773b8cb3-43a3-4206-a962-d4b29029d9b9",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3901,6 +3910,9 @@
                 "id": "eb85c262-51d4-4c97-b485-60de04ded6b7",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -3985,6 +3997,9 @@
                 "id": "6e22155c-a104-4549-9543-ff64a566f94b",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                  "tests[\"Response time is acceptable\"] = responseTime < pm.variables.get(\"max_response_time\"); // milliseconds",
                   "",
                   "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
@@ -14835,61 +14850,61 @@
   ],
   "variable": [
     {
-      "id": "bee9f01b-79fb-46ba-b1bb-b1d67a8ec381",
+      "id": "3860011c-3899-4382-b976-cc2eb1f06e54",
       "key": "max_response_time",
       "value": "15000",
       "type": "string"
     },
     {
-      "id": "feb06608-e7ac-4f79-8274-f869b8361d49",
+      "id": "a179eaf5-0eed-4211-94c6-4d6860a21856",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "85661b8d-2ebe-4477-aa05-ba856d83c8d0",
+      "id": "020d9807-9da0-4b39-a22d-954cedf47107",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ed27a75c-3d7b-4c03-a694-9047f030f47f",
+      "id": "c12ac513-c61b-4ef4-a32f-e26049a1ac84",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a7d6c8f1-0741-46a3-916b-84441ba0883c",
+      "id": "83e01a5e-048c-4fc3-b9a1-8c5df82bb406",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a9aed022-906f-4cad-9d07-d34234486cc7",
+      "id": "218f9a10-09c9-42c4-abe6-e6b802616cde",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "1635c86c-ccd4-4f29-9daf-ee65455f8d89",
+      "id": "692cf5f1-8e14-451f-a384-65385c41f7d2",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "36244597-ec04-4cf7-83ba-d9d54b3b688f",
+      "id": "19a44f24-d311-4d39-81b4-f9fbc7eddf26",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "774833ab-0ad4-4441-8f8f-68cd87a876bc",
+      "id": "f098ead4-ade4-4123-a406-05163f9087b8",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0123cfd8-8f9e-4c8c-8632-95f119f379be",
+      "id": "4265c2ff-8faa-4734-aefd-9b520368f370",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
