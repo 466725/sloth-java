@@ -14669,61 +14669,61 @@
   ],
   "variable": [
     {
-      "id": "7e5b455e-eb71-4d17-b125-92563c062bba",
+      "id": "1f9155ff-70f7-46e7-8061-13ac2cf7e1ff",
       "key": "max_response_time",
-      "value": "15000",
+      "value": "30000",
       "type": "string"
     },
     {
-      "id": "4c4eb682-6b7a-4fe2-8340-4136a6647b72",
+      "id": "49722333-3e93-4c12-89e7-b8b2097dbab1",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f2ea1c31-5129-46bc-9725-0a2c8b3d8474",
+      "id": "507af374-f62a-443f-9f6d-894198297f29",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ad4a34f6-9776-4e53-81b3-31d4e0e0368b",
+      "id": "869432d7-6b75-429d-9b3c-c7b800ab9aa2",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "5021537f-0f2e-4080-873d-bd241c784f8d",
+      "id": "9eb2fe3f-857e-4566-b446-417af0d31002",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "8731f24e-05b2-4f02-92a8-e0fa8735a53a",
+      "id": "a1d27622-dc00-411e-a9bc-0e383a76812a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7ea8d995-b3ee-4254-9d2e-afc79de85e9f",
+      "id": "13902202-67b8-46c5-b5f5-3436bffe0a15",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "65c57e85-4122-473c-a945-9f91d2890f57",
+      "id": "66312952-ffda-4d86-8f3f-566912a65a4a",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "10bfc8a6-38e2-43ab-8383-5c290ec24597",
+      "id": "ee107a94-f818-40d9-8895-6e31a52858e5",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "70d1dedc-7012-4a50-84de-1ed12215b441",
+      "id": "bc83b55a-6e9c-4522-981c-7a3190e6be71",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
