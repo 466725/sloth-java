@@ -1673,15 +1673,9 @@
                   "});",
                   "",
                   "//User Story 41189: Support 4K and Harmonized Pricing",
-                  "pm.test(\"PricingPlanType to be defined\",function() {",
-                  "    if (pm.environment.get(\"4K_Supported\") == 1) {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;",
-                  "    } else {",
-                  "        pm.expect(jsonBody.PricingPlanType).to.be.undefined;",
-                  "    }",
+                  "pm.test(\"PricingPlanType exists\", function(){",
+                  "    pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;    ",
                   "});",
-                  "",
-                  "console.log(pm.response.json());",
                   "",
                   "/*",
                   "for(var i =0; i< creditCardInfo.length; i++){",
@@ -14598,7 +14592,6 @@
           "",
           "",
           "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-          "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
           "    pm.environment.set(\"product_Id\", 671899);",
           "    console.log(\"product_id is set in UAT as product_id 671899\");",
           "    pm.environment.set(\"4K_Supported\", 1); //User Story 41189",
@@ -14629,61 +14622,61 @@
   ],
   "variable": [
     {
-      "id": "eddbc14b-4c62-4db1-a3b4-5e9b90671484",
+      "id": "661587b4-dd62-430a-8d67-cf1d4b283ee0",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "260dfb72-9675-4ff9-bd05-ab2bc056df1c",
+      "id": "56260125-ba8a-408e-ac2e-bac3d82a3f53",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ea9936bb-9049-4c55-83d2-68f34ce51dc3",
+      "id": "042a07cb-bc70-4f6f-a23d-fb8589f83712",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "3b256182-2ca4-4b40-8d8a-3279fdae4966",
+      "id": "449e5363-b08f-4016-add8-4d7bb321527c",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "9aa6e7ba-a0aa-4ba5-b662-1114b1c31f36",
+      "id": "a400d34d-8345-487c-8450-3bfdc43e151e",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "87ab0cc4-7cab-4b27-b1a1-6909f70e5571",
+      "id": "223cbacd-0acb-4700-a64f-9f9966f27670",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7d1eeb42-a2e2-4b2c-9772-2d2ae2ad00a2",
+      "id": "265a0814-7a0e-4330-914b-0ae39dcecd3b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "7a371fe2-2ed0-4c29-a5d7-493724558c58",
+      "id": "03bff220-71ec-4f2f-a2b8-67e83ccaacf6",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d7dbb6a3-f275-40b2-82f1-13a72b26bd95",
+      "id": "227c7d12-d7a1-4f62-b0f2-fc90d8209138",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "f779b947-c86f-43d6-bc9c-032502c991ec",
+      "id": "fd384bde-7116-4592-a3c3-df6412ba72a8",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
