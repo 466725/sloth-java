@@ -7429,175 +7429,6 @@
       ]
     },
     {
-      "name": "UserStory-ApplePassKit",
-      "item": [
-        {
-          "name": "Register a device",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "6c0d553e-e4d8-4fef-94a0-e3ef3c803119",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "4d769119-5e24-4848-a0f0-e5e17b650513",
-                "exec": [
-                  "tests[\"Status code is 201\"] = responseCode.code === 201;"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "21ab7e04-7e8d-4a67-b431-3f1ed12eb099",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{ApplePassKit_url}}/devices/73892efb78e8f9e559f7027571ef71b6/registrations/pass.cineplex.ticket/61057026"
-          },
-          "response": []
-        },
-        {
-          "name": "Register device no serial number",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "7b892316-9cd4-41b5-b113-b7ad9e23c77c",
-                "exec": [
-                  "tests[\"Status code is 201\"] = responseCode.code === 201;"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "22535036-f0dc-46ef-b222-24affbe31355",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Ocp-Apim-Subscription-Key",
-                "type": "text",
-                "value": "{{ocp-apim-subscription-key}}"
-              }
-            ],
-            "url": "{{ApplePassKit_url}}/devices/73892efb78e8f9e559f7027571ef71b6/registrations/pass.cineplex.ticket/"
-          },
-          "response": []
-        },
-        {
-          "name": "Get passes",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "cbee5d4b-13d0-43d6-b6fb-8b8e20c08e8b",
-                "exec": [
-                  "tests[\"Status code is 304\"] = responseCode.code === 304;"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "245c7054-7b14-4636-b32d-4799126c9dda",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{ApplePassKit_url}}/passes/pass.cineplex.ticket/50769522"
-          },
-          "response": []
-        },
-        {
-          "name": "Deregister a device",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "664f06ce-7c63-4feb-a13b-557910156b3d",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "3097b58f-4721-4825-accd-63dd35adb6f0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{ApplePassKit_url}}/devices/976c4f2ed9739dfbed2bf04fc5c6796a/registrations/pass.cineplex.ticket/50769522"
-          },
-          "response": []
-        },
-        {
-          "name": "Log",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b0538887-7887-4c6c-8828-3a016533d204",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "2e2d6cdf-0d7b-41a2-9fe0-819264740b5b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{ApplePassKit_url}}/log"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "24fe8b85-d6a4-4986-8cde-cae371b80de6",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "a2bd1305-6bb0-4ee8-87d9-58aea1911216",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "74b7ac35-190a-4013-9ac2-8ec234a54bc8",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
       "name": "Connect-Sign up and Tax",
       "item": [
         {
@@ -13731,6 +13562,175 @@
           }
         }
       ]
+    },
+    {
+      "name": "UserStory-ApplePassKit",
+      "item": [
+        {
+          "name": "Register a device",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "6c0d553e-e4d8-4fef-94a0-e3ef3c803119",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "4d769119-5e24-4848-a0f0-e5e17b650513",
+                "exec": [
+                  "tests[\"Status code is 201\"] = responseCode.code === 201;"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "21ab7e04-7e8d-4a67-b431-3f1ed12eb099",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{apple_pass_kit_url}}/devices/73892efb78e8f9e559f7027571ef71b6/registrations/pass.cineplex.ticket/61057026"
+          },
+          "response": []
+        },
+        {
+          "name": "Register device no serial number",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b892316-9cd4-41b5-b113-b7ad9e23c77c",
+                "exec": [
+                  "tests[\"Status code is 201\"] = responseCode.code === 201;"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "22535036-f0dc-46ef-b222-24affbe31355",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ocp-Apim-Subscription-Key",
+                "type": "text",
+                "value": "{{ocp-apim-subscription-key}}"
+              }
+            ],
+            "url": "{{apple_pass_kit_url}}/devices/73892efb78e8f9e559f7027571ef71b6/registrations/pass.cineplex.ticket/"
+          },
+          "response": []
+        },
+        {
+          "name": "Get passes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cbee5d4b-13d0-43d6-b6fb-8b8e20c08e8b",
+                "exec": [
+                  "tests[\"Status code is 304\"] = responseCode.code === 304;"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "245c7054-7b14-4636-b32d-4799126c9dda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{ApplePassKit_url}}/passes/pass.cineplex.ticket/50769522"
+          },
+          "response": []
+        },
+        {
+          "name": "Deregister a device",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "664f06ce-7c63-4feb-a13b-557910156b3d",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3097b58f-4721-4825-accd-63dd35adb6f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{ApplePassKit_url}}/devices/976c4f2ed9739dfbed2bf04fc5c6796a/registrations/pass.cineplex.ticket/50769522"
+          },
+          "response": []
+        },
+        {
+          "name": "Log",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b0538887-7887-4c6c-8828-3a016533d204",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2e2d6cdf-0d7b-41a2-9fe0-819264740b5b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{ApplePassKit_url}}/log"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "24fe8b85-d6a4-4986-8cde-cae371b80de6",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "a2bd1305-6bb0-4ee8-87d9-58aea1911216",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "74b7ac35-190a-4013-9ac2-8ec234a54bc8",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "event": [
@@ -13764,61 +13764,61 @@
   ],
   "variable": [
     {
-      "id": "9d5c54dc-dec3-4747-946e-23312d28e0ac",
+      "id": "38b788ed-1bb5-4111-a176-1d440873fd00",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "aa5403f2-d728-4053-8d73-b2e146154b6b",
+      "id": "70891b1e-a778-4d43-9521-8af8698b3c57",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "6e4284d4-492c-44aa-b8d1-3b5ac22f2505",
+      "id": "f82afcdb-d383-43db-848f-df80cf0adca0",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "553e6d25-9ead-4778-a14c-2f0a80a97124",
+      "id": "cd178669-7b52-4484-8362-8db9017da169",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a6e845e9-1e00-46d9-9a4d-31e61f37f1cb",
+      "id": "85be730f-f92c-4e16-896f-e01080b122d4",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "6b76c096-6a4c-44ac-b57f-a7f6797f2965",
+      "id": "4169e222-2fa2-49db-b5d4-38d05c22ac8a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "3387ca9f-a91b-444d-b151-d5fc552e0757",
+      "id": "7ff4c396-d9b4-4e96-9a74-0f25c56f651a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "fcf49e09-e0a3-4e2b-b59b-7338d382669d",
+      "id": "eead84b5-5ebe-4893-8645-093a635c729b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "86977f9f-79f1-47fb-8e8d-65f62c08db63",
+      "id": "6e3e0703-d976-4128-a85a-8ed1d1738e74",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "3a5d7446-08c6-4205-b072-876c49ab7a66",
+      "id": "0f4e4edc-50bf-4be2-b5a9-880ee55afb75",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
