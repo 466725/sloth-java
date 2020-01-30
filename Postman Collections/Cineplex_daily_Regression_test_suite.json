@@ -14590,19 +14590,11 @@
           "console.log(\"Global timestamp is set as: \" + pm.globals.get(\"timestamp\"));",
           "",
           "if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-          "    console.log(\"We are running on UAT environment!\");",
-          "    pm.environment.set(\"movie_id\", 31484);",
-          "    console.log(\"movie_id is set as UAT movie id 31484\");",
-          "    pm.environment.set(\"theatre_id\", 7995);",
           "    console.log(\"theatre_id is set as UAT theatre id 7995\");",
           "    pm.environment.set(\"product_Id\", 671899);",
           "    console.log(\"product_id is set in UAT as product_id 671899\");",
           "    pm.environment.set(\"4K_Supported\", 1); //User Story 41189",
           "} else {",
-          "    console.log(\"We are not running on UAT environment!\");",
-          "    pm.environment.set(\"movie_id\", 27417);",
-          "    console.log(\"movie_id is set as PROD movie id 27417\");",
-          "    pm.environment.set(\"theatre_id\", 7400);",
           "    console.log(\"theatre_id is set as PROD theatre id 7400\");",
           "    pm.environment.set(\"4K_Supported\", 0); //User Story 41189",
           "}",
@@ -14629,61 +14621,61 @@
   ],
   "variable": [
     {
-      "id": "4251a650-66b2-468f-8e97-b7fd84eecbb1",
+      "id": "490616a4-0264-440f-b8b1-ea7062bcb621",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "da7a9478-2c79-4479-8b0f-c6c8437017bf",
+      "id": "c62b5ab4-35f7-437e-9205-7d039f0225ff",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "1fef9322-99c8-482a-9c1c-30ec03c14f3b",
+      "id": "0d65049d-f119-4573-ae1a-f722117e21bf",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a38b13fd-b523-432c-8f1b-c457d8c93a0d",
+      "id": "5aa82d6f-6771-4fd6-a2fd-0a428401a4fb",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "b65c7957-a2e3-4cfa-bbdf-fa80052f9d20",
+      "id": "56f609e0-7b15-4796-8909-66392d6bc2ab",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ee1d0868-5b3d-48d1-bd6e-8a6a9bf53a47",
+      "id": "a5779bb8-3b8a-414e-92f1-2588900909f2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "3ef48133-3d88-4a44-9a84-e042fe95bc08",
+      "id": "b25af390-7d44-4a8f-8734-6be17da3053c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d5bbae55-2a5b-4671-8214-e148ddb1a2ab",
+      "id": "561cb27b-d786-4ecf-8909-399d80944905",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7049b78f-1ea4-4c4c-b844-945883ec3c97",
+      "id": "e50f34b3-0969-4612-836a-36bce4db1c58",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "a4a3b6eb-f9ad-48e6-8850-ed7b4355adc2",
+      "id": "1869e372-e7a6-4331-94a3-77ed2df33bd5",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
