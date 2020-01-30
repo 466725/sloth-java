@@ -4599,13 +4599,19 @@
                   "var jsonBody = pm.response.json();",
                   "var showtimes = jsonBody.data[0].showtimes;",
                   "",
+                  "//User Story 33807: Create Versioning in Cineplex.com",
+                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+                  "});",
+                  "",
                   "pm.test(\"Set Showtimes\", function() {",
                   "    if (showtimes.length > 0) {",
                   "        pm.environment.set(\"vista_session_id\", jsonBody.data[0].showtimes[0].vistaSessionId);",
                   "    } else {",
                   "        //use initial value",
                   "    }",
-                  "});"
+                  "});",
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13571,61 +13577,61 @@
   ],
   "variable": [
     {
-      "id": "3a6d0b20-5375-4e3a-beb6-640393a2af65",
+      "id": "dd2cb466-41d3-4ef7-8b98-0704da3f68e0",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "5daf9434-ee2b-4254-a4ae-36346edb7085",
+      "id": "33aafd53-1c61-4e9c-b082-e27ea87ce4e9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "5f6a2b1d-e4e3-4d98-a962-7933d667658f",
+      "id": "e790fd18-5dba-4eed-a9ba-fa6677651764",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "569553c2-7036-4f5e-9215-15f5ac635c0e",
+      "id": "e0ec62d1-3ecf-4509-9477-e56254f09482",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "f631a815-98fa-4396-b4ed-3a250a5efa79",
+      "id": "c84f68aa-f2c1-4d50-b8ad-7684ce926a5c",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0e003902-19a7-40e9-8fbe-3785ad0d5dbd",
+      "id": "2403f988-9c4f-4946-9123-c5b0a337cb86",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "568e5e7e-dccd-4969-8a56-e0e61e12245c",
+      "id": "73096828-1b6a-4e10-976c-6b5320211edf",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "732769d7-ab31-4658-aec4-f1afe939b84c",
+      "id": "ab36d84f-579b-48cf-941e-ff02f215f037",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ba518ded-4b6a-4fa9-afb3-3a6c872501cb",
+      "id": "22f212a5-b51e-41ad-8ee8-09d48ff3c623",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c417086b-35d4-4032-83a6-c4af0245b33f",
+      "id": "cf76c69d-c569-44ed-b16d-e8068d7ede5a",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
