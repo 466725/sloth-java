@@ -13703,7 +13703,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{apple_pass_kit_url}}/log"
+            "url": "{{ApplePassKit_url}}/log"
           },
           "response": []
         }
@@ -13764,61 +13764,61 @@
   ],
   "variable": [
     {
-      "id": "ff54b2ab-27f3-4dd8-bb02-ad7cec329df5",
+      "id": "898261da-4845-405c-8aca-9dd6e2253f8d",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "5d1fd837-1efe-4de6-859c-83f133fecef9",
+      "id": "be1b5a23-aa8b-4025-94f6-572199a4c86b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "3ccb90e7-2bc9-434f-8a42-58e13666bb7d",
+      "id": "dea5755d-0a71-4a34-9235-86ffdc532b55",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "082d430d-4c1c-4cdf-97e1-5b3b4a167b95",
+      "id": "8cae9f09-1386-4339-8218-6bd248f74c99",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "510ac25a-5c94-4710-b457-f9612417693d",
+      "id": "83810fc1-488c-45e9-9c80-572f411e56ff",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "40608fa8-625a-4662-9834-b1100ad884b4",
+      "id": "af03090c-b7c4-4774-bf56-449866ed500a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "d4dc12b8-b642-4feb-89a7-60d7953b2841",
+      "id": "c5f07529-87f5-4387-9712-56e967c8309a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "a0e0cd9d-c5b0-4bfe-9ce6-5adb4666cffd",
+      "id": "8509b37d-0ea0-489e-9cf3-c3d1f92492c5",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "b262fa3f-df83-4cbd-bd45-1a8b7142a536",
+      "id": "02f63333-2cd7-41b5-adbe-64fcf9861df3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "66a362ed-6c7c-415c-8e91-fd73c6c6890d",
+      "id": "ebb5fd16-62d9-42ea-9932-9f8a0f9392da",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
