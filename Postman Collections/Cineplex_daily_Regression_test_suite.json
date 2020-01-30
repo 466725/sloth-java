@@ -7992,7 +7992,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -8136,7 +8136,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});"
                 ],
@@ -8496,7 +8496,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(2);",
                   "});"
                 ],
@@ -8640,7 +8640,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -9001,7 +9001,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -9505,7 +9505,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -10106,7 +10106,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.be.above(0);",
                   "});"
                 ],
@@ -10250,7 +10250,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                   "});"
                 ],
@@ -10466,7 +10466,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                   "});"
                 ],
@@ -13657,61 +13657,61 @@
   ],
   "variable": [
     {
-      "id": "1b0307e3-c47b-4d6e-aa02-a0d7daf8bcf9",
+      "id": "b47d6388-e90c-48fd-9247-181dc029a412",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "789485a3-d6e8-46ab-8799-3b5d3b614fce",
+      "id": "69c59fae-fd20-4989-b2a7-b0dea6af3009",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2c33bfa6-58b0-4e3a-a0c0-69b38d8f8383",
+      "id": "87ec9f52-5a3a-4865-b6f7-e044c5007ac4",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "50d2f0e3-462c-4d41-a31e-c877130b588e",
+      "id": "441ea990-a08f-40a0-a74e-3fe6505fec2a",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "1c63a906-8365-4767-85f3-5959e10c7b7f",
+      "id": "221b43d2-3759-4a63-a35f-bb6f848d36fa",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d5cb9135-06cb-4626-8ff3-8047df1a0c0e",
+      "id": "a9eb64e8-3c75-446e-952d-20367c507268",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "505c2769-875d-4f3e-9fe7-908a809fe5c8",
+      "id": "d560fa47-cb77-4304-81cc-1856d3aa95e0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f8b6e069-5bb0-4cbc-8829-991147689a9b",
+      "id": "a25f8df0-44c2-4f61-b194-7a6df9443061",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f72e43f5-a6aa-4bad-a8ec-aac76ecbb51d",
+      "id": "300e0eac-e142-4e41-bb83-95a9a3aa8b19",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "6da82d3b-8e6c-42e8-be4f-47513e24d818",
+      "id": "c43c9cf7-e15f-426f-83aa-c17ce82351d0",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
