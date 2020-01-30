@@ -4685,12 +4685,7 @@
               "script": {
                 "id": "2e5132e9-7164-49dc-b743-ce3275613d81",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13571,61 +13566,61 @@
   ],
   "variable": [
     {
-      "id": "71535938-bfa0-4a59-aa7c-79a28038a91d",
+      "id": "d9b8d7d6-a3d5-4e2f-98d7-f49428bd9dfa",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "f423767d-c11a-49de-ac8a-ec91a3d066a1",
+      "id": "bb8ac914-2ddf-407e-ae51-dc8757f24b63",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4d5e1324-1031-42dd-a00c-e1c6cdfe62a5",
+      "id": "602945e0-864a-44f3-b734-2cdf4ed955da",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7d547448-6823-494f-9c83-d3899d3bf8b6",
+      "id": "ce5a7238-e775-40ed-8d19-4388163585d0",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "767c3237-1e7b-4b9b-ab7b-9bf9133f0092",
+      "id": "bb742481-98a9-4244-9783-56d636f46390",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "2d6bbc22-eb4c-4266-8da7-514527cef0b0",
+      "id": "c2c19031-21af-4d58-ba21-8962c4994961",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f81f9fe9-1dce-43bc-a96a-da67997b2e22",
+      "id": "dfb33940-3a9a-4cd5-8987-295ed5668719",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4f062f5a-4a2c-473e-89b6-95822aa26455",
+      "id": "0cbaebfe-5f40-4866-9ee6-2754909f17d0",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "dedf7299-729c-4b5d-ada5-241f4a5df82e",
+      "id": "681df9c1-3f1b-465e-8fd3-53139f2c8815",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "9bdb20d3-1267-4dd4-bb86-1d47ff83cf2f",
+      "id": "4c6673e0-d7ce-4923-87d7-8b75bc715e73",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
