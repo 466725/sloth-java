@@ -9001,7 +9001,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -9736,7 +9736,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                   "});"
                 ],
@@ -9818,7 +9818,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.be.above(0);",
                   "});"
                 ],
@@ -9962,7 +9962,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                   "});"
                 ],
@@ -10106,7 +10106,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.be.above(0);",
                   "});"
                 ],
@@ -10466,7 +10466,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
                   "});"
                 ],
@@ -13657,61 +13657,61 @@
   ],
   "variable": [
     {
-      "id": "7fa2d77d-0350-42ed-81eb-dc72ac535c93",
+      "id": "edf3f768-f8fb-479f-bf8b-5f50b8fb794a",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "3de81473-97ba-482e-9cd5-26cdee646ac3",
+      "id": "deea1500-fb48-4a79-9c35-4222b5586b33",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "80fc10dc-7ec9-4b5a-8ada-fd80d5232fa5",
+      "id": "2171a5f2-5954-4278-a09b-0f5cc5c9b3df",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "05df5d0d-e721-4d05-b948-70e7a083759d",
+      "id": "8e785611-ca3c-4f8b-8cbd-84e5db7fe060",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a79cede8-8ffd-4f9e-aa62-044205b9b18e",
+      "id": "4a0b04bd-6746-4387-be7b-c44a07dc0ce2",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "93b0057b-0cdb-45c2-87d8-6dbbc49c3d9c",
+      "id": "90e8e418-d864-4839-9237-c388d3937f0c",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "bcc09371-bc1f-458d-b5f3-7f98dc492dd7",
+      "id": "d8503ccc-e77f-4852-901e-26cdd2082d96",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "24c9d03f-5256-4a2b-9eee-02dc43a4bb35",
+      "id": "7134348c-c1ef-439d-ad0b-2bd1a4c3cf73",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c6e0dac0-224e-4b17-a979-233f3485e2da",
+      "id": "9f10861b-f227-4c5b-93c5-dd48c80e2eb1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "883e02eb-fe1e-4dd0-a80e-334165b5841c",
+      "id": "34c6fa2e-992c-4565-a7fc-e57d620c2063",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
