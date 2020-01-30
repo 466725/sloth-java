@@ -5491,7 +5491,7 @@
               "mode": "raw",
               "raw": "{\n\t\"promotion\":\"{{promo_name}}\"\n}"
             },
-            "url": "{{cineplex_url_affiliate}}/v1/GetEligibleDevices"
+            "url": "{{cineplex_affiliate_url}}/v1/GetEligibleDevices"
           },
           "response": []
         },
@@ -5795,7 +5795,7 @@
               "mode": "raw",
               "raw": "{\n\t\"PromoName\": \"{{promo_name}}\",\n\t\"Language\": \"xx-ZZ\"\n}"
             },
-            "url": "{{cineplex_url_affiliate}}/v1/GetTermsOfService"
+            "url": "{{cineplex_affiliate_url}}/v1/GetTermsOfService"
           },
           "response": []
         },
@@ -6192,7 +6192,7 @@
               "mode": "raw",
               "raw": "{\n\t\"ConnectID\":\"\",\n\t\"DUID\":\"{{eligibleDUID3}}\",\n\t\"ModelNumber\":\"{{eligibleModelNumber}}\",\n\t\"Consent\":\"FALSE\",\n\t\"MarketingConsent\":\"FALSE\",\n\t\"PreferredLanguage\":\"en-us\"\n}"
             },
-            "url": "{{cineplex_url_affiliate}}/v1/CompleteEnrollment"
+            "url": "{{cineplex_affiliate_url}}/v1/CompleteEnrollment"
           },
           "response": []
         },
@@ -6548,7 +6548,7 @@
               "mode": "raw",
               "raw": "{\n\t\"ModelNumber\":\"{{eligibleModelNumber}}\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ConnectID\":\"{{connectID}}\"\n}"
             },
-            "url": "{{cineplex_url_affiliate}}/v1/isDeviceEnrolled"
+            "url": "{{cineplex_affiliate_url}}/v1/isDeviceEnrolled"
           },
           "response": []
         },
@@ -6777,7 +6777,7 @@
               "mode": "raw",
               "raw": "{\n\t\"ModelNumber\":\"{{eligibleModelNumber}}\",\n\t\"DUID\":\"{{eligibleDUID3}}\"\n}"
             },
-            "url": "{{cineplex_url_affiliate}}/v1/DeleteDevice"
+            "url": "{{cineplex_affiliate_url}}/v1/DeleteDevice"
           },
           "response": []
         }
@@ -13764,61 +13764,61 @@
   ],
   "variable": [
     {
-      "id": "b4a81416-55a0-42d3-ae84-3b3908e5885a",
+      "id": "f1d993d0-6cb8-4e05-b9c4-5695a0dccf2b",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "8271666b-4f2f-42be-a907-e818407c7596",
+      "id": "10e20c15-a840-4af9-9d22-cf8f5ea3a804",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "50fbd28f-7786-4eb3-a52b-0aad94d3f47c",
+      "id": "b56f9c6a-424c-42b3-8dc2-cab102e42cf5",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "506eecd5-295c-4bd5-ac3b-489f498b97a4",
+      "id": "e416702c-3dae-4027-92fa-0e7ddca49b54",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "276c17fd-e9ee-41eb-b836-5a01554a3a1f",
+      "id": "36f83aa2-b6b4-4630-97ad-0e48dcccaef1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0ffbcd43-8048-4ee0-8b7e-4232aa403113",
+      "id": "f91d6865-de6f-43ad-a9ec-55d6b991fb86",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "3279419f-ef90-4198-9b0d-f36e62fcb700",
+      "id": "3801c7bc-8271-4048-b54d-975a7a99365c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "886a3ddb-0a45-48a7-be11-bf8142b3bc7c",
+      "id": "d7010ef8-7d32-4a52-9199-66979a72c533",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "746dde2b-351c-462f-97a1-b745c37d7cd0",
+      "id": "8868a04b-c53e-47a0-b527-ebf7cf443a38",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0126f25b-8ff3-43e5-81b0-a10b8f3e5428",
+      "id": "2c5a45c8-cc18-44c4-97df-0f72541dc546",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
