@@ -1868,7 +1868,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -1913,7 +1913,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -1978,7 +1978,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2027,7 +2027,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2176,7 +2176,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2243,7 +2243,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2384,7 +2384,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2539,7 +2539,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2644,7 +2644,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2732,7 +2732,7 @@
                   "\t\tpm.response.to.have.status(400);",
                   "\t});",
                   "} else {",
-                  "\tpm.test(\"Result status is correct\", function(){",
+                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -2935,7 +2935,7 @@
                   "\t});",
                   "} else {",
                   "",
-                  "\tpm.test(\"Result status is correct\", function(){",
+                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -3010,7 +3010,7 @@
                   "\t});",
                   "} else {",
                   "",
-                  "\tpm.test(\"Result status is correct\", function(){",
+                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -3515,7 +3515,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3689,7 +3689,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3752,7 +3752,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3812,7 +3812,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3874,7 +3874,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3958,7 +3958,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4258,7 +4258,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4444,7 +4444,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4727,7 +4727,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4804,7 +4804,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4880,17 +4880,7 @@
             "id": "8ab04a3a-c5be-4415-a1e5-ab75d0b5d19e",
             "type": "text/javascript",
             "exec": [
-              "var jsonBody = pm.response.json();",
-              "",
-              "pm.test(\"Response is successful\", pm.response.to.be.success);",
-              "",
-              "pm.test(\"Result status is correct\", function () {",
-              "    pm.expect(jsonBody.status).not.to.be.undefined;",
-              "});",
-              "",
-              "pm.test(\"jsonBody.message is not undefined\", function(){",
-              "    pm.expect(jsonBody.message).to.not.be.undefined;",
-              "});"
+              "pm.test(\"Response is successful\", pm.response.to.be.success);"
             ]
           }
         }
@@ -4950,7 +4940,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5018,7 +5008,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5084,7 +5074,7 @@
                   "",
                   "console.log(\"Response size is: \" + pm.response.responseSize);",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5216,7 +5206,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5294,7 +5284,7 @@
                   "\t});",
                   "} else {",
                   "",
-                  "\tpm.test(\"Result status is correct\", function(){",
+                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
                   "\t\tpm.expect(jsonBody.status).eql(1);",
                   "\t});",
                   "",
@@ -13614,61 +13604,61 @@
   ],
   "variable": [
     {
-      "id": "3c1bfd3a-368f-4635-9d7b-cd07c2688377",
+      "id": "c98c2c23-2d6d-48ba-b6ca-0ec7a9074762",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "b11d1fb1-4042-4cc7-8b8a-7e0dc403ecf1",
+      "id": "f8a4288f-abd2-4650-afb6-af840ab23a18",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a2fe23e1-c1a4-43bb-a006-631bb63ab47c",
+      "id": "00badc2e-e20e-41d4-9740-322d5ddae652",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a109db8c-3631-4b7d-bd01-e0f6e72aab72",
+      "id": "5825e169-2b07-4992-b202-93c5e3106126",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "e268030b-fc02-4a8a-9dd6-d46015d191e5",
+      "id": "f09ee172-3a29-4215-848d-8848660bece8",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "1b316d9d-93d8-4a80-b585-6625caf93b4e",
+      "id": "bfc9a36f-9d43-4290-a7de-4eb0c6388f2e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "17c48569-c79d-46e4-a363-f6db9adcef54",
+      "id": "8265d07b-dda7-4d89-af96-5f6a6639872b",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "774dc2fa-139b-4cf8-a360-31950a5abeb4",
+      "id": "92b8a8ef-944c-4c73-a79d-30f1b8ab448b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "2f6cc1a0-d273-440a-8a63-ea27ed2b63f8",
+      "id": "aaa3f0dd-0aa0-478a-871c-61b2f84d6aca",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4e58195f-0602-470a-bf01-6ce1b923a56a",
+      "id": "68e71e00-d057-4955-bd8b-e9688bf70e92",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
