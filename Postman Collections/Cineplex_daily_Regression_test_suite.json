@@ -7259,16 +7259,20 @@
                     "id": "235d0999-53ef-44e7-a1c8-c335538a99a9",
                     "exec": [
                       "var jsonBody = pm.response.json();",
-                      "var items = jsonBody.Items;",
-                      "var rateDetails = items[0].locationGameRates;",
                       "",
+                      "pm.test(\"TheRecRoom location game rate is successfully retrieved.\", function(){",
+                      "    pm.expect(jsonBody.Status).to.eql(1);",
+                      "});",
+                      "",
+                      "var items = jsonBody.Items;",
                       "console.log(items);",
+                      "var rateDetails = items[0].locationGameRates;",
                       "console.log(rateDetails.length);",
                       "for (var i = 0 ; i < rateDetails.length ; i++ ){",
                       "    var price = rateDetails[i].GrossPriceLabel;",
                       "    var timeDisplay= rateDetails[i].TimeDisplay;",
                       "    var gameRateId= rateDetails[i].GameRateID;",
-                      "    pm.test(\"Game rate Id: \" + gameRateId +\"Gross Price Label: \" + price + \"TimeDisplay: \" + timeDisplay, function () {",
+                      "    pm.test(\"Game rate Id: \" + gameRateId +\"Gross Price Label: \" + price + \"TimeDisplay: \" + timeDisplay, function(){",
                       "    });",
                       "}",
                       "",
@@ -13604,61 +13608,61 @@
   ],
   "variable": [
     {
-      "id": "370b052a-f87f-47db-948d-ac47dab4cb4c",
+      "id": "09a135e0-e2cb-4095-b99e-0ec157753a6e",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "dda3ccf2-9adb-45cf-8427-6e7eb866f1a9",
+      "id": "acfda9aa-749a-4056-bc2e-cd2d05480127",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "75bd9d83-477a-44f2-bca2-025277bd3904",
+      "id": "a659c410-63f7-4466-b1e5-f5fe2e9ebe0f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "275b2223-f171-4dc7-b135-34189613eb13",
+      "id": "07c6f88e-3d5f-4a56-84cb-c3722f70de82",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "76f85c3c-9a6e-4d2f-9ae9-79347c410513",
+      "id": "0d67d7c9-4730-473a-b259-769cfff9fad3",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "90d1c161-be2a-4096-9ea4-3e518add80e5",
+      "id": "dfbdbc15-837c-45a1-8ab4-8daaddf15445",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "b748567d-bc39-48c4-8ea3-3c7588a9d47d",
+      "id": "cee1bd0b-f314-467f-b4f0-dfb2a49c224d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1e6aac31-0994-41fe-a84e-9a2ac6122b48",
+      "id": "876db8a4-6d71-471d-abb0-f0d1666b8426",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "5708ab93-befc-44d4-9af7-69f20ce4c833",
+      "id": "3f40d686-d2d2-4059-b0fe-17619454276a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "e94d6dae-abe3-4154-8268-d12e99d2d336",
+      "id": "797c228a-255f-415b-8a8e-79bdb3518882",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
