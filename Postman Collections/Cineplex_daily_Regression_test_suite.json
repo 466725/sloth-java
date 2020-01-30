@@ -7120,14 +7120,18 @@
                     "id": "1be797b7-f71a-4679-a9af-6ad120a01f35",
                     "exec": [
                       "var jsonBody = pm.response.json();",
+                      "",
+                      "pm.test(\"TheRecRoom location restaurant menu list successfully retrieved.\", function(){",
+                      "    pm.expect(jsonBody.Status).to.eql(1);",
+                      "});",
+                      "",
                       "var items = jsonBody.Items;",
                       "var menuType = [];",
-                      "for (var i = 0 ; i<items.length ; i++) {",
+                      "for (var i = 0 ; i<items.length ; i++){",
                       "    var a = items[i].MenuType;",
-                      "    menuType.push(a);",
+                      "     menuType.push(a);",
                       "}",
-                      "",
-                      "pm.test(\"Menu Types Available: \"  + menuType , function () {",
+                      "pm.test(\"Menu Types Available: \"  + menuType ,function(){",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -13629,61 +13633,61 @@
   ],
   "variable": [
     {
-      "id": "a2552b03-f27d-4e4c-9d4d-232456468e4e",
+      "id": "4e37cb68-1936-4732-88f0-f02d13cadc87",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "e7df6131-713d-47a3-afb8-99b34e1e1f39",
+      "id": "821785b1-7f5b-43b2-9b02-61a5840c37e3",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "42617508-16a0-4128-acbe-9edf80410085",
+      "id": "00ad0e97-a88b-402e-bdb5-91fb78aad9c5",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "373d8997-ed30-4ddd-9eae-37ccd7aa8a08",
+      "id": "5f8e929c-ab26-4947-8269-32b33a7238fa",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "fa861e0e-cfe2-4961-8458-c04679f8b016",
+      "id": "1644ed14-83f6-4105-9fe7-f1b0ec7cf592",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "dc8a07c3-29c5-43da-bf23-270d2968a6ad",
+      "id": "6b2af22a-46f6-4926-8a4c-d048bb61555d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "956d6f3a-5919-49c8-b70c-8df9aef8e6a3",
+      "id": "9a562cad-34bd-4dba-b6cf-9b2284732366",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ab9ad1e2-7f6c-4fbb-a680-ae4028711c64",
+      "id": "0c223aaf-b676-41e6-aac5-7298a0de9915",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "481c7264-c568-4ad1-8ec1-803656fe203d",
+      "id": "d5faacd0-0aaf-4d35-8c22-685234583886",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "07c16dd0-0199-408e-a06e-8785b0793f8b",
+      "id": "555d1d5b-1f6b-4555-a18d-5cea90055213",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
