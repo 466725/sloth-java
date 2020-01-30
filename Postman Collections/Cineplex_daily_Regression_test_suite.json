@@ -4609,14 +4609,6 @@
                   "var jsonBody = pm.response.json();",
                   "var showtimes = jsonBody.data[0].showtimes;",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
-                  "",
                   "//User Story 33807: Create Versioning in Cineplex.com",
                   "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
                   "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
@@ -4710,14 +4702,6 @@
                 "id": "2e5132e9-7164-49dc-b743-ce3275613d81",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
                   "",
                   "//User Story 33807: Create Versioning in Cineplex.com",
                   "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
@@ -4874,6 +4858,11 @@
               "",
               "pm.test(\"jsonBody.message is not undefined\", function(){",
               "    pm.expect(jsonBody.message).to.not.be.undefined;",
+              "});",
+              "",
+              "//User Story 33807: Create Versioning in Cineplex.com",
+              "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+              "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
               "});"
             ]
           }
@@ -13598,61 +13587,61 @@
   ],
   "variable": [
     {
-      "id": "46436cd8-ee4f-42cb-b4fa-a4aab7200848",
+      "id": "1f8c1b40-a273-4f32-a12f-7a9d308ad639",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "f3a4ec88-1898-4e4e-acad-78fd4ceb3bfb",
+      "id": "6de39552-d86b-4eff-bbd4-91ae28ed828f",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "85fc2d58-ce1f-46ad-a73d-fe8af386738f",
+      "id": "cb4ec653-dc6b-48c5-b047-6593a1af2b09",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "56ad972b-9f1e-4a90-95ea-43662930d76c",
+      "id": "64dcc451-32ba-4b4e-b4b3-8a48e28b1b36",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "3127047f-38e3-4f3d-b5a4-7d30d62f1b4b",
+      "id": "41ca36b5-1f0f-4e6b-a8ee-b9d5331b1d68",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "3bc2ff9f-38a1-4b1e-9dc7-762d7852109d",
+      "id": "66475644-9056-48f1-967c-0d8756228197",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ff3f30ca-2599-4794-a795-875d9e52bef9",
+      "id": "e49b871f-b166-4ea5-b7ca-c2ac5d134275",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "fce3b8e6-0fd1-4e3a-9834-4698580dfe9e",
+      "id": "1aa0442b-930c-4b67-9f4f-eefcb4161e70",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "7ae19577-716b-4fbd-9fb7-06cde8a0cb56",
+      "id": "a399f645-fbef-4e59-88e9-eacb2fa065d9",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "fd7bf095-9595-49e0-aa65-aa649fd0028d",
+      "id": "c8c9bc40-304f-49be-9869-c7c133eb2000",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
