@@ -4442,12 +4442,7 @@
               "script": {
                 "id": "59043619-f832-4ed7-a9eb-763a687c9b37",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -4518,12 +4513,7 @@
               "script": {
                 "id": "4fc29faa-d7b1-4958-82f2-92d58de81c34",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13587,61 +13577,61 @@
   ],
   "variable": [
     {
-      "id": "1f8c1b40-a273-4f32-a12f-7a9d308ad639",
+      "id": "9d625390-8eb0-4b98-b859-b49ce16518ba",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "6de39552-d86b-4eff-bbd4-91ae28ed828f",
+      "id": "0fe8f213-5eb9-4410-a5d2-3a45378b53aa",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "cb4ec653-dc6b-48c5-b047-6593a1af2b09",
+      "id": "3df5e579-ae58-4ca3-85e5-e506df685830",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "64dcc451-32ba-4b4e-b4b3-8a48e28b1b36",
+      "id": "ca90b157-9031-4ad6-a972-fdab12ec0458",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "41ca36b5-1f0f-4e6b-a8ee-b9d5331b1d68",
+      "id": "d6870136-9228-4b93-aa81-349e99a9805a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "66475644-9056-48f1-967c-0d8756228197",
+      "id": "0813d9e3-daff-476b-9b4b-927de6af734e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "e49b871f-b166-4ea5-b7ca-c2ac5d134275",
+      "id": "b45f62fa-6d0d-48b5-a0c6-2d1aa4dcd00a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1aa0442b-930c-4b67-9f4f-eefcb4161e70",
+      "id": "7e9e265b-a73c-49d5-8a8e-3260574ee521",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a399f645-fbef-4e59-88e9-eacb2fa065d9",
+      "id": "f8b21d2b-9fbf-4e6c-9375-6cb91ea49b57",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c8c9bc40-304f-49be-9869-c7c133eb2000",
+      "id": "a5ec6ffd-d8f4-4fcd-8d69-85e577d6e470",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
