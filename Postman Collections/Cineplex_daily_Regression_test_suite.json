@@ -13653,7 +13653,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{ApplePassKit_url}}/passes/pass.cineplex.ticket/50769522"
+            "url": "{{apple_pass_kit_url}}/passes/pass.cineplex.ticket/50769522"
           },
           "response": []
         },
@@ -13703,7 +13703,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{ApplePassKit_url}}/log"
+            "url": "{{apple_pass_kit_url}}/log"
           },
           "response": []
         }
@@ -13764,61 +13764,61 @@
   ],
   "variable": [
     {
-      "id": "38b788ed-1bb5-4111-a176-1d440873fd00",
+      "id": "ff54b2ab-27f3-4dd8-bb02-ad7cec329df5",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "70891b1e-a778-4d43-9521-8af8698b3c57",
+      "id": "5d1fd837-1efe-4de6-859c-83f133fecef9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f82afcdb-d383-43db-848f-df80cf0adca0",
+      "id": "3ccb90e7-2bc9-434f-8a42-58e13666bb7d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cd178669-7b52-4484-8362-8db9017da169",
+      "id": "082d430d-4c1c-4cdf-97e1-5b3b4a167b95",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "85be730f-f92c-4e16-896f-e01080b122d4",
+      "id": "510ac25a-5c94-4710-b457-f9612417693d",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4169e222-2fa2-49db-b5d4-38d05c22ac8a",
+      "id": "40608fa8-625a-4662-9834-b1100ad884b4",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7ff4c396-d9b4-4e96-9a74-0f25c56f651a",
+      "id": "d4dc12b8-b642-4feb-89a7-60d7953b2841",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "eead84b5-5ebe-4893-8645-093a635c729b",
+      "id": "a0e0cd9d-c5b0-4bfe-9ce6-5adb4666cffd",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "6e3e0703-d976-4128-a85a-8ed1d1738e74",
+      "id": "b262fa3f-df83-4cbd-bd45-1a8b7142a536",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0f4e4edc-50bf-4be2-b5a9-880ee55afb75",
+      "id": "66a362ed-6c7c-415c-8e91-fd73c6c6890d",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
