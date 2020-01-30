@@ -2176,7 +2176,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2539,7 +2539,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2644,7 +2644,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3515,7 +3515,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5074,7 +5074,7 @@
                   "",
                   "console.log(\"Response size is: \" + pm.response.responseSize);",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
+                  "pm.test(\"jsonBody.status is above zero\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -13604,61 +13604,61 @@
   ],
   "variable": [
     {
-      "id": "f3336eb6-8a3f-48d8-83e7-2292a50dfcf5",
+      "id": "8ae6e32e-90cf-4824-a6a0-8b68950ca931",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "9ba78e56-8593-490b-98d5-b8b4a6ad9c03",
+      "id": "fbb5b22d-f953-4267-bef4-23c79a5f0c6b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "6e773b71-6fe4-4435-829f-d1d9bbe280c2",
+      "id": "a516cce0-5a81-43ed-829f-060e920e9e9e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4d51a478-788d-45fb-a96a-808618211d7d",
+      "id": "51c44591-27bb-4cad-a5dd-ced86190f608",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "03a6a621-41f8-4a85-9d16-6bec4b7a5b57",
+      "id": "5510e038-dd01-4177-96d3-23623b4b9e96",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "774d2433-fcd3-4f30-8fde-fea5e52c0ca0",
+      "id": "62c5b645-e541-4eef-9201-e99ec2733985",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "830bcb6b-74b7-4f64-806c-51b4550f779b",
+      "id": "8be7d6e1-aeb8-4469-8038-07ae74d17928",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "16d06577-08c4-4892-91e8-c5da3ecdfdec",
+      "id": "10c599a0-8a5d-43ea-839b-e555648c04e4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "efd506e3-669b-465a-8ccd-0c0b29767b7d",
+      "id": "148a41f3-042a-49b4-99bd-95654bccc586",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "0c7686c3-4758-4301-bd81-090c470621af",
+      "id": "e2ea5953-e360-4e89-b511-e36fdf82787d",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
