@@ -14503,14 +14503,7 @@
           "pm.environment.set(\"timestamp\", myMoment);",
           "console.log(\"Global timestamp is set as: \" + pm.environment.get(\"timestamp\"));",
           "pm.environment.set(\"timestamp_tmw\", moment().add(1,'day').format(\"YYYY-MM-DD\"));",
-          "console.log(\"Global tomorrow timestamp is set as: \" + pm.environment.get(\"timestamp_tmw\"));",
-          "",
-          "if (pm.environment.get(\"cineplex_url\").has(\"com/api\")) {",
-          "    console.log(\"We are testing one of the 12 PROD servers!\");",
-          "    pm.environment.set(\"api_version\", \"\");",
-          "} else {",
-          "    console.log(\"We are not testing any specific PROD server!\");",
-          "}"
+          "console.log(\"Global tomorrow timestamp is set as: \" + pm.environment.get(\"timestamp_tmw\"));"
         ]
       }
     },
@@ -14527,61 +14520,61 @@
   ],
   "variable": [
     {
-      "id": "df758569-c26d-48cd-8b20-ec0701569a3a",
+      "id": "06d0395c-9af4-41af-aac0-8fd9a60b4607",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "d4cec1a1-e1e5-4410-b34d-79c10de5e17d",
+      "id": "17fc8453-9aac-47e4-8d06-fe8503b858ad",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "3e892ce9-dc46-43c9-a344-ba7f96d1fb54",
+      "id": "3df393b1-ccc1-4f5d-80ea-2c33137e4b93",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "3b5e4e63-c1ad-4c01-9a5a-8b9b8915f330",
+      "id": "a31b6c90-94e0-44c4-9eff-862c7b070b03",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "86434106-5e87-4bca-988c-e212bb3107fb",
+      "id": "1204b09e-0f5c-42c1-adc7-240bb1137398",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0d1af21c-450a-4c2a-b572-2b00f79f0f75",
+      "id": "04d470fa-da0f-40ff-a731-3b9af1b86f4a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a0767415-8f08-4d69-8b28-8b4481f93e02",
+      "id": "d76c8d32-81fc-4b04-ae96-a612e1f6a2f5",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "94700229-1a29-4d61-9f47-2df9d7ee9a6a",
+      "id": "631e5030-5096-484e-9b0e-bf71fd5d66f8",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "83fcc88c-a165-4361-9d60-0517c78dcb86",
+      "id": "7a002707-c79e-4ebf-a5da-7faee162808d",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "57fb586f-aafa-4995-924c-c7be3402a7de",
+      "id": "ec0ae3e6-50ee-4eed-be38-cc317a28e8ac",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
