@@ -7193,7 +7193,28 @@
                   "script": {
                     "id": "3b55f621-448e-4e9e-8836-53ec10a62ad4",
                     "exec": [
-                      ""
+                      "var jsonBody = pm.response.json();",
+                      "",
+                      "pm.test(\"TheRecRoom location game by ID is successfully retrieved.\", function(){",
+                      "    pm.expect(jsonBody.Status).to.be.above(0);",
+                      "});",
+                      "",
+                      "/*",
+                      "var item = jsonBody.Item;",
+                      "var nam = item.GameName;",
+                      "pm.test(\"Game Name: \"  + nam  ,function(){",
+                      "});",
+                      "*/",
+                      "/*",
+                      "LocationID:",
+                      "3001",
+                      "3002",
+                      "3003",
+                      "7002",
+                      "7003",
+                      "7009",
+                      "800",
+                      "*/"
                     ],
                     "type": "text/javascript"
                   }
@@ -13608,61 +13629,61 @@
   ],
   "variable": [
     {
-      "id": "78e0a206-c5b9-4e1f-aa90-247c8b8edbff",
+      "id": "a2552b03-f27d-4e4c-9d4d-232456468e4e",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "a5809ad7-2e64-4b56-978c-fe1984b0fa9c",
+      "id": "e7df6131-713d-47a3-afb8-99b34e1e1f39",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2f4fd241-772d-4c92-a6a3-d2f4a07889fe",
+      "id": "42617508-16a0-4128-acbe-9edf80410085",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "9d335c0d-3b61-4b56-83ed-7fc14dfd94ce",
+      "id": "373d8997-ed30-4ddd-9eae-37ccd7aa8a08",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "366f1c8b-f898-410b-9d98-710f29b85092",
+      "id": "fa861e0e-cfe2-4961-8458-c04679f8b016",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "436b5f3f-138d-4eb4-b948-774fcdb2183b",
+      "id": "dc8a07c3-29c5-43da-bf23-270d2968a6ad",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8940a86e-874c-4ed0-a8d3-1e791bf5727b",
+      "id": "956d6f3a-5919-49c8-b70c-8df9aef8e6a3",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d42d49c5-e9eb-49ba-b426-1d76b9783762",
+      "id": "ab9ad1e2-7f6c-4fbb-a680-ae4028711c64",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "bf9facf6-d97b-478f-b07c-c6095cf0035e",
+      "id": "481c7264-c568-4ad1-8ec1-803656fe203d",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "e42ad908-4eaa-41f6-843f-2463f22927a6",
+      "id": "07c16dd0-0199-408e-a06e-8785b0793f8b",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
