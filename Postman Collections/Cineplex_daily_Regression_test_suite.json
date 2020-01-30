@@ -12958,11 +12958,7 @@
               "script": {
                 "id": "ed6ee1c4-7a13-47fc-86d6-df5bd67b0de9",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(0);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13030,11 +13026,7 @@
               "script": {
                 "id": "4ecc870c-5466-43b6-947f-a0840d0f2601",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13104,10 +13096,6 @@
                 "id": "1dd0a541-da1d-4fe8-ba9f-1f4c9bbf1cfb",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
                   "",
                   "pm.environment.set(\"device_description\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceDescription);",
                   "pm.environment.set(\"device_deviceid\", jsonBody.StoreDeviceResult.DeviceList[0].DeviceId);",
@@ -13750,61 +13738,61 @@
   ],
   "variable": [
     {
-      "id": "271e9351-2436-42b1-a69e-39ed7ba6fd96",
+      "id": "0ab66d59-b8ac-4473-bff2-1f79ad583f65",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "bef3266b-0904-4edc-a465-17c3ca54b873",
+      "id": "1e7e34cb-36b0-4c2b-930c-db59124d402b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ddb2bce2-bcde-4082-9332-343d4f1f58ae",
+      "id": "94a66c34-5645-49b4-86b4-69be68c6074a",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "d82500a7-ad4f-45ec-96c7-06b637446ad7",
+      "id": "ea8d11fe-e305-4543-8069-ac521bff3ceb",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "8573fde5-b5da-42a2-8e08-c41421cc4080",
+      "id": "a81964d5-c293-4f2c-a51a-f1a03a23168c",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a0942b1a-9544-4579-89ba-f58e336071bf",
+      "id": "be65fb2f-6ae2-4976-9631-daa6291d4ace",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "2d8fae40-3466-4975-a93f-052d7074eec0",
+      "id": "840284d4-3f21-41e9-863a-e7af704bb132",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6e96384b-6f1c-477d-aca0-a5ca0ddba68f",
+      "id": "31ad60e4-872e-47bf-94ae-933e6dd68e02",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "98c40b9b-77f9-4525-8b82-fb0c2f9b2230",
+      "id": "47d66863-3e0f-4b4f-abd9-85bf78b0aa83",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d86dff59-6345-4b22-beca-70fe1b9d4d15",
+      "id": "7cd3c3d9-602e-490a-bd34-b189cc68c388",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
