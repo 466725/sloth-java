@@ -10788,10 +10788,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
                   "pm.environment.set(\"concession_category_id\", jsonBody.ConcessionCategories[0].Id);"
                 ],
                 "type": "text/javascript"
@@ -10862,10 +10858,6 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  "",
                   "pm.environment.set(\"concession_item_id\", jsonBody.SubCategories[0].Items[0].Id);"
                 ],
                 "type": "text/javascript"
@@ -10934,11 +10926,7 @@
               "script": {
                 "id": "9332f5fe-81dc-43df-b353-ef0be96ce4bb",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13705,61 +13693,61 @@
   ],
   "variable": [
     {
-      "id": "7ea9d5bd-e3aa-4071-adc7-174cf0f7358d",
+      "id": "4d4ccf58-499b-4d65-8069-aa8052b695a3",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "3e1f7930-c1e0-4036-b007-5fdf69c0e1a2",
+      "id": "1668a68b-e0a9-4cfb-8e99-beeb4200aeb2",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8837ba70-b536-4146-8cd2-294b7cf9296c",
+      "id": "8834336c-c808-4709-bbc2-06d25a579cca",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "9b0dc6ff-2307-4fe8-a8cb-00b14dd4a26d",
+      "id": "45276626-8a22-4b44-9fc8-118d5c8a37ce",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "06ee60d0-7fa7-4353-91d1-c774b787c9aa",
+      "id": "1bac574b-9bc6-42ad-a46c-96c5822999f6",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0b14fb1e-5f00-414c-abc3-eae5ed662137",
+      "id": "5b196a3b-38bc-4e6d-9484-124d07ef31b9",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cbd08b96-cfdc-40e1-b2be-4177ff8b74cf",
+      "id": "3029242e-afe5-432c-bbfb-8c3de6aa2df2",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "87fa6d66-267a-4d19-acfc-768c564cf43e",
+      "id": "c729a71d-9ffb-4aca-8726-84dcb90943d7",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "2e4aecd7-3262-41e3-bc75-61ba7f6be896",
+      "id": "ca2e6680-cec7-4609-89ff-ec01ea112256",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c74e3ea0-1f4b-463b-bd17-a81e205960d2",
+      "id": "05155d38-b474-4685-908c-96e9425ab1bb",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
