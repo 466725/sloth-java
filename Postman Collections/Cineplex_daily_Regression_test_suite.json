@@ -13568,79 +13568,6 @@
       "name": "Connect-Store",
       "item": [
         {
-          "name": "Merge Connect Account To CSG",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "ebe66c79-828f-4c11-b1e1-3098593a26be",
-                "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Session created successfully\", function () {",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "3b62ec2d-8ad4-4c93-a5d4-c6f1fa684953",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"CSGSubscriberId\": \"{{csgSubscriberId}}\",\n    \"LanguageType\": 1\n}"
-            },
-            "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/MergeConnectAccountToCSG"
-          },
-          "response": [
-            {
-              "id": "5c50838b-3ad3-4502-a46b-6e2a3000ee55",
-              "name": "not available",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"SessionToken\": \"<string>\",\n    \"UserSessionToken\": \"<string>\",\n    \"UserProfileGuid\": \"<string>\",\n    \"CSGSubscriberId\": \"<long>\",\n    \"LanguageType\": \"<enum>\",\n    \"GetSessionTokenGuid\": \"<guid>\",\n    \"GetUserSessionTokenGuid\": \"<guid>\",\n    \"GetUserProfileGuid\": \"<guid>\"\n}"
-                },
-                "url": "{{baseUrl}}/ClientServices/CineplexClientServicesWeb/MergeConnectAccountToCSG"
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n \"Status\": \"<enum>\",\n \"Message\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"MessageDetails\": \"<string>\"\n}"
-            }
-          ]
-        },
-        {
           "name": "Reacquire CSG session",
           "event": [
             {
@@ -14600,61 +14527,61 @@
   ],
   "variable": [
     {
-      "id": "d2c300b6-ee27-4ba7-babc-45e04858220b",
+      "id": "c1a8201c-bcb4-469d-8e7b-e801a2038841",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "c53b6d7e-c2d5-40c1-bd18-71c3cbcd4611",
+      "id": "c6a8e543-6f64-4a17-9f7f-ad243c264979",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "46f3a23b-2a66-483e-be72-fcb719d934e3",
+      "id": "c2b8c9cf-5b6b-4dac-8694-ff7f72223724",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7202ecb5-557d-488e-be47-3005cdf4f648",
+      "id": "0d43a954-c228-4785-b749-ad416b22e652",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a8e61051-ee3c-459e-a9a4-632501b56379",
+      "id": "fa6662e4-6e9d-407e-a692-f7c291fd6d8a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "e023d371-5727-4274-b803-b55c0ae0c33b",
+      "id": "e127f739-3892-4f88-9207-a7ea0faf1894",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cda875a4-50e7-469a-a2c0-46b2dea339fa",
+      "id": "fffbb30e-6a0e-4228-a0c6-680b1ad1e641",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "fe5b580e-5acf-4856-ba8e-34f5ef1aa3f1",
+      "id": "40fbc6f9-a085-48af-9401-8b2c9cc7b40c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d5c29f31-28d0-45d5-979d-f6139ec63747",
+      "id": "99daf291-7965-4e56-93c5-2674ca202360",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "beb403a1-8f13-4ab6-ad78-7ad5e0bd6370",
+      "id": "13caecd5-3a80-4d8a-8a64-b2fd2c89cb7f",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
