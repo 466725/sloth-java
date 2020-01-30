@@ -6042,7 +6042,7 @@
               "mode": "raw",
               "raw": "{\n\t\"ConnectID\":\"{{connectID}}\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ModelNumber\":\"asdfasdf\",\n\t\"Consent\":\"TRUE\",\n\t\"MarketingConsent\":\"FALSE\",\n\t\"PreferredLanguage\":\"en-us\"\n}"
             },
-            "url": "{{cineplex_url_affiliate}}/v1/CompleteEnrollment"
+            "url": "{{cineplex_affiliate_url}}/v1/CompleteEnrollment"
           },
           "response": []
         },
@@ -13628,7 +13628,7 @@
                 "value": "{{ocp-apim-subscription-key}}"
               }
             ],
-            "url": "{{ApplePassKit_url}}/devices/73892efb78e8f9e559f7027571ef71b6/registrations/pass.cineplex.ticket/"
+            "url": "{{apple_pass_kit_url}}/devices/73892efb78e8f9e559f7027571ef71b6/registrations/pass.cineplex.ticket/"
           },
           "response": []
         },
@@ -13653,7 +13653,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{ApplePassKit_url}}/passes/pass.cineplex.ticket/50769522"
+            "url": "{{apple_pass_kit_url}}/passes/pass.cineplex.ticket/50769522"
           },
           "response": []
         },
@@ -13678,7 +13678,7 @@
           "request": {
             "method": "DELETE",
             "header": [],
-            "url": "{{ApplePassKit_url}}/devices/976c4f2ed9739dfbed2bf04fc5c6796a/registrations/pass.cineplex.ticket/50769522"
+            "url": "{{apple_pass_kit_url}}/devices/976c4f2ed9739dfbed2bf04fc5c6796a/registrations/pass.cineplex.ticket/50769522"
           },
           "response": []
         },
@@ -13703,7 +13703,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{ApplePassKit_url}}/log"
+            "url": "{{apple_pass_kit_url}}/log"
           },
           "response": []
         }
@@ -13764,61 +13764,61 @@
   ],
   "variable": [
     {
-      "id": "c37dc49b-77b4-402b-84be-cdedc78f2e7e",
+      "id": "d07aa91b-23de-455e-915c-ce5869506a31",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "8b555445-388e-4a43-a65c-2965bffacf59",
+      "id": "c32582f0-cb97-422d-8a02-f66849b8e233",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "1efe34fc-8e46-409a-a177-5a2b6282114e",
+      "id": "2a52c56e-0724-491e-bbe2-1f1507248f6c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "497fbd21-0b64-4ba8-8638-3a1699e1eba8",
+      "id": "3404a75c-fb24-4e87-a173-cf1885da3f79",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "3ebb184d-95f3-4039-a14b-defcdb8bcc08",
+      "id": "8de0588f-4599-4184-875a-db39ab8545c5",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "bca37021-1dee-44bb-9c98-c8f4d39b659a",
+      "id": "a65a8300-4661-4071-a701-a9084946bdcf",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "879208a2-9757-459b-b2bb-d9a3ec94144f",
+      "id": "280a4ef9-adf5-47b8-8901-1612efb8ea75",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "0f52085b-4eeb-4b45-9d86-174e785680f4",
+      "id": "4e3f5644-8849-4ba6-8d03-d6a5505fc0db",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1f6a3bb8-7b37-416a-85df-e191482e8e2a",
+      "id": "4465736a-c210-4676-af38-306bdd5f1bd7",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "464b3fdc-4753-408d-9aeb-ad5e57c13110",
+      "id": "6f3cca14-0002-49e9-a084-a6220032d0d4",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
