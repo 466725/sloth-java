@@ -7992,7 +7992,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -8064,7 +8064,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});"
                 ],
@@ -8136,7 +8136,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});"
                 ],
@@ -8352,7 +8352,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});"
                 ],
@@ -8496,7 +8496,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(2);",
                   "});"
                 ],
@@ -9145,7 +9145,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Status).to.eql(1);",
                   "});"
                 ],
@@ -9505,7 +9505,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"Session created successfully\", function () {",
+                  "pm.test(\"Result status is correct\", function () {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
                   "});"
                 ],
@@ -13657,61 +13657,61 @@
   ],
   "variable": [
     {
-      "id": "89a18628-f574-4d4d-9d23-527f768b91ac",
+      "id": "ecc86cef-75c1-4f6d-ac78-bf7098f85cf0",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "e6a2ca14-670e-4809-9de7-4dbb4b5ad956",
+      "id": "6852c356-405a-49f7-a55e-15ed8c8b29b1",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "53b30c80-7b8b-421c-8df1-d8596ba2564f",
+      "id": "8b7abcd1-7174-4ce6-b104-592c3d2a1c34",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "5ac26dab-a8de-4ea6-8951-47a45e897399",
+      "id": "c2ef8589-e721-4907-8146-f3bf0eb10091",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "b765ebf6-b751-4db8-bd6b-14ab4252467e",
+      "id": "ca690641-4f82-4347-a40a-9cd8f150f492",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "31bf4837-df1b-4167-8705-6577762cb363",
+      "id": "d2d64506-0086-41fc-863c-8d9d358537a4",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "90518d12-f138-4b89-9235-ead43836c0e0",
+      "id": "9c2004a1-5333-440f-ada1-8b2f5d4788cb",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "bf97ee45-e610-41ab-8948-17933c18a8d5",
+      "id": "652de463-f080-4550-9eb7-0c0f5ed0bca9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "372c89e9-225d-4281-bf29-d8872cc8958b",
+      "id": "4e7a9b44-0533-43a9-95fe-556a28f16a66",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "472f09c0-d1f6-4f56-826a-7396125099d8",
+      "id": "f9dc6611-b2f4-4034-b3bb-2f0a78581e84",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
