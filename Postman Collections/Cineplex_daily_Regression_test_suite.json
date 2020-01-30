@@ -784,7 +784,7 @@
                       "});",
                       "",
                       "pm.test(\"Got pricing plan for SuperTicket\", () => {",
-                      "    pm.expect(pm.globals.get(\"pricing_plan_id\")).not.to.be.null;",
+                      "    pm.expect(pm.environment.get(\"pricing_plan_id\")).not.to.be.null;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -3715,7 +3715,7 @@
                   "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
                   "});",
                   "",
-                  "pm.environment.set(\"movie_id\", jsonBody.data[0].movie.id);"
+                  "pm.environment.set(\"movie_id\", jsonBody.data[1].movie.id);"
                 ],
                 "type": "text/javascript"
               }
@@ -14624,61 +14624,61 @@
   ],
   "variable": [
     {
-      "id": "fe82fe28-2f95-4a5e-bb43-7257e3da8245",
+      "id": "9ab7eadf-b04e-4bd8-8d85-1ea4f633787d",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "75fa45d0-ea5b-4d70-bd0c-19e485c20e30",
+      "id": "6327c1ac-5e71-4e00-a409-d392434e2db7",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "93e23ea2-d12c-42b8-8e1c-d15782e22239",
+      "id": "44ba2a8b-b6f5-4325-bcff-aa559f8b9c5b",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "cef04a40-006b-4a4b-9336-bc356a70c572",
+      "id": "41c75f03-0000-462f-87cf-75de2394caf5",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "3faf3072-f3b4-456e-b301-327848f7e395",
+      "id": "5d3e1ff4-416e-4d7f-ae27-43b0b4f5c965",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "350ce0c2-3fea-4a15-9112-c30d33ca3ec7",
+      "id": "822773d6-2f0d-4b7c-bffe-6ecbbf3a8217",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7e07d56f-add0-408e-b361-7a2b4223bebc",
+      "id": "446d83ee-3d0d-48a4-9190-126d12c16bfe",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8e706e1e-a17b-49d3-b95d-5125e51b1514",
+      "id": "9670ddbc-a70d-4c4e-b9c3-0b4dcdf7e6e1",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "4c9a4438-96bc-4fc1-88d2-e31fba025d16",
+      "id": "04c08032-bdc8-4da8-beef-00bad6d548dc",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "835ef79c-5009-4fdb-9eca-5b447d024a57",
+      "id": "641d9486-21dc-46a5-9e39-d1c16698a7ca",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
