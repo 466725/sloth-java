@@ -917,7 +917,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_id}}\r\n\t}]\r\n}"
+                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_Id}}\r\n\t}]\r\n}"
                 },
                 "url": "{{store_url}}/CSWebConnect/GetMovies"
               },
@@ -12882,7 +12882,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"StoreProductQuery\": {\n        \"ProductId\": \"{{product_id}}\",\n        \"DeviceTypeCode\": 16\n    }\n}"
+              "raw": "{\n    \"StoreProductQuery\": {\n        \"ProductId\": \"{{product_Id}}\",\n        \"DeviceTypeCode\": 16\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetProductInfo"
           },
@@ -13423,61 +13423,61 @@
   ],
   "variable": [
     {
-      "id": "741f736c-ba89-4fa1-adb6-f3a4058d346c",
+      "id": "77161b90-e74d-4482-b6a8-b52cf6408d7e",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "b1e4e06f-f289-4e62-81ad-210bb17ac9c4",
+      "id": "5891a234-9ab0-48fe-9f4c-9ece9914efac",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7a12146d-1a77-48c3-8a21-05545d7eb38c",
+      "id": "cda1763a-ca91-4f58-93db-b06e73b083fe",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "61253de0-1f70-41a2-ae05-ba724b1c422d",
+      "id": "22fedd9d-c516-41ef-b71f-5c2492cfc548",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "58c6e5ba-0e8b-4b23-805a-f7307a3bf433",
+      "id": "c0d483d6-c3f0-4b68-a445-3f235b3e33d4",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ac3b3b3d-cd7a-4146-8845-7a8abe9f093c",
+      "id": "6340b862-707c-47f0-af1f-26207024b0b2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "96503338-1eb5-4bcf-9056-da34c421898c",
+      "id": "0e05861a-e44e-4e8e-bfb8-2c6830402f92",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "57eb40c7-1e10-4522-a0b8-a28e9ac0a429",
+      "id": "5f8b5471-c59a-4f87-97bf-3188018d7cde",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9f3f1719-ff6c-4b06-814b-018fdc68a2f5",
+      "id": "752588f2-88ed-4f62-af40-2b3a6fecea7c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d6164d5f-18f8-4f8a-bbe3-23bc1c14defb",
+      "id": "c8ff54f6-1d99-454b-855c-5df849299e56",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
