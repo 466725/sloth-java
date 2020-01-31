@@ -6099,7 +6099,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ConnectID\":\"\",\n\t\"DUID\":\"{{eligibleDUID3}}\",\n\t\"ModelNumber\":\"{{eligibleModelNumber}}\",\n\t\"Consent\":\"FALSE\",\n\t\"MarketingConsent\":\"FALSE\",\n\t\"PreferredLanguage\":\"en-us\"\n}"
+              "raw": "{\n\t\"ConnectID\":\"\",\n\t\"DUID\":\"{{eligibleDUID3}}\",\n\t\"ModelNumber\":\"{{eligible_model_number}}\",\n\t\"Consent\":\"FALSE\",\n\t\"MarketingConsent\":\"FALSE\",\n\t\"PreferredLanguage\":\"en-us\"\n}"
             },
             "url": "{{cineplex_affiliate_url}}/v1/CompleteEnrollment"
           },
@@ -6369,7 +6369,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ModelNumber\":\"{{eligibleModelNumber}}\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ConnectID\":\"{{connectID2}}\"\n}"
+              "raw": "{\n\t\"ModelNumber\":\"{{eligible_model_number}}\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ConnectID\":\"{{connectID2}}\"\n}"
             },
             "url": "{{cineplex_affiliate_url}}/v1/isDeviceEnrolled"
           },
@@ -6455,7 +6455,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ModelNumber\":\"{{eligibleModelNumber}}\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ConnectID\":\"{{connectID}}\"\n}"
+              "raw": "{\n\t\"ModelNumber\":\"{{eligible_model_number}}\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ConnectID\":\"{{connectID}}\"\n}"
             },
             "url": "{{cineplex_affiliate_url}}/v1/isDeviceEnrolled"
           },
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "047c64d8-fae1-4ee7-b536-7d92760ca972",
+      "id": "505d3e00-1c92-4468-9458-ad22da5dd16b",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "daf43747-7b60-4887-85cd-397c22fbd1d9",
+      "id": "c46cc4ca-0c9c-4fe3-a693-80e3dadb6285",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "0500b5ac-7405-4106-8f15-1782200273e1",
+      "id": "5125b365-d4e7-4c95-87b0-c96e608b7803",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "deba49ce-2c03-489a-9d5b-80f73293826f",
+      "id": "040ce560-544e-4322-ae01-a890c9a4e735",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c229783a-1020-49f2-84e2-d1650d71d86c",
+      "id": "510e894e-feb2-4caf-a1ce-d54fe1841f50",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4773d652-e7a2-40cd-b480-c02775b42a25",
+      "id": "7fbd0c48-4d19-4f9a-b191-a0fb9e4b01a1",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "7375a3ca-14e3-4888-ae8d-57922498c8eb",
+      "id": "01a5b530-3fdd-4510-944a-0e61403e4c02",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "da324810-0de0-40f4-99b0-b88bdbca5ac3",
+      "id": "a1d185cf-73a1-4d90-8a34-019d5ebbc6fa",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "446b3999-2a25-4013-a181-b042eff2ec9a",
+      "id": "5a7beb57-0424-4164-9614-d6877cf3a0d1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "ebdf4c51-e2bb-489d-8ae0-2a4bd7ad8a01",
+      "id": "5c5b16f0-06c1-4ddd-872d-10a6b6f1f2a0",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
