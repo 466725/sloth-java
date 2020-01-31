@@ -6253,13 +6253,13 @@
                   "} else {",
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "        ",
-                  "    pm.test(\"Response is not enrolled\", function(){",
-                  "        pm.expect(jsonBody.isEnrolled).to.be.false;",
+                  "    ",
+                  "    pm.test(\"Response isEnrolled is defined\", function(){",
+                  "        pm.expect(jsonBody.isEnrolled).not.to.be.undefined;",
                   "    });",
                   "    ",
-                  "    pm.test(\"Response consent is null\", function(){",
-                  "        pm.expect(jsonBody.isConsented).to.be.null;",
+                  "    pm.test(\"Response isConsented is defined\", function(){",
+                  "        pm.expect(jsonBody.isConsented).not.to.be.undefined;",
                   "    });",
                   "    ",
                   "    //User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin",
@@ -6323,11 +6323,11 @@
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    ",
-                  "    pm.test(\"Response is not enrolled\", function(){",
+                  "    pm.test(\"Response isEnrolled is defined\", function(){",
                   "        pm.expect(jsonBody.isEnrolled).not.to.be.undefined;",
                   "    });",
                   "    ",
-                  "    pm.test(\"Response consent is null\", function(){",
+                  "    pm.test(\"Response isConsented is defined\", function(){",
                   "        pm.expect(jsonBody.isConsented).not.to.be.undefined;",
                   "    });",
                   "    ",
@@ -13489,61 +13489,61 @@
   ],
   "variable": [
     {
-      "id": "dca4bfbd-bdba-497b-9171-eb0b7b5d5618",
+      "id": "e2e0e0e4-5461-446b-989f-c6408abf190e",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "72b79c29-5710-46be-b3ea-13158cdf5755",
+      "id": "deae9817-e942-4c46-9478-52b7a6a78d4a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7cabe37d-a1af-426b-8549-afa31f9b7113",
+      "id": "0242cdff-a8d3-4ca7-85be-feef373744fc",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "672a608a-38c5-4e2a-9048-bcfd635a852d",
+      "id": "6c308ad8-5246-4c0e-9486-4c336504a347",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "cf14e77f-56ba-43ab-87b7-377fa90b29f6",
+      "id": "ca0ca68f-1525-43fb-ae1c-fc2153f34871",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ef6a4803-4b6d-42d2-b502-3e14776fd18e",
+      "id": "2cd3e438-972d-4dc5-a1af-12f38acae581",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "c01dc3aa-3667-4fe8-b262-d602ccc09016",
+      "id": "887fd52e-37f4-4d17-b786-8411168ec1a8",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b6f09e98-cf2b-4dde-8059-22acd66c0aec",
+      "id": "af108e37-8486-42b2-bef4-cf69b13f6cfe",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f4483ea1-15c5-4364-999a-8d3fb16d850f",
+      "id": "d4d6c61c-9c16-465a-b6f6-29aca9095289",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "19ad1bd9-ae96-4745-93c7-cc20e2f0e6ad",
+      "id": "feb4d327-399f-4124-abea-52612c4be8f0",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
