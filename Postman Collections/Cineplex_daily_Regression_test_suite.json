@@ -596,7 +596,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"Device\":\"samsung-tizen\",\n\t\"Language\":1\n}"
+              "raw": "{\n    \"Device\": \"samsung-tizen\",\n    \"Language\": 1\n}"
             },
             "url": "{{store_url}}/CSWebConnect/GetDeviceSpecificGenres"
           },
@@ -13423,61 +13423,61 @@
   ],
   "variable": [
     {
-      "id": "9d3263ae-117b-4a26-8fec-0c3efd64de12",
+      "id": "a665cd73-5700-4186-93c6-ee940c1d61c4",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "7feb730a-5887-4c58-ae20-23321ac52262",
+      "id": "a5ea8469-263d-4768-ae89-1f421f33b267",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "46599a46-8b05-4098-8eb1-01428e0527cc",
+      "id": "7205ed7d-34a9-4b3c-bdb7-9ac5b4ba479c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "62adde11-e5e5-4dc8-a2d9-5901d6411638",
+      "id": "c04931a4-c8e8-4cc9-84ea-48761e939492",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "50740007-67b5-4350-8f57-6ce24b89c15c",
+      "id": "0724ea41-038e-414d-831a-743214df1886",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "5c348e61-0640-49d7-9744-73317921f93d",
+      "id": "f8da2552-ef6b-4de0-ad32-6e727fd60174",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "5c53bcc7-a612-4977-9c66-eb34f0545be5",
+      "id": "bd751bc1-d309-48e7-8cd4-99f62389ff56",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "02856e28-d2b0-4f39-ae5a-0a918142d3cd",
+      "id": "6ebd9bfe-15be-4b64-bb99-71672845301b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "53a7735b-7200-4492-b489-72bd2d4b890d",
+      "id": "a2e0ad4f-075c-4f53-99e4-1b208b6944d3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4ed7c88a-b034-46f3-bf18-dd7ae0ae896a",
+      "id": "d40e835c-138d-42f1-b1e6-252229ff8b97",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
