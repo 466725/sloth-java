@@ -1595,27 +1595,7 @@
                   "    pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;    ",
                   "});",
                   "",
-                  "console.log(pm.response.json());",
-                  "",
-                  "/*",
-                  "for(var i =0; i< creditCardInfo.length; i++){",
-                  "    var cardHoldername= creditCardInfo[i].CardHolderName;",
-                  "    var cardNumber = creditCardInfo[i].CardNumber;",
-                  "    var expiryDate =creditCardInfo[i].ExpiryDate;",
-                  "    var paymentInstrumentId =creditCardInfo[i].PaymentInstrumentId;",
-                  "}",
-                  "pm.test(\"Credit Card Info available, CardHolderName: \" + cardHoldername + \" CardNumber: \" + cardNumber + \" PaymentInstrumentId: \" + paymentInstrumentId, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"CreditCards\");",
-                  "});",
-                  "",
-                  "pm.variables.set(\"cardholder\", jsonBody.CreditCards[0].CardHolderName);",
-                  "pm.variables.set(\"card_number\", jsonBody.CreditCards[0].CardNumber);",
-                  "pm.variables.set(\"card_country\", jsonBody.CreditCards[0].CountryCode);",
-                  "pm.variables.set(\"card_expiry\", jsonBody.CreditCards[0].ExpiryDate);",
-                  "pm.variables.set(\"card_id\", jsonBody.CreditCards[0].PaymentInstrumentId);",
-                  "pm.variables.set(\"postal_code\", jsonBody.CreditCards[0].PostalCode);",
-                  "pm.variables.set(\"card_province\", jsonBody.CreditCards[0].ProvinceCode);",
-                  "*/"
+                  "console.log(pm.response.json());"
                 ],
                 "type": "text/javascript"
               }
@@ -1787,6 +1767,10 @@
                 "id": "8298df4b-bbd0-453f-9a3d-e88fb1c5bb9d",
                 "exec": [
                   "var jsonBody = pm.response.json();",
+                  "",
+                  "pm.test(\"Result status is correct\", function () {",
+                  "    pm.expect(jsonBody.Result.Status).to.be.above(0);",
+                  "});",
                   "",
                   "//Bug 35101: Promotions API is not returning the correct response",
                   "pm.test(\"Got ContentID accordingly\", function(){",
@@ -13549,61 +13533,61 @@
   ],
   "variable": [
     {
-      "id": "286b7b5f-a1e4-4896-bf78-a5022722d598",
+      "id": "f261a3f7-4ff0-4b4b-b04b-91ed29ddecf1",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "ebeb4b98-3521-428b-856c-5e6598674e50",
+      "id": "b228cd03-6fe9-4769-9bd8-6c851bb303ea",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "d604bf04-2a5d-4e84-a32d-69a154725869",
+      "id": "d6731968-e0d6-4f25-b069-04764d8fd66e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "dd41fee9-9384-4ac6-8063-1ca54d4543e5",
+      "id": "636d94e0-a9a5-432d-97a8-38a1e9fda322",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "7dccf2ca-e995-4f8b-8a3b-511bbd43910b",
+      "id": "d84eb7e0-7f76-48d4-a43a-5e3479d3c6e1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a6267ed2-f6aa-4fa0-bb80-f6e7a4259133",
+      "id": "0a455581-c3f3-49de-b76d-18d7197f0f15",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "329dd29a-04db-4d38-9438-ce47b14c5668",
+      "id": "6bbbd692-bc3f-43ea-855c-c456e3ed4869",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c3d1a983-b5d1-471d-9c9c-537dc302d161",
+      "id": "02361497-b7f8-443b-9937-7e80bb6599e3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "05413b46-4025-4f7f-b6a8-90d1fcf8a6f4",
+      "id": "0b37082d-448c-49a2-9756-5819dafffa95",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "12bdb3ea-ea0d-4d24-87ca-3b81ca5066a2",
+      "id": "3513cd90-f7c3-440b-b11c-fa6eb57a2554",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
