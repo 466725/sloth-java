@@ -5302,7 +5302,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "url": "{{cineplex_affiliate_url}}/health/status"
@@ -5347,7 +5347,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "url": "{{cineplex_affiliate_url}}/v1/GetCurrentPromotions"
@@ -5389,7 +5389,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5532,7 +5532,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5605,7 +5605,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5653,7 +5653,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5697,7 +5697,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5748,7 +5748,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5850,7 +5850,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5894,7 +5894,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5996,7 +5996,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6044,7 +6044,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6094,7 +6094,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6146,7 +6146,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6220,7 +6220,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6290,7 +6290,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6360,7 +6360,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6446,7 +6446,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6513,7 +6513,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6571,7 +6571,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6625,7 +6625,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6679,7 +6679,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "b65026a4-b2ad-4335-9583-bde93372a6ba",
+      "id": "194aa72b-1ffb-4863-98e0-4470741ccbfd",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "4832c124-6768-4071-9009-7bb4d1a9a86e",
+      "id": "19057c59-d87a-4615-8acf-b5c50406feef",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "0ba9eee5-2935-46ed-9595-f74d4fc97f79",
+      "id": "20f8fef1-a83b-4147-8fb9-58fd635e5a19",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "2db7fe26-de4d-42ab-ae5f-39be08dc3e9e",
+      "id": "be873679-68b4-4c9d-839a-570900972dea",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "88a42adc-1921-40fa-a885-c2c9bdc3795d",
+      "id": "d5a595eb-b767-4a6b-b66e-604eb6617cbe",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "01ca0379-07f2-42da-90ae-60c1989d2243",
+      "id": "a0e570d0-4f9c-479d-955d-7509688b3090",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "d8e183ad-448b-42e6-b400-2841ab28c4cc",
+      "id": "f652e54e-d88c-439f-b47c-55f25a0f921a",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ab21142b-b25d-43a1-abc2-70ee07d21d3d",
+      "id": "92a718f4-f1d3-457a-be88-dc813ea6ec6f",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "4f2988af-2498-4629-9196-5a5fa7863a65",
+      "id": "4546f3c1-9582-4beb-a45b-405c1e5fde31",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "9b8b4343-ff99-42dc-8f7d-cd5211b2a3ae",
+      "id": "04646355-efb8-407c-ab40-763a57869a2b",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
