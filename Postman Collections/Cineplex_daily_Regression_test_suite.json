@@ -789,7 +789,7 @@
                       "",
                       "pm.test(\"Make sure ExternalReferences tag exist\", function() {",
                       "    pm.expect(jsonBody.StoreProductDetailPageInfoResult.EntitledPricingPlan).to.have.property('ExternalReferences');",
-                      "    pm.expect(jsonBody.StoreProductDetailPageInfoResult.ProductDetailPageInfoList[0]).to.have.property('ExternalReferences');",
+                      "    //pm.expect(jsonBody.StoreProductDetailPageInfoResult.ProductDetailPageInfoList[0]).to.have.property('ExternalReferences');",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "5ce3ea1e-b88c-4923-8751-2d730c74aca7",
+      "id": "178f34bd-cefe-4a24-9372-fe433b12382e",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "0dbd8cd7-d5a3-433a-baf6-07414974eff1",
+      "id": "e2e42106-01a1-41cc-8b9c-7a4244bcd23c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f4f3d232-0be0-4a7c-a19c-07cdba11e329",
+      "id": "8921bee8-12a5-40ed-99f7-adcc2dbc92ed",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "b00bceb1-60aa-4bdb-84f7-9b4f22c16a5b",
+      "id": "d1787d64-3a10-416a-815d-f6afbcd75b35",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "8e4671f1-9f0d-4b1c-83cb-53a65084e0eb",
+      "id": "9b9ff03e-cd0c-4b0a-b91d-f34a10e42d23",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f3034738-dae3-457e-a899-6a2d56316e6b",
+      "id": "2b8a7553-9920-4354-93e4-a1091563530d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "9988d2b4-39f9-4558-af53-84c5fced9b47",
+      "id": "fd05d521-97a2-4589-9040-a6cb0dcce0e1",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b40f66a2-f864-45e8-b98e-3950f567a975",
+      "id": "92adad93-e1fa-40e8-822d-58e1ae25bea5",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c2972297-0f3e-4a3e-be3b-4ecc13914f9b",
+      "id": "15156382-fc75-46c1-96a5-f366792754af",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "09c24166-6cb1-42bb-90e4-55661ee3a5b2",
+      "id": "0af8747c-1b70-4847-a640-9283cde5475b",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
