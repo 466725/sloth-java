@@ -1296,30 +1296,7 @@
               "script": {
                 "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Fetch product full details successfully\", function(){",
-                  "    pm.expect(jsonBody.Status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"Content-Type is present\", function(){",
-                  "    pm.response.to.have.header(\"Content-Type\");",
-                  "});",
-                  "",
-                  "pm.test(\"Message details is defined\", function(){",
-                  "    pm.expect(jsonBody.MessageDetails).not.to.be.undefined;",
-                  "});",
-                  "",
-                  "pm.test(\"Set Pricing Plan if exists\", function(){",
-                  "    if (jsonBody.BuyPricingPlans.length > 0) {",
-                  "        var pricingPlanId = jsonBody.BuyPricingPlans[0].PricingPlanId;",
-                  "        pm.environment.set(\"pricing_plan_id\", pricingPlanId);",
-                  "    }",
-                  "});",
-                  "",
-                  "pm.test(\"Meta critic data is defined\", function(){",
-                  "    pm.expect(jsonBody.MetacriticData).not.to.be.undefined;",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -6430,17 +6407,15 @@
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    ",
-                  "    pm.test(\"Response pin is null\", function(){",
-                  "        pm.expect(jsonBody.pin).to.be.null;",
+                  "    pm.test(\"Response isEnrolled is defined\", function(){",
+                  "        pm.expect(jsonBody.isEnrolled).not.to.be.undefined;",
                   "    });",
                   "    ",
-                  "    pm.test(\"Response pin is different from other device on this account\", function(){",
-                  "       pm.expect(jsonBody.pin).to.not.be.undefined; ",
+                  "    //User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin",
+                  "    pm.test(\"Response pin is defined\", function(){",
+                  "        pm.expect(jsonBody.pin).not.to.be.undefined;",
                   "    });",
-                  "}",
-                  "",
-                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin",
-                  ""
+                  "}"
                 ],
                 "type": "text/javascript"
               }
@@ -13453,61 +13428,61 @@
   ],
   "variable": [
     {
-      "id": "adc476c1-fbb6-45d0-ba0f-d51362734bd7",
+      "id": "07f7554c-a017-45e2-aad0-092208a63194",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "9e0adddb-3f96-4077-a84b-85ef86482f01",
+      "id": "aefb1098-0be7-4126-8cf5-cdc4a5ba93a4",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "bd5b4a46-c9a9-4690-b442-1374e7104025",
+      "id": "801819db-f41a-4d6f-ae3f-3e30c53f9363",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "dd25bdbe-3cdb-457e-8110-98ead8adfc5f",
+      "id": "5411c32c-9e3e-47a6-a293-7922ba03a6da",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "f57a3818-c870-462a-8b53-6572a8dc5f30",
+      "id": "b0f6e77f-89ec-437b-bf92-3255752e962e",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f6929832-28ea-4285-b300-b4e3acee10ff",
+      "id": "e453f912-b2b5-4ea3-b05e-f83c1680e4b3",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ba95f597-1589-42cd-9398-5f8470165ce1",
+      "id": "c3f5189b-170e-4b50-92b5-ce7b701bcd28",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "c55dfdd7-564d-4778-a50d-54e7d6942926",
+      "id": "0c55572b-81e6-47b6-b66e-bad43603ce2c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "069cc943-1bc7-4eae-9868-61629ae092c2",
+      "id": "c742be7b-48a1-49c9-864d-1e2790ec9837",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "08f7e93c-fe4d-4380-8e7e-31355b646e41",
+      "id": "7f76a1ce-cf72-4edc-bc71-94a2a84cb074",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
