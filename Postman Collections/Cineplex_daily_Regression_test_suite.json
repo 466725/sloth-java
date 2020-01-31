@@ -5302,7 +5302,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "url": "{{cineplex_affiliate_url}}/health/status"
@@ -5748,7 +5748,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5894,7 +5894,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "9e15a7dd-c541-45b8-83d8-a0fbe8eba2cf",
+      "id": "de979cb0-21dd-4832-8049-1162bc94d2a4",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "10f74f15-0a51-4ed7-a640-1b2128de6a6e",
+      "id": "2566a4fb-8b8f-42c6-8dd4-12052c849774",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ef08b292-49a5-42df-9439-0419fcd8698f",
+      "id": "082189aa-109c-4e97-bd58-4066f1265806",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "53025dbd-7dfa-4356-9c55-854cfc53fbae",
+      "id": "b6991bf9-9cdd-4f08-b82a-e9e2605507d1",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "e6a8559b-5f29-44e7-83ef-0522291f63dc",
+      "id": "c5b913e9-21c5-4c74-ab4b-cda6552b6a71",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "89eb4588-d5e9-4479-bcc4-7ca0e302c1db",
+      "id": "962ff3ed-368c-494b-95a4-b2c9cf36d782",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "a19328cb-298a-4297-8f7d-16e66ff58737",
+      "id": "419e23c1-8b06-42e2-a193-cbb264e92a98",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8d792730-233a-42f8-8c80-40746f8e5085",
+      "id": "e51a72bd-26c4-412e-bb49-67e441642aaa",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "933db052-0676-41d0-803b-6e6a2e3b750d",
+      "id": "4eb41115-f8b8-4cab-9064-dee810a78b34",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "2bf76d64-50e2-4856-b9e7-8b6f39af3167",
+      "id": "42439096-340b-47c4-b379-31e73e85f439",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
