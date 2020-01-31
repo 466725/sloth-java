@@ -1560,7 +1560,37 @@
             "id": "f6ed93e8-5d54-4b6a-9468-60a5865f59cc",
             "type": "text/javascript",
             "exec": [
-              "pm.test(\"Response is successful\", pm.response.to.be.success);"
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response is successful\", pm.response.to.be.success);",
+              "",
+              "pm.test(\"Fetch product full details successfully\", function(){",
+              "    pm.expect(jsonBody.Status).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Content-Type is present\", function(){",
+              "    pm.response.to.have.header(\"Content-Type\");",
+              "});",
+              "",
+              "pm.test(\"Message details is defined\", function(){",
+              "    pm.expect(jsonBody.MessageDetails).not.to.be.undefined;",
+              "});",
+              "",
+              "pm.test(\"Set Pricing Plan if exists\", function(){",
+              "    if (jsonBody.BuyPricingPlans.length > 0) {",
+              "        var pricingPlanId = jsonBody.BuyPricingPlans[0].PricingPlanId;",
+              "        pm.environment.set(\"pricing_plan_id\", pricingPlanId);",
+              "    }",
+              "});",
+              "",
+              "pm.test(\"Meta critic data is defined\", function(){",
+              "    pm.expect(jsonBody.MetacriticData).not.to.be.undefined;",
+              "});",
+              "",
+              "//User Story 41189: Update GetProductFullDetails endpoint to support 4k and harmonized pricing plan",
+              "pm.test(\"PricingPlanType is defined\", function(){",
+              "    pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.not.be.undefined;    ",
+              "});"
             ]
           }
         }
@@ -13482,61 +13512,61 @@
   ],
   "variable": [
     {
-      "id": "f8e35306-c6d9-4528-b183-bbcd3d67c474",
+      "id": "40c6f582-bbe4-494a-970e-253c85e649c7",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "e2d5639e-8377-414e-87e2-9880df886ac5",
+      "id": "c3e413dc-eb7e-4038-b2b6-c6fe8fc119ea",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "a17e7e73-6bfa-4d47-957d-8e72e7bd9825",
+      "id": "7b8b8546-4073-4a0b-bf36-691e65050699",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "24e9b13c-f18c-42d7-b42d-365e685f409b",
+      "id": "ae4cae94-9cb6-453a-8784-6c0919ac978e",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "16806e7e-a9ab-46a8-a0a9-08de8b1a7cd1",
+      "id": "d56e5a8c-8bb8-4364-9313-ae02ddeee013",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "31df453e-d650-457f-8645-5e34274e199a",
+      "id": "5aeb884b-8416-4802-bb33-b375d03b89bc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "4d8116ff-a612-46d0-a349-372ac2c3c2ff",
+      "id": "b4b8ec61-a0e2-4131-a466-64936579b286",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "702fa352-41c1-4b20-b17c-340323893268",
+      "id": "d92d3f2d-6f80-4d5a-9e62-a70e8d06cdc4",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1118bc1a-e8f8-41b9-95da-0e392f20f924",
+      "id": "a582ae62-71cb-4aaa-b6ae-a90338f92279",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "85e7e81e-4a48-4eac-8080-3a9fdd8a262c",
+      "id": "55e71d73-2fe8-4336-bab8-1fdbcbdeb688",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
