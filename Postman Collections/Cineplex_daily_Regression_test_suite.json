@@ -1427,7 +1427,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
           },
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "2870939d-49e9-42ef-8385-48206b02ed5c",
+      "id": "45949289-1bd6-4cbc-bc68-1ed13882a0e1",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "82046988-148a-493e-9ed4-bb58a644c978",
+      "id": "3936c560-4104-4be3-bcef-e8c94aee0a68",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7a0ecc75-d436-44d5-9fce-157e15a8be19",
+      "id": "c03debf5-d99f-4104-882e-77634cdcdf2f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "8e168605-3292-4c91-ae49-aa2e8d76170b",
+      "id": "05f096a7-cc62-477b-bb19-920d99214e3f",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "249bb15e-9cf6-47d1-ade0-53097327ac0c",
+      "id": "d0541fe4-6bf5-4148-95b9-b968c19ca3b2",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "13903c3e-65f3-48a5-9d73-dac0c524ffb1",
+      "id": "a99e8f49-7f79-43ec-b08c-4388b110760d",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "728a3a20-b8c9-4198-9462-4d338a99c5b6",
+      "id": "c4e4a4ee-ea2c-4b5a-bace-1b94a1d1208d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "43afdd7b-37e2-4755-848d-be84ec19a53b",
+      "id": "8d2e833f-8f81-4eda-9fe0-4e11cb5f30c9",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "b3799baf-900d-409c-87a6-29b24c6cc5bd",
+      "id": "c9878797-b4a2-45a8-aa12-76281dac5a81",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "47cc429b-3cb7-4932-a783-c9e279b89605",
+      "id": "62caeedc-6606-4320-b483-0145ad04af50",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
