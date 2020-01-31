@@ -1254,7 +1254,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{adfadfasfawrfwqe}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\",\n\t\t\t\"FirstName\":\"{{first_name}}\",\n\t\t\t\"LastName\":\"{{last_name}}\"\n\t\t}\n\t}\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{adfadfasfawrfwqe}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\",\n\t\t\t\"FirstName\":\"{{first_name}}\",\n\t\t\t\"LastName\":\"{{last_name}}\"\n\t\t}\n\t}\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetUserLockerContents"
           },
@@ -11916,7 +11916,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token_1}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Theatre\": {\n        \"Id\": \"{{theatre_id}}\"\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/AddFavouriteTheatre"
           },
@@ -12156,7 +12156,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"RecipientShareTicketName\": \"{{shareTicketRecepientName}}\",\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token_1}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketSend"
           },
@@ -12292,7 +12292,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TransactionId\": 87059,\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ShareTicketBarCode\": \"T7997230570500002\",\n    \"TransactionId\": 87059,\n    \"TicketId\": 22182,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token_1}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ShareTicketCancel"
           },
@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "3c31a8a8-9eee-419b-bee8-17c72664fdbd",
+      "id": "f15994c0-d594-42eb-8a36-022e6a0134e7",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "f5cc2c54-f1f0-44e0-8c6d-26dfa41e6320",
+      "id": "eb2ddd2c-f186-489a-b8a1-fcbbf24cbea9",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "20ac5b49-3b0c-4e39-8897-a2e13d1e3258",
+      "id": "496dfc21-52db-465d-94a7-ab648cb0e90e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ba93ff8e-f540-40d7-a7d4-416651252e2d",
+      "id": "5b98a4de-c47c-43e7-b5be-e583e3bddfe5",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "0634d2bf-4619-49e6-99cf-3b071d135bf4",
+      "id": "8a6a4d35-37da-4303-8114-347232707f75",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a382c476-48d8-494f-8cf3-39fe9ba0d6fc",
+      "id": "5bd731b9-5186-4f40-af79-ad01ce5e78fd",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "ed943582-d890-4898-8bd1-c69b66329ce5",
+      "id": "23181f0b-d339-4b56-8a42-1ff59aeefd10",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1265c9b2-ea86-4b3f-9005-72a9b6782dd0",
+      "id": "76303555-14af-422d-bf5c-a206f2261497",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "0e06b251-7773-490b-9312-12431015e6eb",
+      "id": "c8299182-009a-4637-a284-80f5ce51b0a2",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "212c3111-6418-43e5-a569-097ffe915555",
+      "id": "4bd212f4-0071-4eaf-ab0b-6d5b72f1bd56",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
