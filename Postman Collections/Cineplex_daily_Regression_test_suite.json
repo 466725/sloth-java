@@ -6331,18 +6331,17 @@
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    ",
                   "    pm.test(\"Response is not enrolled\", function(){",
-                  "        pm.expect(jsonBody.isEnrolled).to.be.false;",
+                  "        pm.expect(jsonBody.isEnrolled).not.to.be.undefined;",
                   "    });",
                   "    ",
                   "    pm.test(\"Response consent is null\", function(){",
-                  "        pm.expect(jsonBody.isConsented).to.be.null;",
+                  "        pm.expect(jsonBody.isConsented).not.to.be.undefined;",
                   "    });",
                   "    ",
                   "    pm.test(\"Response pin is null\", function(){",
                   "        pm.expect(jsonBody.pin).to.be.null;",
                   "    });",
                   "}",
-                  "",
                   "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
@@ -13509,61 +13508,61 @@
   ],
   "variable": [
     {
-      "id": "21cf6798-ed83-467e-bb23-914f88515560",
+      "id": "cd987706-9624-4502-918e-b8819ceefd5b",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "7c669886-f557-43cd-a26f-c074fac9c570",
+      "id": "d25da59b-0a42-422b-ab5e-11b63cce1c29",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ccc4902f-a835-4834-a681-23a96d0df761",
+      "id": "1255fead-0454-4b34-a797-7a220e84078f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a8c5351c-21d3-435a-ad36-6a194021e369",
+      "id": "8c8e66e6-3ee7-4033-8388-100159eca431",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "e889e2aa-c0f5-4517-839c-50d098ab0bac",
+      "id": "04cb251f-b776-45ff-8196-984970c0488f",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "b74252b5-4941-412a-9325-395c4eff068c",
+      "id": "36a3cf6b-c716-475f-83bb-50ca07613ad5",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "02971312-74f1-4d99-8ab8-b8488c812d97",
+      "id": "5523cde9-0ca4-42ae-9c96-5033b3f71f8d",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "dae8d7a0-b901-4c8a-9ecf-4e2661cc4865",
+      "id": "01b24d33-00d5-4e8d-b6d5-f3dd78a68280",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "5404a01a-8b79-4059-ab02-89a30c9c6c51",
+      "id": "bc69d402-bbe6-4ab9-a9bb-1fea3d5be133",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "f67d5965-431f-4e56-9534-09810ba34d7a",
+      "id": "417e53e0-b89c-4be2-97a3-3cb35058425b",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
