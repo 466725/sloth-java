@@ -6020,8 +6020,6 @@
                   "if (pm.environment.get(\"cineplex_url\").has(\"stage\")) {",
                   "    console.log(\"We are runing on Staging environment!\");",
                   "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "} else if(pm.environment.get(\"cineplex_url\").has(\"uat\")){",
-                  "    console.log(\"We are runing on UAT environment!\");",
                   "} else {",
                   "    console.log(\"We are runing on PROD environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
@@ -9513,7 +9511,6 @@
                   "        for (i=0; i<cardsInfo.length; i++) {",
                   "            pm.test(\"Card Number :\" + cardsInfo[i].CardNumber + \" \" + \"Card Balance :\" + cardsInfo[i].Balance); ",
                   "        }",
-                  "        console.log(\"Set the Gift Card to variable.\");",
                   "        pm.environment.set(\"giftcardNumber\", jsonBody.GiftCardInfo.Cards[0].CardNumber);",
                   "        console.log(\"Gift Card Number is:\" + pm.environment.get(\"giftcardNumber\"));",
                   "    }",
@@ -9521,8 +9518,7 @@
                   "",
                   "pm.test(\"Result status is correct\", function() {",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
-                  "});",
-                  ""
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -13513,61 +13509,61 @@
   ],
   "variable": [
     {
-      "id": "46e67275-954b-48c0-b404-5edf854e75a7",
+      "id": "34552954-671d-4f9a-b24a-b5824ed7d0f7",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "c8f22678-05b7-4426-974f-c8d00e9e95a3",
+      "id": "646d4b1e-5be4-4ca2-93ea-8b1e702141c8",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f45cd9e8-7207-45e2-81e6-3167c8336bda",
+      "id": "ab813c24-0a60-4220-a80d-2d8b63ea9515",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0e4e4d45-caf3-49ff-849c-a3d5911cf155",
+      "id": "08fd5892-3298-421f-8245-323fe3f2e5dc",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "2c9387ae-e618-46eb-844c-fde853f3cb30",
+      "id": "3c011dc0-d206-4fc7-810d-8b82010b96fb",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "45870abf-5d20-4344-be42-69198bdaa7d4",
+      "id": "4bd41a7a-59be-4dba-91fb-fcc162d6ee15",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "fc665c28-896c-4b2e-b211-921ad8e7824c",
+      "id": "174f3534-ab15-4ffd-a248-b57443eb989c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "73a96ea9-6839-4305-9d58-7d24d75e3115",
+      "id": "d435c84e-7e19-428a-ba38-90fdc8432bb0",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "cdc117a8-5da8-4977-a869-1d05ff29c169",
+      "id": "95709810-5dad-4ce6-85d7-532104e517a8",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "da178a40-1030-445d-bd7b-ac0947fcbeca",
+      "id": "bb456189-8c10-4bde-8191-8a575701c9c4",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
