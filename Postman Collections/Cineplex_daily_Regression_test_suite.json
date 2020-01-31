@@ -444,9 +444,9 @@
                   "",
                   "pm.test(\"Set product_id\",function() {",
                   "    if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-                  "        pm.environment.set(\"product_id\", 671899);  //hardcode for 4k test",
+                  "        pm.environment.set(\"product_Id\", 671899);  //hardcode for 4k test",
                   "    } else {",
-                  "        pm.environment.set(\"product_id\", jsonBody.Items[4].ProductId);  //pick fourth ID",
+                  "        pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);  //pick fourth ID",
                   "    }",
                   "});"
                 ],
@@ -917,7 +917,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_id}}\r\n\t}]\r\n}"
+                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_Id}}\r\n\t}]\r\n}"
                 },
                 "url": "{{store_url}}/CSWebConnect/GetMovies"
               },
@@ -1676,7 +1676,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{user_profile_guid}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"CouponCode\":\"{{coupon_code}}\",\n\t\"ProductId\":\"{{product_id}}\",\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{user_profile_guid}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"CouponCode\":\"{{coupon_code}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetPromoCodeInfo"
           },
@@ -13423,61 +13423,61 @@
   ],
   "variable": [
     {
-      "id": "0797a997-8e97-45d4-99f6-d03fef72f594",
+      "id": "ebdecbfb-8a7f-48c6-802c-b35b5c73fb49",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "bd5b8f3a-1cc0-4e65-8113-00649ffdea46",
+      "id": "9fb01cd8-343b-4890-8e8a-13707950d619",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "929c938a-c751-4686-b9f0-d40d4f52a356",
+      "id": "f459a2d5-8cf9-4d40-b394-94c56c8adfbb",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "124e1630-caf5-4ba7-a106-642f701799b5",
+      "id": "612b3437-29c1-4e52-a51c-3497703b87f7",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "0f0225a1-c0d1-467a-89ed-3dc5a25b99dc",
+      "id": "40b692d0-3734-41e2-8dbe-b372901862cf",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "fc1701a4-2bd0-4860-90a2-94ee31ee82ac",
+      "id": "e9751506-9d67-4815-9e61-2f0a5b0f2108",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "9c67b26f-5a2f-46f9-abe3-67dc7a9afef8",
+      "id": "515c9e38-bbab-4bb0-be2c-d191a7fb75c6",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b05af19c-546d-4e28-8539-0e80d38676b1",
+      "id": "4ca516ad-7bd1-4672-bad0-7fb6d289c79b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8f4c9a4c-9dcb-4067-97a2-c487593b8249",
+      "id": "d648f16a-b837-43fe-b1ec-5439c6b414e0",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "aa892d11-5177-42d8-984a-90a31170b09e",
+      "id": "d8ff45ea-0019-4dad-8962-55eed095212b",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
