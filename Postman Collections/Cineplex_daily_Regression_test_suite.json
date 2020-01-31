@@ -5455,7 +5455,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5530,7 +5530,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5651,7 +5651,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5994,7 +5994,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6095,7 +6095,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ConnectID\":\"\",\n\t\"DUID\":\"{{eligibleDUID}}\",\n\t\"ModelNumber\":\"{{eligible_model_number}}\",\n\t\"Consent\":\"FALSE\",\n\t\"MarketingConsent\":\"FALSE\",\n\t\"PreferredLanguage\":\"en-us\"\n}"
+              "raw": "{\n\t\"ConnectID\":\"\",\n\t\"DUID\":\"{{eligibleDUID3}}\",\n\t\"ModelNumber\":\"{{eligible_model_number}}\",\n\t\"Consent\":\"FALSE\",\n\t\"MarketingConsent\":\"FALSE\",\n\t\"PreferredLanguage\":\"en-us\"\n}"
             },
             "url": "{{cineplex_affiliate_url}}/v1/CompleteEnrollment"
           },
@@ -6142,7 +6142,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6566,7 +6566,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "706f98c4-6f39-420a-8d5d-c222a0426a6c",
+      "id": "2a9c169e-bc14-4a64-926c-917a1e630ef4",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "9f6c3b4c-ae46-4e49-9a4a-1746618cf4fa",
+      "id": "d537c82f-1895-4966-a882-43bc90e413b5",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "b848e344-ee60-46f2-8482-525d65f056c4",
+      "id": "e421801a-f61f-4110-b76f-451e7daedde2",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "a669ec58-6778-4fc3-bef9-82fd5c09bfd3",
+      "id": "3ca0354a-136d-48f8-948f-efb18e5edfed",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "7dc2e814-9357-48c7-a6c8-4b9a1de93bcd",
+      "id": "1280f942-d7af-4512-9039-83f71662b01a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "d1b6d249-f34a-4976-bee9-3c73ae8ac2f3",
+      "id": "89833ebb-207f-42ad-b681-38f8080e3eb5",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "4d1ffe4f-6acb-49a0-9d1a-09a02b822347",
+      "id": "d40ccee6-e401-48b5-8198-1430547f69e4",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "18a5e7ea-9a25-4a37-94c8-bd4e61a040c9",
+      "id": "e5123a8a-a1cb-4c24-a282-636fd987fee3",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9b5298c0-7b6a-4a14-b388-4574a4c08d1a",
+      "id": "0e7e571d-99cc-419e-ad19-f7f1fbaa46e9",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "20594cc0-1d2f-4ea5-9257-aef5a2005c06",
+      "id": "a2f26f66-b0c3-4098-8ead-51eded6f2fbb",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
