@@ -244,7 +244,7 @@
                   "",
                   "console.log(\"Username: \" + pm.variables.get(\"username\"));",
                   "console.log(\"Password: \" + pm.variables.get(\"password\"));",
-                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token_1\"));",
+                  "console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
                   "",
                   "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);",
@@ -288,7 +288,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token_1}}\",\n    \"Password\": \"{{password}}\",\n    \"Email\": \"{{username}}\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"Password\": \"{{password}}\",\n    \"Email\": \"{{username}}\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login"
           },
@@ -1353,7 +1353,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{adfadfasfawrfwqe}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{adfadfasfawrfwqe}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
           },
@@ -9764,7 +9764,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token_1}}\",\n    \"LanguageType\": 1,\n    \"PostalCode\": \"M1M1M1\"\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"LanguageType\": 1,\n    \"PostalCode\": \"M1M1M1\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetAddressesByPostalCode"
           },
@@ -10590,7 +10590,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token_1}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetMenu"
           },
@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "8a66dff2-e980-4f42-adff-1d5d5771829b",
+      "id": "f045c4c6-b58f-42a0-ba65-28b0d6b49338",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "8cbe46ed-220c-40e6-88a0-ef2299f406f7",
+      "id": "f0b1cfd2-942c-4071-9883-67b8fefdd02c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "744c72a8-d398-4948-b7c2-953afc44da9e",
+      "id": "e0fc37ec-15fc-4c5a-b0de-2af2fba0a8a1",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "6e1be369-586a-4e4a-bb10-ec2ef1c8390d",
+      "id": "02b9c672-a491-4593-bb5b-27d6e5b77984",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "7681496a-f8a7-4700-a355-8cced1b29e35",
+      "id": "5a9351ab-2098-441a-8161-8e206378ed98",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ca3b4175-f092-4ac0-a6f0-d40c1be80a51",
+      "id": "a08ecd2a-33f9-449f-bbc2-a56b4202137c",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0854084c-a0b0-400c-b697-fe8ca7b550b7",
+      "id": "2ee6b904-6d43-4512-b7f6-f2309c661cb0",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ee86b14a-261b-44bd-8074-6846efe3a4c4",
+      "id": "e82f8155-b3c9-4821-874b-459911d129fb",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9f9aa7f1-ff34-4a41-b41d-a6b5635806b8",
+      "id": "3b3d27a3-4eac-4df1-8001-9bd7e39f3d3e",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "ce1bc752-54fe-4907-adc5-9adcedc17a3c",
+      "id": "c40e1bba-1609-4190-9f45-ca2009065e14",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
