@@ -6339,7 +6339,7 @@
                   "    });",
                   "    ",
                   "    pm.test(\"Response pin is null\", function(){",
-                  "        pm.expect(jsonBody.pin).to.be.null;",
+                  "        pm.expect(jsonBody.pin).not.to.be.undefined;",
                   "    });",
                   "}",
                   "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
@@ -13508,61 +13508,61 @@
   ],
   "variable": [
     {
-      "id": "dd98b08c-c0e1-4159-9362-364cbcd090ee",
+      "id": "e32481ee-0413-4e12-8dd3-e91513686351",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "e1217a6f-7682-4add-a44e-4b38dd7e6e93",
+      "id": "6ad72d7b-ca9d-4cf9-82b1-8727d97bad37",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "9205ba8d-d13f-4d4a-9585-fb557ef55411",
+      "id": "ee6581bf-f703-4ee7-a6a8-677418ab4faa",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0a612ccf-caf0-48b5-9147-203a4b9da609",
+      "id": "04e54902-db31-491b-90f0-e6b40fed2fbb",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a7dabc48-df49-4be2-8cb2-c1b1af85d2f2",
+      "id": "887461a8-cc65-46e4-97ba-880ecd3a2e3c",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c62ce22d-8dda-4fd9-8c74-2b8c89f37809",
+      "id": "98dc43b9-f809-48a5-a90a-0b453952014f",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "614042e3-fc7f-43c8-92d5-9f6222ff5a91",
+      "id": "78a76ba3-ba99-45a8-9140-c03b60d0ec07",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1cdfb1da-3c62-41ef-980e-a8999a4f4a0c",
+      "id": "37473318-e9f6-46b2-b2d8-276e2231afee",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f6f9d839-6be6-4fcb-ba90-ea50e9d9d8f2",
+      "id": "d1793b5f-f9bd-43e4-8700-867419ccff04",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "e72f6446-5750-44bc-bced-7d12503127a6",
+      "id": "88407e62-0b15-401a-88ba-cd1a81946fcb",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
