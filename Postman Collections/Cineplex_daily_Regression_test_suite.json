@@ -12692,7 +12692,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_Id}}\",\n\t\t\t\"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n\t\t\t\"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"OrderId\": \"{{csgOrderNumber}}\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\t\t\t\"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n\t\t\t\"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{cineplex_token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"OrderId\": \"{{csgOrderNumber}}\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetOrderDetail"
           },
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "487b400a-4893-42e9-9c73-edd577cfd3ea",
+      "id": "d1b1cf9c-ad11-41d0-8299-dbdcc6959ded",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "97251702-1d36-424a-807a-835cbb25a71b",
+      "id": "faa27809-7702-4aee-88b9-13b696fd622c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "faf9eea8-dcfc-444b-b965-e5b1eb3820e5",
+      "id": "3e385bee-4b1c-4df3-b500-c55fa0272207",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "122298a4-aa07-4ce2-b11b-e4e73a3bfe95",
+      "id": "1f9b06ca-4ac8-4a41-9075-10c1847d5d52",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "9daf899e-39ab-4b32-ac23-d18b87381e37",
+      "id": "0c954673-7a45-40c4-95ce-a7eec1256ed9",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "db877fbe-9f3f-41a7-94e1-3dbb3a079452",
+      "id": "83105322-dba9-4ff5-8fe2-baebcbd5e1ab",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "43ce06c5-6006-4f1c-88b8-23b51035af57",
+      "id": "34f7fdbf-23f1-475f-9282-79ec0740fd04",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1993390d-a409-469c-926f-6690ddedc542",
+      "id": "fd5057d5-fc4b-4f1a-8165-95f3077a461d",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1591716e-0463-4262-8dab-17070b774770",
+      "id": "f42aa7ce-56f8-45dd-9f67-12e2491525f3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "9ab8c784-d1fb-4085-ad02-152da5fe65b8",
+      "id": "7a240262-53f6-4ac1-aad5-a014aff931a0",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
