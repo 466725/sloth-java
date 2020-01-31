@@ -416,7 +416,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n\t\"ApplicationRequest\":{\r\n\t\t\"LanguageType\":\"1\",\r\n\t\t\"SessionToken\":\"{{session_token}}\",\r\n\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\r\n\t\t\"UserSessionToken\":\"{{user_session_token}}\"\r\n\t},\r\n    \"Language\":\"en-CA\",\r\n    \"SessionQuery\":{\r\n        \"CineplexConnectId\":\"{{connect_id_1}}\",\r\n        \"Email\":\"{{username}}\",\r\n        \"FirstName\":\"{{first_name}}\",\r\n        \"LastName\":\"{{last_name}}\",\r\n        \"Login\":\"{{username}}\"\r\n    }\r\n}"
+              "raw": "{\r\n\t\"ApplicationRequest\":{\r\n\t\t\"LanguageType\":\"1\",\r\n\t\t\"SessionToken\":\"{{session_token}}\",\r\n\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\r\n\t\t\"UserSessionToken\":\"{{adfadfasfawrfwqe}}\"\r\n\t},\r\n    \"Language\":\"en-CA\",\r\n    \"SessionQuery\":{\r\n        \"CineplexConnectId\":\"{{connect_id_1}}\",\r\n        \"Email\":\"{{username}}\",\r\n        \"FirstName\":\"{{first_name}}\",\r\n        \"LastName\":\"{{last_name}}\",\r\n        \"Login\":\"{{username}}\"\r\n    }\r\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreReacquireSessionIfNecessary"
           },
@@ -1614,7 +1614,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{adfadfasfawrfwqe}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
           },
@@ -4634,7 +4634,7 @@
                   "var CryptoJS = require(\"crypto-js\");\r",
                   "\r",
                   "//Encrypt\r",
-                  "var rawStr = CryptoJS.enc.Utf8.parse(pm.globals.get(\"user_guid\") + \":\" + pm.globals.get(\"user_session_token\"));\r",
+                  "var rawStr = CryptoJS.enc.Utf8.parse(pm.globals.get(\"user_guid\") + \":\" + pm.globals.get(\"adfadfasfawrfwqe\"));\r",
                   "var base64 = CryptoJS.enc.Base64.stringify(rawStr);\r",
                   "\r",
                   "pm.environment.set(\"authorization\", \"Basic \" + base64);"
@@ -7868,7 +7868,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetConnectedNetworks"
           },
@@ -7940,7 +7940,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\",\n    \"ConnectPassword\": \"{{password}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\",\n    \"ConnectPassword\": \"{{password}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/CreateConnectPin"
           },
@@ -8012,7 +8012,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPin\": \"{{ConnectPin}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ValidateConnectPin"
           },
@@ -8228,7 +8228,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPassword\": \"{{password}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"ConnectPassword\": \"{{password}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/ValidateConnectPassword"
           },
@@ -8300,7 +8300,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfile\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\",\n        \"AddressLine1\": \"1300 Yonge St\",\n        \"AddressLine2\": \"\",\n        \"City\": \"TORONTO\",\n        \"ProvinceCode\": \"ON\",\n        \"PostalCode\": \"M4T1X3\",\n        \"CountryCode\": \"CA\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfile\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName}}\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\",\n        \"AddressLine1\": \"1300 Yonge St\",\n        \"AddressLine2\": \"\",\n        \"City\": \"TORONTO\",\n        \"ProvinceCode\": \"ON\",\n        \"PostalCode\": \"M4T1X3\",\n        \"CountryCode\": \"CA\"\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateConnectUser"
           },
@@ -8372,7 +8372,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"UserProfileInfo\": {\n        \"FirstName\": \"{{firstName}}\",\n        \"LastName\": \"{{lastName\",\n        \"MobileNumber\": \"4163236600\",\n        \"Gender\": \"Male\",\n        \"Language\": \"en-us\",\n        \"Birthday\": \"01-01-1950\"\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/UpdateUserProfileInfo"
           },
@@ -8661,7 +8661,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": \"5\",\n        \"RequestedPage\": \"1\",\n        \"PageSize\": \"20\"\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": \"5\",\n        \"RequestedPage\": \"1\",\n        \"PageSize\": \"20\"\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetEvents"
           },
@@ -9021,7 +9021,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"RemoveItemFromWatchList\": {\n        \"EntityID\": \"21755\",\n        \"EntityTypeID\": \"1\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"RemoveItemFromWatchList\": {\n        \"EntityID\": \"21755\",\n        \"EntityTypeID\": \"1\"\n    },\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/RemoveItemFromWatchList"
           },
@@ -9165,7 +9165,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"RatingContentType\": 1,\n    \"ContentId\": 22996,\n    \"IsLike\": false\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"RatingContentType\": 1,\n    \"ContentId\": 22996,\n    \"IsLike\": false\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/SetUserRatings"
           },
@@ -9381,7 +9381,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"EntityTypeId\": 1,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"EntityTypeId\": 1,\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserWatchListByEntityType"
           },
@@ -10730,7 +10730,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"MenuId\": \"{{menu_id}}\",\n    \"CategoryId\": \"{{concession_category_id}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"LocationId\": \"{{theatre_id}}\",\n    \"MenuId\": \"{{menu_id}}\",\n    \"CategoryId\": \"{{concession_category_id}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetConcessionItemsByCategory"
           },
@@ -11140,7 +11140,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/GetOrderWindowTimes"
           },
@@ -11276,7 +11276,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"CineplexOrderId\": \"{{cineplex_order_id}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/FoodAndConcession/CompleteOrder"
           },
@@ -11590,7 +11590,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"NewsletterId\": 4,\n    \"EmailOptIn\": true\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"NewsletterId\": 4,\n    \"EmailOptIn\": true\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/SaveNewsletterSubscription"
           },
@@ -12060,7 +12060,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetVisitedTheatres"
           },
@@ -12897,7 +12897,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetDeviceList"
           },
@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "331ba94f-09a8-41f9-89a8-18265fb80d31",
+      "id": "def78ee4-2803-49fd-ae41-203a41528575",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "c4a47e37-989d-4f2f-ba2c-5ac1d799a578",
+      "id": "39345729-60ce-48df-ac5a-26235c7ff247",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7d291b4d-6fde-480d-bfd5-9ce5e80c1bd8",
+      "id": "63a4b644-4e76-4617-97ea-5beb1d70c313",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "4ae7d767-c8e1-40dd-a008-22ed8a182e09",
+      "id": "fdc7299c-fa15-49fa-99c1-80fe14542b2e",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "56ffc1cd-3b38-4a00-b6f9-d8ae74ecc21e",
+      "id": "f8df2394-2795-4768-addb-58dcdb407bf0",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "71778091-bafb-418d-b55b-c4a3ff827a6d",
+      "id": "b40a4de4-b7a0-448b-b950-cbf6c980c9e2",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0222e0b4-5770-47dd-9eed-9a102513ab77",
+      "id": "85d65eac-b513-4a4b-a8a2-d8d17f865019",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "f37bab45-3e52-430b-8bd6-f8a1548fde67",
+      "id": "31427a1b-efdb-4191-82df-75725bb61996",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "fd9b61e7-1a15-442a-a663-6384fb354d9f",
+      "id": "4d607229-b7f6-4191-a3b1-a5aa6624a13b",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d70ba54c-276e-4f3b-8e7e-e3f3fcab5523",
+      "id": "4029f2af-9436-45f6-9443-07285231bdf6",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
