@@ -8805,7 +8805,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{user_session_token}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
+              "raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n    \"UserProfileGuid\": \"{{user_profile_guid}}\",\n    \"LanguageType\": 1\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetUserProfileInfo"
           },
@@ -10268,7 +10268,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
+              "raw": "{\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"OrderRequest\": {\n        \"TimeFrame\": 5,\n        \"RequestedPage\": 1,\n        \"PageSize\": 50\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/GetTicketingOrderHistory"
           },
@@ -12821,7 +12821,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{user_session_token}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n            \"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n            \"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token}}\",\n        \"UserSessionToken\": \"{{adfadfasfawrfwqe}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    },\n    \"Nickname\": \"{{$randomProductName}}\",\n    \"PlatformId\": \"ios-ipad\",\n    \"DeviceId\": \"{{$guid}}\"\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreActivateDevice",
             "description": "This method must be called to activate a user device. For store users, the device will also be registered on CSG."
@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "51f544e5-62af-4975-a85a-59e9cd305e63",
+      "id": "8192ab4a-7fbd-44a6-aaad-2359a3db27d9",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "f5b5e7a5-60fc-48f0-a3c4-24bdef60dfa1",
+      "id": "b3ef8bd7-de8e-4904-915b-c881d880dc37",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "ac33f5d9-84f1-4298-b0ef-47c9b28dfeb2",
+      "id": "34d89883-502f-4a26-822e-242e0016825d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "d2ec8eaf-ae29-43a3-a67e-4a52b3e14ca8",
+      "id": "8ff72edc-5da6-41c6-b57c-7e7a87b8b357",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "951066d2-59f9-4bdc-a1eb-0dfe366176b0",
+      "id": "456ba65e-71ef-4be9-a575-9c6fa4aa41cd",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "327dbbc2-c1cf-4a92-91cc-2bf29b7aed65",
+      "id": "d56869f4-a00f-449a-a89a-97340793ba6b",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8dfc8952-289b-4f0b-9f60-99e317bf88f4",
+      "id": "afd5d4e4-6d02-4e71-bbd0-cc8bd18a5312",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4d84411a-844b-4af6-ad8e-4b773d2c1c6c",
+      "id": "3fbf24cd-2ca6-478c-8ca4-9e3b0b8ed433",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ea2aff44-7f01-483c-93de-e0ed3d2e391b",
+      "id": "a876a15b-9b1b-49e3-96a7-d8a8b1fb642c",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "7f9a99ff-b9f3-4c89-ab83-ddd04878a7ed",
+      "id": "94bf2216-bfb2-41c5-b383-2832731006cb",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
