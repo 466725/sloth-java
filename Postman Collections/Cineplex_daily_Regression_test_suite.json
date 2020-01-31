@@ -6392,22 +6392,17 @@
                   "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    ",
-                  "    pm.test(\"Response is enrolled\", function(){",
+                  "    pm.test(\"Response isEnrolled is defined\", function(){",
                   "        pm.expect(jsonBody.isEnrolled).not.to.be.undefined;",
                   "    });",
                   "    ",
-                  "    pm.test(\"Response consent is defined\", function(){",
+                  "    pm.test(\"Response isConsented is defined\", function(){",
                   "        pm.expect(jsonBody.isConsented).not.to.be.undefined;",
-                  "    });",
-                  "    ",
-                  "    pm.test(\"Device enrolled into correct promo\", function(){",
-                  "       pm.expect(jsonBody.promotion.name).to.equal(pm.environment.get(\"promo_name\")); ",
                   "    });",
                   "    ",
                   "    //User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin",
                   "    pm.test(\"Response pin is defined\", function(){",
                   "        pm.expect(jsonBody.pin).not.to.be.undefined;",
-                  "        pm.environment.set(\"promo_pin\", jsonBody.pin);",
                   "    });",
                   "}"
                 ],
@@ -13489,61 +13484,61 @@
   ],
   "variable": [
     {
-      "id": "5bed9ac5-d14a-4c3f-bfda-247ccfaabc06",
+      "id": "44a9e562-1b97-4e61-8750-e04beb03c5b9",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "b8555adf-2a95-42e6-b1ab-4badd2795d6b",
+      "id": "4edf65c1-10d6-4af7-8dfa-d431d8a4737d",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "0b5c628e-bca6-4012-bfc2-763fd4e92ecf",
+      "id": "7573f864-70e0-40db-b55f-92134b9b3e48",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "57da743c-8b23-48a3-bebd-9776139130a8",
+      "id": "7c01005e-3006-4eaf-aafe-bc4516985ef7",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "2404a476-906f-4d76-95e8-3141857e362a",
+      "id": "4ed606f5-1039-454f-a6f1-10c5d3c75fc3",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "f0f0d5a8-0300-40e9-8ea5-99d3633c833a",
+      "id": "2446822f-2d98-4b4c-8798-dcfbcc91ec6a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0df850e7-035f-4a33-9289-c18415794ccd",
+      "id": "302eebff-7778-4808-b6b3-bc3bf29f9232",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1763ab0f-f519-4172-8d47-f80fda720325",
+      "id": "2a3bdad9-32a6-4a1f-905d-1bea77c573ab",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "e232414c-1f29-4348-851f-d76030d97850",
+      "id": "4497f970-7ac6-475a-8539-eea7d829cdb1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "12ecb3c9-e37c-4b12-a5cb-5bb8d542b0fa",
+      "id": "6305e186-1a19-4cbb-8cfc-6c106318e9e2",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
