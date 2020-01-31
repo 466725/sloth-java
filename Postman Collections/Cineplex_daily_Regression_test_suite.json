@@ -379,7 +379,7 @@
                   "    pm.expect(jsonBody.Result.Status).to.eql(1);    ",
                   "    pm.environment.set(\"cineplex_connect_Id\", jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
                   "    pm.environment.set(\"cineplex_token_expiry\", jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
-                  "    pm.environment.set(\"session_Id\", jsonBody.StoreSessionResult.SessionId);",
+                  "    pm.environment.set(\"session_id\", jsonBody.StoreSessionResult.SessionId);",
                   "    pm.environment.set(\"first_name\", jsonBody.StoreSessionResult.SessionInfo.FirstName);",
                   "    pm.environment.set(\"last_name\", jsonBody.StoreSessionResult.SessionInfo.LastName);",
                   "    pm.environment.set(\"username\", jsonBody.StoreSessionResult.SessionInfo.Email);",
@@ -388,7 +388,7 @@
                   "",
                   "console.info(\"cineplex_connect_Id: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexConnectId);",
                   "console.info(\"cineplex_token_expiry: \" + jsonBody.StoreSessionResult.SessionInfo.CineplexTokenExpiry);",
-                  "console.info(\"session_Id: \" + jsonBody.StoreSessionResult.SessionId);",
+                  "console.info(\"session_id: \" + jsonBody.StoreSessionResult.SessionId);",
                   "console.info(\"first_name: \" + jsonBody.StoreSessionResult.SessionInfo.FirstName);",
                   "console.info(\"last_name: \" + jsonBody.StoreSessionResult.SessionInfo.LastName);",
                   "console.info(\"username: \" + jsonBody.StoreSessionResult.SessionInfo.Email);",
@@ -1615,7 +1615,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_Id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{cineplex_token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{cineplex_connect_Id}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{cineplex_token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token}}\",\n\t\t\t\"UserSessionToken\":\"{{user_session_token}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
           },
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "2e89f2d6-7e3c-45e8-8c4c-2a78a665d08b",
+      "id": "05fcd6ef-4229-4ef5-ad78-e886ae0538c9",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "0fa66ad6-350b-41e3-bbd0-5c4e7007b0e5",
+      "id": "bf67dd72-7b71-4832-8415-23113c365dbf",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8a6fdb46-8225-4bc1-a355-1afc5bbc7e1d",
+      "id": "f9f7b225-1208-4f1a-a88e-33ef4f101ac0",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "07ae6ba9-15be-442a-bfef-6fbdbbb3c557",
+      "id": "e097617b-18cc-42aa-9777-773b59c9888b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "ed47b5f8-6841-4edd-a545-f477790be3fc",
+      "id": "5b31c9fd-4edd-4dc3-9e59-501ed8e290f5",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "c8473978-abaa-442b-b947-66d01e5afb50",
+      "id": "881d2d47-fee7-42de-8cec-b9c494e487fc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cff2569a-d289-4a73-a592-40483eb05fcc",
+      "id": "e3334b36-6ce3-4390-bd40-66bebd5dbb34",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "b4b79985-62e6-429d-940a-793ff53839e9",
+      "id": "f1e74c97-c292-46be-90c4-89fb40eb5ece",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ed0fdafc-6d3e-49aa-9c8e-70fc2efc3ed6",
+      "id": "8687ac15-1466-4550-8dae-176e23a9d494",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d5554d10-3ed2-4e4b-974e-449a35f5ea59",
+      "id": "27a5b981-4bdb-4ff1-803d-0c6d101236b5",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
