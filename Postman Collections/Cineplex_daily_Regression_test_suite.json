@@ -6401,16 +6401,16 @@
                   "        pm.expect(jsonBody.isConsented).not.to.be.undefined;",
                   "    });",
                   "    ",
-                  "    pm.test(\"Response pin is not null\", function(){",
-                  "        pm.expect(jsonBody.pin).not.to.be.undefined;",
-                  "        pm.environment.set(\"promo_pin\", jsonBody.pin);",
-                  "    });",
-                  "    ",
                   "    pm.test(\"Device enrolled into correct promo\", function(){",
                   "       pm.expect(jsonBody.promotion.name).to.equal(pm.environment.get(\"promo_name\")); ",
                   "    });",
-                  "}",
-                  "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
+                  "    ",
+                  "    //User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin",
+                  "    pm.test(\"Response pin is defined\", function(){",
+                  "        pm.expect(jsonBody.pin).not.to.be.undefined;",
+                  "        pm.environment.set(\"promo_pin\", jsonBody.pin);",
+                  "    });",
+                  "}"
                 ],
                 "type": "text/javascript"
               }
@@ -13490,61 +13490,61 @@
   ],
   "variable": [
     {
-      "id": "b896b2a2-bc14-40f0-bdbb-b43db4dede62",
+      "id": "2fc3e6d0-501d-4b1d-b9e0-4cfb068108eb",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "ed8f40fb-b44b-4b67-be1b-26a9acdde8d6",
+      "id": "5c55dab5-5f32-4569-a676-077ff35f56f8",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "89096918-00f2-4b09-a1f5-9a053cd86daa",
+      "id": "96a2e70b-3569-4804-a3bd-17bcb0ca8820",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "0c5e203c-68e5-4555-a893-ca9eed771539",
+      "id": "80c6c756-90d5-4237-97c4-c3b1107d3b16",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4703100a-9325-49ac-9dce-bf08948d999b",
+      "id": "18f63bb8-bdf5-4f42-b270-695a37bc9e2a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "2f7d9d7a-238e-4255-84c7-f610be0f51b5",
+      "id": "ce5731dc-abf0-473b-ade9-ea6d5c1dc4de",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "2ce24be1-9e8c-4b23-98fd-9853ea2cd6dd",
+      "id": "55e4e610-ec0d-41a8-84a1-3295152cdd43",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "6cc85a65-41c4-4533-af08-f7b81aeb75f6",
+      "id": "49d02a7e-c405-4cce-b703-7e4190b87e0a",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "c30122d6-ec36-40d5-946b-d9ee28efbfe8",
+      "id": "a37e4910-e0ac-4f00-883e-a4b97fb7cad3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "4b23993a-35c9-4526-82fa-0a535e6caa62",
+      "id": "ebbc663e-32c4-4166-9684-58916b4bc865",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
