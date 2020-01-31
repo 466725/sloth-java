@@ -698,7 +698,7 @@
                       "});",
                       "",
                       "var productID = jsonBody.Item.ProductId;",
-                      "pm.environment.set(\"product_id\", productID);"
+                      "pm.environment.set(\"product_Id\", productID);"
                     ],
                     "type": "text/javascript"
                   }
@@ -1452,7 +1452,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
           },
@@ -1560,7 +1560,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
           },
@@ -13423,61 +13423,61 @@
   ],
   "variable": [
     {
-      "id": "ad9217c8-e9de-4cba-8048-0be2b8360a7e",
+      "id": "0618a379-33ed-422c-aaa6-f818410a0d95",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "5f98a24c-1f88-4d69-9e4d-7759b16cc624",
+      "id": "8bc38875-4897-432e-af69-ad5bb11c5281",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "58b92455-62f8-40ce-8563-8c9a10f5a84a",
+      "id": "19200bf0-5fd3-413b-b3b4-a64bb6fac5c5",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "2a1d399c-9708-41d8-bdf6-cf1f7a4fa5ca",
+      "id": "3c88380b-28ce-45b1-bc18-e9c7a6995b1a",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "73cc405d-9c8d-480b-9c0d-631861b72834",
+      "id": "d639cdfb-ee92-4149-a818-9e48df7e6b0a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "4c1639a0-5e0e-4556-864a-38157397055e",
+      "id": "17f7c501-0d31-4e58-ad0d-b81320cb8c61",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "aeb2976e-221b-4309-86dd-40e28444caf9",
+      "id": "ea999de0-fb76-44e7-98d7-42c284e7ee28",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "9fb97d4d-514b-4052-b56e-5e609e311ab8",
+      "id": "60966dae-3408-48d5-af30-c7e9c79d3e7c",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "1c89e827-c940-4ec4-b039-da032a80725c",
+      "id": "cede8d95-ce97-4572-98dd-a35e723dcf05",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "fd0ad55b-8937-4541-beab-2f69d05ac139",
+      "id": "cffdd4b2-d7f6-49e1-b764-8ac7db2de00c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
