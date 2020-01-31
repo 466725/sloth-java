@@ -1643,27 +1643,7 @@
                   "//User Story 41189: Support 4K and Harmonized Pricing",
                   "pm.test(\"PricingPlanType exists\", function(){",
                   "    pm.expect(jsonBody.PricingPlanType).to.not.be.undefined;    ",
-                  "});",
-                  "",
-                  "/*",
-                  "for(var i =0; i< creditCardInfo.length; i++){",
-                  "    var cardHoldername= creditCardInfo[i].CardHolderName;",
-                  "    var cardNumber = creditCardInfo[i].CardNumber;",
-                  "    var expiryDate =creditCardInfo[i].ExpiryDate;",
-                  "    var paymentInstrumentId =creditCardInfo[i].PaymentInstrumentId;",
-                  "}",
-                  "pm.test(\"Credit Card Info available, CardHolderName: \" + cardHoldername + \" CardNumber: \" + cardNumber + \" PaymentInstrumentId: \" + paymentInstrumentId, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"CreditCards\");",
-                  "});",
-                  "",
-                  "pm.variables.set(\"cardholder\", jsonBody.CreditCards[0].CardHolderName);",
-                  "pm.variables.set(\"card_number\", jsonBody.CreditCards[0].CardNumber);",
-                  "pm.variables.set(\"card_country\", jsonBody.CreditCards[0].CountryCode);",
-                  "pm.variables.set(\"card_expiry\", jsonBody.CreditCards[0].ExpiryDate);",
-                  "pm.variables.set(\"card_id\", jsonBody.CreditCards[0].PaymentInstrumentId);",
-                  "pm.variables.set(\"postal_code\", jsonBody.CreditCards[0].PostalCode);",
-                  "pm.variables.set(\"card_province\", jsonBody.CreditCards[0].ProvinceCode);",
-                  "*/"
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -13533,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "f261a3f7-4ff0-4b4b-b04b-91ed29ddecf1",
+      "id": "501fa62f-5004-4f66-b7bd-409433bc2e6b",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "b228cd03-6fe9-4769-9bd8-6c851bb303ea",
+      "id": "e97df20b-914d-4fef-b121-436ce7da3c7d",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "d6731968-e0d6-4f25-b069-04764d8fd66e",
+      "id": "d61dd935-20b2-482d-a591-1f68234a0d33",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "636d94e0-a9a5-432d-97a8-38a1e9fda322",
+      "id": "38775a1e-cb8e-4c43-aedb-e09c6de7abae",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d84eb7e0-7f76-48d4-a43a-5e3479d3c6e1",
+      "id": "b6e5b02d-77f8-4c39-a388-154a797dc287",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0a455581-c3f3-49de-b76d-18d7197f0f15",
+      "id": "d0c74df8-ab6e-4189-bbf0-94f28c0e0fc5",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "6bbbd692-bc3f-43ea-855c-c456e3ed4869",
+      "id": "006c3c34-d08b-4608-bb1b-2602dab6be46",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "02361497-b7f8-443b-9937-7e80bb6599e3",
+      "id": "9ba70a32-1c46-4a48-8ff2-20f17b93ecf0",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "0b37082d-448c-49a2-9756-5819dafffa95",
+      "id": "05bdf204-c9db-4d2d-9f16-2e75354367ce",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "3513cd90-f7c3-440b-b11c-fa6eb57a2554",
+      "id": "ae799847-6937-4824-a714-6602c3b541ab",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
