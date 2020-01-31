@@ -6389,31 +6389,20 @@
                   "if (pm.environment.get(\"cineplex_url\").has(\"stage\")) {",
                   "    console.log(\"We are runing on Staging environment!\");",
                   "    tests[\"Status code is 404\"] = responseCode.code === 404;",
-                  "} else if(pm.environment.get(\"cineplex_url\").has(\"uat\")){",
-                  "    console.log(\"We are runing on UAT environment!\");",
-                  "    tests[\"Status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "    pm.test(\"Response pin is not null\", function(){",
-                  "        //pm.expect(jsonBody.pin).to.be.null;",
-                  "        //pm.expect(jsonBody.pin.length).to.be.above(0);",
-                  "        pm.environment.set(\"promo_pin\", jsonBody.pin);",
-                  "    });",
                   "} else {",
-                  "    console.log(\"We are runing on PROD environment!\");",
+                  "    console.log(\"We are not runing on Staging environment!\");",
                   "    tests[\"Status code is 200\"] = responseCode.code === 200;",
                   "    ",
                   "    pm.test(\"Response is enrolled\", function(){",
-                  "        pm.expect(jsonBody.isEnrolled).to.be.true;",
+                  "        pm.expect(jsonBody.isEnrolled).not.to.be.undefined;",
                   "    });",
                   "    ",
-                  "    pm.test(\"Response consent is not null\", function(){",
-                  "        pm.expect(jsonBody.isConsented).to.not.be.null;",
-                  "        pm.expect(jsonBody.isConsented.length).to.be.above(0);",
+                  "    pm.test(\"Response consent is defined\", function(){",
+                  "        pm.expect(jsonBody.isConsented).not.to.be.undefined;",
                   "    });",
                   "    ",
                   "    pm.test(\"Response pin is not null\", function(){",
-                  "        //pm.expect(jsonBody.pin).to.be.null;",
-                  "        //pm.expect(jsonBody.pin.length).to.be.above(0);",
+                  "        pm.expect(jsonBody.pin).not.to.be.undefined;",
                   "        pm.environment.set(\"promo_pin\", jsonBody.pin);",
                   "    });",
                   "    ",
@@ -6421,7 +6410,6 @@
                   "       pm.expect(jsonBody.promotion.name).to.equal(pm.environment.get(\"promo_name\")); ",
                   "    });",
                   "}",
-                  "",
                   "//User Story 37191: Add flag to the AffiliatePromo Pin API that user has final pin"
                 ],
                 "type": "text/javascript"
@@ -13502,61 +13490,61 @@
   ],
   "variable": [
     {
-      "id": "1119fc55-7e3f-4127-8cc7-32d7da6caeee",
+      "id": "b896b2a2-bc14-40f0-bdbb-b43db4dede62",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "d139dec0-99fb-4c6f-8b61-5fe71484bd55",
+      "id": "ed8f40fb-b44b-4b67-be1b-26a9acdde8d6",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "3cb6dd1e-f2b9-40ff-8b83-b9cf6aa293b8",
+      "id": "89096918-00f2-4b09-a1f5-9a053cd86daa",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "33ed1bb2-e661-40ed-88ec-5ae1a03a51a6",
+      "id": "0c5e203c-68e5-4555-a893-ca9eed771539",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "b69a467f-d08b-4e81-8fe9-569ed6857ad9",
+      "id": "4703100a-9325-49ac-9dce-bf08948d999b",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "81b7596e-40df-4659-a0d4-7b5ee09d53ed",
+      "id": "2f7d9d7a-238e-4255-84c7-f610be0f51b5",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "c30a06aa-fb31-4394-8d94-7e98d5ae5a74",
+      "id": "2ce24be1-9e8c-4b23-98fd-9853ea2cd6dd",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "0969c390-eebb-46c8-9018-aa278f55c50b",
+      "id": "6cc85a65-41c4-4533-af08-f7b81aeb75f6",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "80a0a126-0e1c-45f0-a057-4213953d9096",
+      "id": "c30122d6-ec36-40d5-946b-d9ee28efbfe8",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "efb41a99-db91-4946-9f7c-7e6ff20d9116",
+      "id": "4b23993a-35c9-4526-82fa-0a535e6caa62",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
