@@ -1299,15 +1299,15 @@
                   "var jsonBody = pm.response.json();",
                   "",
                   "pm.test(\"Fetch product full details successfully\", function(){",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
+                  "    pm.expect(jsonBody.Status).to.be.above(0);",
                   "});",
                   "",
                   "pm.test(\"Content-Type is present\", function(){",
                   "    pm.response.to.have.header(\"Content-Type\");",
                   "});",
                   "",
-                  "pm.test(\"Body matches string\", function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully\");",
+                  "pm.test(\"Message details is defined\", function(){",
+                  "    pm.expect(jsonBody.MessageDetails).not.to.be.undefined;",
                   "});",
                   "",
                   "pm.test(\"Set Pricing Plan if exists\", function(){",
@@ -1317,10 +1317,8 @@
                   "    }",
                   "});",
                   "",
-                  "var metaCriticRating = jsonBody.MetacriticData.MetaCriticRating;",
-                  "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
-                  "pm.test(\"Meta Critic Data available, Meta Critic Rating: \"+ metaCriticRating + \" Meta Critic Url: \"+\" \"+ metaCriticUrl ,function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
+                  "pm.test(\"Meta critic data is defined\", function(){",
+                  "    pm.expect(jsonBody.MetacriticData).not.to.be.undefined;",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -13484,61 +13482,61 @@
   ],
   "variable": [
     {
-      "id": "44a9e562-1b97-4e61-8750-e04beb03c5b9",
+      "id": "f8e35306-c6d9-4528-b183-bbcd3d67c474",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "4edf65c1-10d6-4af7-8dfa-d431d8a4737d",
+      "id": "e2d5639e-8377-414e-87e2-9880df886ac5",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7573f864-70e0-40db-b55f-92134b9b3e48",
+      "id": "a17e7e73-6bfa-4d47-957d-8e72e7bd9825",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7c01005e-3006-4eaf-aafe-bc4516985ef7",
+      "id": "24e9b13c-f18c-42d7-b42d-365e685f409b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "4ed606f5-1039-454f-a6f1-10c5d3c75fc3",
+      "id": "16806e7e-a9ab-46a8-a0a9-08de8b1a7cd1",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "2446822f-2d98-4b4c-8798-dcfbcc91ec6a",
+      "id": "31df453e-d650-457f-8645-5e34274e199a",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "302eebff-7778-4808-b6b3-bc3bf29f9232",
+      "id": "4d8116ff-a612-46d0-a349-372ac2c3c2ff",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "2a3bdad9-32a6-4a1f-905d-1bea77c573ab",
+      "id": "702fa352-41c1-4b20-b17c-340323893268",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "4497f970-7ac6-475a-8539-eea7d829cdb1",
+      "id": "1118bc1a-e8f8-41b9-95da-0e392f20f924",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "6305e186-1a19-4cbb-8cfc-6c106318e9e2",
+      "id": "85e7e81e-4a48-4eac-8080-3a9fdd8a262c",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
