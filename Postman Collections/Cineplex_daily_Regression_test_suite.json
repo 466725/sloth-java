@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "b2ad3dcf-158f-4061-9175-9363cbcc14d3",
+      "id": "8c20ff4d-8119-417d-be5c-56da7115bc99",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "5d985a9d-0f0c-421a-b852-267853265136",
+      "id": "886a0ce0-55dc-427e-b305-35d8fa7b3f1a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "2b7aa6a2-56c8-431a-b3f9-6f15dcbf175e",
+      "id": "d19342d7-afba-4aff-826b-a1fe4cb9d9c2",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "fce0b151-e484-484c-8155-2dcc66692d7f",
+      "id": "21dc7c98-8929-4f59-a3e6-c9fddf287cba",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "a1c2c0b1-2c68-45d4-8ba6-18b7a06c4817",
+      "id": "8afe17ca-495a-4be7-b8d7-98362a4f408a",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "24ed1e78-d81f-4da0-b8fc-8882ace63a29",
+      "id": "f2048ac3-0e0c-4508-bc17-2f5818da7762",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "343d9506-58e4-4e2a-8ce3-a659bd27ae4a",
+      "id": "ad397141-d356-4e65-a206-8ad099e10864",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "9425a72f-4eab-4336-832f-00976dc101f7",
+      "id": "8e611e55-7dd4-4aea-ad9f-7082504f4ef0",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "05f567ed-8c6f-4f87-80c6-a81fd84aae7e",
+      "id": "2cb4d2f8-ee60-4aab-ae64-3f8011d5f8f1",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "b5bef561-cd13-4cef-9620-51baaf7bbce5",
+      "id": "abbd6fcf-0a8e-49e6-9f1a-41350ad7d985",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
