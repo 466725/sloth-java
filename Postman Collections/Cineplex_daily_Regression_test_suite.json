@@ -698,7 +698,7 @@
                       "});",
                       "",
                       "var productID = jsonBody.Item.ProductId;",
-                      "pm.environment.set(\"product_id\", productID);"
+                      "pm.environment.set(\"product_Id\", productID);"
                     ],
                     "type": "text/javascript"
                   }
@@ -879,7 +879,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"ApplicationRequest\":\n\t{\n\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\"\n\t},\n\t\"ProductId\":{{product_id}},\n\t\"LanguageType\":1,\n\t\"SessionQuery\":\n\t{\n\t\t\"SessionInfo\":\n\t\t{\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"CineplexConnectId\":\"{{user_profile_guid}}\",\n\t\t\t\"FirstName\":\"{{first_name}}\",\n\t\t\t\"LastName\":\"{{last_name}}\"\n\t\t}\n\t},\n\t\"RedemptionCodes\":[\"{{redemption_code}}\"]\n}"
+                  "raw": "{\n\t\"ApplicationRequest\":\n\t{\n\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\"\n\t},\n\t\"ProductId\":{{product_Id}},\n\t\"LanguageType\":1,\n\t\"SessionQuery\":\n\t{\n\t\t\"SessionInfo\":\n\t\t{\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"CineplexConnectId\":\"{{user_profile_guid}}\",\n\t\t\t\"FirstName\":\"{{first_name}}\",\n\t\t\t\"LastName\":\"{{last_name}}\"\n\t\t}\n\t},\n\t\"RedemptionCodes\":[\"{{redemption_code}}\"]\n}"
                 },
                 "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
               },
@@ -1141,7 +1141,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_id}}\r\n\t}]\r\n}"
+                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_Id}}\r\n\t}]\r\n}"
                 },
                 "url": "{{store_url}}/CSWebConnect/GetMovies"
               },
@@ -1414,7 +1414,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
           },
@@ -1452,7 +1452,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_id}}\"\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"BaseClientUrl\":\"\",\n\t\t\"ClientIP4Address\":\"\",\n\t\t\"PlatformId\":\"\",\n\t\t\"UserAgent\":\"{{$randomUserAgent}}\"\n\t},\n\t\"Language\":\"en-CA\",\n\t\"Is4KSupported\":\"true\",\n\t\"ProductId\":\"{{product_Id}}\"\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetProductFullDetails"
           },
@@ -1560,7 +1560,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
+              "raw": "{\n\t\"ClientUserRequest\":{\n\t\t\"PlatformId\":\"samsung-tizen\",\n\t\t\"LanguageType\":1,\n\t\t\"SessionInfo\":{\n\t\t\t\"CineplexConnectId\":\"{{connect_id_1}}\",\n\t\t\t\"Email\":\"{{username}}\",\n\t\t\t\"Login\":\"{{username}}\",\n\t\t\t\"SessionId\":\"{{session_id}}\",\n\t\t\t\"CineplexTokenExpiry\":\"{{token_expiry}}\",\n\t\t\t\"SessionToken\":\"{{session_token_1}}\",\n\t\t\t\"UserSessionToken\":\"{{session_token_2}}\",\n\t\t\t\"UserProfileGuid\":\"{{user_profile_guid}}\",\n\t\t\t\"UserProfileId\":\"{{user_profile_id}}\"\n\t\t}\n\t},\n\t\"LanguageType\":1,\n\t\"PricingPlanId\":\"{{pricing_plan_id}}\",\n\t\"ProductId\":\"{{product_Id}}\",\n\t\"PayWithSceneCard\":false,\n\t\"PayWithPayPal\":false,\n\t\"PromoCode\":\"\",\n\t\"PayWithGiftCard\":false,\n\t\"SelectedGiftCard\":{}\n}"
             },
             "url": "{{store_url}}/CSWebConnectV2/GetCheckoutDetails"
           },
@@ -13423,61 +13423,61 @@
   ],
   "variable": [
     {
-      "id": "77161b90-e74d-4482-b6a8-b52cf6408d7e",
+      "id": "66832525-d66c-4111-b2cd-d7ddbdbdf2bb",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "5891a234-9ab0-48fe-9f4c-9ece9914efac",
+      "id": "c6c83a1d-9a6d-4a49-b8a1-7f2a79d0944c",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "cda1763a-ca91-4f58-93db-b06e73b083fe",
+      "id": "9abdcb1e-f250-4bb9-84b2-5d483ca0381c",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "22fedd9d-c516-41ef-b71f-5c2492cfc548",
+      "id": "2cbd09bb-ada9-479f-b67e-93e499dc7172",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c0d483d6-c3f0-4b68-a445-3f235b3e33d4",
+      "id": "ddc9ea69-2d23-446c-bfce-1494d3949509",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "6340b862-707c-47f0-af1f-26207024b0b2",
+      "id": "de264e5b-e4cf-4d1f-9ad7-94cb971fcf8e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "0e05861a-e44e-4e8e-bfb8-2c6830402f92",
+      "id": "bb1e193b-4af3-4f0a-be3d-3ac840bd89ee",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "5f8b5471-c59a-4f87-97bf-3188018d7cde",
+      "id": "aaff14f9-a3e7-40f9-8f55-5f45e10ae070",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "752588f2-88ed-4f62-af40-2b3a6fecea7c",
+      "id": "73783493-ac4b-4f61-a4ae-120b7d79f3ef",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c8ff54f6-1d99-454b-855c-5df849299e56",
+      "id": "46608f3c-a0e8-4c25-92ff-fb6a26dd1c84",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
