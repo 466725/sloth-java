@@ -1491,26 +1491,7 @@
               "script": {
                 "id": "14c66a30-77ce-4b31-bd10-79bb85591865",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"Body matches string\", function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"ProductFullDetails retrieved successfully.\");",
-                  "});",
-                  "",
-                  "pm.test(\"Verify Response status\", function(){",
-                  "    pm.expect(jsonBody.Status).to.eql(1);",
-                  "});",
-                  "",
-                  "var metaCriticRating= jsonBody.MetacriticData.MetaCriticRating;",
-                  "var metaCriticUrl = jsonBody.MetacriticData.MetaCriticUrl;",
-                  "pm.test(\"Meta Critic Data available, Meta Critic Rating: \" + metaCriticRating + \" Meta Critic Url: \" + metaCriticUrl, function(){",
-                  "    pm.expect(pm.response.text()).to.include(\"MetacriticData\");",
-                  "});",
-                  "",
-                  "//User Story 41189: Support 4K and Harmonized Pricing",
-                  "pm.test(\"PricingPlanType exists\", function(){",
-                  "    pm.expect(jsonBody.EntitledPricingPlan.PricingPlanType).to.not.be.undefined;    ",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -13512,61 +13493,61 @@
   ],
   "variable": [
     {
-      "id": "40c6f582-bbe4-494a-970e-253c85e649c7",
+      "id": "df47fb25-3b93-4daa-863f-2ca239b1984c",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "c3e413dc-eb7e-4038-b2b6-c6fe8fc119ea",
+      "id": "f8b1fea2-de0d-4a1d-993d-03e8f648e42b",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "7b8b8546-4073-4a0b-bf36-691e65050699",
+      "id": "d90f961f-b94f-41bf-ab60-afbf78a698f8",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "ae4cae94-9cb6-453a-8784-6c0919ac978e",
+      "id": "851d29f6-6f13-48ef-9768-2e03e2455b4b",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "d56e5a8c-8bb8-4364-9313-ae02ddeee013",
+      "id": "05ba42c2-f889-48db-8ba4-92502b15670f",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "5aeb884b-8416-4802-bb33-b375d03b89bc",
+      "id": "625600db-218c-473a-a140-d262a474c8fc",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "b4b8ec61-a0e2-4131-a466-64936579b286",
+      "id": "5948ca09-b5a0-491d-ac11-4d50f0940d75",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d92d3f2d-6f80-4d5a-9e62-a70e8d06cdc4",
+      "id": "d62a5b24-f465-47db-8710-fe0b9571dd07",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a582ae62-71cb-4aaa-b6ae-a90338f92279",
+      "id": "c6c52a7d-d107-4cd7-afd2-13d366784867",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "55e71d73-2fe8-4336-bab8-1fdbcbdeb688",
+      "id": "76ac4a4d-2a35-4240-9ff9-e164e1fbbe38",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
