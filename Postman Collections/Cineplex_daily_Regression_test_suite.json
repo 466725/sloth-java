@@ -1868,7 +1868,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -1913,7 +1913,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -1978,7 +1978,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2027,7 +2027,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2176,7 +2176,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2243,7 +2243,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2384,7 +2384,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2464,7 +2464,7 @@
                   "",
                   "console.log(\"Response size is: \" + pm.response.responseSize);",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2539,7 +2539,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2644,7 +2644,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -2732,7 +2732,7 @@
                   "\t\tpm.response.to.have.status(400);",
                   "\t});",
                   "} else {",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
+                  "\tpm.test(\"Result status is correct\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -2935,7 +2935,7 @@
                   "\t});",
                   "} else {",
                   "",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
+                  "\tpm.test(\"Result status is correct\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -3010,7 +3010,7 @@
                   "\t});",
                   "} else {",
                   "",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
+                  "\tpm.test(\"Result status is correct\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -3515,7 +3515,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3689,7 +3689,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3752,7 +3752,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3812,7 +3812,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3874,7 +3874,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -3958,7 +3958,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4154,7 +4154,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4258,7 +4258,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -4334,7 +4334,7 @@
                   "\t\tpm.response.to.have.status(404);",
                   "\t});",
                   "} else {",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
+                  "\tpm.test(\"Result status is correct\", function(){",
                   "\t\tpm.expect(jsonBody.status).to.be.above(0);",
                   "\t});",
                   "",
@@ -4442,20 +4442,7 @@
               "script": {
                 "id": "59043619-f832-4ed7-a9eb-763a687c9b37",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -4526,20 +4513,7 @@
               "script": {
                 "id": "4fc29faa-d7b1-4958-82f2-92d58de81c34",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -4625,27 +4599,13 @@
                   "var jsonBody = pm.response.json();",
                   "var showtimes = jsonBody.data[0].showtimes;",
                   "",
-                  "pm.test(\"Result status is correct\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});",
-                  "",
                   "pm.test(\"Set Showtimes\", function() {",
                   "    if (showtimes.length > 0) {",
                   "        pm.environment.set(\"vista_session_id\", jsonBody.data[0].showtimes[0].vistaSessionId);",
                   "    } else {",
                   "        //use initial value",
                   "    }",
-                  "});",
-                  ""
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -4725,20 +4685,7 @@
               "script": {
                 "id": "2e5132e9-7164-49dc-b743-ce3275613d81",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -4802,24 +4749,7 @@
               "script": {
                 "id": "fbed6692-60d5-423d-bbe1-1fdbf8fa66f3",
                 "exec": [
-                  "var jsonBody = pm.response.json();",
-                  "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
-                  "    pm.expect(jsonBody.status).to.be.above(0);",
-                  "});",
-                  "",
-                  "pm.test(\"jsonBody.message is not undefined\", function(){",
-                  "    pm.expect(jsonBody.message).to.not.be.undefined;",
-                  "});",
-                  "",
-                  "pm.test(\"Showtime has imageString\", function(){",
-                  "    pm.expect(jsonBody.data.imageString).to.not.be.null; ",
-                  "});",
-                  "",
-                  "//User Story 33807: Create Versioning in Cineplex.com",
-                  "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
-                  "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -4880,7 +4810,22 @@
             "id": "8ab04a3a-c5be-4415-a1e5-ab75d0b5d19e",
             "type": "text/javascript",
             "exec": [
-              "pm.test(\"Response is successful\", pm.response.to.be.success);"
+              "var jsonBody = pm.response.json();",
+              "",
+              "pm.test(\"Response is successful\", pm.response.to.be.success);",
+              "",
+              "pm.test(\"Result status is correct\", function () {",
+              "    pm.expect(jsonBody.status).not.to.be.undefined;",
+              "});",
+              "",
+              "pm.test(\"jsonBody.message is not undefined\", function(){",
+              "    pm.expect(jsonBody.message).to.not.be.undefined;",
+              "});",
+              "",
+              "//User Story 33807: Create Versioning in Cineplex.com",
+              "pm.test(\"Response json body has correct apiVersionNumber according to api_version\", function(){",
+              "    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+              "});"
             ]
           }
         }
@@ -4940,7 +4885,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5008,7 +4953,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5074,7 +5019,7 @@
                   "",
                   "console.log(\"Response size is: \" + pm.response.responseSize);",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5206,7 +5151,7 @@
                 "exec": [
                   "var jsonBody = pm.response.json();",
                   "",
-                  "pm.test(\"jsonBody.status is above zero\", function(){",
+                  "pm.test(\"Result status is correct\", function(){",
                   "    pm.expect(jsonBody.status).to.be.above(0);",
                   "});",
                   "",
@@ -5284,7 +5229,7 @@
                   "\t});",
                   "} else {",
                   "",
-                  "\tpm.test(\"jsonBody.status is above zero\", function(){",
+                  "\tpm.test(\"Result status is correct\", function(){",
                   "\t\tpm.expect(jsonBody.status).eql(1);",
                   "\t});",
                   "",
@@ -13604,61 +13549,61 @@
   ],
   "variable": [
     {
-      "id": "4a7e1db9-857f-463b-b9fc-7ccd77c8b7b6",
+      "id": "ad44a47b-93c2-48c5-af58-5bafa98b3a48",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "7124e619-27a0-4668-975f-cb14b037099c",
+      "id": "7bb3a658-0bce-4db8-b4af-a29ffc357975",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "11933a73-8a6a-4baf-a5d8-153e0587caba",
+      "id": "c0c06bb2-42cf-4ce1-b7fc-f277d10b358e",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "489a0560-5e42-494d-96e7-e01004f27db6",
+      "id": "601ace0b-1b44-43c6-a5f9-6d7a32b0887f",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "bbd30fb6-066f-45c8-b20c-914951aa76c7",
+      "id": "60aa3b03-6ad8-4c70-bcd9-e2ac73df7f68",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a8252ea9-764f-4e3b-bb81-af509f6ff7e3",
+      "id": "1fd7b47d-63ba-4202-a20b-d508e6b22d62",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f5028e82-b37a-4c06-9fa5-b9a0584ab75b",
+      "id": "76ee242e-6d9b-4a3b-a316-af53419b352c",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "1f25bf2f-5f93-45df-8070-eaea1806e7c6",
+      "id": "f7f3c99f-a6e2-4e7c-9608-7e70861b8c59",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d802bcf7-7782-45e1-b8f8-2584674d605f",
+      "id": "2350150c-670e-41fd-a135-29fd924eb826",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "327147c8-6f9e-46bc-8aef-6ac463f64286",
+      "id": "d866c893-291a-4c26-b8b5-4f3938e580ce",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
