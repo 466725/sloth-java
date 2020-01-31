@@ -5347,7 +5347,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "url": "{{cineplex_affiliate_url}}/v1/GetCurrentPromotions"
@@ -5389,7 +5389,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5605,7 +5605,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5697,7 +5697,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6094,7 +6094,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6360,7 +6360,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscriptionKey}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -13513,61 +13513,61 @@
   ],
   "variable": [
     {
-      "id": "6f47a042-cfe1-44f3-a7a3-2dc6af99c27c",
+      "id": "04400f46-6107-4210-825b-84ab04637fb3",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "345872f3-0b23-4a12-8b39-4248b1c4bfe2",
+      "id": "a1cfe4f8-4f8d-421e-aa2b-905586364fdc",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "8792c6ef-6c10-4473-89b1-a7bec0728f0b",
+      "id": "b191b481-3902-473a-a218-ceedff6ece72",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "b05c7e12-f74e-4a30-a9a1-02918b637f0a",
+      "id": "63bf2d6c-dae7-492f-8864-dbfd328473cf",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "afa7831d-31b1-4c41-ab5d-d78a4a4bd976",
+      "id": "080ac770-7fb0-4f92-ade7-067ac51e252e",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "156b0967-4f05-4d98-b220-4e124b8236b1",
+      "id": "f42a5eb3-8445-43b6-8df5-e09dfc3ef8b6",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "f7c03ca0-2b0b-456e-b6f9-7db53e7e77c2",
+      "id": "4bf64ba5-34fc-4884-9707-50623eb1b464",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "8a03c504-3b48-48b6-9be8-888d9c9cd22d",
+      "id": "55ccf98d-8963-4fd0-8347-3f8248fb8d0f",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "ad8de70e-7ddc-41b2-90a4-f56d4afb72b8",
+      "id": "7984e6c6-c3e5-494c-a6c7-d44569c630ff",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "43765936-a07f-400a-a0fc-ce896c7d5ba4",
+      "id": "1a4d7773-625f-441d-b47f-8a2bad065e74",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
