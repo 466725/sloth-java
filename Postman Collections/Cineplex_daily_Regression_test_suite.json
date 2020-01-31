@@ -5300,7 +5300,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "url": "{{cineplex_affiliate_url}}/health/status"
@@ -5345,7 +5345,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "url": "{{cineplex_affiliate_url}}/v1/GetCurrentPromotions"
@@ -5387,7 +5387,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5603,7 +5603,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -5651,7 +5651,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5746,7 +5746,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5892,7 +5892,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -5994,7 +5994,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6040,7 +6040,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -6216,7 +6216,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6286,7 +6286,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6355,7 +6355,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6508,7 +6508,7 @@
             "header": [
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               },
               {
                 "key": "Content-Type",
@@ -6620,7 +6620,7 @@
               },
               {
                 "key": "Ocp-Apim-Subscription-Key",
-                "value": "{{subscription_key}}"
+                "value": "{{subscription-key}}"
               }
             ],
             "body": {
@@ -13506,61 +13506,61 @@
   ],
   "variable": [
     {
-      "id": "98bc7ce2-a0b9-4ae4-bbca-3b3f763896f2",
+      "id": "444cdf46-bbbd-4adc-867a-e02f47b1cfe2",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "45aada8b-d305-4c49-b8da-cc10c8fc6eb0",
+      "id": "5b247267-4c0d-42a6-bf5f-342bd1f6c7d0",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "880752fe-ed3d-40bd-b598-da1c94399be1",
+      "id": "02881137-f912-45b1-943d-89e761ba1c64",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "7228a438-d81b-493d-8802-2160e28e1760",
+      "id": "0f95e63e-130b-48ad-abea-4e3423612f36",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "c7900a4e-20d1-49be-b910-5c1d6a90c4ea",
+      "id": "bce7cce7-3044-4ea3-9160-673f454713da",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "71756931-8cec-44e3-9938-556040585f14",
+      "id": "ee25f312-fc97-4efa-96e7-d046ffacaf4e",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "eaec0ce0-5ee2-497e-a78d-a34fda4cc9ab",
+      "id": "13242b20-e04a-4243-bdc2-023d6eb33cd9",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "ff703b50-65e2-43b6-8f77-43c264416cfa",
+      "id": "3634dd7e-1dfe-4f6d-a4e3-a6c5ca8b8a24",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "a64dadd1-2311-4304-8344-34cbe938329e",
+      "id": "8fe2042e-c8b7-47e0-80ca-7b4059f7c20a",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "c7258b2c-3321-4b9c-a209-cc1d646765c2",
+      "id": "de830461-504e-4dcc-962f-abf00df39168",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
