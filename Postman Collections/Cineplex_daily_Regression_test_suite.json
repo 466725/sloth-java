@@ -444,9 +444,9 @@
                   "",
                   "pm.test(\"Set product_id\",function() {",
                   "    if (pm.environment.get(\"connect_url\").has(\"uat\")) {",
-                  "        pm.environment.set(\"product_Id\", 671899);  //hardcode for 4k test",
+                  "        pm.environment.set(\"product_id\", 671899);  //hardcode for 4k test",
                   "    } else {",
-                  "        pm.environment.set(\"product_Id\", jsonBody.Items[4].ProductId);  //pick fourth ID",
+                  "        pm.environment.set(\"product_id\", jsonBody.Items[4].ProductId);  //pick fourth ID",
                   "    }",
                   "});"
                 ],
@@ -917,7 +917,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_Id}}\r\n\t}]\r\n}"
+                  "raw": "{\r\n\t\"MovieIds\":[{\r\n\t\t\"MovieId\":{{product_id}}\r\n\t}]\r\n}"
                 },
                 "url": "{{store_url}}/CSWebConnect/GetMovies"
               },
@@ -13423,61 +13423,61 @@
   ],
   "variable": [
     {
-      "id": "ebdecbfb-8a7f-48c6-802c-b35b5c73fb49",
+      "id": "5f8396cb-bfc5-413b-b100-abec20b85739",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "9fb01cd8-343b-4890-8e8a-13707950d619",
+      "id": "74e880c9-e26e-481d-9b67-0b74e9bb455a",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "f459a2d5-8cf9-4d40-b394-94c56c8adfbb",
+      "id": "7347952d-50dd-4617-871f-8be2b8591a49",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "612b3437-29c1-4e52-a51c-3497703b87f7",
+      "id": "dcabf5fd-06c0-442d-a1ac-32b6d6aed097",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "40b692d0-3734-41e2-8dbe-b372901862cf",
+      "id": "4134b4e6-1595-4b5b-af95-5cb3890b8620",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "e9751506-9d67-4815-9e61-2f0a5b0f2108",
+      "id": "6f07ec51-594d-44a8-a93c-11a8e4e5d5b8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "515c9e38-bbab-4bb0-be2c-d191a7fb75c6",
+      "id": "ca69d276-5999-4a18-93be-45dea98a1883",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "4ca516ad-7bd1-4672-bad0-7fb6d289c79b",
+      "id": "69e71a4c-1b0f-4d80-808d-ec8c9d274c91",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "d648f16a-b837-43fe-b1ec-5439c6b414e0",
+      "id": "f171262e-3e86-455f-9e55-bc5837b841e4",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "d8ff45ea-0019-4dad-8962-55eed095212b",
+      "id": "70a1acf2-9cd6-40cf-9699-2659892473eb",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
