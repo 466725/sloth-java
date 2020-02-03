@@ -12507,10 +12507,10 @@
                   "",
                   "pm.test(\"Set environment values\", function() {",
                   "    if (rentalList.length > 0) {",
-                  "        pm.environment.set(\"csgOrderNumber\", rentalList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csg_order_number\", rentalList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", rentalList[0].RentalOrderInfo.CSGPricingPlanId);",
                   "    } else {",
-                  "        pm.environment.set(\"csgOrderNumber\", purchaseList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csg_order_number\", purchaseList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", purchaseList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
                   "    }",
                   "});",
@@ -12605,7 +12605,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\t\t\t\"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n\t\t\t\"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"OrderId\": \"{{csgOrderNumber}}\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token_1}}\",\n        \"UserSessionToken\": \"{{session_token_2}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
+              "raw": "{\n    \"SessionQuery\": {\n        \"UserProfileId\": \"{{user_profile_id}}\",\n        \"SessionInfo\": {\n            \"SessionId\": \"{{session_id}}\",\n\t\t\t\"Login\": \"{{username}}\",\n            \"Email\": \"{{username}}\",\n\t\t\t\"CineplexConnectId\": \"{{user_profile_guid}}\",\n            \"FirstName\": \"{{first_name}}\",\n            \"LastName\": \"{{last_name}}\",\n            \"Language\": \"en-us\",\n            \"CineplexTokenExpiry\": \"{{token_expiry}}\"\n        },\n        \"IsSSO\": false,\n        \"Language\": \"en-us\"\n    },\n    \"Language\": \"en-us\",\n    \"OrderId\": \"{{csg_order_number}}\",\n    \"ApplicationRequest\": {\n        \"SessionToken\": \"{{session_token_1}}\",\n        \"UserSessionToken\": \"{{session_token_2}}\",\n        \"UserProfileGuid\": \"{{user_profile_guid}}\",\n        \"LanguageType\": 1\n    }\n}"
             },
             "url": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/StoreGetOrderDetail"
           },
@@ -13426,61 +13426,61 @@
   ],
   "variable": [
     {
-      "id": "bcce95e3-a23e-438b-8ac6-69bb3eb0755f",
+      "id": "d1407f37-41af-48fd-bbda-f1d112a2b45e",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "0a4d6d67-1150-4242-870e-9a00644803b3",
+      "id": "cf7da703-9996-4e95-bc00-bc1af754e272",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "346fe187-ea85-4ac2-9605-12c8cc28b7d8",
+      "id": "f5e20509-93a6-4dc7-9c26-047806928540",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "336524ad-3145-4e96-96be-33b8a3a618eb",
+      "id": "cb19d1f2-8a2c-4939-a8d1-1216a1cf9e5c",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "24b39266-72ae-41ac-b350-313938b4c68f",
+      "id": "5bdc5855-e97e-45bc-9bd1-76d4f949e290",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "a973adfc-f6de-4e75-b1ee-c7648947bb85",
+      "id": "0fb0d051-b601-4f55-a5d4-c63b89f67ff8",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "d8144914-3058-40a4-a39b-99cd5dde7ddf",
+      "id": "45e832e7-e8e8-484e-9e05-a562c078d332",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "9ae29892-af90-4220-8ed5-f47b4b69b305",
+      "id": "6221935c-0ab2-43fb-af2e-4d7ef8bc479d",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8ac1d94d-bd57-45d6-b18c-13c35d6ae412",
+      "id": "2cb914bf-6a13-4dba-bdc1-ab981fbdc035",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "3dd647e5-0f9a-4a4b-8de9-59fbcdc76ec4",
+      "id": "613c9b64-34fb-4e70-bedd-04abe329fd6f",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
