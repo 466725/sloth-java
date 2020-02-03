@@ -12501,11 +12501,11 @@
                   "var rentalList = jsonBody.StoreOrderResult.OrderData.RentalOrderList;",
                   "var purchaseList = jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList;",
                   "",
-                  "pm.test(\"Checking if OrderDetails exist\", function(){ //Fails if both are 0; which means there is a configuration issue",
+                  "pm.test(\"Checking if order data empty\", function(){ //Fails if both are 0; which means there is a configuration issue",
                   "    pm.expect(purchaseList.length + rentalList.length).to.be.above(0);",
                   "});",
                   "",
-                  "pm.test(\"Checking if OrderDetails exist\", function() {",
+                  "pm.test(\"Set environment values\", function() {",
                   "    if (rentalList.length > 0) {",
                   "        pm.environment.set(\"csgOrderNumber\", rentalList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", rentalList[0].RentalOrderInfo.CSGPricingPlanId);",
@@ -13426,61 +13426,61 @@
   ],
   "variable": [
     {
-      "id": "eab60fc6-292a-406c-8ce2-14ae76c89fdd",
+      "id": "bcce95e3-a23e-438b-8ac6-69bb3eb0755f",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "9ce0b452-27da-4f4b-8ca7-be1720fc861f",
+      "id": "0a4d6d67-1150-4242-870e-9a00644803b3",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "09514c93-2dbd-435b-a1ee-161a3c0fa785",
+      "id": "346fe187-ea85-4ac2-9605-12c8cc28b7d8",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "74c4fda9-5123-47a1-89a5-0feab5eae348",
+      "id": "336524ad-3145-4e96-96be-33b8a3a618eb",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "5cccfd53-f93d-4808-941d-5d399586986a",
+      "id": "24b39266-72ae-41ac-b350-313938b4c68f",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "ca1ff3fe-4ffe-487e-8ada-94cc506bf868",
+      "id": "a973adfc-f6de-4e75-b1ee-c7648947bb85",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "8fa5b22e-a969-4ac2-a6ee-a10bd7573f85",
+      "id": "d8144914-3058-40a4-a39b-99cd5dde7ddf",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "966bb104-4c3a-4e5a-86aa-0f2569184ada",
+      "id": "9ae29892-af90-4220-8ed5-f47b4b69b305",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "f5ea8b03-16fd-4802-ba3f-bc6daff0b06b",
+      "id": "8ac1d94d-bd57-45d6-b18c-13c35d6ae412",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "7b9dd590-dfca-48eb-a407-babdb48177f3",
+      "id": "3dd647e5-0f9a-4a4b-8de9-59fbcdc76ec4",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
