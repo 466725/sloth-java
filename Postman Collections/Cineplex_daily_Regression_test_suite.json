@@ -12498,20 +12498,20 @@
                 "id": "d490c769-b9c5-4725-b50f-750cf82a3cfb",
                 "exec": [
                   "var jsonBody = pm.response.json();",
-                  "var digitalPurchaseOrderList = jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList;",
-                  "var rentalPurchaseOrderList = jsonBody.StoreOrderResult.OrderData.RentalOrderList;",
+                  "var purchaseList = jsonBody.StoreOrderResult.OrderData.DigitalPurchaseOrderList;",
+                  "var rentalList = jsonBody.StoreOrderResult.OrderData.RentalOrderList;",
                   "",
                   "pm.test(\"Checking if OrderDetails exist\", function(){ //Fails if both are 0; which means there is a configuration issue",
-                  "    pm.expect(digitalPurchaseOrderList.length + rentalPurchaseOrderList.length).to.be.above(0);",
+                  "    pm.expect(purchaseList.length + rentalList.length).to.be.above(0);",
                   "});",
                   "",
                   "pm.test(\"Checking if OrderDetails exist\", function() {",
-                  "    if ((digitalPurchaseOrderList.length === 0) || (rentalPurchaseOrderList.length > 0)) {",
-                  "        pm.environment.set(\"csgOrderNumber\", rentalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
-                  "        pm.environment.set(\"csgPricingPlanId\", rentalPurchaseOrderList[0].RentalOrderInfo.CSGPricingPlanId);",
+                  "    if (rentalList.length > 0) {",
+                  "        pm.environment.set(\"csgOrderNumber\", rentalList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csgPricingPlanId\", rentalList[0].RentalOrderInfo.CSGPricingPlanId);",
                   "    } else {",
-                  "        pm.environment.set(\"csgOrderNumber\", digitalPurchaseOrderList[0].OrderDetail.CSGOrderId);",
-                  "        pm.environment.set(\"csgPricingPlanId\", digitalPurchaseOrderList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
+                  "        pm.environment.set(\"csgOrderNumber\", purchaseList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csgPricingPlanId\", purchaseList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
                   "    }",
                   "});",
                   ""
@@ -13426,61 +13426,61 @@
   ],
   "variable": [
     {
-      "id": "2385abb8-d072-4e46-b208-0b3619be8981",
+      "id": "2bd1008f-cb80-4cce-9579-4092f2c03bcc",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "156eab55-cc07-453e-86c9-4b6d39bb7e4c",
+      "id": "8050683c-fb6f-4426-8025-66eb53420292",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "94b5d991-1621-4941-8c2b-ad5c32005222",
+      "id": "3f10447c-f827-4984-ac00-905e9eba0b2d",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "83577134-cdc0-4c57-9995-c848fc417c30",
+      "id": "0971da8f-bff8-43e4-b07d-fdaa9479f9cd",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "de985148-665f-4532-b624-750ac024b5cf",
+      "id": "eb7a524c-adfa-4985-8c51-c9c21d2c12d0",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "0de2eb82-ff59-4b37-a9b6-e754b4d475ae",
+      "id": "3222f8f3-7b20-47ba-8d09-07b63fcf4aaf",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "b86dacf8-2476-4adc-ac64-8ed3e9b55089",
+      "id": "c89f4ffe-63c2-481f-8819-061629c39c2f",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d86904e1-dad3-4b42-af75-d3de9969c2cf",
+      "id": "dd854505-3fd3-4cd2-82c7-cd4c232d9289",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "9b423b17-86e3-41f6-87b1-b0766662768f",
+      "id": "b8a51385-54fe-445b-8e7b-633880fd033d",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "8b826bb7-9d67-47ae-87db-2c11eb0d9261",
+      "id": "fca0bee1-ffc9-4a5c-8d7d-cc2d217c3517",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
