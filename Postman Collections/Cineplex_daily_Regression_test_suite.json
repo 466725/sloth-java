@@ -12507,10 +12507,10 @@
                   "",
                   "pm.test(\"Set environment values\", function() {",
                   "    if (rentalList.length > 0) {",
-                  "        pm.environment.set(\"csgOrderNumber\", rentalList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csg_order_number\", rentalList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", rentalList[0].RentalOrderInfo.CSGPricingPlanId);",
                   "    } else {",
-                  "        pm.environment.set(\"csgOrderNumber\", purchaseList[0].OrderDetail.CSGOrderId);",
+                  "        pm.environment.set(\"csg_order_number\", purchaseList[0].OrderDetail.CSGOrderId);",
                   "        pm.environment.set(\"csgPricingPlanId\", purchaseList[0].DigitalPurchaseOrderInfo.CSGPricingPlanId);",
                   "    }",
                   "});",
@@ -13426,61 +13426,61 @@
   ],
   "variable": [
     {
-      "id": "dabda2dd-ae6b-4b62-aefb-4cac1b631292",
+      "id": "9403ccb6-1987-4e9a-97aa-3d257050599f",
       "key": "max_response_time",
       "value": "30000",
       "type": "string"
     },
     {
-      "id": "756b8d6e-81dd-4556-a151-e93e84168ec5",
+      "id": "100c09e0-1cc6-45fb-b8b9-d541feecc5e5",
       "key": "language_default",
       "value": "fr-ca",
       "type": "string"
     },
     {
-      "id": "4aad7982-ac45-4a4e-a3ae-2d04c271f290",
+      "id": "fe874d06-83eb-4a18-9ea7-00ce1ceffd9f",
       "key": "language",
       "value": "en-us",
       "type": "string"
     },
     {
-      "id": "28f7df81-66b6-4744-9216-2ce3a14f3b66",
+      "id": "de9904d1-1a3b-4d5a-bcef-ab35bf594a8d",
       "key": "username",
       "value": "uatapitester@gmail.com",
       "type": "string"
     },
     {
-      "id": "5238da7d-954f-4c80-b64a-393fb729cd27",
+      "id": "ecb019a4-e1f7-4ab7-99ae-54168fc2da56",
       "key": "password",
       "value": "Glass7",
       "type": "string"
     },
     {
-      "id": "52a32a86-1102-41a9-9ef2-80e6170cd70c",
+      "id": "bb256cbe-e1d3-4e29-a38d-43bb7c1ede27",
       "key": "ocp-apim-subscription-key",
       "value": "258d786c688d4aa69fff2edbc36fdfdc",
       "type": "string"
     },
     {
-      "id": "cce681ba-d694-4adc-aaae-4caddb823a36",
+      "id": "8796c6d5-217a-40b7-b081-ed0a21bd4279",
       "key": "latitude",
       "value": "45.4934",
       "type": "string"
     },
     {
-      "id": "d9078351-2004-445e-b69f-a46b55851275",
+      "id": "bb333a1f-eb4e-4dfa-b732-49e4fcbb108b",
       "key": "longitude",
       "value": "-73.5582",
       "type": "string"
     },
     {
-      "id": "8d16f308-a564-47bd-bf3b-a0d52bb29775",
+      "id": "d6dfd160-8f87-40f9-ae34-f1f08a02fed3",
       "key": "radius",
       "value": "50",
       "type": "string"
     },
     {
-      "id": "f9eb61f7-a068-462b-9e12-929aef632c5d",
+      "id": "9c19911b-a749-4858-9ff4-d79c253f9b78",
       "key": "ConnectPin",
       "value": "1234",
       "type": "string"
