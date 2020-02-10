@@ -1,0 +1,42 @@
+let _start_ = ago(1d);
+let _end_ = now();
+let timeGrain = time(1h);
+requests     
+| where url endswith ".css" or url endswith ".js"
+//| where not(url endswith ".css") and not(url endswith ".js")
+| where timestamp between(_start_ .. _end_)
+//| count 
+| summarize 
+    requestCount = sum(itemCount)
+    by bin(timestamp, timeGrain)
+| order by timestamp asc
+
+
+
+let _start_ = ago(1d);
+let _end_ = now();
+let timeGrain = 1h;
+let dataset = requests
+| extend diagnosticsParsedUrl = parseurl(url)
+| where timestamp between(_start_ .. _end_)
+| where url endswith ".css" or url endswith ".js" // or url contains "fonts"
+| where operation_SyntheticSource <> "Bot" 
+| where operation_Name !contains "/uat" and operation_Name !contains "/stage"
+| where (
+            (isnotempty(cloud_RoleName) or cloud_RoleInstance != 'HCCWSRV01') 
+        and (isnotempty(cloud_RoleName) or cloud_RoleInstance != 'HCCWWEB01-UAT') 
+        and (isnotempty(cloud_RoleName) or isnotempty(cloud_RoleInstance))
+        )
+//| where resultCode <> "404"
+//| where resultCode == "302"
+//| where client_Type != "Browser"
+| extend DiagnosticsResults = iff(diagnosticsParsedUrl['Scheme'] == 'https', 'secure', 'others')
+| where DiagnosticsResults == "secure"
+;
+dataset
+| summarize avg(duration), sum(itemCount) by DiagnosticsResults, bin(timestamp, timeGrain)
+| order by timestamp asc nulls first
+
+| render timechart
+
+

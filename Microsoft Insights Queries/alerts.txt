@@ -1,0 +1,56 @@
+//let timeRange = 7d;
+//let grain = 10m;
+//let bigWindowTimeRange = 14d;
+let timeRange = 10m;
+let grain = 1m;
+let bigWindowTimeRange = 20m;
+let _startTime = todatetime('2019-12-06T23:40:00Z');
+//let _startTime = now();
+let _filterIsOn = true;
+let existingFailures = requests
+| where timestamp >= (_startTime - bigWindowTimeRange) and timestamp < bin((_startTime - timeRange), grain)
+| where operation_Name in ('*') or '*' in ('*')
+| where name in ('*') or '*' in ('*')
+| where resultCode in ('*') or '*' in ('*') or iff('@' in ('*'), resultCode startswith '5', false) or iff('#' in ('*'), resultCode startswith '4', false)
+| extend Key = strcat(name, '-', resultCode)
+| summarize makeset(Key, 10000)
+;
+let criticalNewFailures = requests
+| where timestamp >= bin((_startTime - timeRange), grain) and timestamp < _startTime
+| where operation_Name in ('*') or '*' in ('*')
+| where name in ('*') or '*' in ('*')
+| extend IncludeInFailures = resultCode in ('*') or '*' in ('*') or iff('@' in ('*'), resultCode startswith '5', false) or iff('#' in ('*'), resultCode startswith '4', false)
+| extend Key = strcat(name, '-', resultCode)
+| summarize NewFailures = countif(success == false and Key !in (existingFailures) and IncludeInFailures), ExistingFailures = countif(success == false and Key in (existingFailures) and IncludeInFailures), All = count() by bin(timestamp, grain)
+| project timestamp, ['New Failure Rate (%)'] = 100.0 * NewFailures / All, ['Existing Failure Rate (%)'] = 100.0 * ExistingFailures / All
+| where _filterIsOn == false or ((['New Failure Rate (%)'] > 1 and ['New Failure Rate (%)'] > (['Existing Failure Rate (%)'] * 2)) or ['Existing Failure Rate (%)'] > 1)
+| project timestamp, ['New Failure Rate (%)'], ['Existing Failure Rate (%)']
+;
+//criticalNewFailures
+let depExistingFailures = dependencies
+| where timestamp >= (_startTime - bigWindowTimeRange) and timestamp < bin((_startTime - timeRange), grain)
+| where operation_Name in ('*') or '*' in ('*')
+| where name in ('*') or '*' in ('*')
+| extend Key = strcat(name, '-', resultCode)
+| summarize makeset(Key, 10000)
+;
+let criticalDepNewFailures = dependencies
+| where timestamp >= bin((_startTime - timeRange), grain) and timestamp < _startTime
+| where operation_Name in ('*') or '*' in ('*')
+| where name in ('*') or '*' in ('*')
+| extend IncludeAsFailure = resultCode in ('*') or '*' in ('*') or iff('@' in ('*'), resultCode startswith '5', false) or iff('#' in ('*'), resultCode startswith '4', false)
+| extend Key = strcat(name, '-', resultCode)
+| summarize NewFailures = countif(success == false and Key !in (depExistingFailures) and IncludeAsFailure), ExistingFailures = countif(success == false and Key in (depExistingFailures) and IncludeAsFailure), All = count() by bin(timestamp, grain)
+| project timestamp, ['New Failure Rate (%)'] = 100.0 * NewFailures / All, ['Existing Failure Rate (%)'] = 100.0 * ExistingFailures / All
+| where _filterIsOn == false or ((['New Failure Rate (%)'] > 1 and ['New Failure Rate (%)'] > (['Existing Failure Rate (%)'] * 2)) or ['Existing Failure Rate (%)'] > 1)
+| project timestamp, ['New Failure Rate (%)'], ['Existing Failure Rate (%)']
+;
+//criticalDepNewFailures
+let _out =
+criticalNewFailures
+| join kind= inner (
+    criticalDepNewFailures
+) on timestamp 
+| project timestamp, ['New Failure Rate (%)'], ['Existing Failure Rate (%)'], ['Dep New Failure Rate (%)'] = ['New Failure Rate (%)1'], ['Dep Existing Failure Rate (%)'] = ['Existing Failure Rate (%)1']
+;
+_out

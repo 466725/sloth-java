@@ -1,0 +1,24 @@
+//let _start_ = datetime("2019-09-18 13:00:00");
+let _start_ = ago(7d);
+let _end_ = now();
+pageViews
+| where timestamp between(_start_ .. _end_)
+| summarize 
+    PageLoadtime = avgif(duration, url contains "www.cineplex.com")
+    by bin(timestamp, 1h)
+| order by timestamp asc
+
+
+//let _start_ = datetime("2019-09-18 13:00:00");
+let _start_ = ago(7d);
+let _end_ = now();
+pageViews
+| where timestamp between(_start_ .. _end_)
+| summarize 
+    HomepageLoadtime = avgif(duration, url == "https://www.cineplex.com/")/1000,
+    ShowtimesLoadtime = avgif(duration, url contains "https://www.cineplex.com/Showtimes")/1000,
+    TheatresLoadtime = avgif(duration, url contains "https://www.cineplex.com/Theatres/TheatreListings")/1000,
+    //MovieLoadtime = avgif(duration, url contains "https://www.cineplex.com/Movie/")/1000,
+    TicketingLoadtime = avgif(duration, url contains "https://onlineticketing.cineplex.com/")/1000
+    by bin(timestamp, 1h)
+| order by timestamp asc
