@@ -1,0 +1,3 @@
+performanceCounters
+| where name startswith "SQL" 
+| order by timestamp desc
