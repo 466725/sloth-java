@@ -705,7 +705,7 @@
 			"name": "Collection Variables",
 			"item": [
 				{
-					"name": "Create session_token_1",
+					"name": "Create session_token",
 					"event": [
 						{
 							"listen": "test",
@@ -1714,37 +1714,37 @@
 	],
 	"variable": [
 		{
-			"id": "b2e08821-bd43-4762-b1ce-8e66bd165605",
+			"id": "81135367-90aa-4743-bd56-589248368d14",
 			"key": "collection_version",
 			"value": "v2",
 			"type": "string"
 		},
 		{
-			"id": "74d4b24f-4d56-43b9-a064-c6825f35f8a3",
+			"id": "1a326f19-df8e-4572-8d51-39df33a068df",
 			"key": "max_response_time",
 			"value": "800",
 			"type": "string"
 		},
 		{
-			"id": "813df117-b8a4-428f-856f-1364f0fcbb43",
+			"id": "ce5c65bd-ec2d-4625-9beb-a24a73ded9bb",
 			"key": "username",
 			"value": "weipeng.zheng@cineplex.com",
 			"type": "string"
 		},
 		{
-			"id": "0e25ad57-a617-4e70-bb3d-ede5e02d09f4",
+			"id": "a17f91f3-9d78-464a-bfb2-915065d48a72",
 			"key": "password",
 			"value": "Cineplex@1307",
 			"type": "string"
 		},
 		{
-			"id": "cda21412-e8c7-4c61-ad54-2371f0b89bc4",
+			"id": "f2249bc2-1642-42dd-9366-d4ee7abc3efd",
 			"key": "username2",
 			"value": "weipeng2.zheng@cineplex.com",
 			"type": "string"
 		},
 		{
-			"id": "d424239d-0289-4493-b87b-371ff59c9193",
+			"id": "584d9147-cf3c-4af8-afa5-21b2724a764a",
 			"key": "username3",
 			"value": "weipeng3.zheng@cineplex.com",
 			"type": "string"
