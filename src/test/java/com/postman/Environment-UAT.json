@@ -1,20 +1,25 @@
 {
-	"id": "3db86c1d-7dc4-41cd-b390-e142a3d10a0a",
+	"id": "22c864af-803b-44f1-99ed-c596b613808f",
 	"name": "UAT",
 	"values": [
 		{
-			"key": "cineplex_url_zen",
-			"value": "ttps://uat-www.cineplex.com/uat",
+			"key": "api_version",
+			"value": "v2",
 			"enabled": true
 		},
 		{
-			"key": "cineplex_url_azure",
-			"value": "https://cineplex-apis.azure-api.net/uat",
+			"key": "apple_pass_kit_url",
+			"value": "https://uat-www.cineplex.com/v1",
+			"enabled": true
+		},
+		{
+			"key": "cineplex_affiliate_url",
+			"value": "https://apis.cineplex.com/uat/store/promo",
 			"enabled": true
 		},
 		{
 			"key": "cineplex_url",
-			"value": "https://apis.cineplex.com/uat",
+			"value": "https://apis.cineplex.com/uat/cpx",
 			"enabled": true
 		},
 		{
@@ -39,42 +44,87 @@
 		},
 		{
 			"key": "authorization",
-			"value": "Basic ZWMyMTQ5NGMtMGFkOC00Yzg1LWI5NTEtNDAwNmNmODRjY2ExOjBlZjVjZWMwLTY2ODItNGQxNS05MTk4LWQyYTM1ZDgyZmNhYg==",
+			"value": "Basic dW5kZWZpbmVkOnVuZGVmaW5lZA==",
 			"enabled": true
 		},
 		{
-			"key": "ApplicationKey",
+			"key": "application_key",
 			"value": "2939bf3b-6c04-4c7b-bcfd-bb590e0016fa",
 			"enabled": true
 		},
 		{
-			"key": "session_Id",
-			"value": "3.7FPyMV/52144K57LB/GawAEWQ0krTgfM4ZU3WwHah2joCq2Jm0MJRAjoL/L3r6q8TDYCpe7Fc57ueA8hCe0lTYgw6PV4ZbS4eIfxAwcHQLuflS9gg2rPf92ohXFVSWAyRBlFdKBvr5/UVCQmWko1yrqwYnVTmF8AeqWXrFzBEHTgibiK6UzFsM5kDKFOTOAlS99TPOUzd9X3kq8DZ1j9EVPVqk6bGXBk7mlziVSm33pRzfdIKUjxWj04Lx1Fz5trmTdkaEOULQY2ZOHpc5zgnPhdbllchbJ0y9uG9ugZRcUKlI8tQTAAXJCmNG9wyxpGis9QPbBuSRN3iWhXO6eYdrKw5vMNAEwH9+qJqARObbw4rjAqw6jQmpWmb9ESrlk2hbMNXwWgbI87Fvvfc7tF93QbBkLuQqWCwsmGG5g4YIo2zcZGW2VF0boftFdu2/TP21B+sy6T68YfOeuUfDu4as8RcbhFnMBRA/F9xtHeqODTJtOTvsWiylfCdWuYiP1kOEAqxrzwV40fMFpnt/xr1qg3AFpDU73WrMz2ZOvO6J1RbYcquldLqRJo+ROrmygpvQreKwE/kf+5fIGJ7YflpPBiySDxnmvoPis7If28qVmLwCZ3N3YEp+9a9H2z8k6luWvl4+kYTPLmCNbVHXFwL7hnu9oCJ0KCKdvVRdv12usb4OSJPIWgTsG7hIDqQW+YzTcb4OW2fgmapymjl7Nj0/SdvSuDwdaiPs53l8k19sGfJkhSp6dtvExD/82er2xY5+EeAFeKlWaSCFJKuo4E5Ozu4tRaZbKUelyKsnq9JbghUPoGtro29Rp+zxiaYSBF",
+			"key": "session_id",
+			"value": "6.302iO7y8PCE+QfwoXi08hVIFnZ+ce7xPn43GIRgh7FKKmVXgNC0GNDlwa8Z31g3ARlfbMRRykUg9mwSrOrrXJPY3Xs/XKhQCd9MSoELnkNK/zwaIogaoQBQG1dNHPBJ90ribgmWQRRJzem3bfKrVBPIal1of4iQBXLYlBEv40B571nuZWMo5atL/XTLf3bzYHgIQWQhcdjCoYFOplcnvRza6zIl/mqjVDPK/xCfnAavF+0gowYSG5vgqL4WxiEq8NI7dqpB/JmsX5tQiCTxBNchJO+vHO5QT7fUzSkaJ0c2jOl4L3amq2RV0endytILXMNFDpV5pgaEymHDPikC03I39jpEMh8KEDfQ5JGHuDu358LvQHp3kx9OB/k2BoXZxSbmRS2Jlgo7IsP/NGf802onotfzgzcluDqJUW3XbQrDO4g09/1pQo5ty4mHQ9GKyuWQmMiaxwOo8EFANFzNdFM1YHGcB3JKxbK5C4WKV7IeXgR6UZAhyRF9dqyVOn2FFm0sh/IAIe5iMe5oC5ip3bvlftTn5v/gAuUhEsZrJw1qOPP9h44nKrSqT3LZZ3B0x7/Akn87SF9SM3DXegBguH58p0t37OvInzLbV9bNFfD6POLWU/xYz1AaGqiKPyhQ9Sbr5tXartwPO7oeRkjwWhYE2uy8JlA6TMjfSyOcQob3RPQ5McNbW3YtHvuDF4tpDnMX81JvEhe/3k3uzZfQxavcJnlu1iaz/yt+8LWTukFpwojwxm80NKMRGNd/DURpcGem2WyoHoGJ8ZuylX1VUxCphJu2q7vAu1KgqNh7zwf6Pc/Mst6V+ArHcBc1ChU5i",
+			"enabled": true
+		},
+		{
+			"key": "vista_session_id",
+			"value": 216681,
+			"enabled": true
+		},
+		{
+			"key": "user_profile_id",
+			"value": 4400566,
+			"enabled": true
+		},
+		{
+			"key": "user_profile_guid",
+			"value": "4721ef6e-19e3-495f-82ac-9360f51c0566",
+			"enabled": true
+		},
+		{
+			"key": "first_name",
+			"value": "Api",
+			"enabled": true
+		},
+		{
+			"key": "last_name",
+			"value": "Tester",
+			"enabled": true
+		},
+		{
+			"key": "subscription_key",
+			"value": "b1b08e662b7240c4b53c47f7446df881",
+			"enabled": true
+		},
+		{
+			"key": "delete_key",
+			"value": "g0xPSG8GcONnkQRMM19G3c8nhgHApQbM",
 			"enabled": true
 		},
 		{
 			"key": "session_token",
-			"value": "a376a009-f9b5-462d-8fb2-ccc4aa14342a",
+			"value": "d6a3f84c-a605-4711-b6f6-06affda7742f",
 			"enabled": true
 		},
 		{
-			"key": "user_session_token",
-			"value": "bd135c0d-8053-4839-8a26-8c83ea0d5f3a",
+			"key": "session_token_1",
+			"value": "478dd224-7b75-4438-b79c-8a86363b0a82",
 			"enabled": true
 		},
 		{
-			"key": "cineplex_token_expiry",
-			"value": "/Date(1561041631432-0400)/",
+			"key": "token_expiry",
+			"value": "/Date(1582226223141-0500)/",
 			"enabled": true
 		},
 		{
-			"key": "cineplex_connect_Id",
-			"value": "93bc2041-27b1-4407-a5f1-3ca5d13b7191",
+			"key": "connect_id",
+			"value": "4721ef6e-19e3-495f-82ac-9360f51c0566",
+			"enabled": true
+		},
+		{
+			"key": "connect_id_1",
+			"value": "C56A4180-65AA-42EC-A945-5FD21DEC0538",
+			"enabled": true
+		},
+		{
+			"key": "content_id",
+			"value": "37184",
 			"enabled": true
 		},
 		{
 			"key": "pricing_plan_id",
-			"value": 14063,
+			"value": 44835,
 			"enabled": true
 		},
 		{
@@ -83,82 +133,122 @@
 			"enabled": true
 		},
 		{
-			"key": "user_guid",
-			"value": "d78ceecd-199e-43c0-8665-206048342a78",
+			"key": "theatre_id",
+			"value": 7995,
 			"enabled": true
 		},
 		{
-			"key": "user_profile_guid",
-			"value": "",
-			"enabled": true
-		},
-		{
-			"key": "user_profile_id",
-			"value": "",
-			"enabled": true
-		},
-		{
-			"key": "first_name",
-			"value": "",
-			"enabled": true
-		},
-		{
-			"key": "last_name",
-			"value": "",
-			"enabled": true
-		},
-		{
-			"key": "subscriptionKey",
-			"value": "b1b08e662b7240c4b53c47f7446df881",
-			"enabled": true
-		},
-		{
-			"key": "eligibleModelNumber",
+			"key": "model_number",
 			"value": "QN75Q9FNA",
 			"enabled": true
 		},
 		{
-			"key": "eligibleModelNumber2",
-			"value": "UN55NU8000",
-			"enabled": true
-		},
-		{
-			"key": "connectID",
-			"value": "C56A4180-65AA-42EC-A945-5FD21DEC0538",
-			"enabled": true
-		},
-		{
-			"key": "connectID2",
-			"value": "A22D3E6E-3D75-4A6E-8FE1-58FEE5682FBD",
-			"enabled": true
-		},
-		{
-			"key": "eligibleDUID",
+			"key": "eligible_duid",
 			"value": "456456456",
 			"enabled": true
 		},
 		{
-			"key": "eligibleDUID2",
-			"value": "987987987",
+			"key": "movie_id",
+			"value": 27417,
 			"enabled": true
 		},
 		{
-			"key": "eligibleDUID3",
-			"value": "654654654",
+			"key": "product_id",
+			"value": 0,
 			"enabled": true
 		},
 		{
-			"key": "eligibleDUID4",
-			"value": "123123123",
+			"key": "gift_card_pin",
+			"value": 19632363,
 			"enabled": true
 		},
 		{
-			"key": "deleteKey",
-			"value": "g0xPSG8GcONnkQRMM19G3c8nhgHApQbM",
+			"key": "category_id",
+			"value": "0000000271",
+			"enabled": true
+		},
+		{
+			"key": "cineplex_order_id",
+			"value": "00000000-0000-0000-0000-000000000000",
+			"enabled": true
+		},
+		{
+			"key": "menu_id",
+			"value": "0017",
+			"enabled": true
+		},
+		{
+			"key": "item_id",
+			"value": 36174,
+			"enabled": true
+		},
+		{
+			"key": "film_id",
+			"value": 0,
+			"enabled": true
+		},
+		{
+			"key": "order_item_id",
+			"value": 7622,
+			"enabled": true
+		},
+		{
+			"key": "csg_order_number",
+			"value": 17070865,
+			"enabled": true
+		},
+		{
+			"key": "device_name",
+			"value": "Generic Metal Tuna",
+			"enabled": true
+		},
+		{
+			"key": "device_description",
+			"value": "Apple iPad (WiFi + 3G)",
+			"enabled": true
+		},
+		{
+			"key": "device_id_long",
+			"value": "7a6b6fbe-c81f-46d7-bb3d-6c51052947a7",
+			"enabled": true
+		},
+		{
+			"key": "device_id_short",
+			"value": 225082,
+			"enabled": true
+		},
+		{
+			"key": "device_type",
+			"value": 11,
+			"enabled": true
+		},
+		{
+			"key": "device_type_physical",
+			"value": 1003,
+			"enabled": true
+		},
+		{
+			"key": "timestamp",
+			"value": "2020-02-20",
+			"enabled": true
+		},
+		{
+			"key": "timestamp_tomorrow",
+			"value": "2020-02-21",
+			"enabled": true
+		},
+		{
+			"key": "promo_end",
+			"value": "2020-12-01T06:59:59",
+			"enabled": true
+		},
+		{
+			"key": "promo_name",
+			"value": "samsungTV2019",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2019-08-28T14:12:56.539Z",
-	"_postman_exported_using": "Postman/7.5.0"
+	"_postman_exported_at": "2020-02-20T20:46:20.054Z",
+	"_postman_exported_using": "Postman/7.18.1"
 }
