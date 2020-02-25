@@ -13,7 +13,7 @@
 		<parameter name="password" value="test"></parameter>
 		<classes>
 			<!-- API test cases -->
-			<class name="com.tutorial.htmlparser.HtmlParserDemo"/>
+			<class name="com.tutorial.htmlparser.HtmlParserDemo2"/>
 		</classes>
 	</test>
 </suite>

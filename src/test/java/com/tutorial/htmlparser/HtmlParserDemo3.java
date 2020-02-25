@@ -1,0 +1,61 @@
+package com.tutorial.htmlparser;
+
+import java.io.IOException;
+import java.io.StringReader;
+
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.parser.ParserDelegator;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.testng.annotations.Test;
+
+import com.framework.templates.ApiTestCase;
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class HtmlParserDemo3 extends ApiTestCase {
+	protected final static Logger logger = LogManager.getLogger(HtmlParserDemo3.class.getName());
+	
+	@Test(priority = 2)
+	public void getAllCategoryWithRestAssured() {
+		test = extent.startTest("Parser: HTML Parser with jsoup");
+		test.log(LogStatus.INFO, "Parser: HTML Parser with jsoup");
+		RestAssured.baseURI = "https://uat-onlineticketing.cineplex.com";
+		
+		Response response = RestAssured.given()
+				.header("Content-Type", "application/json")
+				.when()
+				.get("/PaymentOptions/870eb3cd-e35d-4f23-91f4-2ae6cfbf6eea")
+				.then()
+				.log()
+				.ifValidationFails()
+				.statusCode(200)
+				.extract()
+				.response();
+		logger.info("Resonse: " + response.asString());
+		logger.info("response.headers(): " + response.headers());
+
+		String text = response.asString();
+		ParserDelegator delegator = new ParserDelegator();
+		final StringBuilder cleaned = new StringBuilder();
+
+		HTMLEditorKit.ParserCallback callback = new HTMLEditorKit.ParserCallback() {
+			public void handleText(char[] data, int pos) {
+				cleaned.append(new String(data)).append(' ');
+			}
+		};
+
+		try {
+			delegator.parse(new StringReader(text), callback, false);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		System.out.println("==================================");
+		System.out.println(cleaned.toString());
+		System.out.println("==================================");
+	}
+}
