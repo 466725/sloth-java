@@ -33,20 +33,20 @@ public class TicketTransactionLoadTest {
 	@Before
 	public void setup() {
 		System.out.println(" ");
-		System.out.println("=============================0=============================");
+		System.out.println("===========================BEGIN===========================");
 		System.out.println(" ");
 	}
 
 	@After
 	public void tearDown() {
 		System.out.println(" ");
-		System.out.println("=============================9=============================");
+		System.out.println("============================END============================");
 		System.out.println(" ");
 	}
 
 	@Test
 	public void create_session_token() throws Exception {
-		System.out.println("=============================1=============================");
+		System.out.println("============================111============================");
 		RequestBody body = RequestBody.create(mediaType, "{\r\n\t\"ApplicationKey\": \"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"\r\n}");
 		
 		Request request = new Request
@@ -67,16 +67,15 @@ public class TicketTransactionLoadTest {
 
 	@Test
 	public void login() throws Exception {
-		System.out.println("=============================2=============================");
+		System.out.println("============================222============================");
 		RequestBody body = RequestBody
-				.create(mediaType, "{\n    \"SessionToken\": \"" 
+				.create(mediaType, "{\n    \"SessionToken\": " 
 						+ sessionToken 
-						+ "\",\n    \"Password\": \""
+						+ ",\n    \"Password\": " 
 						+ password 
-						+"\",\n    \"Email\": \""
+						+ ",\n    \"Email\": " 
 						+ userName 
-						+"\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
-		
+						+ ",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
 		Request request = new Request
 				.Builder()
 				.url(connectBaseURL + "/Login")
@@ -99,7 +98,7 @@ public class TicketTransactionLoadTest {
 
 	@Test
 	public void ticket_transaction_create() throws Exception {
-		System.out.println("=============================3=============================");
+		System.out.println("============================333============================");
 		RequestBody body = RequestBody
 				.create(mediaType, "{\n    \"VISTASessionId\": \"" 
 						+ vistaSessionID 
@@ -125,7 +124,7 @@ public class TicketTransactionLoadTest {
 
 	@Test
 	public void ticket_transaction_get_ticket_cart() throws Exception {
-		System.out.println("=============================4=============================");
+		System.out.println("============================444============================");
 		Request request = new Request
 				.Builder()
 				.url(cotBaseURL + "/TicketCart/" + transactionID)
@@ -140,7 +139,7 @@ public class TicketTransactionLoadTest {
 
 	@Test
 	public void ticket_transaction_get_ticket_cart_proceed() throws Exception {
-		System.out.println("=============================5=============================");
+		System.out.println("============================555============================");
 		RequestBody body = RequestBody
 				.create(mediaType, "[\r\n\t{"
 						+ "\r\n        \"ITTicketTypeID\": 2150991,"
@@ -165,7 +164,7 @@ public class TicketTransactionLoadTest {
 
 	@Test
 	public void ticket_transaction_get_ticket_cart_seats() throws Exception {
-		System.out.println("=============================6=============================");
+		System.out.println("============================666============================");
 		Request request = new Request
 				.Builder()
 				.url(cotBaseURL + "/Seats/" + transactionID)
@@ -180,7 +179,7 @@ public class TicketTransactionLoadTest {
 
 	@Test
 	public void ticket_transaction_void() throws Exception {
-		System.out.println("=============================7=============================");
+		System.out.println("============================777============================");
 		RequestBody body = RequestBody
 				.create(null, new byte[0]);
 		
