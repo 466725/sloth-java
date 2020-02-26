@@ -34,12 +34,10 @@ public class TicketTransactionLoadTest {
 	public void setup() {
 		System.out.println(" ");
 		System.out.println("===========================BEGIN===========================");
-		System.out.println(" ");
 	}
 
 	@After
 	public void tearDown() {
-		System.out.println(" ");
 		System.out.println("============================END============================");
 		System.out.println(" ");
 	}
