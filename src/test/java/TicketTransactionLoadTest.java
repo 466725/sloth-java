@@ -55,8 +55,10 @@ public class TicketTransactionLoadTest {
 			}
 		};
 		client = new OkHttpClient.Builder().build();
-//		client = new OkHttpClient.Builder().cookieJar(cookieJar).build();
-//		client = new OkHttpClient.Builder().cookieJar(new TicketTransactionCookie()).build();
+		/*
+		client = new OkHttpClient.Builder().cookieJar(cookieJar).build();
+		client = new OkHttpClient.Builder().cookieJar(new TicketTransactionCookie()).build();
+		*/
 	}
 	
 	@AfterClass
@@ -66,12 +68,12 @@ public class TicketTransactionLoadTest {
 	
 	@BeforeTest
 	public void startTest() {
-		System.out.println("===========================Before==========================");
+		System.out.println("=========================Before Test=======================");
 	}
 
 	@AfterTest
 	public void endTest() {
-		System.out.println("===========================After===========================");
+		System.out.println("=========================After Test========================");
 	}
 	
 	@Test(priority = 1)
@@ -123,7 +125,7 @@ public class TicketTransactionLoadTest {
 	}
 
 	@Test(priority = 5)
-	public void ticket_transaction_create() throws Exception {
+	public void create_ticket_transaction() throws Exception {
 		System.out.println("============================333============================");
 		RequestBody body = RequestBody
 				.create(mediaType, "{\n    \"VISTASessionId\": \"" 
@@ -149,30 +151,9 @@ public class TicketTransactionLoadTest {
 		assertTrue(jsonBody.get("Status").toString().equals("1"));
 		assertTrue(response.code() == 200);
 	}
-
-//	@Test(priority = 7)
-	public void ticket_transaction_get_ticket_cart() throws Exception {
-		System.out.println("============================444============================");
-		System.out.println("transactionID: " + transactionID);
-		System.out.println("userSessionToken: " + userSessionToken);
-		Request request = new Request
-				.Builder()
-				.url(cotBaseURL + "/TicketCart/" + transactionID)
-				.method("GET", null)
-				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
-				.build();
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-		
-		Response response = client.newCall(request).execute();
-		System.out.println(response.headers().toString());
-//		System.out.println(response.body().string());
-		
-		assertTrue(response.code() == 200);
-	}
 	
 	@Test(priority = 9)
-	public void ticket_transaction_get_ticket_cart_copy() throws Exception {
+	public void ticket_cart() throws Exception {
 		System.out.println("============================444============================");
 		System.out.println("transactionID: " + transactionID);
 		System.out.println("userSessionToken: " + userSessionToken);
@@ -186,17 +167,16 @@ public class TicketTransactionLoadTest {
 		System.out.println(request.url());
 		System.out.println(request.headers().toString());
 
-//		client = new OkHttpClient.Builder().cookieJar(new TicketTransactionCookie()).build();
 		Response response = client.newCall(request).execute();
+		
 		System.out.println(response.headers().toString());
-//		System.out.println(response.body().string());
+		System.out.println(response.body().string());
 		
 		for(int i = 0; i < response.headers().size(); i++) {
 			System.out.println(response.headers().value(i));
 			if(response.headers().value(i).contains("ASP.NET_SessionId=")) {
 				System.out.println(response.headers().value(i));
 				aspCookie = response.headers().value(i);
-//				aspCookie = aspCookie.substring(0, aspCookie.indexOf("; path=/; "));
 			}
 		}
 		
@@ -204,7 +184,7 @@ public class TicketTransactionLoadTest {
 	}
 
 	@Test(priority = 11)
-	public void ticket_transaction_get_ticket_cart_proceed() throws Exception {
+	public void ticket_cart_proceed() throws Exception {
 		System.out.println("============================555============================");
 		String jsonBody = "[\r\n    {"
 				+ "\r\n        \"ITTicketTypeID\": 2150991,"
@@ -230,29 +210,39 @@ public class TicketTransactionLoadTest {
 		System.out.println(request.body().toString());
 		
 		Response response = client.newCall(request).execute();
-		//System.out.println(response.body().string());
+		
+		System.out.println(response.body().string());
 		System.out.println(response.headers().toString());
 		System.out.println(response.code());
 		
 		assertTrue(response.code() == 200);
 	}
 
-//	@Test(priority = 13)
-	public void ticket_transaction_get_ticket_cart_seats() throws Exception {
+	@Test(priority = 13)
+	public void seats() throws Exception {
 		System.out.println("============================666============================");
 		Request request = new Request
 				.Builder()
 				.url(cotBaseURL + "/Seats/" + transactionID)
 				.method("GET", null)
+				.addHeader("Content-Type", "application/json")
+				.addHeader("Cookie", aspCookie)
 				.build();
 		
+		System.out.println(request.url());
+		System.out.println(request.headers().toString());
+		
 		Response response = client.newCall(request).execute();
+		
+		System.out.println(response.body().string());
+		System.out.println(response.headers().toString());
+		System.out.println(response.code());
 		
 		assertTrue(response.code() == 200);
 	}
 
-//	@Test(priority = 15)
-	public void ticket_transaction_void() throws Exception {
+	@Test(priority = 15)
+	public void ticket_cart_cancel() throws Exception {
 		System.out.println("============================777============================");
 		RequestBody body = RequestBody
 				.create(null, new byte[0]);
@@ -263,7 +253,15 @@ public class TicketTransactionLoadTest {
 				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
 				.build();
 		
+		System.out.println(request.url());
+		System.out.println(request.headers().toString());
+		System.out.println(request.body().toString());
+		
 		Response response = client.newCall(request).execute();
+		
+		System.out.println(response.body().string());
+		System.out.println(response.headers().toString());
+		System.out.println(response.code());
 		
 		assertTrue(response.code() == 200);
 	}

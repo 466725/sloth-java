@@ -18,6 +18,5 @@ public class TicketTransactionCookie implements CookieJar {
 		if (cookies != null)
 			return cookies;
 		return new ArrayList<Cookie>();
-
 	}
 }
