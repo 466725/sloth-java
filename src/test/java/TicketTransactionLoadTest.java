@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -21,7 +21,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TicketTransactionLoadTest {
 	private String connectBaseURL = "https://uat-connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
 	private String cotBaseURL = "https://uat-onlineticketing.cineplex.com";
@@ -40,6 +39,7 @@ public class TicketTransactionLoadTest {
 	public static void setup() {
 		System.out.println("========================Before Class=======================");
 
+		@SuppressWarnings("unused")
 		CookieJar cookieJar = new CookieJar() {
 			private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
 
@@ -64,17 +64,17 @@ public class TicketTransactionLoadTest {
 		System.out.println("========================After Class========================");
 	}
 	
-	@Before
+	@BeforeTest
 	public void startTest() {
 		System.out.println("===========================Before==========================");
 	}
 
-	@After
+	@AfterTest
 	public void endTest() {
 		System.out.println("===========================After===========================");
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void create_session_token() throws Exception {
 		System.out.println("============================111============================");
 		RequestBody body = RequestBody.create(mediaType, "{\r\n\t\"ApplicationKey\": \"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"\r\n}");
@@ -94,7 +94,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 
-	@Test
+	@Test(priority = 3)
 	public void login() throws Exception {
 		System.out.println("============================222============================");
 		RequestBody body = RequestBody.create(mediaType, "{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
@@ -122,7 +122,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 
-	@Test
+	@Test(priority = 5)
 	public void ticket_transaction_create() throws Exception {
 		System.out.println("============================333============================");
 		RequestBody body = RequestBody
@@ -150,7 +150,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 
-//	@Test
+//	@Test(priority = 7)
 	public void ticket_transaction_get_ticket_cart() throws Exception {
 		System.out.println("============================444============================");
 		System.out.println("transactionID: " + transactionID);
@@ -171,7 +171,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 	
-	@Test
+	@Test(priority = 9)
 	public void ticket_transaction_get_ticket_cart_copy() throws Exception {
 		System.out.println("============================444============================");
 		System.out.println("transactionID: " + transactionID);
@@ -203,7 +203,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 
-	@Test
+	@Test(priority = 11)
 	public void ticket_transaction_get_ticket_cart_proceed() throws Exception {
 		System.out.println("============================555============================");
 		String jsonBody = "[\r\n    {"
@@ -237,7 +237,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 
-//	@Test
+//	@Test(priority = 13)
 	public void ticket_transaction_get_ticket_cart_seats() throws Exception {
 		System.out.println("============================666============================");
 		Request request = new Request
@@ -251,7 +251,7 @@ public class TicketTransactionLoadTest {
 		assertTrue(response.code() == 200);
 	}
 
-//	@Test
+//	@Test(priority = 15)
 	public void ticket_transaction_void() throws Exception {
 		System.out.println("============================777============================");
 		RequestBody body = RequestBody
