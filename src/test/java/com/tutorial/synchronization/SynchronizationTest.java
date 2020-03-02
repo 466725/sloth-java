@@ -1,4 +1,4 @@
-package com.interview.synchronization;
+package com.tutorial.synchronization;
 
 public class SynchronizationTest {
 	public static void main(String args[]) {

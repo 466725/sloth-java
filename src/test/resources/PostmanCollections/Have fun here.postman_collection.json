@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "a08b3f82-dca6-413d-8b24-7bdb30f2f80c",
-		"name": "Tutorials (Have fun here)",
+		"name": "Have fun here",
 		"description": "Please put all postman tutorial related stuff here, and have fun!",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -54,7 +54,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Code Reuse",
@@ -171,7 +172,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Pre-Request Scripts",
@@ -307,7 +309,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Code Documentation",
@@ -379,7 +382,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Schema Validation",
@@ -469,7 +473,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Max Response Time",
@@ -537,7 +542,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Variable Set Get and Unset",
@@ -699,7 +705,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Collection Variables",
@@ -786,7 +793,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Organize Tests into Folders",
@@ -942,6 +950,7 @@
 									}
 								}
 							],
+							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
 						},
 						{
@@ -1079,6 +1088,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
@@ -1232,6 +1242,7 @@
 									}
 								}
 							],
+							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
 						},
 						{
@@ -1369,6 +1380,7 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				}
 			],
@@ -1393,7 +1405,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "setNextRequest",
@@ -1419,7 +1432,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Using Data Files (User CSV)",
@@ -1502,10 +1516,11 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Mocha’s BDD (In Progress)",
+			"name": "Mocha’s BDD",
 			"item": [
 				{
 					"name": "Mocha’s BDD",
@@ -1602,7 +1617,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "UserStory-MissingPoster",
@@ -1714,40 +1730,41 @@
 	],
 	"variable": [
 		{
-			"id": "81135367-90aa-4743-bd56-589248368d14",
+			"id": "c589f941-0532-4edc-8540-5900d9dbaf0e",
 			"key": "collection_version",
 			"value": "v2",
 			"type": "string"
 		},
 		{
-			"id": "1a326f19-df8e-4572-8d51-39df33a068df",
+			"id": "7f36d38c-5bb4-4226-8c0a-7e256c1fef88",
 			"key": "max_response_time",
 			"value": "800",
 			"type": "string"
 		},
 		{
-			"id": "ce5c65bd-ec2d-4625-9beb-a24a73ded9bb",
+			"id": "c2a2b062-ed2d-41b4-8873-d5f28c0db1fa",
 			"key": "username",
 			"value": "weipeng.zheng@cineplex.com",
 			"type": "string"
 		},
 		{
-			"id": "a17f91f3-9d78-464a-bfb2-915065d48a72",
+			"id": "75e30892-2462-48e5-b78f-fc2f68294c8b",
 			"key": "password",
 			"value": "Cineplex@1307",
 			"type": "string"
 		},
 		{
-			"id": "f2249bc2-1642-42dd-9366-d4ee7abc3efd",
+			"id": "6d6ca86f-067b-4dd1-91f8-a2540ae2bdc1",
 			"key": "username2",
 			"value": "weipeng2.zheng@cineplex.com",
 			"type": "string"
 		},
 		{
-			"id": "584d9147-cf3c-4af8-afa5-21b2724a764a",
+			"id": "c4bd102b-2e42-4d29-aa67-df31c87f17ab",
 			"key": "username3",
 			"value": "weipeng3.zheng@cineplex.com",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

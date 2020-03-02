@@ -17,11 +17,12 @@ import org.testng.annotations.BeforeMethod;
 
 import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-import com.squareup.okhttp.ResponseBody;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * Base class of all API test cases related objects

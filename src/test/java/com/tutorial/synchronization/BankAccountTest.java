@@ -1,4 +1,4 @@
-package com.interview.synchronization;
+package com.tutorial.synchronization;
 
 class BankAccountTest {
 	public static void main(String args[]) {

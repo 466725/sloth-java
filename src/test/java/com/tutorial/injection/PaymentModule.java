@@ -1,4 +1,4 @@
-package com.interview.injection;
+package com.tutorial.injection;
 
 import com.google.inject.AbstractModule;
 

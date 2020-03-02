@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0c722de0-7adb-4017-abf9-c573321c48ce",
-		"name": "Cineplex daily Regression test suite",
+		"name": "Cineplex daily regression test suite",
 		"description": "All Cineplex api supposed to be here, and could be run as a test suite on daily basis.\n\nFor connect related API, please refer to: User Story 41864",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -7397,7 +7397,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Connect-Sign up and Tax",
+			"name": "Connect-SignupAndTax",
 			"item": [
 				{
 					"name": "Sign Up",
@@ -11071,7 +11071,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Connect-Mobile Order",
+			"name": "Connect-MobileOrder",
 			"item": [
 				{
 					"name": "Order - Create Order",
@@ -13055,7 +13055,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Connect-Share Ticket",
+			"name": "Connect-ShareTicket",
 			"item": [
 				{
 					"name": "Share Ticket Send",
@@ -14648,6 +14648,1621 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mobile-What'sOnPage",
+			"item": [
+				{
+					"name": "Get movie by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v1/26843?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v1",
+								"26843"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theatre dates by movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v1/28118/AvailableTheatres/Dates?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v1",
+								"28118",
+								"AvailableTheatres",
+								"Dates"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Location.Range",
+									"value": "150",
+									"disabled": true
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theatre dates by movie V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v2/28118/availablecacheabletheatres?Language=en-us&Request.Location.Range=150",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v2",
+								"28118",
+								"availablecacheabletheatres"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Location.Range",
+									"value": "150"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get showtimes by film ID and location ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/showtimes/v1/?Date=2019-11-09&FilmId=31850&Language=en-us&LocationId=7130",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"showtimes",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "Date",
+									"value": "2019-11-09"
+								},
+								{
+									"key": "FilmId",
+									"value": "31850"
+								},
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "LocationId",
+									"value": "7130"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get showtime experiences",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Settings/v1/ShowtimeExperiences?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Settings",
+								"v1",
+								"ShowtimeExperiences"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movie list by radius",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v1/getmoviesbydistanceradius?Language=en-us&Range=100&ShowDate=2019-11-01",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v1",
+								"getmoviesbydistanceradius"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Range",
+									"value": "100"
+								},
+								{
+									"key": "ShowDate",
+									"value": "2019-11-01"
+								},
+								{
+									"key": "Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								},
+								{
+									"key": "Request.MovieType",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.ShowtimeType",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "Request.marketLanguageCodeFilter",
+									"value": "True",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get event list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v1?Language=en-us&Request.MovieType=2",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.MovieType",
+									"value": "2"
+								},
+								{
+									"key": "Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								},
+								{
+									"key": "Request.MarketLanguageCodeFilter",
+									"value": "True",
+									"disabled": true
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get coming soon list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/uat/cpx/movies/v1?Language=en-us&Request.MovieType=3",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"uat",
+								"cpx",
+								"movies",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.MovieType",
+									"value": "3"
+								},
+								{
+									"key": "Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								},
+								{
+									"key": "Request.MarketLanguageCodeFilter",
+									"value": "True",
+									"disabled": true
+								},
+								{
+									"key": "Request.ShowtimeType",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available dates by movie ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v1/28118/AvailableTheatres/Dates?Language=en-us&Request.Location.Range=150",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v1",
+								"28118",
+								"AvailableTheatres",
+								"Dates"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Location.Range",
+									"value": "150"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0f76ab2e-9f92-4595-8b5a-d66eea45790f",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"**********Daily regression sub-folder started running!**********\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad723be9-80ef-4406-82ee-4da7fe81aad9",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonBody = pm.response.json();",
+							"",
+							"pm.test(\"Response is successful\", pm.response.to.be.success);"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mobile-SearchPage",
+			"item": [
+				{
+					"name": "Get all movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/movies/v1?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"movies",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								},
+								{
+									"key": "Request.MarketLanguageCodeFilter",
+									"value": "True",
+									"disabled": true
+								},
+								{
+									"key": "Request.MovieType",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all theatres",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Latitude",
+									"value": "43.6845397949219",
+									"disabled": true
+								},
+								{
+									"key": "Request.Longitude",
+									"value": "-79.3929341192019",
+									"disabled": true
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theatre experiences",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f31137ab-1bd7-4b85-9281-f58f32f6a824",
+								"exec": [
+									"var jsonBody = pm.response.json();",
+									"",
+									"pm.test(\"Status in response is expected\", function(){",
+									"    pm.expect(jsonBody.status).to.be.above(0);",
+									"});",
+									"",
+									"pm.test(\"jsonBody.message is defined\", function(){",
+									"    pm.expect(jsonBody.message).not.to.be.undefined;",
+									"});",
+									"",
+									"pm.test(\"Format has experienceId\", function(){",
+									"    pm.expect(jsonBody.data[0].experienceId).not.to.be.undefined; ",
+									"});",
+									"",
+									"pm.test(\"Experiences number is correct\", function(){",
+									"    pm.expect(jsonBody.data.length).eql(jsonBody.totalCount); ",
+									"});",
+									"",
+									"pm.test(\"Experiences has experienceId\", function(){",
+									"    pm.expect(jsonBody.data[0].experienceId).not.to.be.undefined; ",
+									"});",
+									"",
+									"//User Story 33807: Create Versioning in Cineplex.com",
+									"pm.test(\"Response apiVersionNumber same with api_version\", function(){",
+									"    pm.expect(pm.request.url.getPath().has('v' + jsonBody.apiVersionNumber)).eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Settings/v1/TheatreExperiences?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Settings",
+								"v1",
+								"TheatreExperiences"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "77569ab2-6fc1-435e-8c90-40f84c7200ae",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"**********Daily regression sub-folder started running!**********\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cfcbd423-e328-4a96-b48d-00a3bda233aa",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonBody = pm.response.json();",
+							"",
+							"pm.test(\"Response is successful\", pm.response.to.be.success);"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mobile-TheatresPage",
+			"item": [
+				{
+					"name": "Get all theatres V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v2/all?Language=en-us&Request.Range=150",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v2",
+								"all"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Range",
+									"value": "150"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user location based on IP",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Settings/v2/GetUserLocation",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Settings",
+								"v2",
+								"GetUserLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theatre list by radius",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1?Language=en-us&Request.Latitude=43.6845397949219&Request.Longitude=-79.3929341192019&Request.Range=150",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Latitude",
+									"value": "43.6845397949219"
+								},
+								{
+									"key": "Request.Longitude",
+									"value": "-79.3929341192019"
+								},
+								{
+									"key": "Request.Range",
+									"value": "150"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all theatres by radius",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1?Language=en-us&Request.Latitude=43.6845397949219&Request.Longitude=-79.3929341192019&Request.Range=150",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Latitude",
+									"value": "43.6845397949219"
+								},
+								{
+									"key": "Request.Longitude",
+									"value": "-79.3929341192019"
+								},
+								{
+									"key": "Request.Range",
+									"value": "150"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all theatres by radius V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/uat/cpx/Theatres/v2?Language=en-us&Request.Range=150",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"uat",
+								"cpx",
+								"Theatres",
+								"v2"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.Range",
+									"value": "150"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theatre by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1/7199?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1",
+								"7199"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Location.Latitude",
+									"value": "43.6845092773438",
+									"disabled": true
+								},
+								{
+									"key": "Location.Longitude",
+									"value": "-79.3930111798497",
+									"disabled": true
+								},
+								{
+									"key": "Location.Range",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theatre by ID V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v2/7199/getcacheabletheatre?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v2",
+								"7199",
+								"getcacheabletheatre"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Location.Latitude",
+									"value": "43.6845092773438",
+									"disabled": true
+								},
+								{
+									"key": "Location.Longitude",
+									"value": "-79.3930111798497",
+									"disabled": true
+								},
+								{
+									"key": "Location.Range",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available movie by theatre",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1/7199/AvailableMovies/Showtimes?Language=en-us&ShowDate=2019-09-09",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1",
+								"7199",
+								"AvailableMovies",
+								"Showtimes"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "ShowDate",
+									"value": "2019-09-09"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available movie by theatre V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v2/7199/AvailableMovies/Showtimes?Language=en-us&ShowDate=2019-11-01",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v2",
+								"7199",
+								"AvailableMovies",
+								"Showtimes"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "ShowDate",
+									"value": "2019-11-01"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available date by theatre ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1/7199/AvailableDates?Language=en-us",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1",
+								"7199",
+								"AvailableDates"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get VIP theatre list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1?Language=en-us&Request.ExperienceId=vip",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "Request.ExperienceId",
+									"value": "vip"
+								},
+								{
+									"key": "Request.Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Request.Take",
+									"value": "25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available movie format",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v1/7400/AvailableMovieFormats/Showtimes?Language=en-us&MovieFormat=VIP&ShowDate=2019-06-11&Skip=0&Take=2147483647",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v1",
+								"7400",
+								"AvailableMovieFormats",
+								"Showtimes"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "MovieFormat",
+									"value": "VIP"
+								},
+								{
+									"key": "ShowDate",
+									"value": "2019-06-11"
+								},
+								{
+									"key": "Skip",
+									"value": "0"
+								},
+								{
+									"key": "Take",
+									"value": "2147483647"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available movie format V2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"type": "text",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/prod/cpx/Theatres/v2/7400/AvailableMovieFormats/Showtimes?Language=en-us&MovieFormat=VIP&ShowDate=2019-09-09",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"prod",
+								"cpx",
+								"Theatres",
+								"v2",
+								"7400",
+								"AvailableMovieFormats",
+								"Showtimes"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-us"
+								},
+								{
+									"key": "MovieFormat",
+									"value": "VIP"
+								},
+								{
+									"key": "ShowDate",
+									"value": "2019-09-09"
+								},
+								{
+									"key": "Skip",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "2147483647",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eb669fcc-1711-4847-b99a-c08d4f10f8d3",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"**********Daily regression sub-folder started running!**********\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b09fab3-e477-406a-8a05-15df47e032e2",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonBody = pm.response.json();",
+							"",
+							"pm.test(\"Response is successful\", pm.response.to.be.success);"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mobile-AppVersion",
+			"item": [
+				{
+					"name": "Get application version",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "460ad41ffe34481dbfaabd56e15e3ac5",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apis.cineplex.com/uat/cpx/Settings/v1/ForcedUpdate?Language=en-fr&OperatingSystem=ios&applicationVersion=7.2.1.0",
+							"protocol": "https",
+							"host": [
+								"apis",
+								"cineplex",
+								"com"
+							],
+							"path": [
+								"uat",
+								"cpx",
+								"Settings",
+								"v1",
+								"ForcedUpdate"
+							],
+							"query": [
+								{
+									"key": "Language",
+									"value": "en-fr"
+								},
+								{
+									"key": "OperatingSystem",
+									"value": "ios"
+								},
+								{
+									"key": "applicationVersion",
+									"value": "7.2.1.0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "230209e9-1219-4c7c-abfa-7b44fcf6a86e",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"**********Daily regression sub-folder started running!**********\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c5b64a3b-dac7-4a2d-b104-b392d6adb87e",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonBody = pm.response.json();",
+							"",
+							"pm.test(\"Response is successful\", pm.response.to.be.success);"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mobile-Brightcove",
+			"item": [
+				{
+					"name": "English trailer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json;pk=BCpkADawqM1vU4m2DtrcAoitu7PpKyVrSjXdrNaOCP3-M5XrokotRWDVBV-_BiUCRtmWcMd8NHKUg7tYKqSKTUTJiwYBJIUyELNiCRD_WqSmidtkDT_l4IzLXos",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://edge.api.brightcove.com/playback/v1/accounts/823022174001/videos/6025221864001",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"api",
+								"brightcove",
+								"com"
+							],
+							"path": [
+								"playback",
+								"v1",
+								"accounts",
+								"823022174001",
+								"videos",
+								"6025221864001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "French trailer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json;pk=BCpkADawqM3e4eBHnCL89kVP724qT5zVwWPImIs-q6UZq__AANiYwLgOfjOCQosJ-FGL9Lk3UoN4f8njAF190ebD4bEzmZHeywlXX-HQAnvTs4DkdPAMcbTcPZ_7KrrHJ4JSMMjlDShGgapA"
+							}
+						],
+						"url": {
+							"raw": "https://edge.api.brightcove.com/playback/v1/accounts/1049394751001/videos/6025221864001",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"api",
+								"brightcove",
+								"com"
+							],
+							"path": [
+								"playback",
+								"v1",
+								"accounts",
+								"1049394751001",
+								"videos",
+								"6025221864001"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "40ebeefc-5f5c-4ffa-b5d8-15d110590f0e",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(\"**********Daily regression sub-folder started running!**********\");"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b21b6216-704a-4172-8552-2b6b85b3e22e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -14683,55 +16298,55 @@
 	],
 	"variable": [
 		{
-			"id": "03310ac7-acc6-4621-8954-4dc665d1e578",
+			"id": "83f8e897-efce-4768-870f-e2583cd589a3",
 			"key": "max_response_time",
 			"value": "30000",
 			"type": "string"
 		},
 		{
-			"id": "ddf35bf2-1355-40e7-986b-ad1f4d383315",
+			"id": "573c67dc-36f0-45d1-9802-dfb7e39c3a54",
 			"key": "language",
 			"value": "en-us",
 			"type": "string"
 		},
 		{
-			"id": "7df2ff24-7a9f-4663-a9a6-de1156e1bdff",
+			"id": "47dd1e9d-87fd-4b5a-854c-767b9afa4591",
 			"key": "username",
 			"value": "cpxapitester@gmail.com",
 			"type": "string"
 		},
 		{
-			"id": "41e5d3c6-bbf4-45c1-8609-6d85039af17a",
+			"id": "7802da83-51f4-45e3-8ca4-fc0cf8137857",
 			"key": "password",
 			"value": "Cineplex123",
 			"type": "string"
 		},
 		{
-			"id": "8bca0859-b98c-4c47-8bb6-0bfc5c2e4435",
+			"id": "bd30130e-97ff-4171-a7c2-36e7a59f7a16",
 			"key": "connect_pin",
 			"value": "1234",
 			"type": "string"
 		},
 		{
-			"id": "809e9b45-89f7-452e-b27c-9071e41626d3",
+			"id": "a4b0f853-036e-4fa9-a52e-101b3006f8e4",
 			"key": "ocp_apim_subscription_key",
 			"value": "258d786c688d4aa69fff2edbc36fdfdc",
 			"type": "string"
 		},
 		{
-			"id": "2682356e-7629-4c66-994c-f9847778d81f",
+			"id": "14008b0d-3840-400f-8c0d-9872f322397b",
 			"key": "latitude",
 			"value": "45.4934",
 			"type": "string"
 		},
 		{
-			"id": "f8f0f790-bce6-45de-86a7-e4c3c36a0ecd",
+			"id": "72ffc8b4-68ef-4d61-9555-6df0a65ac03b",
 			"key": "longitude",
 			"value": "-73.5582",
 			"type": "string"
 		},
 		{
-			"id": "e8e46ee8-42ea-4339-800b-ba0f2fcfb79f",
+			"id": "d1546ac9-7f13-4125-af5f-633a17dec49f",
 			"key": "radius",
 			"value": "50",
 			"type": "string"

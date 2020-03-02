@@ -1,4 +1,4 @@
-package com.interview.synchronization;
+package com.tutorial.synchronization;
 
 class ThreadSmallNumber extends Thread {
 	FiveTimesPrinter printer;

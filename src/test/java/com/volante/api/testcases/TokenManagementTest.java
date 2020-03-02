@@ -13,11 +13,12 @@ import org.testng.annotations.Test;
 
 import com.framework.templates.ApiTestCase;
 import com.framework.templates.TestCase;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 
 import config.Constants;
+
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Token management test cases are all here, Add + Update + Delete...

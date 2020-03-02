@@ -1,4 +1,4 @@
-package com.interview.recursion;
+package com.tutorial.recursion;
 
 public class Fibonacci {
 	static int n1 = 0, n2 = 1, n3 = 0;

@@ -1,4 +1,4 @@
-package com.interview.recursion;
+package com.tutorial.recursion;
 
 public class Factorial {
 	static int fact(int n) {
