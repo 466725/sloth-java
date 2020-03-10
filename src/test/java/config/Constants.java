@@ -34,6 +34,7 @@ public final class Constants {
 	
 	public static final String PROPERTY_FILE = RESOURCE_FOLDER + "init-properties-config";
 	public static final String XML_INTEGRATION_CSV = "TestDataAPI/csv/xml_Loader.csv";
+	public static final String THEATRE_SHOWTIME_CSV = "theatre_data.csv";
 	public static final String TEST_RAIL_URL = "https://avanti.testrail.com/";
 	public static final String TEST_RAIL_USERNAME = "testautomationavanti@gmail.com";
 	public static final String TEST_RAIL_PASSWORD = "Avanti313";
