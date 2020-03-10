@@ -4644,7 +4644,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{cineplex_url}}/showtimes/{{api_version}}/showtimesoneposter?date={{timestamp}}&locationId={{theatre_id}}&filmId={{movie_id}}&language={{language}}",
+							"raw": "{{cineplex_url}}/showtimes/{{api_version}}/showtimesoneposter?date={{timestamp}}&locationId={{theatre_id}}&filmId={{movie_id}}&language={{language}}\n",
 							"host": [
 								"{{cineplex_url}}"
 							],
@@ -16263,6 +16263,393 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ticketing-TransactionFlow",
+			"item": [
+				{
+					"name": "Create Session Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34fc2693-d504-49a9-84cf-88d2ec70de22",
+								"exec": [
+									"var jsonBody = pm.response.json();",
+									"",
+									"pm.test(\"Status in response is expected\", function(){",
+									"    pm.expect(jsonBody.Result.Status).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"Result message is successful\", function(){",
+									"    pm.expect(jsonBody.Result.Message[0]).to.eql(\"Successful\");",
+									"});",
+									"",
+									"pm.test(\"Got valid session token\", function(){",
+									"    pm.expect(jsonBody.SessionToken).not.to.be.undefined;",
+									"    pm.expect(jsonBody.SessionToken.length).to.be.above(0);",
+									"    pm.expect(jsonBody.SessionToken).not.to.eql(\"00000000-0000-0000-0000-000000000000\");",
+									"});",
+									"",
+									"pm.environment.set(\"session_token\", jsonBody.SessionToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ApplicationKey\": \"{{application_key}}\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/CreateApplicationSession",
+							"host": [
+								"{{connect_url}}"
+							],
+							"path": [
+								"ClientServices",
+								"CineplexClientServicesWeb",
+								"CreateApplicationSession"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "babf1b7d-febb-47e1-b54b-4177be52daf1",
+								"exec": [
+									"var jsonBody = pm.response.json();",
+									"",
+									"console.log(\"Username: \" + pm.variables.get(\"username\"));",
+									"console.log(\"Password: \" + pm.variables.get(\"password\"));",
+									"console.log(\"Session Token: \" + pm.environment.get(\"session_token\"));",
+									"",
+									"pm.test(\"Status in response is expected\", function(){",
+									"    pm.expect(jsonBody.Result.Status).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"UserProfileGuid generated\", function(){",
+									"    pm.expect(jsonBody.UserProfileGuid).not.to.be.undefined;",
+									"    pm.expect(jsonBody.UserProfileGuid.length).to.be.above(0);",
+									"    pm.expect(jsonBody.UserProfileGuid).not.to.eql(\"00000000-0000-0000-0000-000000000000\");",
+									"});",
+									"",
+									"pm.test(\"UserSessionToken generated\", function(){",
+									"    pm.expect(jsonBody.UserSessionToken).not.to.be.undefined;",
+									"    pm.expect(jsonBody.UserSessionToken.length).to.be.above(0);",
+									"    pm.expect(jsonBody.UserSessionToken).not.to.eql(\"00000000-0000-0000-0000-000000000000\");",
+									"});",
+									"",
+									"pm.environment.set(\"user_profile_guid\", jsonBody.UserProfileGuid);",
+									"pm.environment.set(\"session_token_1\", jsonBody.UserSessionToken);",
+									"",
+									"console.log(\"user_profile_guid: \" + jsonBody.UserProfileGuid);",
+									"console.log(\"session_token_1: \" + jsonBody.UserSessionToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"SessionToken\": \"{{session_token}}\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{connect_url}}/ClientServices/CineplexClientServicesWeb/Login",
+							"host": [
+								"{{connect_url}}"
+							],
+							"path": [
+								"ClientServices",
+								"CineplexClientServicesWeb",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ticket Transaction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0bd2e1b8-3a83-409c-a8f8-3430c4cfb901",
+								"exec": [
+									"var jsonBody = pm.response.json();",
+									"",
+									"pm.test(\"transaction_id should zero out\", function(){",
+									"    pm.expect(jsonBody.TransactionUid).not.to.eql(\"00000000-0000-0000-0000-000000000000\");",
+									"});",
+									"",
+									"pm.test(\"Status in response is expected\", function(){",
+									"    pm.expect(jsonBody.Status).to.eql(1);",
+									"});",
+									"",
+									"pm.environment.set(\"transaction_id\", jsonBody.TransactionUid);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"VISTASessionId\": \"{{load_vista_session_id}}\",\r\n    \"LocationId\": \"{{load_location_id}}\",\r\n    \"ClientGuid\": null\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{cot_base_url}}/CineplexTicketingBase/CreateTicketTransaction",
+							"host": [
+								"{{cot_base_url}}"
+							],
+							"path": [
+								"CineplexTicketingBase",
+								"CreateTicketTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ticket Cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce03f7d1-7a7f-4eef-aa0b-406b263e9038",
+								"exec": [
+									"console.log(pm.request);",
+									"console.log(pm.response);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "CCTOKEN={{session_token_1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{cot_base_url}}/TicketCart/{{transaction_id}}",
+							"host": [
+								"{{cot_base_url}}"
+							],
+							"path": [
+								"TicketCart",
+								"{{transaction_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ticket Cart Proceed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba9c8f8f-01e7-4e26-99b1-133a0c53a275",
+								"exec": [
+									"var jsonBody = pm.response.json();",
+									"",
+									"pm.test(\"HasError in response is expected\", function(){",
+									"    pm.expect(jsonBody.HasError).to.eql(false);",
+									"});",
+									"",
+									"pm.test(\"JsonType in response is expected\", function(){",
+									"    pm.expect(jsonBody.JsonType).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () ",
+									"{",
+									"    pm.expect(pm.response.text()).to.not.include(\"00000000-0000-0000-0000-000000000000\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"ITTicketTypeID\": {{load_ticket_type_id}},\r\n        \"TicketTypeCode\": \"{{load_ticket_type_code}}\",\r\n        \"TicketCode\": \"{{load_ticket_code}}\",\r\n        \"Quantity\": 1,\r\n        \"ITSessionId\": {{load_session_id}}\r\n    }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{cot_base_url}}/TicketCart/Proceed/{{transaction_id}}",
+							"host": [
+								"{{cot_base_url}}"
+							],
+							"path": [
+								"TicketCart",
+								"Proceed",
+								"{{transaction_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cot_base_url}}/Seats/{{transaction_id}}",
+							"host": [
+								"{{cot_base_url}}"
+							],
+							"path": [
+								"Seats",
+								"{{transaction_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ticket Cart Cancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a8b9560-ec6e-47e5-942b-957a152b650a",
+								"exec": [
+									"var jsonBody = pm.response.json();",
+									"",
+									"var transaction = pm.environment.get(\"transaction_id\");",
+									"",
+									"pm.test(\"Ticket Cancel is successful\", function(){",
+									"    pm.expect(jsonBody.TransactionUid).to.eql(transaction);",
+									"});",
+									"",
+									"pm.test(\"Status in response is expected\", function(){",
+									"    pm.expect(jsonBody.Status).to.eql(1);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "CCTOKEN={{session_token_1}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{cot_base_url}}/CineplexTicketingBase/CancelTransaction/{{transaction_id}}",
+							"host": [
+								"{{cot_base_url}}"
+							],
+							"path": [
+								"CineplexTicketingBase",
+								"CancelTransaction",
+								"{{transaction_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d5f17873-d2a5-480f-8e3d-9a3957fb7e5c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a386960a-cb09-4926-89c6-1596341228bd",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response is successful\", pm.response.to.be.success);"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -16298,55 +16685,55 @@
 	],
 	"variable": [
 		{
-			"id": "83f8e897-efce-4768-870f-e2583cd589a3",
+			"id": "531b9396-8b9b-4de9-bff9-ac280a47a2e6",
 			"key": "max_response_time",
-			"value": "30000",
+			"value": "50000",
 			"type": "string"
 		},
 		{
-			"id": "573c67dc-36f0-45d1-9802-dfb7e39c3a54",
+			"id": "58d3d687-9205-44fa-990d-0f212b39fbff",
 			"key": "language",
 			"value": "en-us",
 			"type": "string"
 		},
 		{
-			"id": "47dd1e9d-87fd-4b5a-854c-767b9afa4591",
+			"id": "5f2668f5-820c-4b4f-8595-e401df718d85",
 			"key": "username",
 			"value": "cpxapitester@gmail.com",
 			"type": "string"
 		},
 		{
-			"id": "7802da83-51f4-45e3-8ca4-fc0cf8137857",
+			"id": "cdc4848e-19bd-4fef-a1a9-ccd31e926657",
 			"key": "password",
 			"value": "Cineplex123",
 			"type": "string"
 		},
 		{
-			"id": "bd30130e-97ff-4171-a7c2-36e7a59f7a16",
+			"id": "7b3e25e7-39e1-4744-88d0-f18752f952f7",
 			"key": "connect_pin",
 			"value": "1234",
 			"type": "string"
 		},
 		{
-			"id": "a4b0f853-036e-4fa9-a52e-101b3006f8e4",
+			"id": "9754ecfc-acd5-4805-b5fd-97f968d84ef3",
 			"key": "ocp_apim_subscription_key",
 			"value": "258d786c688d4aa69fff2edbc36fdfdc",
 			"type": "string"
 		},
 		{
-			"id": "14008b0d-3840-400f-8c0d-9872f322397b",
+			"id": "4fe96879-3120-4a96-bc27-aa8b12bcc903",
 			"key": "latitude",
 			"value": "45.4934",
 			"type": "string"
 		},
 		{
-			"id": "72ffc8b4-68ef-4d61-9555-6df0a65ac03b",
+			"id": "b384050e-4b31-465d-be94-6366c3103073",
 			"key": "longitude",
 			"value": "-73.5582",
 			"type": "string"
 		},
 		{
-			"id": "d1546ac9-7f13-4125-af5f-633a17dec49f",
+			"id": "1abff0cb-41d5-4edf-8958-296035cc4528",
 			"key": "radius",
 			"value": "50",
 			"type": "string"
