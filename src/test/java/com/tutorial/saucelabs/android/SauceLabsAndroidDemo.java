@@ -1,4 +1,5 @@
-package com.tutorial.saucelabs;
+package com.tutorial.saucelabs.android;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
