@@ -13,64 +13,13 @@ Sloth Java features/abilities to load and performance test many different applic
  -  LDAP
  -  Message-oriented Middleware (MOM) via JMS
 
-## The Latest Version
-
-Details of the latest version, actually all versions, can only be found on github for now.
-
-## Requirements
-
-The following requirements exist for running sloth-java:
-
-*  Java Interpreter:
-
-    A fully compliant Java Environment is required 
-
-*  Eclipse:
-
-    A Java IDE is helpful, expecially the main stream one. 
-    
-* Robot, Selenium and Appium
-
-    ALL of the most handy automation frameworks
-
-## Installation Instructions
-
- * Release builds
-
 ## Running Sloth Java
 
-1. Import the project as a Maven project
-2. Run testng.xml(could have a different name) files as TestNG Suite
-3. Report will be created as test-output/EstentReport/Test-Automation-yyyymmdd.html
-4. Screen shot will be created under test-output/EstentReport/ScreenShot
-5. Log will be created as test-output/EstentReport/Test-Automation.log
-
-### Windows
-
-1. Install and config JRE and eclipse first, good to have https://projectlombok.org/
-2. Install chrome and firefox latest version
-    
-### Notes
-
-1. Supported OS: Windows, Mac, Linux
-2. Supprorted Browser: Chrome, Firefox, IE
-
-### Author
-
-1. Weipeng Zheng (weipeng.zheng.ca@gmail.com)
-2. Tianle Zheng (tianle.zheng.ca@gmail.com)
-
-## Java Appium Example Scripts
-
-These demonstration scripts allow you to run an automated Appium tests on Sauce Labs platforms.
-
-> ###### Disclaimer:
->
-> The code in these scripts is provided on an "AS-IS" basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
->
-> Some examples in this repository, such as `appium-example`, `parallel-testing`, and `headless`, may require a different account tier beyond free trial. Please contact the [Sauce Labs Sales Team](https://saucelabs.com/contact) for support and information.
-
-<br />
+ -  Import the project as a Maven project
+ -  Run testng.xml(could have a different name) files as TestNG Suite
+ -  Report will be created as test-output/EstentReport/Test-Automation-yyyymmdd.html
+ -  Screen shot will be created under test-output/EstentReport/ScreenShot
+ -  Log will be created as test-output/EstentReport/Test-Automation.log
 
 ### Prerequisites
 * Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -103,7 +52,6 @@ These demonstration scripts allow you to run an automated Appium tests on Sauce 
     $ export SAUCE_USERNAME=<your Sauce Labs username>
     $ export SAUCE_ACCESS_KEY=<your Sauce Labs access key>
     ```
- 
  <br />
  
 ### Running the Tests
@@ -117,18 +65,20 @@ These demonstration scripts allow you to run an automated Appium tests on Sauce 
 	$ mvn clean test -pl appium-example
 	```
 3. Visit the [Sauce Labs Dashboard](https://saucelabs.com/beta/dashboard/) to see the results.
-
 <br />
 
 ### Advice and Troubleshooting
 
 There may be additional latency when using a remote webdriver to run tests on Sauce Labs, therefore timeouts or "Waits" may need to be increased. Please read the following wiki page on [tips regarding explicit waits](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Explicit+Waits)
-
 <br />
+
+### Author
+
+1. Weipeng Zheng (weipeng.zheng.ca@gmail.com)
+2. Tianle Zheng (tianle.zheng.ca@gmail.com)
 
 ##### More Information
 * [Sauce Labs Documentation](https://wiki.saucelabs.com/)
 * [Appium Documentation](http://appium.io/slate/en/master/)
 * [JDK Tutorials and Documentation](https://blogs.oracle.com/thejavatutorials/)
 * [Maven Documentation](https://maven.apache.org/guides/)
-
