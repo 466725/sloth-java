@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import io.appium.java_client.android.AndroidDriver;
 
 public class SauceLabsAndroidDemo {
-	AndroidDriver<?> androidDriver;
+	AndroidDriver androidDriver;
 
 	@BeforeSuite
 	public void beforeSuite() throws MalformedURLException {
@@ -22,7 +22,7 @@ public class SauceLabsAndroidDemo {
 		androidCaps.setCapability("platformName", "Android");
 		androidCaps.setCapability("platformVersion", "10");
 		URL US_endpoint = new URL("http://us1.appium.testobject.com/wd/hub");
-		androidDriver = new AndroidDriver<WebElement>(US_endpoint, androidCaps);
+		androidDriver = new AndroidDriver(US_endpoint, androidCaps);
 	}
 
 	@AfterSuite
