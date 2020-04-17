@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.android.Tests;
+package com.tutorial.saucelabs.android;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class SauceLabsAndroidDemo {
+public class SauceLabsAndroidDemo2 {
 	AndroidDriver androidDriver;
 	public String username = "Weipeng";
 	public String accesskey = "a9fe7cd4-fd12-4c99-aeee-826a7e511008";

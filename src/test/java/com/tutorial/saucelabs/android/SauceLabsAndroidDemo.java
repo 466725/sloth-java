@@ -3,40 +3,42 @@ package com.tutorial.saucelabs.android;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
 public class SauceLabsAndroidDemo {
-	AndroidDriver androidDriver;
+
+	private AppiumDriver driver;
 
 	@BeforeSuite
-	public void beforeSuite() throws MalformedURLException {
-		DesiredCapabilities androidCaps = new DesiredCapabilities();
-		androidCaps.setCapability("testobject_api_key", "7B0F153A1C564E13934E7C5908228326");
-		androidCaps.setCapability("testobject_app_id", "1");
-		androidCaps.setCapability("platformName", "Android");
-		androidCaps.setCapability("platformVersion", "10");
+	public void setupAppium() throws MalformedURLException {
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("testobject_api_key", "9C862FE0E2624DD2BAC1B293A753A63B");
+		caps.setCapability("testobject_app_id", "1");
+		caps.setCapability("platformName", "Android");
+		caps.setCapability("platformVersion", "10");
 		URL US_endpoint = new URL("http://us1.appium.testobject.com/wd/hub");
-		androidDriver = new AndroidDriver(US_endpoint, androidCaps);
+		driver = new AndroidDriver(US_endpoint, caps);
 	}
 
 	@AfterSuite
-	public void afterSuite() throws InterruptedException {
-		androidDriver.quit();
+	public void uninstallApp() throws InterruptedException {
+		// driver.executeScript("sauce:job-result=passed");
+		driver.quit();
 	}
 
 	@Test(enabled = true)
-	public void androidLogin() throws InterruptedException {
-		androidDriver.findElementByXPath("(//android.view.ViewGroup[@content-desc='NO THANKS'])[2]").click();
-		androidDriver.findElementByXPath("//android.view.ViewGroup[@content-desc='Account']").click();
-		androidDriver.findElementByXPath("//android.view.ViewGroup[@content-desc='LOGIN']").click();
-		androidDriver.findElementByXPath("(//android.widget.EditText)[1]").sendKeys("cpxapitester@gmail.com");
-		androidDriver.findElementByXPath("(//android.widget.EditText)[2]").sendKeys("Cineplex123");
-		androidDriver.findElementByXPath("//android.view.ViewGroup[@content-desc='LOGIN']").click();
+	public void myFirstTest() throws InterruptedException {
+		driver.findElementByXPath("(//android.view.ViewGroup[@content-desc='NO THANKS'])[2]").click();
+		driver.findElementByXPath("//android.view.ViewGroup[@content-desc='Account']").click();
+		driver.findElementByXPath("//android.view.ViewGroup[@content-desc='LOGIN']").click();
+		driver.findElementByXPath("(//android.widget.EditText)[1]").sendKeys("cpxapitester@gmail.com");
+		driver.findElementByXPath("(//android.widget.EditText)[2]").sendKeys("Cineplex123");
+		driver.findElementByXPath("//android.view.ViewGroup[@content-desc='LOGIN']").click();
 	}
 }
