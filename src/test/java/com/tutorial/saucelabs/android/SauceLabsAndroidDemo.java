@@ -3,27 +3,29 @@ package com.tutorial.saucelabs.android;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
 public class SauceLabsAndroidDemo {
 
-	private AppiumDriver driver;
+	private AndroidDriver<WebElement> driver;
 
 	@BeforeSuite
 	public void setupAppium() throws MalformedURLException {
-		DesiredCapabilities caps = new DesiredCapabilities();
+		MutableCapabilities caps = new MutableCapabilities();
 		caps.setCapability("testobject_api_key", "9C862FE0E2624DD2BAC1B293A753A63B");
-		caps.setCapability("testobject_app_id", "1");
+//		caps.setCapability("testobject_app_id", "1");
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("platformVersion", "10");
+		caps.setCapability("name", "Mobile Ticketing App Demo Test by Weipeng");
+		caps.setCapability("automationName", "UiAutomator2");
 		URL US_endpoint = new URL("http://us1.appium.testobject.com/wd/hub");
-		driver = new AndroidDriver(US_endpoint, caps);
+		driver = new AndroidDriver<WebElement>(US_endpoint, caps);
 	}
 
 	@AfterSuite
