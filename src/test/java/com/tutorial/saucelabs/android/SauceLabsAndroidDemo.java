@@ -3,8 +3,8 @@ package com.tutorial.saucelabs.android;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -17,20 +17,20 @@ public class SauceLabsAndroidDemo {
 
 	@BeforeSuite
 	public void setupAppium() throws MalformedURLException {
-		MutableCapabilities caps = new MutableCapabilities();
+		// https://wiki.saucelabs.com/display/DOCS/Appium+Capabilities+for+Real+Device+Testing
+		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("testobject_api_key", "9C862FE0E2624DD2BAC1B293A753A63B");
-//		caps.setCapability("testobject_app_id", "1");
+		caps.setCapability("testobject_app_id", "1");
 		caps.setCapability("platformName", "Android");
-		caps.setCapability("platformVersion", "10");
-		caps.setCapability("name", "Mobile Ticketing App Demo Test by Weipeng");
-		caps.setCapability("automationName", "UiAutomator2");
-		URL US_endpoint = new URL("http://us1.appium.testobject.com/wd/hub");
-		driver = new AndroidDriver<WebElement>(US_endpoint, caps);
+		caps.setCapability("platformVersion", "9");
+		//caps.setCapability("automationName", "UiAutomator2");
+		caps.setCapability("name", "Automation with Sauce labs demo of Android by Weipeng");
+
+		driver = new AndroidDriver<WebElement>(new URL("https://us1.appium.testobject.com/wd/hub"), caps);
 	}
 
 	@AfterSuite
 	public void uninstallApp() throws InterruptedException {
-		// driver.executeScript("sauce:job-result=passed");
 		driver.quit();
 	}
 
