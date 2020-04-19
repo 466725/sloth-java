@@ -23,8 +23,7 @@ public class SauceLabsAndroidDemo {
 		caps.setCapability("testobject_app_id", "1");
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("platformVersion", "9");
-		//caps.setCapability("automationName", "UiAutomator2");
-		caps.setCapability("name", "Automation with Sauce labs demo of Android by Weipeng");
+		caps.setCapability("name", "Automation with Sauce labs demo of Android");
 
 		driver = new AndroidDriver<WebElement>(new URL("https://us1.appium.testobject.com/wd/hub"), caps);
 	}
