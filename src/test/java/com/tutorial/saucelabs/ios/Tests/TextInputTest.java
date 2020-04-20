@@ -11,12 +11,7 @@ import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
 import java.util.UUID;
 
-/**
- * Created by mehmetgerceker on 12/7/15.
- */
-
 public class TextInputTest extends TestBase {
-
 	/**
 	 * Runs a simple test verifying if the comment input is functional.
 	 * 
@@ -39,5 +34,4 @@ public class TextInputTest extends TestBase {
 
 		Assert.assertTrue(page.getSubmittedCommentText().contains(commentInputText));
 	}
-
 }

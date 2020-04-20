@@ -1,7 +1,5 @@
 package com.tutorial.saucelabs.android.Tests;
 
-// import Sauce TestNG helper libraries
-
 import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 import com.saucelabs.testng.SauceOnDemandAuthenticationProvider;
@@ -18,27 +16,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.UnexpectedException;
 
-// import testng annotations
-// import java libraries
-
 /**
  * Simple TestNG test which demonstrates being instantiated via a DataProvider
  * in order to supply multiple browser combinations.
  *
- * @author Neil Manvar
  */
 @Listeners({ SauceOnDemandTestListener.class })
 public class TestBase implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
-
 	public String seleniumURI = "@ondemand.saucelabs.com:443";
 	public String buildTag = System.getenv("BUILD_TAG");
-	// public String username = System.getenv("SAUCE_USERNAME");
 	public String username = "Weipeng";
-	// public String accesskey = System.getenv("SAUCE_ACCESS_KEY");
 	public String accesskey = "a9fe7cd4-fd12-4c99-aeee-826a7e511008";
 	public String app = "https://github.com/saucelabs-training/demo-java/blob/master/appium-example/resources/android/GuineaPigApp-debug.apk?raw=true";
-	// public String app =
-	// "../../../../../../resources/android/GuineaPigApp-debug.apk";
 
 	/**
 	 * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied
@@ -144,7 +133,6 @@ public class TestBase implements SauceOnDemandSessionIdProvider, SauceOnDemandAu
 	 */
 	@AfterMethod
 	public void tearDown() throws Exception {
-
 		// Gets browser logs if available.
 		androidDriver.get().quit();
 	}

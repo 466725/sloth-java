@@ -11,12 +11,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.rmi.UnexpectedException;
 
-/**
- * Created by mehmetgerceker on 12/7/15.
- */
-
 public class FollowLinkTest extends TestBase {
-
 	/**
 	 * Runs a simple test verifying link can be followed.
 	 *
@@ -38,5 +33,4 @@ public class FollowLinkTest extends TestBase {
 
 		Assert.assertFalse(page.isOnPage());
 	}
-
 }

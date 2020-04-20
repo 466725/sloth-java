@@ -13,7 +13,7 @@
 		<parameter name="password" value="test"></parameter>
 		<classes>
 			<!-- API test cases -->
-			<class name="com.tutorial.saucelabs.ios.SauceLabsAndroidDemo"/>
+			<class name="com.tutorial.saucelabs.ios.SauceLabsIOSDemo"/>
 		</classes>
 	</test>
 </suite>
