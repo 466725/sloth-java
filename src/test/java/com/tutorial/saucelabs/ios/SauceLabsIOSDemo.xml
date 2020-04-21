@@ -11,6 +11,10 @@
 		<parameter name="URL" value="https://dev.volantecloud.com/aries-ui/"></parameter>
 		<parameter name="userName" value="vetest@volantesystems.com"></parameter>
 		<parameter name="password" value="test"></parameter>
+		<!-- For Mobile test cases only -->
+		<parameter name="isAndroid" value="true"></parameter>
+		<parameter name="isProd" value="true"></parameter>
+		<parameter name="isTicketing" value="true"></parameter>
 		<classes>
 			<!-- API test cases -->
 			<class name="com.tutorial.saucelabs.ios.SauceLabsIOSDemo"/>
