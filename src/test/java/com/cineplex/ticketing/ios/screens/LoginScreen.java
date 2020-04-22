@@ -1,5 +1,7 @@
 package com.cineplex.ticketing.ios.screens;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.framework.templates.Displayable;
 
 public class LoginScreen extends Displayable {
+	protected final static Logger logger = LogManager.getLogger(LoginScreen.class.getName());
 
 	@FindBy(id = "h1Text")
 	private WebElement h1Text;

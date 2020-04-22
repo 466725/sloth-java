@@ -1,5 +1,12 @@
 package com.cineplex.store.android.testcases;
 
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.rmi.UnexpectedException;
+import java.util.UUID;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -8,12 +15,9 @@ import org.testng.annotations.Test;
 import com.cineplex.store.android.screens.LoginScreen;
 import com.framework.templates.AndroidTestCase;
 
-import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.rmi.UnexpectedException;
-import java.util.UUID;
-
 public class LoginScreenTest extends AndroidTestCase {
+	protected final static Logger logger = LogManager.getLogger(LoginScreenTest.class.getName());
+	
 	/**
 	 * Runs a simple test verifying link can be followed.
 	 *
@@ -34,8 +38,8 @@ public class LoginScreenTest extends AndroidTestCase {
 		page.followLink();
 
 		Assert.assertFalse(page.isOnPage());
-	}	
-	
+	}
+
 	/**
 	 * Runs a simple test verifying if the comment input is functional.
 	 * 

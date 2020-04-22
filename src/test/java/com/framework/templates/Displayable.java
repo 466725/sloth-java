@@ -18,7 +18,7 @@ public abstract class Displayable {
 	 * 
 	 */
 	public Displayable() {
-		logger.info("Here is base class of all page objects, good luck!");
+		logger.info("Here is base class of everything can be displayed, good luck!");
 	}
 
 	/**

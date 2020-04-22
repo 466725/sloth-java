@@ -3,6 +3,8 @@ package com.cineplex.ticketing.android;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
@@ -12,6 +14,7 @@ import org.testng.annotations.Test;
 import io.appium.java_client.android.AndroidDriver;
 
 public class SauceLabsAndroidDemo {
+	protected final static Logger logger = LogManager.getLogger(SauceLabsAndroidDemo.class.getName());
 
 	private AndroidDriver<WebElement> driver;
 

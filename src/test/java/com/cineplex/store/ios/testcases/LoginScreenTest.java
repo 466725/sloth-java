@@ -1,5 +1,12 @@
 package com.cineplex.store.ios.testcases;
 
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.rmi.UnexpectedException;
+import java.util.UUID;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -8,12 +15,9 @@ import org.testng.annotations.Test;
 import com.cineplex.store.ios.screens.LoginScreen;
 import com.framework.templates.IOSTestCase;
 
-import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.rmi.UnexpectedException;
-import java.util.UUID;
-
 public class LoginScreenTest extends IOSTestCase {
+	protected final static Logger logger = LogManager.getLogger(LoginScreenTest.class.getName());
+	
 	/**
 	 * Runs a simple test verifying link can be followed.
 	 *

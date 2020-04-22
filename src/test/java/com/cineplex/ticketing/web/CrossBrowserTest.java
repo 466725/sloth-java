@@ -1,5 +1,7 @@
 package com.cineplex.ticketing.web;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +19,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CrossBrowserTest {
+	protected final static Logger logger = LogManager.getLogger(CrossBrowserTest.class.getName());
+
 	// ThreadLocal variable containing WebDriver instance and the Sauce Job Id
 	private ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 	private ThreadLocal<String> sessionId = new ThreadLocal<>();

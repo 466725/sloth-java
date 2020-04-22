@@ -3,6 +3,8 @@ package com.cineplex.store.ios;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
@@ -13,6 +15,7 @@ import io.appium.java_client.ios.IOSDriver;
 import junit.framework.Assert;
 
 public class SauceLabsIOSDemo {
+	protected final static Logger logger = LogManager.getLogger(SauceLabsIOSDemo.class.getName());
 
 	private IOSDriver<WebElement> driver;
 
