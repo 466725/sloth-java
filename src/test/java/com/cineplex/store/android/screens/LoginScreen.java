@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginScreen {
+import com.framework.templates.Displayable;
+
+public class LoginScreen extends Displayable {
 
 	@FindBy(id = "Heading1_1")
 	private WebElement h1Text;
@@ -60,5 +62,11 @@ public class LoginScreen {
 	 */
 	public void hideKeyboard() {
 		this.h1Text.click();
+	}
+
+	@Override
+	public boolean navigateTo() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

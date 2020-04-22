@@ -7,12 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import com.framework.templates.WebPage;
+import com.framework.templates.Displayable;
 import com.utilities.WebPageUtils;
 
 import config.Constants;
 
-public class LoginPage extends WebPage
+public class LoginPage extends Displayable
 {
 	protected final static Logger logger = LogManager.getLogger(LoginPage.class.getName());
 	protected static List<WebElement> allWebElements = null;

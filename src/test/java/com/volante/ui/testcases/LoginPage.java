@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.framework.templates.WebPage;
+import com.framework.templates.Displayable;
 import com.utilities.SeleniumWrapper;
 
 import config.Constants;
@@ -18,7 +18,7 @@ import config.Constants;
  * @author Weipeng Zheng
  *
  */
-public class LoginPage extends WebPage {
+public class LoginPage extends Displayable {
 	protected final static Logger logger = LogManager.getLogger(LoginPage.class.getName());
 	protected String URL;
 	protected String userName;

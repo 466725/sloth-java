@@ -4,24 +4,25 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 /**
- * Base class of all page objects
+ * Base class of everything can be displayed, for example web page and app
+ * screen
  * 
  * @author Weipeng Zheng
  *
  */
-public abstract class WebPage {
-	protected final static Logger logger = LogManager.getLogger(WebPage.class.getName());
+public abstract class Displayable {
+	protected final static Logger logger = LogManager.getLogger(Displayable.class.getName());
 
 	/**
-	 * Constructor of page object base class
+	 * Constructor of this base class
 	 * 
 	 */
-	public WebPage() {
+	public Displayable() {
 		logger.info("Here is base class of all page objects, good luck!");
 	}
 
 	/**
-	 * Page object navigator, to navigate to the page object
+	 * Navigator
 	 */
 	abstract public boolean navigateTo();
 }
