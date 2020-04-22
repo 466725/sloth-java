@@ -1,4 +1,4 @@
-package com.cineplex.store.ios.screens;
+package com.cineplex.store.android.screens;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GuineaPigPage {
+public class LoginScreen {
 
-	@FindBy(id = "h1Text")
+	@FindBy(id = "Heading1_1")
 	private WebElement h1Text;
 
-	@FindBy(id = "i am a link")
+	@FindBy(id = "i_am_a_link")
 	private WebElement theActiveLink;
 
-	@FindBy(id = "submittedComments")
+	@FindBy(id = "your_comments")
 	private WebElement yourComments;
 
 	@FindBy(id = "comments")
@@ -25,7 +25,7 @@ public class GuineaPigPage {
 
 	public WebDriver driver;
 
-	public GuineaPigPage(WebDriver driver) {
+	public LoginScreen(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -56,8 +56,7 @@ public class GuineaPigPage {
 
 	/**
 	 * This method only work for this page and assumes the app supports keyboard
-	 * hide on click-away. In appium there's no way of doing this with a generalized
-	 * method for iOS as of yet.
+	 * hide on click-away.
 	 */
 	public void hideKeyboard() {
 		this.h1Text.click();

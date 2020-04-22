@@ -1,11 +1,10 @@
-package com.cineplex.ticketing.ios.testcases;
+package com.framework.templates;
 
-import com.framework.templates.MobileTestCase;
 import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 import com.saucelabs.testng.SauceOnDemandAuthenticationProvider;
 import com.saucelabs.testng.SauceOnDemandTestListener;
-import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
@@ -23,13 +22,13 @@ import java.rmi.UnexpectedException;
  *
  */
 @Listeners({ SauceOnDemandTestListener.class })
-public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
-
+public class AndroidTestCase extends MobileTestCase implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
 	public String seleniumURI = "@ondemand.saucelabs.com:443";
 	public String buildTag = System.getenv("BUILD_TAG");
 	public String username = "Weipeng";
 	public String accesskey = "a9fe7cd4-fd12-4c99-aeee-826a7e511008";
-	public String app = "https://github.com/saucelabs-training/demo-java/blob/master/appium-example/resources/ios/SauceGuineaPig-sim-debug.app.zip?raw=true";
+	public String app = "https://github.com/saucelabs-training/demo-java/blob/master/appium-example/resources/android/GuineaPigApp-debug.apk?raw=true";
+
 	/**
 	 * Constructs a {@link SauceOnDemandAuthentication} instance using the supplied
 	 * user name/access key. To use the authentication supplied by environment
@@ -39,11 +38,11 @@ public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdPr
 	public SauceOnDemandAuthentication authentication = new SauceOnDemandAuthentication(username, accesskey);
 
 	/**
-	 * ThreadLocal variable which contains the {@link IOSDriver} instance which is
-	 * used to perform browser interactions with.
+	 * ThreadLocal variable which contains the {@link AndroidDriver} instance which
+	 * is used to perform browser interactions with.
 	 */
 	@SuppressWarnings("rawtypes")
-	private ThreadLocal<IOSDriver> iosDriver = new ThreadLocal<IOSDriver>();
+	private ThreadLocal<AndroidDriver> androidDriver = new ThreadLocal<AndroidDriver>();
 
 	/**
 	 * ThreadLocal variable which contains the Sauce Job Id.
@@ -59,20 +58,21 @@ public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdPr
 	 */
 	@DataProvider(name = "hardCodedBrowsers", parallel = true)
 	public static Object[][] sauceBrowserDataProvider(Method testMethod) {
-		return new Object[][] { new Object[] { "iOS", "iPhone X Simulator", "12.2", "1.13.0", "portrait" },
-				new Object[] { "iOS", "iPad Pro (12.9 inch) Simulator", "12.2", "1.13.0", "portrait" } };
+		return new Object[][] {
+				new Object[] { "Android", "Samsung Galaxy Tab S3 GoogleAPI Emulator", "8.1", "1.9.1", "portrait" },
+				new Object[] { "Android", "Samsung Galaxy S9 Plus FHD GoogleAPI Emulator", "8.1", "1.9.1",
+						"portrait" } };
 	}
 
 	/**
-	 * @return the {@link iosDriver} for the current thread
+	 * @return the {@link AndroidDriver} for the current thread
 	 */
 	@SuppressWarnings("rawtypes")
-	public IOSDriver getiosDriver() {
-		return iosDriver.get();
+	public AndroidDriver getAndroidDriver() {
+		return androidDriver.get();
 	}
 
 	/**
-	 *
 	 * @return the Sauce Job id for the current thread
 	 */
 	public String getSessionId() {
@@ -80,7 +80,6 @@ public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdPr
 	}
 
 	/**
-	 *
 	 * @return the {@link SauceOnDemandAuthentication} instance containing the Sauce
 	 *         username/access key
 	 */
@@ -90,9 +89,9 @@ public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdPr
 	}
 
 	/**
-	 * Constructs a new {@link IOSDriver} instance which is configured to use the
-	 * capabilities defined by the browser, version and os parameters, and which is
-	 * configured to run against ondemand.saucelabs.com, using the username and
+	 * Constructs a new {@link AndroidDriver} instance which is configured to use
+	 * the capabilities defined by the browser, version and os parameters, and which
+	 * is configured to run against ondemand.saucelabs.com, using the username and
 	 * access key populated by the {@link #authentication} instance.
 	 *
 	 * @param platformName      name of the platformName. (Android, iOS, etc.)
@@ -114,18 +113,18 @@ public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdPr
 		capabilities.setCapability("deviceOrientation", deviceOrientation);
 		capabilities.setCapability("appiumVersion", appiumVersion);
 		capabilities.setCapability("name", methodName);
-		capabilities.setCapability("build", "Java-TestNG-Appium-iOS");
 		capabilities.setCapability("app", app);
+		capabilities.setCapability("build", "Java-TestNG-Appium-Android");
 
 		if (buildTag != null) {
 			capabilities.setCapability("build", buildTag);
 		}
 
 		// Launch remote browser and set it as the current thread
-		iosDriver.set(new IOSDriver(new URL("https://" + authentication.getUsername() + ":"
+		androidDriver.set(new AndroidDriver(new URL("https://" + authentication.getUsername() + ":"
 				+ authentication.getAccessKey() + seleniumURI + "/wd/hub"), capabilities));
 
-		String id = ((RemoteWebDriver) getiosDriver()).getSessionId().toString();
+		String id = ((RemoteWebDriver) getAndroidDriver()).getSessionId().toString();
 		sessionId.set(id);
 	}
 
@@ -134,8 +133,7 @@ public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdPr
 	 */
 	@AfterMethod
 	public void tearDown() throws Exception {
-
 		// Gets browser logs if available.
-		iosDriver.get().quit();
+		androidDriver.get().quit();
 	}
 }
