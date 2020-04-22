@@ -1,5 +1,6 @@
 package com.cineplex.ticketing.ios.testcases;
 
+import com.framework.templates.MobileTestCase;
 import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 import com.saucelabs.testng.SauceOnDemandAuthenticationProvider;
@@ -22,7 +23,7 @@ import java.rmi.UnexpectedException;
  *
  */
 @Listeners({ SauceOnDemandTestListener.class })
-public class TestBase implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
+public class TestBase extends MobileTestCase implements SauceOnDemandSessionIdProvider, SauceOnDemandAuthenticationProvider {
 
 	public String seleniumURI = "@ondemand.saucelabs.com:443";
 	public String buildTag = System.getenv("BUILD_TAG");
