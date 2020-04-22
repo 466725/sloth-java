@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.ios.Pages;
+package com.cineplex.ticketing.ios.screens;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

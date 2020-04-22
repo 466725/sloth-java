@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.ios;
+package com.cineplex.store.ios;
 
 import java.net.MalformedURLException;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs;
+package com.cineplex.store.web;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;

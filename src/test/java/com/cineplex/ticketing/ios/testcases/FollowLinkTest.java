@@ -1,11 +1,11 @@
-package com.tutorial.saucelabs.ios.Tests;
+package com.cineplex.ticketing.ios.testcases;
 
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.tutorial.saucelabs.ios.Pages.GuineaPigPage;
+import com.cineplex.ticketing.ios.screens.GuineaPigPage;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;

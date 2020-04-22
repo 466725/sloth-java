@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.ios.Tests;
+package com.cineplex.store.ios.testcases;
 
 import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;

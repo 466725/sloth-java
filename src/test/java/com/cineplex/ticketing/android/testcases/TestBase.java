@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.android.Tests;
+package com.cineplex.ticketing.android.testcases;
 
 import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;

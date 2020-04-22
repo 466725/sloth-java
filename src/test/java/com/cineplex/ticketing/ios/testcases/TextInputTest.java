@@ -1,10 +1,10 @@
-package com.tutorial.saucelabs.android.Tests;
+package com.cineplex.ticketing.ios.testcases;
 
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.tutorial.saucelabs.android.Pages.GuineaPigPage;
+import com.cineplex.ticketing.ios.screens.GuineaPigPage;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -24,7 +24,7 @@ public class TextInputTest extends TestBase {
 
 		this.createDriver(platformName, deviceName, platformVersion, appiumVersion, deviceOrientation,
 				method.getName());
-		WebDriver driver = this.getAndroidDriver();
+		WebDriver driver = this.getiosDriver();
 
 		String commentInputText = UUID.randomUUID().toString();
 

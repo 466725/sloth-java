@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.android;
+package com.cineplex.ticketing.android;
 
 import java.net.MalformedURLException;
 import java.net.URL;

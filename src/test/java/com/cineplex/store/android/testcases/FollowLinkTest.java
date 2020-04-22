@@ -1,11 +1,11 @@
-package com.tutorial.saucelabs.android.Tests;
+package com.cineplex.store.android.testcases;
 
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.tutorial.saucelabs.android.Pages.GuineaPigPage;
+import com.cineplex.store.android.screens.GuineaPigPage;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;

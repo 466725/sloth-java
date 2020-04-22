@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs.android.Pages;
+package com.cineplex.store.android.screens;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

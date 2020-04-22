@@ -1,4 +1,4 @@
-package com.tutorial.saucelabs;
+package com.cineplex.ticketing.web;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
