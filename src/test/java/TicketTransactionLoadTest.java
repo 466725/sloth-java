@@ -24,8 +24,8 @@ import okhttp3.Response;
 public class TicketTransactionLoadTest {
 	private String connectBaseURL = "https://uat-connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
 	private String cotBaseURL = "https://uat-onlineticketing.cineplex.com";
-	private String vistaSessionID = "217343";
-	private String locationID = "7995";
+	private String vistaSessionID = "434835";
+	private String locationID = "7997";
 	private static String sessionToken = "";
 	private static String userProfileGUID = "";
 	private static String userSessionToken = "";
@@ -187,11 +187,11 @@ public class TicketTransactionLoadTest {
 	public void ticket_cart_proceed() throws Exception {
 		System.out.println("============================555============================");
 		String jsonBody = "[\r\n    {"
-				+ "\r\n        \"ITTicketTypeID\": 2150991,"
-				+ "\r\n        \"TicketTypeCode\": \"0946\","
+				+ "\r\n        \"ITTicketTypeID\": 2037444,"
+				+ "\r\n        \"TicketTypeCode\": \"0682\","
 				+ "\r\n        \"TicketCode\": \"VY\","
 				+ "\r\n        \"Quantity\": 1,"
-				+ "\r\n        \"ITSessionId\": 13215604"
+				+ "\r\n        \"ITSessionId\": 13228863"
 				+ "\r\n    }\r\n]";
 		System.out.println(jsonBody);
 		RequestBody body = RequestBody.create(mediaType, jsonBody);
