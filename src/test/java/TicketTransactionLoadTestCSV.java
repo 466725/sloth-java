@@ -1,9 +1,16 @@
 import static org.testng.Assert.assertTrue;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.annotations.AfterClass;
@@ -21,12 +28,16 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-//For UAT only, will not work in PROD
-public class TicketTransactionLoadTest {
-	private String connectBaseURL = "https://uat-connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
-	private String cotBaseURL = "https://uat-onlineticketing.cineplex.com";
-	private String vistaSessionID = "434835";
-	private String locationID = "7997";
+//For PROD only, will not work in UAT
+public class TicketTransactionLoadTestCSV {
+	private static String locationID = null;
+	private static String vistaSessionID = null;
+	private static String itSessionID = null;
+	private static String itTicketTypeID = null;
+	private static String ticketTypeCode = null;
+	private static String ticketCode = null;
+	private static String connectBaseURL = "https://connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
+	private static String cotBaseURL = "https://onlineticketing.cineplex.com";
 	private static String sessionToken = "";
 	private static String userProfileGUID = "";
 	private static String userSessionToken = "";
@@ -68,19 +79,19 @@ public class TicketTransactionLoadTest {
 	}
 	
 	@BeforeTest
-	public void startTest() {
+	public static void startTest() {
 		System.out.println("=========================Before Test=======================");
 	}
 
 	@AfterTest
-	public void endTest() {
+	public static void endTest() {
 		System.out.println("=========================After Test========================");
 	}
 	
 	@Test(priority = 1)
-	public void create_session_token() throws Exception {
+	public static void create_session_token() throws Exception {
 		System.out.println("============================111============================");
-		RequestBody body = RequestBody.create(mediaType, "{\r\n\t\"ApplicationKey\": \"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"\r\n}");
+		RequestBody body = RequestBody.create(mediaType, "{\r\n\t\"ApplicationKey\": \"9fbcb70c-8bcd-43eb-930f-d99968b4561e\"\r\n}");
 		Request request = new Request
 				.Builder()
 				.url(connectBaseURL + "/CreateApplicationSession")
@@ -93,12 +104,10 @@ public class TicketTransactionLoadTest {
 		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
 		sessionToken = jsonBody.get("SessionToken").toString();
 		System.out.println("sessionToken: " + sessionToken);
-		
-		assertTrue(response.code() == 200);
 	}
 
 	@Test(priority = 3)
-	public void login() throws Exception {
+	public static void login() throws Exception {
 		System.out.println("============================222============================");
 		RequestBody body = RequestBody.create(mediaType, "{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
 		System.out.println(body.toString());
@@ -122,11 +131,10 @@ public class TicketTransactionLoadTest {
 
 		assertTrue(!userProfileGUID.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
 		assertTrue(!userSessionToken.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
-		assertTrue(response.code() == 200);
 	}
 
 	@Test(priority = 5)
-	public void create_ticket_transaction() throws Exception {
+	public static void create_ticket_transaction() throws Exception {
 		System.out.println("============================333============================");
 		RequestBody body = RequestBody
 				.create(mediaType, "{\n    \"VISTASessionId\": \"" 
@@ -150,11 +158,10 @@ public class TicketTransactionLoadTest {
 
 		assertTrue(!transactionID.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
 		assertTrue(jsonBody.get("Status").toString().equals("1"));
-		assertTrue(response.code() == 200);
 	}
 	
 	@Test(priority = 9)
-	public void ticket_cart() throws Exception {
+	public static void ticket_cart() throws Exception {
 		System.out.println("============================444============================");
 		System.out.println("transactionID: " + transactionID);
 		System.out.println("userSessionToken: " + userSessionToken);
@@ -180,19 +187,21 @@ public class TicketTransactionLoadTest {
 				aspCookie = response.headers().value(i);
 			}
 		}
-		
-		assertTrue(response.code() == 200);
 	}
 
 	@Test(priority = 11)
-	public void ticket_cart_proceed() throws Exception {
+	public static void ticket_cart_proceed() throws Exception {
 		System.out.println("============================555============================");
 		String jsonBody = "[\r\n    {"
-				+ "\r\n        \"ITTicketTypeID\": 2037444,"
-				+ "\r\n        \"TicketTypeCode\": \"0682\","
-				+ "\r\n        \"TicketCode\": \"VY\","
-				+ "\r\n        \"Quantity\": 1,"
-				+ "\r\n        \"ITSessionId\": 13228863"
+				+ "\r\n        \"ITTicketTypeID\": " 
+				+ itTicketTypeID
+				+ ",\r\n        \"TicketTypeCode\": " 
+				+ ticketTypeCode
+				+ ",\r\n        \"TicketCode\": " 
+				+ ticketCode
+				+ ",\r\n        \"Quantity\": 1"
+				+ ",\r\n        \"ITSessionId\": " 
+				+ itSessionID
 				+ "\r\n    }\r\n]";
 		System.out.println(jsonBody);
 		RequestBody body = RequestBody.create(mediaType, jsonBody);
@@ -215,12 +224,10 @@ public class TicketTransactionLoadTest {
 		System.out.println(response.body().string());
 		System.out.println(response.headers().toString());
 		System.out.println(response.code());
-		
-		assertTrue(response.code() == 200);
 	}
 
 	@Test(priority = 13)
-	public void seats() throws Exception {
+	public static void seats() throws Exception {
 		System.out.println("============================666============================");
 		Request request = new Request
 				.Builder()
@@ -238,12 +245,10 @@ public class TicketTransactionLoadTest {
 		System.out.println(response.body().string());
 		System.out.println(response.headers().toString());
 		System.out.println(response.code());
-		
-		assertTrue(response.code() == 200);
 	}
 
 	@Test(priority = 15)
-	public void ticket_cart_cancel() throws Exception {
+	public static void ticket_cart_cancel() throws Exception {
 		System.out.println("============================777============================");
 		RequestBody body = RequestBody
 				.create(null, new byte[0]);
@@ -254,16 +259,45 @@ public class TicketTransactionLoadTest {
 				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
 				.build();
 		
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-		System.out.println(request.body().toString());
+		client.newCall(request).execute();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("Let's get csv file handled! ");
 		
-		Response response = client.newCall(request).execute();
-		
-		System.out.println(response.body().string());
-		System.out.println(response.headers().toString());
-		System.out.println(response.code());
-		
-		assertTrue(response.code() == 200);
+		File file = new File("ticketing_flow_data_prod.csv");
+		String filePath = file.getAbsolutePath();
+		Iterable<CSVRecord> records;
+		try {
+			Reader in = new FileReader(filePath);
+			records = CSVFormat.EXCEL.parse(in);
+			for (CSVRecord record : records) {
+				locationID = record.get(0);
+				vistaSessionID = record.get(1);
+				itSessionID = record.get(2);
+				itTicketTypeID = record.get(3);
+				ticketTypeCode = record.get(4);
+				ticketCode = record.get(5);
+				try {
+					setup();
+					startTest();
+					create_session_token();
+					login();
+					create_ticket_transaction();
+					ticket_cart();
+					ticket_cart_proceed();
+					seats();
+					ticket_cart_cancel();
+					endTest();
+					tearDown();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 }
