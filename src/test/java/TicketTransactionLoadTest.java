@@ -23,9 +23,9 @@ import okhttp3.Response;
 
 //For UAT only, will not work in PROD
 public class TicketTransactionLoadTest {
-	private String connectBaseURL = "https://uat-connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
+	private String connectBaseURL = "https://apis.cineplex.com/uat/connect/v1";
 	private String cotBaseURL = "https://uat-onlineticketing.cineplex.com";
-	private String vistaSessionID = "434835";
+	private String vistaSessionID = "435924";
 	private String locationID = "7997";
 	private static String sessionToken = "";
 	private static String userProfileGUID = "";
@@ -192,7 +192,7 @@ public class TicketTransactionLoadTest {
 				+ "\r\n        \"TicketTypeCode\": \"0682\","
 				+ "\r\n        \"TicketCode\": \"VY\","
 				+ "\r\n        \"Quantity\": 1,"
-				+ "\r\n        \"ITSessionId\": 13228863"
+				+ "\r\n        \"ITSessionId\": 13232780"
 				+ "\r\n    }\r\n]";
 		System.out.println(jsonBody);
 		RequestBody body = RequestBody.create(mediaType, jsonBody);

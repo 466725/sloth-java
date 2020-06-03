@@ -1,13 +1,6 @@
-import static org.testng.Assert.assertTrue;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -19,9 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -39,7 +29,6 @@ public class TicketTransactionLoadTestCSV {
 	private static String connectBaseURL = "https://connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
 	private static String cotBaseURL = "https://onlineticketing.cineplex.com";
 	private static String sessionToken = "";
-	private static String userProfileGUID = "";
 	private static String userSessionToken = "";
 	private static String transactionID = "";
 	private static String aspCookie = "";
@@ -50,27 +39,7 @@ public class TicketTransactionLoadTestCSV {
 	@BeforeClass
 	public static void setup() {
 		System.out.println("========================Before Class=======================");
-
-		@SuppressWarnings("unused")
-		CookieJar cookieJar = new CookieJar() {
-			private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
-
-			@Override
-			public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
-				cookieStore.put(url.host(), cookies);
-			}
-
-			@Override
-			public List<Cookie> loadForRequest(HttpUrl url) {
-				List<Cookie> cookies = cookieStore.get(url.host());
-				return cookies != null ? cookies : new ArrayList<Cookie>();
-			}
-		};
 		client = new OkHttpClient.Builder().build();
-		/*
-		client = new OkHttpClient.Builder().cookieJar(cookieJar).build();
-		client = new OkHttpClient.Builder().cookieJar(new TicketTransactionCookie()).build();
-		*/
 	}
 	
 	@AfterClass
@@ -104,33 +73,24 @@ public class TicketTransactionLoadTestCSV {
 		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
 		sessionToken = jsonBody.get("SessionToken").toString();
 		System.out.println("sessionToken: " + sessionToken);
+		
+		response.body().close();
 	}
 
 	@Test(priority = 3)
 	public static void login() throws Exception {
 		System.out.println("============================222============================");
 		RequestBody body = RequestBody.create(mediaType, "{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
-		System.out.println(body.toString());
-		System.out.println("{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
 		Request request = new Request
 				.Builder()
 				.url(connectBaseURL + "/Login")
 				.method("POST", body)
 				.addHeader("Content-Type", "application/json")
 				.build();
-		System.out.println(request.toString());
 		
 		Response response = client.newCall(request).execute();
-
-		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
-		System.out.println(jsonBody);
-		userProfileGUID = jsonBody.get("UserProfileGuid").toString();
-		userSessionToken = jsonBody.get("UserSessionToken").toString();
-		System.out.println("userProfileGUID: " + userProfileGUID);
-		System.out.println("userSessionToken: " + userSessionToken);
-
-		assertTrue(!userProfileGUID.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
-		assertTrue(!userSessionToken.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
+		
+		response.body().close();
 	}
 
 	@Test(priority = 5)
@@ -154,39 +114,28 @@ public class TicketTransactionLoadTestCSV {
 		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
 		transactionID = jsonBody.get("TransactionUid").toString();
 		System.out.println("transactionID: " + transactionID);
-		System.out.println("Status: " + jsonBody.get("Status"));
-
-		assertTrue(!transactionID.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
-		assertTrue(jsonBody.get("Status").toString().equals("1"));
+		
+		response.body().close();
 	}
 	
 	@Test(priority = 9)
 	public static void ticket_cart() throws Exception {
 		System.out.println("============================444============================");
-		System.out.println("transactionID: " + transactionID);
-		System.out.println("userSessionToken: " + userSessionToken);
-		
 		Request request = new Request
 				.Builder()
 				.url(cotBaseURL + "/TicketCart/" + transactionID)
 				.method("GET", null)
 				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
 				.build();
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
 
 		Response response = client.newCall(request).execute();
 		
-		System.out.println(response.headers().toString());
-		System.out.println(response.body().string());
-		
 		for(int i = 0; i < response.headers().size(); i++) {
-			System.out.println(response.headers().value(i));
-			if(response.headers().value(i).contains("ASP.NET_SessionId=")) {
-				System.out.println(response.headers().value(i));
+			if(response.headers().value(i).contains("ASP.NET_SessionId="))
 				aspCookie = response.headers().value(i);
-			}
 		}
+		
+		response.body().close();
 	}
 
 	@Test(priority = 11)
@@ -203,10 +152,8 @@ public class TicketTransactionLoadTestCSV {
 				+ ",\r\n        \"ITSessionId\": " 
 				+ itSessionID
 				+ "\r\n    }\r\n]";
-		System.out.println(jsonBody);
 		RequestBody body = RequestBody.create(mediaType, jsonBody);
 		
-		System.out.println(aspCookie);
 		Request request = new Request
 				.Builder()
 				.url(cotBaseURL + "/TicketCart/Proceed/" + transactionID)
@@ -215,15 +162,9 @@ public class TicketTransactionLoadTestCSV {
 				.addHeader("Cookie", aspCookie)
 				.build();
 		
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-		System.out.println(request.body().toString());
-		
 		Response response = client.newCall(request).execute();
 		
-		System.out.println(response.body().string());
-		System.out.println(response.headers().toString());
-		System.out.println(response.code());
+		response.body().close();
 	}
 
 	@Test(priority = 13)
@@ -234,17 +175,11 @@ public class TicketTransactionLoadTestCSV {
 				.url(cotBaseURL + "/Seats/" + transactionID)
 				.method("GET", null)
 				.addHeader("Content-Type", "application/json")
-				.addHeader("Cookie", aspCookie)
 				.build();
-		
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
 		
 		Response response = client.newCall(request).execute();
 		
-		System.out.println(response.body().string());
-		System.out.println(response.headers().toString());
-		System.out.println(response.code());
+		response.body().close();
 	}
 
 	@Test(priority = 15)
@@ -259,7 +194,9 @@ public class TicketTransactionLoadTestCSV {
 				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
 				.build();
 		
-		client.newCall(request).execute();
+		Response response = client.newCall(request).execute();
+		
+		response.body().close();
 	}
 	
 	public static void main(String[] args) {
@@ -271,33 +208,44 @@ public class TicketTransactionLoadTestCSV {
 		try {
 			Reader in = new FileReader(filePath);
 			records = CSVFormat.EXCEL.parse(in);
+			int index = 0;
+			setup();
+			startTest();
 			for (CSVRecord record : records) {
-				locationID = record.get(0);
-				vistaSessionID = record.get(1);
-				itSessionID = record.get(2);
-				itTicketTypeID = record.get(3);
-				ticketTypeCode = record.get(4);
-				ticketCode = record.get(5);
+				locationID = record.get(1);
+				vistaSessionID = record.get(2);
+				itSessionID = record.get(3);
+				itTicketTypeID = record.get(4);
+				ticketTypeCode = record.get(5);
+				ticketCode = record.get(6);
+				index = index + 1;
+				System.out.println("++++++++++++++++++++++");
+				System.out.println("++++++++++++++++++++++");
+				System.out.println("Running number: " + index);
+				System.out.println("locationID: " + locationID);
+				System.out.println("vistaSessionID: " + vistaSessionID);
+				System.out.println("itSessionID: " + itSessionID);
+				System.out.println("itTicketTypeID: " + itTicketTypeID);
+				System.out.println("ticketTypeCode: " + ticketTypeCode);
+				System.out.println("ticketCode: " + ticketCode);
+				System.out.println("++++++++++++++++++++++");
+				System.out.println("++++++++++++++++++++++");
 				try {
-					setup();
-					startTest();
 					create_session_token();
 					login();
 					create_ticket_transaction();
 					ticket_cart();
 					ticket_cart_proceed();
 					seats();
-					ticket_cart_cancel();
-					endTest();
-					tearDown();
+					//ticket_cart_cancel();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
+			endTest();
+			tearDown();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
