@@ -9,7 +9,7 @@ public class TobeDeleted {
 		System.out.println("Execute command line with Java, Ended!");
 	}
 
-	// Parse date to long integer
+	// Parse date to long integer 
 	public static void parseDateToLong() {
 		String string_datedd = "Sep 23, 2019";
 		SimpleDateFormat format = new SimpleDateFormat("MMM dd, yyyy");
