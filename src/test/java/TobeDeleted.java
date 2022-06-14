@@ -26,8 +26,6 @@ public class TobeDeleted {
 		try {
 			rt.exec(new String[] { "cmd.exe", "/c", "start" });
 			rt.exec("cmd /c start notepad++.exe");
-			rt.exec("cmd /c start Appium.exe");
-			rt.exec("cmd /c start studio64.exe");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
