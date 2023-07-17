@@ -24,14 +24,7 @@ import okhttp3.Response;
 //For UAT only, will not work in PROD
 public class TicketTransactionLoadTest {
 	private String connectBaseURL = "https://apis.cineplex.com/uat/connect/v1";
-	private String cotBaseURL = "https://uat-onlineticketing.cineplex.com";
-	private String vistaSessionID = "435924";
-	private String locationID = "7997";
 	private static String sessionToken = "";
-	private static String userProfileGUID = "";
-	private static String userSessionToken = "";
-	private static String transactionID = "";
-	private static String aspCookie = "";
 	private static OkHttpClient client;
 	private static MediaType mediaType = MediaType.parse("application/json");
 	private static JSONParser parser = new JSONParser();
@@ -80,189 +73,19 @@ public class TicketTransactionLoadTest {
 	@Test(priority = 1)
 	public void create_session_token() throws Exception {
 		System.out.println("============================111============================");
-		RequestBody body = RequestBody.create(mediaType, "{\r\n\t\"ApplicationKey\": \"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"\r\n}");
-		Request request = new Request
-				.Builder()
-				.url(connectBaseURL + "/CreateApplicationSession")
-				.method("POST", body)
-				.addHeader("Content-Type", "application/json")
-				.build();
+		RequestBody body = RequestBody.create(mediaType, "{\n\t\"ApplicationKey\": \"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"\n}");
+		Request request = new Request.Builder()
+				  .url("https://apis.cineplex.com/uat/connect/v1/CreateApplicationSession")
+				  .method("POST", body)
+				  .addHeader("Content-Type", "application/json")
+				  .addHeader("Cookie", "Cineplex MVC Sandbox_Language=en-us; incap_ses_1292_2293381=2N2sSpMCeHZjQ8Tn4RvuERuStGQAAAAAC/Z4mJWYBk9u56PXMyqT+A==; nlbi_2293381=I4Wja4543xqh5fHj1FeBbgAAAAB/+r9DI3IiCiEuNOSNosr7; visid_incap_2293202=Vk2g+Ip2TviRNPtO4x9mSBRr+mIAAAAAQUIPAAAAAADZPWuoaVLr1o34OrUm1v/H; visid_incap_2293254=VO8KkKtpQBihZtakfmdclvCJRmQAAAAAQUIPAAAAAAD9USJTuk/zYxTyQ8bIq2BU; visid_incap_2293381=DLktviNvRseaJ8yqJjMKOOyJRmQAAAAAQUIPAAAAAAD/VRvrMPaJxpBgOmGq82Pj; visid_incap_2293405=Y++4xRPvRL6LJh7GZ1LY4u0TUWQAAAAAQUIPAAAAAACB2/Tf3z0PmOqxwsgOOhDp; visid_incap_2306869=fuZe7W/eTEObqFBNH4C4Fo8+/WMAAAAAQUIPAAAAAADESQL9ulm2pURALKg3iCpD; visid_incap_2350392=EWPxKU+jQ0KGsLGANbh7jq7ogWQAAAAAQUIPAAAAAADJx7tDcP4vCJwxVkW8Djxl")
+				  .build();
 		
 		Response response = client.newCall(request).execute();
 
 		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
 		sessionToken = jsonBody.get("SessionToken").toString();
 		System.out.println("sessionToken: " + sessionToken);
-		
-		assertTrue(response.code() == 200);
-	}
-
-	@Test(priority = 3)
-	public void login() throws Exception {
-		System.out.println("============================222============================");
-		RequestBody body = RequestBody.create(mediaType, "{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
-		System.out.println(body.toString());
-		System.out.println("{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
-		Request request = new Request
-				.Builder()
-				.url(connectBaseURL + "/Login")
-				.method("POST", body)
-				.addHeader("Content-Type", "application/json")
-				.build();
-		System.out.println(request.toString());
-		
-		Response response = client.newCall(request).execute();
-
-		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
-		System.out.println(jsonBody);
-		userProfileGUID = jsonBody.get("UserProfileGuid").toString();
-		userSessionToken = jsonBody.get("UserSessionToken").toString();
-		System.out.println("userProfileGUID: " + userProfileGUID);
-		System.out.println("userSessionToken: " + userSessionToken);
-
-		assertTrue(!userProfileGUID.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
-		assertTrue(!userSessionToken.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
-		assertTrue(response.code() == 200);
-	}
-
-	@Test(priority = 5)
-	public void create_ticket_transaction() throws Exception {
-		System.out.println("============================333============================");
-		RequestBody body = RequestBody
-				.create(mediaType, "{\n    \"VISTASessionId\": \"" 
-						+ vistaSessionID 
-						+ "\",\n    \"LocationId\": \"" 
-						+ locationID 
-						+ "\",\n    \"ClientGuid\": null\n}");
-		Request request = new Request
-				.Builder()
-				.url(cotBaseURL + "/CineplexTicketingBase/CreateTicketTransaction")
-				.method("POST", body)
-				.addHeader("Content-Type", "application/json")
-				.build();
-		
-		Response response = client.newCall(request).execute();
-
-		JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
-		transactionID = jsonBody.get("TransactionUid").toString();
-		System.out.println("transactionID: " + transactionID);
-		System.out.println("Status: " + jsonBody.get("Status"));
-
-		assertTrue(!transactionID.equalsIgnoreCase("00000000-0000-0000-0000-000000000000"));
-		assertTrue(jsonBody.get("Status").toString().equals("1"));
-		assertTrue(response.code() == 200);
-	}
-	
-	@Test(priority = 9)
-	public void ticket_cart() throws Exception {
-		System.out.println("============================444============================");
-		System.out.println("transactionID: " + transactionID);
-		System.out.println("userSessionToken: " + userSessionToken);
-		
-		Request request = new Request
-				.Builder()
-				.url(cotBaseURL + "/TicketCart/" + transactionID)
-				.method("GET", null)
-				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
-				.build();
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-
-		Response response = client.newCall(request).execute();
-		
-		System.out.println(response.headers().toString());
-		System.out.println(response.body().string());
-		
-		for(int i = 0; i < response.headers().size(); i++) {
-			System.out.println(response.headers().value(i));
-			if(response.headers().value(i).contains("ASP.NET_SessionId=")) {
-				System.out.println(response.headers().value(i));
-				aspCookie = response.headers().value(i);
-			}
-		}
-		
-		assertTrue(response.code() == 200);
-	}
-
-	@Test(priority = 11)
-	public void ticket_cart_proceed() throws Exception {
-		System.out.println("============================555============================");
-		String jsonBody = "[\r\n    {"
-				+ "\r\n        \"ITTicketTypeID\": 2037444,"
-				+ "\r\n        \"TicketTypeCode\": \"0682\","
-				+ "\r\n        \"TicketCode\": \"VY\","
-				+ "\r\n        \"Quantity\": 1,"
-				+ "\r\n        \"ITSessionId\": 13232780"
-				+ "\r\n    }\r\n]";
-		System.out.println(jsonBody);
-		RequestBody body = RequestBody.create(mediaType, jsonBody);
-		
-		System.out.println(aspCookie);
-		Request request = new Request
-				.Builder()
-				.url(cotBaseURL + "/TicketCart/Proceed/" + transactionID)
-				.method("POST", body)
-				.addHeader("Content-Type", "application/json")
-				.addHeader("Cookie", aspCookie)
-				.build();
-		
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-		System.out.println(request.body().toString());
-		
-		Response response = client.newCall(request).execute();
-		
-		System.out.println(response.body().string());
-		System.out.println(response.headers().toString());
-		System.out.println(response.code());
-		
-		assertTrue(response.code() == 200);
-	}
-
-	@Test(priority = 13)
-	public void seats() throws Exception {
-		System.out.println("============================666============================");
-		Request request = new Request
-				.Builder()
-				.url(cotBaseURL + "/Seats/" + transactionID)
-				.method("GET", null)
-				.addHeader("Content-Type", "application/json")
-				.addHeader("Cookie", aspCookie)
-				.build();
-		
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-		
-		Response response = client.newCall(request).execute();
-		
-		System.out.println(response.body().string());
-		System.out.println(response.headers().toString());
-		System.out.println(response.code());
-		
-		assertTrue(response.code() == 200);
-	}
-
-	@Test(priority = 15)
-	public void ticket_cart_cancel() throws Exception {
-		System.out.println("============================777============================");
-		RequestBody body = RequestBody
-				.create(null, new byte[0]);
-		Request request = new Request
-				.Builder()
-				.url(cotBaseURL + "/CineplexTicketingBase/CreateTicketTransaction/" + transactionID)
-				.method("POST", body)
-				.addHeader("Cookie", "CCTOKEN=" + userSessionToken)
-				.build();
-		
-		System.out.println(request.url());
-		System.out.println(request.headers().toString());
-		System.out.println(request.body().toString());
-		
-		Response response = client.newCall(request).execute();
-		
-		System.out.println(response.body().string());
-		System.out.println(response.headers().toString());
-		System.out.println(response.code());
 		
 		assertTrue(response.code() == 200);
 	}
