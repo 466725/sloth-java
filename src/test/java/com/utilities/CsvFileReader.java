@@ -13,9 +13,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.annotations.DataProvider;
-
-import com.gurock.testrail.TestRunUtils;
-
 import au.com.bytecode.opencsv.CSVReader;
 
 public class CsvFileReader {
@@ -67,44 +64,6 @@ public class CsvFileReader {
 		return arrayList;
 	}
 
-	@DataProvider(name = "hashmapDataProvider")
-	public static Iterator<Object[]> getHashmapFromCSV(ITestContext context, Method method) throws Exception {
-		return getHashmapDataProvider(TestRunUtils.getCsvFromMethodOrContext(context, method),
-				TestRunUtils.getDataGroupFromContext(context), TestRunUtils.getScenarioFromContext(context));
-	}
-
-	/**
-	 * Generates the Iterator of object arrays of hashmap.
-	 * 
-	 * @param csvFilePath Full path name of the CSV file including file name
-	 * @param dataGroup   String representing what data group to include in data
-	 *                    provider
-	 * @param scenario    String representing which scenario to be included in data
-	 *                    provider
-	 * @return Iterator of Object array of hashmap for data provider of the TestNG
-	 *         test.
-	 * @throws Exception
-	 */
-	public static Iterator<Object[]> getHashmapDataProvider(String csvFilePath, String dataGroup, String scenario)
-			throws Exception {
-		ArrayList<Object[]> objectArrayList = new ArrayList<Object[]>();
-		URL csvURL = Thread.currentThread().getContextClassLoader().getResource(csvFilePath);
-		File csvFile = new File(csvURL.toURI());
-		CsvFileReader csvHandler = new CsvFileReader(csvFile);
-		ArrayList<HashMap<String, String>> hashmapArrayList = csvHandler.getHashmapList();
-		String csvDataGroup;
-		String csvScenario;
-		for (HashMap<String, String> hashMap : hashmapArrayList) {
-			csvDataGroup = hashMap.get("dataGroup");
-			csvScenario = hashMap.get("scenario");
-			if (StringUtils.isNotEmpty(scenario) && !matchScenarios(csvScenario, scenario))
-				continue;
-			if (dataGroup == null || csvDataGroup == null || matchGroups(csvDataGroup, dataGroup))
-				objectArrayList.add(new Object[] { hashMap });
-		}
-		return objectArrayList.iterator();
-	}
-
 	/**
 	 * @param csvGroup One or more group names from the CSV divided by commas
 	 * @param xmlGroup One or more group names from the XML divided by commas
@@ -118,23 +77,6 @@ public class CsvFileReader {
 				if (csv.equalsIgnoreCase(xml.trim())) {
 					return true;
 				}
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * @param scenarioGroup One scenario
-	 * @param xmlScenarios  One or more scenarios from the XML divided by commas
-	 * @return
-	 */
-	private static boolean matchScenarios(String csvScenario, String xmlScenarios) {
-		if (csvScenario == null)
-			return false;
-		String[] xmlScenarioAr = xmlScenarios.split(",");
-		for (String xml : xmlScenarioAr) {
-			if (csvScenario.equalsIgnoreCase(xml.trim())) {
-				return true;
 			}
 		}
 		return false;

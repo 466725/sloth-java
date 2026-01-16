@@ -71,8 +71,6 @@ public class TokenManagementTest extends ApiTestCase {
 	
 	@Test(priority = 3)
 	public static void generateTokenTest() throws IOException, ParseException {
-		test = extent.startTest("Generate Token");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\n   \"grant_type\": \"password\","
 				+ "\n   \"email\": \"vetest@volantesystems.com\","

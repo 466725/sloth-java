@@ -1,5 +1,6 @@
 package com.utilities;
 
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class WebPageUtils {
 	}
 
 	private static void simpleExplicitlyWait(WebDriver driver, WebElement element) {
-		(new WebDriverWait(driver, Constants.EXPLICIT_WAIT_TIME))
+		(new WebDriverWait(driver, Duration.ofSeconds(Constants.EXPLICIT_WAIT_TIME)))
 				.until(ExpectedConditions.elementToBeClickable(element));
 	}
 

@@ -14,36 +14,26 @@ public class DisableTestDemo extends ApiTestCase {
 
 	@Test(expectedExceptions = { IOException.class }, expectedExceptionsMessageRegExp = "Pass Message test")
 	public void testFive() throws Exception {
-		test = extent.startTest("Expected Exception test example 005");
-		test.log(LogStatus.INFO, "Expected Exception test example 005");
 		throw new IOException("Fail Message test");
 	}
 
 	@Test(enabled = true, expectedExceptions = { IOException.class, NullPointerException.class })
 	public void testTwo() throws Exception {
-		test = extent.startTest("Expected Exception test example 002");
-		test.log(LogStatus.INFO, "Expected Exception test example 002");
 		throw new Exception();
 	}
 
 	@Test(enabled = false, expectedExceptions = { IOException.class })
 	public void testOne() throws Exception {
-		test = extent.startTest("Expected Exception test example 001");
-		test.log(LogStatus.INFO, "Expected Exception test example 001");
 		throw new IOException();
 	}
 
 	@Test(expectedExceptions = { IOException.class }, expectedExceptionsMessageRegExp = "Pass Message test")
 	public void testThree() throws Exception {
-		test = extent.startTest("Expected Exception test example 003");
-		test.log(LogStatus.INFO, "Expected Exception test example 003");
 		throw new IOException("Pass Message test");
 	}
 
 	@Test(expectedExceptions = { IOException.class }, expectedExceptionsMessageRegExp = ".* Message .*")
 	public void testFour() throws Exception {
-		test = extent.startTest("Expected Exception test example 004");
-		test.log(LogStatus.INFO, "Expected Exception test example 004");
 		throw new IOException("Pass Message test");
 	}
 }

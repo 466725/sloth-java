@@ -23,7 +23,6 @@ public class TemplatePageTest extends GuiTestCase {
 
 	@Test(priority = 1)
 	public void gotoTemplatePage() {
-		test = extent.startTest("Navigate to TemplatePage");
 		SoftAssertions softly = new SoftAssertions();
 		templatePage = new TemplatePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 
@@ -33,7 +32,6 @@ public class TemplatePageTest extends GuiTestCase {
 
 	@Test(priority = 3)
 	public void deleteConcept() {
-		test = extent.startTest("Try to delete a concept");
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(templatePage.hoverAndClickTrashConceptIcon(1));
@@ -44,7 +42,6 @@ public class TemplatePageTest extends GuiTestCase {
 
 	@Test(priority = 9)
 	public void editConcept() {
-		test = extent.startTest("Try to edit an existing concept name");
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(templatePage.specifyNewConceptNameByHoveringMouseOver(2, "Weipeng" + System.currentTimeMillis()));
@@ -53,7 +50,6 @@ public class TemplatePageTest extends GuiTestCase {
 
 	@Test(priority = 99)
 	public void addConcept() {
-		test = extent.startTest("Try to add a new concept");
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(templatePage.clickAddNewConceptIcon());

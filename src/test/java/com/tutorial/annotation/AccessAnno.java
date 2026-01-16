@@ -14,9 +14,6 @@ public class AccessAnno extends ApiTestCase {
 	
 	@Test(priority = 1)
 	public void testAccessAnnotationData() throws NoSuchMethodException, SecurityException {
-		test = extent.startTest("Annotation: Anno apply and access simple example");
-		test.log(LogStatus.INFO, "Annotation: Anno apply and access simple example");
-
 		ApplyAnno applyAnno = new ApplyAnno();
 		Method method = applyAnno.getClass().getMethod("applyAnnotation");
 		AnnoDemo anno = method.getAnnotation(AnnoDemo.class);

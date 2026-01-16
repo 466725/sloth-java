@@ -19,15 +19,11 @@ public class RestAssuredDemo extends ApiTestCase {
 	
 	@Test(priority = 1)
 	public static void generateToken() throws IOException, ParseException {
-		test = extent.startTest("Generate Token");
-		
 		TokenManagementTest.generateTokenWithJsonFileBody();
 	}
 	
 	@Test(priority = 2)
 	public void getAllCategoryWithRestAssured() {
-		test = extent.startTest("Category: Get all category");
-		test.log(LogStatus.INFO, "Category: Get all category");
 		RestAssured.baseURI = "https://dev.volantecloud.com";
 		
 		Response response = RestAssured.given()

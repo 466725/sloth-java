@@ -102,7 +102,6 @@ public class MobileTestCase extends TestCase {
 			logger.error("Exception is: ", exception);
 			break;
 		}
-		extent.endTest(test);
 		SeleniumWrapper.implicitWait(driver);
 		logger.info("-----------------------Ending of method------------------------");
 	}

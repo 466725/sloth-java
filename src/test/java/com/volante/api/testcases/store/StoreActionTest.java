@@ -24,15 +24,11 @@ public class StoreActionTest extends ApiTestCase {
 	
 	@Test(priority = 1)
 	public static void generateToken() throws IOException, ParseException {
-		test = extent.startTest("Generate Token");
-		
 		TokenManagementTest.generateTokenWithJsonFileBody();
 	}
 	
 	@Test(priority = 3, description = "VOL-888")
 	public static void getAllStores() throws IOException, ParseException {
-		test = extent.startTest("Get all stores");
-
 		Response getStoreResponse = StoreAction.getAllStores();
 		logger.info(getStoreResponse.toString());
 		logger.info(getStoreResponse.body().asString());
@@ -43,8 +39,6 @@ public class StoreActionTest extends ApiTestCase {
 	
 	@Test(priority = 5, description = "VOL-888")
 	public static void addFirstStore() throws IOException, ParseException {
-		test = extent.startTest("Add a store");
-
 		Response addStoreResponse = StoreAction.createStore("StoreName", 4952206, 201);
 		logger.info(addStoreResponse.toString());
 		logger.info(addStoreResponse.body().asString());

@@ -22,8 +22,6 @@ public class LoginPageTest extends GuiTestCase {
 	 */
 	@Test(priority = 1)
 	public void gotoLoginPage() {
-		test = extent.startTest("Navigate to LoginPage");
-
 		loginPage = new LoginPage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 
 		Assert.assertTrue(loginPage.navigateTo());

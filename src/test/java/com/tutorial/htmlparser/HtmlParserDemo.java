@@ -18,8 +18,6 @@ public class HtmlParserDemo extends ApiTestCase {
 	
 	@Test(priority = 2)
 	public void getAllCategoryWithRestAssured() {
-		test = extent.startTest("Parser: HTML Parser with jsoup");
-		test.log(LogStatus.INFO, "Parser: HTML Parser with jsoup");
 		RestAssured.baseURI = "https://uat-onlineticketing.cineplex.com";
 		
 		Response response = RestAssured.given()

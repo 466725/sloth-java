@@ -60,7 +60,7 @@ public class BrowserDriverProvider {
 		} else {
 			DriverMaster.driver = createChromeDriver();
 		}
-		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		//DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		return DriverMaster.driver;
 	}
 
@@ -82,7 +82,7 @@ public class BrowserDriverProvider {
 				DriverMaster.driver = createChromeDriver(true);
 			DriverMaster.driver = createChromeDriver();
 		}
-		DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		//DriverMaster.driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
 		return DriverMaster.driver;
 	}
 
@@ -210,26 +210,6 @@ public class BrowserDriverProvider {
 	 * @return WebDriver, create a driver for IE and then return
 	 */
 	private static WebDriver createIEDriver() {
-		if (PlatformDetector.isWindows()) {
-			File file = new File(Constants.WIN64_DRIVER_IE);
-			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-			logger.info(System.getProperty("webdriver.ie.driver"));
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
-			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-			return new InternetExplorerDriver();
-		} else if (PlatformDetector.isMac()) {
-			logger.fatal("Platform is: " + PlatformDetector.getOS());
-			logger.fatal("oops ^_^, mission impossible, ie not available on osx!");
-			logger.fatal("Driver is null!");
-			return null;
-		} else {
-			logger.fatal("Platform is: " + PlatformDetector.getOS());
-			logger.fatal("oops ^_^, failed to validate OS version!");
-			logger.fatal("Driver is null!");
-			return null;
-		}
+		return null;
 	}
 }

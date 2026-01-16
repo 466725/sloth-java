@@ -1,5 +1,6 @@
 package com.utilities;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.LogManager;
@@ -46,7 +47,7 @@ public class SeleniumWrapper {
 	 */
 	public static void implicitWait(WebDriver driver) {
 		try {
-			driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME);
 		} catch (Exception e) {
 			logger.warn("Exception is: ", e);
 		}
@@ -61,7 +62,7 @@ public class SeleniumWrapper {
 	 */
 	public static void explicitWaitClickable(WebDriver driver, WebElement element, int waitTime) {
 		try {
-			(new WebDriverWait(driver, waitTime)).until(ExpectedConditions.elementToBeClickable(element));
+			(new WebDriverWait(driver, Duration.ofSeconds(waitTime))).until(ExpectedConditions.elementToBeClickable(element));
 		} catch (Exception e) {
 			logger.warn("Exception is: ", e);
 		}

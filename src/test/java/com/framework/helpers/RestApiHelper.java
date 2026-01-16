@@ -17,8 +17,6 @@ import org.apache.http.util.EntityUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.gurock.testrail.HttpResponseDataObject;
-
 public class RestApiHelper {
 
 	protected final static Logger logger = LogManager.getLogger(RestApiHelper.class.getName());
@@ -185,35 +183,5 @@ public class RestApiHelper {
 	 */
 	public static String getResponseBody(HttpResponse httpResponse) throws ParseException, IOException {
 		return EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
-	}
-
-	/**
-	 * Parse HttpResponse
-	 * 
-	 * @param httpResponse
-	 * @return
-	 * @throws ParseException
-	 * @throws IOException
-	 */
-	public static HttpResponseDataObject parseHttpResponse(HttpResponse httpResponse)
-			throws ParseException, IOException {
-		HttpResponseDataObject responseData = new HttpResponseDataObject();
-		responseData.setStatusCode(getResponseStatusCode(httpResponse));
-		responseData.setResponseBody(getResponseBody(httpResponse));
-		return responseData;
-	}
-
-	/**
-	 * Perform Post Request
-	 * 
-	 * @param url
-	 * @param data
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 */
-	public static HttpResponseDataObject performPostRequest(String url, String data)
-			throws ClientProtocolException, IOException {
-		return parseHttpResponse(getPostRequestResponse(url, data));
 	}
 }

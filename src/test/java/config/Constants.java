@@ -1,5 +1,7 @@
 package config;
 
+import java.time.Duration;
+
 /**
  * Put all constant and ENUM here, please 
  * 
@@ -7,18 +9,15 @@ package config;
  *
  */
 public final class Constants {
-	public static final int IMPLICIT_WAIT_TIME = 5;
+	public static final java.time.Duration IMPLICIT_WAIT_TIME = Duration.ofSeconds(5);
 	public static final int EXPLICIT_WAIT_TIME = 10;
-	public static final int PAGE_LOAD_TIME = 10;
+	public static final java.time.Duration PAGE_LOAD_TIME = Duration.ofSeconds(10);
 	public static final int PAGE_RENDER_TIME = 1000; //sleep for one second
 	
 	public static final String RESOURCE_FOLDER = "src/test/resources/";
-	public static final String EXTENT_REPORT_CONFIG = "extent-report-config.xml";
-	public static final String TEST_REPORT_FOLDER = "test-output/ExtentReport/";
 	public static final String SCREENSHOT_FOLDER = "test-output/ExtentReport/ScreenShot/";
 	public static final String SITE_REQUEST_BODY = "ApiRequestBody/SiteMgmt/";
 
-	public static final String WIN64_DRIVER_IE = RESOURCE_FOLDER + "IEDrivers/win/IEDriverServer-64.exe";
 	public static final String WIN64_DRIVER_CHROME = RESOURCE_FOLDER + "ChromeDrivers/win/chromedriver-64.exe";
 	public static final String WIN64_DRIVER_FIREFOX = RESOURCE_FOLDER + "FirefoxDrivers/win/geckodriver-64.exe";
 	public static final String OSX64_DRIVER_CHROME = RESOURCE_FOLDER + "ChromeDrivers/osx/chromedriver-64";
@@ -33,11 +32,7 @@ public final class Constants {
 	public static final String LOCALHOST_SYBASE_JDBC_PASSWORD = "V01ant#9VU";
 	
 	public static final String PROPERTY_FILE = RESOURCE_FOLDER + "init-properties-config";
-	public static final String XML_INTEGRATION_CSV = "TestDataAPI/csv/xml_Loader.csv";
 	public static final String THEATRE_SHOWTIME_CSV = "theatre_data.csv";
-	public static final String TEST_RAIL_URL = "https://avanti.testrail.com/";
-	public static final String TEST_RAIL_USERNAME = "testautomationavanti@gmail.com";
-	public static final String TEST_RAIL_PASSWORD = "Avanti313";
 	
 	public static final String SQL_EXAMPLE_001 = 
 			"SELECT Name\n" + 

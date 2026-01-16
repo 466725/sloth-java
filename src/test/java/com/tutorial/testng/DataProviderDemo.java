@@ -18,18 +18,12 @@ public class DataProviderDemo extends ApiTestCase {
 
 	@Test(enabled = true, timeOut = 500, dataProvider = "data-provider")
 	public void testOne(String data) throws InterruptedException {
-		test = extent.startTest("DataProvider test example 001");
-		test.log(LogStatus.INFO, "DataProvider test example 001");
-
 		Thread.sleep(300);
 		logger.info("Data is: " + data);
 	}
 
 	@Test(enabled = true, timeOut = 500)
 	public void testTwo() throws InterruptedException {
-		test = extent.startTest("DataProvider test example 002");
-		test.log(LogStatus.INFO, "DataProvider test example 002");
-
 		Thread.sleep(400);
 		logger.info("Time test method two");
 	}

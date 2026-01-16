@@ -17,9 +17,6 @@ public class JsonSimpleDemo extends ApiTestCase {
 
 	@Test(priority = 1)
 	public void jsonSimpleDemoTestOne() throws ParseException {
-		test = extent.startTest("JSON Simple: Parse json string and print");
-		test.log(LogStatus.INFO, "JSON Simple: Parse json string and print");
-
 		JSONParser myParser = new JSONParser();
 		String jsonExampleOne = "[0,{\"1\":{\"2\":{\"3\":{\"4\":[5,{\"6\":7}]}}}}]";
 

@@ -15,12 +15,10 @@ import org.testng.annotations.Parameters;
 
 import com.framework.helpers.DatabaseConnectionManager;
 import com.framework.helpers.DatabaseStatementManager;
-import com.framework.helpers.ExtentReportHelper;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import config.Constants;
-import config.Constants.DB_CONN_ENUM;
 import io.restassured.RestAssured;
 
 /**
@@ -30,13 +28,11 @@ import io.restassured.RestAssured;
  *
  */
 public class TestCase {
-	protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
-
-	protected static WebDriver driver;
-	protected static ExtentReports extent;
-	protected static ExtentTest test;
-	protected static DB_CONN_ENUM dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
-	protected static String API_TEST_BASE_URL = "";
+	public final static Logger logger = LogManager.getLogger(TestCase.class.getName());
+	public static WebDriver driver;
+	public static String API_TEST_BASE_URL = "";
+	public static ExtentTest test;
+	public static ExtentReports report;
 
 	/**
 	 * Prepare per BeforeSuite annotation.
@@ -51,26 +47,13 @@ public class TestCase {
 
 	/**
 	 * Prepare per BeforeTest annotation.
-	 * 
-	 * @param Browser    type used by GUI test
-	 * @param Connection info of targeted database
+	 *
 	 */
-	@Parameters({ "browser", "dbConnection", "baseURI" })
 	@BeforeTest(alwaysRun = true)
-	public void beforeTest(String browser, String dbConnection, String baseURI) {
+	public void beforeTest(String baseURI) {
 		logger.info("-----------------------Beginning of test-----------------------");
-		logger.info("dbConn.toString() before: " + dbConn.toString());
-		if (dbConnection.compareToIgnoreCase("Localhost_Postgre") == 0)
-			TestCase.dbConn = DB_CONN_ENUM.LOCALHOST_POSTGRE;
-		if (dbConnection.compareToIgnoreCase("Localhost_Sybase") == 0)
-			TestCase.dbConn = DB_CONN_ENUM.LOCALHOST_SYBASE;
-		logger.info("dbConn.toString() after: " + dbConn.toString());
-		DatabaseConnectionManager.getConnection(dbConn);
-		DatabaseStatementManager.createStatement(dbConn);
-		API_TEST_BASE_URL = baseURI;
-		RestAssured.baseURI = baseURI;
-		logger.info("API test base URL: " + baseURI);
-		extent = ExtentReportHelper.getExtentReporter(browser);
+		report = new ExtentReports(System.getProperty("user.dir")+"ExtentReportResults.html");
+		test = report.startTest("sloth-java test automation");
 	}
 
 	/**
@@ -78,12 +61,6 @@ public class TestCase {
 	 */
 	@AfterTest(alwaysRun = true)
 	public void afterTest() {
-		try {
-			DatabaseStatementManager.closeStatement();
-			DatabaseConnectionManager.closeConnection();
-		} catch (SQLException e) {
-			logger.warn("Exception is: ", e);
-		}
 		logger.info("----------------------Ending of test--------------------------");
 	}
 
@@ -92,8 +69,8 @@ public class TestCase {
 	 */
 	@AfterSuite(alwaysRun = true)
 	protected void afterSuite() {
-		extent.flush();
-		extent.close();
+		report.endTest(test);
+		report.flush();
 		logger.info("***** Extent report ready to use! *****");
 		logger.info("----------------------Ending of suite-------------------------");
 	}

@@ -23,8 +23,6 @@ public class HomePageTest extends GuiTestCase {
 	 */
 	@Test(priority = 1)
 	public void gotoHomePage() {
-		test = extent.startTest("Navigate to HomePage");
-
 		homePage = new HomePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 
 		Assert.assertTrue(homePage.navigateTo());

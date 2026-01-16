@@ -13,8 +13,6 @@ public class JavaFakerDemo extends ApiTestCase {
 
 	@Test(priority = 1)
 	public void assertjAssertionsTestOne() {
-		test = extent.startTest("Java Faker: Fake whatever you want");
-
 		SoftAssertions softly = new SoftAssertions();
 		Faker faker = new Faker();
 

@@ -43,15 +43,11 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 1)
 	public static void generateToken() throws IOException, ParseException {
-		test = extent.startTest("Generate Token");
-		
 		TokenManagementTest.generateTokenWithJsonFileBody();
 	}
 	
 	@Test(priority = 3)
 	public static void addFirstStore() throws IOException, ParseException {
-		test = extent.startTest("Add the first store");
-		
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + faker.address().streetAddress() + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -81,8 +77,6 @@ public class StoreTest extends ApiTestCase {
 
 	@Test(priority = 5)
 	public static void verifyFirstStoreCreated() throws IOException, ParseException {
-		test = extent.startTest("Verify the first store is created");
-		
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/" + storeOneID;
 		Assert.assertTrue(ApiTestCase.isGetSuccessful(url));
 		Assert.assertTrue(ApiTestCase.verifyCreatedSuccessful(url));
@@ -90,8 +84,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 7)
 	public static void addStoreAgainWithSameName() throws IOException, ParseException {
-		test = extent.startTest("Add another store with first store's name");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + faker.address().streetAddress() + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -114,8 +106,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 9)
 	public static void addStoreAgainWithEmptyName() throws IOException, ParseException {
-		test = extent.startTest("Add another store with empty name");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + faker.address().streetAddress() + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -138,8 +128,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 11)
 	public static void deleteFirstStore() throws IOException, ParseException {
-		test = extent.startTest("Delete the first store");
-
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/" + storeOneID;
 		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(url));
 		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
@@ -147,8 +135,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 13)
 	public static void addSecondStore() throws IOException, ParseException {
-		test = extent.startTest("Add the second store with two stations");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + companyTwoOldAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -197,8 +183,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 15)
 	public static void verifySecondStoreCreatedEasyWay() throws IOException, ParseException {
-		test = extent.startTest("Verify the second store is created");
-		
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/" + storeTwoID;
 		Assert.assertTrue(ApiTestCase.isGetSuccessful(url));
 		Assert.assertTrue(ApiTestCase.verifyCreatedSuccessful(url));
@@ -206,8 +190,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 17)
 	public static void getAllStores() throws IOException, ParseException {
-		test = extent.startTest("Get all stores, should have uuid of second store");
-
 		Request request = new Request.Builder()
 				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/?size=200")
 				.get()
@@ -224,8 +206,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 19)
 	public static void updateSeondStoreName() throws IOException, ParseException {
-		test = extent.startTest("Update name of the second store");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + companyTwoOldAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -249,8 +229,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 21)
 	public static void updateSeondStoreAddress() throws IOException, ParseException {
-		test = extent.startTest("Update address of the second store");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + companyTwoNewAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -274,8 +252,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 23)
 	public static void updateSeondStorePhoneNumber() throws IOException, ParseException {
-		test = extent.startTest("Update phone number of the second store");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"address\": \"" + companyTwoNewAddress + "\","
 				+ "\r\n  \"cityId\": 4952206,"
@@ -299,8 +275,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 25)
 	public static void updateSeondStoreStationName() throws IOException, ParseException {
-		test = extent.startTest("Update station name of the second store");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"stations\": [\r\n    {\r\n      \"name\": \"" + stationOneName + stationOneName + "\","
 				+ "\r\n      \"stationId\": \"" + stationOneID + "\"\r\n    },"
@@ -322,8 +296,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 35)
 	public static void verifyStoreInfoUpdatedAccordingly() throws IOException, ParseException {
-		test = extent.startTest("Verify updated info of the second store");
-
 		Request request = new Request.Builder()
 				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/" + storeTwoID)
 				.get()
@@ -360,8 +332,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 37)
 	public static void addSecondStoreToTerminalGroup() throws IOException, ParseException {
-		test = extent.startTest("Add the second store to terminal group");
-
 		RequestBody body = RequestBody.create(mediaType,
 				"{\r\n  \"name\": \"" + terminalGroupsName + "\","
 				+ "\r\n  \"storeId\": \"" + storeTwoID + "\"\r\n}");
@@ -386,8 +356,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 39)
 	public static void verifyTerminalGroupCreated() throws IOException, ParseException {
-		test = extent.startTest("Verify terminal group created");
-
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/terminal-groups/" + terminalGroupsID;
 		Assert.assertTrue(ApiTestCase.isGetSuccessful(url));
 		Assert.assertTrue(ApiTestCase.verifyCreatedSuccessful(url));
@@ -395,8 +363,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 41)
 	public static void updateTerminalGroupName() throws IOException, ParseException {
-		test = extent.startTest("Update terminal group name");
-
 		RequestBody body = RequestBody.create(mediaType, "{\r\n\t\"name\": \"" + terminalGroupsName + terminalGroupsName + "\"\r\n}");
 		Request request = new Request.Builder()
 				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/terminal-groups/" + terminalGroupsID)
@@ -417,8 +383,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 43)
 	public static void getAllTerminalGroups() throws IOException, ParseException {
-		test = extent.startTest("Get all and verify created termianl group");
-
 		Request request = new Request.Builder()
 				.url(TestCase.API_TEST_BASE_URL + "/api/store/v1/terminal-groups/?size=200")
 				.get()
@@ -435,8 +399,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 45)
 	public static void deleteTerminalGroup() throws IOException, ParseException {
-		test = extent.startTest("Delete terminal group");
-
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/terminal-groups/" + terminalGroupsID;
 		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(url));
 		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
@@ -444,8 +406,6 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 47)
 	public static void deleteSecondStore() throws IOException, ParseException {
-		test = extent.startTest("Delete the second store");
-
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/" + storeTwoID;
 		Assert.assertTrue(ApiTestCase.isDeleteSuccessful(url));
 		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
@@ -453,16 +413,12 @@ public class StoreTest extends ApiTestCase {
 	
 	@Test(priority = 49)
 	public static void getDeletedTerminalGroup() throws IOException, ParseException {
-		test = extent.startTest("Verify terminal group could be deleted");
-
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/terminal-groups/" + terminalGroupsID;
 		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
 	}
 	
 	@Test(priority = 51)
 	public static void getDeletedSecondStore() throws IOException, ParseException {
-		test = extent.startTest("Verify the second store could be deleted");
-
 		String url = TestCase.API_TEST_BASE_URL + "/api/store/v1/stores/" + storeTwoID;
 		Assert.assertTrue(ApiTestCase.verifyDeleteSuccessful(url));
 	}

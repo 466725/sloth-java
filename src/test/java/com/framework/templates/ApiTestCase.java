@@ -71,28 +71,23 @@ public class ApiTestCase extends TestCase {
 
 		switch (resultStatus) {
 		case ITestResult.SUCCESS:
-			test.log(LogStatus.PASS, String.format("%s:  %s", className, methodName));
 			break;
 		case ITestResult.FAILURE:
-			test.log(LogStatus.FAIL, String.format("%s:  %s", className, methodName));
 			exception.printStackTrace(new PrintWriter(sw));
 			test.log(LogStatus.FAIL, sw.getBuffer().toString());
 			logger.error("Exception is: ", exception);
 			break;
 		case ITestResult.SKIP:
-			test.log(LogStatus.SKIP, String.format("%s:  %s", className, methodName));
 			exception.printStackTrace(new PrintWriter(sw));
 			test.log(LogStatus.SKIP, sw.getBuffer().toString());
 			logger.error("Exception is: ", exception);
 			break;
 		default:
-			test.log(LogStatus.FATAL, String.format("%s:  %s", className, methodName));
 			exception.printStackTrace(new PrintWriter(sw));
 			test.log(LogStatus.FATAL, sw.getBuffer().toString());
 			logger.error("Exception is: ", exception);
 			break;
 		}
-		extent.endTest(test);
 		try {
 			responseBody.close();
 		} catch (Exception e) {
