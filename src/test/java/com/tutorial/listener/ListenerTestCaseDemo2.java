@@ -1,28 +1,26 @@
 package com.tutorial.listener;
 
+import com.framework.templates.ApiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.framework.templates.ApiTestCase;
-import com.relevantcodes.extentreports.LogStatus;
-
 public class ListenerTestCaseDemo2 extends ApiTestCase {
-	protected final static Logger logger = LogManager.getLogger(ListenerTestCaseDemo2.class.getName());
+    protected final static Logger logger = LogManager.getLogger(ListenerTestCaseDemo2.class.getName());
 
-	@Test(enabled = true, timeOut = 500)
-	public void testOne() {
-		Assert.assertTrue(true);
-	}
+    @Test(enabled = true, timeOut = 500)
+    public void testOne() {
+        Assert.assertTrue(true);
+    }
 
-	@Test(enabled = true, timeOut = 500)
-	public void testTwo() {
-		Assert.assertTrue(true);
-	}
+    @Test(enabled = true, timeOut = 500)
+    public void testTwo() {
+        Assert.assertTrue(true);
+    }
 
-	@Test(enabled = true, timeOut = 500)
-	public void testThree() throws Exception {
-		throw new Exception("For testing purpose, no worries! ");
-	}
+    @Test(enabled = true, timeOut = 500)
+    public void testThree() throws Exception {
+        throw new Exception("For testing purpose, no worries! ");
+    }
 }

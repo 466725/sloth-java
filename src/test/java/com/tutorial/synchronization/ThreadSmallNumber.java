@@ -1,13 +1,13 @@
 package com.tutorial.synchronization;
 
 class ThreadSmallNumber extends Thread {
-	FiveTimesPrinter printer;
+    FiveTimesPrinter printer;
 
-	ThreadSmallNumber(FiveTimesPrinter printer) {
-		this.printer = printer;
-	}
+    ThreadSmallNumber(FiveTimesPrinter printer) {
+        this.printer = printer;
+    }
 
-	public void run() {
-		printer.printFiveTimes(10);
-	}
+    public void run() {
+        printer.printFiveTimes(10);
+    }
 }

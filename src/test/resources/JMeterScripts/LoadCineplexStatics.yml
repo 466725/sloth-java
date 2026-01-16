@@ -1,11 +1,11 @@
 execution:
-- scenario: pages
-  concurrency: 50000
-  iterations: 50
-  hold-for: 30m
-  ramp-up: 5m
-  step-up: 1m
-  locations:
+  - scenario: pages
+    concurrency: 50000
+    iterations: 50
+    hold-for: 30m
+    ramp-up: 5m
+    step-up: 1m
+    locations:
       ca-central-1: 5
       northamerica-northeast1-a: 5
       us-east-1: 5
@@ -26,7 +26,7 @@ execution:
       azure-central-ca: 5
       azure-central-us-1: 5
       us-central1-a: 5
-  locations-weighted: false
+    locations-weighted: false
 scenarios:
   pages:
     script: LoadCineplexStatics.jmx

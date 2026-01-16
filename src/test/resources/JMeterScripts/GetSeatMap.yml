@@ -1,11 +1,11 @@
 execution:
-- scenario: seatmap
-  concurrency: 10000
-  iterations: 15
-  hold-for: 30m
-  ramp-up: 5m
-  step-up: 1m
-  locations:
+  - scenario: seatmap
+    concurrency: 10000
+    iterations: 15
+    hold-for: 30m
+    ramp-up: 5m
+    step-up: 1m
+    locations:
       ca-central-1: 2
       northamerica-northeast1-a: 2
       us-east-1: 2
@@ -26,9 +26,9 @@ execution:
       azure-central-ca: 2
       azure-central-us-1: 2
       us-central1-a: 2
-  locations-weighted: false
+    locations-weighted: false
 scenarios:
   seatmap:
     script: GetSeatMap.jmx
     data-sources:
-    - movies.csv
+      - movies.csv

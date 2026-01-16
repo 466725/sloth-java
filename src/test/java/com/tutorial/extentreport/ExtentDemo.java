@@ -10,20 +10,20 @@ import org.testng.annotations.Test;
 public class ExtentDemo {
     static ExtentTest test;
     static ExtentReports report;
+
     @BeforeClass
-    public static void startTest()
-    {
-        report = new ExtentReports(System.getProperty("user.dir")+"ExtentReportResults.html");
+    public static void startTest() {
+        report = new ExtentReports(System.getProperty("user.dir") + "ExtentReportResults.html");
         test = report.startTest("ExtentDemo");
     }
+
     @Test
-    public void extentReportsDemo()
-    {
-            test.log(LogStatus.PASS, "Looks all good! ");
+    public void extentReportsDemo() {
+        test.log(LogStatus.PASS, "Looks all good! ");
     }
+
     @AfterClass
-    public static void endTest()
-    {
+    public static void endTest() {
         report.endTest(test);
         report.flush();
     }

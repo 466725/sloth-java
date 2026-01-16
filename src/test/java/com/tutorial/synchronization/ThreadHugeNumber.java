@@ -1,13 +1,13 @@
 package com.tutorial.synchronization;
 
 class ThreadHugeNumber extends Thread {
-	FiveTimesPrinter printer;
+    FiveTimesPrinter printer;
 
-	ThreadHugeNumber(FiveTimesPrinter printer) {
-		this.printer = printer;
-	}
+    ThreadHugeNumber(FiveTimesPrinter printer) {
+        this.printer = printer;
+    }
 
-	public void run() {
-		printer.printFiveTimes(1000000);
-	}
+    public void run() {
+        printer.printFiveTimes(1000000);
+    }
 }

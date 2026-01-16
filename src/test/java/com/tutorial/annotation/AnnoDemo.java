@@ -1,20 +1,19 @@
 package com.tutorial.annotation;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD })
+@Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
 public @interface AnnoDemo {
-	public final static Logger logger = LogManager.getLogger(AnnoDemo.class.getName());
+    public final static Logger logger = LogManager.getLogger(AnnoDemo.class.getName());
 
-	int intValue();
+    int intValue();
 
-	String strValue();
+    String strValue();
 }

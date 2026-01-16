@@ -1,30 +1,29 @@
 package com.volante.ui.testcases;
 
+import com.framework.templates.GuiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.framework.templates.GuiTestCase;
-
 /**
  * Tests related to HomePage
- * 
+ *
  * @author Weipeng Zheng
  *
  */
 public class HomePageTest extends GuiTestCase {
-	protected final static Logger logger = LogManager.getLogger(HomePageTest.class.getName());
-	protected LoginPage loginPage = null;
-	protected HomePage homePage = null;
+    protected final static Logger logger = LogManager.getLogger(HomePageTest.class.getName());
+    protected LoginPage loginPage = null;
+    protected HomePage homePage = null;
 
-	/**
-	 * Test of navigating to HomePage
-	 */
-	@Test(priority = 1)
-	public void gotoHomePage() {
-		homePage = new HomePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
+    /**
+     * Test of navigating to HomePage
+     */
+    @Test(priority = 1)
+    public void gotoHomePage() {
+        homePage = new HomePage(driver, GuiTestCase.URL, GuiTestCase.userName, GuiTestCase.password);
 
-		Assert.assertTrue(homePage.navigateTo());
-	}
+        Assert.assertTrue(homePage.navigateTo());
+    }
 }

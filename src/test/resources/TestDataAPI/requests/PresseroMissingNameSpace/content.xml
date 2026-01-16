@@ -1,725 +1,837 @@
 <?xml version="1.0" encoding="utf-8"?>
 <orderInfo>
-  <OrderID xmlns="http://w2p.aleyant.com/">6a428b4c-8dcc-4d59-89cb-2d37994fe361</OrderID>
-  <OrderNumber xmlns="http://w2p.aleyant.com/">1853</OrderNumber>
-  <OrderDate xmlns="http://w2p.aleyant.com/">2015-11-23T21:26:13.557</OrderDate>
-  <OrderedBy xmlns="http://w2p.aleyant.com/">
-    <userType>67</userType>
-    <UserID>ad391a86-4cf4-474f-b57e-3d33e33373b6</UserID>
-    <Email>cera.lopez@asco.org</Email>
-    <Login>cera.lopez</Login>
-    <Password>cBa7DpFJXvvB0bz2CeevYA==</Password>
-    <isActive>true</isActive>
-    <FirstName>Cera</FirstName>
-    <LastName>Lopez</LastName>
-    <Title>Member Services Department Coordinator</Title>
-    <ReceiveNotifications>false</ReceiveNotifications>
-    <ReceiveAllNotifications>false</ReceiveAllNotifications>
-    <TZ>Eastern Standard Time</TZ>
-    <Culture>en-US</Culture>
-    <photoURLs>
-      <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_small.png</string>
-      <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_smallsquare.png</string>
-      <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_medium.png</string>
-      <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_mediumsquare.png</string>
-      <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_large.png</string>
-      <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_xlarge.png</string>
-    </photoURLs>
-    <Phone>5714831564</Phone>
-    <Fax />
-    <canViewPricing>true</canViewPricing>
-    <isTaxExempt>false</isTaxExempt>
-    <isApproved>true</isApproved>
-    <isShared>false</isShared>
-    <shouldPrefillCheckout>false</shouldPrefillCheckout>
-    <cartid>00000000-0000-0000-0000-000000000000</cartid>
-    <approvalPlanID xsi:nil="true" />
-    <ApprovalGroupID xsi:nil="true" />
-    <CreateDate xsi:nil="true" />
-    <LastLogin xsi:nil="true" />
-    <LastOrder xsi:nil="true" />
-    <captureTaxID>false</captureTaxID>
-    <CapturePurchaseOrder>0</CapturePurchaseOrder>
-    <isGuestUser>false</isGuestUser>
-    <CartIDSaveForLater>00000000-0000-0000-0000-000000000000</CartIDSaveForLater>
-    <IsImpersonatedUser>false</IsImpersonatedUser>
-  </OrderedBy>
-  <PONumber xmlns="http://w2p.aleyant.com/">191007240</PONumber>
-  <billTo xmlns="http://w2p.aleyant.com/">
-    <AddressID>f4724cd2-effd-4c0a-884a-6411efdc7b74</AddressID>
-    <isPreferred>false</isPreferred>
-    <Business>American Society of Clinical Oncology</Business>
-    <FirstName>Accounts</FirstName>
-    <LastName>Receivable</LastName>
-    <Title />
-    <Address1>2618 Mill Rd - Test</Address1>
-    <Address2>Suite 800</Address2>
-    <Address3 />
-    <City>Alexandria</City>
-    <StateProvince>VA</StateProvince>
-    <Postal>22314</Postal>
-    <Country>US</Country>
-    <Phone>571-483-1300</Phone>
-    <Fax>703-299-0255</Fax>
-    <Email />
-  </billTo>
-  <HasMultipleShipTos xmlns="http://w2p.aleyant.com/">false</HasMultipleShipTos>
-  <OrderShipTo xmlns="http://w2p.aleyant.com/">
-    <AddressID>f4724cd2-effd-4c0a-884a-6411efdc7b74</AddressID>
-    <isPreferred>false</isPreferred>
-    <Business>American Society of Clinical Oncology</Business>
-    <FirstName>Accounts</FirstName>
-    <LastName>Receivable</LastName>
-    <Title />
-    <Address1>2618 Mill Rd - Test</Address1>
-    <Address2>Suite 800</Address2>
-    <Address3 />
-    <City>Alexandria</City>
-    <StateProvince>VA</StateProvince>
-    <Postal>22314</Postal>
-    <Country>US</Country>
-    <Phone>571-483-1300</Phone>
-    <Fax>703-299-0255</Fax>
-    <Email />
-  </OrderShipTo>
-  <SubTotal xmlns="http://w2p.aleyant.com/">90.0000</SubTotal>
-  <SubTotalNoMarkup xmlns="http://w2p.aleyant.com/">90.0000</SubTotalNoMarkup>
-  <Tax1 xmlns="http://w2p.aleyant.com/">0</Tax1>
-  <Tax2 xmlns="http://w2p.aleyant.com/">0</Tax2>
-  <Tax3 xmlns="http://w2p.aleyant.com/">0</Tax3>
-  <Shipping xmlns="http://w2p.aleyant.com/">0</Shipping>
-  <VAT xmlns="http://w2p.aleyant.com/">0</VAT>
-  <PromoDiscount xmlns="http://w2p.aleyant.com/">0</PromoDiscount>
-  <Total xmlns="http://w2p.aleyant.com/">90.0000</Total>
-  <Location xmlns="http://w2p.aleyant.com/">
-    <AddressID>0abd2ab9-5d16-46cb-81b7-ca9707f3f16f</AddressID>
-    <isPreferred>false</isPreferred>
-    <Business>Mid Atlantic Printers Limited</Business>
-    <FirstName>Todd</FirstName>
-    <LastName>Shelhorse</LastName>
-    <Title />
-    <Address1>503 Third Street</Address1>
-    <Address2 />
-    <Address3 />
-    <City>Altavista</City>
-    <StateProvince>VA</StateProvince>
-    <Postal>24517</Postal>
-    <Country>US</Country>
-    <Phone>434-369-6633</Phone>
-    <Fax />
-    <Email>tshelhorse@mapl.net</Email>
-    <locationID>fe9e625b-9026-4452-850b-cba7f60beeab</locationID>
-    <Code>MAPL</Code>
-    <GeneralInfo />
-    <remove>false</remove>
-  </Location>
-  <OrderItems xmlns="http://w2p.aleyant.com/">
-    <orderInfoItem>
-      <CartId>6a428b4c-8dcc-4d59-89cb-2d37994fe361</CartId>
-      <ItemId>b5b90834-f473-4f84-b569-233798f2ab92</ItemId>
-      <Seq>2</Seq>
-      <itemName>Claudia S. Contreras</itemName>
-      <productName>ASCO Business Cards</productName>
-      <productURL>/asco-bc</productURL>
-      <productID>b9f774ae-6d30-4b99-bdaa-6114dd283a47</productID>
-      <productShortDescription />
-      <AcceptanceControl />
-      <AcceptanceLabel />
-      <edocBuilderApprovalText />
-      <productImageURLs>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_small.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_smallsquare.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_medium.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_mediumsquare.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_large.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_xlarge.png</string>
-      </productImageURLs>
-      <ShipMethod>MAPL Delivery (No Charge)</ShipMethod>
-      <ShipMethod_Carrier>NONE</ShipMethod_Carrier>
-      <ShipMethod_Code>2</ShipMethod_Code>
-      <shipTo>
+    <OrderID xmlns="http://w2p.aleyant.com/">6a428b4c-8dcc-4d59-89cb-2d37994fe361</OrderID>
+    <OrderNumber xmlns="http://w2p.aleyant.com/">1853</OrderNumber>
+    <OrderDate xmlns="http://w2p.aleyant.com/">2015-11-23T21:26:13.557</OrderDate>
+    <OrderedBy xmlns="http://w2p.aleyant.com/">
+        <userType>67</userType>
+        <UserID>ad391a86-4cf4-474f-b57e-3d33e33373b6</UserID>
+        <Email>cera.lopez@asco.org</Email>
+        <Login>cera.lopez</Login>
+        <Password>cBa7DpFJXvvB0bz2CeevYA==</Password>
+        <isActive>true</isActive>
+        <FirstName>Cera</FirstName>
+        <LastName>Lopez</LastName>
+        <Title>Member Services Department Coordinator</Title>
+        <ReceiveNotifications>false</ReceiveNotifications>
+        <ReceiveAllNotifications>false</ReceiveAllNotifications>
+        <TZ>Eastern Standard Time</TZ>
+        <Culture>en-US</Culture>
+        <photoURLs>
+            <string>
+                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_small.png
+            </string>
+            <string>
+                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_smallsquare.png
+            </string>
+            <string>
+                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_medium.png
+            </string>
+            <string>
+                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_mediumsquare.png
+            </string>
+            <string>
+                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_large.png
+            </string>
+            <string>
+                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Users/UserPhoto_ad391a86-4cf4-474f-b57e-3d33e33373b6_xlarge.png
+            </string>
+        </photoURLs>
+        <Phone>5714831564</Phone>
+        <Fax/>
+        <canViewPricing>true</canViewPricing>
+        <isTaxExempt>false</isTaxExempt>
+        <isApproved>true</isApproved>
+        <isShared>false</isShared>
+        <shouldPrefillCheckout>false</shouldPrefillCheckout>
+        <cartid>00000000-0000-0000-0000-000000000000</cartid>
+        <approvalPlanID xsi:nil="true"/>
+        <ApprovalGroupID xsi:nil="true"/>
+        <CreateDate xsi:nil="true"/>
+        <LastLogin xsi:nil="true"/>
+        <LastOrder xsi:nil="true"/>
+        <captureTaxID>false</captureTaxID>
+        <CapturePurchaseOrder>0</CapturePurchaseOrder>
+        <isGuestUser>false</isGuestUser>
+        <CartIDSaveForLater>00000000-0000-0000-0000-000000000000</CartIDSaveForLater>
+        <IsImpersonatedUser>false</IsImpersonatedUser>
+    </OrderedBy>
+    <PONumber xmlns="http://w2p.aleyant.com/">191007240</PONumber>
+    <billTo xmlns="http://w2p.aleyant.com/">
         <AddressID>f4724cd2-effd-4c0a-884a-6411efdc7b74</AddressID>
         <isPreferred>false</isPreferred>
         <Business>American Society of Clinical Oncology</Business>
         <FirstName>Accounts</FirstName>
         <LastName>Receivable</LastName>
-        <Title />
-        <Address1>2318 Mill Rd - Test</Address1>
+        <Title/>
+        <Address1>2618 Mill Rd - Test</Address1>
         <Address2>Suite 800</Address2>
-        <Address3 />
+        <Address3/>
         <City>Alexandria</City>
         <StateProvince>VA</StateProvince>
         <Postal>22314</Postal>
         <Country>US</Country>
         <Phone>571-483-1300</Phone>
         <Fax>703-299-0255</Fax>
-        <Email />
-      </shipTo>
-      <ShipMethodID>aed417cd-f03b-4d7f-855c-9e4b3387dacb</ShipMethodID>
-      <RequestedDelivery>2015-11-25T00:00:00</RequestedDelivery>
-      <ProjectedDelivery>2015-11-25T00:00:00</ProjectedDelivery>
-      <Quantity>250</Quantity>
-      <Price>145.0000</Price>
-      <NonMarkupPrice>145.0000</NonMarkupPrice>
-      <optionsText>&lt;ul&gt;&lt;li&gt;Quantity =&lt;span&gt;250&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Stock =&lt;span&gt;100 lb Cougar Cover&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Number of Sides =&lt;span&gt;Two Side - PMS 282&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Proof =&lt;span&gt;Online Preview&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Turn Around =&lt;span&gt;Standard (Ship in 2 business days)&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;</optionsText>
-      <pricingParms>
-        <Quantities>
-          <decimal>250</decimal>
-        </Quantities>
-        <Options>
-          <Option>
-            <Key xsi:type="xsd:string">Business Cards</Key>
-            <Value xsi:type="xsd:string">Yes</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Stock</Key>
-            <Value xsi:type="xsd:string">100 lb Cougar Cover</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Number of Sides</Key>
-            <Value xsi:type="xsd:string">Two Side - PMS 282</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Proof</Key>
-            <Value xsi:type="xsd:string">Online Preview</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Turn Around</Key>
-            <Value xsi:type="xsd:string">Standard (Ship in 2 business days)</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Flat Rate</Key>
-            <Value xsi:type="xsd:string">Processing Fee</Value>
-          </Option>
-        </Options>
-        <Attributes />
-        <notValid>false</notValid>
-      </pricingParms>
-      <pricingOptions>
-        <method>Calculator</method>
-        <QuantityOptions>
-          <pricingParmOfDecimal>
-            <Name>Quantity</Name>
-            <seq>0</seq>
-            <Options>
-              <decimal>250</decimal>
-              <decimal>500</decimal>
-              <decimal>750</decimal>
-              <decimal>1000</decimal>
-            </Options>
-            <ImageLinks />
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfDecimal>
-        </QuantityOptions>
-        <UOMLines />
-        <OtherOptions>
-          <pricingParmOfString>
-            <Name>Business Cards</Name>
-            <seq>0</seq>
-            <Options>
-              <string>Yes</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Business_Cards-Yes</string>
-            </ImageLinks>
-            <isHidden>true</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>false</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Stock</Name>
-            <seq>1</seq>
-            <Options>
-              <string>100 lb Cougar Cover</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Stock-100_lb_Cougar_Cover</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Number of Sides</Name>
-            <seq>2</seq>
-            <Options>
-              <string>Two Side - PMS 282</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Number_of_Sides-Two_Side___PMS_282</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Proof</Name>
-            <seq>3</seq>
-            <Options>
-              <string>Online Preview</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Proof-Online_Preview</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Turn Around</Name>
-            <seq>4</seq>
-            <Options>
-              <string>Standard (Ship in 2 business days)</string>
-              <string>Expedited (Ship next business day)</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Standard__Ship_in_2_business_days_</string>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Expedited__Ship_next_business_day_</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Flat Rate</Name>
-            <seq>5</seq>
-            <Options>
-              <string>Processing Fee</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Flat_Rate-Processing_Fee</string>
-            </ImageLinks>
-            <isHidden>true</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>false</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-        </OtherOptions>
-        <allowDecimal>false</allowDecimal>
-        <allowDecimal1>false</allowDecimal1>
-        <allowDecimal2>false</allowDecimal2>
-        <allowDecimal3>false</allowDecimal3>
-        <allowDecimal4>false</allowDecimal4>
-        <allowDecimal5>false</allowDecimal5>
-      </pricingOptions>
-      <pricingEngineID>5ae53e1c-cd9b-4869-aef0-6c8be706fbdd</pricingEngineID>
-      <Notes />
-      <PrintersPartNumber />
-      <PublicPartNumber />
-      <BindingJDF />
-      <FinishingJDF />
-      <FoldingJDF />
-      <PackagingJDF />
-      <OrderItemFiles>
-        <fileItem>
-          <fileName>1853-2-Claudia S. Contreras.pdf</fileName>
-          <relativePathName>/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f2%2f1853-2-Claudia+S.+Contreras.pdf</relativePathName>
-          <downloadURL>http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f2%2f1853-2-Claudia+S.+Contreras.pdf</downloadURL>
-          <isGeneratedFile>true</isGeneratedFile>
-        </fileItem>
-        <fileItem>
-          <fileName>edocpreview__large.png</fileName>
-          <relativePathName>/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__large.png</relativePathName>
-          <downloadURL>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__large.png</downloadURL>
-          <isGeneratedFile>false</isGeneratedFile>
-        </fileItem>
-        <fileItem>
-          <fileName>edocpreview__small.png</fileName>
-          <relativePathName>/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__small.png</relativePathName>
-          <downloadURL>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__small.png</downloadURL>
-          <isGeneratedFile>false</isGeneratedFile>
-        </fileItem>
-      </OrderItemFiles>
-      <Assets />
-      <edocEditURL>http://client.edocbuilder.com/iframeClient.aspx?docCode=3bd4bd74-8cb1-4d02-864b-035ba7ed9797&amp;docPwd=e038bd67-5756-40da-80f5-6fee13ffed8d&amp;docsession=955aad06-48e9-4d34-9aa1-c1bdec73d04c&amp;postbackURL=/general/reprocessing.aspx&amp;addToCartButton=Finished%20Editing&amp;cancelButton=Cancel%20Order&amp;approveWhenDone=true</edocEditURL>
-      <eDocProofs>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/proof1.jpg</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/proof2.jpg</string>
-        <string>http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f2%2fproof_1853-2-Claudia+S.+Contreras.pdf</string>
-      </eDocProofs>
-      <Shipments />
-      <WorkflowID>9452a178-226f-4a54-b4ea-cdf4a76fc853</WorkflowID>
-      <WorkflowChanges>
-        <workflowAction>
-          <Status>Order Received</Status>
-          <PrinterStage>Order Received</PrinterStage>
-          <ActionDateTime>2015-11-23T21:26:13.557</ActionDateTime>
-          <ResponsibleUser>Cera Lopez &amp;lt;cera.lopez@asco.org&amp;gt;</ResponsibleUser>
-        </workflowAction>
-        <workflowAction>
-          <Status>Press</Status>
-          <PrinterStage>Press</PrinterStage>
-          <ActionDateTime>2015-11-25T13:36:38.743</ActionDateTime>
-          <Notes />
-          <ResponsibleUser>Josh Hughes &amp;lt;jhughes@mapl.net&amp;gt;</ResponsibleUser>
-        </workflowAction>
-      </WorkflowChanges>
-      <EDocInfo>&lt;eDocInfo&gt;&lt;edocCode&gt;3bd4bd74-8cb1-4d02-864b-035ba7ed9797&lt;/edocCode&gt;&lt;edocPassword&gt;e038bd67-5756-40da-80f5-6fee13ffed8d&lt;/edocPassword&gt;&lt;edocSession&gt;955aad06-48e9-4d34-9aa1-c1bdec73d04c&lt;/edocSession&gt;&lt;downloaded xmlns:p2="http://www.w3.org/2001/XMLSchema-instance" p2:nil="true" /&gt;&lt;previewImages&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\2\proof1.jpg&lt;/string&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\2\proof2.jpg&lt;/string&gt;&lt;/previewImages&gt;&lt;vdpRecordCount&gt;1&lt;/vdpRecordCount&gt;&lt;edocError /&gt;&lt;/eDocInfo&gt;</EDocInfo>
-      <IsProofApproved>false</IsProofApproved>
-      <NeedsProofApproval>false</NeedsProofApproval>
-      <isApproved>true</isApproved>
-      <isDenied>false</isDenied>
-      <NeedsApproval>false</NeedsApproval>
-      <canApprove>false</canApprove>
-      <canEdit>false</canEdit>
-      <approvalID>00000000-0000-0000-0000-000000000000</approvalID>
-      <Status>Press</Status>
-      <CustomerStage>Press</CustomerStage>
-      <LastStatusdate>2015-11-25T13:36:38.743</LastStatusdate>
-      <OpenState>open</OpenState>
-      <totalItems>250</totalItems>
-      <productMisID>BasicPoster</productMisID>
-      <productLocation />
-      <productCategory>Business Cards</productCategory>
-      <ShowEdocProofInCart>true</ShowEdocProofInCart>
-      <isApprovedWithModifications>false</isApprovedWithModifications>
-    </orderInfoItem>
-    <orderInfoItem>
-      <CartId>6a428b4c-8dcc-4d59-89cb-2d37994fe361</CartId>
-      <ItemId>f96a4976-dea7-46da-bcfe-53ea6dafd2e1</ItemId>
-      <Seq>1</Seq>
-      <itemName>Sherri L. Smith</itemName>
-      <productName>ASCO Business Cards</productName>
-      <productURL>/asco-bc</productURL>
-      <productID>b9f774ae-6d30-4b99-bdaa-6114dd283a47</productID>
-      <productShortDescription />
-      <AcceptanceControl />
-      <AcceptanceLabel />
-      <edocBuilderApprovalText />
-      <productImageURLs>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_small.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_smallsquare.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_medium.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_mediumsquare.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_large.png</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_xlarge.png</string>
-      </productImageURLs>
-      <ShipMethod>MAPL Delivery (No Charge)</ShipMethod>
-      <ShipMethod_Carrier>NONE</ShipMethod_Carrier>
-      <ShipMethod_Code>2</ShipMethod_Code>
-      <shipTo>
+        <Email/>
+    </billTo>
+    <HasMultipleShipTos xmlns="http://w2p.aleyant.com/">false</HasMultipleShipTos>
+    <OrderShipTo xmlns="http://w2p.aleyant.com/">
         <AddressID>f4724cd2-effd-4c0a-884a-6411efdc7b74</AddressID>
         <isPreferred>false</isPreferred>
         <Business>American Society of Clinical Oncology</Business>
         <FirstName>Accounts</FirstName>
         <LastName>Receivable</LastName>
-        <Title />
-        <Address1>2318 Mill Rd - Test</Address1>
+        <Title/>
+        <Address1>2618 Mill Rd - Test</Address1>
         <Address2>Suite 800</Address2>
-        <Address3 />
+        <Address3/>
         <City>Alexandria</City>
         <StateProvince>VA</StateProvince>
         <Postal>22314</Postal>
         <Country>US</Country>
         <Phone>571-483-1300</Phone>
         <Fax>703-299-0255</Fax>
-        <Email />
-      </shipTo>
-      <ShipMethodID>aed417cd-f03b-4d7f-855c-9e4b3387dacb</ShipMethodID>
-      <RequestedDelivery>2015-11-25T00:00:00</RequestedDelivery>
-      <ProjectedDelivery>2015-11-25T00:00:00</ProjectedDelivery>
-      <Quantity>250</Quantity>
-      <Price>145.0000</Price>
-      <NonMarkupPrice>145.0000</NonMarkupPrice>
-      <optionsText>&lt;ul&gt;&lt;li&gt;Quantity =&lt;span&gt;250&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Stock =&lt;span&gt;100 lb Cougar Cover&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Number of Sides =&lt;span&gt;Two Side - PMS 282&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Proof =&lt;span&gt;Online Preview&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Turn Around =&lt;span&gt;Standard (Ship in 2 business days)&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;</optionsText>
-      <pricingParms>
-        <Quantities>
-          <decimal>250</decimal>
-        </Quantities>
-        <Options>
-          <Option>
-            <Key xsi:type="xsd:string">Business Cards</Key>
-            <Value xsi:type="xsd:string">Yes</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Stock</Key>
-            <Value xsi:type="xsd:string">100 lb Cougar Cover</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Number of Sides</Key>
-            <Value xsi:type="xsd:string">Two Side - PMS 282</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Proof</Key>
-            <Value xsi:type="xsd:string">Online Preview</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Turn Around</Key>
-            <Value xsi:type="xsd:string">Standard (Ship in 2 business days)</Value>
-          </Option>
-          <Option>
-            <Key xsi:type="xsd:string">Flat Rate</Key>
-            <Value xsi:type="xsd:string">Processing Fee</Value>
-          </Option>
-        </Options>
-        <Attributes />
-        <notValid>false</notValid>
-      </pricingParms>
-      <pricingOptions>
-        <method>Calculator</method>
-        <QuantityOptions>
-          <pricingParmOfDecimal>
-            <Name>Quantity</Name>
-            <seq>0</seq>
-            <Options>
-              <decimal>250</decimal>
-              <decimal>500</decimal>
-              <decimal>750</decimal>
-              <decimal>1000</decimal>
-            </Options>
-            <ImageLinks />
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfDecimal>
-        </QuantityOptions>
-        <UOMLines />
-        <OtherOptions>
-          <pricingParmOfString>
-            <Name>Business Cards</Name>
-            <seq>0</seq>
-            <Options>
-              <string>Yes</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Business_Cards-Yes</string>
-            </ImageLinks>
-            <isHidden>true</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>false</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Stock</Name>
-            <seq>1</seq>
-            <Options>
-              <string>100 lb Cougar Cover</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Stock-100_lb_Cougar_Cover</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Number of Sides</Name>
-            <seq>2</seq>
-            <Options>
-              <string>Two Side - PMS 282</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Number_of_Sides-Two_Side___PMS_282</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Proof</Name>
-            <seq>3</seq>
-            <Options>
-              <string>Online Preview</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Proof-Online_Preview</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Turn Around</Name>
-            <seq>4</seq>
-            <Options>
-              <string>Standard (Ship in 2 business days)</string>
-              <string>Expedited (Ship next business day)</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Standard__Ship_in_2_business_days_</string>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Expedited__Ship_next_business_day_</string>
-            </ImageLinks>
-            <isHidden>false</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>true</boolean>
-              <boolean>true</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-          <pricingParmOfString>
-            <Name>Flat Rate</Name>
-            <seq>5</seq>
-            <Options>
-              <string>Processing Fee</string>
-            </Options>
-            <ImageLinks>
-              <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Flat_Rate-Processing_Fee</string>
-            </ImageLinks>
-            <isHidden>true</isHidden>
-            <isGrid>false</isGrid>
-            <ControlType>ComboBox</ControlType>
-            <Settings />
-            <ShowOptions>
-              <boolean>false</boolean>
-            </ShowOptions>
-          </pricingParmOfString>
-        </OtherOptions>
-        <allowDecimal>false</allowDecimal>
-        <allowDecimal1>false</allowDecimal1>
-        <allowDecimal2>false</allowDecimal2>
-        <allowDecimal3>false</allowDecimal3>
-        <allowDecimal4>false</allowDecimal4>
-        <allowDecimal5>false</allowDecimal5>
-      </pricingOptions>
-      <pricingEngineID>5ae53e1c-cd9b-4869-aef0-6c8be706fbdd</pricingEngineID>
-      <Notes />
-      <PrintersPartNumber />
-      <PublicPartNumber />
-      <BindingJDF />
-      <FinishingJDF />
-      <FoldingJDF />
-      <PackagingJDF />
-      <OrderItemFiles>
-        <fileItem>
-          <fileName>1853-1-Sherri L. Smith.pdf</fileName>
-          <relativePathName>/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f1%2f1853-1-Sherri+L.+Smith.pdf</relativePathName>
-          <downloadURL>http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f1%2f1853-1-Sherri+L.+Smith.pdf</downloadURL>
-          <isGeneratedFile>true</isGeneratedFile>
-        </fileItem>
-        <fileItem>
-          <fileName>edocpreview__large.png</fileName>
-          <relativePathName>/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__large.png</relativePathName>
-          <downloadURL>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__large.png</downloadURL>
-          <isGeneratedFile>false</isGeneratedFile>
-        </fileItem>
-        <fileItem>
-          <fileName>edocpreview__small.png</fileName>
-          <relativePathName>/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__small.png</relativePathName>
-          <downloadURL>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__small.png</downloadURL>
-          <isGeneratedFile>false</isGeneratedFile>
-        </fileItem>
-      </OrderItemFiles>
-      <Assets />
-      <edocEditURL>http://client.edocbuilder.com/iframeClient.aspx?docCode=3bd4bd74-8cb1-4d02-864b-035ba7ed9797&amp;docPwd=e038bd67-5756-40da-80f5-6fee13ffed8d&amp;docsession=b1ffc71a-9efd-464a-bd93-87a206daf083&amp;postbackURL=/general/reprocessing.aspx&amp;addToCartButton=Finished%20Editing&amp;cancelButton=Cancel%20Order&amp;approveWhenDone=true</edocEditURL>
-      <eDocProofs>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/proof1.jpg</string>
-        <string>http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/proof2.jpg</string>
-        <string>http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f1%2fproof_1853-1-Sherri+L.+Smith.pdf</string>
-      </eDocProofs>
-      <Shipments />
-      <WorkflowID>9452a178-226f-4a54-b4ea-cdf4a76fc853</WorkflowID>
-      <WorkflowChanges>
-        <workflowAction>
-          <Status>Order Received</Status>
-          <PrinterStage>Order Received</PrinterStage>
-          <ActionDateTime>2015-11-23T21:26:13.557</ActionDateTime>
-          <ResponsibleUser>Cera Lopez &amp;lt;cera.lopez@asco.org&amp;gt;</ResponsibleUser>
-        </workflowAction>
-        <workflowAction>
-          <Status>Press</Status>
-          <PrinterStage>Press</PrinterStage>
-          <ActionDateTime>2015-11-25T13:36:27.133</ActionDateTime>
-          <Notes />
-          <ResponsibleUser>Josh Hughes &amp;lt;jhughes@mapl.net&amp;gt;</ResponsibleUser>
-        </workflowAction>
-      </WorkflowChanges>
-      <EDocInfo>&lt;eDocInfo&gt;&lt;edocCode&gt;3bd4bd74-8cb1-4d02-864b-035ba7ed9797&lt;/edocCode&gt;&lt;edocPassword&gt;e038bd67-5756-40da-80f5-6fee13ffed8d&lt;/edocPassword&gt;&lt;edocSession&gt;b1ffc71a-9efd-464a-bd93-87a206daf083&lt;/edocSession&gt;&lt;downloaded xmlns:p2="http://www.w3.org/2001/XMLSchema-instance" p2:nil="true" /&gt;&lt;previewImages&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\1\proof1.jpg&lt;/string&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\1\proof2.jpg&lt;/string&gt;&lt;/previewImages&gt;&lt;vdpRecordCount&gt;1&lt;/vdpRecordCount&gt;&lt;edocError /&gt;&lt;/eDocInfo&gt;</EDocInfo>
-      <IsProofApproved>false</IsProofApproved>
-      <NeedsProofApproval>false</NeedsProofApproval>
-      <isApproved>true</isApproved>
-      <isDenied>false</isDenied>
-      <NeedsApproval>false</NeedsApproval>
-      <canApprove>false</canApprove>
-      <canEdit>false</canEdit>
-      <approvalID>00000000-0000-0000-0000-000000000000</approvalID>
-      <Status>Press</Status>
-      <CustomerStage>Press</CustomerStage>
-      <LastStatusdate>2015-11-25T13:36:27.133</LastStatusdate>
-      <OpenState>open</OpenState>
-      <totalItems>250</totalItems>
-      <productMisID>BasicPoster5</productMisID>
-      <productLocation />
-      <productCategory>Business Cards</productCategory>
-      <ShowEdocProofInCart>true</ShowEdocProofInCart>
-      <isApprovedWithModifications>false</isApprovedWithModifications>
-    </orderInfoItem>
-  </OrderItems>
-  <forms xmlns="http://w2p.aleyant.com/" />
-  <siteDomain xmlns="http://w2p.aleyant.com/">asco.mapl.net</siteDomain>
-  <siteID xmlns="http://w2p.aleyant.com/">e25a06a1-c564-4451-92a8-0a6305c7c322</siteID>
-  <IsPayComplete xmlns="http://w2p.aleyant.com/">false</IsPayComplete>
-  <payments xmlns="http://w2p.aleyant.com/" />
-  <RequestShipDate xmlns="http://w2p.aleyant.com/">2015-11-25T00:00:00</RequestShipDate>
-  <siteMisID xmlns="http://w2p.aleyant.com/">ASCO</siteMisID>
-  <taxID xmlns="http://w2p.aleyant.com/" />
-  <isOpenTerms xmlns="http://w2p.aleyant.com/">true</isOpenTerms>
-  <checkoutPaymentMethodID xmlns="http://w2p.aleyant.com/">4aa83735-c979-42bb-82fc-36ad0048744b</checkoutPaymentMethodID>
-  <checkoutPaymentMethodName xmlns="http://w2p.aleyant.com/">Purchase on Open Account</checkoutPaymentMethodName>
-  <checkoutPaymentSubscriberMethodName xmlns="http://w2p.aleyant.com/">Open Account</checkoutPaymentSubscriberMethodName>
-  <IsOrderEdited xmlns="http://w2p.aleyant.com/">false</IsOrderEdited>
+        <Email/>
+    </OrderShipTo>
+    <SubTotal xmlns="http://w2p.aleyant.com/">90.0000</SubTotal>
+    <SubTotalNoMarkup xmlns="http://w2p.aleyant.com/">90.0000</SubTotalNoMarkup>
+    <Tax1 xmlns="http://w2p.aleyant.com/">0</Tax1>
+    <Tax2 xmlns="http://w2p.aleyant.com/">0</Tax2>
+    <Tax3 xmlns="http://w2p.aleyant.com/">0</Tax3>
+    <Shipping xmlns="http://w2p.aleyant.com/">0</Shipping>
+    <VAT xmlns="http://w2p.aleyant.com/">0</VAT>
+    <PromoDiscount xmlns="http://w2p.aleyant.com/">0</PromoDiscount>
+    <Total xmlns="http://w2p.aleyant.com/">90.0000</Total>
+    <Location xmlns="http://w2p.aleyant.com/">
+        <AddressID>0abd2ab9-5d16-46cb-81b7-ca9707f3f16f</AddressID>
+        <isPreferred>false</isPreferred>
+        <Business>Mid Atlantic Printers Limited</Business>
+        <FirstName>Todd</FirstName>
+        <LastName>Shelhorse</LastName>
+        <Title/>
+        <Address1>503 Third Street</Address1>
+        <Address2/>
+        <Address3/>
+        <City>Altavista</City>
+        <StateProvince>VA</StateProvince>
+        <Postal>24517</Postal>
+        <Country>US</Country>
+        <Phone>434-369-6633</Phone>
+        <Fax/>
+        <Email>tshelhorse@mapl.net</Email>
+        <locationID>fe9e625b-9026-4452-850b-cba7f60beeab</locationID>
+        <Code>MAPL</Code>
+        <GeneralInfo/>
+        <remove>false</remove>
+    </Location>
+    <OrderItems xmlns="http://w2p.aleyant.com/">
+        <orderInfoItem>
+            <CartId>6a428b4c-8dcc-4d59-89cb-2d37994fe361</CartId>
+            <ItemId>b5b90834-f473-4f84-b569-233798f2ab92</ItemId>
+            <Seq>2</Seq>
+            <itemName>Claudia S. Contreras</itemName>
+            <productName>ASCO Business Cards</productName>
+            <productURL>/asco-bc</productURL>
+            <productID>b9f774ae-6d30-4b99-bdaa-6114dd283a47</productID>
+            <productShortDescription/>
+            <AcceptanceControl/>
+            <AcceptanceLabel/>
+            <edocBuilderApprovalText/>
+            <productImageURLs>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_small.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_smallsquare.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_medium.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_mediumsquare.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_large.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_xlarge.png
+                </string>
+            </productImageURLs>
+            <ShipMethod>MAPL Delivery (No Charge)</ShipMethod>
+            <ShipMethod_Carrier>NONE</ShipMethod_Carrier>
+            <ShipMethod_Code>2</ShipMethod_Code>
+            <shipTo>
+                <AddressID>f4724cd2-effd-4c0a-884a-6411efdc7b74</AddressID>
+                <isPreferred>false</isPreferred>
+                <Business>American Society of Clinical Oncology</Business>
+                <FirstName>Accounts</FirstName>
+                <LastName>Receivable</LastName>
+                <Title/>
+                <Address1>2318 Mill Rd - Test</Address1>
+                <Address2>Suite 800</Address2>
+                <Address3/>
+                <City>Alexandria</City>
+                <StateProvince>VA</StateProvince>
+                <Postal>22314</Postal>
+                <Country>US</Country>
+                <Phone>571-483-1300</Phone>
+                <Fax>703-299-0255</Fax>
+                <Email/>
+            </shipTo>
+            <ShipMethodID>aed417cd-f03b-4d7f-855c-9e4b3387dacb</ShipMethodID>
+            <RequestedDelivery>2015-11-25T00:00:00</RequestedDelivery>
+            <ProjectedDelivery>2015-11-25T00:00:00</ProjectedDelivery>
+            <Quantity>250</Quantity>
+            <Price>145.0000</Price>
+            <NonMarkupPrice>145.0000</NonMarkupPrice>
+            <optionsText>&lt;ul&gt;&lt;li&gt;Quantity =&lt;span&gt;250&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Stock =&lt;span&gt;100
+                lb Cougar Cover&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;Number of Sides =&lt;span&gt;Two Side - PMS 282&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;Proof =&lt;span&gt;Online Preview&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;Turn Around =&lt;span&gt;Standard (Ship in 2 business days)&lt;/span&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            </optionsText>
+            <pricingParms>
+                <Quantities>
+                    <decimal>250</decimal>
+                </Quantities>
+                <Options>
+                    <Option>
+                        <Key xsi:type="xsd:string">Business Cards</Key>
+                        <Value xsi:type="xsd:string">Yes</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Stock</Key>
+                        <Value xsi:type="xsd:string">100 lb Cougar Cover</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Number of Sides</Key>
+                        <Value xsi:type="xsd:string">Two Side - PMS 282</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Proof</Key>
+                        <Value xsi:type="xsd:string">Online Preview</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Turn Around</Key>
+                        <Value xsi:type="xsd:string">Standard (Ship in 2 business days)</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Flat Rate</Key>
+                        <Value xsi:type="xsd:string">Processing Fee</Value>
+                    </Option>
+                </Options>
+                <Attributes/>
+                <notValid>false</notValid>
+            </pricingParms>
+            <pricingOptions>
+                <method>Calculator</method>
+                <QuantityOptions>
+                    <pricingParmOfDecimal>
+                        <Name>Quantity</Name>
+                        <seq>0</seq>
+                        <Options>
+                            <decimal>250</decimal>
+                            <decimal>500</decimal>
+                            <decimal>750</decimal>
+                            <decimal>1000</decimal>
+                        </Options>
+                        <ImageLinks/>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfDecimal>
+                </QuantityOptions>
+                <UOMLines/>
+                <OtherOptions>
+                    <pricingParmOfString>
+                        <Name>Business Cards</Name>
+                        <seq>0</seq>
+                        <Options>
+                            <string>Yes</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Business_Cards-Yes
+                            </string>
+                        </ImageLinks>
+                        <isHidden>true</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>false</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Stock</Name>
+                        <seq>1</seq>
+                        <Options>
+                            <string>100 lb Cougar Cover</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Stock-100_lb_Cougar_Cover
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Number of Sides</Name>
+                        <seq>2</seq>
+                        <Options>
+                            <string>Two Side - PMS 282</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Number_of_Sides-Two_Side___PMS_282
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Proof</Name>
+                        <seq>3</seq>
+                        <Options>
+                            <string>Online Preview</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Proof-Online_Preview
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Turn Around</Name>
+                        <seq>4</seq>
+                        <Options>
+                            <string>Standard (Ship in 2 business days)</string>
+                            <string>Expedited (Ship next business day)</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Standard__Ship_in_2_business_days_
+                            </string>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Expedited__Ship_next_business_day_
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Flat Rate</Name>
+                        <seq>5</seq>
+                        <Options>
+                            <string>Processing Fee</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Flat_Rate-Processing_Fee
+                            </string>
+                        </ImageLinks>
+                        <isHidden>true</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>false</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                </OtherOptions>
+                <allowDecimal>false</allowDecimal>
+                <allowDecimal1>false</allowDecimal1>
+                <allowDecimal2>false</allowDecimal2>
+                <allowDecimal3>false</allowDecimal3>
+                <allowDecimal4>false</allowDecimal4>
+                <allowDecimal5>false</allowDecimal5>
+            </pricingOptions>
+            <pricingEngineID>5ae53e1c-cd9b-4869-aef0-6c8be706fbdd</pricingEngineID>
+            <Notes/>
+            <PrintersPartNumber/>
+            <PublicPartNumber/>
+            <BindingJDF/>
+            <FinishingJDF/>
+            <FoldingJDF/>
+            <PackagingJDF/>
+            <OrderItemFiles>
+                <fileItem>
+                    <fileName>1853-2-Claudia S. Contreras.pdf</fileName>
+                    <relativePathName>
+                        /Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f2%2f1853-2-Claudia+S.+Contreras.pdf
+                    </relativePathName>
+                    <downloadURL>
+                        http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f2%2f1853-2-Claudia+S.+Contreras.pdf
+                    </downloadURL>
+                    <isGeneratedFile>true</isGeneratedFile>
+                </fileItem>
+                <fileItem>
+                    <fileName>edocpreview__large.png</fileName>
+                    <relativePathName>
+                        /files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__large.png
+                    </relativePathName>
+                    <downloadURL>
+                        http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__large.png
+                    </downloadURL>
+                    <isGeneratedFile>false</isGeneratedFile>
+                </fileItem>
+                <fileItem>
+                    <fileName>edocpreview__small.png</fileName>
+                    <relativePathName>
+                        /files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__small.png
+                    </relativePathName>
+                    <downloadURL>
+                        http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/edocpreview__small.png
+                    </downloadURL>
+                    <isGeneratedFile>false</isGeneratedFile>
+                </fileItem>
+            </OrderItemFiles>
+            <Assets/>
+            <edocEditURL>http://client.edocbuilder.com/iframeClient.aspx?docCode=3bd4bd74-8cb1-4d02-864b-035ba7ed9797&amp;docPwd=e038bd67-5756-40da-80f5-6fee13ffed8d&amp;docsession=955aad06-48e9-4d34-9aa1-c1bdec73d04c&amp;postbackURL=/general/reprocessing.aspx&amp;addToCartButton=Finished%20Editing&amp;cancelButton=Cancel%20Order&amp;approveWhenDone=true</edocEditURL>
+            <eDocProofs>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/proof1.jpg
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/2/proof2.jpg
+                </string>
+                <string>
+                    http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f2%2fproof_1853-2-Claudia+S.+Contreras.pdf
+                </string>
+            </eDocProofs>
+            <Shipments/>
+            <WorkflowID>9452a178-226f-4a54-b4ea-cdf4a76fc853</WorkflowID>
+            <WorkflowChanges>
+                <workflowAction>
+                    <Status>Order Received</Status>
+                    <PrinterStage>Order Received</PrinterStage>
+                    <ActionDateTime>2015-11-23T21:26:13.557</ActionDateTime>
+                    <ResponsibleUser>Cera Lopez &amp;lt;cera.lopez@asco.org&amp;gt;</ResponsibleUser>
+                </workflowAction>
+                <workflowAction>
+                    <Status>Press</Status>
+                    <PrinterStage>Press</PrinterStage>
+                    <ActionDateTime>2015-11-25T13:36:38.743</ActionDateTime>
+                    <Notes/>
+                    <ResponsibleUser>Josh Hughes &amp;lt;jhughes@mapl.net&amp;gt;</ResponsibleUser>
+                </workflowAction>
+            </WorkflowChanges>
+            <EDocInfo>&lt;eDocInfo&gt;&lt;edocCode&gt;3bd4bd74-8cb1-4d02-864b-035ba7ed9797&lt;/edocCode&gt;&lt;edocPassword&gt;e038bd67-5756-40da-80f5-6fee13ffed8d&lt;/edocPassword&gt;&lt;edocSession&gt;955aad06-48e9-4d34-9aa1-c1bdec73d04c&lt;/edocSession&gt;&lt;downloaded
+                xmlns:p2="http://www.w3.org/2001/XMLSchema-instance" p2:nil="true" /&gt;&lt;previewImages&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\2\proof1.jpg&lt;/string&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\2\proof2.jpg&lt;/string&gt;&lt;/previewImages&gt;&lt;vdpRecordCount&gt;1&lt;/vdpRecordCount&gt;&lt;edocError
+                /&gt;&lt;/eDocInfo&gt;
+            </EDocInfo>
+            <IsProofApproved>false</IsProofApproved>
+            <NeedsProofApproval>false</NeedsProofApproval>
+            <isApproved>true</isApproved>
+            <isDenied>false</isDenied>
+            <NeedsApproval>false</NeedsApproval>
+            <canApprove>false</canApprove>
+            <canEdit>false</canEdit>
+            <approvalID>00000000-0000-0000-0000-000000000000</approvalID>
+            <Status>Press</Status>
+            <CustomerStage>Press</CustomerStage>
+            <LastStatusdate>2015-11-25T13:36:38.743</LastStatusdate>
+            <OpenState>open</OpenState>
+            <totalItems>250</totalItems>
+            <productMisID>BasicPoster</productMisID>
+            <productLocation/>
+            <productCategory>Business Cards</productCategory>
+            <ShowEdocProofInCart>true</ShowEdocProofInCart>
+            <isApprovedWithModifications>false</isApprovedWithModifications>
+        </orderInfoItem>
+        <orderInfoItem>
+            <CartId>6a428b4c-8dcc-4d59-89cb-2d37994fe361</CartId>
+            <ItemId>f96a4976-dea7-46da-bcfe-53ea6dafd2e1</ItemId>
+            <Seq>1</Seq>
+            <itemName>Sherri L. Smith</itemName>
+            <productName>ASCO Business Cards</productName>
+            <productURL>/asco-bc</productURL>
+            <productID>b9f774ae-6d30-4b99-bdaa-6114dd283a47</productID>
+            <productShortDescription/>
+            <AcceptanceControl/>
+            <AcceptanceLabel/>
+            <edocBuilderApprovalText/>
+            <productImageURLs>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_small.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_smallsquare.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_medium.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_mediumsquare.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_large.png
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Sites/e25a06a1-c564-4451-92a8-0a6305c7c322/Products/Product_b9f774ae-6d30-4b99-bdaa-6114dd283a47_xlarge.png
+                </string>
+            </productImageURLs>
+            <ShipMethod>MAPL Delivery (No Charge)</ShipMethod>
+            <ShipMethod_Carrier>NONE</ShipMethod_Carrier>
+            <ShipMethod_Code>2</ShipMethod_Code>
+            <shipTo>
+                <AddressID>f4724cd2-effd-4c0a-884a-6411efdc7b74</AddressID>
+                <isPreferred>false</isPreferred>
+                <Business>American Society of Clinical Oncology</Business>
+                <FirstName>Accounts</FirstName>
+                <LastName>Receivable</LastName>
+                <Title/>
+                <Address1>2318 Mill Rd - Test</Address1>
+                <Address2>Suite 800</Address2>
+                <Address3/>
+                <City>Alexandria</City>
+                <StateProvince>VA</StateProvince>
+                <Postal>22314</Postal>
+                <Country>US</Country>
+                <Phone>571-483-1300</Phone>
+                <Fax>703-299-0255</Fax>
+                <Email/>
+            </shipTo>
+            <ShipMethodID>aed417cd-f03b-4d7f-855c-9e4b3387dacb</ShipMethodID>
+            <RequestedDelivery>2015-11-25T00:00:00</RequestedDelivery>
+            <ProjectedDelivery>2015-11-25T00:00:00</ProjectedDelivery>
+            <Quantity>250</Quantity>
+            <Price>145.0000</Price>
+            <NonMarkupPrice>145.0000</NonMarkupPrice>
+            <optionsText>&lt;ul&gt;&lt;li&gt;Quantity =&lt;span&gt;250&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Stock =&lt;span&gt;100
+                lb Cougar Cover&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;Number of Sides =&lt;span&gt;Two Side - PMS 282&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;Proof =&lt;span&gt;Online Preview&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;Turn Around =&lt;span&gt;Standard (Ship in 2 business days)&lt;/span&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            </optionsText>
+            <pricingParms>
+                <Quantities>
+                    <decimal>250</decimal>
+                </Quantities>
+                <Options>
+                    <Option>
+                        <Key xsi:type="xsd:string">Business Cards</Key>
+                        <Value xsi:type="xsd:string">Yes</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Stock</Key>
+                        <Value xsi:type="xsd:string">100 lb Cougar Cover</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Number of Sides</Key>
+                        <Value xsi:type="xsd:string">Two Side - PMS 282</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Proof</Key>
+                        <Value xsi:type="xsd:string">Online Preview</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Turn Around</Key>
+                        <Value xsi:type="xsd:string">Standard (Ship in 2 business days)</Value>
+                    </Option>
+                    <Option>
+                        <Key xsi:type="xsd:string">Flat Rate</Key>
+                        <Value xsi:type="xsd:string">Processing Fee</Value>
+                    </Option>
+                </Options>
+                <Attributes/>
+                <notValid>false</notValid>
+            </pricingParms>
+            <pricingOptions>
+                <method>Calculator</method>
+                <QuantityOptions>
+                    <pricingParmOfDecimal>
+                        <Name>Quantity</Name>
+                        <seq>0</seq>
+                        <Options>
+                            <decimal>250</decimal>
+                            <decimal>500</decimal>
+                            <decimal>750</decimal>
+                            <decimal>1000</decimal>
+                        </Options>
+                        <ImageLinks/>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfDecimal>
+                </QuantityOptions>
+                <UOMLines/>
+                <OtherOptions>
+                    <pricingParmOfString>
+                        <Name>Business Cards</Name>
+                        <seq>0</seq>
+                        <Options>
+                            <string>Yes</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Business_Cards-Yes
+                            </string>
+                        </ImageLinks>
+                        <isHidden>true</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>false</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Stock</Name>
+                        <seq>1</seq>
+                        <Options>
+                            <string>100 lb Cougar Cover</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Stock-100_lb_Cougar_Cover
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Number of Sides</Name>
+                        <seq>2</seq>
+                        <Options>
+                            <string>Two Side - PMS 282</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Number_of_Sides-Two_Side___PMS_282
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Proof</Name>
+                        <seq>3</seq>
+                        <Options>
+                            <string>Online Preview</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Proof-Online_Preview
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Turn Around</Name>
+                        <seq>4</seq>
+                        <Options>
+                            <string>Standard (Ship in 2 business days)</string>
+                            <string>Expedited (Ship next business day)</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Standard__Ship_in_2_business_days_
+                            </string>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Turn_Around-Expedited__Ship_next_business_day_
+                            </string>
+                        </ImageLinks>
+                        <isHidden>false</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>true</boolean>
+                            <boolean>true</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                    <pricingParmOfString>
+                        <Name>Flat Rate</Name>
+                        <seq>5</seq>
+                        <Options>
+                            <string>Processing Fee</string>
+                        </Options>
+                        <ImageLinks>
+                            <string>
+                                http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Calculators/5ae53e1c-cd9b-4869-aef0-6c8be706fbdd/Flat_Rate-Processing_Fee
+                            </string>
+                        </ImageLinks>
+                        <isHidden>true</isHidden>
+                        <isGrid>false</isGrid>
+                        <ControlType>ComboBox</ControlType>
+                        <Settings/>
+                        <ShowOptions>
+                            <boolean>false</boolean>
+                        </ShowOptions>
+                    </pricingParmOfString>
+                </OtherOptions>
+                <allowDecimal>false</allowDecimal>
+                <allowDecimal1>false</allowDecimal1>
+                <allowDecimal2>false</allowDecimal2>
+                <allowDecimal3>false</allowDecimal3>
+                <allowDecimal4>false</allowDecimal4>
+                <allowDecimal5>false</allowDecimal5>
+            </pricingOptions>
+            <pricingEngineID>5ae53e1c-cd9b-4869-aef0-6c8be706fbdd</pricingEngineID>
+            <Notes/>
+            <PrintersPartNumber/>
+            <PublicPartNumber/>
+            <BindingJDF/>
+            <FinishingJDF/>
+            <FoldingJDF/>
+            <PackagingJDF/>
+            <OrderItemFiles>
+                <fileItem>
+                    <fileName>1853-1-Sherri L. Smith.pdf</fileName>
+                    <relativePathName>
+                        /Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f1%2f1853-1-Sherri+L.+Smith.pdf
+                    </relativePathName>
+                    <downloadURL>
+                        http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f1%2f1853-1-Sherri+L.+Smith.pdf
+                    </downloadURL>
+                    <isGeneratedFile>true</isGeneratedFile>
+                </fileItem>
+                <fileItem>
+                    <fileName>edocpreview__large.png</fileName>
+                    <relativePathName>
+                        /files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__large.png
+                    </relativePathName>
+                    <downloadURL>
+                        http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__large.png
+                    </downloadURL>
+                    <isGeneratedFile>false</isGeneratedFile>
+                </fileItem>
+                <fileItem>
+                    <fileName>edocpreview__small.png</fileName>
+                    <relativePathName>
+                        /files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__small.png
+                    </relativePathName>
+                    <downloadURL>
+                        http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/edocpreview__small.png
+                    </downloadURL>
+                    <isGeneratedFile>false</isGeneratedFile>
+                </fileItem>
+            </OrderItemFiles>
+            <Assets/>
+            <edocEditURL>http://client.edocbuilder.com/iframeClient.aspx?docCode=3bd4bd74-8cb1-4d02-864b-035ba7ed9797&amp;docPwd=e038bd67-5756-40da-80f5-6fee13ffed8d&amp;docsession=b1ffc71a-9efd-464a-bd93-87a206daf083&amp;postbackURL=/general/reprocessing.aspx&amp;addToCartButton=Finished%20Editing&amp;cancelButton=Cancel%20Order&amp;approveWhenDone=true</edocEditURL>
+            <eDocProofs>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/proof1.jpg
+                </string>
+                <string>
+                    http://orderingplatform.com/files/Subscribers/194eceba-11af-4ec7-a3cc-05b8cf54cc34/Orders/1853/1/proof2.jpg
+                </string>
+                <string>
+                    http://orderingplatform.com/Handler.ashx?path=%2ffiles%2f%2fSubscribers%2f194eceba-11af-4ec7-a3cc-05b8cf54cc34%2fOrders%2f1853%2f%2f1%2fproof_1853-1-Sherri+L.+Smith.pdf
+                </string>
+            </eDocProofs>
+            <Shipments/>
+            <WorkflowID>9452a178-226f-4a54-b4ea-cdf4a76fc853</WorkflowID>
+            <WorkflowChanges>
+                <workflowAction>
+                    <Status>Order Received</Status>
+                    <PrinterStage>Order Received</PrinterStage>
+                    <ActionDateTime>2015-11-23T21:26:13.557</ActionDateTime>
+                    <ResponsibleUser>Cera Lopez &amp;lt;cera.lopez@asco.org&amp;gt;</ResponsibleUser>
+                </workflowAction>
+                <workflowAction>
+                    <Status>Press</Status>
+                    <PrinterStage>Press</PrinterStage>
+                    <ActionDateTime>2015-11-25T13:36:27.133</ActionDateTime>
+                    <Notes/>
+                    <ResponsibleUser>Josh Hughes &amp;lt;jhughes@mapl.net&amp;gt;</ResponsibleUser>
+                </workflowAction>
+            </WorkflowChanges>
+            <EDocInfo>&lt;eDocInfo&gt;&lt;edocCode&gt;3bd4bd74-8cb1-4d02-864b-035ba7ed9797&lt;/edocCode&gt;&lt;edocPassword&gt;e038bd67-5756-40da-80f5-6fee13ffed8d&lt;/edocPassword&gt;&lt;edocSession&gt;b1ffc71a-9efd-464a-bd93-87a206daf083&lt;/edocSession&gt;&lt;downloaded
+                xmlns:p2="http://www.w3.org/2001/XMLSchema-instance" p2:nil="true" /&gt;&lt;previewImages&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\1\proof1.jpg&lt;/string&gt;&lt;string&gt;\\aleyant-fs\pressero\v4\aleyantw2pfiles2\\Subscribers\194eceba-11af-4ec7-a3cc-05b8cf54cc34\Orders\1853\\1\proof2.jpg&lt;/string&gt;&lt;/previewImages&gt;&lt;vdpRecordCount&gt;1&lt;/vdpRecordCount&gt;&lt;edocError
+                /&gt;&lt;/eDocInfo&gt;
+            </EDocInfo>
+            <IsProofApproved>false</IsProofApproved>
+            <NeedsProofApproval>false</NeedsProofApproval>
+            <isApproved>true</isApproved>
+            <isDenied>false</isDenied>
+            <NeedsApproval>false</NeedsApproval>
+            <canApprove>false</canApprove>
+            <canEdit>false</canEdit>
+            <approvalID>00000000-0000-0000-0000-000000000000</approvalID>
+            <Status>Press</Status>
+            <CustomerStage>Press</CustomerStage>
+            <LastStatusdate>2015-11-25T13:36:27.133</LastStatusdate>
+            <OpenState>open</OpenState>
+            <totalItems>250</totalItems>
+            <productMisID>BasicPoster5</productMisID>
+            <productLocation/>
+            <productCategory>Business Cards</productCategory>
+            <ShowEdocProofInCart>true</ShowEdocProofInCart>
+            <isApprovedWithModifications>false</isApprovedWithModifications>
+        </orderInfoItem>
+    </OrderItems>
+    <forms xmlns="http://w2p.aleyant.com/"/>
+    <siteDomain xmlns="http://w2p.aleyant.com/">asco.mapl.net</siteDomain>
+    <siteID xmlns="http://w2p.aleyant.com/">e25a06a1-c564-4451-92a8-0a6305c7c322</siteID>
+    <IsPayComplete xmlns="http://w2p.aleyant.com/">false</IsPayComplete>
+    <payments xmlns="http://w2p.aleyant.com/"/>
+    <RequestShipDate xmlns="http://w2p.aleyant.com/">2015-11-25T00:00:00</RequestShipDate>
+    <siteMisID xmlns="http://w2p.aleyant.com/">ASCO</siteMisID>
+    <taxID xmlns="http://w2p.aleyant.com/"/>
+    <isOpenTerms xmlns="http://w2p.aleyant.com/">true</isOpenTerms>
+    <checkoutPaymentMethodID xmlns="http://w2p.aleyant.com/">4aa83735-c979-42bb-82fc-36ad0048744b
+    </checkoutPaymentMethodID>
+    <checkoutPaymentMethodName xmlns="http://w2p.aleyant.com/">Purchase on Open Account</checkoutPaymentMethodName>
+    <checkoutPaymentSubscriberMethodName xmlns="http://w2p.aleyant.com/">Open Account
+    </checkoutPaymentSubscriberMethodName>
+    <IsOrderEdited xmlns="http://w2p.aleyant.com/">false</IsOrderEdited>
 </orderInfo>
