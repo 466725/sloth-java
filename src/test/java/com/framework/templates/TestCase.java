@@ -41,7 +41,7 @@ public class TestCase {
      *
      */
     @BeforeTest(alwaysRun = true)
-    public void beforeTest(String baseURI) {
+    public void beforeTest() {
         logger.info("-----------------------Beginning of test-----------------------");
         report = new ExtentReports(System.getProperty("user.dir") + "ExtentReportResults.html");
         test = report.startTest("sloth-java test automation");

@@ -4,12 +4,13 @@ import config.Constants;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 
 import java.io.File;
+import java.net.HttpCookie;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Screenshot provider class
@@ -23,8 +24,6 @@ public class ScreenShotProvider {
     /**
      * Capture screenshot
      *
-     * @param WebDriver, web browser driver
-     * @param name,      screenshot file name
      * @return String, screenshot file with folder
      */
     public static String captureScreenShot(WebDriver driver, String name) {
@@ -39,7 +38,6 @@ public class ScreenShotProvider {
     /**
      * Capture screenshot
      *
-     * @param WebDriver, web browser driver
      * @return String, screenshot file with folder
      */
     public static String captureScreenShot(WebDriver driver) {
@@ -54,8 +52,6 @@ public class ScreenShotProvider {
     /**
      * Save screenshot
      *
-     * @param WebDriver, web browser driver
-     * @param File,      screenshot file
      * @return String, screenshot name
      */
     private static String saveScreenShot(File screenShot, String name) {
@@ -73,8 +69,6 @@ public class ScreenShotProvider {
     /**
      * Save screenshot
      *
-     * @param WebDriver, web browser driver
-     * @param File,      screenshot file
      */
     private static String saveScreenShot(File screenShot) {
         String screenshotFolder = Constants.SCREENSHOT_FOLDER.toString();

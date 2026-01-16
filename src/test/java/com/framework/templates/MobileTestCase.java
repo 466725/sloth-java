@@ -30,10 +30,6 @@ public class MobileTestCase extends TestCase {
     /**
      * Prepare per BeforeClass annotation.
      *
-     * @param Browser  type used by GUI test
-     * @param URL      used to launch a website
-     * @param userName login user name
-     * @param password login password
      */
     @Parameters({"browser", "URL", "userName", "password"})
     @BeforeClass(alwaysRun = true)

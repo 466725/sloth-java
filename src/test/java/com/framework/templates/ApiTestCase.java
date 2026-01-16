@@ -47,7 +47,7 @@ public class ApiTestCase extends TestCase {
      */
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
-        logger.info("-----------------------Beginning of method---------------------");
+        logger.info("----------------ார்கள் Beginning of method---------------------");
     }
 
     /**
@@ -68,17 +68,23 @@ public class ApiTestCase extends TestCase {
                 break;
             case ITestResult.FAILURE:
                 exception.printStackTrace(new PrintWriter(sw));
-                test.log(LogStatus.FAIL, sw.getBuffer().toString());
+                if (test != null) {
+                    test.log(LogStatus.FAIL, sw.getBuffer().toString());
+                }
                 logger.error("Exception is: ", exception);
                 break;
             case ITestResult.SKIP:
                 exception.printStackTrace(new PrintWriter(sw));
-                test.log(LogStatus.SKIP, sw.getBuffer().toString());
+                if (test != null) {
+                    test.log(LogStatus.SKIP, sw.getBuffer().toString());
+                }
                 logger.error("Exception is: ", exception);
                 break;
             default:
                 exception.printStackTrace(new PrintWriter(sw));
-                test.log(LogStatus.FATAL, sw.getBuffer().toString());
+                if (test != null) {
+                    test.log(LogStatus.FATAL, sw.getBuffer().toString());
+                }
                 logger.error("Exception is: ", exception);
                 break;
         }

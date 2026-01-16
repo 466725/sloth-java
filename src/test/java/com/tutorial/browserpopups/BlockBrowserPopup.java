@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-//https://www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
+//www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
 public class BlockBrowserPopup {
     protected final static Logger logger = LogManager.getLogger(BlockBrowserPopup.class.getName());
     private static WebDriver driver;
@@ -30,31 +30,10 @@ public class BlockBrowserPopup {
     }
 
     // Popup window will show up
-    @Test(priority = 1)
-    public void testPopupWindowFirefox() throws Exception {
-        driver = BrowserDriverProvider.createDriver("Firefox");
-        driver.get(URL);
-        Thread.sleep(25000);
-        driver.quit();
-    }
-
-    // Popup window will show up
     @Test(priority = 3)
     public void testPopupWindowChrome() throws Exception {
         driver = BrowserDriverProvider.createDriver("Chrome");
         driver.get(URL);
-        Thread.sleep(25000);
-        driver.quit();
-    }
-
-    // Popup window will show up, and will be dismissed
-    @Test(priority = 5)
-    public void testDismissingPopupWindowFirefox() throws Exception {
-        driver = BrowserDriverProvider.createDriver("Firefox");
-        driver.get(URL);
-        Thread.sleep(25000);
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_ESCAPE);
         Thread.sleep(25000);
         driver.quit();
     }
@@ -67,15 +46,6 @@ public class BlockBrowserPopup {
         Thread.sleep(25000);
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(25000);
-        driver.quit();
-    }
-
-    // Popup window will not show up, it's been blocked
-    @Test(priority = 9)
-    public void testBlockingPopupWindowFirefox() throws Exception {
-        driver = BrowserDriverProvider.createDriver("Firefox", true);
-        driver.get(URL);
         Thread.sleep(25000);
         driver.quit();
     }

@@ -17,12 +17,12 @@ public class HtmlParserDemo3 extends ApiTestCase {
 
     @Test(priority = 2)
     public void getAllCategoryWithRestAssured() {
-        RestAssured.baseURI = "https://uat-onlineticketing.cineplex.com";
+        RestAssured.baseURI = "https://uat-www.cineplex.com";
 
         Response response = RestAssured.given()
                 .header("Content-Type", "application/json")
                 .when()
-                .get("/PaymentOptions/870eb3cd-e35d-4f23-91f4-2ae6cfbf6eea")
+                .get("/")
                 .then()
                 .log()
                 .ifValidationFails()

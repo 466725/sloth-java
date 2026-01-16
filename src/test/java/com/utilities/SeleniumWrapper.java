@@ -20,21 +20,6 @@ public class SeleniumWrapper {
     protected final static Logger logger = LogManager.getLogger(SeleniumWrapper.class.getName());
 
     /**
-     * Check if a web element is displayed or not
-     *
-     * @param element web element to check
-     * @return true, if web element is displayed; otherwise false
-     */
-    public static boolean isElementDisplayed(WebElement element) {
-        try {
-            return element.isDisplayed();
-        } catch (Exception e) {
-            logger.warn("Exception is: ", e);
-            return false;
-        }
-    }
-
-    /**
      * Implicitly wait
      *
      * @param driver web browser driver
@@ -93,30 +78,6 @@ public class SeleniumWrapper {
         WebDriverWait waitForInvisibility = new WebDriverWait(driver, Constants.PAGE_LOAD_TIME);
         waitForInvisibility.ignoring(org.openqa.selenium.NoSuchElementException.class);
         waitForInvisibility.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div/svg")));
-    }
-
-    /**
-     * Scroll to the location of a specific web element
-     *
-     * @param driver  web browser driver
-     * @param element web element to scroll to
-     * @return true, if everything successful; otherwise false
-     */
-    public static boolean scrollToElement(WebDriver driver, WebElement element) {
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        int yScrollPosition = element.getLocation().getY();
-        try {
-            executor.executeScript("window.scroll(0, " + yScrollPosition + ");");
-            return true;
-        } catch (Exception e) {
-            try {
-                new Actions(driver).moveToElement(element).perform();
-                return true;
-            } catch (Exception e1) {
-                logger.error("Exception is: ", e1);
-                return false;
-            }
-        }
     }
 
     /**
@@ -202,28 +163,6 @@ public class SeleniumWrapper {
     }
 
     /**
-     * Set text of an input field without using built-in clear() method since
-     * sometimes it does not work
-     *
-     * @param inputField The field to set the text for
-     * @param textToSet  The text to set
-     * @param driver     The WebDriver instance
-     * @return true, if everything successful; otherwise false
-     */
-    public static boolean setInputFieldTextNoClear(WebElement inputField, String textToSet, WebDriver driver) {
-        SeleniumWrapper.explicitWaitClickable(driver, inputField, Constants.EXPLICIT_WAIT_TIME);
-        try {
-            new Actions(driver).moveToElement(inputField).perform();
-            inputField.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-            inputField.sendKeys(textToSet);
-            return true;
-        } catch (Exception e) {
-            logger.error("Exception is: " + e);
-            return false;
-        }
-    }
-
-    /**
      * Simulates clicking on the browser back button
      *
      * @param driver The WebDriver
@@ -238,23 +177,6 @@ public class SeleniumWrapper {
             logger.warn("Exception is: " + e);
             return false;
         }
-    }
-
-    /**
-     * Print info of a specific WebDriver
-     *
-     * @param driver, the WebDriver to print info for
-     */
-    public static void printWebDriverInfo(WebDriver driver) {
-        logger.info("");
-        logger.info("driver.toString(): " + driver.toString());
-        logger.info("driver.getCurrentUrl(): " + driver.getCurrentUrl());
-        logger.info("driver.getTitle(): " + driver.getTitle());
-        logger.info("driver.getWindowHandles().size(): " + driver.getWindowHandles().size());
-        logger.info("driver.getWindowHandles().toString(): " + driver.getWindowHandles().toString());
-        logger.info("driver.getPageSource(): ");
-        logger.info(driver.getPageSource());
-        logger.info("");
     }
 
     /**

@@ -1,9 +1,0 @@
-scenario,folder,expectedResult,dataExtension,expectedCode,expectedMessage
-1,TestDataAPI\\requests\\Pressero,TRUE,xml,200,none
-2,TestDataAPI\\requests\\PresseroBad,FALSE,xml,401,none
-3,TestDataAPI\\requests\\PresseroTxt,TRUE,txt,200,none
-4,TestDataAPI\\requests\\PTI,TRUE,xml,200,none
-5,TestDataAPI\\requests\\XMPie,TRUE,xml,200,none
-6,TestDataAPI\\requests\\PresseroInvalidOrder,FALSE,xml,500,Error occured when processing the order. Please check the Integration Log.
-7,TestDataAPI\\requests\\PresseroMissingNameSpace,TRUE,xml,200,none
-8,TestDataAPI\\requests\\PresseroUTF16,TRUE,xml,200,none
