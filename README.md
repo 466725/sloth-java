@@ -112,3 +112,13 @@ on [tips regarding explicit waits](https://wiki.saucelabs.com/display/DOCS/Best+
 * [Maven Documentation](https://maven.apache.org/guides/)
 
 Created Job-hunting branch for job interview and git practice purpose. 
+Making a jot hunting plan here
+
+### Job Hunting Plan
+
+1. Research job openings and requirements
+2. Prepare resume and cover letter
+3. Practice interview questions
+4. Network with professionals in the field
+5. Apply for jobs and follow up
+6. Review feedback and improve
