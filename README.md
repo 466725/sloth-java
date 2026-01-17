@@ -110,3 +110,5 @@ on [tips regarding explicit waits](https://wiki.saucelabs.com/display/DOCS/Best+
 * [Appium Documentation](http://appium.io/slate/en/master/)
 * [JDK Tutorials and Documentation](https://blogs.oracle.com/thejavatutorials/)
 * [Maven Documentation](https://maven.apache.org/guides/)
+
+Created Job-hunting branch for job interview and git practice purpose. 
