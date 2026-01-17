@@ -17,13 +17,26 @@ public class ArrayDataType {
         }
         //reverse number sequences of the array
         int temp = numbers[0];
-        for (int i = 0; i < numbers.length/2; i++) {
+        for (int i = 0; i < numbers.length / 2; i++) {
             temp = numbers[i];
             numbers[i] = numbers[numbers.length - i - 1];
             numbers[numbers.length - i - 1] = temp;
         }
         for (int number : numbers) {
             System.out.println(number);
+        }
+
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        int[][] arrArr = new int[2][3];
+        int[] arr1 = {1, 2};
+        int[] arr2 = {3, 4, 3, 4, 5};
+        arrArr[0] = arr1;
+        arrArr[1] = arr2;
+        //traverse the array and print
+        for (int[] arr : arrArr) {
+            for (int i : arr) {
+                System.out.println(i);
+            }
         }
     }
 }
