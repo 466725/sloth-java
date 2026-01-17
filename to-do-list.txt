@@ -2,5 +2,6 @@
 2, Use //div[contains(@class, 'tt-suggestion')] to handle dynamic drop-down options
 
 Note: 
-1, Task better to be independent from each other
+1, Task better to be independent of each other
 2, Need to spend more time on Git
+3, Need to spend more time on Selenium
