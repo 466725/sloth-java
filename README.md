@@ -122,3 +122,5 @@ Making a jot hunting plan here
 4. Network with professionals in the field
 5. Apply for jobs and follow up
 6. Review feedback and improve
+
+Step 1. Research job openings and requirements - In progress
