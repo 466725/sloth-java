@@ -1,10 +1,15 @@
-/allure-results/
-/test-output/
+# Build artifacts and outputs
 /target/
 /bin/
-/.settings/
+/test-output/
+/allure-results/
+
+# IDE specific files (IntelliJ, Eclipse)
 /.idea/
+/.settings/
 .project
-.log
 .classpath
+*.iml
+
+# Logs and temporary files
 *.log
