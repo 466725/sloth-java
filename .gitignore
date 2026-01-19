@@ -5,4 +5,5 @@
 /.settings/
 /.idea/
 .project
+.log
 .classpath

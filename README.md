@@ -1,112 +1,66 @@
-<h1 align="center">Sloth Java</h1>
-<br>
+# 🦥 Sloth Java
 
-## What is it?
+[![Java Version](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
+[![Build Status](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
 
-Sloth is lazy, he has to automate as much as he can to be lazy. Here he is trying to get automation done with Java!
+## Overview
 
-Sloth Java features/abilities to load and performance test many different applications/server/protocol types:
+**Sloth Java** is an automation framework designed for maximum efficiency with minimal manual effort. Just like a sloth, we believe in doing things once and doing them right through automation.
 
-- Web - HTTP, HTTPS
-- SOAP / REST Webservices
-- FTP
-- Database via JDBC
-- LDAP
-- Message-oriented Middleware (MOM) via JMS
+This project provides robust capabilities for load, performance, and functional testing across various protocols and platforms:
 
-## Running Sloth Java
+*   **Web Services:** HTTP, HTTPS, SOAP, and REST
+*   **Data & Middleware:** JDBC (Database), LDAP, and JMS (Message-oriented Middleware)
+*   **File Transfer:** FTP
+*   **Core Java Concepts:** Built-in examples for learning polymorphism, recursion, and data types.
 
-- Import the project as a Maven project
-- Run testng.xml(could have a different name) files as TestNG Suite
-- Report will be created as test-output/EstentReport/Test-Automation-yyyymmdd.html
-- Screenshot will be created under test-output/EstentReport/ScreenShot
-- Log will be created as test-output/EstentReport/Test-Automation.log
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-* Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* Install [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac) (or another IDE)
-* Install [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Install [Maven](https://maven.apache.org/install.html)
+Ensure you have the following installed:
+
+*   **JDK 25** or higher
+*   **Maven 3.6+**
+*   **Git**
+*   An IDE (IntelliJ IDEA recommended)
 
 ### Environment Setup
 
-1. Set Global Dependencies
-    * Install [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-      and [Maven](https://maven.apache.org/install.html)
-    * Or Install both with [Homebrew](http://brew.sh/)
-    ```
-    $ brew cask install java
-    $ brew install maven
-    ```
-    * If installed manually, [set `$JAVA_HOME` and
-      `$M2_HOME`](https://docs.oracle.com/cd/E21454_01/html/821-2532/inst_cli_jdk_javahome_t.html)
-    * Clone this repository into a directory of your choice.
-    ```
-    $ git clone https://github.com/saucelabs-training/demo-java.git
-    ```
-    * Navigate to the `demo-java/appium-example`, for example:
-    ```
-    $ cd demo-java/appium-example
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/your-username/sloth-java.git
+    cd sloth-java
     ```
 
-2. Set Sauce Credentials
-    * In the
-      terminal [export your Sauce Labs Credentials as environmental variables](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Environment+Variables+for+Authentication+Credentials):
-    ```
-    $ export SAUCE_USERNAME=<your Sauce Labs username>
-    $ export SAUCE_ACCESS_KEY=<your Sauce Labs access key>
+2.  **Configure Java 25**
+    Ensure your `settings.xml` or project properties are set to Java 25. If using Maven via CLI:
+    ```bash
+    mvn clean install -Dmaven.compiler.release=25
     ```
 
-3. Modify below part of maven settings.xml to use JDK 25 if you are using JDK 25
-   <profiles>
-   <profile>
-   <id>jdk-25</id>
-   <activation>
-   <activeByDefault>true</activeByDefault>
-   </activation>
-   <properties>
-   <java.version>25</java.version>
-   <maven.compiler.source>25</maven.compiler.source>
-   <maven.compiler.target>25</maven.compiler.target>
-   <maven.compiler.release>25</maven.compiler.release>
-   </properties>
-   </profile>
-   </profiles>
-   <activeProfiles>
-   <activeProfile>jdk-25</activeProfile>
-   </activeProfiles>
+3.  **Set Credentials (Optional)**
+    If running tests on Sauce Labs, export your credentials:
+    ```bash
+    export SAUCE_USERNAME=<your_username>
+    export SAUCE_ACCESS_KEY=<your_access_key>
+    ```
 
- <br />
+---
 
-### Running the Tests
+## 🛠 Running Tests
 
-1. Resolve package dependencies (Use `sudo` if necessary)
-   ```
-   $ mvn dependency:resolve
-   ```
-2. Run the following command to run tests:
-   ```
-   $ mvn clean test -pl appium-example
-   ```
-3. Visit the [Sauce Labs Dashboard](https://saucelabs.com/beta/dashboard/) to see the results.
-   <br />
+### Using the IDE
+*   Import the project as a **Maven Project**.
+*   Right-click on your `testng.xml` (or specific test classes) and select **Run as TestNG Suite**.
 
-### Advice and Troubleshooting
+### Using Command Line
+```bash
+# Resolve dependencies
+mvn dependency:resolve
 
-There may be additional latency when using a remote webdriver to run tests on Sauce Labs, therefore, timeouts or "Waits"
-may need to be increased. Please read the following wiki page
-on [tips regarding explicit waits](https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Use+Explicit+Waits)
-<br />
-
-### Author
-
-1. Weipeng Zheng (weipeng.zheng.ca@gmail.com)
-2. Tianle Zheng (tianle.zheng.ca@gmail.com)
-
-##### More Information
-
-* [Sauce Labs Documentation](https://wiki.saucelabs.com/)
-* [Appium Documentation](http://appium.io/slate/en/master/)
-* [JDK Tutorials and Documentation](https://blogs.oracle.com/thejavatutorials/)
-* [Maven Documentation](https://maven.apache.org/guides/)
+# Execute all tests
+mvn clean test
+```
