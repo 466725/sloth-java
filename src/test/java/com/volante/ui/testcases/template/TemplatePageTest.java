@@ -1,6 +1,6 @@
 package com.volante.ui.testcases.template;
 
-import com.framework.templates.GuiTestCase;
+import com.framework.testcases.GuiTestCase;
 import com.volante.ui.testcases.HomePage;
 import com.volante.ui.testcases.LoginPage;
 import org.apache.log4j.LogManager;

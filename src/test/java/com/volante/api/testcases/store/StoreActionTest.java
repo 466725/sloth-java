@@ -1,6 +1,6 @@
 package com.volante.api.testcases.store;
 
-import com.framework.templates.ApiTestCase;
+import com.framework.testcases.ApiTestCase;
 import com.volante.api.testcases.TokenManagementTest;
 import io.restassured.response.Response;
 import org.apache.log4j.LogManager;

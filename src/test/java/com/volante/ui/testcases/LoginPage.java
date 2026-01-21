@@ -1,6 +1,6 @@
 package com.volante.ui.testcases;
 
-import com.framework.templates.Displayable;
+import com.framework.webpages.Displayable;
 import com.utilities.SeleniumWrapper;
 import config.Constants;
 import org.apache.log4j.LogManager;

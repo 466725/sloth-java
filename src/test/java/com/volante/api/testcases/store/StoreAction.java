@@ -1,6 +1,6 @@
 package com.volante.api.testcases.store;
 
-import com.framework.templates.ApiTestCase;
+import com.framework.testcases.ApiTestCase;
 import io.restassured.RestAssured;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;

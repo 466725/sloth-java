@@ -1,7 +1,7 @@
 package com.volante.api.testcases.store;
 
-import com.framework.templates.ApiTestCase;
-import com.framework.templates.TestCase;
+import com.framework.testcases.ApiTestCase;
+import com.framework.testcases.TestCase;
 import com.volante.api.testcases.TokenManagementTest;
 import okhttp3.Request;
 import okhttp3.RequestBody;
