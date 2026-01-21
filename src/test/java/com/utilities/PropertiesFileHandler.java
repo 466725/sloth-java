@@ -7,15 +7,15 @@ import org.apache.log4j.Logger;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesFileReader {
-    private static final Logger LOGGER = LogManager.getLogger(PropertiesFileReader.class);
+public class PropertiesFileHandler {
+    private static final Logger LOGGER = LogManager.getLogger(PropertiesFileHandler.class);
 
     private static class Holder {
         private static final Properties INSTANCE = loadProperties();
 
         private static Properties loadProperties() {
             Properties props = new Properties();
-            try (InputStream is = FileUtils.openFileAsInputStream(Constants.PROPERTY_FILE)) {
+            try (InputStream is = FileHandler.openFileAsInputStream(Constants.PROPERTY_FILE)) {
                 LOGGER.info("Initializing property file: " + Constants.PROPERTY_FILE);
                 props.load(is);
                 return props;

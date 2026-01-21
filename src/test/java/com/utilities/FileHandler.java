@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 
 import java.io.InputStream;
 
-public class FileUtils {
-    private static final Logger LOGGER = LogManager.getLogger(FileUtils.class);
+public class FileHandler {
+    private static final Logger LOGGER = LogManager.getLogger(FileHandler.class);
     private static final String ERR_EMPTY_FILENAME = "Filename is empty!";
 
     public static InputStream openFileAsInputStream(String fileName) {

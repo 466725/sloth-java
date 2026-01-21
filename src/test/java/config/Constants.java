@@ -16,11 +16,9 @@ public final class Constants {
 
     public static final String RESOURCE_FOLDER = "src/test/resources/";
     public static final String SCREENSHOT_FOLDER = "test-output/ExtentReport/ScreenShot/";
-    public static final String SITE_REQUEST_BODY = "ApiRequestBody/SiteMgmt/";
-    public static final String WIN64_DRIVER_FIREFOX = RESOURCE_FOLDER + "FirefoxDrivers/win/geckodriver-64.exe";
 
-    public static final String PROPERTY_FILE = RESOURCE_FOLDER + "init-properties-config";
     public static final String THEATRE_SHOWTIME_CSV = "theatre_data.csv";
+    public static final String PROPERTY_FILE = RESOURCE_FOLDER + "init-properties-config";
 
     public static enum CLICK_METHOD_ENUM {
         CLICK,
@@ -28,13 +26,5 @@ public final class Constants {
         SENDRETURN,
         SUBMIT,
         RUNJS
-    }
-
-    public static enum ALLERT_METHOD_ENUM {
-        SWITCHTO,
-        NO,
-        YES,
-        OK,
-        CANCEL
     }
 }

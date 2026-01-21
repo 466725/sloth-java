@@ -7,14 +7,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ExtentDemo {
+public class ExtentReportDemo {
     static ExtentTest test;
     static ExtentReports report;
 
     @BeforeClass
     public static void startTest() {
-        report = new ExtentReports(System.getProperty("user.dir") + "ExtentReportResults.html");
-        test = report.startTest("ExtentDemo");
+        report = new ExtentReports(System.getProperty("user.dir") + "\\test-output\\ExtentReport\\ExtentReport.html");
+        test = report.startTest("ExtentReportDemo");
     }
 
     @Test

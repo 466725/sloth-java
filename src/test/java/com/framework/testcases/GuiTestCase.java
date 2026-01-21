@@ -1,7 +1,6 @@
 package com.framework.testcases;
 
-import com.utilities.BrowserDriverProvider;
-import com.utilities.ScreenShotProvider;
+import com.utilities.ScreenShotHandler;
 import com.relevantcodes.extentreports.LogStatus;
 import com.utilities.SeleniumWrapper;
 import org.apache.log4j.LogManager;
@@ -39,7 +38,7 @@ public class GuiTestCase extends TestCase {
         logger.info("URL parameterized as: " + url);
         logger.info("userName parameterized as: " + userName);
         logger.info("password parameterized as: " + password);
-        driver = BrowserDriverProvider.createDriver(browser);
+        driver = SeleniumWrapper.createDriver(browser);
         GuiTestCase.URL = url;
         GuiTestCase.userName = userName;
         GuiTestCase.password = password;
@@ -53,7 +52,7 @@ public class GuiTestCase extends TestCase {
         logger.info("***** Class: " + result.getTestClass().getName() + " *****");
         logger.info("***** Method: " + result.getName() + "(...) *****");
 
-        String screenShotPath = ScreenShotProvider.captureScreenShot(driver, result.getName());
+        String screenShotPath = ScreenShotHandler.captureScreenShot(driver, result.getName());
         logResultToExtent(result, screenShotPath);
 
         SeleniumWrapper.implicitWait(driver);

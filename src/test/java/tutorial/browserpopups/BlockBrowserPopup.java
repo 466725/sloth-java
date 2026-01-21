@@ -1,6 +1,6 @@
 package tutorial.browserpopups;
 
-import com.utilities.BrowserDriverProvider;
+import com.utilities.SeleniumWrapper;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 //www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
 public class BlockBrowserPopup {
     protected final static Logger logger = LogManager.getLogger(BlockBrowserPopup.class.getName());
-    private static WebDriver driver;
+    private static WebDriver  driver = SeleniumWrapper.createDriver("Chrome");
     private static String URL = "https://blog.csdn.net/cool_soup29/article/details/90412610";
 
     @BeforeTest
@@ -32,21 +32,18 @@ public class BlockBrowserPopup {
     // Popup window will show up
     @Test(priority = 3)
     public void testPopupWindowChrome() throws Exception {
-        driver = BrowserDriverProvider.createDriver("Chrome");
         driver.get(URL);
-        Thread.sleep(25000);
-        driver.quit();
+        Thread.sleep(5000);
     }
 
     // Popup window will show up, and will be dismissed
     @Test(priority = 7)
     public void testDismissingPopupWindowChrome() throws Exception {
-        driver = BrowserDriverProvider.createDriver("Chrome");
         driver.get(URL);
-        Thread.sleep(25000);
+        Thread.sleep(5000);
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_ESCAPE);
-        Thread.sleep(25000);
+        Thread.sleep(5000);
         driver.quit();
     }
 }

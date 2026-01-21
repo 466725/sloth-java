@@ -14,8 +14,8 @@ import java.io.IOException;
  *
  * @author Weipeng Zheng
  */
-public class ScreenShotProvider {
-    private static final Logger logger = LogManager.getLogger(ScreenShotProvider.class);
+public class ScreenShotHandler {
+    private static final Logger logger = LogManager.getLogger(ScreenShotHandler.class);
     private static final String PNG_EXTENSION = ".png";
 
     /**

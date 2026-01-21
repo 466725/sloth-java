@@ -9,8 +9,8 @@ import org.apache.log4j.Logger;
  * @author Weipeng Zheng
  *
  */
-public class PlatformDetector {
-    private final static Logger logger = LogManager.getLogger(PlatformDetector.class.getName());
+public class OperationSystemDetector {
+    private final static Logger logger = LogManager.getLogger(OperationSystemDetector.class.getName());
     private static final String OS = System.getProperty("os.name").toLowerCase();
 
     public static boolean isWindows() {

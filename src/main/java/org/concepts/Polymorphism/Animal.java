@@ -15,9 +15,7 @@ public abstract class Animal {
     public String getName() {
         return name;
     }
-    public int getAge() {
-        return age;
-    }
+    public int getAge() {return age;}
     public String getColor() {
         return color;
     }

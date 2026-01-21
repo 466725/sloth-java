@@ -12,22 +12,22 @@ import java.io.FileReader;
 import java.io.Reader;
 
 //For PROD only, will not work in UAT
-public class TicketTransactionLoadTestCSV {
+public class TicketingSystemManager {
     private static String locationID = null;
     private static String vistaSessionID = null;
     private static String itSessionID = null;
     private static String itTicketTypeID = null;
     private static String ticketTypeCode = null;
     private static String ticketCode = null;
-    private static String connectBaseURL = "https://connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
-    private static String cotBaseURL = "https://onlineticketing.cineplex.com";
+    private static final String connectBaseURL = "https://connect.cineplex.com/ClientServices/CineplexClientServicesWeb";
+    private static final String cotBaseURL = "https://onlineticketing.cineplex.com";
     private static String sessionToken = "";
     private static String userSessionToken = "";
     private static String transactionID = "";
     private static String aspCookie = "";
     private static OkHttpClient client;
-    private static MediaType mediaType = MediaType.parse("application/json");
-    private static JSONParser parser = new JSONParser();
+    private static final MediaType mediaType = MediaType.parse("application/json");
+    private static final JSONParser parser = new JSONParser();
 
     @BeforeClass
     public static void setup() {

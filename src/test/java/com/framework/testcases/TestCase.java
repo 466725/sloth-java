@@ -25,7 +25,7 @@ public class TestCase {
     protected static ExtentReports report;
 
     private static final String LOG_CONFIG_FILE = Constants.RESOURCE_FOLDER + "log4j-config.xml";
-    private static final String REPORT_FILE_NAME = "ExtentReportResults.html";
+    private static final String REPORT_FILE_NAME = "\\test-output\\ExtentReport\\ExtentReport.html";
     private static final String TEST_PROJECT_NAME = "sloth-java test automation";
 
     /**
