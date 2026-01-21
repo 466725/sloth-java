@@ -1,0 +1,28 @@
+package tutorial.testng;
+
+import com.framework.testcases.ApiTestCase;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderDemo extends ApiTestCase {
+    protected final static Logger logger = LogManager.getLogger(DataProviderDemo.class.getName());
+
+    @DataProvider(name = "data-provider")
+    public Object[][] dataProviderMethod() {
+        return new Object[][]{{"data one"}, {"data two"}, {"data three"}, {"data four"}, {"data five"}};
+    }
+
+    @Test(enabled = true, timeOut = 500, dataProvider = "data-provider")
+    public void testOne(String data) throws InterruptedException {
+        Thread.sleep(300);
+        logger.info("Data is: " + data);
+    }
+
+    @Test(enabled = true, timeOut = 500)
+    public void testTwo() throws InterruptedException {
+        Thread.sleep(400);
+        logger.info("Time test method two");
+    }
+}

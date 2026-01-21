@@ -1,6 +1,6 @@
 package com.volante.ui.testcases;
 
-import com.framework.templates.GuiTestCase;
+import com.framework.testcases.GuiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;

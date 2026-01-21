@@ -1,0 +1,28 @@
+package com.framework.webpages;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+/**
+ * Base class of everything can be displayed, for example web page and app
+ * screen
+ *
+ * @author Weipeng Zheng
+ *
+ */
+public abstract class Displayable {
+    protected final static Logger logger = LogManager.getLogger(Displayable.class.getName());
+
+    /**
+     * Constructor of this base class
+     *
+     */
+    public Displayable() {
+        logger.info("Here is base class of everything can be displayed, good luck!");
+    }
+
+    /**
+     * Navigator
+     */
+    abstract public boolean navigateTo();
+}

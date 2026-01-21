@@ -1,6 +1,5 @@
 package com.utilities;
 
-import com.framework.helpers.RestApiHelper;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
