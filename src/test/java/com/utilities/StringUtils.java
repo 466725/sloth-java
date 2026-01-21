@@ -3,9 +3,7 @@ package com.utilities;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.UUID;
 
 /**
  * This utility class is prepared keeping in mind the checks required on the
@@ -21,17 +19,15 @@ public class StringUtils {
     /**
      * Checks for both NULL and EMPTY string and returns true if either is true.
      *
-     * @param stringToCheck
      * @return true if string is NULL or is a empty string
      */
     public static boolean isEmpty(String stringToCheck) {
-        return (stringToCheck == null || stringToCheck.trim().length() == 0);
+        return (stringToCheck == null || stringToCheck.trim().isEmpty());
     }
 
     /**
      * Checks for both NULL and EMPTY string and returns true if both are NOT true.
      *
-     * @param stringToCheck
      * @return true if string is not NULL and is not a empty string
      */
     public static boolean isNotEmpty(String stringToCheck) {
@@ -44,6 +40,6 @@ public class StringUtils {
      * @return a unique identifier
      */
     public static synchronized String generateUniqueIdentifier() {
-        return "UUID-" + UUID.randomUUID().toString();
+        return "UUID-" + UUID.randomUUID();
     }
 }

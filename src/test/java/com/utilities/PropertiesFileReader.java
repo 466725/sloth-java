@@ -4,42 +4,37 @@ import config.Constants;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesFileReader {
-    protected final static Logger logger = LogManager.getLogger(PropertiesFileReader.class.getName());
-    private static Properties properties = null;
+    private static final Logger LOGGER = LogManager.getLogger(PropertiesFileReader.class);
 
-    private static Properties initializePropertyFile() throws Exception {
-        Properties properties = new Properties();
-        properties.load(FileUtils.openFileAsInputStream(Constants.PROPERTY_FILE));
-        logger.info("Initializing property file \"" + Constants.PROPERTY_FILE + "\". ");
-        return properties;
-    }
+    private static class Holder {
+        private static final Properties INSTANCE = loadProperties();
 
-    public static Properties getPropertyFile() {
-        try {
-            if (properties == null) {
-                synchronized (PropertiesFileReader.class) {
-                    if (properties == null)
-                        properties = initializePropertyFile();
-                }
-                return properties;
+        private static Properties loadProperties() {
+            Properties props = new Properties();
+            try (InputStream is = FileUtils.openFileAsInputStream(Constants.PROPERTY_FILE)) {
+                LOGGER.info("Initializing property file: " + Constants.PROPERTY_FILE);
+                props.load(is);
+                return props;
+            } catch (Exception e) {
+                LOGGER.error("Failed to load property file: " + Constants.PROPERTY_FILE, e);
+                throw new RuntimeException("Configuration failure", e);
             }
-            logger.info("Property file \"" + Constants.PROPERTY_FILE + "\" is already loaded. ");
-            return properties;
-        } catch (Exception e) {
-            logger.fatal("Failed to load property file \"" + Constants.PROPERTY_FILE + "\". ");
-            logger.error("Exception is: ", e);
-            return null;
         }
     }
 
-    public static String getProperty(String key) {
-        return getPropertyFile().getProperty(key);
+    public static Properties getPropertyFile() {
+        return Holder.INSTANCE;
     }
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(PropertiesFileReader.getProperty("webdriver.chrome.driver"));
+    public static String getProperty(String key) {
+        return Holder.INSTANCE.getProperty(key);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getProperty("webdriver.chrome.driver"));
     }
 }

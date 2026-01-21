@@ -26,30 +26,13 @@ import java.io.StringWriter;
  */
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
-    protected static OkHttpClient client = new OkHttpClient();
-    protected static MediaType mediaType = MediaType.parse("application/json");
-    protected static ResponseBody responseBody = null;
-    protected static String responseString = "";
-    protected static JSONParser parser = new JSONParser();
-    protected static Faker faker = new Faker();
+    protected static final OkHttpClient client = new OkHttpClient();
+    private static final String CONTENT_TYPE_JSON = "application/json";
+    protected static final JSONParser parser = new JSONParser();
+    protected static final Faker faker = new Faker();
     public static String globalToken = "";
 
-    /**
-     * Prepare per BeforeClass annotation.
-     */
-    @BeforeClass(alwaysRun = true)
-    public void beforeClass() {
-        logger.info("-----------------------Beginning of class----------------------");
-    }
-
-    /**
-     * Prepare per BeforeMethod annotation.
-     */
-    @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
-        logger.info("----------------ார்கள் Beginning of method---------------------");
-    }
-
+    // ... existing code ...
     /**
      * Cleanup per AfterMethod annotation.
      */
@@ -57,184 +40,68 @@ public class ApiTestCase extends TestCase {
     public void afterMethod(ITestResult result) {
         logger.info("***** Class: " + result.getTestClass().getName() + " *****");
         logger.info("***** Method: " + result.getName() + "(...) *****");
-        int resultStatus = result.getStatus();
-        StringWriter sw = new StringWriter();
-        Throwable exception = result.getThrowable();
-        String className = result.getTestClass().getName();
-        String methodName = result.getMethod().getMethodName();
 
-        switch (resultStatus) {
-            case ITestResult.SUCCESS:
-                break;
-            case ITestResult.FAILURE:
-                exception.printStackTrace(new PrintWriter(sw));
-                if (test != null) {
-                    test.log(LogStatus.FAIL, sw.getBuffer().toString());
-                }
-                logger.error("Exception is: ", exception);
-                break;
-            case ITestResult.SKIP:
-                exception.printStackTrace(new PrintWriter(sw));
-                if (test != null) {
-                    test.log(LogStatus.SKIP, sw.getBuffer().toString());
-                }
-                logger.error("Exception is: ", exception);
-                break;
-            default:
-                exception.printStackTrace(new PrintWriter(sw));
-                if (test != null) {
-                    test.log(LogStatus.FATAL, sw.getBuffer().toString());
-                }
-                logger.error("Exception is: ", exception);
-                break;
-        }
-        try {
-            responseBody.close();
-        } catch (Exception e) {
-            logger.warn("Caught IOException during responseBody.close().");
+        if (!result.isSuccess()) {
+            StringWriter sw = new StringWriter();
+            Throwable exception = result.getThrowable();
+            exception.printStackTrace(new PrintWriter(sw));
+
+            LogStatus status = (result.getStatus() == ITestResult.SKIP) ? LogStatus.SKIP : LogStatus.FAIL;
+            if (test != null) {
+                test.log(status, sw.getBuffer().toString());
+            }
+            logger.error("Exception is: ", exception);
         }
         logger.info("-----------------------Ending of method------------------------");
     }
 
-    /**
-     * Cleanup per AfterClass annotation.
-     */
-    @AfterClass(alwaysRun = true)
-    public void afterClass() {
-        logger.info("----------------------Ending of class-------------------------");
+    private static Response executeRequest(String url, String method) throws IOException {
+        Request.Builder builder = new Request.Builder()
+                .url(url)
+                .addHeader("Content-Type", CONTENT_TYPE_JSON)
+                .addHeader("cache-control", "no-cache")
+                .addHeader("Authorization", "Bearer " + globalToken);
+
+        if ("DELETE".equalsIgnoreCase(method)) {
+            builder.delete();
+        } else {
+            builder.get();
+        }
+
+        return client.newCall(builder.build()).execute();
     }
 
-    /**
-     * Send get request, and return response as JSON object
-     *
-     * @param url URI of targeted API
-     * @return JSONObject response JSON object
-     */
     public static JSONObject getAPI(String url) throws IOException, ParseException {
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-                .build();
-
-        Response response = client.newCall(request).execute();
-        responseBody = response.body();
-        responseString = responseBody.string();
-
-        return (JSONObject) parser.parse(responseString);
+        try (Response response = executeRequest(url, "GET")) {
+            return (JSONObject) parser.parse(response.body().string());
+        }
     }
 
-    /**
-     * Send get request, and return true or false
-     *
-     * @param url URI of targeted API
-     * @return boolean true if everything fine, otherwise false
-     */
-    public static boolean isGetSuccessful(String url) throws IOException, ParseException {
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-                .build();
-
-        Response response = client.newCall(request).execute();
-        responseBody = response.body();
-        responseString = responseBody.string();
-
-        return response.code() == 200;
+    public static boolean isGetSuccessful(String url) throws IOException {
+        try (Response response = executeRequest(url, "GET")) {
+            return response.code() == 200;
+        }
     }
 
-    /**
-     * Send delete request, and return response as JSON object
-     *
-     * @param url URI of targeted API
-     * @return JSONObject response JSON object
-     */
     public static JSONObject deleteAPI(String url) throws IOException, ParseException {
-        Request request = new Request.Builder()
-                .url(url)
-                .delete(null)
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-                .build();
-
-        Response response = client.newCall(request).execute();
-        responseBody = response.body();
-        responseString = responseBody.string();
-
-        return (JSONObject) parser.parse(responseString);
+        try (Response response = executeRequest(url, "DELETE")) {
+            return (JSONObject) parser.parse(response.body().string());
+        }
     }
 
-    /**
-     * Send delete request, and return true or false
-     *
-     * @param url URI of targeted API
-     * @return boolean true if everything fine, otherwise false
-     */
-    public static boolean isDeleteSuccessful(String url) throws IOException, ParseException {
-        Request request = new Request.Builder()
-                .url(url)
-                .delete(null)
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-                .build();
-
-        Response response = client.newCall(request).execute();
-        responseBody = response.body();
-        responseString = responseBody.string();
-
-        return response.code() == 200;
+    public static boolean isDeleteSuccessful(String url) throws IOException {
+        try (Response response = executeRequest(url, "DELETE")) {
+            return response.code() == 200;
+        }
     }
 
-    /**
-     * Verify creation, and return true or false
-     *
-     * @param url URI of targeted API
-     * @return boolean true if everything fine, otherwise false
-     */
     public static boolean verifyCreatedSuccessful(String url) throws IOException, ParseException {
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-                .build();
-
-        Response response = client.newCall(request).execute();
-        responseBody = response.body();
-        responseString = responseBody.string();
-        JSONObject responseJson = (JSONObject) parser.parse(responseString);
-
-        return responseJson.get("createTime") != null;
+        JSONObject json = getAPI(url);
+        return json.get("createTime") != null;
     }
 
-    /**
-     * Verify deletion, and return true or false
-     *
-     * @param url URI of targeted API
-     * @return boolean true if everything fine, otherwise false
-     */
     public static boolean verifyDeleteSuccessful(String url) throws IOException, ParseException {
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer" + ApiTestCase.globalToken)
-                .build();
-
-        Response response = client.newCall(request).execute();
-        responseBody = response.body();
-        responseString = responseBody.string();
-        JSONObject responseJson = (JSONObject) parser.parse(responseString);
-
-        return responseJson.get("deleted").equals(true);
+        JSONObject json = getAPI(url);
+        return Boolean.TRUE.equals(json.get("deleted"));
     }
 }

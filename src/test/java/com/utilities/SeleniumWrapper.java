@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 /**
  * WebActionPerformer to host all web action related methods
@@ -30,6 +31,23 @@ public class SeleniumWrapper {
         } catch (Exception e) {
             logger.warn("Exception is: ", e);
         }
+    }
+
+    /**
+     * Print info of a specific WebDriver
+     *
+     * @param driver the WebDriver to print info for
+     */
+    public static void printWebDriverInfo(WebDriver driver) {
+        logger.debug("");
+        logger.debug("driver.toString(): " + driver.toString());
+        logger.debug("driver.getCurrentUrl(): " + driver.getCurrentUrl());
+        logger.debug("driver.getTitle(): " + driver.getTitle());
+        logger.debug("driver.getWindowHandles().size(): " + driver.getWindowHandles().size());
+        logger.debug("driver.getWindowHandles().toString(): " + driver.getWindowHandles().toString());
+        logger.debug("driver.getPageSource(): ");
+        logger.debug(driver.getPageSource());
+        logger.debug("");
     }
 
     /**
@@ -55,6 +73,7 @@ public class SeleniumWrapper {
     public static void waitForDomToBeRendered(WebDriver driver) {
         // To be polished, we need a better solution
         try {
+            logger.info(driver.getTitle());
             Thread.sleep(Constants.PAGE_RENDER_TIME);
         } catch (InterruptedException e) {
             logger.info("Falied to wait for DOM to be rendered");
@@ -100,10 +119,6 @@ public class SeleniumWrapper {
     /**
      * Click a specific web element, please call explicitly wait first
      *
-     * @param driver      web browser driver
-     * @param element     web element to scroll to
-     * @param clickMethod action to perform
-     * @param waitTime    time to wait
      * @return true, if everything successful; otherwise false
      */
     public static boolean clickElement(WebDriver driver, WebElement element, Constants.CLICK_METHOD_ENUM clickMethod) {
@@ -163,23 +178,6 @@ public class SeleniumWrapper {
     }
 
     /**
-     * Simulates clicking on the browser back button
-     *
-     * @param driver The WebDriver
-     * @return true, if everything successful; otherwise false
-     */
-    public static boolean goBackToPreviousPage(WebDriver driver) {
-        try {
-            driver.navigate().back();
-            SeleniumWrapper.waitForDomToBeRendered(driver);
-            return true;
-        } catch (Exception e) {
-            logger.warn("Exception is: " + e);
-            return false;
-        }
-    }
-
-    /**
      * Print info of a specific WebElement
      *
      * @param element, the WebElement to print info for
@@ -203,5 +201,36 @@ public class SeleniumWrapper {
         logger.info("getAttribute(\"onmouseover\"): " + element.getAttribute("onmouseover"));
         logger.info("getAttribute(\"onmouseout\"): " + element.getAttribute("onmouseout"));
         logger.info("");
+    }
+
+    public static void scrollToElement(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public static void scrollToTop(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 0);");
+    }
+
+    public static void scrollToBottom(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    }
+
+    public static List<WebElement> locateAllWebElements(WebDriver driver) {
+        List<WebElement> allWebElements = null;
+        printWebDriverInfo(driver);
+        try {
+            allWebElements = driver.findElements(By.cssSelector("*"));
+            logger.info("All elements located, in total: " + allWebElements.size());
+            // allWebElements = removeUselessElements(allWebElements);
+            logger.info("Useless elements removed, in total: " + allWebElements.size());
+            for (WebElement e : allWebElements)
+                SeleniumWrapper.printWebElementInfo(e);
+        } catch (Exception e) {
+            logger.error("Exception is: ", e);
+        }
+        return allWebElements;
     }
 }

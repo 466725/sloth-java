@@ -19,32 +19,39 @@ import org.testng.annotations.BeforeTest;
  *
  */
 public class TestCase {
-    public final static Logger logger = LogManager.getLogger(TestCase.class.getName());
-    public static WebDriver driver;
-    public static String API_TEST_BASE_URL = "";
-    public static ExtentTest test;
-    public static ExtentReports report;
+    protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
+    protected static WebDriver driver;
+    protected static ExtentTest test;
+    protected static ExtentReports report;
+
+    private static final String LOG_CONFIG_FILE = Constants.RESOURCE_FOLDER + "log4j-config.xml";
+    private static final String REPORT_FILE_NAME = "ExtentReportResults.html";
+    private static final String TEST_PROJECT_NAME = "sloth-java test automation";
 
     /**
      * Prepare per BeforeSuite annotation.
      */
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
-        DOMConfigurator.configure(Constants.RESOURCE_FOLDER + "log4j-config.xml");
-        logger.info(Constants.RESOURCE_FOLDER + "log4j-config.xml");
-        logger.info(logger.getAllAppenders());
+        setupLog4j();
         logger.info("-----------------------Beginning of suite----------------------");
+    }
+
+    private void setupLog4j() {
+        DOMConfigurator.configure(LOG_CONFIG_FILE);
+        logger.info("Log4j configured from: " + LOG_CONFIG_FILE);
+        logger.info(logger.getAllAppenders());
     }
 
     /**
      * Prepare per BeforeTest annotation.
-     *
      */
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
         logger.info("-----------------------Beginning of test-----------------------");
-        report = new ExtentReports(System.getProperty("user.dir") + "ExtentReportResults.html");
-        test = report.startTest("sloth-java test automation");
+        String reportPath = System.getProperty("user.dir") + REPORT_FILE_NAME;
+        report = new ExtentReports(reportPath);
+        test = report.startTest(TEST_PROJECT_NAME);
     }
 
     /**
@@ -56,13 +63,15 @@ public class TestCase {
     }
 
     /**
-     * Cleanup per AfterTest annotation.
+     * Cleanup per AfterSuite annotation.
      */
     @AfterSuite(alwaysRun = true)
     protected void afterSuite() {
-        report.endTest(test);
-        report.flush();
-        logger.info("***** Extent report ready to use! *****");
+        if (report != null) {
+            report.endTest(test);
+            report.flush();
+            logger.info("***** Extent report ready to use! *****");
+        }
         logger.info("----------------------Ending of suite-------------------------");
     }
 }

@@ -1,3 +1,5 @@
+package Scenarios;
+
 import okhttp3.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;

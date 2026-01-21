@@ -4,25 +4,15 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 /**
- * Base class of everything can be displayed, for example web page and app
- * screen
- *
- * @author Weipeng Zheng
- *
+ * Base class for all displayable components, such as web pages and mobile screens.
  */
 public abstract class Displayable {
-    protected final static Logger logger = LogManager.getLogger(Displayable.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(Displayable.class);
 
     /**
-     * Constructor of this base class
+     * Navigates to the specific displayable component.
      *
+     * @return true if navigation was successful, false otherwise.
      */
-    public Displayable() {
-        logger.info("Here is base class of everything can be displayed, good luck!");
-    }
-
-    /**
-     * Navigator
-     */
-    abstract public boolean navigateTo();
+    public abstract boolean navigateTo();
 }

@@ -1,3 +1,5 @@
+package Scenarios.API;
+
 import okhttp3.*;
 import org.testng.annotations.*;
 
@@ -34,7 +36,7 @@ public class BarcodeGeneratorTest {
         client = new OkHttpClient.Builder().build();
 		/*
 		client = new OkHttpClient.Builder().cookieJar(cookieJar).build();
-		client = new OkHttpClient.Builder().cookieJar(new TicketTransactionCookie()).build();
+		client = new OkHttpClient.Builder().cookieJar(new Scenarios.TicketTransactionCookie()).build();
 		*/
     }
 

@@ -33,24 +33,16 @@ public class GuiTestCase extends TestCase {
      */
     @Parameters({"browser", "URL", "userName", "password"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass(String browser, String URL, String userName, String password) {
+    public void beforeClass(String browser, String url, String userName, String password) {
         logger.info("-----------------------Beginning of class----------------------");
         logger.info("Browser parameterized as: " + browser);
-        logger.info("URL parameterized as: " + URL);
+        logger.info("URL parameterized as: " + url);
         logger.info("userName parameterized as: " + userName);
         logger.info("password parameterized as: " + password);
         driver = BrowserDriverProvider.createDriver(browser);
-        GuiTestCase.URL = URL;
+        GuiTestCase.URL = url;
         GuiTestCase.userName = userName;
         GuiTestCase.password = password;
-    }
-
-    /**
-     * Prepare per BeforeMethod annotation.
-     */
-    @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
-        logger.info("-----------------------Beginning of method---------------------");
     }
 
     /**
@@ -60,50 +52,38 @@ public class GuiTestCase extends TestCase {
     public void afterMethod(ITestResult result) {
         logger.info("***** Class: " + result.getTestClass().getName() + " *****");
         logger.info("***** Method: " + result.getName() + "(...) *****");
-        int resultStatus = result.getStatus();
-        StringWriter sw = new StringWriter();
-        Throwable exception = result.getThrowable();
-        String className = result.getTestClass().getName();
-        String methodName = result.getMethod().getMethodName();
+
         String screenShotPath = ScreenShotProvider.captureScreenShot(driver, result.getName());
-        switch (resultStatus) {
-            case ITestResult.SUCCESS:
-                test.log(LogStatus.PASS, String.format("%s:  %s", className, methodName));
-                test.log(LogStatus.PASS, test.addScreenCapture(screenShotPath));
-                break;
-            case ITestResult.FAILURE:
-                test.log(LogStatus.FAIL, String.format("%s:  %s", className, methodName));
-                exception.printStackTrace(new PrintWriter(sw));
-                test.log(LogStatus.FAIL, sw.getBuffer().toString());
-                test.log(LogStatus.FAIL, test.addScreenCapture(screenShotPath));
-                logger.error("Exception is: ", exception);
-                break;
-            case ITestResult.SKIP:
-                test.log(LogStatus.SKIP, String.format("%s:  %s", className, methodName));
-                exception.printStackTrace(new PrintWriter(sw));
-                test.log(LogStatus.SKIP, sw.getBuffer().toString());
-                test.log(LogStatus.SKIP, test.addScreenCapture(screenShotPath));
-                logger.error("Exception is: ", exception);
-                break;
-            default:
-                test.log(LogStatus.FATAL, String.format("%s:  %s", className, methodName));
-                exception.printStackTrace(new PrintWriter(sw));
-                test.log(LogStatus.FATAL, sw.getBuffer().toString());
-                test.log(LogStatus.FATAL, test.addScreenCapture(screenShotPath));
-                logger.error("Exception is: ", exception);
-                break;
-        }
+        logResultToExtent(result, screenShotPath);
+
         SeleniumWrapper.implicitWait(driver);
         logger.info("-----------------------Ending of method------------------------");
     }
 
-    /**
-     * Cleanup per AfterClass annotation.
-     */
-    @AfterClass(alwaysRun = true)
-    public void afterClass() {
-        logger.info("***** " + driver.toString() + " quit()! *****");
-        driver.quit();
-        logger.info("----------------------Ending of class-------------------------");
+    private void logResultToExtent(ITestResult result, String screenShotPath) {
+        String className = result.getTestClass().getName();
+        String methodName = result.getMethod().getMethodName();
+        Throwable exception = result.getThrowable();
+        String logDetails = String.format("%s:  %s", className, methodName);
+
+        LogStatus status = switch (result.getStatus()) {
+            case ITestResult.SUCCESS -> LogStatus.PASS;
+            case ITestResult.FAILURE -> LogStatus.FAIL;
+            case ITestResult.SKIP -> LogStatus.SKIP;
+            default -> LogStatus.FATAL;
+        };
+
+        test.log(status, logDetails);
+        if (status != LogStatus.PASS && exception != null) {
+            test.log(status, getStackTraceAsString(exception));
+            logger.error("Exception is: ", exception);
+        }
+        test.log(status, test.addScreenCapture(screenShotPath));
+    }
+
+    private String getStackTraceAsString(Throwable exception) {
+        StringWriter sw = new StringWriter();
+        exception.printStackTrace(new PrintWriter(sw));
+        return sw.toString();
     }
 }
