@@ -2,7 +2,45 @@ package org.concepts;
 
 //Everything about String data type
 public class StringDataType {
+    // For a given string, lower case and upper case toggle only Characters of it. For example, from myStRing001 to MYsTrING001
+    public static String toggleLowercaseUppercase(String inputString){
+        StringBuilder sb = new StringBuilder(inputString);
+        for (int i = 0; i < sb.length(); i++) {
+            char c = sb.charAt(i);
+            if (Character.isLowerCase(c)) {
+                sb.setCharAt(i, Character.toUpperCase(c));
+            } else if (Character.isUpperCase(c)) {
+                sb.setCharAt(i, Character.toLowerCase(c));
+            }
+        }
+        return sb.toString();
+    }
+
+    // Calculate how many times a character appears in a string
+    public static int countOccurrences(String str, char ch) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ch) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // Reverse a string using StringBuilder with recursion
+    public static String reverseString(String str) {
+        if (str.length() <= 1) {
+            return str;
+        } else {
+            return reverseString(str.substring(1)) + str.charAt(0);
+        }
+    }
+
     static void main() {
+        System.out.println(toggleLowercaseUppercase("AFAJLFsgfGASKFADSJL001"));
+        System.out.println(countOccurrences("bmvuhfjk#$%%^900jio002", 'b'));
+        System.out.println(reverseString("myString001"));
+
         String s1 = "111";
         String s2 = "222";
         String s3 = "111";
