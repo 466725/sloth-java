@@ -30,6 +30,8 @@ public class ArrayDataType {
         int[][] arrArr = new int[2][3];
         int[] arr1 = {1, 2};
         int[] arr2 = {3, 4, 3, 4, 5};
+        String[] arr3 = {"Hello", "World"};
+        System.out.println(arr3.length);
         arrArr[0] = arr1;
         arrArr[1] = arr2;
         //traverse the array and print
