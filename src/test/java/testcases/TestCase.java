@@ -65,7 +65,6 @@ public class TestCase {
     @AfterSuite(alwaysRun = true)
     protected void afterSuite() {
         if (report != null) {
-            report.endTest(test);
             report.flush();
             logger.info("***** Extent report ready to use! *****");
         }

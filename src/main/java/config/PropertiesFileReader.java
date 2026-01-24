@@ -1,54 +1,87 @@
 package config;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesFileReader {
-    private static final Logger LOGGER = LogManager.getLogger(PropertiesFileReader.class);
+    private static volatile Properties prop;
 
-    private static class Holder {
-        private static final Properties INSTANCE = loadProperties();
+    // Constructor (optional now, but kept for compatibility)
+    public PropertiesFileReader() {
+        ensureLoaded();
+    }
 
-        private static Properties loadProperties() {
-            Properties props = new Properties();
-            try (InputStream is = FileHandler.openFileAsInputStream(Constants.CONFIG_FILE)) {
-                LOGGER.info("Initializing property file: " + Constants.CONFIG_FILE);
-                props.load(is);
-                return props;
+    private static void ensureLoaded() {
+        if (prop != null) return;
+
+        synchronized (PropertiesFileReader.class) {
+            if (prop != null) return;
+
+            Properties loaded = new Properties();
+
+            // 1) Prefer classpath resource (recommended)
+            try (InputStream is = PropertiesFileReader.class.getClassLoader()
+                    .getResourceAsStream("init-config.properties")) {
+                if (is != null) {
+                    loaded.load(is);
+                    prop = loaded;
+                    return;
+                }
             } catch (Exception e) {
-                LOGGER.error("Failed to load property file: " + Constants.CONFIG_FILE, e);
-                throw new RuntimeException("Configuration failure", e);
+                throw new IllegalStateException("Failed to load config from classpath resource: config/init-config.properties", e);
+            }
+
+            // 2) Fallback to file path used in Constants (legacy behavior)
+            try (FileInputStream fis = new FileInputStream(Constants.CONFIG_FILE)) {
+                loaded.load(fis);
+                prop = loaded;
+            } catch (Exception e) {
+                throw new IllegalStateException(
+                        "Config file not found or unreadable. Tried classpath 'config/init-config.properties' and file: "
+                                + Constants.CONFIG_FILE,
+                        e
+                );
             }
         }
     }
 
-    public static Properties getPropertyFile() {
-        return Holder.INSTANCE;
+    private static String getRequired(String key) {
+        ensureLoaded();
+        String value = prop.getProperty(key);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing required property: " + key);
+        }
+        return value.trim();
     }
 
     // Get URL
     public static String getURL() {
-        return Holder.INSTANCE.getProperty("URL");
+        return getRequired("URL");
     }
 
     // Get Browser
     public static String getBrowser() {
-        return Holder.INSTANCE.getProperty("BROWSER");
+        return getRequired("BROWSER");
     }
 
     // Get timeout
     public static int getTimeout() {
-        return Integer.parseInt(Holder.INSTANCE.getProperty("TIMEOUT"));
-    }
-
-    public static String getProperty(String key) {
-        return Holder.INSTANCE.getProperty(key);
+        ensureLoaded();
+        String raw = prop.getProperty("GLOBAL_TIMEOUT");
+        if (raw == null || raw.isBlank()) {
+            return Constants.EXPLICIT_WAIT_TIME; // sensible default
+        }
+        try {
+            return Integer.parseInt(raw.trim());
+        } catch (NumberFormatException e) {
+            throw new IllegalStateException("GLOBAL_TIMEOUT must be an integer, but was: " + raw, e);
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(getProperty("webdriver.chrome.driver"));
+        System.out.println(getURL());
+        System.out.println(getBrowser());
+        System.out.println(getTimeout());
     }
 }
