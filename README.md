@@ -57,6 +57,12 @@ Ensure you have the following installed:
 * Listener is registered via ServiceLoader: `src/test/resources/META-INF/services/org.testng.ITestNGListener`.
 * Reruns (`testng-failed.xml`) use the same listener in IDE and CLI.
 
+### Extent Report Config
+* Report styling/metadata is loaded by `config.ExtentConfigHandler`.
+* Default config file: `src/test/resources/extent-report-config.xml`.
+* Fallbacks: classpath `extent-report-config.xml`, then `src/main/resources/extent-report-config.xml`.
+* If your changes are not reflected, confirm the file is on the test classpath and rerun the suite.
+
 ### Using the IDE
 *   Import the project as a **Maven Project**.
 *   Right-click on your `testng.xml` (or specific test classes) and select **Run as TestNG Suite**.
@@ -69,5 +75,3 @@ mvn dependency:resolve
 # Execute all tests
 mvn clean test
 ```
-
-

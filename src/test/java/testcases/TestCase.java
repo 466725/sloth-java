@@ -3,6 +3,7 @@ package testcases;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import config.Constants;
+import config.ExtentConfigHandler;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -48,6 +49,7 @@ public class TestCase {
         logger.info("-----------------------Beginning of test-----------------------");
         String reportPath = System.getProperty("user.dir") + REPORT_FILE_NAME;
         report = new ExtentReports(reportPath);
+        ExtentConfigHandler.loadConfig(report, logger);
         test = report.startTest(TEST_PROJECT_NAME);
     }
 
