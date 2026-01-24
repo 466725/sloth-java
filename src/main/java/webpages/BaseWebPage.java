@@ -62,7 +62,7 @@ public class BaseWebPage {
     }
 
     // Quit the driver
-    public void quitDriver() {
+    public static void quitDriver() {
         if (driver != null) {
             driver.quit();
         }
@@ -73,7 +73,7 @@ public class BaseWebPage {
         return false;
     }
 
-    public HomePage gotoHomePage() {
+    public static HomePage gotoHomePage() {
         getDriver(PropertiesFileReader.getBrowser());
         driver.get(PropertiesFileReader.getURL());
         return new HomePage(driver);

@@ -6,8 +6,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 import utilities.ScreenShotHandler;
 import utilities.SeleniumWrapper;
 import webpages.BaseWebPage;
@@ -15,6 +14,7 @@ import webpages.BaseWebPage;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Base class of all GUI test cases related objects
@@ -26,6 +26,9 @@ public class GuiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
     protected static BaseWebPage basePage;
     public static WebDriver driver = null;
+
+    private static final DateTimeFormatter SCREENSHOT_TS =
+            DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
 
     /**
      * Prepare per BeforeClass annotation.
@@ -43,6 +46,28 @@ public class GuiTestCase extends TestCase {
     }
 
     /**
+     * Cleanup per AfterClass annotation.
+     */
+    @AfterClass(alwaysRun = true)
+    public void afterClass() {
+        logger.info("----------------------Ending of class--------------------------");
+    }
+
+    /**
+     * Cleanup per BeforeMethod annotation.
+     */
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod() {
+        driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
+        if (driver == null) {
+            logger.fatal("WebDriver initialization failed (driver is null).");
+            return;
+        }
+        basePage = new BaseWebPage(driver);
+        logger.info("----------------------Beginning of method--------------------------");
+    }
+
+    /**
      * Cleanup per AfterMethod annotation.
      */
     @AfterMethod(alwaysRun = true)
@@ -52,17 +77,20 @@ public class GuiTestCase extends TestCase {
 
         String screenShotPath = null;
         if (driver != null) {
-            screenShotPath = ScreenShotHandler.captureScreenShot(driver, LocalDateTime.now().getSecond() + result.getName());
+            String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
+            screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
         } else {
-            logger.warn("Driver is null in @AfterMethod; skipping screenshot and implicit wait.");
+            logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
         }
 
         logResultToExtent(result, screenShotPath);
 
         if (driver != null) {
             SeleniumWrapper.implicitWait(driver);
+            driver.quit();
+            driver = null;
         }
-        driver.quit();
+
         logger.info("-----------------------Ending of method------------------------");
     }
 
@@ -82,7 +110,6 @@ public class GuiTestCase extends TestCase {
         test.log(status, logDetails);
         if (status != LogStatus.PASS && exception != null) {
             test.log(status, getStackTraceAsString(exception));
-            logger.error("Exception is: ", exception);
         }
 
         if (screenShotPath != null) {

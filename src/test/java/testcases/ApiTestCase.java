@@ -8,7 +8,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,7 +30,28 @@ public class ApiTestCase extends TestCase {
     protected static final JSONParser parser = new JSONParser();
     public static String globalToken = "";
 
-    // ... existing code ...
+    /**
+     * Prepare per BeforeClass annotation.     *
+     */
+    @BeforeClass(alwaysRun = true)
+    public void beforeClass() {logger.info("-----------------------Beginning of class----------------------");}
+
+    /**
+     * Cleanup per AfterClass annotation.
+     */
+    @AfterClass(alwaysRun = true)
+    public void afterClass() {
+        logger.info("----------------------Ending of class--------------------------");
+    }
+
+    /**
+     * Cleanup per BeforeMethod annotation.
+     */
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod() {
+        logger.info("----------------------Beginning of method--------------------------");
+    }
+
     /**
      * Cleanup per AfterMethod annotation.
      */
