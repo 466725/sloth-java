@@ -2,6 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Amazon Sanity Test Suite">
+<!--    <groups>-->
+<!--        <run>-->
+<!--            <include name="SanityTest.xml"/>-->
+<!--        </run>-->
+<!--    </groups>-->
+
+    <listeners>
+        <listener class-name="testcases.FailureListener"/>
+    </listeners>
+
     <test name="Sanity Test" parallel="false">
         <!-- For both API and GUI test cases -->
         <!-- GUI test cases -->
