@@ -4,6 +4,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import testcases.FailureRetryAnalyzer;
 import testcases.GuiTestCase;
 import webpages.amazon.HomePage;
 import webpages.amazon.RegisterPage;
@@ -16,12 +17,13 @@ public class RegisterPageTest extends GuiTestCase {
     RegisterPage registerPage;
 
     // Verify title
-    @Test
+    @Test()
+    //@Test(retryAnalyzer = FailureRetryAnalyzer.class)
     public void verifyTitle() {
         homepage = basePage.gotoHomePage();
         signinPage = (SigninPage) homepage.gotoSigninPage();
         registerPage = (RegisterPage) signinPage.gotoRegisterPage();
         logger.info("Title: " + driver.getTitle());
-        Assert.assertTrue(driver.getTitle().contains("Amdazon Busdiness"), "Title verification failed");
+        Assert.assertTrue(driver.getTitle().contains("Amazon Business"), "Title verification failed");
     }
 }

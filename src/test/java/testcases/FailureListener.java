@@ -1,48 +1,31 @@
 package testcases;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.annotations.IFactoryAnnotation;
 import org.testng.annotations.ITestAnnotation;
 import org.testng.internal.annotations.IAnnotationTransformer;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class FailureListener extends GuiTestCase implements ITestListener, IAnnotationTransformer {
+    protected final static Logger logger = LogManager.getLogger(FailureListener.class.getName());
+
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("Test started");
+        logger.info("Test started");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("Test failed");
-        System.out.println("Test name: " + result.getName());
-        System.out.println("Test status: " + result.getStatus());
-        System.out.println("Test exception: " + result.getThrowable());
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDate = now.format(formatter);
-        String dynamicScreenshotName = result.getName() + formattedDate + ".png";
-        System.out.println("Test failed at: " + formattedDate);
-        File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(file, new File(System.getProperty("user.dir") + File.separator + dynamicScreenshotName));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        logger.info("Trying to rerun failed test: " + result.getName());
     }
 
     @Override
-    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method method) {
+    public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+        logger.info("Retry analyzer set for failed test. ");
         annotation.setRetryAnalyzer(FailureRetryAnalyzer.class);
     }
 }

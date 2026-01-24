@@ -16,7 +16,6 @@ import java.io.IOException;
  */
 public class ScreenShotHandler {
     private static final Logger logger = LogManager.getLogger(ScreenShotHandler.class);
-    private static final String PNG_EXTENSION = ".png";
 
     /**
      * Capture screenshot and save it to the default screenshot folder.
@@ -36,7 +35,7 @@ public class ScreenShotHandler {
     }
 
     private static String saveScreenShot(File screenShot, String screenshotName) {
-        String destinationPath = Constants.SCREENSHOT_FOLDER + screenshotName + PNG_EXTENSION;
+        String destinationPath = Constants.SCREENSHOT_FOLDER + screenshotName + ".png";
         File destinationFile = new File(destinationPath);
 
         try {

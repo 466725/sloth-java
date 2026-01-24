@@ -14,6 +14,7 @@ import webpages.BaseWebPage;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.time.LocalDateTime;
 
 /**
  * Base class of all GUI test cases related objects
@@ -51,7 +52,7 @@ public class GuiTestCase extends TestCase {
 
         String screenShotPath = null;
         if (driver != null) {
-            screenShotPath = ScreenShotHandler.captureScreenShot(driver, result.getName());
+            screenShotPath = ScreenShotHandler.captureScreenShot(driver, LocalDateTime.now().getSecond() + result.getName());
         } else {
             logger.warn("Driver is null in @AfterMethod; skipping screenshot and implicit wait.");
         }
