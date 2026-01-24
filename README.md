@@ -52,6 +52,11 @@ Ensure you have the following installed:
 
 ## 🛠 Running Tests
 
+### Retry on Failure
+* Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
+* Listener is registered via ServiceLoader: `src/test/resources/META-INF/services/org.testng.ITestNGListener`.
+* Reruns (`testng-failed.xml`) use the same listener in IDE and CLI.
+
 ### Using the IDE
 *   Import the project as a **Maven Project**.
 *   Right-click on your `testng.xml` (or specific test classes) and select **Run as TestNG Suite**.
@@ -64,3 +69,5 @@ mvn dependency:resolve
 # Execute all tests
 mvn clean test
 ```
+
+

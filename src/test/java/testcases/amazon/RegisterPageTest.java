@@ -24,6 +24,6 @@ public class RegisterPageTest extends GuiTestCase {
         homepage = BaseWebPage.gotoHomePage();
         signinPage = (SigninPage) homepage.gotoSigninPage();
         registerPage = (RegisterPage) signinPage.gotoRegisterPage();
-        Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Amadzon Business"), "Title verification failed");
+        Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Amazon Business"), "Title verification failed");
     }
 }

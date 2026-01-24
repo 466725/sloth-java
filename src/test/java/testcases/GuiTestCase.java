@@ -51,6 +51,11 @@ public class GuiTestCase extends TestCase {
     @AfterClass(alwaysRun = true)
     public void afterClass() {
         logger.info("----------------------Ending of class--------------------------");
+        if (driver != null) {
+            SeleniumWrapper.implicitWait(driver);
+            driver.quit();
+            driver = null;
+        }
     }
 
     /**
@@ -82,15 +87,7 @@ public class GuiTestCase extends TestCase {
         } else {
             logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
         }
-
         logResultToExtent(result, screenShotPath);
-
-        if (driver != null) {
-            SeleniumWrapper.implicitWait(driver);
-            driver.quit();
-            driver = null;
-        }
-
         logger.info("-----------------------Ending of method------------------------");
     }
 
