@@ -1,6 +1,5 @@
-package com.framework.testcases;
+package testcases;
 
-import com.github.javafaker.Faker;
 import com.relevantcodes.extentreports.LogStatus;
 import okhttp3.*;
 import org.apache.log4j.LogManager;

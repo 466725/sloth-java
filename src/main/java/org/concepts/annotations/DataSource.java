@@ -1,4 +1,4 @@
-package com.framework.annotations;
+package org.concepts.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

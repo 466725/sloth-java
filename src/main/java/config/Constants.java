@@ -14,11 +14,11 @@ public final class Constants {
     public static final java.time.Duration PAGE_LOAD_TIME = Duration.ofSeconds(10);
     public static final int PAGE_RENDER_TIME = 1000; //sleep for one second
 
-    public static final String RESOURCE_FOLDER = "src/test/resources/";
+    public static final String CONFIG_FILE_FOLDER = "src/main/resources/";
     public static final String SCREENSHOT_FOLDER = "test-output/ExtentReport/ScreenShot/";
 
     public static final String THEATRE_SHOWTIME_CSV = "theatre_data.csv";
-    public static final String PROPERTY_FILE = RESOURCE_FOLDER + "init-properties-config";
+    public static final String CONFIG_FILE = CONFIG_FILE_FOLDER + "init-config.properties";
 
     public static enum CLICK_METHOD_ENUM {
         CLICK,

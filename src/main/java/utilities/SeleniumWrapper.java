@@ -1,11 +1,9 @@
-package com.utilities;
+package utilities;
 
 import config.Constants;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -121,27 +119,27 @@ public class SeleniumWrapper {
             waitForPageLoadCompletion(driver);
         }
         switch (clickMethod) {
-            case CLICK:
+            case Constants.CLICK_METHOD_ENUM.CLICK:
                 element.click();
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.click(), called.");
                 return true;
-            case SENDENTER:
+            case Constants.CLICK_METHOD_ENUM.SENDENTER:
                 element.sendKeys(Keys.ENTER);
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.sendKeys(Keys.ENTER), called.");
                 return true;
-            case SENDRETURN:
+            case Constants.CLICK_METHOD_ENUM.SENDRETURN:
                 element.sendKeys(Keys.RETURN);
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.sendKeys(Keys.RETURN), called.");
                 return true;
-            case SUBMIT:
+            case Constants.CLICK_METHOD_ENUM.SUBMIT:
                 element.submit();
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.submit(), called.");
                 return true;
-            case RUNJS:
+            case Constants.CLICK_METHOD_ENUM.RUNJS:
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("((JavascriptExecutor) driver).executeScript(\"arguments[0].click();\", element), called.");
@@ -170,29 +168,5 @@ public class SeleniumWrapper {
             logger.error("Exception is: ", e);
         }
         return allWebElements;
-    }
-
-    public static WebDriver createDriver(String browser) {
-        return switch (browser.toLowerCase()) {
-            case "firefox" -> createFirefoxDriver();
-            case "ie" -> createIEDriver();
-            default -> createChromeDriver();
-        };
-    }
-
-    private static WebDriver createChromeDriver() {
-        if (!OperationSystemDetector.isWindows() && !OperationSystemDetector.isMac()) {
-            logger.fatal("Unsupported platform: " + OperationSystemDetector.getOS());
-            return null;
-        }
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-        return new ChromeDriver(options);
-    }
-
-    private static WebDriver createFirefoxDriver() {return null;}
-
-    private static WebDriver createIEDriver() {
-        return null;
     }
 }

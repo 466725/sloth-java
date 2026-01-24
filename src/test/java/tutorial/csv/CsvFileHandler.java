@@ -8,7 +8,7 @@ import java.io.FileReader;
 
 public class CsvFileHandler {
     public static void printCSV() throws Exception {
-        File file = new File(Constants.RESOURCE_FOLDER + Constants.THEATRE_SHOWTIME_CSV);
+        File file = new File(Constants.CONFIG_FILE_FOLDER + Constants.THEATRE_SHOWTIME_CSV);
         String filePath = file.getAbsolutePath();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

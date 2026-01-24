@@ -1,10 +1,10 @@
 package tutorial.testng;
 
-import com.framework.testcases.ApiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import testcases.ApiTestCase;
 
 public class DataProviderDemo extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(DataProviderDemo.class.getName());

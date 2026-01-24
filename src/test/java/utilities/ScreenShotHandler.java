@@ -1,4 +1,4 @@
-package com.utilities;
+package utilities;
 
 import config.Constants;
 import org.apache.commons.io.FileUtils;

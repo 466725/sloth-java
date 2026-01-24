@@ -1,6 +1,5 @@
 package tutorial.json;
 
-import com.framework.testcases.ApiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -9,6 +8,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.testng.annotations.Test;
+import testcases.ApiTestCase;
 
 public class JsonSimpleDemo extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(JsonSimpleDemo.class.getName());

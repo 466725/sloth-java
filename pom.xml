@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.eefun.automation.framework</groupId>
+    <groupId>openqa.automation.framework</groupId>
     <artifactId>sloth-java</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -10,8 +10,11 @@
     <name>MavenDemo</name>
     <url>http://maven.apache.org</url>
 
+    <!-- Use Java 25 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -58,12 +61,13 @@
             <version>4.0.0-M1</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+        <!-- https://mvnrepository.com/artifact/postgresql/postgresql
         <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.1-901-1.jdbc4</version>
         </dependency>
+        -->
         <!-- Source: https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -94,12 +98,13 @@
             <artifactId>testng</artifactId>
             <version>7.11.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.saucelabs/sauce_testng -->
+        <!-- https://mvnrepository.com/artifact/com.saucelabs/sauce_testng
         <dependency>
             <groupId>com.saucelabs</groupId>
             <artifactId>sauce_testng</artifactId>
             <version>2.1.25</version>
         </dependency>
+        -->
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -118,12 +123,13 @@
             <artifactId>selenium-htmlunit-driver</artifactId>
             <version>2.52.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>10.0.0</version>
         </dependency>
+        -->
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -191,4 +197,20 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

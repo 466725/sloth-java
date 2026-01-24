@@ -1,9 +1,9 @@
 package tutorial.annotation;
 
-import com.framework.testcases.ApiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
+import testcases.ApiTestCase;
 
 import java.lang.reflect.Method;
 

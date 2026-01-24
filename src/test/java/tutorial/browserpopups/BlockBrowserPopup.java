@@ -1,12 +1,12 @@
 package tutorial.browserpopups;
 
-import com.utilities.SeleniumWrapper;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import webpages.BaseWebPage;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 //www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
 public class BlockBrowserPopup {
     protected final static Logger logger = LogManager.getLogger(BlockBrowserPopup.class.getName());
-    private static WebDriver  driver = SeleniumWrapper.createDriver("Chrome");
+    private static WebDriver  driver = BaseWebPage.getDriver("Chrome");
     private static String URL = "https://blog.csdn.net/cool_soup29/article/details/90412610";
 
     @BeforeTest

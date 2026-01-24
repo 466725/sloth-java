@@ -1,13 +1,16 @@
-package com.framework.testcases;
+package testcases;
 
-import com.utilities.ScreenShotHandler;
 import com.relevantcodes.extentreports.LogStatus;
-import com.utilities.SeleniumWrapper;
+import config.PropertiesFileReader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import utilities.ScreenShotHandler;
+import utilities.SeleniumWrapper;
+import webpages.BaseWebPage;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -20,28 +23,22 @@ import java.io.StringWriter;
  */
 public class GuiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
-
-    protected static WebDriver driver;
-    public static String URL = "";
-    public static String userName = "";
-    public static String password = "";
+    protected static BaseWebPage basePage;
+    public static WebDriver driver = null;
 
     /**
      * Prepare per BeforeClass annotation.
      *
      */
-    @Parameters({"browser", "URL", "userName", "password"})
     @BeforeClass(alwaysRun = true)
-    public void beforeClass(String browser, String url, String userName, String password) {
+    public void beforeClass() {
         logger.info("-----------------------Beginning of class----------------------");
-        logger.info("Browser parameterized as: " + browser);
-        logger.info("URL parameterized as: " + url);
-        logger.info("userName parameterized as: " + userName);
-        logger.info("password parameterized as: " + password);
-        driver = SeleniumWrapper.createDriver(browser);
-        GuiTestCase.URL = url;
-        GuiTestCase.userName = userName;
-        GuiTestCase.password = password;
+        driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
+        if (driver == null) {
+            logger.fatal("WebDriver initialization failed (driver is null). Check browser parameter and driver setup.");
+            return;
+        }
+        basePage = new BaseWebPage(driver);
     }
 
     /**
@@ -52,10 +49,19 @@ public class GuiTestCase extends TestCase {
         logger.info("***** Class: " + result.getTestClass().getName() + " *****");
         logger.info("***** Method: " + result.getName() + "(...) *****");
 
-        String screenShotPath = ScreenShotHandler.captureScreenShot(driver, result.getName());
+        String screenShotPath = null;
+        if (driver != null) {
+            screenShotPath = ScreenShotHandler.captureScreenShot(driver, result.getName());
+        } else {
+            logger.warn("Driver is null in @AfterMethod; skipping screenshot and implicit wait.");
+        }
+
         logResultToExtent(result, screenShotPath);
 
-        SeleniumWrapper.implicitWait(driver);
+        if (driver != null) {
+            SeleniumWrapper.implicitWait(driver);
+        }
+        driver.quit();
         logger.info("-----------------------Ending of method------------------------");
     }
 
@@ -77,7 +83,12 @@ public class GuiTestCase extends TestCase {
             test.log(status, getStackTraceAsString(exception));
             logger.error("Exception is: ", exception);
         }
-        test.log(status, test.addScreenCapture(screenShotPath));
+
+        if (screenShotPath != null) {
+            test.log(status, test.addScreenCapture(screenShotPath));
+        } else {
+            logger.warn("No screenshot path available to attach to report.");
+        }
     }
 
     private String getStackTraceAsString(Throwable exception) {

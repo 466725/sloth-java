@@ -1,9 +1,9 @@
 package tutorial.testng;
 
-import com.framework.testcases.ApiTestCase;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
+import testcases.ApiTestCase;
 
 public class TimeoutDemo extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(TimeoutDemo.class.getName());
