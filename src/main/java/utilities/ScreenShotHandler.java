@@ -9,6 +9,8 @@ import org.openqa.selenium.*;
 import java.io.File;
 import java.io.IOException;
 
+import static config.Constants.SCREENSHOT_FOLDER;
+
 /**
  * Screenshot provider class
  *
@@ -22,7 +24,7 @@ public class ScreenShotHandler {
      *
      * @param driver         WebDriver instance
      * @param screenshotName Name of the screenshot file (without extension)
-     * @return Path to the saved screenshot, or null if capture fails
+     * @return Report-relative path to the saved screenshot, or null if capture fails
      */
     public static String captureScreenShot(WebDriver driver, String screenshotName) {
         try {
@@ -35,15 +37,21 @@ public class ScreenShotHandler {
     }
 
     private static String saveScreenShot(File screenShot, String screenshotName) {
-        String destinationPath = Constants.SCREENSHOT_FOLDER + screenshotName + ".png";
+        String destinationPath = SCREENSHOT_FOLDER + screenshotName + ".png";
         File destinationFile = new File(destinationPath);
+        File parentDir = destinationFile.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+        String reportRelativePath = "ScreenShot/" + screenshotName + ".png";
 
         try {
             FileUtils.copyFile(screenShot, destinationFile);
-            return destinationPath;
+            return reportRelativePath;
         } catch (IOException e) {
             logger.error("Failed to save screenshot to " + destinationPath, e);
             return null;
         }
     }
 }
+
