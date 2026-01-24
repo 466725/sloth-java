@@ -115,6 +115,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.20.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.4.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -144,3 +150,4 @@
         </pluginManagement>
     </build>
 </project>
+
