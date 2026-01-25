@@ -1,6 +1,7 @@
 package utilities;
 
 import config.Constants;
+import config.PropertiesFileReader;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -17,7 +18,7 @@ import static config.Constants.SCREENSHOT_FOLDER;
  * @author Weipeng Zheng
  */
 public class ScreenShotHandler {
-    private static final Logger logger = LogManager.getLogger(ScreenShotHandler.class);
+    private static final Logger logger = LogManager.getLogger(ScreenShotHandler.class.getName());
 
     /**
      * Capture screenshot and save it to the default screenshot folder.

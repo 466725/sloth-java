@@ -58,7 +58,7 @@ Ensure you have the following installed:
 * Reruns (`testng-failed.xml`) use the same listener in IDE and CLI.
 
 ### Extent Report Config
-* Report styling/metadata is loaded by `config.ExtentConfigHandler`.
+* Report styling/metadata is loaded by `config.ExtentReportHandler`.
 * Default config file: `src/test/resources/extent-report-config.xml`.
 * Fallbacks: classpath `extent-report-config.xml`, then `src/main/resources/extent-report-config.xml`.
 * If your changes are not reflected, confirm the file is on the test classpath and rerun the suite.

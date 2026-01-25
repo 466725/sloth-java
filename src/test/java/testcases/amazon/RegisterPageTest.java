@@ -21,6 +21,7 @@ public class RegisterPageTest extends GuiTestCase {
     // Verify title
     @Test()
     public void verifyTitle() {
+        test.setDescription("Verify title on Amazon Register Page");
         homepage = BaseWebPage.gotoHomePage();
         signinPage = (SigninPage) homepage.gotoSigninPage();
         registerPage = (RegisterPage) signinPage.gotoRegisterPage();

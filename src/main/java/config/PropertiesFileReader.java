@@ -1,10 +1,14 @@
 package config;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesFileReader {
+    private final static Logger logger = LogManager.getLogger(PropertiesFileReader.class.getName());
     private static volatile Properties prop;
 
     // Constructor (optional now, but kept for compatibility)
@@ -21,8 +25,7 @@ public class PropertiesFileReader {
             Properties loaded = new Properties();
 
             // 1) Prefer classpath resource (recommended)
-            try (InputStream is = PropertiesFileReader.class.getClassLoader()
-                    .getResourceAsStream("init-config.properties")) {
+            try (InputStream is = PropertiesFileReader.class.getClassLoader().getResourceAsStream("init-config.properties")) {
                 if (is != null) {
                     loaded.load(is);
                     prop = loaded;
@@ -79,7 +82,7 @@ public class PropertiesFileReader {
         }
     }
 
-    public static void main(String[] args) {
+    static void main() {
         System.out.println(getURL());
         System.out.println(getBrowser());
         System.out.println(getTimeout());

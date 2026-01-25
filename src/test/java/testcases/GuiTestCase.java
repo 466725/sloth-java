@@ -27,8 +27,7 @@ public class GuiTestCase extends TestCase {
     protected static BaseWebPage basePage;
     public static WebDriver driver = null;
 
-    private static final DateTimeFormatter SCREENSHOT_TS =
-            DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
+    private static final DateTimeFormatter SCREENSHOT_TS = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
 
     /**
      * Prepare per BeforeClass annotation.

@@ -1,8 +1,11 @@
 package Scenarios;
 
+import config.PropertiesFileReader;
 import okhttp3.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.annotations.*;
@@ -13,6 +16,7 @@ import java.io.Reader;
 
 //For PROD only, will not work in UAT
 public class TicketingSystemManager {
+    private final static Logger logger = LogManager.getLogger(TicketingSystemManager.class.getName());
     private static String locationID = null;
     private static String vistaSessionID = null;
     private static String itSessionID = null;
@@ -73,7 +77,11 @@ public class TicketingSystemManager {
     @Test(priority = 3)
     public static void login() throws Exception {
         System.out.println("============================222============================");
-        RequestBody body = RequestBody.create(mediaType, "{\n    \"SessionToken\": \"" + sessionToken + "\",\n    \"Password\": \"Cineplex123\",\n    \"Email\": \"cpxapitester@gmail.com\",\n    \"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
+        RequestBody body = RequestBody.create(mediaType, "{\n    \"SessionToken\": \""
+                + sessionToken + "\",\n    "
+                + "\"Password\": \"Cineplex123\",\n"
+                + "\"Email\": \"cpxapitester@gmail.com\",\n"
+                + "\"Source\": \"1\",\n    \"LanguageType\": \"1\"\n}");
         Request request = new Request
                 .Builder()
                 .url(connectBaseURL + "/Login")

@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utilities.OperationSystemDetector;
 import webpages.amazon.HomePage;
 
 /**
@@ -59,18 +60,6 @@ public class BaseWebPage {
 
     private static WebDriver createIEDriver() {
         return null;
-    }
-
-    // Quit the driver
-    public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-
-    // Verify logo
-    public boolean verifyLogo() {
-        return false;
     }
 
     public static HomePage gotoHomePage() {
