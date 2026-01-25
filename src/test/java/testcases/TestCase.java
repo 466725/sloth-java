@@ -4,11 +4,17 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import config.Constants;
 import config.ExtentReportHandler;
+
+import java.lang.reflect.Method;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
@@ -22,7 +28,6 @@ public class TestCase {
     protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
     protected final static String LOG_CONFIG_FILE = Constants.CONFIG_FILE_FOLDER + "log4j-config.xml";
     protected final static String REPORT_FILE_NAME = "\\test-output\\ExtentReport\\ExtentReport.html";
-    protected final static String TEST_PROJECT_NAME = "sloth-java test automation";
     protected static ExtentTest test;
     protected static ExtentReports report;
 
@@ -50,7 +55,19 @@ public class TestCase {
         String reportPath = System.getProperty("user.dir") + REPORT_FILE_NAME;
         report = new ExtentReports(reportPath);
         ExtentReportHandler.loadConfig(report, logger);
-        test = report.startTest(TEST_PROJECT_NAME);
+    }
+
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod(Method method) {
+        String testName = method.getDeclaringClass().getSimpleName() + "." + method.getName();
+        test = report.startTest(testName);
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod(ITestResult result) {
+        if (report != null && test != null) {
+            report.endTest(test);
+        }
     }
 
     /**
