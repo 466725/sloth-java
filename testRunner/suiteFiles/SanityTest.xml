@@ -9,6 +9,8 @@
     <test name="Sanity Test" parallel="false">
         <!-- GUI test cases -->
         <classes>
+            <class name="testcases.amazon.HomePageTest"/>
+            <class name="testcases.amazon.SigninPageTest"/>
             <class name="testcases.amazon.RegisterPageTest"/>
         </classes>
     </test>

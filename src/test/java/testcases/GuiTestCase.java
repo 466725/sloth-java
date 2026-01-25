@@ -50,11 +50,6 @@ public class GuiTestCase extends TestCase {
     @AfterClass(alwaysRun = true)
     public void afterClass() {
         logger.info("----------------------Ending of class--------------------------");
-        if (driver != null) {
-            SeleniumWrapper.implicitWait(driver);
-            driver.quit();
-            driver = null;
-        }
     }
 
     /**
@@ -88,6 +83,19 @@ public class GuiTestCase extends TestCase {
         }
         logResultToExtent(result, screenShotPath);
         logger.info("-----------------------Ending of method------------------------");
+    }
+
+    /**
+     * Cleanup per AfterTest annotation.
+     */
+    @AfterTest(alwaysRun = true)
+    public void afterTest() {
+        if (driver != null) {
+            SeleniumWrapper.implicitWait(driver);
+            driver.quit();
+            driver = null;
+        }
+        logger.info("----------------------Ending of test--------------------------");
     }
 
     private void logResultToExtent(ITestResult result, String screenShotPath) {
