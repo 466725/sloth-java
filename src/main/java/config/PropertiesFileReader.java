@@ -82,9 +82,24 @@ public class PropertiesFileReader {
         }
     }
 
+    // Get timeout
+    public static int getMaxRetryCount() {
+        ensureLoaded();
+        String raw = prop.getProperty("MAX_RETRY_COUNT");
+        if (raw == null || raw.isBlank()) {
+            return 3; // sensible default
+        }
+        try {
+            return Integer.parseInt(raw.trim());
+        } catch (NumberFormatException e) {
+            throw new IllegalStateException("MAX_RETRY_COUNT must be an integer, but was: " + raw, e);
+        }
+    }
+
     static void main() {
-        System.out.println(getURL());
-        System.out.println(getBrowser());
-        System.out.println(getTimeout());
+        logger.info(getURL());
+        logger.info(getBrowser());
+        logger.info(getTimeout());
+        logger.info(getMaxRetryCount());
     }
 }
