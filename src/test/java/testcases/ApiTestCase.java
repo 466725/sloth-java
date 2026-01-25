@@ -12,10 +12,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import utilities.ScreenShotHandler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.time.LocalDateTime;
 
 import static com.google.common.base.Throwables.getStackTraceAsString;
 
@@ -27,10 +29,7 @@ import static com.google.common.base.Throwables.getStackTraceAsString;
  */
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
-    protected static final OkHttpClient client = new OkHttpClient();
-    private static final String CONTENT_TYPE_JSON = "application/json";
-    protected static final JSONParser parser = new JSONParser();
-    public static String globalToken = "";
+    protected static OkHttpClient client = new OkHttpClient.Builder().build();
 
     /**
      * Prepare per BeforeClass annotation.     *
