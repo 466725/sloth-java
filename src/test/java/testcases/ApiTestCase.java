@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+import static com.google.common.base.Throwables.getStackTraceAsString;
+
 /**
  * Base class of all API test cases related objects
  *
@@ -60,67 +62,26 @@ public class ApiTestCase extends TestCase {
         logger.info("***** Class: " + result.getTestClass().getName() + " *****");
         logger.info("***** Method: " + result.getName() + "(...) *****");
 
-        if (!result.isSuccess()) {
-            StringWriter sw = new StringWriter();
-            Throwable exception = result.getThrowable();
-            exception.printStackTrace(new PrintWriter(sw));
-
-            LogStatus status = (result.getStatus() == ITestResult.SKIP) ? LogStatus.SKIP : LogStatus.FAIL;
-            if (test != null) {
-                test.log(status, sw.getBuffer().toString());
-            }
-            logger.error("Exception is: ", exception);
-        }
+        logResultToExtent(result);
         logger.info("-----------------------Ending of method------------------------");
     }
 
-    private static Response executeRequest(String url, String method) throws IOException {
-        Request.Builder builder = new Request.Builder()
-                .url(url)
-                .addHeader("Content-Type", CONTENT_TYPE_JSON)
-                .addHeader("cache-control", "no-cache")
-                .addHeader("Authorization", "Bearer " + globalToken);
+    private void logResultToExtent(ITestResult result) {
+        String className = result.getTestClass().getName();
+        String methodName = result.getMethod().getMethodName();
+        Throwable exception = result.getThrowable();
+        String logDetails = String.format("%s:  %s", className, methodName);
 
-        if ("DELETE".equalsIgnoreCase(method)) {
-            builder.delete();
-        } else {
-            builder.get();
+        LogStatus status = switch (result.getStatus()) {
+            case ITestResult.SUCCESS -> LogStatus.PASS;
+            case ITestResult.FAILURE -> LogStatus.FAIL;
+            case ITestResult.SKIP -> LogStatus.SKIP;
+            default -> LogStatus.FATAL;
+        };
+
+        test.log(status, logDetails);
+        if (status != LogStatus.PASS && exception != null) {
+            test.log(status, getStackTraceAsString(exception));
         }
-
-        return client.newCall(builder.build()).execute();
-    }
-
-    public static JSONObject getAPI(String url) throws IOException, ParseException {
-        try (Response response = executeRequest(url, "GET")) {
-            return (JSONObject) parser.parse(response.body().string());
-        }
-    }
-
-    public static boolean isGetSuccessful(String url) throws IOException {
-        try (Response response = executeRequest(url, "GET")) {
-            return response.code() == 200;
-        }
-    }
-
-    public static JSONObject deleteAPI(String url) throws IOException, ParseException {
-        try (Response response = executeRequest(url, "DELETE")) {
-            return (JSONObject) parser.parse(response.body().string());
-        }
-    }
-
-    public static boolean isDeleteSuccessful(String url) throws IOException {
-        try (Response response = executeRequest(url, "DELETE")) {
-            return response.code() == 200;
-        }
-    }
-
-    public static boolean verifyCreatedSuccessful(String url) throws IOException, ParseException {
-        JSONObject json = getAPI(url);
-        return json.get("createTime") != null;
-    }
-
-    public static boolean verifyDeleteSuccessful(String url) throws IOException, ParseException {
-        JSONObject json = getAPI(url);
-        return Boolean.TRUE.equals(json.get("deleted"));
     }
 }
