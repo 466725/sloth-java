@@ -59,13 +59,12 @@ Ensure you have the following installed:
 
 ### Extent Report Config
 * Report styling/metadata is loaded by `config.ExtentReportHandler`.
-* Default config file: `src/test/resources/extent-report-config.xml`.
-* Fallbacks: classpath `extent-report-config.xml`, then `src/main/resources/extent-report-config.xml`.
+* Default config file: `src/main/resources/extent-report-config.xml`.
 * If your changes are not reflected, confirm the file is on the test classpath and rerun the suite.
 
 ### Using the IDE
 *   Import the project as a **Maven Project**.
-*   Right-click on your `testng.xml` (or specific test classes) and select **Run as TestNG Suite**.
+*   Right-click on your `testRunner/suiteFiles/SanityTest.xml` (or specific test classes) and select **Run as TestNG Suite**.
 
 ### Using Command Line
 ```bash
