@@ -28,7 +28,7 @@ public final class ExcelFileReader {
     }
 
     public static List<List<String>> readTestDataSheet() throws IOException {
-        return readSheetFromClasspath("testData.xls", 0);
+        return readSheetFromClasspath("excel-test-data.xls", 0);
     }
 
     private static InputStream openClasspathResource(String resourcePath) throws IOException {
@@ -76,8 +76,8 @@ public final class ExcelFileReader {
 
     public static void main(String[] args) throws IOException {
         // Optional: proves whether the resource is actually visible at runtime
-        URL url = ExcelFileReader.class.getResource("/testData.xls");
-        System.out.println("testData.xls URL = " + url);
+        URL url = ExcelFileReader.class.getResource("/excel-test-data.xls");
+        System.out.println("excel-test-data.xls URL = " + url);
 
         List<List<String>> rows = readTestDataSheet();
         for (List<String> row : rows) {

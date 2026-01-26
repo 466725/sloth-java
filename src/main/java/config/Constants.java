@@ -17,7 +17,7 @@ public final class Constants {
     public static final String CONFIG_FILE_FOLDER = "src/main/resources/";
     public static final String SCREENSHOT_FOLDER = "test-output/ExtentReport/ScreenShot/";
 
-    public static final String THEATRE_SHOWTIME_CSV = "theatre_data.csv";
+    public static final String THEATRE_SHOWTIME_CSV = "theatre-data.csv";
     public static final String CONFIG_FILE = CONFIG_FILE_FOLDER + "init-config.properties";
 
     public static enum CLICK_METHOD_ENUM {
