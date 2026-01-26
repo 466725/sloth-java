@@ -1,9 +1,9 @@
 package org.concepts.generics;
 
-public class IntegerPrinter {
+public class PrintInt {
     Integer intToPrint;
 
-    public IntegerPrinter(Integer intToPrint) {
+    public PrintInt(Integer intToPrint) {
         this.intToPrint = intToPrint;
     }
 

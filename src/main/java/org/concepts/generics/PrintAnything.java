@@ -1,9 +1,9 @@
 package org.concepts.generics;
 
-public class GenericsPrinter<T> {
+public class PrintAnything<T> {
     T anythingToPrint;
 
-    public GenericsPrinter(T anythingToPrint) {
+    public PrintAnything(T anythingToPrint) {
         this.anythingToPrint = anythingToPrint;
     }
 

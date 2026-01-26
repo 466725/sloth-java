@@ -1,9 +1,9 @@
 package org.concepts.generics;
 
-public class DoublePrinter {
+public class PrintDouble {
     Double intToPrint;
 
-    public DoublePrinter(Double doubleToPrint) {
+    public PrintDouble(Double doubleToPrint) {
         this.intToPrint = doubleToPrint;
     }
 

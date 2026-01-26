@@ -3,7 +3,7 @@ package org.concepts.generics;
 import org.concepts.Polymorphism.Cat;
 
 public class GenericsExample4 {
-    // Generic methods and classes
+    // Generic methods
     static void main() {
         print("Hello, Generics!");
         print(42);

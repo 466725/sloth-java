@@ -4,9 +4,9 @@ public class GenericsExample1 {
 
     static void main() {
         System.out.println("Generics Example");
-        IntegerPrinter ip = new IntegerPrinter(10);
-        ip.print();
-        DoublePrinter dp = new DoublePrinter(10.5);
-        dp.print();
+        PrintInt i = new PrintInt(10);
+        i.print();
+        PrintDouble d = new PrintDouble(10.5);
+        d.print();
     }
 }
