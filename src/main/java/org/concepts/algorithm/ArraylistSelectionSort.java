@@ -5,7 +5,7 @@ import java.util.Random;
 public class ArraylistSelectionSort {
     private static int[] arr = new int[999];
 
-    public void sort() {
+    public void selectionSort() {
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < arr.length; j++) {
@@ -40,7 +40,7 @@ public class ArraylistSelectionSort {
         System.out.println("==================After sorting==================");
         System.out.println("=================================================");
 
-        sorter.sort();
+        sorter.selectionSort();
         for (int j : arr) {
             System.out.println(j);
         }
