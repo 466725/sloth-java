@@ -1,4 +1,4 @@
-# 🦥 Sloth Java
+# Sloth Java
 
 [![Java Version](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Build Status](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
@@ -16,7 +16,7 @@ This project provides robust capabilities for load, performance, and functional 
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -50,7 +50,18 @@ Ensure you have the following installed:
 
 ---
 
-## 🛠 Running Tests
+## Code Conventions
+
+Best practices to keep the codebase consistent and maintainable:
+
+*   Prefer @getter and @setter annotations over manual getter/setter methods to reduce boilerplate.
+*   Keep classes focused on a single responsibility; extract helpers when a class grows too large.
+*   Use descriptive names for tests and methods; avoid abbreviations that obscure intent.
+*   Favor constructor injection for required dependencies and avoid field mutation after construction.
+
+---
+
+## Running Tests
 
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
