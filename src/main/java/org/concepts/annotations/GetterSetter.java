@@ -1,10 +1,12 @@
 package org.concepts.annotations;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@EqualsAndHashCode
+@ToString
+@Data
 public class GetterSetter {
     private String name;
     private int age;
