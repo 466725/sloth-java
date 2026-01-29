@@ -7,10 +7,10 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface TestCaseAnno {
+public @interface TestcaseAnnotation {
     int testCaseID() default 2013;
 
-    String description() default "Customized TestCaseAnno example";
+    String description() default "Customized TestcaseAnnotation example";
 
     boolean enabled() default true;
 

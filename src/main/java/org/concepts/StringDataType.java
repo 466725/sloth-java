@@ -1,9 +1,12 @@
 package org.concepts;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //Everything about String data type
 public class StringDataType {
     // For a given string, lower case and upper case toggle only Characters of it. For example, from myStRing001 to MYsTrING001
-    public static String toggleLowercaseUppercase(String inputString){
+    public static String toggleLowercaseUppercase(String inputString) {
         StringBuilder sb = new StringBuilder(inputString);
         for (int i = 0; i < sb.length(); i++) {
             char c = sb.charAt(i);
@@ -36,7 +39,55 @@ public class StringDataType {
         }
     }
 
+    // LeetCode exercise https://www.youtube.com/watch?v=GS9TyovoU4c
+    // Find the length of the longest
+    // substring without repeating characters
+    public static int lengthOfLongestSubstring(String s) {
+        int maxLength = 0;
+        for (int i = 0; i < s.length(); i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = i; j < s.length(); j++) {
+                if (sb.indexOf(String.valueOf(s.charAt(j))) != -1) {
+                    break;
+                }
+                sb.append(s.charAt(j));
+                maxLength = Math.max(maxLength, sb.length());
+            }
+        }
+        return maxLength;
+    }
+
+    public static int lengthOfLongestSubstringFastSolution(String s) {
+        int maxLength = 0;
+        Map<Character, Integer> charIndexMap = new HashMap<>();
+        int left = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char currentChar = s.charAt(right);
+            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= left) {
+                left = charIndexMap.get(currentChar) + 1;
+            }
+            charIndexMap.put(currentChar, right);
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+        return maxLength;
+    }
+
+    public static int lengthOfLongestSubstringFasterSolution(String s) {
+        int maxLength = 0;
+        for (int right = 0, left = 0; right < s.length(); right++) {
+            int indexOfFirstAppearanceInSubstring = s.indexOf(s.charAt(right), left);
+            if (indexOfFirstAppearanceInSubstring != right) {
+                left = indexOfFirstAppearanceInSubstring + 1;
+            }
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+        return maxLength;
+    }
+
     static void main() {
+        System.out.println(lengthOfLongestSubstring("abcabcadefgbb"));
+        System.out.println(lengthOfLongestSubstringFastSolution("abcabcadefgbb"));
+        System.out.println(lengthOfLongestSubstringFasterSolution("abcabcadefgbb"));
         System.out.println(toggleLowercaseUppercase("AFAJLFsgfGASKFADSJL001"));
         System.out.println(countOccurrences("bmvuhfjk#$%%^900jio002", 'b'));
         System.out.println(reverseString("myString001"));
