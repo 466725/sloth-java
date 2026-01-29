@@ -56,6 +56,7 @@ Best practices to keep the codebase consistent and maintainable:
 
 *   Prefer @getter and @setter annotations over manual getter/setter methods to reduce boilerplate.
 *   Keep classes focused on a single responsibility; extract helpers when a class grows too large.
+*   Keep methods short and focused on a single task.
 *   Use descriptive names for tests and methods; avoid abbreviations that obscure intent.
 *   Favor constructor injection for required dependencies and avoid field mutation after construction.
 
