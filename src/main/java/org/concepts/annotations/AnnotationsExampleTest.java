@@ -1,29 +1,8 @@
 package org.concepts.annotations;
 
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 public class AnnotationsExampleTest {
-    @BeforeClass
-    public static void beforeClass() {
-        System.out.println("========================Before Class=======================");
-    }
-
-    @AfterClass
-    public static void afterClass() {
-        System.out.println("========================After Class========================");
-    }
-
-    @BeforeTest
-    public void beforeTest() {
-
-        System.out.println("=========================Before Test=======================");
-    }
-
-    @AfterTest
-    public void afterTest() {
-        System.out.println("=========================After Test========================");
-    }
-
     @Test(priority = 3)
     @TestcaseAnnotation(testCaseID = 466725, description = "Verify annotation lookup on method")
     public void printAnnoValueTest() throws Exception {
