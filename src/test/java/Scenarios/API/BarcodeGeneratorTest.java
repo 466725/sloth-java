@@ -1,7 +1,9 @@
 package Scenarios.API;
 
 import okhttp3.*;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,13 +14,19 @@ import static org.testng.Assert.assertTrue;
 //For UAT only, will not work in PROD
 public class BarcodeGeneratorTest {
     private static OkHttpClient client;
+    private static String apiManagerSubscriptionKey = null;
     //private static MediaType mediaType = MediaType.parse("application/json");
 
     @BeforeClass
     public static void setup() {
         System.out.println("========================Before Class=======================");
 
-        @SuppressWarnings("unused")
+        // Read API manager subscription key from os environment variable
+        // For security purposes, a subscription key not supposed to be hardcoded
+        if(System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null)
+            apiManagerSubscriptionKey = System.getenv("API_MANAGER_SUBSCRIPTION_KEY");
+        else
+            apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895"; // For testing purposes only
         CookieJar cookieJar = new CookieJar() {
             private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
 
@@ -34,25 +42,11 @@ public class BarcodeGeneratorTest {
             }
         };
         client = new OkHttpClient.Builder().build();
-		/*
-		client = new OkHttpClient.Builder().cookieJar(cookieJar).build();
-		client = new OkHttpClient.Builder().cookieJar(new Scenarios.TicketTransactionCookie()).build();
-		*/
     }
 
     @AfterClass
     public static void tearDown() {
         System.out.println("========================After Class========================");
-    }
-
-    @BeforeTest
-    public void startTest() {
-        System.out.println("=========================Before Test=======================");
-    }
-
-    @AfterTest
-    public void endTest() {
-        System.out.println("=========================After Test========================");
     }
 
     @Test(priority = 1)
@@ -63,7 +57,7 @@ public class BarcodeGeneratorTest {
                 .url("https://cineplex-apis-nonprod.azure-api.net/cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
                 .method("GET", null)
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Ocp-Apim-Subscription-Key", "5c8c64aa27dc4384b59bf3ebf5547895")
+                .addHeader("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
                 .build();
 
         Response response = client.newCall(request).execute();

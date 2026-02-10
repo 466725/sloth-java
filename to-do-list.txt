@@ -1,7 +1,119 @@
-1, Integrate https://stackoverflow.com/questions/12974488/selenium-webdriver-move-mouse-to-point to framework
-2, Use //div[contains(@class, 'tt-suggestion')] to handle dynamic drop-down options
+sloth-java — Roadmap / To‑Do (Portfolio Edition)
+Goal: Make this repo prove I can build automation that is secure, stable, scalable, and diagnosable (SDET-ready).
 
-Note: 
-1, Task better to be independent of each other
-2, Need to spend more time on Git
-3, Need to spend more time on Selenium
+Legend:
+[ ] Not started   [~] In progress   [x] Done
+
+
+1) Security & Professionalism (must-have)
+[x] Remove hard-coded secrets/tokens/keys from tests and configs
+[x] Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
+[x] Add a README section: “Configuration & Secrets” with setup examples
+[x] Ensure local config files are ignored via .gitignore (and document their names)
+[x] Mask sensitive data in logs and reports (headers, tokens, cookies)
+[x] Add a simple secret-scanning note (README) and/or CI step to prevent regressions
+
+
+2) Suite Structure (enterprise-shaped) — layers, tags, and fast feedback
+[ ] Standardize TestNG groups:
+    - smoke (fast, critical)
+    - regression
+    - api
+    - ui-web
+    - ui-mobile
+    - integration (API + UI thin slice)
+    - quarantine (flaky/under investigation)
+[ ] Ensure these commands work and are documented:
+    - mvn test -Dgroups=smoke
+    - mvn test -Dgroups=api
+    - mvn test -Dgroups=ui-web
+[ ] Add a “What runs where?” table (local vs CI) with expected runtime per group
+[ ] Define a consistent naming convention for suites, test classes, and groups
+
+
+3) Reliability / Flakiness (signature SDET skill)
+[ ] Implement automatic failure artifacts for UI tests:
+    - screenshot on failure
+    - page source / DOM dump on failure
+    - browser console logs (web)
+    - (optional) network logs
+[ ] Create and enforce a clear wait strategy:
+    - prefer explicit waits/conditions
+    - avoid Thread.sleep (or document strict exceptions)
+    - centralize wait utilities so Page Objects stay clean
+[ ] Add /docs/flakiness-playbook.md:
+    - common flaky causes
+    - debugging steps
+    - mitigation patterns used in this repo
+[ ] Add a quarantine approach:
+    - tag tests as quarantine
+    - document the process to un-quarantine
+
+
+4) Reporting that helps debugging (not just pretty HTML)
+[ ] Add run metadata into the report:
+    - environment name
+    - baseUrl
+    - browser/device + version
+    - headless true/false
+    - build/CI run id
+[ ] Attach artifacts (screenshots/logs) directly in the report when a test fails
+[ ] For API failures: include request/response details with sensitive values masked
+[ ] Add a “Run Summary” section:
+    - total / passed / failed / skipped
+    - duration
+    - top failure categories (simple classification)
+
+
+5) API Automation (RestAssured + OkHttp) — make it “real”
+[ ] Introduce an API client layer:
+    - low-level client (OkHttp) with interceptors (logging/masking/correlation)
+    - service classes per API area/endpoint
+[ ] Decide and document how RestAssured and OkHttp are used together (one for transport, one for assertions) and keep it consistent
+[ ] Add contract-ish validation:
+    - JSON schema validation for 1–2 core responses OR
+    - DTO mapping with Jackson + strict assertions
+[ ] Test data strategy:
+    - create test data via API
+    - use it in UI tests (integration thin slice)
+    - teardown/cleanup via API when applicable
+
+
+6) CI (job-ready proof)
+[ ] Add CI workflow:
+    - run smoke on PR
+    - run regression nightly (or scheduled)
+    - upload reports + artifacts (screenshots/logs) as build artifacts
+[ ] Add a simple build badge to README (and link to report artifacts)
+[ ] (Optional) browser matrix for web: Chrome + Firefox
+[ ] (Later) mobile smoke on emulator/simulator once mobile is integrated
+
+
+7) Dependency & Runtime Hygiene (small changes, big trust)
+[ ] Add support for an LTS Java version (17 or 21) and document supported versions
+[ ] Review and modernize logging approach (prefer slf4j + logback or Log4j2)
+[ ] Remove/avoid obsolete libraries/drivers unless clearly justified and documented
+[ ] Add a brief “Dependencies & Rationale” note (why key libs exist)
+
+
+8) README — recruiter-ready landing page
+[ ] Rewrite README to be a 2-minute skim:
+    - what this framework covers (Web UI + API + Mobile-ready)
+    - tech stack
+    - how to run (by group)
+    - architecture overview (driver factory, config, POM, API clients)
+    - debugging failures (where reports and artifacts live)
+    - CI behavior (PR vs nightly)
+    - short roadmap (top 5 items only)
+[ ] Add a short “If I joined your team…” section (5 bullets):
+    - stability/flakiness
+    - CI gating & fast feedback
+    - test data management
+    - observability (logs/artifacts)
+    - testing pyramid discipline
+
+
+Optional stretch goals (only after the must-haves above)
+[ ] Add a minimal mobile module (Appium) with one “golden path” test
+[ ] Add parallel execution for smoke/regression and document tradeoffs
+[ ] Add a small docs folder with architecture diagrams (simple is fine)

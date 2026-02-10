@@ -5,17 +5,17 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.GuiTestCase;
+import testcases.TestGroups;
 import webpages.amazon.HomePage;
-import webpages.amazon.RegisterPage;
 import webpages.amazon.SigninPage;
 
 public class SigninPageTest extends GuiTestCase {
-    protected final static Logger logger = LogManager.getLogger(SigninPageTest.class.getName());
+    final static Logger logger = LogManager.getLogger(SigninPageTest.class.getName());
     HomePage homepage;
     SigninPage signinPage;
 
     // Verify title
-    @Test
+    @Test(groups = {TestGroups.SMOKE, TestGroups.UI_WEB})
     public void verifyTitle() {
         homepage = basePage.gotoHomePage();
         signinPage = (SigninPage) homepage.gotoSigninPage();

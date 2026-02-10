@@ -47,6 +47,7 @@ Ensure you have the following installed:
     export SAUCE_USERNAME=<your_username>
     export SAUCE_ACCESS_KEY=<your_access_key>
     ```
+    If calling API with a subscription key, add the key to os environment variables (e.g., API_MANAGER_SUBSCRIPTION_KEY)
 
 ---
 
@@ -62,7 +63,25 @@ Best practices to keep the codebase consistent and maintainable:
 
 ---
 
+## Configuration & Secrets
+*   All configuration is done via `src/main/resources/config.properties`.
+*   Secrets are stored in `src/main/resources/secrets.properties`.
+*   Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
+
 ## Running Tests
+
+### Test Cases are grouped by TestNG groups: 
+* smoke (fast, critical)
+* regression 
+* api 
+* ui-web 
+* ui-mobile 
+* integration (API + UI thin slice)
+* quarantine (flaky/under investigation)
+  * Ensure these commands work and are documented:
+    - mvn test -Dgroups=smoke
+    - mvn test -Dgroups=api
+    - mvn test -Dgroups=ui-web
 
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.

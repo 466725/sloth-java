@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.GuiTestCase;
+import testcases.TestGroups;
 import webpages.BaseWebPage;
 import webpages.amazon.HomePage;
 import webpages.amazon.RegisterPage;
@@ -19,7 +20,7 @@ public class RegisterPageTest extends GuiTestCase {
     RegisterPage registerPage;
 
     // Verify title
-    @Test()
+    @Test(groups = {TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.QUARANTINE})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
         homepage = BaseWebPage.gotoHomePage();
