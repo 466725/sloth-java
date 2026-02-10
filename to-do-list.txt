@@ -80,13 +80,13 @@ Legend:
 
 
 6) CI (job-ready proof)
-[ ] Add CI workflow:
+[x] Add CI workflow:
     - run smoke on PR
     - run regression nightly (or scheduled)
     - upload reports + artifacts (screenshots/logs) as build artifacts
-[ ] Add a simple build badge to README (and link to report artifacts)
-[ ] (Optional) browser matrix for web: Chrome + Firefox
-[ ] (Later) mobile smoke on emulator/simulator once mobile is integrated
+[x] Add a simple build badge to README (and link to report artifacts)
+[x] (Optional) browser matrix for web: Chrome + Firefox
+[x] (Later) mobile smoke on emulator/simulator once mobile is integrated
 
 
 7) Dependency & Runtime Hygiene (small changes, big trust)

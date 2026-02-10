@@ -2,6 +2,7 @@ package config;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.testng.annotations.Test;
 
 public final class RunConfig {
     private final static Logger logger = LogManager.getLogger(RunConfig.class.getName());
@@ -25,5 +26,15 @@ public final class RunConfig {
 
         logger.debug("No 'headless' configuration found, defaulting to false");
         return false;
+    }
+
+    // Test set property
+    @Test
+    public static void setHeadless() {
+        System.setProperty("headless", "true");
+        logger.info("Set 'headless' property to: " + true);
+        logger.info("Headless value actually is: " + isHeadless());
+        System.out.println("Set 'headless' property to: " + true);
+        System.out.println("Headless value actually is: " + isHeadless());
     }
 }
