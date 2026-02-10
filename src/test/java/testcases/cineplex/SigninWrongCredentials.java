@@ -22,7 +22,7 @@ public class SigninWrongCredentials extends ApiTestCase {
     MediaType mediaType = MediaType.parse("application/json");
     JSONParser parser = new JSONParser();
 
-    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE})
+    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
     public void createApplicationSession() throws Exception {
         RequestBody body = RequestBody
                 .create(mediaType,
@@ -44,7 +44,7 @@ public class SigninWrongCredentials extends ApiTestCase {
     }
 
     // Login with the wrong username and password
-    @Test(priority = 3, groups = {TestGroups.API, TestGroups.SMOKE})
+    @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
     public void login() throws Exception {
         RequestBody body = RequestBody
                 .create(mediaType,

@@ -15,7 +15,7 @@ Legend:
 
 
 2) Suite Structure (enterprise-shaped) — layers, tags, and fast feedback
-[ ] Standardize TestNG groups:
+[x] Standardize TestNG groups:
     - smoke (fast, critical)
     - regression
     - api
@@ -23,57 +23,57 @@ Legend:
     - ui-mobile
     - integration (API + UI thin slice)
     - quarantine (flaky/under investigation)
-[ ] Ensure these commands work and are documented:
+[x] Ensure these commands work and are documented:
     - mvn test -Dgroups=smoke
     - mvn test -Dgroups=api
     - mvn test -Dgroups=ui-web
-[ ] Add a “What runs where?” table (local vs CI) with expected runtime per group
-[ ] Define a consistent naming convention for suites, test classes, and groups
+[x] Add a “What runs where?” table (local vs CI) with expected runtime per group
+[x] Define a consistent naming convention for suites, test classes, and groups
 
 
 3) Reliability / Flakiness (signature SDET skill)
-[ ] Implement automatic failure artifacts for UI tests:
+[x] Implement automatic failure artifacts for UI tests:
     - screenshot on failure
     - page source / DOM dump on failure
     - browser console logs (web)
     - (optional) network logs
-[ ] Create and enforce a clear wait strategy:
+[x] Create and enforce a clear wait strategy:
     - prefer explicit waits/conditions
     - avoid Thread.sleep (or document strict exceptions)
     - centralize wait utilities so Page Objects stay clean
-[ ] Add /docs/flakiness-playbook.md:
+[x] Add /docs/flakiness-playbook.md:
     - common flaky causes
     - debugging steps
     - mitigation patterns used in this repo
-[ ] Add a quarantine approach:
+[x] Add a quarantine approach:
     - tag tests as quarantine
     - document the process to un-quarantine
 
 
 4) Reporting that helps debugging (not just pretty HTML)
-[ ] Add run metadata into the report:
+[x] Add run metadata into the report:
     - environment name
     - baseUrl
     - browser/device + version
     - headless true/false
     - build/CI run id
-[ ] Attach artifacts (screenshots/logs) directly in the report when a test fails
-[ ] For API failures: include request/response details with sensitive values masked
-[ ] Add a “Run Summary” section:
+[x] Attach artifacts (screenshots/logs) directly in the report when a test fails
+[x] For API failures: include request/response details with sensitive values masked
+[x] Add a “Run Summary” section:
     - total / passed / failed / skipped
     - duration
     - top failure categories (simple classification)
 
 
 5) API Automation (RestAssured + OkHttp) — make it “real”
-[ ] Introduce an API client layer:
+[x] Introduce an API client layer:
     - low-level client (OkHttp) with interceptors (logging/masking/correlation)
     - service classes per API area/endpoint
-[ ] Decide and document how RestAssured and OkHttp are used together (one for transport, one for assertions) and keep it consistent
-[ ] Add contract-ish validation:
+[x] Decide and document how RestAssured and OkHttp are used together (one for transport, one for assertions) and keep it consistent
+[x] Add contract-ish validation:
     - JSON schema validation for 1–2 core responses OR
     - DTO mapping with Jackson + strict assertions
-[ ] Test data strategy:
+[x] Test data strategy:
     - create test data via API
     - use it in UI tests (integration thin slice)
     - teardown/cleanup via API when applicable

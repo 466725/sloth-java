@@ -13,7 +13,7 @@ public class HomePageTest extends GuiTestCase {
     HomePage homepage;
 
     // Verify title
-    @Test(groups = {TestGroups.SMOKE, TestGroups.UI_WEB})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB})
     public void verifyTitle() {
         homepage = basePage.gotoHomePage();
         logger.info("Title: " + driver.getTitle());

@@ -9,7 +9,8 @@
     <test name="Smoke" parallel="false">
         <groups>
             <run>
-                <include name="regression"/>
+                <include name="smoke"/>
+                <exclude name="quarantine"/>
             </run>
         </groups>
 

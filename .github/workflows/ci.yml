@@ -1,0 +1,82 @@
+name: sloth-java CI
+
+on:
+  pull_request:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 3 * * *"  # nightly at 03:00 UTC (adjust as you like)
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: Smoke (PR/Push)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"   # recommended LTS for CI; adjust if you must
+
+      - name: Cache Maven
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: m2-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+          restore-keys: m2-${{ runner.os }}-
+
+      - name: Run Smoke suite
+        env:
+          HEADLESS: "true"
+          API_MANAGER_SUBSCRIPTION_KEY: ${{ secrets.API_MANAGER_SUBSCRIPTION_KEY }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+        run: |
+          mvn -B -U -DsuiteXmlFile=SmokeTest.xml test
+
+      - name: Upload test reports/artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-artifacts
+          path: |
+            test-output/**
+            target/**
+          if-no-files-found: warn
+
+  regression:
+    name: Regression (Nightly)
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Run Regression suite
+        env:
+          HEADLESS: "true"
+          API_MANAGER_SUBSCRIPTION_KEY: ${{ secrets.API_MANAGER_SUBSCRIPTION_KEY }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+        run: |
+          mvn -B -U -DsuiteXmlFile=RegressionTest.xml test
+
+      - name: Upload test reports/artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-test-artifacts
+          path: |
+            test-output/**
+            target/**
+          if-no-files-found: warn

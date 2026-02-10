@@ -105,3 +105,8 @@ mvn dependency:resolve
 # Execute all tests
 mvn clean test
 ```
+
+### Using CI/CD of GitHub Actions
+*   Run smoke on PR 
+*   Run regression nightly (or scheduled)
+*   upload reports + artifacts (screenshots/logs) as build artifacts
