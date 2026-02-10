@@ -2,6 +2,7 @@ package config;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import utilities.StringUtils;
 
 import java.io.InputStream;
 

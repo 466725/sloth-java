@@ -1,6 +1,7 @@
 package webpages;
 
 import config.PropertiesFileReader;
+import config.RunConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,7 @@ public class BaseWebPage {
     public static WebDriver getDriver(String browser) {
         if (driver != null)
             return driver;
-        if (browser == null){
+        if (browser == null) {
             return createChromeDriver();
         }
         return switch (browser.toLowerCase()) {
@@ -42,7 +43,12 @@ public class BaseWebPage {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("--incognito");
-
+        if (RunConfig.isHeadless()) {
+            options.addArguments("--headless=new");          // Chrome modern headless
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu"); // mostly harmless; helps some environments
+        }
         // Force English
         options.addArguments("--lang=en-US");
 
