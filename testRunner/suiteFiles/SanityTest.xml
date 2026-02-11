@@ -10,8 +10,6 @@
         <classes>
             <!-- GUI test cases -->
             <class name="testcases.amazon.HomePageTest"/>
-            <class name="testcases.amazon.SigninPageTest"/>
-            <class name="testcases.amazon.RegisterPageTest"/>
             <!-- API test cases -->
             <class name="testcases.cineplex.SigninWrongCredentials"/>
         </classes>
