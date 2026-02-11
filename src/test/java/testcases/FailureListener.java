@@ -4,7 +4,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.IAnnotationTransformer;
 import org.testng.ITestListener;
-import org.testng.ITestResult;
 import org.testng.annotations.ITestAnnotation;
 
 import java.lang.reflect.Constructor;
@@ -12,16 +11,6 @@ import java.lang.reflect.Method;
 
 public class FailureListener implements ITestListener, IAnnotationTransformer {
     protected final static Logger logger = LogManager.getLogger(FailureListener.class.getName());
-
-    @Override
-    public void onTestStart(ITestResult result) {
-        logger.info("Test started: " + result.getName());
-    }
-
-    @Override
-    public void onTestFailure(ITestResult result) {
-        logger.info("Test failed: " + result.getName());
-    }
 
     @Override
     public void transform(ITestAnnotation annotation,
