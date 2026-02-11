@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21"   # recommended LTS for CI; adjust if you must
+          java-version: "21"
 
       - name: Cache Maven
         uses: actions/cache@v4
@@ -29,6 +29,25 @@ jobs:
           path: ~/.m2/repository
           key: m2-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: m2-${{ runner.os }}-
+
+      - name: Diagnostics (Java/Maven/POM)
+        run: |
+          echo "== Git =="
+          git rev-parse HEAD
+          echo "== pom.xml (properties section) =="
+          sed -n '1,80p' pom.xml
+          echo "== Java/Maven versions =="
+          java -version
+          mvn -version
+          echo "== Environment overrides =="
+          echo "MAVEN_OPTS=${MAVEN_OPTS:-<empty>}"
+          echo "JAVA_TOOL_OPTIONS=${JAVA_TOOL_OPTIONS:-<empty>}"
+          echo "== Evaluated Maven properties =="
+          mvn -q help:evaluate -Dexpression=maven.compiler.release -DforceStdout || true
+          mvn -q help:evaluate -Dexpression=maven.compiler.source  -DforceStdout || true
+          mvn -q help:evaluate -Dexpression=maven.compiler.target  -DforceStdout || true
+          echo "== Effective compiler plugin snippet =="
+          mvn -q help:effective-pom -DforceStdout | sed -n '/maven-compiler-plugin/,/\/plugin>/p'
 
       - name: Run Smoke suite
         env:

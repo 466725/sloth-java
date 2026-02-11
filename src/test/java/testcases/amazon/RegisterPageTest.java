@@ -20,7 +20,7 @@ public class RegisterPageTest extends GuiTestCase {
     RegisterPage registerPage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.QUARANTINE})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
         homepage = BaseWebPage.gotoHomePage();

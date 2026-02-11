@@ -15,7 +15,7 @@ public class SigninPageTest extends GuiTestCase {
     SigninPage signinPage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB})
     public void verifyTitle() {
         homepage = basePage.gotoHomePage();
         signinPage = (SigninPage) homepage.gotoSigninPage();
