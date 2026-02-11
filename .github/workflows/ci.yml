@@ -99,3 +99,4 @@ jobs:
             test-output/**
             target/**
           if-no-files-found: warn
+          retention-days: 30
