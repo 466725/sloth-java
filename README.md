@@ -102,14 +102,12 @@ Best practices to keep the codebase consistent and maintainable:
 # Resolve dependencies
 mvn dependency:resolve
 
-# Execute all tests
-mvn clean test
+# Execute tests
 mvn test -DsuiteXmlFile=SmokeTest.xml
 mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
-mvn test -Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml
 If you are on WIndows, quoting is safe: 
 mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml"
-mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml -Dheadless=true"
+mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml" "-Dheadless=true"
 ```
 
 ### Using CI/CD of GitHub Actions
