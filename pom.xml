@@ -10,11 +10,12 @@
     <name>MavenDemo</name>
     <url>http://maven.apache.org</url>
 
-    <!-- Use Java 25 -->
+    <!-- Use Java 21 (matches GitHub Actions CI) -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+
+        <maven.compiler.release>21</maven.compiler.release>
+
         <suiteXmlFile>SanityTest.xml</suiteXmlFile>
     </properties>
 
@@ -150,6 +151,7 @@
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
