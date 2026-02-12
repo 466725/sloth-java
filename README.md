@@ -108,6 +108,8 @@ mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
 If you are on WIndows, quoting is safe: 
 mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml"
 mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml" "-Dheadless=true"
+mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-Dheadless=true"
+mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
 ```
 
 ### Using CI/CD of GitHub Actions

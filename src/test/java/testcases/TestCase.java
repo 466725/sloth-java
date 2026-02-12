@@ -6,7 +6,9 @@ import config.Constants;
 import config.ExtentReportHandler;
 
 import java.lang.reflect.Method;
+import java.net.URL;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -32,9 +34,18 @@ public class TestCase {
     protected static ExtentReports report;
 
     private void setupLog4j() {
-        DOMConfigurator.configure(LOG_CONFIG_FILE);
-        logger.info("Log4j configured from: " + LOG_CONFIG_FILE);
-        logger.info(logger.getAllAppenders());
+        // Load Log4j config from classpath (works in IntelliJ, Maven Surefire, CI, and packaged runs)
+        URL configUrl = Thread.currentThread().getContextClassLoader().getResource(LOG_CONFIG_FILE);
+
+        if (configUrl != null) {
+            DOMConfigurator.configure(configUrl);
+            logger.info("Log4j configured from classpath resource: " + LOG_CONFIG_FILE);
+        } else {
+            // Fallback: never run with "no appenders"
+            BasicConfigurator.configure();
+            logger.warn("Log4j config resource not found on classpath: " + LOG_CONFIG_FILE
+                    + " (falling back to BasicConfigurator).");
+        }
     }
 
     /**

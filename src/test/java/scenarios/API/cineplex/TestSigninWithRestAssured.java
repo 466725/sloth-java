@@ -2,7 +2,6 @@ package scenarios.API.cineplex;
 
 import config.PropertiesFileReader;
 import io.restassured.http.ContentType;
-import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -19,25 +18,33 @@ import static io.restassured.RestAssured.given;
 public class TestSigninWithRestAssured extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(TestSigninWithRestAssured.class.getName());
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
-    private final String barcodeBaseURL = PropertiesFileReader.getBarcodeBaseURL();
     private static String sessionToken = "";
 
-    @Test(priority = 5, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
-    public void create_Application_Session_RestAssured_Call() throws Exception {
+    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
+    public void create_Application_Session_RestAssured_Call() {
+        String payload = """
+                {
+                  "ApplicationKey": "2939bf3b-6c04-4c7b-bcfd-bb590e0016fa"
+                }
+                """;
+
         Response response =
-                (Response) given()
-                        .contentType("application/json")
-                        .body("{\"ApplicationKey\": \"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"}")
+                given()
+                        .contentType(ContentType.JSON)     // sets Content-Type: application/json
+                        .accept(ContentType.JSON)
+                        .body(payload)
                         .when()
-                        .post(barcodeBaseURL + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
+                        .post(connectURL + "/CreateApplicationSession")
                         .then()
-                        .statusCode(200);
-        // Retrieve response headers
-        Headers headers = response.headers();
-        logger.info("Response Headers: " + headers);
-        // Retrieve response body
-        String responseBody = response.getBody().asString();
-        logger.info("Response Body: " + responseBody);
+                        .statusCode(200)
+                        .extract()
+                        .response();
+
+        // Extract token from JSON response
+        sessionToken = response.jsonPath().getString("SessionToken");
+
+        logger.info("jsonBody: " + response.asString());
+        logger.info("sessionToken: " + sessionToken);
     }
 
     @Test(priority = 7, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
@@ -62,7 +69,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
 
         // If you want to log the JSON response (similar to your logger.info("jsonBody: ..."))
         String responseBody = response.asString();
-        System.out.println("jsonBody: " + responseBody);
+        logger.info("jsonBody: " + responseBody);
     }
 
     @Test(priority = 9, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
@@ -77,12 +84,17 @@ public class TestSigninWithRestAssured extends ApiTestCase {
                 }
                 """.formatted(sessionToken);
 
-        given()
-                .contentType(ContentType.JSON)
-                .body(body)
-                .when()
-                .post(connectURL + "/login")
-                .then()
-                .statusCode(200);
+        Response response =
+                given()
+                        .contentType(ContentType.JSON)
+                        .body(body)
+                        .when()
+                        .post(connectURL + "/login")
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .response();
+        logger.info("jsonBody: " + response.asString());
+        logger.info("Login with raw JSON body");
     }
 }
