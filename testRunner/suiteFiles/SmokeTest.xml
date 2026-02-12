@@ -16,7 +16,7 @@
         <!-- Scan packages so any new @Test(groups={"smoke", ...}) is auto-included -->
         <packages>
             <package name="testcases.*"/>
-            <package name="Scenarios.*"/>
+            <package name="scenarios.*"/>
         </packages>
     </test>
 </suite>

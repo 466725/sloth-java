@@ -1,23 +1,21 @@
 package testcases;
 
 import com.relevantcodes.extentreports.LogStatus;
-import okhttp3.*;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import utilities.ScreenShotHandler;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static com.google.common.base.Throwables.getStackTraceAsString;
 
@@ -30,12 +28,37 @@ import static com.google.common.base.Throwables.getStackTraceAsString;
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
     protected static OkHttpClient client = new OkHttpClient.Builder().build();
+    protected static String apiManagerSubscriptionKey = null;
+    protected CookieJar cookieJar = null;
 
     /**
      * Prepare per BeforeClass annotation.     *
      */
     @BeforeClass(alwaysRun = true)
-    public void beforeClass() {logger.info("-----------------------Beginning of class----------------------");}
+    public void beforeClass() {
+        logger.info("-----------------------Beginning of class----------------------");
+        // Read API manager subscription key from os environment variable
+        // For security purposes, a subscription key not supposed to be hardcoded
+        if (System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null)
+            apiManagerSubscriptionKey = System.getenv("API_MANAGER_SUBSCRIPTION_KEY");
+        else
+            apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895"; // For testing purposes only
+        cookieJar = new CookieJar() {
+            private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
+
+            @Override
+            public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+                cookieStore.put(url.host(), cookies);
+            }
+
+            @Override
+            public List<Cookie> loadForRequest(HttpUrl url) {
+                List<Cookie> cookies = cookieStore.get(url.host());
+                return cookies != null ? cookies : new ArrayList<Cookie>();
+            }
+        };
+        client = new OkHttpClient.Builder().build();
+    }
 
     /**
      * Cleanup per AfterClass annotation.

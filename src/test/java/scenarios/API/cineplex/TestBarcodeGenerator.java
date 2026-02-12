@@ -1,0 +1,41 @@
+package scenarios.API.cineplex;
+
+import config.PropertiesFileReader;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.testng.annotations.Test;
+import testcases.ApiTestCase;
+import testcases.TestGroups;
+
+import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertTrue;
+
+//For UAT only, will not work in PROD
+public class TestBarcodeGenerator extends ApiTestCase {
+
+    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
+    public void generate_Barcode_OKhttp_Call() throws Exception {
+        Request request = new Request.Builder()
+                .url(PropertiesFileReader.getBarcodeBaseURL() + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
+                .method("GET", null)
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        assertTrue(response.code() == 200);
+    }
+
+    // Redo barcodeGeneratorRestAssuredTest() with Rest Assured
+    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
+    public void generate_Barcode_RestAssured_Call() throws Exception {
+        given()
+                .contentType("application/json")
+                .header("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
+                .when()
+                .get(PropertiesFileReader.getBarcodeBaseURL() + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
+                .then()
+                .statusCode(200);
+    }
+}

@@ -1,4 +1,4 @@
-package testcases.cineplex;
+package scenarios.API.cineplex;
 
 import config.PropertiesFileReader;
 import okhttp3.MediaType;
@@ -16,15 +16,15 @@ import testcases.TestGroups;
 import static org.testng.Assert.assertEquals;
 
 // For Demo purpose only
-public class SigninWrongCredentials extends ApiTestCase {
-    protected final static Logger logger = LogManager.getLogger(SigninWrongCredentials.class.getName());
+public class TestSigninWithOKHttp extends ApiTestCase {
+    protected final static Logger logger = LogManager.getLogger(TestSigninWithOKHttp.class.getName());
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
     private static String sessionToken = "";
     MediaType mediaType = MediaType.parse("application/json");
     JSONParser parser = new JSONParser();
 
     @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
-    public void createApplicationSession() throws Exception {
+    public void create_Application_Session_OKhttp_Call() throws Exception {
         RequestBody body = RequestBody
                 .create(mediaType,
                         "{\r\n\t\"ApplicationKey\": " +
@@ -46,7 +46,7 @@ public class SigninWrongCredentials extends ApiTestCase {
 
     // Login with the wrong username and password
     @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
-    public void login() throws Exception {
+    public void login_OKhttp_Call() throws Exception {
         RequestBody body = RequestBody
                 .create(mediaType,
                         "{\n    \"SessionToken\": " +

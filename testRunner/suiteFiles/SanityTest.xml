@@ -12,7 +12,7 @@
             <class name="testcases.amazon.AmazonHomePageTest"/>
             <class name="testcases.tangerine.TangerineHomePageTest"/>
             <!-- API test cases -->
-            <class name="testcases.cineplex.SigninWrongCredentials"/>
+            <class name="scenarios.API.cineplex.TestSigninWithRestAssured"/>
         </classes>
     </test>
 </suite>
