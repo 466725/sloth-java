@@ -1,5 +1,6 @@
 package Scenarios.API;
 
+import config.PropertiesFileReader;
 import okhttp3.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertTrue;
 
 //For UAT only, will not work in PROD
@@ -23,7 +25,7 @@ public class BarcodeGeneratorTest {
 
         // Read API manager subscription key from os environment variable
         // For security purposes, a subscription key not supposed to be hardcoded
-        if(System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null)
+        if (System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null)
             apiManagerSubscriptionKey = System.getenv("API_MANAGER_SUBSCRIPTION_KEY");
         else
             apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895"; // For testing purposes only
@@ -51,10 +53,9 @@ public class BarcodeGeneratorTest {
 
     @Test(priority = 1)
     public void barcodeGeneratorTest() throws Exception {
-        System.out.println("============================111============================");
         //RequestBody body = RequestBody.create(mediaType, "");
         Request request = new Request.Builder()
-                .url("https://cineplex-apis-nonprod.azure-api.net/cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
+                .url(PropertiesFileReader.getBarcodeBaseURL() + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
                 .method("GET", null)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
@@ -63,5 +64,17 @@ public class BarcodeGeneratorTest {
         Response response = client.newCall(request).execute();
 
         assertTrue(response.code() == 200);
+    }
+
+    // Redo barcodeGeneratorRestAssuredTest() with Rest Assured
+    @Test(priority = 3)
+    public void barcodeGeneratorRestAssuredTest() throws Exception {
+        given()
+                .contentType("application/json")
+                .header("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
+                .when()
+                .get(PropertiesFileReader.getBarcodeBaseURL() + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
+                .then()
+                .statusCode(200);
     }
 }

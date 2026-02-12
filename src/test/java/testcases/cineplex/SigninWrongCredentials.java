@@ -1,5 +1,6 @@
 package testcases.cineplex;
 
+import config.PropertiesFileReader;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -17,7 +18,7 @@ import static org.testng.Assert.assertEquals;
 // For Demo purpose only
 public class SigninWrongCredentials extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(SigninWrongCredentials.class.getName());
-    private final String connectURL = "https://apis.cineplex.com/uat/connect/v1";
+    private final String connectURL = PropertiesFileReader.getCONNECT_URL();
     private static String sessionToken = "";
     MediaType mediaType = MediaType.parse("application/json");
     JSONParser parser = new JSONParser();

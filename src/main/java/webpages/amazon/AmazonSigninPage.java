@@ -10,12 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.SeleniumWrapper;
 import webpages.BaseWebPage;
 
-public class SigninPage extends BaseWebPage {
-    protected final static Logger logger = LogManager.getLogger(SigninPage.class.getName());
+public class AmazonSigninPage extends BaseWebPage {
+    protected final static Logger logger = LogManager.getLogger(AmazonSigninPage.class.getName());
 
     @FindBy(id = "ab-registration-ingress-link")
     public WebElement createAccount;
-    public SigninPage(WebDriver driver) {
+    public AmazonSigninPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -23,6 +23,6 @@ public class SigninPage extends BaseWebPage {
     public BaseWebPage gotoRegisterPage() {
         SeleniumWrapper.explicitWaitClickable(driver, createAccount, PropertiesFileReader.getTimeout());
         createAccount.click();
-        return new RegisterPage(driver);
+        return new AmazonRegisterPage(driver);
     }
 }

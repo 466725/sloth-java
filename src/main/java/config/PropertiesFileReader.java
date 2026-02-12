@@ -58,9 +58,14 @@ public class PropertiesFileReader {
         return value.trim();
     }
 
-    // Get URL
-    public static String getURL() {
-        return getRequired("URL");
+    // Get Amazon base URL
+    public static String getAmazonURL() {
+        return getRequired("AMAZON_URL");
+    }
+
+    // Get Tangerine base URL
+    public static String getTangerineURL() {
+        return getRequired("TANGERINE_URL");
     }
 
     // Get Browser
@@ -96,10 +101,24 @@ public class PropertiesFileReader {
         }
     }
 
+    // Get BarcodeBaseURL
+    public static String getBarcodeBaseURL() {
+        return getRequired("BARCODE_BASE_URL");
+    }
+
+    // CONNECT_URL
+    public static String getCONNECT_URL() {
+        return getRequired("CONNECT_URL");
+    }
+
     static void main() {
-        logger.info(getURL());
+        logger.info(getAmazonURL());
+        logger.info(getTangerineURL());
         logger.info(getBrowser());
         logger.info(getTimeout());
         logger.info(getMaxRetryCount());
+        logger.info(getBarcodeBaseURL());
+        logger.info(getCONNECT_URL());
+        logger.info("Main method executed successfully");
     }
 }

@@ -6,16 +6,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.GuiTestCase;
 import testcases.TestGroups;
-import webpages.amazon.HomePage;
+import webpages.BaseWebPage;
+import webpages.amazon.AmazonHomePage;
 
-public class HomePageTest extends GuiTestCase {
-    final static Logger logger = LogManager.getLogger(HomePageTest.class.getName());
-    HomePage homepage;
+public class AmazonHomePageTest extends GuiTestCase {
+    final static Logger logger = LogManager.getLogger(AmazonHomePageTest.class.getName());
+    BaseWebPage homepage;
 
     // Verify title
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB})
     public void verifyTitle() {
-        homepage = basePage.gotoHomePage();
+        homepage = BaseWebPage.gotoHomePage("Amazon");
         logger.info("Title: " + driver.getTitle());
         Assert.assertTrue(driver.getTitle().contains("Amazon.com."), "Title verification failed");
     }

@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import webpages.BaseWebPage;
 
-public class RegisterPage extends BaseWebPage {
-    protected final static Logger logger = LogManager.getLogger(RegisterPage.class.getName());
+public class AmazonRegisterPage extends BaseWebPage {
+    protected final static Logger logger = LogManager.getLogger(AmazonRegisterPage.class.getName());
 
-    public RegisterPage(WebDriver driver) {
+    public AmazonRegisterPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

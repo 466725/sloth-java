@@ -7,25 +7,23 @@ import org.testng.annotations.Test;
 import testcases.GuiTestCase;
 import testcases.TestGroups;
 import webpages.BaseWebPage;
-import webpages.amazon.HomePage;
-import webpages.amazon.RegisterPage;
-import webpages.amazon.SigninPage;
+import webpages.amazon.AmazonHomePage;
+import webpages.amazon.AmazonRegisterPage;
+import webpages.amazon.AmazonSigninPage;
 
 import java.util.Objects;
 
-public class RegisterPageTest extends GuiTestCase {
-    protected final static Logger logger = LogManager.getLogger(RegisterPageTest.class.getName());
-    HomePage homepage;
-    SigninPage signinPage;
-    RegisterPage registerPage;
+public class AmazonRegisterPageTest extends GuiTestCase {
+    protected final static Logger logger = LogManager.getLogger(AmazonRegisterPageTest.class.getName());
+    AmazonSigninPage amazonSigninPage;
+    AmazonRegisterPage amazonRegisterPage;
 
     // Verify title
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
-        homepage = BaseWebPage.gotoHomePage();
-        signinPage = (SigninPage) homepage.gotoSigninPage();
-        registerPage = (RegisterPage) signinPage.gotoRegisterPage();
+        amazonSigninPage = (AmazonSigninPage) BaseWebPage.gotoHomePage("Amazon").gotoSigninPage();
+        amazonRegisterPage = (AmazonRegisterPage) amazonSigninPage.gotoRegisterPage();
         Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Amazon Business"), "Title verification failed");
     }
 }

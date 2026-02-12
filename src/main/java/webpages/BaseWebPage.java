@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import utilities.OperationSystemDetector;
-import webpages.amazon.HomePage;
+import webpages.amazon.AmazonHomePage;
+import webpages.tangerine.TangerineHomePage;
 
 /**
  * Base class for all web pages.
@@ -68,9 +69,17 @@ public class BaseWebPage {
         return null;
     }
 
-    public static HomePage gotoHomePage() {
+    public static BaseWebPage gotoHomePage(String org) {
         getDriver(PropertiesFileReader.getBrowser());
-        driver.get(PropertiesFileReader.getURL());
-        return new HomePage(driver);
+        if (org.equalsIgnoreCase("Amazon")) {
+            driver.get(PropertiesFileReader.getAmazonURL());
+            return new AmazonHomePage(driver);
+        }
+        driver.get(PropertiesFileReader.getTangerineURL());
+        return new TangerineHomePage(driver);
+    }
+
+    public BaseWebPage gotoSigninPage() {
+        return null;
     }
 }
