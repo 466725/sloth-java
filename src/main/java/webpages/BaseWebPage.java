@@ -4,6 +4,7 @@ import config.PropertiesFileReader;
 import config.RunConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -49,6 +50,7 @@ public class BaseWebPage {
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--disable-gpu"); // mostly harmless; helps some environments
+            options.addArguments("--window-size=1920,1080"); // IMPORTANT for headless stability
         }
         // Force English
         options.addArguments("--lang=en-US");
@@ -58,6 +60,11 @@ public class BaseWebPage {
         options.setExperimentalOption("prefs", prefs);
 
         driver = new ChromeDriver(options);
+        // Extra safety: ensure size is applied even if args are ignored by the driver/platform.
+        if (RunConfig.isHeadless()) {
+            driver.manage().window().setSize(new Dimension(1920, 1080));
+        }
+
         return driver;
     }
 

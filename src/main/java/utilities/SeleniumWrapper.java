@@ -61,9 +61,11 @@ public class SeleniumWrapper {
 
     public static void explicitWaitClickable(WebDriver driver, WebElement element, int waitTime) {
         try {
-            (new WebDriverWait(driver, Duration.ofSeconds(waitTime))).until(ExpectedConditions.elementToBeClickable(element));
-        } catch (Exception e) {
-            logger.warn("Exception is: ", e);
+            (new WebDriverWait(driver, Duration.ofSeconds(waitTime)))
+                    .until(ExpectedConditions.elementToBeClickable(element));
+        } catch (RuntimeException e) {
+            logger.warn("Element not clickable after " + waitTime + "s. Current URL: " + driver.getCurrentUrl(), e);
+            throw e; // don't continue to element.click() if it's not clickable
         }
     }
 

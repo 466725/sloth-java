@@ -23,8 +23,17 @@ public class TangerineSigninPage extends BaseWebPage {
 
     public TangerineSignupPage gotoSignupPage() {
         logger.info("Navigating to Signup page");
+
+        SeleniumWrapper.scrollToElement(driver, signupButton);
         SeleniumWrapper.explicitWaitClickable(driver, signupButton, PropertiesFileReader.getTimeout());
-        signupButton.click();
+
+        try {
+            signupButton.click();
+        } catch (Exception e) {
+            logger.warn("Normal click failed; falling back to JS click.", e);
+            SeleniumWrapper.clickElement(driver, signupButton, config.Constants.CLICK_METHOD_ENUM.RUNJS);
+        }
+
         return new TangerineSignupPage(driver);
     }
 }

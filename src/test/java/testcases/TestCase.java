@@ -28,12 +28,19 @@ import org.testng.annotations.BeforeTest;
  */
 public class TestCase {
     protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
-    protected final static String LOG_CONFIG_FILE = Constants.CONFIG_FILE_FOLDER + "log4j-config.xml";
+    protected final static String LOG_CONFIG_FILE = Constants.CONFIG_FILE_FOLDER + Constants.LOG4J_CONFIG_RESOURCE;
     protected final static String REPORT_FILE_NAME = "\\test-output\\ExtentReport\\ExtentReport.html";
     protected static ExtentTest test;
     protected static ExtentReports report;
 
     private void setupLog4j() {
+        // Avoid duplicate appenders: configure Log4j only once.
+        boolean alreadyConfigured = LogManager.getRootLogger().getAllAppenders().hasMoreElements();
+        if (alreadyConfigured) {
+            logger.debug("Log4j already configured; skipping reconfiguration.");
+            return;
+        }
+
         // Load Log4j config from classpath (works in IntelliJ, Maven Surefire, CI, and packaged runs)
         URL configUrl = Thread.currentThread().getContextClassLoader().getResource(LOG_CONFIG_FILE);
 
