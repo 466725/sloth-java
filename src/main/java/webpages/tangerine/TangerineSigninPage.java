@@ -11,4 +11,8 @@ public class TangerineSigninPage extends BaseWebPage {
     public TangerineSigninPage(WebDriver driver) {
         super(driver);
     }
+
+    public TangerineSignupPage gotoSignupPage() {
+        return null;
+    }
 }
