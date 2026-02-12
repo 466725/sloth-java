@@ -3,6 +3,7 @@ package webpages.tangerine;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import webpages.BaseWebPage;
 
 public class TangerineSignupPage extends BaseWebPage {
@@ -10,5 +11,6 @@ public class TangerineSignupPage extends BaseWebPage {
 
     public TangerineSignupPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 }

@@ -10,6 +10,7 @@
         <classes>
             <!-- GUI test cases -->
             <class name="testcases.amazon.AmazonHomePageTest"/>
+            <class name="testcases.tangerine.TangerineHomePageTest"/>
             <!-- API test cases -->
             <class name="testcases.cineplex.SigninWrongCredentials"/>
         </classes>
