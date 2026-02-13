@@ -12,8 +12,10 @@ import webpages.BaseWebPage;
 
 public class AmazonHomePage extends BaseWebPage {
     protected final static Logger logger = LogManager.getLogger(AmazonHomePage.class.getName());
+    
     @FindBy(id = "nav-link-accountList")
     public WebElement helloSignIn;
+    
     public AmazonHomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);

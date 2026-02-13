@@ -15,6 +15,7 @@ public class AmazonSigninPage extends BaseWebPage {
 
     @FindBy(id = "ab-registration-ingress-link")
     public WebElement createAccount;
+    
     public AmazonSigninPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);

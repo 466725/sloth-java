@@ -1,6 +1,8 @@
 package utilities;
 
 import config.Constants;
+import config.PropertiesFileReader;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -53,7 +55,7 @@ public class SeleniumWrapper {
 
     public static void implicitWait(WebDriver driver) {
         try {
-            driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME);
+            driver.manage().timeouts().implicitlyWait(PropertiesFileReader.getImplicitWaitTime());
         } catch (Exception e) {
             logger.warn("Exception is: ", e);
         }
@@ -73,7 +75,7 @@ public class SeleniumWrapper {
         // To be polished, we need a better solution
         try {
             logger.info(driver.getTitle());
-            Thread.sleep(Constants.PAGE_RENDER_TIME);
+            Thread.sleep(PropertiesFileReader.getPageRenderTimeout());
         } catch (InterruptedException e) {
             logger.info("Failed to wait for DOM to be rendered");
             logger.info("Exception is: " + e);
@@ -81,14 +83,14 @@ public class SeleniumWrapper {
     }
 
     public static void waitForPageLoadCompletion(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Constants.PAGE_LOAD_TIME);
+        WebDriverWait wait = new WebDriverWait(driver, PropertiesFileReader.getPageLoadTimeout());
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/svg")));
         } catch (Exception e) {
             logger.debug("Exception is: " + e);
             return;
         }
-        WebDriverWait waitForInvisibility = new WebDriverWait(driver, Constants.PAGE_LOAD_TIME);
+        WebDriverWait waitForInvisibility = new WebDriverWait(driver, PropertiesFileReader.getPageLoadTimeout());
         waitForInvisibility.ignoring(org.openqa.selenium.NoSuchElementException.class);
         waitForInvisibility.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div/svg")));
     }
@@ -104,7 +106,7 @@ public class SeleniumWrapper {
     }
 
     public static boolean setInputFieldText(WebElement inputField, String textToSet, WebDriver driver) {
-        SeleniumWrapper.explicitWaitClickable(driver, inputField, Constants.EXPLICIT_WAIT_TIME);
+        SeleniumWrapper.explicitWaitClickable(driver, inputField, PropertiesFileReader.getExplicitWaitTimeInt());
         try {
             new Actions(driver).moveToElement(inputField).perform();
             inputField.clear();

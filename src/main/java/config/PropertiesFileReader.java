@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.time.Duration;
 import java.util.Properties;
 
 public class PropertiesFileReader {
@@ -68,39 +69,6 @@ public class PropertiesFileReader {
         return getRequired("TANGERINE_URL");
     }
 
-    // Get Browser
-    public static String getBrowser() {
-        return getRequired("BROWSER");
-    }
-
-    // Get timeout
-    public static int getTimeout() {
-        ensureLoaded();
-        String raw = prop.getProperty("GLOBAL_TIMEOUT");
-        if (raw == null || raw.isBlank()) {
-            return Constants.EXPLICIT_WAIT_TIME; // sensible default
-        }
-        try {
-            return Integer.parseInt(raw.trim());
-        } catch (NumberFormatException e) {
-            throw new IllegalStateException("GLOBAL_TIMEOUT must be an integer, but was: " + raw, e);
-        }
-    }
-
-    // Get timeout
-    public static int getMaxRetryCount() {
-        ensureLoaded();
-        String raw = prop.getProperty("MAX_RETRY_COUNT");
-        if (raw == null || raw.isBlank()) {
-            return 3; // sensible default
-        }
-        try {
-            return Integer.parseInt(raw.trim());
-        } catch (NumberFormatException e) {
-            throw new IllegalStateException("MAX_RETRY_COUNT must be an integer, but was: " + raw, e);
-        }
-    }
-
     // Get BarcodeBaseURL
     public static String getBarcodeBaseURL() {
         return getRequired("BARCODE_BASE_URL");
@@ -111,14 +79,62 @@ public class PropertiesFileReader {
         return getRequired("CONNECT_URL");
     }
 
-    static void main() {
-        logger.info(getAmazonURL());
-        logger.info(getTangerineURL());
-        logger.info(getBrowser());
-        logger.info(getTimeout());
-        logger.info(getMaxRetryCount());
-        logger.info(getBarcodeBaseURL());
-        logger.info(getCONNECT_URL());
-        logger.info("Main method executed successfully");
+    // Get Browser
+    public static String getBrowser() {
+        return getRequired("BROWSER");
+    }
+
+    // Get timeout
+    public static int getTimeout() {
+        return Integer.parseInt(getRequired("GLOBAL_TIMEOUT"));
+    }
+
+    // Get max retry count
+    public static int getMaxRetryCount() {
+        return Integer.parseInt(getRequired("MAX_RETRY_COUNT"));
+    }
+    
+    // EXPLICIT_WAIT_TIME
+    public static Duration getExplicitWaitTime() {
+    	int seconds = Integer.parseInt(getRequired("EXPLICIT_WAIT_TIME"));
+		return java.time.Duration.ofSeconds(seconds);
+    }
+    
+    // EXPLICIT_WAIT_TIME_INT
+    public static int getExplicitWaitTimeInt() {
+		return Integer.parseInt(getRequired("EXPLICIT_WAIT_TIME"));
+    }
+    
+    // IMPLICIT_WAIT_TIME
+    public static Duration getImplicitWaitTime() {
+		int seconds = Integer.parseInt(getRequired("IMPLICIT_WAIT_TIME"));
+		return java.time.Duration.ofSeconds(seconds);
+    }
+    
+    // PAGE_LOAD_TIMEOUT
+    public static Duration getPageLoadTimeout() {
+    	int seconds = Integer.parseInt(getRequired("PAGE_LOAD_TIMEOUT"));
+		return java.time.Duration.ofSeconds(seconds);
+    }
+    
+    // PAGE_RENDER_TIMEOUT
+    public static int getPageRenderTimeout() {
+		return Integer.parseInt(getRequired("PAGE_RENDER_TIMEOUT"));
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(getAmazonURL());
+        System.out.println(getTangerineURL());
+        System.out.println(getBarcodeBaseURL());
+        System.out.println(getCONNECT_URL());
+        System.out.println(getBrowser());
+        System.out.println(getTimeout());
+        System.out.println(getMaxRetryCount());
+        System.out.println(getExplicitWaitTime());
+        System.out.println(getExplicitWaitTimeInt());
+        System.out.println(getImplicitWaitTime());
+        System.out.println(getPageLoadTimeout());
+        System.out.println(getPageRenderTimeout());
+        System.out.println("Main method executed successfully");
     }
 }
