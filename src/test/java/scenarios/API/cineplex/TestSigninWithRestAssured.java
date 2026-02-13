@@ -1,4 +1,4 @@
-package scenarios.API.cineplex;
+package scenarios.api.cineplex;
 
 import config.PropertiesFileReader;
 import io.restassured.http.ContentType;
