@@ -96,6 +96,8 @@ Best practices to keep the codebase consistent and maintainable:
 ### Using the IDE
 *   Import the project as a **Maven Project**.
 *   Right-click on your `testRunner/suiteFiles/SanityTest.xml` (or specific test classes) and select **Run as TestNG Suite**.
+*   To run test as TestNG on Eclipse, you need to install TestNG plugin (Help → Eclipse Marketplace)
+*   GitHub Copilot for Eclipse recommended (Help → Eclipse Marketplace)
 
 ### Using Command Line
 ```bash
