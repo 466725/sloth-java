@@ -8,9 +8,13 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import utilities.OperationSystemDetector;
 import webpages.amazon.AmazonHomePage;
 import webpages.tangerine.TangerineHomePage;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Base class for all web pages.
@@ -38,10 +42,7 @@ public class BaseWebPage {
     }
 
     private static WebDriver createChromeDriver() {
-        if (!OperationSystemDetector.isWindows() && !OperationSystemDetector.isMac()) {
-            logger.fatal("Unsupported platform: " + OperationSystemDetector.getOS());
-            return null;
-        }
+        String remoteWebDriverUrl = getRemoteWebDriverUrl();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("--incognito");
@@ -58,6 +59,21 @@ public class BaseWebPage {
         java.util.Map<String, Object> prefs = new java.util.HashMap<>();
         prefs.put("intl.accept_languages", "en-US,en");
         options.setExperimentalOption("prefs", prefs);
+
+        if (remoteWebDriverUrl != null && !remoteWebDriverUrl.isBlank()) {
+            try {
+                driver = new RemoteWebDriver(new URL(remoteWebDriverUrl), options);
+            } catch (MalformedURLException e) {
+                logger.fatal("Invalid SELENIUM_REMOTE_URL: " + remoteWebDriverUrl, e);
+                return null;
+            }
+            return driver;
+        }
+
+        if (!OperationSystemDetector.isWindows() && !OperationSystemDetector.isMac()) {
+            logger.fatal("Unsupported platform: " + OperationSystemDetector.getOS());
+            return null;
+        }
 
         driver = new ChromeDriver(options);
         // Extra safety: ensure size is applied even if args are ignored by the driver/platform.
@@ -87,6 +103,18 @@ public class BaseWebPage {
     }
 
     public BaseWebPage gotoSigninPage() {
+        return null;
+    }
+
+    private static String getRemoteWebDriverUrl() {
+        String prop = System.getProperty("selenium.remote.url");
+        if (prop != null && !prop.isBlank()) {
+            return prop;
+        }
+        String env = System.getenv("SELENIUM_REMOTE_URL");
+        if (env != null && !env.isBlank()) {
+            return env;
+        }
         return null;
     }
 }

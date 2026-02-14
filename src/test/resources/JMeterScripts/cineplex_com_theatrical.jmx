@@ -7,6 +7,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
     </TestPlan>
     <hashTree>
       <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
@@ -28,7 +29,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="theatres">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="theatres" enabled="true">
           <stringProp name="HTTPSampler.domain">apis.cineplex.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/uat/cpx/theatrical/api/v1/theatres</stringProp>
@@ -134,37 +135,6 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="theatres - nearby" enabled="true">
-          <stringProp name="HTTPSampler.domain">apis.cineplex.com</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/uat/cpx/theatrical/api/v1/theatres/playingnearby?date=2022-03-06</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">User-Session-Token</stringProp>
-                <stringProp name="Header.value">4c34d984-06ec-4c9e-b5ed-d104f23e0734</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Ocp-Apim-Subscription-Key</stringProp>
-                <stringProp name="Header.value">258d786c688d4aa69fff2edbc36fdfdc</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="showtimes - threatres - film" enabled="true">
           <stringProp name="HTTPSampler.domain">apis.cineplex.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -209,7 +179,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Theatre">
+        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Theatre" enabled="true">
           <stringProp name="ForeachController.inputVal">theatre_ids</stringProp>
           <stringProp name="ForeachController.returnVal">theatre_id_var</stringProp>
           <boolProp name="ForeachController.useSeparator">true</boolProp>
@@ -277,7 +247,7 @@
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Film">
+          <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach Film" enabled="true">
             <stringProp name="ForeachController.inputVal">film_ids</stringProp>
             <stringProp name="ForeachController.returnVal">film_id_var</stringProp>
             <boolProp name="ForeachController.useSeparator">true</boolProp>
@@ -382,7 +352,7 @@
           <stringProp name="ConstantTimer.delay">100</stringProp>
         </ConstantTimer>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -419,7 +389,7 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>

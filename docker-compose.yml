@@ -1,0 +1,23 @@
+services:
+  selenium:
+    image: selenium/standalone-chrome:latest
+    shm_size: 2gb
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+
+  tests:
+    image: maven:3.9.11-eclipse-temurin-21
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    environment:
+      HEADLESS: "true"
+      SELENIUM_REMOTE_URL: "http://selenium:4444/wd/hub"
+      SUITE_XML_FILE: "SmokeTest.xml"
+    depends_on:
+      - selenium
+    command: >
+      bash -lc "mvn -B -ntp test
+      -DsuiteXmlFile=$${SUITE_XML_FILE}
+      -Dheadless=$${HEADLESS}"
