@@ -12,6 +12,16 @@ jobs:
   smoke:
     name: Smoke (PR/Push)
     runs-on: ubuntu-latest
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
+        options: >-
+          --health-cmd "curl -fsS http://localhost:4444/status || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 12
 
     steps:
       - name: Checkout
@@ -49,9 +59,23 @@ jobs:
           echo "== Effective compiler plugin snippet =="
           mvn -q help:effective-pom -DforceStdout | sed -n '/maven-compiler-plugin/,/\/plugin>/p'
 
+      - name: Wait for Selenium
+        run: |
+          for i in {1..30}; do
+            if curl -fsS http://localhost:4444/status | grep -q '"ready":[[:space:]]*true'; then
+              echo "Selenium is ready"
+              exit 0
+            fi
+            echo "Waiting for Selenium... ($i/30)"
+            sleep 2
+          done
+          echo "Selenium did not become ready in time"
+          exit 1
+
       - name: Run Smoke suite
         env:
           HEADLESS: "true"
+          SELENIUM_REMOTE_URL: "http://localhost:4444/wd/hub"
           API_MANAGER_SUBSCRIPTION_KEY: ${{ secrets.API_MANAGER_SUBSCRIPTION_KEY }}
           BASE_URL: ${{ secrets.BASE_URL }}
         run: |
@@ -71,6 +95,16 @@ jobs:
     name: Regression (Nightly)
     if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
+        options: >-
+          --health-cmd "curl -fsS http://localhost:4444/status || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 12
 
     steps:
       - name: Checkout
@@ -82,9 +116,23 @@ jobs:
           distribution: temurin
           java-version: "21"
 
+      - name: Wait for Selenium
+        run: |
+          for i in {1..30}; do
+            if curl -fsS http://localhost:4444/status | grep -q '"ready":[[:space:]]*true'; then
+              echo "Selenium is ready"
+              exit 0
+            fi
+            echo "Waiting for Selenium... ($i/30)"
+            sleep 2
+          done
+          echo "Selenium did not become ready in time"
+          exit 1
+
       - name: Run Regression suite
         env:
           HEADLESS: "true"
+          SELENIUM_REMOTE_URL: "http://localhost:4444/wd/hub"
           API_MANAGER_SUBSCRIPTION_KEY: ${{ secrets.API_MANAGER_SUBSCRIPTION_KEY }}
           BASE_URL: ${{ secrets.BASE_URL }}
         run: |
