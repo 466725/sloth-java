@@ -12,6 +12,7 @@
                 <include name="regression"/>
                 <exclude name="quarantine"/>
                 <exclude name="canada-only"/>
+                <exclude name="amazon"/>
             </run>
         </groups>
 

@@ -14,7 +14,7 @@ public class AmazonHomePageTest extends GuiTestCase {
     BaseWebPage homepage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.AMAZON})
     public void verifyTitle() {
         homepage = BaseWebPage.gotoHomePage("Amazon");
         logger.info("Title: " + driver.getTitle());

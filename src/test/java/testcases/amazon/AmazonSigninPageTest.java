@@ -14,7 +14,7 @@ public class AmazonSigninPageTest extends GuiTestCase {
     AmazonSigninPage amazonSigninPage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.AMAZON})
     public void verifyTitle() {
         amazonSigninPage = (AmazonSigninPage) basePage.gotoHomePage("Amazon").gotoSigninPage();
         Assert.assertTrue(driver.getTitle().contains(""), "Title verification failed");

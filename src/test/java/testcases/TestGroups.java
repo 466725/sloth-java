@@ -13,6 +13,8 @@ public final class TestGroups {
     public static final String INTEGRATION = "integration";
     public static final String QUARANTINE = "quarantine"; // Flaky test cases
     public static final String CANADA_ONLY = "canada-only"; // API can be called only within Canada
+    public static final String AMAZON = "amazon";
+    public static final String TANGERINE = "tangerine";
 
     // ...
     private TestGroups() {

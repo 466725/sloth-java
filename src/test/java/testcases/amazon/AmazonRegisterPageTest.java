@@ -19,7 +19,7 @@ public class AmazonRegisterPageTest extends GuiTestCase {
     AmazonRegisterPage amazonRegisterPage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE, TestGroups.AMAZON})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
         amazonSigninPage = (AmazonSigninPage) BaseWebPage.gotoHomePage("Amazon").gotoSigninPage();

@@ -13,7 +13,7 @@ public class TangerineHomePageTest extends GuiTestCase {
     BaseWebPage homepage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.TANGERINE})
     public void verifyTitle() {
         homepage = BaseWebPage.gotoHomePage("Tangerine");
         logger.info("Title: " + driver.getTitle());
