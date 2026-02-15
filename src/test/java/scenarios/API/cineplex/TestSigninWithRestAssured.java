@@ -32,6 +32,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
                 given()
                         .contentType(ContentType.JSON)     // sets Content-Type: application/json
                         .accept(ContentType.JSON)
+                        .header("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
                         .body(payload)
                         .when()
                         .post(connectURL + "/CreateApplicationSession")
@@ -59,6 +60,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
         Response response =
                 given()
                         .contentType(ContentType.JSON)
+                        .header("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
                         .body(payload)
                         .when()
                         .post(connectURL + "/login")
@@ -87,6 +89,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
         Response response =
                 given()
                         .contentType(ContentType.JSON)
+                        .header("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
                         .body(body)
                         .when()
                         .post(connectURL + "/login")

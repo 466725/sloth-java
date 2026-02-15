@@ -14,6 +14,7 @@ import testcases.ApiTestCase;
 import testcases.TestGroups;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 // For Demo purpose only
 public class TestSigninWithOKHttp extends ApiTestCase {
@@ -33,15 +34,21 @@ public class TestSigninWithOKHttp extends ApiTestCase {
                 .url(connectURL + "/CreateApplicationSession")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
                 .build();
 
         Response response = client.newCall(request).execute();
-        JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
+        String responseBody = response.body() != null ? response.body().string() : "";
+        logger.info("create_Application_Session_OKhttp_Call status: " + response.code());
+        logger.info("create_Application_Session_OKhttp_Call body: " + responseBody);
+        assertEquals(response.code(), 200);
+        assertTrue(responseBody.trim().startsWith("{"), "Expected JSON object response but got: " + responseBody);
+
+        JSONObject jsonBody = (JSONObject) parser.parse(responseBody);
         sessionToken = jsonBody.get("SessionToken").toString();
         logger.info("jsonBody: " + jsonBody);
         logger.info("sessionToken: " + sessionToken);
-
-        assertEquals(response.code(), 200);
     }
 
     // Login with the wrong username and password
@@ -63,12 +70,18 @@ public class TestSigninWithOKHttp extends ApiTestCase {
                 .url(connectURL + "/login")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)
                 .build();
 
         Response response = client.newCall(request).execute();
-        JSONObject jsonBody = (JSONObject) parser.parse(response.body().string());
-        logger.info("jsonBody: " + jsonBody);
-
+        String responseBody = response.body() != null ? response.body().string() : "";
+        logger.info("login_OKhttp_Call status: " + response.code());
+        logger.info("login_OKhttp_Call body: " + responseBody);
         assertEquals(response.code(), 200);
+        assertTrue(responseBody.trim().startsWith("{"), "Expected JSON object response but got: " + responseBody);
+
+        JSONObject jsonBody = (JSONObject) parser.parse(responseBody);
+        logger.info("jsonBody: " + jsonBody);
     }
 }
