@@ -10,6 +10,7 @@
         <groups>
             <run>
                 <include name="smoke"/>
+                <exclude name="canada-only"/>
             </run>
         </groups>
 
