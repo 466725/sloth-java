@@ -39,8 +39,10 @@ public class ApiTestCase extends TestCase {
         logger.info("-----------------------Beginning of class----------------------");
         // Read API manager subscription key from os environment variable
         // For security purposes, a subscription key not supposed to be hardcoded
-        if (System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null)
+        if (System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null) {
+            logger.info("apiManagerSubscriptionKey is: " + System.getenv("API_MANAGER_SUBSCRIPTION_KEY"));
             apiManagerSubscriptionKey = System.getenv("API_MANAGER_SUBSCRIPTION_KEY");
+        }
         else
             apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895"; // For testing purposes only
         cookieJar = new CookieJar() {
