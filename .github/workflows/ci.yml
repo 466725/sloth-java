@@ -81,8 +81,9 @@ jobs:
         run: |
           echo "HEADLESS=${HEADLESS}"
           echo "SELENIUM_REMOTE_URL=${SELENIUM_REMOTE_URL}"
+          test -n "${SELENIUM_REMOTE_URL}"
           curl -fsS http://localhost:4444/status || true
-          mvn -B -U -DsuiteXmlFile=SmokeTest.xml test
+          mvn -B -U -DsuiteXmlFile=SmokeTest.xml -Dselenium.remote.url="${SELENIUM_REMOTE_URL}" test
 
       - name: Upload test reports/artifacts
         if: always()
@@ -141,8 +142,9 @@ jobs:
         run: |
           echo "HEADLESS=${HEADLESS}"
           echo "SELENIUM_REMOTE_URL=${SELENIUM_REMOTE_URL}"
+          test -n "${SELENIUM_REMOTE_URL}"
           curl -fsS http://localhost:4444/status || true
-          mvn -B -U -DsuiteXmlFile=RegressionTest.xml test
+          mvn -B -U -DsuiteXmlFile=RegressionTest.xml -Dselenium.remote.url="${SELENIUM_REMOTE_URL}" test
 
       - name: Upload test reports/artifacts
         if: always()
