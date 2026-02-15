@@ -18,7 +18,7 @@ public class TestTangerineSignupFlow extends GuiTestCase {
     TangerineSignupPage tangerineSignupPage;
 
     // Verify title
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE})
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.QUARANTINE})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
         // Navigate to Tangerine Home Page, and then navigate to Signin Page
