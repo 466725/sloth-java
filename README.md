@@ -118,3 +118,41 @@ mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-D
 *   Run smoke on PR 
 *   Run regression nightly (or scheduled)
 *   upload reports + artifacts (screenshots/logs) as build artifacts
+
+## Run tests in local Docker environment
+
+```bash
+docker compose up --abort-on-container-exit --exit-code-from tests tests
+```
+
+Run specific suites quickly:
+
+```bash
+docker compose run --rm -e SUITE_XML_FILE=RegressionTest.xml tests
+```
+
+Debug Selenium visually:
+
+Open `http://localhost:7900` (VNC for the Selenium container).
+
+Inspect failing runs:
+
+```bash
+docker compose logs -f selenium
+docker compose logs -f tests
+```
+
+Validate CI parity before push:
+
+Confirm local Docker run passes with same env/secrets as CI.
+
+Keep environment clean/resettable:
+
+```bash
+docker compose down
+docker compose down -v
+```
+
+(`docker compose down -v` also removes volumes.)
+
+Pin/test image versions safely before changing CI (e.g., Selenium or Maven image tags).
