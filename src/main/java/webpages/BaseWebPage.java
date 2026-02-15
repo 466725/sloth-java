@@ -31,14 +31,21 @@ public class BaseWebPage {
     public static WebDriver getDriver(String browser) {
         if (driver != null)
             return driver;
+        WebDriver initializedDriver;
         if (browser == null) {
-            return createChromeDriver();
+            initializedDriver = createChromeDriver();
+        } else {
+            initializedDriver = switch (browser.toLowerCase()) {
+                case "firefox" -> createFirefoxDriver();
+                case "ie" -> createIEDriver();
+                default -> createChromeDriver();
+            };
         }
-        return switch (browser.toLowerCase()) {
-            case "firefox" -> createFirefoxDriver();
-            case "ie" -> createIEDriver();
-            default -> createChromeDriver();
-        };
+
+        if (initializedDriver == null) {
+            throw new IllegalStateException(buildDriverInitErrorMessage(browser));
+        }
+        return initializedDriver;
     }
 
     private static WebDriver createChromeDriver() {
@@ -93,13 +100,13 @@ public class BaseWebPage {
     }
 
     public static BaseWebPage gotoHomePage(String org) {
-        getDriver(PropertiesFileReader.getBrowser());
+        WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
         if (org.equalsIgnoreCase("Amazon")) {
-            driver.get(PropertiesFileReader.getAmazonURL());
-            return new AmazonHomePage(driver);
+            currentDriver.get(PropertiesFileReader.getAmazonURL());
+            return new AmazonHomePage(currentDriver);
         }
-        driver.get(PropertiesFileReader.getTangerineURL());
-        return new TangerineHomePage(driver);
+        currentDriver.get(PropertiesFileReader.getTangerineURL());
+        return new TangerineHomePage(currentDriver);
     }
 
     public BaseWebPage gotoSigninPage() {
@@ -116,5 +123,16 @@ public class BaseWebPage {
             return env;
         }
         return null;
+    }
+
+    private static String buildDriverInitErrorMessage(String browser) {
+        return String.format(
+                "WebDriver initialization failed. browser=%s, os.name=%s, SELENIUM_REMOTE_URL=%s. " +
+                        "On Linux CI, provide SELENIUM_REMOTE_URL (e.g. http://localhost:4444/wd/hub) " +
+                        "or use a supported local browser setup.",
+                browser,
+                System.getProperty("os.name"),
+                System.getenv("SELENIUM_REMOTE_URL")
+        );
     }
 }
