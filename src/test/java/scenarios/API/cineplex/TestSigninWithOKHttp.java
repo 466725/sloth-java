@@ -26,6 +26,7 @@ public class TestSigninWithOKHttp extends ApiTestCase {
 
     @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
     public void create_Application_Session_OKhttp_Call() throws Exception {
+        logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         RequestBody body = RequestBody
                 .create(mediaType,
                         "{\r\n\t\"ApplicationKey\": " +

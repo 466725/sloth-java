@@ -15,6 +15,7 @@ public class TestBarcodeGenerator extends ApiTestCase {
 
     @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.API, TestGroups.SMOKE})
     public void generate_Barcode_OKhttp_Call() throws Exception {
+        logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         Request request = new Request.Builder()
                 .url(PropertiesFileReader.getBarcodeBaseURL() + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
                 .method("GET", null)

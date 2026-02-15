@@ -28,7 +28,8 @@ import static com.google.common.base.Throwables.getStackTraceAsString;
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
     protected static OkHttpClient client = new OkHttpClient.Builder().build();
-    protected static String apiManagerSubscriptionKey = null;
+    // Better to read from environment, System.getenv("API_MANAGER_SUBSCRIPTION_KEY"));
+    protected static String apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895";
     protected CookieJar cookieJar = null;
 
     /**
@@ -37,14 +38,6 @@ public class ApiTestCase extends TestCase {
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         logger.info("-----------------------Beginning of class----------------------");
-        // Read API manager subscription key from os environment variable
-        // For security purposes, a subscription key not supposed to be hardcoded
-        if (System.getenv("API_MANAGER_SUBSCRIPTION_KEY") != null) {
-            logger.info("apiManagerSubscriptionKey is: " + System.getenv("API_MANAGER_SUBSCRIPTION_KEY"));
-            apiManagerSubscriptionKey = System.getenv("API_MANAGER_SUBSCRIPTION_KEY");
-        }
-        else
-            apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895"; // For testing purposes only
         cookieJar = new CookieJar() {
             private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
 

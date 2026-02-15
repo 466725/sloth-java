@@ -137,8 +137,6 @@ jobs:
         env:
           HEADLESS: "true"
           SELENIUM_REMOTE_URL: "http://localhost:4444/wd/hub"
-          API_MANAGER_SUBSCRIPTION_KEY: ${{ secrets.API_MANAGER_SUBSCRIPTION_KEY }}
-          BASE_URL: ${{ secrets.BASE_URL }}
         run: |
           echo "HEADLESS=${HEADLESS}"
           echo "SELENIUM_REMOTE_URL=${SELENIUM_REMOTE_URL}"
