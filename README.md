@@ -156,3 +156,69 @@ docker compose down -v
 (`docker compose down -v` also removes volumes.)
 
 Pin/test image versions safely before changing CI (e.g., Selenium or Maven image tags).
+
+## Using MySQL Docker Image Locally
+
+Local image available:
+
+* `db32c8ec843c` (`mysql:latest`)
+
+Create a persistent volume:
+
+```bash
+docker volume create sloth_mysql_data
+```
+
+Run MySQL container:
+
+```bash
+docker run -d \
+  --name sloth-mysql \
+  -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD=rootpass123 \
+  -e MYSQL_DATABASE=slothdb \
+  -e MYSQL_USER=slothuser \
+  -e MYSQL_PASSWORD=slothpass123 \
+  -v sloth_mysql_data:/var/lib/mysql \
+  db32c8ec843c
+```
+
+PowerShell (Windows) equivalent:
+
+```powershell
+docker run -d `
+  --name sloth-mysql `
+  -p 3306:3306 `
+  -e MYSQL_ROOT_PASSWORD=rootpass123 `
+  -e MYSQL_DATABASE=slothdb `
+  -e MYSQL_USER=slothuser `
+  -e MYSQL_PASSWORD=slothpass123 `
+  -v sloth_mysql_data:/var/lib/mysql `
+  db32c8ec843c
+```
+
+Check logs until startup completes:
+
+```bash
+docker logs -f sloth-mysql
+```
+
+Connect to MySQL shell:
+
+```bash
+docker exec -it sloth-mysql mysql -uroot -p
+```
+
+Container lifecycle commands:
+
+```bash
+docker ps
+docker stop sloth-mysql
+docker start sloth-mysql
+docker rm -f sloth-mysql
+```
+
+Notes:
+
+* Data is persisted in Docker volume `sloth_mysql_data`.
+* `docker rm -f sloth-mysql` removes the container, but not the volume data.
