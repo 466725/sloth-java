@@ -1,0 +1,113 @@
+USE slothdb;
+SHOW DATABASES;
+
+CREATE TABLE student(
+	student_id INT PRIMARY KEY,
+    name VARCHAR(20),
+    major VARCHAR(20)
+);
+
+DESCRIBE student;
+ALTER TABLE student ADD gpa DECIMAL(3,2);
+INSERT INTO student VALUES(1, 'Allen', 'Computer Engineering', 3.8);
+
+SELECT * 
+FROM student
+WHERE major IN('Computer Engineering', 'Computer Science');
+
+CREATE TABLE employee(
+	emp_id INT PRIMARY KEY,
+    name VARCHAR(20),
+    birth_date DATE,
+    sex VARCHAR(1),
+    salary INT,
+    branch_id INT,
+    sup_id INT
+);
+
+CREATE TABLE branch(
+	branch_id INT PRIMARY KEY,
+    branch_name VARCHAR(20),
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES employee(emp_id) ON DELETE SET NULL
+);
+
+ALTER TABLE employee
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER TABLE employee
+ADD FOREIGN KEY(sup_id)
+REFERENCES employee(emp_id)
+ON DELETE SET NULL;
+
+CREATE TABLE client(
+	client_id INT PRIMARY KEY,
+    client_name VARCHAR(20),
+    phone VARCHAR(20)
+);
+
+CREATE TABLE work_with(
+	emp_id INT,
+    client_id INT,
+    total_sales INT,
+    PRIMARY KEY(emp_id, client_id),
+    FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+    FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE CASCADE
+);
+
+INSERT INTO branch VALUES(3, 'Info', NULL);
+
+INSERT INTO employee VALUES(206, 'Yellow', '1998-02-04', 'F', 50000, 1, NULL);
+INSERT INTO employee VALUES(207, 'Green', '1985-07-03', 'M', 29000, 2, 206);
+INSERT INTO employee VALUES(208, 'Black', '2000-12-06', 'M', 35000, 3, 206);
+INSERT INTO employee VALUES(209, 'White', '1997-10-22', 'F', 39000, 3, 207);
+INSERT INTO employee VALUES(210, 'Blue', '1949-08-17', 'F', 84000, 1, 207);
+
+UPDATE branch
+SET manager_id = 208
+WHERE branch_id = 3;
+
+INSERT INTO client VALUES(400, 'dog', 3653214589);
+
+INSERT INTO work_with VALUE(206, 400, '70000');
+INSERT INTO work_with VALUE(207, 401, '24000');
+INSERT INTO work_with VALUE(208, 402, '9800');
+INSERT INTO work_with VALUE(208, 403, '24000');
+INSERT INTO work_with VALUE(210, 404, '87900');
+
+SELECT * 
+FROM client;
+
+SELECT * 
+FROM employee
+ORDER BY salary DESC
+LIMIT 3;
+
+SELECT count(*) 
+FROM employee
+WHERE birth_date > '1970-01-01'
+AND sex = 'F';
+
+SELECT name
+FROM employee
+UNION
+SELECT client_name
+FROM client
+UNION
+SELECT branch_name
+FROM branch;
+
+SELECT emp_id, name, branch_name
+FROM employee
+JOIN branch
+ON emp_id = manager_id;
+
+SELECT emp_id, name, branch_name
+FROM employee
+LEFT JOIN branch
+ON emp_id = manager_id;
+
+
+
