@@ -78,7 +78,7 @@ INSERT INTO work_with VALUE(208, 403, '24000');
 INSERT INTO work_with VALUE(210, 404, '87900');
 
 SELECT *
-FROM client;
+FROM branch;
 
 SELECT *
 FROM employee
@@ -109,5 +109,20 @@ FROM employee
 LEFT JOIN branch
 ON emp_id = manager_id;
 
+SELECT name
+FROM employee
+WHERE emp_id = (
+	SELECT manager_id
+    FROM branch
+    WHERE branch_name = 'R&D'
+);
+
+SELECT name
+FROM employee
+WHERE emp_id IN (
+	SELECT emp_id
+    FROM work_with
+    WHERE total_sales > 50000
+);
 
 
