@@ -157,68 +157,55 @@ docker compose down -v
 
 Pin/test image versions safely before changing CI (e.g., Selenium or Maven image tags).
 
-## Using MySQL Docker Image Locally
+## Share Tutorial MySQL DB with Teammates
 
-Local image available:
+This repository includes MySQL as a `docker compose` service. Seed SQL files are loaded from `docker/mysql/init` on first startup.
 
-* `db32c8ec843c` (`mysql:latest`)
-
-Create a persistent volume:
-
+1. Copy env template:
 ```bash
-docker volume create sloth_mysql_data
+cp .env.example .env
+MYSQL_PORT=3306
+MYSQL_ROOT_PASSWORD=rootpass123
+MYSQL_DATABASE=slothdb
+MYSQL_USER=slothuser
+MYSQL_PASSWORD=slothpass123
 ```
 
-Run MySQL container:
-
-```bash
-docker run -d \
-  --name sloth-mysql \
-  -p 3306:3306 \
-  -e MYSQL_ROOT_PASSWORD=rootpass123 \
-  -e MYSQL_DATABASE=slothdb \
-  -e MYSQL_USER=slothuser \
-  -e MYSQL_PASSWORD=slothpass123 \
-  -v sloth_mysql_data:/var/lib/mysql \
-  db32c8ec843c
-```
-
-PowerShell (Windows) equivalent:
-
+Windows PowerShell:
 ```powershell
-docker run -d `
-  --name sloth-mysql `
-  -p 3306:3306 `
-  -e MYSQL_ROOT_PASSWORD=rootpass123 `
-  -e MYSQL_DATABASE=slothdb `
-  -e MYSQL_USER=slothuser `
-  -e MYSQL_PASSWORD=slothpass123 `
-  -v sloth_mysql_data:/var/lib/mysql `
-  db32c8ec843c
+Copy-Item .env.example .env
 ```
 
-Check logs until startup completes:
+2. Add your tutorial DB dump to:
+* `docker/mysql/init/01_tutorial_db.sql`
 
+Example dump command from your running local MySQL container:
 ```bash
-docker logs -f sloth-mysql
+docker exec sloth-mysql mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --databases tutorial_db > docker/mysql/init/01_tutorial_db.sql
 ```
 
-Connect to MySQL shell:
+PowerShell example:
+```powershell
+docker exec sloth-mysql mysqldump -uroot -p"$env:MYSQL_ROOT_PASSWORD" --databases tutorial_db | Out-File -Encoding utf8 docker/mysql/init/01_tutorial_db.sql
+```
 
+3. Start MySQL:
 ```bash
-docker exec -it sloth-mysql mysql -uroot -p
+docker compose up -d mysql
 ```
 
-Container lifecycle commands:
-
+4. Start test stack (Selenium + tests + MySQL):
 ```bash
-docker ps
-docker stop sloth-mysql
-docker start sloth-mysql
-docker rm -f sloth-mysql
+docker compose up --abort-on-container-exit --exit-code-from tests tests
 ```
 
-Notes:
+Stop services:
+```bash
+docker compose down
+```
 
-* Data is persisted in Docker volume `sloth_mysql_data`.
-* `docker rm -f sloth-mysql` removes the container, but not the volume data.
+Reset DB and reseed from `docker/mysql/init/*.sql`:
+```bash
+docker compose down -v
+docker compose up -d mysql
+```
