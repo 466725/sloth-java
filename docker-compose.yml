@@ -27,8 +27,6 @@ services:
 
   appium:
     image: appium/appium:latest
-    profiles: ["mobile"]
-    restart: unless-stopped
     ports:
       - "4723:4723"
 

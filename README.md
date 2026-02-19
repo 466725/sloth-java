@@ -104,10 +104,11 @@ Best practices to keep the codebase consistent and maintainable:
 # Resolve dependencies
 mvn dependency:resolve
 
-# Execute tests
+# Execute tests (default smoke suite)
 mvn test -DsuiteXmlFile=SmokeTest.xml
 mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
-If you are on WIndows, quoting is safe: 
+
+# Windows PowerShell examples (quoting is safe)
 mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml"
 mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml" "-Dheadless=true"
 mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-Dheadless=true"
@@ -122,16 +123,17 @@ mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-D
 ## Run tests in local Docker environment
 
 ```bash
-docker start sloth-mysql
-docker compose up -d selenium
+# Start dependencies
+docker compose up -d mysql selenium
+
+# Run tests (ephemeral Maven container)
 docker compose run --rm --no-deps tests
-docker compose up --no-deps --abort-on-container-exit --exit-code-from tests tests
 ```
 
 Run specific suites quickly:
 
 ```bash
-docker compose run --rm -e SUITE_XML_FILE=RegressionTest.xml tests
+docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
 
 Debug Selenium visually:
@@ -184,12 +186,12 @@ Copy-Item .env.example .env
 
 Example dump command from your running local MySQL container:
 ```bash
-docker exec sloth-mysql mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --databases tutorial_db > docker/mysql/init/01_tutorial_db.sql
+docker compose exec -T mysql mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --databases tutorial_db > docker/mysql/init/01_tutorial_db.sql
 ```
 
 PowerShell example:
 ```powershell
-docker exec sloth-mysql mysqldump -uroot -p"$env:MYSQL_ROOT_PASSWORD" --databases tutorial_db | Out-File -Encoding utf8 docker/mysql/init/01_tutorial_db.sql
+docker compose exec -T mysql mysqldump -uroot -p"$env:MYSQL_ROOT_PASSWORD" --databases tutorial_db | Out-File -Encoding utf8 docker/mysql/init/01_tutorial_db.sql
 ```
 
 3. Start MySQL:
@@ -215,36 +217,31 @@ docker compose up -d mysql
 
 ## Run Android tests with Appium Docker
 
-Use this flow to start an Appium server in Docker and create a new `AndroidDriver` from Java.
+Use this flow to start an Appium server in Docker Compose and create a new `AndroidDriver` from Java.
 
-1. Start Appium container:
+1. Start Appium service:
 ```bash
-docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name appium-container appium/appium
+docker compose up -d appium
 ```
 
 2. Verify Appium is ready:
 ```bash
-docker exec -it appium-container adb devices
+curl http://127.0.0.1:4723/status
 ```
 
 3. Ensure your Android device or emulator is available:
 * Start an emulator in Android Studio, or connect a real device with USB debugging enabled.
-* Confirm it is visible:
+* For a real USB device, update `docker-compose.yml` with `privileged: true` and a USB mount, then verify:
 ```bash
-docker exec -it appium-container adb devices
-Copy the apk file into the container
-docker cp /home/myuser/localfolder/app-debug.apk appium-container:/home/androidusr/sample.apk
-Desired Capabilities:
-private void androidSetup() throws MalformedURLException {
-        caps.setCapability("deviceName", "Android");
-        caps.setCapability("app", "/home/androidusr/sample.apk");
-        //Get the IP Address of boot2docker
-        //docker inspect $(docker ps -q) | grep IPA
-        driver = new AndroidDriver<MobileElement>(new URL("http://192.168.99.100:32769/wd/hub"), caps);
-}
+docker compose exec appium adb devices
 ```
 
-4. Stop and remove container when done:
+4. Example Appium server URL in tests:
 ```bash
-docker rm -f appium-server
+http://127.0.0.1:4723
+```
+
+5. Stop Appium when done:
+```bash
+docker compose stop appium
 ```
