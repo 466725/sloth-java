@@ -209,3 +209,39 @@ Reset DB and reseed from `docker/mysql/init/*.sql`:
 docker compose down -v
 docker compose up -d mysql
 ```
+
+## Run Android tests with Appium Docker
+
+Use this flow to start an Appium server in Docker and create a new `AndroidDriver` from Java.
+
+1. Start Appium container:
+```bash
+docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name appium-container appium/appium
+```
+
+2. Verify Appium is ready:
+```bash
+docker exec -it appium-container adb devices
+```
+
+3. Ensure your Android device or emulator is available:
+* Start an emulator in Android Studio, or connect a real device with USB debugging enabled.
+* Confirm it is visible:
+```bash
+docker exec -it appium-container adb devices
+Copy the apk file into the container
+docker cp /home/myuser/localfolder/app-debug.apk appium-container:/home/androidusr/sample.apk
+Desired Capabilities:
+private void androidSetup() throws MalformedURLException {
+        caps.setCapability("deviceName", "Android");
+        caps.setCapability("app", "/home/androidusr/sample.apk");
+        //Get the IP Address of boot2docker
+        //docker inspect $(docker ps -q) | grep IPA
+        driver = new AndroidDriver<MobileElement>(new URL("http://192.168.99.100:32769/wd/hub"), caps);
+}
+```
+
+4. Stop and remove container when done:
+```bash
+docker rm -f appium-server
+```
