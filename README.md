@@ -122,7 +122,10 @@ mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-D
 ## Run tests in local Docker environment
 
 ```bash
-docker compose up --abort-on-container-exit --exit-code-from tests tests
+docker start sloth-mysql
+docker compose up -d selenium
+docker compose run --rm --no-deps tests
+docker compose up --no-deps --abort-on-container-exit --exit-code-from tests tests
 ```
 
 Run specific suites quickly:
