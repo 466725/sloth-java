@@ -1,6 +1,6 @@
 services:
   mysql:
-    image: mysql@sha256:99d774bf02a48a1bb1c599920d2571946d31e5940b854b02737d5e95c184358f
+    image: mysql:latest
     restart: unless-stopped
     ports:
       - "${MYSQL_PORT:-3306}:3306"

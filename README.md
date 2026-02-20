@@ -143,7 +143,7 @@ docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
 
 Note:
-`docker-compose.yml` pins images by digest for reproducible runs. To intentionally refresh to newer image versions, update digests in `docker-compose.yml` after validation.
+`docker-compose.yml` pins most test infrastructure images by digest for reproducible runs. MySQL is intentionally set to `mysql:latest`.
 
 ---
 
