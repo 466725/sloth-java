@@ -122,14 +122,14 @@ mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
 ---
 
 ### Using CI/CD of GitHub Actions
-*   Run smoke on PR
-*   Run mobile-web smoke on PR/push (Selenium mobile emulation on GitHub runner)
-*   Run regression nightly (or scheduled)
+*   Run smoke SmokeTest.xml on PR
+*   Run mobile-web smoke MobileWebSmokeTest.xml on PR/push (Selenium mobile emulation on GitHub runner)
+*   Run regression RegressionTest.xml nightly (or scheduled)
 *   Upload reports + artifacts (screenshots/logs) as build artifacts
 
 ---
 
-## Run non-mobile tests in local Docker environment
+## Run non-mobile tests RegressionTest.xml in local Docker environment
 
 ```bash
 # Start dependencies
@@ -147,7 +147,7 @@ Note:
 
 ---
 
-## Run mobile web tests in local Docker environment
+## Run mobile web tests MobileWebSmokeTest.xml in local Docker environment
 
 ```bash
 # Start dependencies
@@ -165,7 +165,7 @@ This path does not require an Appium container. It uses Selenium mobile emulatio
 
 ---
 
-## Run mobile app tests in local Docker environment
+## Run mobile app tests MobileAppSmokeTest.xml in local Docker environment
 
 ```bash
 # Start Google emulator + dedicated Appium sidecar + MySQL
