@@ -7,6 +7,7 @@
     </listeners>
 
     <test name="MobileSmoke" parallel="false">
+        <!-- Local only: this suite requires Appium + Android emulator/device and is not run on GitHub hosted CI. -->
         <classes>
             <class name="testcases.mobile.web.TestAmazonMobileSigninPage"/>
             <class name="testcases.mobile.app.TestAndroidDeviceConnectivity"/>

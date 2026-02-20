@@ -117,7 +117,7 @@ mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-D
 
 ### Using CI/CD of GitHub Actions
 *   Run smoke on PR 
-*   Run mobile smoke (Appium + Android emulator) on PR/push
+*   Run mobile-web smoke on PR/push (Selenium mobile emulation on GitHub runner)
 *   Run regression nightly (or scheduled)
 *   upload reports + artifacts (screenshots/logs) as build artifacts
 
@@ -220,7 +220,7 @@ docker compose up -d mysql
 
 Use one of these Docker Compose profiles for Android mobile-web tests.
 
-### Option A: Dockerized emulator (GitHub CI path, recommended)
+### Option A: Dockerized emulator (local only)
 
 1. Start and run the mobile suite (includes `TestAmazonMobileSigninPage` + `TestAndroidDeviceConnectivity`):
 ```bash
@@ -254,3 +254,16 @@ Stop services:
 docker compose --profile mobile-emulator down
 docker compose --profile mobile-host down
 ```
+
+### Why Mobile App + Emulator is local-only (not GitHub hosted runners)
+
+`TestAndroidDeviceConnectivity` and other Appium+real-Android-session flows are kept for local execution.
+
+Reason:
+* On GitHub-hosted runners, Dockerized Android emulator startup is not stable/reliable enough for this project.
+* The emulator image is large and boot readiness is inconsistent in the hosted CI environment.
+* This caused repeated `unhealthy` container states and Appium connection failures during CI.
+
+Current CI strategy:
+* GitHub runs `MobileWebSmokeTest.xml` with Selenium mobile emulation (`MOBILE_WEB_RUN_MODE=selenium`).
+* Appium + Android emulator/device validation is executed locally.

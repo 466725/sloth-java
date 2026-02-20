@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import testcases.TestCase;
 
 import java.net.URL;
@@ -18,7 +19,7 @@ public abstract class MobileTestCase extends TestCase {
     protected static final Logger logger = LogManager.getLogger(MobileTestCase.class.getName());
     protected static final String DEFAULT_APPIUM_URL = "http://127.0.0.1:4723";
 
-    protected AndroidDriver driver;
+    protected WebDriver driver;
 
     protected AndroidDriver startAndroidSession(UiAutomator2Options options, int implicitWaitSeconds) throws Exception {
         String appiumServerUrl = getEnvOrDefault("APPIUM_SERVER_URL", DEFAULT_APPIUM_URL);
