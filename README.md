@@ -55,18 +55,21 @@ Ensure you have the following installed:
 
 Best practices to keep the codebase consistent and maintainable:
 
-*   Prefer `@Getter` and `@Setter` annotations over manual getter/setter methods to reduce boilerplate.
-*   Keep classes focused on a single responsibility; extract helpers when a class grows too large.
+*   Prefer `@Getter` and `@Setter` annotations over manual getter/setter methods.
+*   Keep classes focused on a single responsibility.
+*   Extract helpers when a class grows too large.
 *   Keep methods short and focused on a single task.
-*   Use descriptive names for tests and methods; avoid abbreviations that obscure intent.
-*   Favor constructor injection for required dependencies and avoid field mutation after construction.
+*   Use descriptive names for tests and methods.
+*   Avoid abbreviations that obscure intent.
 
 ---
 
 ## Configuration & Secrets
-*   All configuration is done via `src/main/resources/config.properties`.
+*   All configuration are done via `src/main/resources/config.properties`.
 *   Secrets are stored in `src/main/resources/secrets.properties`.
 *   Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
+
+---
 
 ## Running Tests
 
@@ -79,13 +82,6 @@ Best practices to keep the codebase consistent and maintainable:
 * integration (API + UI thin slice)
 * quarantine (flaky/under investigation)
 
-Group examples:
-```bash
-mvn test -Dgroups=smoke
-mvn test -Dgroups=api
-mvn test -Dgroups=ui-web
-```
-
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
 * Listener is registered via ServiceLoader: `src/test/resources/META-INF/services/org.testng.ITestNGListener`.
@@ -94,13 +90,16 @@ mvn test -Dgroups=ui-web
 ### Extent Report Config
 * Report styling/metadata is loaded by `config.ExtentReportHandler`.
 * Default config file: `src/main/resources/extent-report-config.xml`.
-* If your changes are not reflected, confirm the file is on the test classpath and rerun the suite.
+
+---
 
 ### Using the IDE
 *   Import the project as a **Maven Project**.
-*   Right-click on your `testRunner/suiteFiles/SanityTest.xml` (or specific test classes) and select **Run as TestNG Suite**.
-*   To run tests as TestNG on Eclipse, install the TestNG plugin (`Help -> Eclipse Marketplace`).
-*   GitHub Copilot for Eclipse is recommended (`Help -> Eclipse Marketplace`).
+*   Install the TestNG plugin (`Help -> Eclipse Marketplace`) to Eclipse.
+*   IntelliJ IDEA shows run icons by default. 
+*   Right-click test methods with TestNG @test annotation -> select **Run as TestNG Suite**.
+
+---
 
 ### Using Command Line
 ```bash
@@ -108,21 +107,27 @@ mvn test -Dgroups=ui-web
 mvn dependency:resolve
 
 # Execute tests (default smoke suite)
+mvn test -Dgroups=smoke
+mvn test -Dgroups=api
+mvn test -Dgroups=ui-web
 mvn test -DsuiteXmlFile=SmokeTest.xml
 mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
 
 # Windows PowerShell examples (quoting is safe)
 mvn test "-DsuiteXmlFile=SmokeTest.xml"
 mvn test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
-mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true"
 mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
 ```
+
+---
 
 ### Using CI/CD of GitHub Actions
 *   Run smoke on PR
 *   Run mobile-web smoke on PR/push (Selenium mobile emulation on GitHub runner)
 *   Run regression nightly (or scheduled)
 *   Upload reports + artifacts (screenshots/logs) as build artifacts
+
+---
 
 ## Run non-mobile tests in local Docker environment
 
@@ -136,6 +141,8 @@ docker compose run --rm --no-deps tests
 # Run a specific non-mobile suite
 docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
+
+---
 
 ## Run mobile web tests in local Docker environment
 
@@ -152,6 +159,8 @@ Open `http://localhost:7900` (VNC for the Selenium container).
 
 Note:
 This path does not require an Appium container. It uses Selenium mobile emulation, same as CI.
+
+---
 
 ## Run mobile app tests in local Docker environment
 
@@ -185,16 +194,18 @@ docker compose --profile mobile-emulator down
 docker compose down -v
 ```
 
-(`docker compose down -v` also removes volumes.)
+Why Mobile App + Emulator is local-only (not GitHub hosted runners)
+
+* GitHub CI runs `MobileWebSmokeTest.xml`
+* But Appium with Android device emulator is executed only locally `MobileAppSmokeTest.xml`. Reasons:
+    * On GitHub-hosted runners, Dockerized Android emulator startup is slow.
+    * The emulator image is 9GB large.
+
+---
 
 ## Share Tutorial MySQL DB with Teammates
 
 This repository includes MySQL as a `docker compose` service. Seed SQL files are loaded from `docker/mysql/init` on first startup.
-
-1. Copy env template:
-```bash
-cp .env.example .env
-```
 
 Then set these values in `.env`:
 ```env
@@ -205,12 +216,7 @@ MYSQL_USER=slothuser
 MYSQL_PASSWORD=slothpass123
 ```
 
-Windows PowerShell:
-```powershell
-Copy-Item .env.example .env
-```
-
-2. Add your tutorial DB dump to:
+Add your tutorial DB dump to:
 * `docker/mysql/init/01_tutorial_db.sql`
 
 Example dump command from your running local MySQL container:
@@ -222,78 +228,3 @@ PowerShell example:
 ```powershell
 docker compose exec -T mysql mysqldump -uroot -p"$env:MYSQL_ROOT_PASSWORD" --databases tutorial_db | Out-File -Encoding utf8 docker/mysql/init/01_tutorial_db.sql
 ```
-
-3. Start MySQL:
-```bash
-docker compose up -d mysql
-```
-
-4. Start test stack (Selenium + tests + MySQL):
-```bash
-docker compose up --abort-on-container-exit --exit-code-from tests tests
-```
-
-Stop services:
-```bash
-docker compose down
-```
-
-Reset DB and reseed from `docker/mysql/init/*.sql`:
-```bash
-docker compose down -v
-docker compose up -d mysql
-```
-
-## Run Android tests with Appium Docker
-
-Use one of these local profiles when running tests from your host machine (without the Docker `tests` container).
-
-### Option A: Dockerized emulator (local only)
-
-1. Start Android emulator container (includes Appium endpoint):
-```bash
-docker compose --profile mobile-emulator up -d android-emulator
-```
-
-2. Run the local mobile suite from host:
-```bash
-$env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
-$env:ANDROID_DEVICE_NAME="Android"
-mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
-```
-
-3. Inspect emulator UI (noVNC):
-Open `http://localhost:6080`
-
-### Option B: Host Android device/emulator + Appium container
-
-1. Start Appium service:
-```bash
-docker compose --profile mobile-host up -d appium
-```
-
-2. Run mobile web suite from host (pointing to Appium on localhost):
-```bash
-$env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
-$env:MOBILE_WEB_RUN_MODE="appium"
-mvn test "-DsuiteXmlFile=MobileWebSmokeTest.xml"
-```
-
-Stop services:
-```bash
-docker compose --profile mobile-emulator down
-docker compose --profile mobile-host down
-```
-
-### Why Mobile App + Emulator is local-only (not GitHub hosted runners)
-
-`TestAndroidDeviceConnectivity` and other Appium+real-Android-session flows are kept for local execution.
-
-Reason:
-* On GitHub-hosted runners, Dockerized Android emulator startup is not stable/reliable enough for this project.
-* The emulator image is large and boot readiness is inconsistent in the hosted CI environment.
-* This caused repeated `unhealthy` container states and Appium connection failures during CI.
-
-Current CI strategy:
-* GitHub runs `MobileWebSmokeTest.xml` with Selenium mobile emulation (`MOBILE_WEB_RUN_MODE=selenium`).
-* Appium + Android emulator/device validation is executed locally.

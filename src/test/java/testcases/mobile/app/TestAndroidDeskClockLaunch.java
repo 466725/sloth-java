@@ -42,7 +42,7 @@ public class TestAndroidDeskClockLaunch extends MobileTestCase {
         quitDriver();
     }
 
-    @Test(groups = {TestGroups.SMOKE, TestGroups.UI_MOBILE_APP, TestGroups.INTEGRATION})
+    @Test(groups = {TestGroups.UI_MOBILE_APP, TestGroups.INTEGRATION})
     public void verifyDeskClockCanBeLaunched() {
         Assert.assertTrue(driver instanceof AndroidDriver, "Expected AndroidDriver session.");
         AndroidDriver androidDriver = (AndroidDriver) driver;

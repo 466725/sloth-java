@@ -10,12 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.TestGroups;
-import testcases.mobile.WebTestCase;
+import testcases.mobile.MobileTestCase;
 
 import java.time.Duration;
 import java.util.List;
 
-public class TestAmazonMobileSigninPage extends WebTestCase {
+public class TestAmazonMobileSigninPage extends MobileTestCase {
     private static final Logger logger = LogManager.getLogger(TestAmazonMobileSigninPage.class.getName());
     private static final By EMAIL_INPUT = By.cssSelector("#ap_email, input[name='email'], input[type='email']");
     private static final By CONTINUE_BUTTON = By.cssSelector("#continue, input[name='continue']");
