@@ -160,7 +160,7 @@ This path does not require an Appium container. It uses Selenium mobile emulatio
 docker compose --profile mobile-emulator up -d android-emulator mysql
 
 # Run mobile app suite in Docker
-docker compose --profile mobile-emulator run --rm --no-deps -e SUITE_XML_FILE=MobileAppSmokeTest.xml -e APPIUM_SERVER_URL=http://android-emulator:4723/wd/hub tests
+docker compose --profile mobile-emulator run --rm --no-deps -e SUITE_XML_FILE=MobileAppSmokeTest.xml -e APPIUM_SERVER_URL=http://android-emulator:4723 tests
 ```
 
 Note:
@@ -257,7 +257,7 @@ docker compose --profile mobile-emulator up -d android-emulator
 
 2. Run the local mobile suite from host:
 ```bash
-$env:APPIUM_SERVER_URL="http://127.0.0.1:4723/wd/hub"
+$env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
 $env:ANDROID_DEVICE_NAME="Android"
 mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
 ```
@@ -274,7 +274,7 @@ docker compose --profile mobile-host up -d appium
 
 2. Run mobile web suite from host (pointing to Appium on localhost):
 ```bash
-$env:APPIUM_SERVER_URL="http://127.0.0.1:4723/wd/hub"
+$env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
 $env:MOBILE_WEB_RUN_MODE="appium"
 mvn test "-DsuiteXmlFile=MobileWebSmokeTest.xml"
 ```
