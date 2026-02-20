@@ -13,6 +13,8 @@ import testutils.CommandUtils;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.time.Duration;
 
 public class TestAndroidDeviceConnectivity extends MobileTestCase {
@@ -31,30 +33,31 @@ public class TestAndroidDeviceConnectivity extends MobileTestCase {
     }
 
     private void assertAppiumStatusReachable(String appiumServerUrl) throws Exception {
-        String normalized = appiumServerUrl.endsWith("/") ? appiumServerUrl.substring(0, appiumServerUrl.length() - 1) : appiumServerUrl;
-        String statusUrl = normalized + "/status";
         long timeoutMillis = Duration.ofSeconds(getIntEnvOrDefault("APPIUM_STATUS_TIMEOUT_SECONDS", 120)).toMillis();
         long deadline = System.currentTimeMillis() + timeoutMillis;
         Exception lastError = null;
+        List<String> statusUrls = buildStatusUrls(appiumServerUrl);
 
         while (System.currentTimeMillis() < deadline) {
-            try {
-                HttpURLConnection connection = (HttpURLConnection) new URL(statusUrl).openConnection();
-                connection.setRequestMethod("GET");
-                connection.setConnectTimeout(5000);
-                connection.setReadTimeout(5000);
-                int statusCode = connection.getResponseCode();
-                if (statusCode == 200) {
-                    return;
+            for (String statusUrl : statusUrls) {
+                try {
+                    HttpURLConnection connection = (HttpURLConnection) new URL(statusUrl).openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(5000);
+                    connection.setReadTimeout(5000);
+                    int statusCode = connection.getResponseCode();
+                    if (statusCode == 200) {
+                        return;
+                    }
+                    lastError = new IllegalStateException("Received status code " + statusCode + " from " + statusUrl);
+                } catch (IOException exception) {
+                    lastError = exception;
                 }
-                lastError = new IllegalStateException("Received status code " + statusCode);
-            } catch (IOException exception) {
-                lastError = exception;
             }
             Thread.sleep(2000);
         }
 
-        throw new IllegalStateException("Appium status endpoint is not reachable at " + statusUrl, lastError);
+        throw new IllegalStateException("Appium status endpoint is not reachable. URLs tried: " + statusUrls, lastError);
     }
 
     private boolean tryVerifyViaDockerAdb() {
@@ -103,5 +106,19 @@ public class TestAndroidDeviceConnectivity extends MobileTestCase {
                 probeDriver.quit();
             }
         }
+    }
+
+    private List<String> buildStatusUrls(String appiumServerUrl) {
+        String normalized = appiumServerUrl.endsWith("/") ? appiumServerUrl.substring(0, appiumServerUrl.length() - 1) : appiumServerUrl;
+        List<String> statusUrls = new ArrayList<>();
+        statusUrls.add(normalized + "/status");
+
+        if (normalized.endsWith("/wd/hub")) {
+            String root = normalized.substring(0, normalized.length() - "/wd/hub".length());
+            statusUrls.add(root + "/status");
+        } else {
+            statusUrls.add(normalized + "/wd/hub/status");
+        }
+        return statusUrls;
     }
 }

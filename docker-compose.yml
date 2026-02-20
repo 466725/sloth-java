@@ -41,6 +41,12 @@ services:
     ports:
       - "4723:4723"
       - "6080:6080"
+    healthcheck:
+      test: [ "CMD-SHELL", "bash -c '</dev/tcp/127.0.0.1/4723'" ]
+      interval: 15s
+      timeout: 5s
+      retries: 40
+      start_period: 60s
 
   mobile-tests:
     image: maven:3.9.11-eclipse-temurin-21
@@ -49,13 +55,16 @@ services:
     volumes:
       - ./:/workspace
     environment:
-      APPIUM_SERVER_URL: "http://android-emulator:4723"
+      APPIUM_SERVER_URL: "http://android-emulator:4723/wd/hub"
       ANDROID_DEVICE_NAME: "Android"
       MOBILE_CONTAINER_NAME: "android-emulator"
       SUITE_XML_FILE: "MobileSmokeTest.xml"
+      APPIUM_STATUS_TIMEOUT_SECONDS: "240"
+      ANDROID_SESSION_RETRY_COUNT: "12"
+      ANDROID_SESSION_RETRY_DELAY_SECONDS: "10"
     depends_on:
       android-emulator:
-        condition: service_started
+        condition: service_healthy
     command: >
       bash -lc "mvn -B -ntp test
       -DsuiteXmlFile=$${SUITE_XML_FILE}"
