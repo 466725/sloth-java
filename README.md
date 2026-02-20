@@ -217,31 +217,39 @@ docker compose up -d mysql
 
 ## Run Android tests with Appium Docker
 
-Use this flow to start an Appium server in Docker Compose and create a new `AndroidDriver` from Java.
+Use one of these Docker Compose profiles for Android mobile-web tests.
+
+### Option A: Dockerized emulator (recommended for full containerized run)
+
+1. Start and run the mobile suite:
+```bash
+docker compose --profile mobile-emulator up --abort-on-container-exit --exit-code-from mobile-tests mobile-tests
+```
+
+2. Inspect emulator UI (noVNC):
+Open `http://localhost:6080`
+
+3. If you want to keep emulator running and run tests manually:
+```bash
+docker compose --profile mobile-emulator up -d android-emulator
+mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
+```
+
+### Option B: Host Android device/emulator + Appium container
 
 1. Start Appium service:
 ```bash
-docker compose up -d appium
+docker compose --profile mobile-host up -d appium
 ```
 
-2. Verify Appium is ready:
+2. Run mobile suite from host (pointing to Appium on localhost):
 ```bash
-curl http://127.0.0.1:4723/status
+$env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
+mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
 ```
 
-3. Ensure your Android device or emulator is available:
-* Start an emulator in Android Studio, or connect a real device with USB debugging enabled.
-* For a real USB device, update `docker-compose.yml` with `privileged: true` and a USB mount, then verify:
+Stop services:
 ```bash
-docker compose exec appium adb devices
-```
-
-4. Example Appium server URL in tests:
-```bash
-http://127.0.0.1:4723
-```
-
-5. Stop Appium when done:
-```bash
-docker compose stop appium
+docker compose --profile mobile-emulator down
+docker compose --profile mobile-host down
 ```

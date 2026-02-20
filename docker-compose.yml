@@ -13,7 +13,7 @@ services:
       - mysql_data:/var/lib/mysql
       - ./docker/mysql/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-rootpass123}"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-rootpass123}" ]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -27,8 +27,35 @@ services:
 
   appium:
     image: appium/appium:latest
+    profiles: ["mobile-host"]
     ports:
       - "4723:4723"
+
+  android-emulator:
+    image: budtmo/docker-android:emulator_11.0
+    profiles: ["mobile-emulator"]
+    privileged: true
+    shm_size: 2gb
+    ports:
+      - "4723:4723"
+      - "6080:6080"
+
+  mobile-tests:
+    image: maven:3.9.11-eclipse-temurin-21
+    profiles: ["mobile-emulator"]
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    environment:
+      APPIUM_SERVER_URL: "http://android-emulator:4723/wd/hub"
+      ANDROID_DEVICE_NAME: "Android"
+      SUITE_XML_FILE: "MobileSmokeTest.xml"
+    depends_on:
+      android-emulator:
+        condition: service_started
+    command: >
+      bash -lc "mvn -B -ntp test
+      -DsuiteXmlFile=$${SUITE_XML_FILE}"
 
   tests:
     image: maven:3.9.11-eclipse-temurin-21
