@@ -7,7 +7,8 @@ public final class TestGroups {
     final static Logger logger = LogManager.getLogger(TestGroups.class.getName());
     public static final String API = "api";
     public static final String UI_WEB = "ui-web";
-    public static final String UI_MOBILE = "ui-mobile";
+    public static final String UI_MOBILE_APP = "ui-mobile-app";
+    public static final String UI_MOBILE_WEB = "ui-mobile-web";
     public static final String SMOKE = "smoke";
     public static final String REGRESSION = "regression";
     public static final String INTEGRATION = "integration";

@@ -24,7 +24,7 @@ public class TestAmazonMobileSigninPage extends WebTestCase {
     private static final By CAPTCHA_INPUT = By.cssSelector("input[name='cvf_captcha_input'], input#captchacharacters");
     private static final By CONSENT_ACCEPT = By.cssSelector("#sp-cc-accept, input[name='accept']");
 
-    @Test(groups = {TestGroups.SMOKE, TestGroups.UI_MOBILE, TestGroups.AMAZON, TestGroups.INTEGRATION})
+    @Test(groups = {TestGroups.SMOKE, TestGroups.INTEGRATION, TestGroups.UI_MOBILE_WEB, TestGroups.AMAZON})
     public void verifyAmazonSigninFlowOnAndroidChrome() {
         String signinUrl = getEnvOrDefault("AMAZON_SIGNIN_URL", DEFAULT_AMAZON_SIGNIN_URL);
         driver.get(signinUrl);

@@ -20,7 +20,7 @@ import java.time.Duration;
 public class TestAndroidDeviceConnectivity extends MobileTestCase {
     private final static Logger logger = LogManager.getLogger(TestAndroidDeviceConnectivity.class.getName());
 
-    @Test(groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE})
+    @Test(groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
     public void verifyAppiumAndAndroidDeviceConnectivity() throws Exception {
         String appiumServerUrl = getEnvOrDefault("APPIUM_SERVER_URL", DEFAULT_APPIUM_URL);
         assertAppiumStatusReachable(appiumServerUrl);
@@ -29,7 +29,7 @@ public class TestAndroidDeviceConnectivity extends MobileTestCase {
             return;
         }
 
-        verifyByStartingAndroidChromeSession();
+        verifyByStartingAndroidSession();
     }
 
     private void assertAppiumStatusReachable(String appiumServerUrl) throws Exception {
@@ -89,13 +89,15 @@ public class TestAndroidDeviceConnectivity extends MobileTestCase {
         }
     }
 
-    private void verifyByStartingAndroidChromeSession() throws Exception {
+    private void verifyByStartingAndroidSession() throws Exception {
         String deviceName = getEnvOrDefault("ANDROID_DEVICE_NAME", "Android");
         UiAutomator2Options options = new UiAutomator2Options()
                 .setPlatformName("Android")
                 .setAutomationName("UiAutomator2")
-                .setDeviceName(deviceName);
-        options.setCapability("browserName", "Chrome");
+                .setDeviceName(deviceName)
+                // Use Android Settings app for connectivity probing to avoid ChromeDriver dependency mismatch.
+                .setAppPackage("com.android.settings")
+                .setAppActivity(".Settings");
 
         AndroidDriver probeDriver = null;
         try {
