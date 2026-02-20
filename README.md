@@ -218,23 +218,24 @@ docker compose up -d mysql
 
 ## Run Android tests with Appium Docker
 
-Use one of these Docker Compose profiles for Android mobile-web tests.
+Use one of these local profiles for Android tests.
 
 ### Option A: Dockerized emulator (local only)
 
-1. Start and run the mobile suite (includes `TestAmazonMobileSigninPage` + `TestAndroidDeviceConnectivity`):
-```bash
-docker compose --profile mobile-emulator up --abort-on-container-exit --exit-code-from mobile-tests mobile-tests
-```
-
-2. Inspect emulator UI (noVNC):
-Open `http://localhost:6080`
-
-3. If you want to keep emulator running and run tests manually:
+1. Start Android emulator container (includes Appium endpoint):
 ```bash
 docker compose --profile mobile-emulator up -d android-emulator
+```
+
+2. Run the local mobile suite from host:
+```bash
+$env:APPIUM_SERVER_URL="http://127.0.0.1:4723/wd/hub"
+$env:ANDROID_DEVICE_NAME="Android"
 mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
 ```
+
+3. Inspect emulator UI (noVNC):
+Open `http://localhost:6080`
 
 ### Option B: Host Android device/emulator + Appium container
 
@@ -245,7 +246,7 @@ docker compose --profile mobile-host up -d appium
 
 2. Run mobile web suite from host (pointing to Appium on localhost):
 ```bash
-$env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
+$env:APPIUM_SERVER_URL="http://127.0.0.1:4723/wd/hub"
 mvn test "-DsuiteXmlFile=MobileWebSmokeTest.xml"
 ```
 
