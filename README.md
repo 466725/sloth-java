@@ -22,7 +22,7 @@ This project provides robust capabilities for load, performance, and functional 
 
 Ensure you have the following installed:
 
-*   **JDK 25** or higher
+*   **JDK 21** or higher
 *   **Maven 3.6+**
 *   **Git**
 *   An IDE (IntelliJ IDEA recommended)
@@ -35,10 +35,10 @@ Ensure you have the following installed:
     cd sloth-java
     ```
 
-2.  **Configure Java 25**
-    Ensure your `settings.xml` or project properties are set to Java 25. If using Maven via CLI:
+2.  **Configure Java 21**
+    Ensure your `settings.xml` or project properties are set to Java 21. If using Maven via CLI:
     ```bash
-    mvn clean install -Dmaven.compiler.release=25
+    mvn clean install -Dmaven.compiler.release=21
     ```
 
 3.  **Set Credentials (Optional)**
@@ -47,7 +47,7 @@ Ensure you have the following installed:
     export SAUCE_USERNAME=<your_username>
     export SAUCE_ACCESS_KEY=<your_access_key>
     ```
-    If calling API with a subscription key, add the key to os environment variables (e.g., API_MANAGER_SUBSCRIPTION_KEY)
+    If calling API with a subscription key, add it to OS environment variables (e.g., `API_MANAGER_SUBSCRIPTION_KEY`).
 
 ---
 
@@ -55,7 +55,7 @@ Ensure you have the following installed:
 
 Best practices to keep the codebase consistent and maintainable:
 
-*   Prefer @getter and @setter annotations over manual getter/setter methods to reduce boilerplate.
+*   Prefer `@Getter` and `@Setter` annotations over manual getter/setter methods to reduce boilerplate.
 *   Keep classes focused on a single responsibility; extract helpers when a class grows too large.
 *   Keep methods short and focused on a single task.
 *   Use descriptive names for tests and methods; avoid abbreviations that obscure intent.
@@ -70,18 +70,21 @@ Best practices to keep the codebase consistent and maintainable:
 
 ## Running Tests
 
-### Test Cases are grouped by TestNG groups: 
+### Test Cases are grouped by TestNG groups:
 * smoke (fast, critical)
-* regression 
-* api 
-* ui-web 
-* ui-mobile 
+* regression
+* api
+* ui-web
+* ui-mobile
 * integration (API + UI thin slice)
 * quarantine (flaky/under investigation)
-  * Ensure these commands work and are documented:
-    - mvn test -Dgroups=smoke
-    - mvn test -Dgroups=api
-    - mvn test -Dgroups=ui-web
+
+Group examples:
+```bash
+mvn test -Dgroups=smoke
+mvn test -Dgroups=api
+mvn test -Dgroups=ui-web
+```
 
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
@@ -96,8 +99,8 @@ Best practices to keep the codebase consistent and maintainable:
 ### Using the IDE
 *   Import the project as a **Maven Project**.
 *   Right-click on your `testRunner/suiteFiles/SanityTest.xml` (or specific test classes) and select **Run as TestNG Suite**.
-*   To run test as TestNG on Eclipse, you need to install TestNG plugin (Help → Eclipse Marketplace)
-*   GitHub Copilot for Eclipse recommended (Help → Eclipse Marketplace)
+*   To run tests as TestNG on Eclipse, install the TestNG plugin (`Help -> Eclipse Marketplace`).
+*   GitHub Copilot for Eclipse is recommended (`Help -> Eclipse Marketplace`).
 
 ### Using Command Line
 ```bash
@@ -109,59 +112,80 @@ mvn test -DsuiteXmlFile=SmokeTest.xml
 mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
 
 # Windows PowerShell examples (quoting is safe)
-mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml"
-mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/SmokeTest.xml" "-Dheadless=true"
-mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-Dheadless=true"
-mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
+mvn test "-DsuiteXmlFile=SmokeTest.xml"
+mvn test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
+mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true"
+mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
 ```
 
 ### Using CI/CD of GitHub Actions
-*   Run smoke on PR 
+*   Run smoke on PR
 *   Run mobile-web smoke on PR/push (Selenium mobile emulation on GitHub runner)
 *   Run regression nightly (or scheduled)
-*   upload reports + artifacts (screenshots/logs) as build artifacts
+*   Upload reports + artifacts (screenshots/logs) as build artifacts
 
-## Run tests in local Docker environment
+## Run non-mobile tests in local Docker environment
 
 ```bash
 # Start dependencies
 docker compose up -d mysql selenium
 
-# Run tests (ephemeral Maven container)
+# Run default non-mobile smoke suite
 docker compose run --rm --no-deps tests
-```
 
-Run specific suites quickly:
-
-```bash
+# Run a specific non-mobile suite
 docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
 
-Debug Selenium visually:
+## Run mobile web tests in local Docker environment
 
+```bash
+# Start dependencies
+docker compose up -d mysql selenium
+
+# Match GitHub CI mobile-web mode (Selenium mobile emulation)
+docker compose run --rm --no-deps -e SUITE_XML_FILE=MobileWebSmokeTest.xml -e MOBILE_WEB_RUN_MODE=selenium tests
+```
+
+Debug Selenium visually:
 Open `http://localhost:7900` (VNC for the Selenium container).
+
+Note:
+This path does not require an Appium container. It uses Selenium mobile emulation, same as CI.
+
+## Run mobile app tests in local Docker environment
+
+```bash
+# Start Android emulator + MySQL (Appium endpoint is inside android-emulator container)
+docker compose --profile mobile-emulator up -d android-emulator mysql
+
+# Run mobile app suite in Docker
+docker compose --profile mobile-emulator run --rm --no-deps -e SUITE_XML_FILE=MobileAppSmokeTest.xml -e APPIUM_SERVER_URL=http://android-emulator:4723/wd/hub tests
+```
+
+Note:
+In `mobile-emulator` mode, Appium is provided by the `android-emulator` container image (`budtmo/docker-android`).
+You may not see a separate `appium-container` running in Docker Desktop, and that is expected.
+`appium-container` is used by the `mobile-host` profile.
+Emulator UI is available at `http://localhost:6080`.
 
 Inspect failing runs:
 
 ```bash
 docker compose logs -f selenium
+docker compose --profile mobile-emulator logs -f android-emulator
 docker compose logs -f tests
 ```
-
-Validate CI parity before push:
-
-Confirm local Docker run passes with same env/secrets as CI.
 
 Keep environment clean/resettable:
 
 ```bash
 docker compose down
+docker compose --profile mobile-emulator down
 docker compose down -v
 ```
 
 (`docker compose down -v` also removes volumes.)
-
-Pin/test image versions safely before changing CI (e.g., Selenium or Maven image tags).
 
 ## Share Tutorial MySQL DB with Teammates
 
@@ -170,6 +194,10 @@ This repository includes MySQL as a `docker compose` service. Seed SQL files are
 1. Copy env template:
 ```bash
 cp .env.example .env
+```
+
+Then set these values in `.env`:
+```env
 MYSQL_PORT=3306
 MYSQL_ROOT_PASSWORD=rootpass123
 MYSQL_DATABASE=slothdb
@@ -218,7 +246,7 @@ docker compose up -d mysql
 
 ## Run Android tests with Appium Docker
 
-Use one of these local profiles for Android tests.
+Use one of these local profiles when running tests from your host machine (without the Docker `tests` container).
 
 ### Option A: Dockerized emulator (local only)
 
@@ -247,6 +275,7 @@ docker compose --profile mobile-host up -d appium
 2. Run mobile web suite from host (pointing to Appium on localhost):
 ```bash
 $env:APPIUM_SERVER_URL="http://127.0.0.1:4723/wd/hub"
+$env:MOBILE_WEB_RUN_MODE="appium"
 mvn test "-DsuiteXmlFile=MobileWebSmokeTest.xml"
 ```
 

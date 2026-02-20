@@ -38,6 +38,8 @@ services:
     profiles: ["mobile-emulator"]
     privileged: true
     shm_size: 2gb
+    environment:
+      APPIUM: "true"
     ports:
       - "4723:4723"
       - "6080:6080"
