@@ -10,13 +10,15 @@ import testcases.TestGroups;
 import testcases.mobile.MobileTestCase;
 import testutils.CommandUtils;
 
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.Duration;
 
 public class TestAndroidDeviceConnectivity extends MobileTestCase {
     private final static Logger logger = LogManager.getLogger(TestAndroidDeviceConnectivity.class.getName());
 
-    @Test(groups = {TestGroups.SMOKE, TestGroups.INTEGRATION, TestGroups.UI_MOBILE})
+    @Test(groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE})
     public void verifyAppiumAndAndroidDeviceConnectivity() throws Exception {
         String appiumServerUrl = getEnvOrDefault("APPIUM_SERVER_URL", DEFAULT_APPIUM_URL);
         assertAppiumStatusReachable(appiumServerUrl);
@@ -31,13 +33,28 @@ public class TestAndroidDeviceConnectivity extends MobileTestCase {
     private void assertAppiumStatusReachable(String appiumServerUrl) throws Exception {
         String normalized = appiumServerUrl.endsWith("/") ? appiumServerUrl.substring(0, appiumServerUrl.length() - 1) : appiumServerUrl;
         String statusUrl = normalized + "/status";
+        long timeoutMillis = Duration.ofSeconds(getIntEnvOrDefault("APPIUM_STATUS_TIMEOUT_SECONDS", 120)).toMillis();
+        long deadline = System.currentTimeMillis() + timeoutMillis;
+        Exception lastError = null;
 
-        HttpURLConnection connection = (HttpURLConnection) new URL(statusUrl).openConnection();
-        connection.setRequestMethod("GET");
-        connection.setConnectTimeout(5000);
-        connection.setReadTimeout(5000);
-        int statusCode = connection.getResponseCode();
-        Assert.assertEquals(statusCode, 200, "Appium status endpoint is not reachable at " + statusUrl);
+        while (System.currentTimeMillis() < deadline) {
+            try {
+                HttpURLConnection connection = (HttpURLConnection) new URL(statusUrl).openConnection();
+                connection.setRequestMethod("GET");
+                connection.setConnectTimeout(5000);
+                connection.setReadTimeout(5000);
+                int statusCode = connection.getResponseCode();
+                if (statusCode == 200) {
+                    return;
+                }
+                lastError = new IllegalStateException("Received status code " + statusCode);
+            } catch (IOException exception) {
+                lastError = exception;
+            }
+            Thread.sleep(2000);
+        }
+
+        throw new IllegalStateException("Appium status endpoint is not reachable at " + statusUrl, lastError);
     }
 
     private boolean tryVerifyViaDockerAdb() {
