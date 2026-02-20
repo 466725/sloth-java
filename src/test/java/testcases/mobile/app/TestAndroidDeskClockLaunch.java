@@ -5,6 +5,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,6 +26,10 @@ public class TestAndroidDeskClockLaunch extends MobileTestCase {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
+        if ("false".equalsIgnoreCase(System.getProperty(TestAndroidDeviceConnectivity.ANDROID_CONNECTIVITY_READY_PROPERTY))) {
+            throw new SkipException("Skipping Desk Clock launch because Android connectivity probe already failed in this suite run.");
+        }
+
         String deviceName = getEnvOrDefault("ANDROID_DEVICE_NAME", "Android");
         int implicitWaitSeconds = getIntEnvOrDefault("ANDROID_IMPLICIT_WAIT_SECONDS", 5);
 

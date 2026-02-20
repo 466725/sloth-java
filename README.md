@@ -142,6 +142,9 @@ docker compose run --rm --no-deps tests
 docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
 
+Note:
+`docker-compose.yml` pins images by digest for reproducible runs. To intentionally refresh to newer image versions, update digests in `docker-compose.yml` after validation.
+
 ---
 
 ## Run mobile web tests in local Docker environment
@@ -165,24 +168,30 @@ This path does not require an Appium container. It uses Selenium mobile emulatio
 ## Run mobile app tests in local Docker environment
 
 ```bash
-# Start Android emulator + MySQL (Appium endpoint is inside android-emulator container)
-docker compose --profile mobile-emulator up -d android-emulator mysql
+# Start Google emulator + dedicated Appium sidecar + MySQL
+docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google mysql
 
-# Run mobile app suite in Docker
-docker compose --profile mobile-emulator run --rm --no-deps -e SUITE_XML_FILE=MobileAppSmokeTest.xml -e APPIUM_SERVER_URL=http://android-emulator:4723 tests
+# Optional sanity check: emulator is visible via adb inside appium sidecar
+docker exec appium-google adb devices
 ```
 
-Note:
-In `mobile-emulator` mode, Appium is provided by the `android-emulator` container image (`budtmo/docker-android`).
-You may not see a separate `appium-container` running in Docker Desktop, and that is expected.
-`appium-container` is used by the `mobile-host` profile.
-Emulator UI is available at `http://localhost:6080`.
+PowerShell command to run MobileAppSmokeTest.xml locally:
+```powershell
+docker compose --profile mobile-emulator-google run --rm --no-deps `
+  -e SUITE_XML_FILE=MobileAppSmokeTest.xml `
+  -e APPIUM_SERVER_URL=http://appium-google:4723 `
+  -e MOBILE_CONTAINER_NAME=android-emulator-google `
+  tests
+```
+
+Notes:
+* Host ports used by this profile: emulator `8554/5555`, appium `4724` (inside Docker network tests still use `http://appium-google:4723`).
 
 Inspect failing runs:
 
 ```bash
-docker compose logs -f selenium
-docker compose --profile mobile-emulator logs -f android-emulator
+docker compose --profile mobile-emulator-google logs -f android-emulator-google
+docker compose --profile mobile-emulator-google logs -f appium-google
 docker compose logs -f tests
 ```
 
@@ -190,8 +199,9 @@ Keep environment clean/resettable:
 
 ```bash
 docker compose down
-docker compose --profile mobile-emulator down
+docker compose --profile mobile-emulator-google down
 docker compose down -v
+docker image prune -f
 ```
 
 Why Mobile App + Emulator is local-only (not GitHub hosted runners)

@@ -13,6 +13,7 @@ import testcases.TestCase;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.HashMap;
 import java.util.List;
 import java.time.Duration;
@@ -24,18 +25,28 @@ import java.util.Map;
 public abstract class MobileTestCase extends TestCase {
     protected static final Logger logger = LogManager.getLogger(MobileTestCase.class.getName());
     protected static final String DEFAULT_APPIUM_URL = "http://127.0.0.1:4723";
+    private static final String WD_HUB_SUFFIX = "/wd/hub";
 
     protected WebDriver driver;
 
     protected AndroidDriver startAndroidSession(UiAutomator2Options options, int implicitWaitSeconds) throws Exception {
+        int maxAttempts = getIntEnvOrDefault("ANDROID_SESSION_RETRY_COUNT", 16);
+        int retryDelaySeconds = getIntEnvOrDefault("ANDROID_SESSION_RETRY_DELAY_SECONDS", 12);
+        return startAndroidSession(options, implicitWaitSeconds, maxAttempts, retryDelaySeconds);
+    }
+
+    protected AndroidDriver startAndroidSession(UiAutomator2Options options,
+                                                int implicitWaitSeconds,
+                                                int maxAttempts,
+                                                int retryDelaySeconds) throws Exception {
         String appiumServerUrl = getEnvOrDefault("APPIUM_SERVER_URL", DEFAULT_APPIUM_URL);
-        int maxAttempts = getIntEnvOrDefault("ANDROID_SESSION_RETRY_COUNT", 8);
-        int retryDelaySeconds = getIntEnvOrDefault("ANDROID_SESSION_RETRY_DELAY_SECONDS", 10);
         List<String> candidateUrls = buildCandidateAppiumUrls(appiumServerUrl);
         Exception lastError = null;
+        applyDefaultAndroidTimeoutCapabilities(options);
 
         for (int attempt = 1; attempt <= maxAttempts; attempt++) {
-            for (String candidateUrl : candidateUrls) {
+            for (Iterator<String> iterator = candidateUrls.iterator(); iterator.hasNext(); ) {
+                String candidateUrl = iterator.next();
                 try {
                     AndroidDriver androidDriver = new AndroidDriver(new URL(candidateUrl), options);
                     androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
@@ -43,8 +54,17 @@ public abstract class MobileTestCase extends TestCase {
                     return androidDriver;
                 } catch (Exception exception) {
                     lastError = exception;
+                    String reason = exception.getMessage();
+                    if (reason != null
+                            && reason.contains("Response code 404")
+                            && candidateUrl.endsWith(WD_HUB_SUFFIX)
+                            && candidateUrls.size() > 1) {
+                        iterator.remove();
+                        logger.info("Dropping legacy Appium 1 URL after 404: " + candidateUrl);
+                        continue;
+                    }
                     logger.warn("Failed to start Android session. attempt=" + attempt + "/" + maxAttempts
-                            + ", appiumUrl=" + candidateUrl + ", reason=" + exception.getMessage());
+                            + ", appiumUrl=" + candidateUrl + ", reason=" + reason);
                 }
             }
             if (attempt < maxAttempts) {
@@ -56,6 +76,15 @@ public abstract class MobileTestCase extends TestCase {
                 "Unable to start Android session after " + maxAttempts + " attempts. Appium URLs tried: " + candidateUrls,
                 lastError
         );
+    }
+
+    protected static void applyDefaultAndroidTimeoutCapabilities(UiAutomator2Options options) {
+        int adbExecTimeoutMs = getIntEnvOrDefault("ANDROID_ADB_EXEC_TIMEOUT_MS", 120000);
+        int deviceReadyTimeoutSeconds = getIntEnvOrDefault("ANDROID_DEVICE_READY_TIMEOUT_SECONDS", 180);
+        int uia2ServerLaunchTimeoutMs = getIntEnvOrDefault("ANDROID_UIA2_SERVER_LAUNCH_TIMEOUT_MS", 120000);
+        options.setCapability("appium:adbExecTimeout", adbExecTimeoutMs);
+        options.setCapability("appium:androidDeviceReadyTimeout", deviceReadyTimeoutSeconds);
+        options.setCapability("appium:uiautomator2ServerLaunchTimeout", uia2ServerLaunchTimeoutMs);
     }
 
     protected void quitDriver() {
@@ -94,10 +123,10 @@ public abstract class MobileTestCase extends TestCase {
         List<String> urls = new ArrayList<>();
         urls.add(normalized);
 
-        if (!normalized.endsWith("/wd/hub")) {
-            urls.add(normalized + "/wd/hub");
+        if (!normalized.endsWith(WD_HUB_SUFFIX)) {
+            urls.add(normalized + WD_HUB_SUFFIX);
         } else {
-            urls.add(normalized.substring(0, normalized.length() - "/wd/hub".length()));
+            urls.add(normalized.substring(0, normalized.length() - WD_HUB_SUFFIX.length()));
         }
         return urls;
     }
@@ -136,6 +165,7 @@ public abstract class MobileTestCase extends TestCase {
                 .setPlatformName("Android")
                 .setAutomationName("UiAutomator2")
                 .setDeviceName(deviceName);
+        applyDefaultAndroidTimeoutCapabilities(options);
         options.setCapability("browserName", "Chrome");
 
         driver = startAndroidSession(options, implicitWaitSeconds);
