@@ -117,6 +117,7 @@ mvn test "-Dsurefire.suiteXmlFiles=testRunner/suiteFiles/RegressionTest.xml" "-D
 
 ### Using CI/CD of GitHub Actions
 *   Run smoke on PR 
+*   Run mobile smoke (Appium + Android emulator) on PR/push
 *   Run regression nightly (or scheduled)
 *   upload reports + artifacts (screenshots/logs) as build artifacts
 
@@ -219,9 +220,9 @@ docker compose up -d mysql
 
 Use one of these Docker Compose profiles for Android mobile-web tests.
 
-### Option A: Dockerized emulator (recommended for full containerized run)
+### Option A: Dockerized emulator (GitHub CI path, recommended)
 
-1. Start and run the mobile suite:
+1. Start and run the mobile suite (includes `TestAmazonMobileSigninPage` + `TestAndroidDeviceConnectivity`):
 ```bash
 docker compose --profile mobile-emulator up --abort-on-container-exit --exit-code-from mobile-tests mobile-tests
 ```
@@ -242,10 +243,10 @@ mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
 docker compose --profile mobile-host up -d appium
 ```
 
-2. Run mobile suite from host (pointing to Appium on localhost):
+2. Run mobile web suite from host (pointing to Appium on localhost):
 ```bash
 $env:APPIUM_SERVER_URL="http://127.0.0.1:4723"
-mvn test "-DsuiteXmlFile=MobileSmokeTest.xml"
+mvn test "-DsuiteXmlFile=MobileWebSmokeTest.xml"
 ```
 
 Stop services:

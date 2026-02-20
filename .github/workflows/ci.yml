@@ -35,6 +35,32 @@ jobs:
         if: always()
         run: docker compose down -v
 
+  mobile:
+    name: Mobile Smoke (Appium + Emulator)
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Mobile Smoke suite with Docker Compose profile
+        run: docker compose --profile mobile-emulator up --abort-on-container-exit --exit-code-from mobile-tests mobile-tests
+
+      - name: Upload mobile test reports/artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-test-artifacts
+          path: |
+            test-output/**
+            target/**
+          if-no-files-found: warn
+
+      - name: Cleanup
+        if: always()
+        run: docker compose --profile mobile-emulator down -v
+
   regression-nightly:
     name: Regression Nightly
     if: github.event_name == 'schedule'

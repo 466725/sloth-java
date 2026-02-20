@@ -27,12 +27,14 @@ services:
 
   appium:
     image: appium/appium:latest
+    container_name: appium-container
     profiles: ["mobile-host"]
     ports:
       - "4723:4723"
 
   android-emulator:
     image: budtmo/docker-android:emulator_11.0
+    container_name: android-emulator
     profiles: ["mobile-emulator"]
     privileged: true
     shm_size: 2gb
@@ -47,8 +49,9 @@ services:
     volumes:
       - ./:/workspace
     environment:
-      APPIUM_SERVER_URL: "http://android-emulator:4723/wd/hub"
+      APPIUM_SERVER_URL: "http://android-emulator:4723"
       ANDROID_DEVICE_NAME: "Android"
+      MOBILE_CONTAINER_NAME: "android-emulator"
       SUITE_XML_FILE: "MobileSmokeTest.xml"
     depends_on:
       android-emulator:
