@@ -5,11 +5,9 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testcases.TestGroups;
-import testcases.mobile.MobileTestCase;
+import testcases.mobile.MobileAppTestCase;
 import testutils.CommandUtils;
 
 import java.io.IOException;
@@ -19,18 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.Duration;
 
-public class TestAndroidDeviceConnectivity extends MobileTestCase {
+public class TestAndroidDeviceConnectivity extends MobileAppTestCase {
     private final static Logger logger = LogManager.getLogger(TestAndroidDeviceConnectivity.class.getName());
     public static final String ANDROID_CONNECTIVITY_READY_PROPERTY = "mobile.android.connectivity.ready";
 
-    @BeforeClass(alwaysRun = true)
-    public void setUp() {
-        // Override MobileTestCase web/app bootstrap: this probe controls its own session creation.
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void tearDown() {
-        // No shared class-level driver is created in this test class.
+    @Override
+    protected boolean shouldInitializeDriverSession() {
+        // This class validates connectivity and creates its own probe session in-test when needed.
+        return false;
     }
 
     @Test(groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})

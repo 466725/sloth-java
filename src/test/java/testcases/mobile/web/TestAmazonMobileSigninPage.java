@@ -10,12 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.TestGroups;
-import testcases.mobile.MobileTestCase;
+import testcases.mobile.MobileWebTestCase;
 
 import java.time.Duration;
 import java.util.List;
 
-public class TestAmazonMobileSigninPage extends MobileTestCase {
+public class TestAmazonMobileSigninPage extends MobileWebTestCase {
     private static final Logger logger = LogManager.getLogger(TestAmazonMobileSigninPage.class.getName());
     private static final By EMAIL_INPUT = By.cssSelector("#ap_email, input[name='email'], input[type='email']");
     private static final By CONTINUE_BUTTON = By.cssSelector("#continue, input[name='continue']");
@@ -24,7 +24,7 @@ public class TestAmazonMobileSigninPage extends MobileTestCase {
     private static final By CAPTCHA_INPUT = By.cssSelector("input[name='cvf_captcha_input'], input#captchacharacters");
     private static final By CONSENT_ACCEPT = By.cssSelector("#sp-cc-accept, input[name='accept']");
 
-    @Test(groups = {TestGroups.SMOKE, TestGroups.INTEGRATION, TestGroups.UI_MOBILE_WEB, TestGroups.AMAZON})
+    @Test(groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_WEB, TestGroups.AMAZON})
     public void verifyAmazonSigninFlowOnAndroidChrome() {
         String signinUrl = getEnvOrDefault("AMAZON_SIGNIN_URL", DEFAULT_AMAZON_SIGNIN_URL);
         driver.get(signinUrl);

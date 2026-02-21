@@ -1,53 +1,36 @@
 package testcases.mobile.app;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.SkipException;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testcases.TestGroups;
-import testcases.mobile.MobileTestCase;
+import testcases.mobile.MobileAppTestCase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TestAndroidDeskClockLaunch extends MobileTestCase {
+public class TestAndroidDeskClockLaunch extends MobileAppTestCase {
     private static final Logger logger = LogManager.getLogger(TestAndroidDeskClockLaunch.class.getName());
     private static final List<String> DEFAULT_DESKCLOCK_PACKAGES = Arrays.asList(
             "com.google.android.deskclock",
             "com.android.deskclock"
     );
 
-    @BeforeClass(alwaysRun = true)
-    public void setUp() throws Exception {
+    @Override
+    protected WebDriver createDriverSession() throws Exception {
         if ("false".equalsIgnoreCase(System.getProperty(TestAndroidDeviceConnectivity.ANDROID_CONNECTIVITY_READY_PROPERTY))) {
             throw new SkipException("Skipping Desk Clock launch because Android connectivity probe already failed in this suite run.");
         }
-
-        String deviceName = getEnvOrDefault("ANDROID_DEVICE_NAME", "Android");
-        int implicitWaitSeconds = getIntEnvOrDefault("ANDROID_IMPLICIT_WAIT_SECONDS", 5);
-
-        UiAutomator2Options options = new UiAutomator2Options()
-                .setPlatformName("Android")
-                .setAutomationName("UiAutomator2")
-                .setDeviceName(deviceName);
-
-        driver = startAndroidSession(options, implicitWaitSeconds);
-        logger.info("Android native session initialized for Desk Clock launch probe.");
+        return super.createDriverSession();
     }
 
-    @AfterClass(alwaysRun = true)
-    public void tearDown() {
-        quitDriver();
-    }
-
-    @Test(groups = {TestGroups.UI_MOBILE_APP, TestGroups.INTEGRATION})
+    @Test(groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
     public void verifyDeskClockCanBeLaunched() {
         Assert.assertTrue(driver instanceof AndroidDriver, "Expected AndroidDriver session.");
         AndroidDriver androidDriver = (AndroidDriver) driver;
