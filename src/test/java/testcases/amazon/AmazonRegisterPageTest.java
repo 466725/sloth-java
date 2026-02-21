@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import testcases.GuiTestCase;
 import testcases.TestGroups;
 import webpages.BaseWebPage;
-import webpages.amazon.AmazonHomePage;
 import webpages.amazon.AmazonRegisterPage;
 import webpages.amazon.AmazonSigninPage;
 
@@ -22,8 +21,10 @@ public class AmazonRegisterPageTest extends GuiTestCase {
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE, TestGroups.AMAZON})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
+        logger.info("ui.web.amazon.register.verify_title.start");
         amazonSigninPage = (AmazonSigninPage) BaseWebPage.gotoHomePage("Amazon").gotoSigninPage();
         amazonRegisterPage = (AmazonRegisterPage) amazonSigninPage.gotoRegisterPage();
+        logger.info("ui.web.amazon.register.verify_title.state | title=" + driver.getTitle());
         Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Amazon Business"), "Title verification failed");
     }
 }

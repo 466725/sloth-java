@@ -16,8 +16,9 @@ public class AmazonHomePageTest extends GuiTestCase {
     // Verify title
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.AMAZON})
     public void verifyTitle() {
+        logger.info("ui.web.amazon.home.verify_title.start");
         homepage = BaseWebPage.gotoHomePage("Amazon");
-        logger.info("Title: " + driver.getTitle());
+        logger.info("ui.web.amazon.home.verify_title.state | title=" + driver.getTitle());
         Assert.assertTrue(driver.getTitle().contains("Amazon.com."), "Title verification failed");
     }
 }

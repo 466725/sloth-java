@@ -21,8 +21,10 @@ public class TangerineSignupPageTest extends GuiTestCase {
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.TANGERINE})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");
+        logger.info("ui.web.tangerine.signup.verify_title.start");
         tangerineSigninPage = (TangerineSigninPage) BaseWebPage.gotoHomePage("Tangerine").gotoSigninPage();
         tangerineSignupPage = tangerineSigninPage.gotoSignupPage();
+        logger.info("ui.web.tangerine.signup.verify_title.state | title=" + driver.getTitle());
         Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Tangerine"), "Title verification failed");
     }
 }

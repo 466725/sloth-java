@@ -16,7 +16,9 @@ public class AmazonSigninPageTest extends GuiTestCase {
     // Verify title
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.AMAZON})
     public void verifyTitle() {
+        logger.info("ui.web.amazon.signin.verify_title.start");
         amazonSigninPage = (AmazonSigninPage) basePage.gotoHomePage("Amazon").gotoSigninPage();
+        logger.info("ui.web.amazon.signin.verify_title.state | title=" + driver.getTitle());
         Assert.assertTrue(driver.getTitle().contains(""), "Title verification failed");
     }
 }
