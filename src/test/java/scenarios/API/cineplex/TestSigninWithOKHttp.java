@@ -24,7 +24,7 @@ public class TestSigninWithOKHttp extends ApiTestCase {
     MediaType mediaType = MediaType.parse("application/json");
     JSONParser parser = new JSONParser();
 
-    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
+    @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
     public void create_Application_Session_OKhttp_Call() throws Exception {
         logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         RequestBody body = RequestBody
@@ -53,7 +53,7 @@ public class TestSigninWithOKHttp extends ApiTestCase {
     }
 
     // Login call using test credentials.
-    @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
+    @Test(priority = 5, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
     public void login_OKhttp_Call() throws Exception {
         RequestBody body = RequestBody
                 .create(mediaType,

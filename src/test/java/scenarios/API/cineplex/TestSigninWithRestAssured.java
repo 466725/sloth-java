@@ -20,7 +20,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
     private static String sessionToken = "";
 
-    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
+    @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
     public void create_Application_Session_RestAssured_Call() {
         logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         String payload = """

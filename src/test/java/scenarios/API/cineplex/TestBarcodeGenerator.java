@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 // UAT-only endpoint; this test is not expected to work in PROD.
 public class TestBarcodeGenerator extends ApiTestCase {
 
-    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
+    @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
     public void generate_Barcode_OKhttp_Call() throws Exception {
         logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         Request request = new Request.Builder()
@@ -29,7 +29,7 @@ public class TestBarcodeGenerator extends ApiTestCase {
     }
 
     // Equivalent barcode generation call implemented with Rest Assured.
-    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
+    @Test(priority = 5, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
     public void generate_Barcode_RestAssured_Call() throws Exception {
         given()
                 .contentType("application/json")

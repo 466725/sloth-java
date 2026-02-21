@@ -11,6 +11,7 @@
         <classes>
             <!-- App test cases -->
             <class name="testcases.mobile.app.TestAndroidDeskClockLaunch"/>
+            <class name="testcases.mobile.app.TestAndroidDeskClockSetAlarm"/>
             <!-- Web test cases -->
             <class name="testcases.mobile.web.TestAmazonMobileSigninPage"/>
         </classes>
