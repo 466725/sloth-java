@@ -6,6 +6,8 @@ import config.Constants;
 import config.ExtentReportHandler;
 
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.net.URL;
 
 import org.apache.log4j.BasicConfigurator;
@@ -28,7 +30,7 @@ import org.testng.annotations.BeforeTest;
 public class TestCase {
     protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
     protected final static String LOG_CONFIG_FILE = Constants.CONFIG_FILE_FOLDER + Constants.LOG4J_CONFIG_RESOURCE;
-    protected final static String REPORT_FILE_NAME = "\\test-output\\ExtentReport\\ExtentReport.html";
+    protected final static Path REPORT_FILE_PATH = Path.of("test-output", "ExtentReport", "ExtentReport.html");
     protected static ExtentTest test;
     protected static ExtentReports report;
 
@@ -69,8 +71,14 @@ public class TestCase {
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
         logger.info("-----------------------Beginning of test-----------------------");
-        String reportPath = System.getProperty("user.dir") + REPORT_FILE_NAME;
-        report = new ExtentReports(reportPath);
+        Path absoluteReportPath = Path.of(System.getProperty("user.dir")).resolve(REPORT_FILE_PATH);
+        try {
+            Files.createDirectories(absoluteReportPath.getParent());
+        } catch (Exception exception) {
+            throw new IllegalStateException("Failed to create Extent report directory: " + absoluteReportPath.getParent(), exception);
+        }
+        report = new ExtentReports(absoluteReportPath.toString());
+        logger.info("extent.report.path | path=" + absoluteReportPath);
         ExtentReportHandler.loadConfig(report, logger);
     }
 
