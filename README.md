@@ -165,20 +165,20 @@ This path does not require an Appium container. It uses Selenium mobile emulatio
 
 ---
 
-## Run mobile app tests MobileAppSmokeTest.xml in local Docker environment
+## Run mobile app and web tests MobileLocalSmokeTest.xml in local Docker environment
 
 ```bash
 # Start Google emulator + dedicated Appium sidecar + MySQL
-docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google mysql
+docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google selenium mysql
 
 # Optional sanity check: emulator is visible via adb inside appium sidecar
 docker exec appium-google adb devices
 ```
 
-PowerShell command to run MobileAppSmokeTest.xml locally:
+PowerShell command to run MobileLocalSmokeTest.xml locally:
 ```powershell
 docker compose --profile mobile-emulator-google run --rm --no-deps `
-  -e SUITE_XML_FILE=MobileAppSmokeTest.xml `
+  -e SUITE_XML_FILE=MobileLocalSmokeTest.xml `
   -e APPIUM_SERVER_URL=http://appium-google:4723 `
   -e MOBILE_CONTAINER_NAME=android-emulator-google `
   tests
@@ -207,7 +207,7 @@ docker image prune -f
 Why Mobile App + Emulator is local-only (not GitHub hosted runners)
 
 * GitHub CI runs `MobileWebSmokeTest.xml`
-* But Appium with Android device emulator is executed only locally `MobileAppSmokeTest.xml`. Reasons:
+* But Appium with Android device emulator is executed only locally `MobileLocalSmokeTest.xml`. Reasons:
     * On GitHub-hosted runners, Dockerized Android emulator startup is slow.
     * The emulator image is 9GB large.
 
