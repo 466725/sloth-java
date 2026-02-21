@@ -49,6 +49,10 @@ public abstract class MobileTestCase extends TestCase {
         List<String> candidateUrls = buildCandidateAppiumUrls(appiumServerUrl);
         Exception lastError = null;
         applyDefaultAndroidTimeoutCapabilities(options);
+        logger.info("mobile.session.create.start | appiumServerUrl=" + appiumServerUrl
+                + " | candidateUrls=" + candidateUrls
+                + " | maxAttempts=" + maxAttempts
+                + " | retryDelaySeconds=" + retryDelaySeconds);
 
         for (int attempt = 1; attempt <= maxAttempts; attempt++) {
             for (Iterator<String> iterator = candidateUrls.iterator(); iterator.hasNext(); ) {
@@ -56,7 +60,7 @@ public abstract class MobileTestCase extends TestCase {
                 try {
                     AndroidDriver androidDriver = new AndroidDriver(new URL(candidateUrl), options);
                     androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
-                    logger.info("Android session started. appiumUrl=" + candidateUrl + ", deviceName=" + options.getDeviceName());
+                    logger.info("mobile.session.create.success | appiumUrl=" + candidateUrl + " | deviceName=" + options.getDeviceName());
                     return androidDriver;
                 } catch (Exception exception) {
                     lastError = exception;
@@ -66,11 +70,11 @@ public abstract class MobileTestCase extends TestCase {
                             && candidateUrl.endsWith(WD_HUB_SUFFIX)
                             && candidateUrls.size() > 1) {
                         iterator.remove();
-                        logger.info("Dropping legacy Appium 1 URL after 404: " + candidateUrl);
+                        logger.info("mobile.session.create.fallback | reason=legacy_404 | droppedUrl=" + candidateUrl);
                         continue;
                     }
-                    logger.warn("Failed to start Android session. attempt=" + attempt + "/" + maxAttempts
-                            + ", appiumUrl=" + candidateUrl + ", reason=" + reason);
+                    logger.warn("mobile.session.create.retry | attempt=" + attempt + "/" + maxAttempts
+                            + " | appiumUrl=" + candidateUrl + " | reason=" + reason);
                 }
             }
             if (attempt < maxAttempts) {
@@ -95,6 +99,7 @@ public abstract class MobileTestCase extends TestCase {
 
     protected void quitDriver() {
         if (driver != null) {
+            logger.info("mobile.driver.quit | driverClass=" + driver.getClass().getName());
             driver.quit();
             driver = null;
         }
@@ -116,7 +121,7 @@ public abstract class MobileTestCase extends TestCase {
         try {
             return Integer.parseInt(value.trim());
         } catch (NumberFormatException exception) {
-            logger.warn("Invalid integer for env '" + key + "': " + value + ". Using default: " + defaultValue);
+            logger.warn("mobile.env.invalid_int | key=" + key + " | value=" + value + " | usingDefault=" + defaultValue);
             return defaultValue;
         }
     }
@@ -141,7 +146,7 @@ public abstract class MobileTestCase extends TestCase {
     public void beforeClass() throws Exception {
         logger.info("-----------------------Beginning of class----------------------");
         if (!shouldInitializeDriverSession()) {
-            logger.info("Skipping class-level driver initialization for " + getClass().getSimpleName());
+            logger.info("mobile.driver.init.skip | class=" + getClass().getSimpleName());
             return;
         }
 
@@ -181,7 +186,7 @@ public abstract class MobileTestCase extends TestCase {
             String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
             screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
         } else {
-            logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
+            logger.warn("mobile.screenshot.skip | reason=driver_null");
         }
 
         logResultToExtent(result, screenShotPath);
@@ -210,7 +215,7 @@ public abstract class MobileTestCase extends TestCase {
         if (screenShotPath != null) {
             test.log(status, test.addScreenCapture(screenShotPath));
         } else {
-            logger.warn("No screenshot path available to attach to report.");
+            logger.warn("mobile.report.screenshot.missing | reason=path_unavailable");
         }
     }
 

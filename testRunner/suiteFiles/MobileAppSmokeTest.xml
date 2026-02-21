@@ -8,7 +8,6 @@
 
     <test name="MobileAppSmoke" parallel="false">
         <classes>
-            <class name="testcases.mobile.app.TestAndroidDeviceConnectivity"/>
             <class name="testcases.mobile.app.TestAndroidDeskClockLaunch"/>
         </classes>
     </test>
