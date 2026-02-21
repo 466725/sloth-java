@@ -53,7 +53,7 @@ public class GuiTestCase extends TestCase {
     }
 
     /**
-     * Cleanup per BeforeMethod annotation.
+     * Prepare per BeforeMethod annotation.
      */
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {

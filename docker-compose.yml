@@ -27,14 +27,12 @@ services:
 
   appium:
     image: appium/appium@sha256:db22c8f2dff3f452477c2049b50feb9720c60a9ee23e6abdd6bc2acd82dc8dba
-    container_name: appium-container
     profiles: ["mobile-host"]
     ports:
       - "4723:4723"
 
   android-emulator-google:
     image: us-docker.pkg.dev/android-emulator-268719/images/30-google-x64:30.1.2
-    container_name: android-emulator-google
     profiles: ["mobile-emulator-google"]
     privileged: true
     shm_size: 2gb

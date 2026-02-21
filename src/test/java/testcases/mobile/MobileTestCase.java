@@ -1,5 +1,7 @@
 package testcases.mobile;
 
+import com.relevantcodes.extentreports.LogStatus;
+import config.PropertiesFileReader;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.log4j.LogManager;
@@ -7,10 +9,19 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import testcases.TestCase;
+import utilities.ScreenShotHandler;
+import webpages.BaseWebPage;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,6 +37,7 @@ public abstract class MobileTestCase extends TestCase {
     protected static final Logger logger = LogManager.getLogger(MobileTestCase.class.getName());
     protected static final String DEFAULT_APPIUM_URL = "http://127.0.0.1:4723";
     private static final String WD_HUB_SUFFIX = "/wd/hub";
+    private static final DateTimeFormatter SCREENSHOT_TS = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
 
     protected WebDriver driver;
 
@@ -136,7 +148,7 @@ public abstract class MobileTestCase extends TestCase {
 
     // Initializes a mobile web session (Chrome on Android) via Appium.
     @BeforeClass(alwaysRun = true)
-    public void setUp() throws Exception {
+    public void beforeClass() throws Exception {
         String runMode = getEnvOrDefault("MOBILE_WEB_RUN_MODE", "appium").trim().toLowerCase();
         String deviceName = getEnvOrDefault("ANDROID_DEVICE_NAME", "Android");
         int implicitWaitSeconds = getIntEnvOrDefault("ANDROID_IMPLICIT_WAIT_SECONDS", 2);
@@ -170,10 +182,69 @@ public abstract class MobileTestCase extends TestCase {
 
         driver = startAndroidSession(options, implicitWaitSeconds);
         logger.info("Android mobile web session initialized.");
+        logger.info("-----------------------Beginning of class----------------------");
     }
 
     @AfterClass(alwaysRun = true)
-    public void tearDown() {
+    public void afterClass() {
         quitDriver();
+        logger.info("----------------------Ending of class--------------------------");
+    }
+
+    /**
+     * Prepare per BeforeMethod annotation.
+     */
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod() {
+        logger.info("----------------------Beginning of method--------------------------");
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod(ITestResult result) {
+        logger.info("***** Class: " + result.getTestClass().getName() + " *****");
+        logger.info("***** Method: " + result.getName() + "(...) *****");
+
+        String screenShotPath = null;
+        if (driver != null) {
+            String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
+            screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
+        } else {
+            logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
+        }
+
+        logResultToExtent(result, screenShotPath);
+        super.afterMethod(result);
+        logger.info("-----------------------Ending of method------------------------");
+    }
+
+    private void logResultToExtent(ITestResult result, String screenShotPath) {
+        String className = result.getTestClass().getName();
+        String methodName = result.getMethod().getMethodName();
+        Throwable exception = result.getThrowable();
+        String logDetails = String.format("%s:  %s", className, methodName);
+
+        LogStatus status = switch (result.getStatus()) {
+            case ITestResult.SUCCESS -> LogStatus.PASS;
+            case ITestResult.FAILURE -> LogStatus.FAIL;
+            case ITestResult.SKIP -> LogStatus.SKIP;
+            default -> LogStatus.FATAL;
+        };
+
+        test.log(status, logDetails);
+        if (status != LogStatus.PASS && exception != null) {
+            test.log(status, getStackTraceAsString(exception));
+        }
+
+        if (screenShotPath != null) {
+            test.log(status, test.addScreenCapture(screenShotPath));
+        } else {
+            logger.warn("No screenshot path available to attach to report.");
+        }
+    }
+
+    private String getStackTraceAsString(Throwable exception) {
+        StringWriter sw = new StringWriter();
+        exception.printStackTrace(new PrintWriter(sw));
+        return sw.toString();
     }
 }
