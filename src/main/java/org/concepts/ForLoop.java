@@ -1,6 +1,6 @@
 package org.concepts;
 
-//Everything about java for loop
+// Examples for Java for-loops.
 public class ForLoop {
     public static int i=3;
     public static void main(String[] args) {

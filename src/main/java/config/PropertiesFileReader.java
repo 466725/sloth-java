@@ -59,65 +59,65 @@ public class PropertiesFileReader {
         return value.trim();
     }
 
-    // Get Amazon base URL
+    // Returns Amazon base URL.
     public static String getAmazonURL() {
         return getRequired("AMAZON_URL");
     }
 
-    // Get Tangerine base URL
+    // Returns Tangerine base URL.
     public static String getTangerineURL() {
         return getRequired("TANGERINE_URL");
     }
 
-    // Get BarcodeBaseURL
+    // Returns barcode service base URL.
     public static String getBarcodeBaseURL() {
         return getRequired("BARCODE_BASE_URL");
     }
 
-    // CONNECT_URL
+    // Returns CONNECT service URL.
     public static String getCONNECT_URL() {
         return getRequired("CONNECT_URL");
     }
 
-    // Get Browser
+    // Returns browser name.
     public static String getBrowser() {
         return getRequired("BROWSER");
     }
 
-    // Get timeout
+    // Returns global timeout in seconds.
     public static int getTimeout() {
         return Integer.parseInt(getRequired("GLOBAL_TIMEOUT"));
     }
 
-    // Get max retry count
+    // Returns max retry count.
     public static int getMaxRetryCount() {
         return Integer.parseInt(getRequired("MAX_RETRY_COUNT"));
     }
     
-    // EXPLICIT_WAIT_TIME
+    // Returns explicit wait timeout.
     public static Duration getExplicitWaitTime() {
     	int seconds = Integer.parseInt(getRequired("EXPLICIT_WAIT_TIME"));
 		return java.time.Duration.ofSeconds(seconds);
     }
     
-    // EXPLICIT_WAIT_TIME_INT
+    // Returns explicit wait timeout in seconds as int.
     public static int getExplicitWaitTimeInt() {
 		return Integer.parseInt(getRequired("EXPLICIT_WAIT_TIME"));
     }
     
-    // IMPLICIT_WAIT_TIME
+    // Returns implicit wait timeout.
     public static Duration getImplicitWaitTime() {
 		int seconds = Integer.parseInt(getRequired("IMPLICIT_WAIT_TIME"));
 		return java.time.Duration.ofSeconds(seconds);
     }
     
-    // PAGE_LOAD_TIMEOUT
+    // Returns page load timeout.
     public static Duration getPageLoadTimeout() {
     	int seconds = Integer.parseInt(getRequired("PAGE_LOAD_TIMEOUT"));
 		return java.time.Duration.ofSeconds(seconds);
     }
     
-    // PAGE_RENDER_TIMEOUT
+    // Returns page render timeout in seconds.
     public static int getPageRenderTimeout() {
 		return Integer.parseInt(getRequired("PAGE_RENDER_TIMEOUT"));
     }

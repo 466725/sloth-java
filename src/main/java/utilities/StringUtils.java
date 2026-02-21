@@ -6,36 +6,34 @@ import org.apache.log4j.Logger;
 import java.util.UUID;
 
 /**
- * This utility class is prepared keeping in mind the checks required on the
- * string for automation tests.
+ * Utility methods for string checks used by automation tests.
  * <p>
- * <b>PLEASE DO NOT MAKE CHANGE TO ANY METHOD WITHOUT ANALIZING THE IMPACT OF
- * THE CHANGE TO EXISTING AUTOMATION TESTS</b>
- * </P>
+ * <b>Do not change these methods without reviewing impact on existing tests.</b>
+ * </p>
  */
 public class StringUtils {
     protected final static Logger logger = LogManager.getLogger(StringUtils.class.getName());
 
     /**
-     * Checks for both NULL and EMPTY string and returns true if either is true.
+     * Returns true when the input is null or empty (after trim).
      *
-     * @return true if string is NULL or is a empty string
+     * @return true if the string is null or empty
      */
     public static boolean isEmpty(String stringToCheck) {
         return (stringToCheck == null || stringToCheck.trim().isEmpty());
     }
 
     /**
-     * Checks for both NULL and EMPTY string and returns true if both are NOT true.
+     * Returns true when the input is not null and not empty (after trim).
      *
-     * @return true if string is not NULL and is not a empty string
+     * @return true if the string is not null and not empty
      */
     public static boolean isNotEmpty(String stringToCheck) {
         return !isEmpty(stringToCheck);
     }
 
     /**
-     * To generate and return a unique identifier string
+     * Generates a unique identifier string.
      *
      * @return a unique identifier
      */

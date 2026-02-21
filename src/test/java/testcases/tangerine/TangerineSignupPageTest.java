@@ -17,7 +17,7 @@ public class TangerineSignupPageTest extends GuiTestCase {
     TangerineSigninPage tangerineSigninPage;
     TangerineSignupPage tangerineSignupPage;
 
-    // Verify title
+    // Verifies the Tangerine sign-up page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.TANGERINE})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");

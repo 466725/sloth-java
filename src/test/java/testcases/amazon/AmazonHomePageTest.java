@@ -13,7 +13,7 @@ public class AmazonHomePageTest extends GuiTestCase {
     final static Logger logger = LogManager.getLogger(AmazonHomePageTest.class.getName());
     BaseWebPage homepage;
 
-    // Verify title
+    // Verifies the Amazon home page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.AMAZON})
     public void verifyTitle() {
         logger.info("ui.web.amazon.home.verify_title.start");

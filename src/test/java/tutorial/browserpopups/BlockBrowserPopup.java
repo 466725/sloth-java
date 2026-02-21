@@ -11,7 +11,7 @@ import webpages.BaseWebPage;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-//www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
+// Reference: https://www.browserstack.com/automate/handle-popups-alerts-prompts-in-automated-tests
 public class BlockBrowserPopup {
     protected final static Logger logger = LogManager.getLogger(BlockBrowserPopup.class.getName());
     private static WebDriver  driver = BaseWebPage.getDriver("Chrome");
@@ -29,14 +29,14 @@ public class BlockBrowserPopup {
         logger.info("Test ended!");
     }
 
-    // Popup window will show up
+    // Opens the page where the popup appears.
     @Test(priority = 3)
     public void testPopupWindowChrome() throws Exception {
         driver.get(URL);
         Thread.sleep(5000);
     }
 
-    // Popup window will show up, and will be dismissed
+    // Opens the page and dismisses the popup with ESC.
     @Test(priority = 7)
     public void testDismissingPopupWindowChrome() throws Exception {
         driver.get(URL);

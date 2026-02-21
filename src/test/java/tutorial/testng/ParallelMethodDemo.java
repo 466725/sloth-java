@@ -18,7 +18,7 @@ public class ParallelMethodDemo extends ApiTestCase {
         throw new IOException("Pass Message test");
     }
 
-    //must be Independent, to guarantee thread safe
+    // Keep this method independent to avoid shared-state issues across parallel invocations.
     @Test(threadPoolSize = 3
             , invocationCount = 6
             , timeOut = 1000

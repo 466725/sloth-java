@@ -169,7 +169,7 @@ public abstract class MobileTestCase extends TestCase {
     }
 
     /**
-     * Prepare per BeforeMethod annotation.
+     * Runs before each test method.
      */
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {

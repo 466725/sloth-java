@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-// For Demo purpose only
+// Demo API tests for Rest Assured usage.
 public class TestSigninWithRestAssured extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(TestSigninWithRestAssured.class.getName());
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
@@ -42,7 +42,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
                         .extract()
                         .response();
 
-        // Extract token from JSON response
+        // Extract the session token from the JSON response.
         sessionToken = response.jsonPath().getString("SessionToken");
 
         logger.info("jsonBody: " + response.asString());
@@ -70,7 +70,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
                         .extract()
                         .response();
 
-        // If you want to log the JSON response (similar to your logger.info("jsonBody: ..."))
+        // Log the full JSON response body for troubleshooting.
         String responseBody = response.asString();
         logger.info("jsonBody: " + responseBody);
     }

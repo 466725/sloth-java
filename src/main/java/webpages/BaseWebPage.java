@@ -23,7 +23,7 @@ public class BaseWebPage {
     protected final static Logger logger = LogManager.getLogger(BaseWebPage.class.getName());
     protected static WebDriver driver = null;
 
-    // Constructor
+    // Shared page object constructor.
     public BaseWebPage(WebDriver driver) {
         BaseWebPage.driver = driver;
     }
@@ -60,7 +60,7 @@ public class BaseWebPage {
             options.addArguments("--disable-gpu"); // mostly harmless; helps some environments
             options.addArguments("--window-size=1920,1080"); // IMPORTANT for headless stability
         }
-        // Force English
+        // Force browser UI/content language to English for stable locators and assertions.
         options.addArguments("--lang=en-US");
 
         java.util.Map<String, Object> prefs = new java.util.HashMap<>();

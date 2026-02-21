@@ -17,10 +17,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Base class of all GUI test cases related objects
+ * Base class for UI test lifecycle and screenshot handling.
  *
  * @author Weipeng Zheng
- *
  */
 public class GuiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
@@ -30,8 +29,7 @@ public class GuiTestCase extends TestCase {
     private static final DateTimeFormatter SCREENSHOT_TS = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
 
     /**
-     * Prepare per BeforeClass annotation.
-     *
+     * Runs before each UI test class.
      */
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
@@ -45,7 +43,7 @@ public class GuiTestCase extends TestCase {
     }
 
     /**
-     * Cleanup per AfterClass annotation.
+     * Runs after each UI test class.
      */
     @AfterClass(alwaysRun = true)
     public void afterClass() {
@@ -53,7 +51,7 @@ public class GuiTestCase extends TestCase {
     }
 
     /**
-     * Prepare per BeforeMethod annotation.
+     * Runs before each UI test method.
      */
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
@@ -67,7 +65,7 @@ public class GuiTestCase extends TestCase {
     }
 
     /**
-     * Cleanup per AfterMethod annotation.
+     * Runs after each UI test method.
      */
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result) {
@@ -86,7 +84,7 @@ public class GuiTestCase extends TestCase {
     }
 
     /**
-     * Cleanup per AfterTest annotation.
+     * Runs after each TestNG <test> block.
      */
     @AfterTest(alwaysRun = true)
     public void afterTest() {

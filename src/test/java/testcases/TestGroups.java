@@ -17,7 +17,7 @@ public final class TestGroups {
     public static final String AMAZON = "amazon";
     public static final String TANGERINE = "tangerine";
 
-    // ...
+    // Utility class; not meant to be instantiated.
     private TestGroups() {
         logger.info("TestGroups class created");
     }

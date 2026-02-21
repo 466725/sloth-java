@@ -10,7 +10,7 @@ import testcases.TestGroups;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertTrue;
 
-//For UAT only, will not work in PROD
+// UAT-only endpoint; this test is not expected to work in PROD.
 public class TestBarcodeGenerator extends ApiTestCase {
 
     @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
@@ -28,7 +28,7 @@ public class TestBarcodeGenerator extends ApiTestCase {
         assertTrue(response.code() == 200);
     }
 
-    // Redo barcodeGeneratorRestAssuredTest() with Rest Assured
+    // Equivalent barcode generation call implemented with Rest Assured.
     @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
     public void generate_Barcode_RestAssured_Call() throws Exception {
         given()

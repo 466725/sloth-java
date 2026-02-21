@@ -16,7 +16,7 @@ import testcases.TestGroups;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-// For Demo purpose only
+// Demo API tests for OkHttp usage.
 public class TestSigninWithOKHttp extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(TestSigninWithOKHttp.class.getName());
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
@@ -52,7 +52,7 @@ public class TestSigninWithOKHttp extends ApiTestCase {
         logger.info("sessionToken: " + sessionToken);
     }
 
-    // Login with the wrong username and password
+    // Login call using test credentials.
     @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
     public void login_OKhttp_Call() throws Exception {
         RequestBody body = RequestBody

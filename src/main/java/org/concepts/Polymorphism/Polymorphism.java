@@ -1,6 +1,6 @@
 package org.concepts.Polymorphism;
 
-//Everything about Polymorphism
+// Simple polymorphism example.
 public class Polymorphism {
     static void main() {
         Animal priorityAnimal = new Dog("Ani", 3, "Brown");

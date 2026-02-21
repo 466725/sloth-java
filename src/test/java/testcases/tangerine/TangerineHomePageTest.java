@@ -12,7 +12,7 @@ public class TangerineHomePageTest extends GuiTestCase {
     final static Logger logger = LogManager.getLogger(TangerineHomePageTest.class.getName());
     BaseWebPage homepage;
 
-    // Verify title
+    // Verifies the Tangerine home page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.TANGERINE})
     public void verifyTitle() {
         logger.info("ui.web.tangerine.home.verify_title.start");

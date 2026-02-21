@@ -4,10 +4,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 /**
- * Utility class to detect platform/OS smartly
+ * Utility class for OS detection.
  *
  * @author Weipeng Zheng
- *
  */
 public class OperationSystemDetector {
     private final static Logger logger = LogManager.getLogger(OperationSystemDetector.class.getName());
@@ -29,7 +28,7 @@ public class OperationSystemDetector {
         return (OS.contains("sunos"));
     }
 
-    // Fetch OS and log it accordingly, to generate WebDriver smartly
+    // Returns a short OS code and logs the detected platform.
     public static String getOS() {
         if (isWindows()) {
             return logAndReturn("info", "This is Windows", "win");

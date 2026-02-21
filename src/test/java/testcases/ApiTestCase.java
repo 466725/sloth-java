@@ -20,20 +20,19 @@ import java.util.List;
 import static com.google.common.base.Throwables.getStackTraceAsString;
 
 /**
- * Base class of all API test cases related objects
+ * Base class for API tests.
  *
  * @author Weipeng Zheng
- *
  */
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
     protected static OkHttpClient client = new OkHttpClient.Builder().build();
-    // Better to read from environment, System.getenv("API_MANAGER_SUBSCRIPTION_KEY"));
+    // TODO: Read from environment variable instead of hardcoding.
     protected static String apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895";
     protected CookieJar cookieJar = null;
 
     /**
-     * Prepare per BeforeClass annotation.     *
+     * Runs before each test class.
      */
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
@@ -56,7 +55,7 @@ public class ApiTestCase extends TestCase {
     }
 
     /**
-     * Cleanup per AfterClass annotation.
+     * Runs after each test class.
      */
     @AfterClass(alwaysRun = true)
     public void afterClass() {
@@ -64,7 +63,7 @@ public class ApiTestCase extends TestCase {
     }
 
     /**
-     * Prepare per BeforeMethod annotation.
+     * Runs before each test method.
      */
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
@@ -72,7 +71,7 @@ public class ApiTestCase extends TestCase {
     }
 
     /**
-     * Cleanup per AfterMethod annotation.
+     * Runs after each test method.
      */
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result) {

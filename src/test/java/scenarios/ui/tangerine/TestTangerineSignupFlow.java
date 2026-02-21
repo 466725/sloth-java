@@ -17,16 +17,16 @@ public class TestTangerineSignupFlow extends GuiTestCase {
     TangerineSigninPage tangerineSigninPage;
     TangerineSignupPage tangerineSignupPage;
 
-    // Verify title
+    // Verifies navigation to the Tangerine sign-up flow.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.QUARANTINE})
     public void verifyTangerineSignupFlow() {
         test.setDescription("Verify title on Amazon Register Page");
-        // Navigate to Tangerine Home Page, and then navigate to Signin Page
+        // Navigate to Tangerine home page, then to the sign-in page.
         tangerineSigninPage = (TangerineSigninPage) BaseWebPage.gotoHomePage("Tangerine").gotoSigninPage();
-        // Navigate to Signup Page
+        // Navigate to the sign-up page.
         tangerineSignupPage = tangerineSigninPage.gotoSignupPage();
-        // Verify title contains "Tangerine"
+        // Verify the title contains "Tangerine".
         Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Tangerine"), "Title verification failed");
-        // Procee with filling out the form and verify error message
+        // TODO: Fill out the form and verify validation messages.
     }
 }

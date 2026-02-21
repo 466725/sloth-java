@@ -3,9 +3,9 @@ package org.concepts;
 import java.util.HashMap;
 import java.util.Map;
 
-//Everything about String data type
+// Examples for Java String operations.
 public class StringDataType {
-    // For a given string, lower case and upper case toggle only Characters of it. For example, from myStRing001 to MYsTrING001
+    // Toggles letter case while leaving digits/symbols unchanged (e.g., myStRing001 -> MYsTrING001).
     public static String toggleLowercaseUppercase(String inputString) {
         StringBuilder sb = new StringBuilder(inputString);
         for (int i = 0; i < sb.length(); i++) {
@@ -39,9 +39,7 @@ public class StringDataType {
         }
     }
 
-    // LeetCode exercise https://www.youtube.com/watch?v=GS9TyovoU4c
-    // Find the length of the longest
-    // substring without repeating characters
+    // Finds the length of the longest substring without repeating characters.
     public static int lengthOfLongestSubstring(String s) {
         int maxLength = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -107,14 +105,14 @@ public class StringDataType {
         System.out.println(s1.compareTo(s3));
         System.out.println(s1.hashCode());
 
-        //Append 1 to 999 to s1
+        // Append 1 to 999 to s1.
         s1 = "";
         for (int i = 1; i <= 999; i++) {
             s1 += i;
         }
         System.out.println(s1);
 
-        //Append 1 to 999 to s1 with StringBuilder
+        // Append 1 to 999 to s1 with StringBuilder.
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= 999; i++) {
             sb.append(i);

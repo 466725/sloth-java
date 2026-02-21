@@ -17,7 +17,7 @@ public class AmazonRegisterPageTest extends GuiTestCase {
     AmazonSigninPage amazonSigninPage;
     AmazonRegisterPage amazonRegisterPage;
 
-    // Verify title
+    // Verifies the Amazon register page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.QUARANTINE, TestGroups.AMAZON})
     public void verifyTitle() {
         test.setDescription("Verify title on Amazon Register Page");

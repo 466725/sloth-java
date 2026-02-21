@@ -21,10 +21,9 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 /**
- * Base class of all test cases related objects
+ * Base class for shared test lifecycle and reporting setup.
  *
  * @author Weipeng Zheng
- *
  */
 public class TestCase {
     protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
@@ -56,7 +55,7 @@ public class TestCase {
     }
 
     /**
-     * Prepare per BeforeSuite annotation.
+     * Runs once before the suite starts.
      */
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
@@ -65,7 +64,7 @@ public class TestCase {
     }
 
     /**
-     * Prepare per BeforeTest annotation.
+     * Runs before each TestNG <test> block.
      */
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
@@ -89,7 +88,7 @@ public class TestCase {
     }
 
     /**
-     * Cleanup per AfterTest annotation.
+     * Runs after each TestNG <test> block.
      */
     @AfterTest(alwaysRun = true)
     public void afterTest() {
@@ -97,7 +96,7 @@ public class TestCase {
     }
 
     /**
-     * Cleanup per AfterSuite annotation.
+     * Runs once after the suite finishes.
      */
     @AfterSuite(alwaysRun = true)
     protected void afterSuite() {

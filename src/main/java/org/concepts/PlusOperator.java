@@ -2,7 +2,7 @@ package org.concepts;
 
 import java.util.Scanner;
 
-//Everything about java operator +
+// Examples for Java '+' operator behavior.
 public class PlusOperator {
     public static void main(String[] args) {
         System.out.println("Hello, World!");

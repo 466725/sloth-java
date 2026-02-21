@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 
-// To be continued...
+// Utility for reading sample Excel data from the classpath.
 public final class ExcelFileReader {
     private final static Logger logger = LogManager.getLogger(ExcelFileReader.class.getName());
 
@@ -24,7 +24,7 @@ public final class ExcelFileReader {
         readExcel();
     }
 
-    // Read Excel File
+    // Reads and prints values from the first sheet of the sample workbook.
     public static void readExcel() {
         String resourceName = "/excel-test-data.xlsx";
         DataFormatter formatter = new DataFormatter();

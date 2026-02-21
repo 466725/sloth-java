@@ -3,11 +3,11 @@ package org.concepts;
 import java.util.Random;
 import java.util.Scanner;
 
-//Everything about java while loop
+// Examples for Java while-loops.
 public class WhileLoop {
     public static void main(String[] args) {
         int i=0;
-        // sum all numbers from 1 to i
+        // Print numbers from 0 to 9.
         while(i<10){
             System.out.println(i);
             i++;

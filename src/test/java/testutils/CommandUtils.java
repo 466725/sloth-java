@@ -19,7 +19,7 @@ public final class CommandUtils {
     private CommandUtils() {
     }
 
-    // run commands, which we used to run with Terminals. For example: docker version
+    // Runs a shell command and returns combined stdout/stderr output.
     public static String runCommand(String[] command, int timeoutSeconds) throws Exception {
         Process process = new ProcessBuilder(command)
                 .redirectErrorStream(true)
@@ -38,7 +38,7 @@ public final class CommandUtils {
         return output;
     }
 
-    // run adb commands, which we used to run with Terminals. For example: adb devices
+    // Resolves the adb executable path from common SDK locations, then falls back to PATH.
     public static String resolveAdbExecutable() {
         // Prefer SDK-resolved adb paths before falling back to PATH lookup.
         List<String> candidates = new ArrayList<>();

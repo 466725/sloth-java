@@ -67,12 +67,12 @@ public class SeleniumWrapper {
                     .until(ExpectedConditions.elementToBeClickable(element));
         } catch (RuntimeException e) {
             logger.warn("Element not clickable after " + waitTime + "s. Current URL: " + driver.getCurrentUrl(), e);
-            throw e; // don't continue to element.click() if it's not clickable
+            throw e; // Stop here instead of clicking a non-clickable element.
         }
     }
 
     public static void waitForPageToRender(WebDriver driver) {
-        // To be polished, we need a better solution
+        // Uses a fixed sleep as a simple fallback; prefer explicit waits when possible.
         try {
             logger.info(driver.getTitle());
             Thread.sleep(PropertiesFileReader.getPageRenderTimeout());
@@ -164,7 +164,7 @@ public class SeleniumWrapper {
         try {
             allWebElements = driver.findElements(By.cssSelector("*"));
             logger.info("All elements located, in total: " + allWebElements.size());
-            // allWebElements = removeUselessElements(allWebElements);
+            // Placeholder for optional filtering of non-useful elements.
             logger.info("Useless elements removed, in total: " + allWebElements.size());
             for (WebElement e : allWebElements)
                 SeleniumWrapper.printWebElementInfo(e);

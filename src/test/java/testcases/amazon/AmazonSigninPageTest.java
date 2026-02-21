@@ -13,7 +13,7 @@ public class AmazonSigninPageTest extends GuiTestCase {
     final static Logger logger = LogManager.getLogger(AmazonSigninPageTest.class.getName());
     AmazonSigninPage amazonSigninPage;
 
-    // Verify title
+    // Verifies the Amazon sign-in page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.AMAZON})
     public void verifyTitle() {
         logger.info("ui.web.amazon.signin.verify_title.start");
