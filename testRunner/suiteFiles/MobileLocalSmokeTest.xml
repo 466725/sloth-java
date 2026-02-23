@@ -6,14 +6,15 @@
         <listener class-name="testcases.FailureListener"/>
     </listeners>
 
-    <!-- This test works only locally -->
+    <!-- Here we can add any test class, docker environment ready for all -->
     <test name="MobileAppAndWebLocalSmoke" parallel="false">
         <classes>
-            <!-- App test cases -->
-            <class name="testcases.mobile.app.TestAndroidDeskClockLaunch"/>
-            <class name="testcases.mobile.app.TestAndroidDeskClockSetAlarm"/>
             <!-- Web test cases -->
             <class name="testcases.mobile.web.TestAmazonMobileSigninPage"/>
+            <!-- App test cases -->
+            <!-- App test works only locally currently -->
+            <class name="testcases.mobile.app.TestAndroidDeskClockLaunch"/>
+            <class name="testcases.mobile.app.TestAndroidDeskClockSetAlarm"/>
         </classes>
     </test>
 </suite>
