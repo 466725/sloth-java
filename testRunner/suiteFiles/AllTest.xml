@@ -10,6 +10,7 @@
         <groups>
             <run>
                 <include name="regression"/>
+                <include name="integration"/>
             </run>
         </groups>
 
