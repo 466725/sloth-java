@@ -117,6 +117,7 @@ mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
 mvn test "-DsuiteXmlFile=SmokeTest.xml"
 mvn test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
 mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
+mvn test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
 ```
 
 ---

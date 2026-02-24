@@ -13,6 +13,8 @@
             <class name="testcases.tangerine.TangerineHomePageTest"/>
             <!-- API test cases -->
             <class name="scenarios.api.cineplex.TestBarcodeGenerator"/>
+            <!-- Cucumber test cases -->
+            <class name="scenarios.ui.amazon.cucumber.AmazonInvalidLoginCucumberTest"/>
         </classes>
     </test>
 </suite>

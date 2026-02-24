@@ -113,6 +113,13 @@ public class BaseWebPage {
         return null;
     }
 
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
+
     private static String getRemoteWebDriverUrl() {
         String prop = System.getProperty("selenium.remote.url");
         if (prop != null && !prop.isBlank()) {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Cucumber Amazon Invalid Login Suite">
+    <test name="Cucumber Amazon Invalid Login Test">
+        <classes>
+            <class name="scenarios.ui.amazon.cucumber.AmazonInvalidLoginCucumberTest"/>
+        </classes>
+    </test>
+</suite>
