@@ -27,7 +27,7 @@ import static com.google.common.base.Throwables.getStackTraceAsString;
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
     protected static OkHttpClient client = new OkHttpClient.Builder().build();
-    // TODO: Read from environment variable instead of hardcoding.
+    // TODO: Read from environment variable instead of hardcoding. Here is for Demo purpose only
     protected static String apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895";
     protected CookieJar cookieJar = null;
 

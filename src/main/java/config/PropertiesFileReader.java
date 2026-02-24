@@ -64,11 +64,6 @@ public class PropertiesFileReader {
         return getRequired("AMAZON_URL");
     }
 
-    // Returns Tangerine base URL.
-    public static String getTangerineURL() {
-        return getRequired("TANGERINE_URL");
-    }
-
     // Returns barcode service base URL.
     public static String getBarcodeBaseURL() {
         return getRequired("BARCODE_BASE_URL");
@@ -124,7 +119,6 @@ public class PropertiesFileReader {
     
     public static void main(String[] args) {
         System.out.println(getAmazonURL());
-        System.out.println(getTangerineURL());
         System.out.println(getBarcodeBaseURL());
         System.out.println(getCONNECT_URL());
         System.out.println(getBrowser());

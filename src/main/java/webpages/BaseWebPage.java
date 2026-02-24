@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utilities.OperationSystemDetector;
 import webpages.amazon.AmazonHomePage;
-import webpages.tangerine.TangerineHomePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -103,10 +102,8 @@ public class BaseWebPage {
         WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
         if (org.equalsIgnoreCase("Amazon")) {
             currentDriver.get(PropertiesFileReader.getAmazonURL());
-            return new AmazonHomePage(currentDriver);
         }
-        currentDriver.get(PropertiesFileReader.getTangerineURL());
-        return new TangerineHomePage(currentDriver);
+        return new AmazonHomePage(currentDriver);
     }
 
     public BaseWebPage gotoSigninPage() {
