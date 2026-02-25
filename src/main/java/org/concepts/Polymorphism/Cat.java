@@ -1,19 +1,24 @@
 package org.concepts.Polymorphism;
 
-public class Cat extends Animal{
+/**
+ * Cat implementation of {@link Animal}.
+ */
+public class Cat extends Animal {
     public Cat() {
-        super();
-        System.out.println("Cat constructor called, no parameters");
+        super("Cat", 1, "Gray");
     }
+
     public Cat(String name, int age, String color) {
         super(name, age, color);
-        System.out.println("Cat constructor called, no parameters");
     }
+
     @Override
     public void makeSound() {
-        System.out.println("Meow");
+        System.out.println(getName() + " says: Meow");
     }
-    public void eat(){
-        System.out.println("Cat eats fish");
+
+    @Override
+    public void eat() {
+        System.out.println(getName() + " eats fish.");
     }
 }

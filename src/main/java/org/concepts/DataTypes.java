@@ -5,10 +5,31 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-// Example class to demonstrate data types in Java
+/**
+ * Demonstrates common Java reference-type usage:
+ * collections and mutable string classes.
+ */
 public class DataTypes {
-    // HashSet Example
-    public static void hashSetExample() {
+    public static void main(String[] args) {
+        printSection("HashSet Example");
+        demonstrateHashSet();
+
+        printSection("HashMap Example");
+        demonstrateHashMap();
+
+        printSection("StringBuilder Example");
+        demonstrateStringBuilder();
+
+        printSection("StringBuffer Example");
+        demonstrateStringBuffer();
+    }
+
+    private static void printSection(String title) {
+        System.out.println();
+        System.out.println("=== " + title + " ===");
+    }
+
+    private static void demonstrateHashSet() {
         Set<String> fruits = new HashSet<>();
 
         // Add items (duplicates are ignored)
@@ -34,8 +55,7 @@ public class DataTypes {
         System.out.println("Count: " + fruits.size());
     }
 
-    // HashMap Example
-    public static void hashMapExample() {
+    private static void demonstrateHashMap() {
         Map<String, Integer> inventory = new HashMap<>();
 
         // Put key-value pairs (adding/updating)
@@ -67,24 +87,17 @@ public class DataTypes {
         System.out.println("Item types: " + inventory.size());
     }
 
-    // StringBuilder Example (Not Synchronized)
-    public static void stringBuilderExample() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Hello ").append("World!");
-        System.out.println(sb);
+    // StringBuilder is not synchronized and is typically faster in single-threaded code.
+    private static void demonstrateStringBuilder() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Hello ").append("World!");
+        System.out.println(builder);
     }
 
-    // StringBuffer Example (Synchronized)
-    public static void stringBufferExample() {
-        StringBuffer sb = new StringBuffer();
-        sb.append("Hello ").append("World!");
-        System.out.println(sb);
-    }
-
-    static void main() {
-        hashSetExample();
-        hashMapExample();
-        stringBuilderExample();
-        stringBufferExample();
+    // StringBuffer is synchronized and can be safer in shared multi-threaded contexts.
+    private static void demonstrateStringBuffer() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("Hello ").append("World!");
+        System.out.println(buffer);
     }
 }

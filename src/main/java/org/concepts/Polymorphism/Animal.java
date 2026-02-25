@@ -1,32 +1,50 @@
 package org.concepts.Polymorphism;
 
+import java.util.Objects;
+
+/**
+ * Base type for polymorphism demos.
+ */
 public abstract class Animal {
+    private final String color;
     private String name;
     private int age;
-    private String color;
 
-    public Animal() {
-    }
     public Animal(String name, int age, String color) {
-        this.name = name;
+        this.name = Objects.requireNonNull(name, "name must not be null");
         this.age = age;
-        this.color = color;
+        this.color = Objects.requireNonNull(color, "color must not be null");
     }
-    public String getName() {
-        return name;
-    }
-    public int getAge() {return age;}
+
+    public abstract void makeSound();
+
+    /**
+     * Subclass-specific feeding behavior.
+     */
+    public abstract void eat();
+
     public String getColor() {
         return color;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public String getName() {
+        return name;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setName(String name) {
+        this.name = Objects.requireNonNull(name, "name must not be null");
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
-    public void setColor(String color) {
-        this.color = color;
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "{name='" + name + "', age=" + age + ", color='" + color + "'}";
     }
-    public abstract void makeSound();
 }

@@ -1,7 +1,5 @@
 package org.concepts.deepcopy;
 
-import lombok.Getter;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -9,9 +7,7 @@ import java.util.Objects;
  * Person model used to demonstrate shallow copy vs deep copy.
  */
 public class Person {
-    @Getter
     private String name;
-    @Getter
     private final Address address; // nested mutable object
     private final int[] scores;    // nested mutable array
 
@@ -41,6 +37,14 @@ public class Person {
 
     public void setName(String name) {
         this.name = Objects.requireNonNull(name, "name must not be null");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
     public void setScoreAt(int index, int value) {

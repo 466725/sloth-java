@@ -1,50 +1,49 @@
 package org.concepts;
 
+/**
+ * Demonstrates member inner classes, anonymous inner classes, and lambdas.
+ */
 public class InnerClassExample {
-    interface MyInterface {
-        void method();
+    interface MessagePrinter {
+        void printMessage();
     }
 
-    class InnerClass {
-        public InnerClass() {
-            System.out.println("First inner class created");
+    static class MemberInnerClass {
+        public MemberInnerClass() {
+            System.out.println("Member inner class instance created.");
         }
     }
 
-    public void outerMethod() {
-        InnerClass inner = new InnerClass();
+    public void createMemberInnerClass() {
+        new MemberInnerClass();
     }
 
-    // anonymous inner class example
-    public static void main() {
-        Runnable task = () -> System.out.println("Running from second anonymous inner class!");
-        Thread t = new Thread(task);
-        t.start();
+    private static void runLambdaExample() {
+        Runnable task = () -> System.out.println("Running from lambda.");
+        Thread thread = new Thread(task);
+        thread.start();
     }
 
-    // anonymous inner class example
-    public static void main(boolean b) {
-        if (!b) {
-            System.out.println("Exiting...");
-            return;
-        }
+    private static void runAnonymousInnerClassExample() {
         Runnable task = new Runnable() {
             @Override
             public void run() {
-                System.out.println("Running from third anonymous inner class!");
+                System.out.println("Running from anonymous inner class.");
             }
         };
 
-        Thread t = new Thread(task);
-        t.start();
+        Thread thread = new Thread(task);
+        thread.start();
     }
 
     public static void main(String[] args) {
-        main();
-        main(true);
+        runLambdaExample();
+        runAnonymousInnerClassExample();
 
-        new InnerClassExample().outerMethod();
-        MyInterface mi = () -> System.out.println("Hello from interface, good luck! ");
-        mi.method();
+        InnerClassExample example = new InnerClassExample();
+        example.createMemberInnerClass();
+
+        MessagePrinter printer = () -> System.out.println("Hello from functional interface.");
+        printer.printMessage();
     }
 }

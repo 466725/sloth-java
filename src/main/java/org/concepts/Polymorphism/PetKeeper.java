@@ -1,24 +1,29 @@
 package org.concepts.Polymorphism;
 
+import java.util.Objects;
+
+/**
+ * Demonstrates interacting with pets through the base Animal type.
+ */
 public class PetKeeper {
     private Animal pet;
-    public PetKeeper(){
-    }
+
     public PetKeeper(Animal pet) {
-        this.pet = pet;
+        this.pet = Objects.requireNonNull(pet, "pet must not be null");
     }
-    public void feedPet(){
+
+    public void feedPet() {
+        Objects.requireNonNull(pet, "pet must not be null");
+        System.out.println("Feeding pet: " + pet);
         pet.makeSound();
-        if(pet instanceof Cat){
-            ((Cat) pet).eat();
-        }else if(pet instanceof Dog){
-            ((Dog) pet).eat();
-        }
+        pet.eat();
     }
-    public void setPet(Animal pet) {
-        this.pet = pet;
-    }
+
     public Animal getPet() {
         return pet;
+    }
+
+    public void setPet(Animal pet) {
+        this.pet = Objects.requireNonNull(pet, "pet must not be null");
     }
 }

@@ -1,25 +1,41 @@
 package org.concepts;
 
-// Examples for Java for-loops.
+/**
+ * Simple examples of using Java for-loops.
+ */
 public class ForLoop {
-    public static int i=3;
-    public static void main(String[] args) {
-        int sum=0;
-        // sum all numbers from 1 to i
-        for (int j = 1; j < i+1; j++) {
-            System.out.println(j);
-            sum += j;
-            System.out.println(j);
-        }
-        System.out.println("Sum of numbers from 1 to " + i + " is: " + sum);
+    private static final int UPPER_BOUND = 3;
 
-        sum=0;
-        // sum odd numbers from 1 to i
-        for (int j = 1; j < i+1; j++) {
-            if (j % 2 != 0) {
-                sum += j;
+    public static void main(String[] args) {
+        printNumbersFromOneTo(UPPER_BOUND);
+        int totalSum = sumFromOneTo(UPPER_BOUND);
+        System.out.println("Sum of numbers from 1 to " + UPPER_BOUND + " is: " + totalSum);
+
+        int oddSum = sumOddNumbersFromOneTo(UPPER_BOUND);
+        System.out.println("Sum of odd numbers from 1 to " + UPPER_BOUND + " is: " + oddSum);
+    }
+
+    private static void printNumbersFromOneTo(int upperBound) {
+        for (int number = 1; number <= upperBound; number++) {
+            System.out.println(number);
+        }
+    }
+
+    private static int sumFromOneTo(int upperBound) {
+        int sum = 0;
+        for (int number = 1; number <= upperBound; number++) {
+            sum += number;
+        }
+        return sum;
+    }
+
+    private static int sumOddNumbersFromOneTo(int upperBound) {
+        int sum = 0;
+        for (int number = 1; number <= upperBound; number++) {
+            if (number % 2 != 0) {
+                sum += number;
             }
         }
-        System.out.println("Sum of odd numbers from 1 to " + i + " is: " + sum);
+        return sum;
     }
 }
