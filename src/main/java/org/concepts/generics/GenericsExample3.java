@@ -7,31 +7,36 @@ import org.concepts.Polymorphism.Dog;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Demonstrates wildcard bounds:
+ * - {@code ? extends T} for producers (read)
+ * - {@code ? super T} for consumers (write)
+ */
 public class GenericsExample3 {
-    static void main() {
+    public static void main(String[] args) {
         ArrayList<Animal> animalList = new ArrayList<>();
         animalList.add(new Cat());
         animalList.add(new Dog());
-        System.out.println(animalList.get(0).getName());
-        System.out.println(animalList.get(1).getName());
+        printAnimalNames(animalList);
 
-        //List<? extends Animal> anythingList2 = animalList;
-        List<? super Animal> anythingList2 = new ArrayList<>();
-        anythingList2.add(new Cat());
-        anythingList2.add(new Dog());
-        print(anythingList2);
+        List<? super Animal> animalConsumer = new ArrayList<>();
+        addSampleAnimals(animalConsumer);
+        System.out.println(animalConsumer);
 
         List<Cat> catList = new ArrayList<>();
         catList.add(new Cat());
         catList.add(new Cat());
-        printAnimalChild(catList);
+        printAnimalNames(catList);
     }
 
-    static <T> void print(List<?> myList) {
-        System.out.println(myList);
+    static void addSampleAnimals(List<? super Animal> animals) {
+        animals.add(new Cat());
+        animals.add(new Dog());
     }
 
-    static <T> void printAnimalChild(List<? extends Animal> myList) {
-        System.out.println(myList);
+    static void printAnimalNames(List<? extends Animal> animals) {
+        for (Animal animal : animals) {
+            System.out.println(animal.getName());
+        }
     }
 }

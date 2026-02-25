@@ -1,13 +1,18 @@
 package org.concepts.generics;
 
-public class PrintInt {
-    Integer intToPrint;
+import java.util.Objects;
 
-    public PrintInt(Integer intToPrint) {
-        this.intToPrint = intToPrint;
+/**
+ * Non-generic printer that only supports {@link Integer}.
+ */
+public class PrintInt {
+    private final Integer value;
+
+    public PrintInt(Integer value) {
+        this.value = Objects.requireNonNull(value, "value must not be null");
     }
 
     public void print() {
-        System.out.println(intToPrint);
+        System.out.println(value);
     }
 }

@@ -1,13 +1,18 @@
 package org.concepts.generics;
 
+/**
+ * Generic printer that can print values of any reference type.
+ *
+ * @param <T> value type
+ */
 public class PrintAnything<T> {
-    T anythingToPrint;
+    private final T value;
 
-    public PrintAnything(T anythingToPrint) {
-        this.anythingToPrint = anythingToPrint;
+    public PrintAnything(T value) {
+        this.value = value;
     }
 
     public void print() {
-        System.out.println(anythingToPrint);
+        System.out.println(value);
     }
 }

@@ -2,24 +2,26 @@ package org.concepts.generics;
 
 import org.concepts.Polymorphism.Cat;
 
+/**
+ * Demonstrates generic methods with one and two type parameters.
+ */
 public class GenericsExample4 {
-    // Generic methods
-    static void main() {
-        print("Hello, Generics!");
-        print(42);
-        print(3.14);
-        print(new Cat());
+    public static void main(String[] args) {
+        printValue("Hello, Generics!");
+        printValue(42);
+        printValue(3.14);
+        printValue(new Cat());
 
-        print("Hello", "World");
-        print(10, 20);
-        print("Hello", 42);
+        printPair("Hello", "World");
+        printPair(10, 20);
+        printPair("Hello", 42);
     }
 
-    static <T> void print(T t) {
-        System.out.println(t);
+    static <T> void printValue(T value) {
+        System.out.println(value);
     }
 
-    static <T, V> void print(T t, V v) {
-        System.out.println(t + " " + v);
+    static <T, U> void printPair(T first, U second) {
+        System.out.println(first + " " + second);
     }
 }

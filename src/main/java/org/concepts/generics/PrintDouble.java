@@ -1,13 +1,18 @@
 package org.concepts.generics;
 
-public class PrintDouble {
-    Double intToPrint;
+import java.util.Objects;
 
-    public PrintDouble(Double doubleToPrint) {
-        this.intToPrint = doubleToPrint;
+/**
+ * Non-generic printer that only supports {@link Double}.
+ */
+public class PrintDouble {
+    private final Double value;
+
+    public PrintDouble(Double value) {
+        this.value = Objects.requireNonNull(value, "value must not be null");
     }
 
     public void print() {
-        System.out.println(intToPrint);
+        System.out.println(value);
     }
 }
