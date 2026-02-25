@@ -9,7 +9,8 @@ import io.cucumber.testng.CucumberOptions;
         plugin = {
                 "pretty",
                 "summary",
-                "html:target/cucumber/amazon-invalid-login-report.html"
+                "html:target/cucumber/amazon-invalid-login-report.html",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         }
 )
 public class AmazonInvalidLoginCucumberTest extends AbstractTestNGCucumberTests {

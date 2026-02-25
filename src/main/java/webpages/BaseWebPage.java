@@ -120,6 +120,10 @@ public class BaseWebPage {
         }
     }
 
+    public static WebDriver getCurrentDriver() {
+        return driver;
+    }
+
     private static String getRemoteWebDriverUrl() {
         String prop = System.getProperty("selenium.remote.url");
         if (prop != null && !prop.isBlank()) {
