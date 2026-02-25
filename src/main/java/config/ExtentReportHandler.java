@@ -1,7 +1,6 @@
 package config;
 
 import com.relevantcodes.extentreports.ExtentReports;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -9,9 +8,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public final class ExtentReportHandler {
-    private final static Logger logger = LogManager.getLogger(ExtentReportHandler.class.getName());
-
     private ExtentReportHandler() {
+        throw new UnsupportedOperationException("Utility class");
     }
 
     public static void loadConfig(ExtentReports report, Logger logger) {

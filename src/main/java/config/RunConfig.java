@@ -2,13 +2,12 @@ package config;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.testng.annotations.Test;
 
 public final class RunConfig {
     private final static Logger logger = LogManager.getLogger(RunConfig.class.getName());
 
     private RunConfig() {
-        logger.info("Initializing RunConfig...");
+        throw new UnsupportedOperationException("Utility class");
     }
 
     public static boolean isHeadless() {
@@ -29,12 +28,12 @@ public final class RunConfig {
     }
 
     // Test set property
-    @Test
-    public static void setHeadless() {
+    public static void main(String[] args) {
         System.setProperty("headless", "true");
-        logger.info("Set 'headless' property to: " + true);
-        logger.info("Headless value actually is: " + isHeadless());
         System.out.println("Set 'headless' property to: " + true);
+        System.out.println("Headless value actually is: " + isHeadless());
+        System.setProperty("headless", "false");
+        System.out.println("Set 'headless' property to: " + false);
         System.out.println("Headless value actually is: " + isHeadless());
     }
 }

@@ -18,35 +18,47 @@ public class PropertiesFileReader {
     }
 
     private static void ensureLoaded() {
-        if (prop != null) return;
+        if (prop != null) {
+            return;
+        }
 
         synchronized (PropertiesFileReader.class) {
-            if (prop != null) return;
-
-            Properties loaded = new Properties();
-
-            // 1) Prefer classpath resource (recommended)
-            try (InputStream is = PropertiesFileReader.class.getClassLoader().getResourceAsStream("init-config.properties")) {
-                if (is != null) {
-                    loaded.load(is);
-                    prop = loaded;
-                    return;
-                }
-            } catch (Exception e) {
-                throw new IllegalStateException("Failed to load config from classpath resource: config/init-config.properties", e);
+            if (prop != null) {
+                return;
             }
+            prop = loadProperties();
+        }
+    }
 
-            // 2) Fallback to file path used in Constants (legacy behavior)
-            try (FileInputStream fis = new FileInputStream(Constants.CONFIG_FILE)) {
-                loaded.load(fis);
-                prop = loaded;
-            } catch (Exception e) {
-                throw new IllegalStateException(
-                        "Config file not found or unreadable. Tried classpath 'config/init-config.properties' and file: "
-                                + Constants.CONFIG_FILE,
-                        e
-                );
-            }
+    private static Properties loadProperties() {
+        try {
+            return loadFromClasspath();
+        } catch (IllegalArgumentException e) {
+            logger.warn("Classpath config not found. Falling back to legacy file path: " + Constants.CONFIG_FILE);
+            return loadFromLegacyFile();
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to load config from classpath resource: init-config.properties", e);
+        }
+    }
+
+    private static Properties loadFromClasspath() throws Exception {
+        Properties loaded = new Properties();
+        try (InputStream is = ResourceLoader.openFileAsInputStream("init-config.properties")) {
+            loaded.load(is);
+            return loaded;
+        }
+    }
+
+    private static Properties loadFromLegacyFile() {
+        Properties loaded = new Properties();
+        try (FileInputStream fis = new FileInputStream(Constants.CONFIG_FILE)) {
+            loaded.load(fis);
+            return loaded;
+        } catch (Exception e) {
+            throw new IllegalStateException(
+                    "Config file not found or unreadable. Tried classpath 'init-config.properties' and file: "
+                            + Constants.CONFIG_FILE, e
+            );
         }
     }
 

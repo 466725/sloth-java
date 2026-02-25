@@ -1,5 +1,6 @@
 package webpages.tangerine;
 
+import config.Constants;
 import config.PropertiesFileReader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -31,7 +32,7 @@ public class TangerineSigninPage extends BaseWebPage {
             signupButton.click();
         } catch (Exception e) {
             logger.warn("Normal click failed; falling back to JS click.", e);
-            SeleniumWrapper.clickElement(driver, signupButton, config.Constants.CLICK_METHOD_ENUM.RUNJS);
+            SeleniumWrapper.clickElement(driver, signupButton, Constants.CLICK_METHOD.RUN_JS);
         }
 
         return new TangerineSignupPage(driver);

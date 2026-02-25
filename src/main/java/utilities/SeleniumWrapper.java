@@ -118,32 +118,32 @@ public class SeleniumWrapper {
         }
     }
 
-    public static boolean clickElement(WebDriver driver, WebElement element, Constants.CLICK_METHOD_ENUM clickMethod) {
+    public static boolean clickElement(WebDriver driver, WebElement element, Constants.CLICK_METHOD clickMethod) {
         if (!(element.isDisplayed() && element.isEnabled())) {
             waitForPageLoadCompletion(driver);
         }
         switch (clickMethod) {
-            case Constants.CLICK_METHOD_ENUM.CLICK:
+            case Constants.CLICK_METHOD.CLICK:
                 element.click();
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.click(), called.");
                 return true;
-            case Constants.CLICK_METHOD_ENUM.SENDENTER:
+            case Constants.CLICK_METHOD.SEND_ENTER:
                 element.sendKeys(Keys.ENTER);
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.sendKeys(Keys.ENTER), called.");
                 return true;
-            case Constants.CLICK_METHOD_ENUM.SENDRETURN:
+            case Constants.CLICK_METHOD.SEND_RETURN:
                 element.sendKeys(Keys.RETURN);
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.sendKeys(Keys.RETURN), called.");
                 return true;
-            case Constants.CLICK_METHOD_ENUM.SUBMIT:
+            case Constants.CLICK_METHOD.SUBMIT:
                 element.submit();
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("element.submit(), called.");
                 return true;
-            case Constants.CLICK_METHOD_ENUM.RUNJS:
+            case Constants.CLICK_METHOD.RUN_JS:
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
                 SeleniumWrapper.waitForPageToRender(driver);
                 logger.info("((JavascriptExecutor) driver).executeScript(\"arguments[0].click();\", element), called.");
