@@ -24,6 +24,11 @@ services:
     ports:
       - "4444:4444"
       - "7900:7900"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:4444/status >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
 
   appium:
     image: appium/appium@sha256:db22c8f2dff3f452477c2049b50feb9720c60a9ee23e6abdd6bc2acd82dc8dba
@@ -67,7 +72,7 @@ services:
       MOBILE_WEB_RUN_MODE: "${MOBILE_WEB_RUN_MODE:-selenium}"
     depends_on:
       selenium:
-        condition: service_started
+        condition: service_healthy
       mysql:
         condition: service_healthy
     command: >

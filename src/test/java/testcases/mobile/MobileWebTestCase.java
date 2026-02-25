@@ -55,6 +55,8 @@ public abstract class MobileWebTestCase extends MobileTestCase {
         String seleniumRemoteUrl = getEnvOrDefault("SELENIUM_REMOTE_URL", DEFAULT_SELENIUM_URL);
         String emulatedDeviceName = getEnvOrDefault("MOBILE_EMULATION_DEVICE", DEFAULT_EMULATED_DEVICE);
         boolean headless = Boolean.parseBoolean(getEnvOrDefault("HEADLESS", "true"));
+        int maxAttempts = getIntEnvOrDefault("SELENIUM_SESSION_RETRY_COUNT", 4);
+        int retryDelaySeconds = getIntEnvOrDefault("SELENIUM_SESSION_RETRY_DELAY_SECONDS", 5);
 
         ChromeOptions chromeOptions = new ChromeOptions();
         Map<String, Object> mobileEmulation = new HashMap<>();
@@ -64,10 +66,31 @@ public abstract class MobileWebTestCase extends MobileTestCase {
             chromeOptions.addArguments("--headless=new");
         }
 
-        WebDriver seleniumDriver = new RemoteWebDriver(new URL(seleniumRemoteUrl), chromeOptions);
-        seleniumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
-        logger.info("mobile.web.session.init.selenium | seleniumUrl=" + seleniumRemoteUrl + " | emulatedDevice=" + emulatedDeviceName + " | headless=" + headless);
-        return seleniumDriver;
+        Exception lastError = null;
+        for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+            try {
+                WebDriver seleniumDriver = new RemoteWebDriver(new URL(seleniumRemoteUrl), chromeOptions);
+                seleniumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
+                logger.info("mobile.web.session.init.selenium | seleniumUrl=" + seleniumRemoteUrl
+                        + " | emulatedDevice=" + emulatedDeviceName
+                        + " | headless=" + headless
+                        + " | attempt=" + attempt + "/" + maxAttempts);
+                return seleniumDriver;
+            } catch (Exception exception) {
+                lastError = exception;
+                logger.warn("mobile.web.session.init.retry | seleniumUrl=" + seleniumRemoteUrl
+                        + " | attempt=" + attempt + "/" + maxAttempts
+                        + " | reason=" + exception.getMessage());
+                if (attempt < maxAttempts) {
+                    Thread.sleep(Duration.ofSeconds(retryDelaySeconds).toMillis());
+                }
+            }
+        }
+
+        throw new IllegalStateException(
+                "Unable to start Selenium mobile session after " + maxAttempts + " attempts. seleniumUrl=" + seleniumRemoteUrl,
+                lastError
+        );
     }
 
     private WebDriver createAppiumMobileWebSession(String deviceName, int implicitWaitSeconds) throws Exception {
