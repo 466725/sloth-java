@@ -2,18 +2,14 @@ package testcases;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import config.Constants;
 import config.ExtentReportHandler;
 
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.net.URL;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -29,39 +25,15 @@ import org.testng.annotations.BeforeTest;
  */
 public class TestCase {
     protected final static Logger logger = LogManager.getLogger(TestCase.class.getName());
-    protected final static String LOG_CONFIG_FILE = Constants.CONFIG_FILE_FOLDER + Constants.LOG4J_CONFIG_RESOURCE;
     protected final static Path REPORT_FILE_PATH = Path.of("test-output", "ExtentReport", "ExtentReport.html");
     protected static ExtentTest test;
     protected static ExtentReports report;
-
-    private void setupLog4j() {
-        // Avoid duplicate appenders: configure Log4j only once.
-        boolean alreadyConfigured = LogManager.getRootLogger().getAllAppenders().hasMoreElements();
-        if (alreadyConfigured) {
-            logger.debug("Log4j already configured; skipping reconfiguration.");
-            return;
-        }
-
-        // Load Log4j config from classpath (works in IntelliJ, Maven Surefire, CI, and packaged runs)
-        URL configUrl = Thread.currentThread().getContextClassLoader().getResource(LOG_CONFIG_FILE);
-
-        if (configUrl != null) {
-            DOMConfigurator.configure(configUrl);
-            logger.info("Log4j configured from classpath resource: " + LOG_CONFIG_FILE);
-        } else {
-            // Fallback: never run with "no appenders"
-            BasicConfigurator.configure();
-            logger.warn("Log4j config resource not found on classpath: " + LOG_CONFIG_FILE
-                    + " (falling back to BasicConfigurator).");
-        }
-    }
 
     /**
      * Runs once before the suite starts.
      */
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
-        setupLog4j();
         logger.info("-----------------------Beginning of suite----------------------");
     }
 
