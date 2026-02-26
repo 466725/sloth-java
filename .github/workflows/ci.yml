@@ -21,6 +21,12 @@ jobs:
       - name: Run Smoke suite with Docker Compose
         run: docker compose up --abort-on-container-exit --exit-code-from tests tests
 
+      - name: Fix artifact permissions
+        if: always()
+        run: |
+          sudo chown -R "$(id -u):$(id -g)" test-output target 2>/dev/null || true
+          sudo chmod -R u+rwX,go+rX test-output target 2>/dev/null || true
+
       - name: Upload test reports/artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -47,6 +53,12 @@ jobs:
       - name: Run Mobile Web suite with Docker Compose
         run: SUITE_XML_FILE=MobileWebSmokeTest.xml MOBILE_WEB_RUN_MODE=selenium docker compose up --abort-on-container-exit --exit-code-from tests tests
 
+      - name: Fix artifact permissions
+        if: always()
+        run: |
+          sudo chown -R "$(id -u):$(id -g)" test-output target 2>/dev/null || true
+          sudo chmod -R u+rwX,go+rX test-output target 2>/dev/null || true
+
       - name: Upload mobile-web test reports/artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -72,6 +84,12 @@ jobs:
 
       - name: Run Regression suite with Docker Compose
         run: SUITE_XML_FILE=RegressionTest.xml docker compose up --abort-on-container-exit --exit-code-from tests tests
+
+      - name: Fix artifact permissions
+        if: always()
+        run: |
+          sudo chown -R "$(id -u):$(id -g)" test-output target 2>/dev/null || true
+          sudo chmod -R u+rwX,go+rX test-output target 2>/dev/null || true
 
       - name: Upload test reports/artifacts
         if: always()
