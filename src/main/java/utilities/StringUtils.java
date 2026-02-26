@@ -1,8 +1,5 @@
 package utilities;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import java.util.UUID;
 
 /**
@@ -11,16 +8,20 @@ import java.util.UUID;
  * <b>Do not change these methods without reviewing impact on existing tests.</b>
  * </p>
  */
-public class StringUtils {
-    protected final static Logger logger = LogManager.getLogger(StringUtils.class.getName());
+public final class StringUtils {
+    private static final String UUID_PREFIX = "UUID-";
+
+    private StringUtils() {
+        throw new UnsupportedOperationException("Utility class");
+    }
 
     /**
      * Returns true when the input is null or empty (after trim).
      *
      * @return true if the string is null or empty
      */
-    public static boolean isEmpty(String stringToCheck) {
-        return (stringToCheck == null || stringToCheck.trim().isEmpty());
+    public static boolean isEmpty(String value) {
+        return value == null || value.trim().isEmpty();
     }
 
     /**
@@ -28,8 +29,8 @@ public class StringUtils {
      *
      * @return true if the string is not null and not empty
      */
-    public static boolean isNotEmpty(String stringToCheck) {
-        return !isEmpty(stringToCheck);
+    public static boolean isNotEmpty(String value) {
+        return !isEmpty(value);
     }
 
     /**
@@ -37,7 +38,7 @@ public class StringUtils {
      *
      * @return a unique identifier
      */
-    public static synchronized String generateUniqueIdentifier() {
-        return "UUID-" + UUID.randomUUID();
+    public static String generateUniqueIdentifier() {
+        return UUID_PREFIX + UUID.randomUUID();
     }
 }

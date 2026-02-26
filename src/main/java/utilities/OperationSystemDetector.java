@@ -8,53 +8,86 @@ import org.apache.log4j.Logger;
  *
  * @author Weipeng Zheng
  */
-public class OperationSystemDetector {
-    private final static Logger logger = LogManager.getLogger(OperationSystemDetector.class.getName());
-    private static final String OS = System.getProperty("os.name").toLowerCase();
+public final class OperationSystemDetector {
+    private static final Logger logger = LogManager.getLogger(OperationSystemDetector.class.getName());
+    private static final String OS_NAME = System.getProperty("os.name", "").toLowerCase();
+    private static final Platform PLATFORM = detectPlatform(OS_NAME);
+
+    private OperationSystemDetector() {
+        throw new UnsupportedOperationException("Utility class");
+    }
 
     public static boolean isWindows() {
-        return (OS.contains("win"));
+        return PLATFORM == Platform.WINDOWS;
     }
 
     public static boolean isMac() {
-        return (OS.contains("mac"));
+        return PLATFORM == Platform.MAC;
     }
 
     public static boolean isUnix() {
-        return (OS.contains("nix") || OS.contains("nux"));
+        return PLATFORM == Platform.UNIX;
     }
 
     public static boolean isSolaris() {
-        return (OS.contains("sunos"));
+        return PLATFORM == Platform.SOLARIS;
     }
 
     // Returns a short OS code and logs the detected platform.
     public static String getOS() {
-        if (isWindows()) {
-            return logAndReturn("info", "This is Windows", "win");
-        } else if (isMac()) {
-            return logAndReturn("info", "This is Mac", "osx");
-        } else if (isUnix()) {
-            return logAndReturn("warn", "This is Unix or Linux", "uni");
-        } else if (isSolaris()) {
-            return logAndReturn("error", "This is Solaris", "sol");
-        } else {
-            return logAndReturn("fatal", "Your OS is not support!!", "err");
+        switch (PLATFORM) {
+            case WINDOWS:
+                logger.info("Detected Windows");
+                return "win";
+            case MAC:
+                logger.info("Detected Mac");
+                return "osx";
+            case UNIX:
+                logger.warn("Detected Unix or Linux");
+                return "uni";
+            case SOLARIS:
+                logger.error("Detected Solaris");
+                return "sol";
+            default:
+                logger.fatal("Unsupported OS: " + OS_NAME);
+                return "err";
         }
     }
 
-    private static String logAndReturn(String level, String message, String returnVal) {
-        switch (level) {
-            case "info" -> logger.info(message);
-            case "warn" -> logger.warn(message);
-            case "error" -> logger.error(message);
-            case "fatal" -> logger.fatal(message);
-        }
-        return returnVal;
+    public static String getOsName() {
+        return OS_NAME;
     }
 
-    static void main() {
-        System.out.println(OS);
+    public static boolean isSupportedForUiTests() {
+        return isWindows() || isMac();
+    }
+
+    private static Platform detectPlatform(String osName) {
+        if (osName.contains("win")) {
+            return Platform.WINDOWS;
+        }
+        if (osName.contains("mac")) {
+            return Platform.MAC;
+        }
+        if (osName.contains("nix") || osName.contains("nux")) {
+            return Platform.UNIX;
+        }
+        if (osName.contains("sunos")) {
+            return Platform.SOLARIS;
+        }
+        return Platform.UNKNOWN;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(OS_NAME);
         getOS();
+    }
+
+    private enum Platform {
+        WINDOWS,
+        MAC,
+        UNIX,
+        SOLARIS,
+        UNKNOWN
     }
 }

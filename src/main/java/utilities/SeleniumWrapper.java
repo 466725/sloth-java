@@ -2,7 +2,6 @@ package utilities;
 
 import config.Constants;
 import config.PropertiesFileReader;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
@@ -13,8 +12,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class SeleniumWrapper {
-    protected final static Logger logger = LogManager.getLogger(SeleniumWrapper.class.getName());
+public final class SeleniumWrapper {
+    private static final Logger logger = LogManager.getLogger(SeleniumWrapper.class.getName());
+    private static final By PAGE_LOAD_SPINNER = By.xpath("//div/svg");
+    private static final String DOCUMENT_READY_SCRIPT = "return document.readyState";
+    private static final String[] ELEMENT_ATTRIBUTES_TO_LOG = {
+            "id", "src", "class", "name", "type", "style", "value",
+            "onload", "onfocus", "onclick", "tabindex", "onmouseover", "onmouseout"
+    };
 
     private SeleniumWrapper() {
         // Private constructor to prevent instantiation
@@ -37,19 +42,9 @@ public class SeleniumWrapper {
         logger.info("getText(): " + element.getText());
         logger.info("getTagName(): " + element.getTagName());
         logger.info("getLocation(): " + element.getLocation());
-        logger.info("getAttribute(\"id\"): " + element.getAttribute("id"));
-        logger.info("getAttribute(\"src\"): " + element.getAttribute("src"));
-        logger.info("getAttribute(\"class\"): " + element.getAttribute("class"));
-        logger.info("getAttribute(\"name\"): " + element.getAttribute("name"));
-        logger.info("getAttribute(\"type\"): " + element.getAttribute("type"));
-        logger.info("getAttribute(\"style\"): " + element.getAttribute("style"));
-        logger.info("getAttribute(\"value\"): " + element.getAttribute("value"));
-        logger.info("getAttribute(\"onload\"): " + element.getAttribute("onload"));
-        logger.info("getAttribute(\"onfocus\"): " + element.getAttribute("onfocus"));
-        logger.info("getAttribute(\"onclick\"): " + element.getAttribute("onclick"));
-        logger.info("getAttribute(\"tabindex\"): " + element.getAttribute("tabindex"));
-        logger.info("getAttribute(\"onmouseover\"): " + element.getAttribute("onmouseover"));
-        logger.info("getAttribute(\"onmouseout\"): " + element.getAttribute("onmouseout"));
+        for (String attribute : ELEMENT_ATTRIBUTES_TO_LOG) {
+            logger.info("getAttribute(\"" + attribute + "\"): " + element.getAttribute(attribute));
+        }
         logger.info("");
     }
 
@@ -72,27 +67,29 @@ public class SeleniumWrapper {
     }
 
     public static void waitForPageToRender(WebDriver driver) {
-        // Uses a fixed sleep as a simple fallback; prefer explicit waits when possible.
         try {
             logger.info(driver.getTitle());
-            Thread.sleep(PropertiesFileReader.getPageRenderTimeout());
-        } catch (InterruptedException e) {
+            Duration timeout = Duration.ofSeconds(PropertiesFileReader.getPageRenderTimeout());
+            new WebDriverWait(driver, timeout)
+                    .until(d -> "complete".equals(((JavascriptExecutor) d).executeScript(DOCUMENT_READY_SCRIPT)));
+        } catch (Exception e) {
             logger.info("Failed to wait for DOM to be rendered");
             logger.info("Exception is: " + e);
         }
     }
 
     public static void waitForPageLoadCompletion(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, PropertiesFileReader.getPageLoadTimeout());
+        Duration timeout = PropertiesFileReader.getPageLoadTimeout();
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/svg")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(PAGE_LOAD_SPINNER));
         } catch (Exception e) {
             logger.debug("Exception is: " + e);
             return;
         }
-        WebDriverWait waitForInvisibility = new WebDriverWait(driver, PropertiesFileReader.getPageLoadTimeout());
+        WebDriverWait waitForInvisibility = new WebDriverWait(driver, timeout);
         waitForInvisibility.ignoring(org.openqa.selenium.NoSuchElementException.class);
-        waitForInvisibility.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div/svg")));
+        waitForInvisibility.until(ExpectedConditions.invisibilityOfElementLocated(PAGE_LOAD_SPINNER));
     }
 
     public static boolean hoverMouseOverElement(WebDriver driver, WebElement element) {
@@ -123,34 +120,22 @@ public class SeleniumWrapper {
             waitForPageLoadCompletion(driver);
         }
         switch (clickMethod) {
-            case Constants.CLICK_METHOD.CLICK:
-                element.click();
-                SeleniumWrapper.waitForPageToRender(driver);
-                logger.info("element.click(), called.");
-                return true;
-            case Constants.CLICK_METHOD.SEND_ENTER:
-                element.sendKeys(Keys.ENTER);
-                SeleniumWrapper.waitForPageToRender(driver);
-                logger.info("element.sendKeys(Keys.ENTER), called.");
-                return true;
-            case Constants.CLICK_METHOD.SEND_RETURN:
-                element.sendKeys(Keys.RETURN);
-                SeleniumWrapper.waitForPageToRender(driver);
-                logger.info("element.sendKeys(Keys.RETURN), called.");
-                return true;
-            case Constants.CLICK_METHOD.SUBMIT:
-                element.submit();
-                SeleniumWrapper.waitForPageToRender(driver);
-                logger.info("element.submit(), called.");
-                return true;
-            case Constants.CLICK_METHOD.RUN_JS:
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-                SeleniumWrapper.waitForPageToRender(driver);
-                logger.info("((JavascriptExecutor) driver).executeScript(\"arguments[0].click();\", element), called.");
-                return true;
-            default:
-                return false;
+            case CLICK:
+                return executeClickAction(driver, () -> element.click(), "element.click(), called.");
+            case SEND_ENTER:
+                return executeClickAction(driver, () -> element.sendKeys(Keys.ENTER), "element.sendKeys(Keys.ENTER), called.");
+            case SEND_RETURN:
+                return executeClickAction(driver, () -> element.sendKeys(Keys.RETURN), "element.sendKeys(Keys.RETURN), called.");
+            case SUBMIT:
+                return executeClickAction(driver, () -> element.submit(), "element.submit(), called.");
+            case RUN_JS:
+                return executeClickAction(
+                        driver,
+                        () -> ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element),
+                        "((JavascriptExecutor) driver).executeScript(\"arguments[0].click();\", element), called."
+                );
         }
+        return false;
     }
 
     public static void scrollToElement(WebDriver driver, WebElement element) {
@@ -166,11 +151,19 @@ public class SeleniumWrapper {
             logger.info("All elements located, in total: " + allWebElements.size());
             // Placeholder for optional filtering of non-useful elements.
             logger.info("Useless elements removed, in total: " + allWebElements.size());
-            for (WebElement e : allWebElements)
-                SeleniumWrapper.printWebElementInfo(e);
+            for (WebElement element : allWebElements) {
+                SeleniumWrapper.printWebElementInfo(element);
+            }
         } catch (Exception e) {
             logger.error("Exception is: ", e);
         }
         return allWebElements;
+    }
+
+    private static boolean executeClickAction(WebDriver driver, Runnable action, String successLog) {
+        action.run();
+        SeleniumWrapper.waitForPageToRender(driver);
+        logger.info(successLog);
+        return true;
     }
 }

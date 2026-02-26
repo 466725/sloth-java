@@ -15,12 +15,21 @@ import webpages.tangerine.TangerineHomePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 /**
  * Base class for all web pages.
  */
 public class BaseWebPage {
-    protected final static Logger logger = LogManager.getLogger(BaseWebPage.class.getName());
+    private static final Logger logger = LogManager.getLogger(BaseWebPage.class.getName());
+    private static final String BROWSER_CHROME = "chrome";
+    private static final String BROWSER_FIREFOX = "firefox";
+    private static final String BROWSER_IE = "ie";
+    private static final String ORG_AMAZON = "amazon";
+    private static final String ORG_TANGERINE = "tangerine";
+
     protected static WebDriver driver = null;
 
     // Shared page object constructor.
@@ -29,52 +38,37 @@ public class BaseWebPage {
     }
 
     public static WebDriver getDriver(String browser) {
-        if (driver != null)
+        if (driver != null) {
             return driver;
-        WebDriver initializedDriver;
-        if (browser == null) {
-            initializedDriver = createChromeDriver();
-        } else {
-            initializedDriver = switch (browser.toLowerCase()) {
-                case "firefox" -> createFirefoxDriver();
-                case "ie" -> createIEDriver();
-                default -> createChromeDriver();
-            };
         }
 
+        String normalizedBrowser = normalize(browser, BROWSER_CHROME);
+        WebDriver initializedDriver;
+        initializedDriver = switch (normalizedBrowser) {
+            case BROWSER_FIREFOX -> createFirefoxDriver();
+            case BROWSER_IE -> createIEDriver();
+            default -> createChromeDriver();
+        };
+
         if (initializedDriver == null) {
-            throw new IllegalStateException(buildDriverInitErrorMessage(browser));
+            throw new IllegalStateException(buildDriverInitErrorMessage(normalizedBrowser));
         }
+
+        driver = initializedDriver;
         return initializedDriver;
     }
 
     private static WebDriver createChromeDriver() {
         String remoteWebDriverUrl = getRemoteWebDriverUrl();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-        options.addArguments("--incognito");
-        if (RunConfig.isHeadless()) {
-            options.addArguments("--headless=new");          // Chrome modern headless
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-gpu"); // mostly harmless; helps some environments
-            options.addArguments("--window-size=1920,1080"); // IMPORTANT for headless stability
-        }
-        // Force browser UI/content language to English for stable locators and assertions.
-        options.addArguments("--lang=en-US");
-
-        java.util.Map<String, Object> prefs = new java.util.HashMap<>();
-        prefs.put("intl.accept_languages", "en-US,en");
-        options.setExperimentalOption("prefs", prefs);
+        ChromeOptions options = buildChromeOptions();
 
         if (remoteWebDriverUrl != null && !remoteWebDriverUrl.isBlank()) {
             try {
-                driver = new RemoteWebDriver(new URL(remoteWebDriverUrl), options);
+                return new RemoteWebDriver(new URL(remoteWebDriverUrl), options);
             } catch (MalformedURLException e) {
                 logger.fatal("Invalid SELENIUM_REMOTE_URL: " + remoteWebDriverUrl, e);
                 return null;
             }
-            return driver;
         }
 
         if (!OperationSystemDetector.isWindows() && !OperationSystemDetector.isMac()) {
@@ -82,13 +76,13 @@ public class BaseWebPage {
             return null;
         }
 
-        driver = new ChromeDriver(options);
+        WebDriver localDriver = new ChromeDriver(options);
         // Extra safety: ensure size is applied even if args are ignored by the driver/platform.
         if (RunConfig.isHeadless()) {
-            driver.manage().window().setSize(new Dimension(1920, 1080));
+            localDriver.manage().window().setSize(new Dimension(1920, 1080));
         }
 
-        return driver;
+        return localDriver;
     }
 
     private static WebDriver createFirefoxDriver() {
@@ -101,7 +95,8 @@ public class BaseWebPage {
 
     public static BaseWebPage gotoHomePage(String org) {
         WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
-        if (org.equalsIgnoreCase("Amazon")) {
+        String normalizedOrg = normalize(org, ORG_TANGERINE);
+        if (ORG_AMAZON.equals(normalizedOrg)) {
             currentDriver.get(PropertiesFileReader.getAmazonURL());
             return new AmazonHomePage(currentDriver);
         }
@@ -145,5 +140,34 @@ public class BaseWebPage {
                 System.getProperty("os.name"),
                 System.getenv("SELENIUM_REMOTE_URL")
         );
+    }
+
+    private static ChromeOptions buildChromeOptions() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("--incognito");
+
+        if (RunConfig.isHeadless()) {
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+        }
+
+        // Force browser UI/content language to English for stable locators and assertions.
+        options.addArguments("--lang=en-US");
+
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("intl.accept_languages", "en-US,en");
+        options.setExperimentalOption("prefs", prefs);
+        return options;
+    }
+
+    private static String normalize(String value, String defaultValue) {
+        if (value == null || value.isBlank()) {
+            return defaultValue;
+        }
+        return value.trim().toLowerCase(Locale.ROOT);
     }
 }
