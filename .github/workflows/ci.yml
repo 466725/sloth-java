@@ -33,7 +33,6 @@ jobs:
         with:
           name: smoke-test-artifacts
           path: |
-            test-output/ExtentReport/**
             test-output/ExtentReportCucumber/**
             target/cucumber/**
             target/surefire-reports/**
@@ -67,7 +66,6 @@ jobs:
         with:
           name: mobile-web-test-artifacts
           path: |
-            test-output/ExtentReport/**
             test-output/ExtentReportCucumber/**
             target/cucumber/**
             target/surefire-reports/**
@@ -101,7 +99,6 @@ jobs:
         with:
           name: regression-test-artifacts
           path: |
-            test-output/ExtentReport/**
             test-output/ExtentReportCucumber/**
             target/cucumber/**
             target/surefire-reports/**
