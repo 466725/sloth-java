@@ -33,8 +33,10 @@ jobs:
         with:
           name: smoke-test-artifacts
           path: |
-            test-output/**
-            target/**
+            test-output/ExtentReport/**
+            test-output/ExtentReportCucumber/**
+            target/cucumber/**
+            target/surefire-reports/**
           if-no-files-found: warn
 
       - name: Cleanup
@@ -65,8 +67,10 @@ jobs:
         with:
           name: mobile-web-test-artifacts
           path: |
-            test-output/**
-            target/**
+            test-output/ExtentReport/**
+            test-output/ExtentReportCucumber/**
+            target/cucumber/**
+            target/surefire-reports/**
           if-no-files-found: warn
 
       - name: Cleanup
@@ -97,8 +101,10 @@ jobs:
         with:
           name: regression-test-artifacts
           path: |
-            test-output/**
-            target/**
+            test-output/ExtentReport/**
+            test-output/ExtentReportCucumber/**
+            target/cucumber/**
+            target/surefire-reports/**
           if-no-files-found: warn
 
       - name: Cleanup
