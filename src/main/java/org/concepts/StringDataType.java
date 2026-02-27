@@ -1,8 +1,5 @@
 package org.concepts;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Demonstrates common Java String operations and related patterns.
  */
@@ -40,58 +37,7 @@ public class StringDataType {
         return reverseRecursively(input.substring(1)) + input.charAt(0);
     }
 
-    // O(n^2) approach for longest substring without repeating characters.
-    public static int lengthOfLongestSubstringBruteForce(String input) {
-        int maxLength = 0;
-        for (int i = 0; i < input.length(); i++) {
-            StringBuilder window = new StringBuilder();
-            for (int j = i; j < input.length(); j++) {
-                if (window.indexOf(String.valueOf(input.charAt(j))) != -1) {
-                    break;
-                }
-                window.append(input.charAt(j));
-                maxLength = Math.max(maxLength, window.length());
-            }
-        }
-        return maxLength;
-    }
-
-    // O(n) sliding-window solution with map of last seen indexes.
-    public static int lengthOfLongestSubstringSlidingWindow(String input) {
-        int maxLength = 0;
-        Map<Character, Integer> charIndexMap = new HashMap<>();
-        int left = 0;
-        for (int right = 0; right < input.length(); right++) {
-            char currentChar = input.charAt(right);
-            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= left) {
-                left = charIndexMap.get(currentChar) + 1;
-            }
-            charIndexMap.put(currentChar, right);
-            maxLength = Math.max(maxLength, right - left + 1);
-        }
-        return maxLength;
-    }
-
-    // Alternative O(n) sliding-window variant using String#indexOf.
-    public static int lengthOfLongestSubstringWithIndexOf(String input) {
-        int maxLength = 0;
-        for (int right = 0, left = 0; right < input.length(); right++) {
-            int firstIndexInWindow = input.indexOf(input.charAt(right), left);
-            if (firstIndexInWindow != right) {
-                left = firstIndexInWindow + 1;
-            }
-            maxLength = Math.max(maxLength, right - left + 1);
-        }
-        return maxLength;
-    }
-
     public static void main(String[] args) {
-        String sample = "abcabcadefgbb";
-        printSection("Longest Non-Repeating Substring Length");
-        System.out.println(lengthOfLongestSubstringBruteForce(sample));
-        System.out.println(lengthOfLongestSubstringSlidingWindow(sample));
-        System.out.println(lengthOfLongestSubstringWithIndexOf(sample));
-
         printSection("Basic String Operations");
         System.out.println(toggleCase("AFAJLFsgfGASKFADSJL001"));
         System.out.println(countOccurrences("bmvuhfjk#$%%^900jio002", 'b'));
