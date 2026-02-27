@@ -22,12 +22,16 @@ public class MergeIntervals {
     public static void main(String[] args) {
         int[][] input1 = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] input2 = {{1, 4}, {4, 5}};
+        int[][] input3 = {{8, 10}, {1, 3}, {2, 6}, {15, 18}};
 
         System.out.println("Input 1:  " + Arrays.deepToString(input1));
         System.out.println("Merged 1: " + Arrays.deepToString(merge(input1)));
 
         System.out.println("Input 2:  " + Arrays.deepToString(input2));
         System.out.println("Merged 2: " + Arrays.deepToString(merge(input2)));
+
+        System.out.println("Input 3 (unsorted):  " + Arrays.deepToString(input3));
+        System.out.println("Merged 3: " + Arrays.deepToString(merge(input3)));
     }
 
     public static int[][] merge(int[][] intervals) {
@@ -41,10 +45,10 @@ public class MergeIntervals {
             didMergeInPass = false;
 
             for (int leftIndex = 0; leftIndex < intervals.length; leftIndex++) {
-                if (intervals[leftIndex] == null) {
+                if (!isValidInterval(intervals[leftIndex])) {
                     continue;
                 }
-                // Try merging this left interval with any interval to its right.
+                // Important: keep previous true state within this pass.
                 if (mergeWithRight(intervals, leftIndex)) {
                     didMergeInPass = true;
                 }
@@ -54,51 +58,53 @@ public class MergeIntervals {
         return compactNonNullIntervals(intervals);
     }
 
-    private static boolean isOverlapping(int[] first, int[] second) {
-        int firstStart = first[0];
-        int firstEnd = first[1];
-        int secondStart = second[0];
-        int secondEnd = second[1];
-        return firstStart <= secondEnd && secondStart <= firstEnd;
+    private static boolean isOverlapping(int[] left, int[] right) {
+        return left[0] <= right[1] && left[1] >= right[0];
     }
 
-    private static int[] mergeTwo(int[] first, int[] second) {
-        int mergedStart = Math.min(first[0], second[0]);
-        int mergedEnd = Math.max(first[1], second[1]);
+    // Merge two overlapping intervals and return the combined interval.
+    private static int[] mergeRightToLeft(int[] left, int[] right) {
+        int mergedStart = Math.min(left[0], right[0]);
+        int mergedEnd = Math.max(left[1], right[1]);
         return new int[]{mergedStart, mergedEnd};
     }
 
-    private static boolean mergeWithRight(int[][] intervals, int leftIndex) {
-        for (int rightIndex = leftIndex + 1; rightIndex < intervals.length; rightIndex++) {
-            if (intervals[rightIndex] == null) {
+    // Merge left interval with any interval to its right.
+    private static boolean mergeWithRight(int[][] intervals, int left) {
+        for (int right = left + 1; right < intervals.length; right++) {
+            if (!isValidInterval(intervals[right])) {
                 continue;
             }
 
-            if (isOverlapping(intervals[leftIndex], intervals[rightIndex])) {
-                intervals[leftIndex] = mergeTwo(intervals[leftIndex], intervals[rightIndex]);
-                intervals[rightIndex] = null;
+            if (isOverlapping(intervals[left], intervals[right])) {
+                intervals[left] = mergeRightToLeft(intervals[left], intervals[right]);
+                intervals[right] = null;
                 return true;
             }
         }
         return false;
     }
 
+    private static boolean isValidInterval(int[] interval) {
+        return interval != null && interval.length >= 2;
+    }
+
     private static int[][] compactNonNullIntervals(int[][] intervals) {
         int validCount = 0;
         for (int[] interval : intervals) {
-            if (interval != null) {
+            if (isValidInterval(interval)) {
                 validCount++;
             }
         }
 
-        int[][] result = new int[validCount][2];
+        int[][] mergedArray = new int[validCount][2];
         int out = 0;
         for (int[] interval : intervals) {
-            if (interval != null) {
-                result[out++] = interval;
+            if (isValidInterval(interval)) {
+                mergedArray[out++] = interval;
             }
         }
-        return result;
+        return mergedArray;
     }
 
 }
