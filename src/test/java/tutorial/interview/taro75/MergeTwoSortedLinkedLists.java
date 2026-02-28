@@ -120,7 +120,6 @@ public class MergeTwoSortedLinkedLists {
         System.out.println("===== Merge Two Sorted Lists Tests =====");
 
         for (int i = 0; i < list1Cases.length; i++) {
-
             System.out.println("------------------------------------");
             System.out.println("Test Case " + (i + 1));
 
