@@ -50,10 +50,6 @@ public class ArrayQuestions {
         int[][] rectangleCorners = findTopLeftAndBottomRightZeroRectangleIn2DArray(zeroRectangleArray);
         System.out.println("Zero-rectangle corners [top-left, bottom-right]: " + Arrays.deepToString(rectangleCorners));
 
-        int[] consecutiveArray = {1, 7, 2, 3, 3, 9, 4, 6, 5, 6};
-        int consecutiveSize = getSizeOfConsecutiveElementsInArray(consecutiveArray);
-        System.out.println("Max size of consecutive elements: " + consecutiveSize);
-
         int[][] validMatrix = {
                 {1, 2, 3},
                 {3, 1, 2},
@@ -123,32 +119,6 @@ public class ArrayQuestions {
             }
         }
         return new int[]{-1, -1};
-    }
-
-    //Get the max size of consecutive elements in an array.
-    public static int getSizeOfConsecutiveElementsInArray(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return 0;
-        }
-
-        Arrays.sort(arr);
-
-        int maxSize = 1;
-        int currentSize = 1;
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] == arr[i - 1]) {
-                continue; // ignore duplicates
-            }
-            if (arr[i] == arr[i - 1] + 1) { // Still consecutive
-                currentSize++;
-            } else { // No more consecutive
-                maxSize = Math.max(maxSize, currentSize);
-                currentSize = 1;
-            }
-        }
-
-        return Math.max(maxSize, currentSize);
     }
 
     // Finding the top-left and bottom-right corners of a rectangle made of zeros in a 2-dimensional array.
