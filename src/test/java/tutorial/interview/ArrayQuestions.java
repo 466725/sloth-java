@@ -32,22 +32,6 @@ public class ArrayQuestions {
         };
         int[] coordinate = findCoordinateOfFirstOccurrenceIn2DArray(arr2d, 5);
         System.out.println("Coordinate of first occurrence in 2D array: " + Arrays.toString(coordinate));
-
-        int[][] zeroRectangleArray = {
-                {1, 1, 1, 1, 1},
-                {1, 0, 0, 0, 0},
-                {1, 0, 0, 0, 1},
-                {1, 1, 1, 1, 1}
-        };
-
-        int[] topLeftZero = findTopLeftZeroIn2DArray(zeroRectangleArray);
-        System.out.println("Top-left zero coordinate: " + Arrays.toString(topLeftZero));
-
-        int[] bottomRightZero = findBottomRightZeroIn2DArray(zeroRectangleArray);
-        System.out.println("Bottom-right zero coordinate: " + Arrays.toString(bottomRightZero));
-
-        int[][] rectangleCorners = findTopLeftAndBottomRightZeroRectangleIn2DArray(zeroRectangleArray);
-        System.out.println("Zero-rectangle corners [top-left, bottom-right]: " + Arrays.deepToString(rectangleCorners));
     }
 
     private static int promptForInteger(String promptMessage) {
@@ -100,55 +84,6 @@ public class ArrayQuestions {
             }
             for (int j = 0; j < row.length; j++) {
                 if (row[j] == target) {
-                    return new int[]{i, j};
-                }
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
-    // Finding the first and last zeros in a 2-dimensional array.
-    // Returns: {{topLeftRow, topLeftCol}, {bottomRightRow, bottomRightCol}}
-    public static int[][] findTopLeftAndBottomRightZeroRectangleIn2DArray(int[][] arr) {
-        return new int[][]{
-                findTopLeftZeroIn2DArray(arr),
-                findBottomRightZeroIn2DArray(arr)
-        };
-    }
-
-    // Finding the first zero in a 2-dimensional array.
-    public static int[] findTopLeftZeroIn2DArray(int[][] arr) {
-        if (arr == null || arr.length == 0) {
-            return new int[]{-1, -1};
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            int[] row = arr[i];
-            if (row == null) {
-                continue;
-            }
-            for (int j = 0; j < row.length; j++) {
-                if (row[j] == 0) {
-                    return new int[]{i, j};
-                }
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
-    // Finding the last zero in a 2-dimensional array.
-    public static int[] findBottomRightZeroIn2DArray(int[][] arr) {
-        if (arr == null || arr.length == 0) {
-            return new int[]{-1, -1};
-        }
-
-        for (int i = arr.length - 1; i > 0; i--) {
-            int[] row = arr[i];
-            if (row == null) {
-                continue;
-            }
-            for (int j = row.length - 1; j > 0; j--) {
-                if (row[j] == 0) {
                     return new int[]{i, j};
                 }
             }
