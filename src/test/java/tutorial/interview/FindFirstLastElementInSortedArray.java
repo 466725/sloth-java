@@ -26,10 +26,8 @@ import java.util.Arrays;
  */
 public class FindFirstLastElementInSortedArray {
     public static void main(String[] args) {
-
         FindFirstLastElementInSortedArray solver =
                 new FindFirstLastElementInSortedArray();
-
         runTest(solver, new int[]{5, 7, 7, 8, 8, 10}, 8, new int[]{3, 4}, "Test 1");
         runTest(solver, new int[]{5, 7, 7, 8, 8, 10}, 6, new int[]{-1, -1}, "Test 2");
         runTest(solver, new int[]{}, 0, new int[]{-1, -1}, "Test 3");
@@ -45,29 +43,23 @@ public class FindFirstLastElementInSortedArray {
                                 int target,
                                 int[] expected,
                                 String testName) {
-
         int[] result = solver.searchRange(nums, target);
-
         System.out.println("================================");
         System.out.println(testName);
         System.out.println("Array:    " + Arrays.toString(nums));
         System.out.println("Target:   " + target);
         System.out.println("Expected: " + Arrays.toString(expected));
         System.out.println("Actual:   " + Arrays.toString(result));
-
-        if (Arrays.equals(result, expected)) {
+        if (Arrays.equals(result, expected))
             System.out.println("Result: ✅ PASS");
-        } else {
+        else
             System.out.println("Result: ❌ FAIL");
-        }
     }
 
     public int[] searchRange(int[] nums, int target) {
         int[] result = {-1, -1};
-
         result[0] = findFirst(nums, target);
         result[1] = findLast(nums, target);
-
         return result;
     }
 
@@ -75,10 +67,8 @@ public class FindFirstLastElementInSortedArray {
         int left = 0;
         int right = nums.length - 1;
         int firstPosition = -1;
-
         while (left <= right) {
             int middle = left + (right - left) / 2;
-
             if (nums[middle] < target) {
                 left = middle + 1;
             } else if (nums[middle] > target) {
@@ -86,12 +76,9 @@ public class FindFirstLastElementInSortedArray {
             } else {
                 // Potential first occurrence, keep searching left
                 firstPosition = middle;
-
                 right = middle - 1;
-
             }
         }
-
         return firstPosition;
     }
 
@@ -99,10 +86,8 @@ public class FindFirstLastElementInSortedArray {
         int left = 0;
         int right = nums.length - 1;
         int lastPosition = -1;
-
         while (left <= right) {
             int middle = left + (right - left) / 2;
-
             if (nums[middle] < target) {
                 left = middle + 1;
             } else if (nums[middle] > target) {
@@ -110,12 +95,9 @@ public class FindFirstLastElementInSortedArray {
             } else {
                 // Potential last occurrence, keep searching right
                 lastPosition = middle;
-
                 left = middle + 1;
-
             }
         }
-
         return lastPosition;
     }
 }

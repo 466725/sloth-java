@@ -16,58 +16,64 @@ import java.util.List;
  * Input: n = 1
  * Output: ["()"]
  *
- *
  */
 public class GenerateParentheses {
     public static void main(String[] args) {
         GenerateParentheses solver = new GenerateParentheses();
-
-        runTest(solver, 1, 1, "Test 1");
-        runTest(solver, 2, 2, "Test 2");
-        runTest(solver, 3, 5, "Test 3");
-        runTest(solver, 4, 14, "Test 4");
-        runTest(solver, 0, 1, "Test 5"); // edge case
+        test(solver, 1);
+        test(solver, 2);
+        test(solver, 3);
+        test(solver, 4);
+        test(solver, 0); // edge case
     }
 
-    private static void runTest(GenerateParentheses solver,
-                                int n,
-                                int expectedSize,
-                                String testName) {
-
-        List<String> result = solver.generateParenthesis(n);
-
+    private static void test(GenerateParentheses solver, int n) {
+        List<String> result = solver.generateParentheses(n);
         System.out.println("================================");
-        System.out.println(testName);
         System.out.println("n = " + n);
         System.out.println("Generated: " + result);
         System.out.println("Count: " + result.size());
-
-        if (result.size() == expectedSize) {
-            System.out.println("Result: ✅ PASS");
-        } else {
-            System.out.println("Result: ❌ FAIL (Expected size: " + expectedSize + ")");
-        }
     }
 
-    public List<String> generateParenthesis(int n) {
-        List<String> resultList = new ArrayList<>();
-        backtrackFunction(resultList, "", 0, 0, n);
-        return resultList;
+    // Public API
+    public List<String> generateParentheses(int n) {
+        List<String> result = new ArrayList<>();
+        build(result, new StringBuilder(), 0, 0, n);
+        return result;
     }
 
-    private void backtrackFunction(List<String> currentResultList, String currentString, int openCount, int closeCount, int maxPairs) {
-        // If the current string has reached the desired length, add it to results.
-        if (currentString.length() == maxPairs * 2) {
-            currentResultList.add(currentString);
+    /**
+     * Backtracking helper
+     *
+     * @param result  stores valid combinations
+     * @param current current parentheses string being built
+     * @param open    number of '(' used
+     * @param close   number of ')' used
+     * @param max     total pairs allowed
+     */
+    private void build(List<String> result,
+                       StringBuilder current,
+                       int open,
+                       int close,
+                       int max) {
+        // Base case: full valid string formed
+        if (current.length() == max * 2) {
+            result.add(current.toString());
             return;
         }
-        // We can add an opening parenthesis if we haven't reached the maximum allowed.
-        if (openCount < maxPairs) {
-            backtrackFunction(currentResultList, currentString + "(", openCount + 1, closeCount, maxPairs);
+
+        // Add '(' if we still have some left
+        if (open < max) {
+            current.append('(');
+            build(result, current, open + 1, close, max);
+            current.deleteCharAt(current.length() - 1); // backtrack
         }
-        // We can add a closing parenthesis only if it balances a preceding opening parenthesis.
-        if (closeCount < openCount) {
-            backtrackFunction(currentResultList, currentString + ")", openCount, closeCount + 1, maxPairs);
+
+        // Add ')' only if it won't invalidate the string
+        if (close < open) {
+            current.append(')');
+            build(result, current, open, close + 1, max);
+            current.deleteCharAt(current.length() - 1); // backtrack
         }
     }
 }

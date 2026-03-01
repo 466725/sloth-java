@@ -28,7 +28,6 @@ import java.util.*;
 public class GroupAnagrams {
     public static void main(String[] args) {
         GroupAnagrams solution = new GroupAnagrams();
-
         // Test 1: Example case
         runTest(solution,
                 new String[]{"eat", "tea", "tan", "ate", "nat", "bat"},
@@ -38,7 +37,6 @@ public class GroupAnagrams {
                         Arrays.asList("ate", "eat", "tea")
                 ),
                 "Test 1");
-
         // Test 2: Single empty string
         runTest(solution,
                 new String[]{""},
@@ -46,7 +44,6 @@ public class GroupAnagrams {
                         Arrays.asList("")
                 ),
                 "Test 2");
-
         // Test 3: Single character
         runTest(solution,
                 new String[]{"a"},
@@ -54,7 +51,6 @@ public class GroupAnagrams {
                         Arrays.asList("a")
                 ),
                 "Test 3");
-
         // Test 4: Duplicates
         runTest(solution,
                 new String[]{"abc", "bca", "abc"},
@@ -62,7 +58,6 @@ public class GroupAnagrams {
                         Arrays.asList("abc", "abc", "bca")
                 ),
                 "Test 4");
-
         // Test 5: No anagrams
         runTest(solution,
                 new String[]{"a", "b", "c", "d"},
@@ -73,7 +68,6 @@ public class GroupAnagrams {
                         Arrays.asList("d")
                 ),
                 "Test 5");
-
         // Test 6: Empty input
         runTest(solution,
                 new String[]{},
@@ -85,12 +79,10 @@ public class GroupAnagrams {
                                 String[] input,
                                 List<List<String>> expected,
                                 String testName) {
-
         List<List<String>> actual = solution.groupAnagrams(input);
-
-        if (areEqualIgnoringOrder(actual, expected)) {
+        if (areEqualIgnoringOrder(actual, expected))
             System.out.println(testName + " ✅ PASS");
-        } else {
+        else {
             System.out.println(testName + " ❌ FAIL");
             System.out.println("Expected: " + expected);
             System.out.println("Actual:   " + actual);
@@ -100,38 +92,33 @@ public class GroupAnagrams {
     // Compare results ignoring order of groups and order inside groups
     private static boolean areEqualIgnoringOrder(List<List<String>> a, List<List<String>> b) {
         if (a.size() != b.size()) return false;
-
         List<List<String>> normalizedA = normalize(a);
         List<List<String>> normalizedB = normalize(b);
-
         return normalizedA.equals(normalizedB);
     }
 
     private static List<List<String>> normalize(List<List<String>> list) {
         List<List<String>> normalized = new ArrayList<>();
-
         for (List<String> group : list) {
             List<String> sortedGroup = new ArrayList<>(group);
             Collections.sort(sortedGroup);
             normalized.add(sortedGroup);
         }
-
         normalized.sort(Comparator.comparing(Object::toString));
         return normalized;
     }
 
     public List<List<String>> groupAnagrams(String[] words) {
+        // Use a map to store groups of anagrams, where the key is the sorted signature.
         Map<String, List<String>> anagramGroups = new HashMap<>();
-
         for (String currentWord : words) {
             char[] characterArray = currentWord.toCharArray();
             Arrays.sort(characterArray);
-
-            anagramGroups
-                    .computeIfAbsent(new String(characterArray), key -> new ArrayList<>())
-                    .add(currentWord);
+            String sortedWordSignature = new String(characterArray);
+            // If a group for this signature doesn't exist, create one.
+            anagramGroups.computeIfAbsent(sortedWordSignature, key -> new ArrayList<>()).add(currentWord);
         }
-
+        // The values of the map are the lists of anagrams we need.
         return new ArrayList<>(anagramGroups.values());
     }
 }

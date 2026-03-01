@@ -26,9 +26,7 @@ public class PalindromeNumber {
     // ✅ Test Harness
     // ================================
     public static void main(String[] args) {
-
         PalindromeNumber solver = new PalindromeNumber();
-
         int[] testCases = {121,        // true
                 -121,       // false
                 10,         // false
@@ -39,46 +37,37 @@ public class PalindromeNumber {
                 123,        // false
                 2147447412  // true (large palindrome)
         };
-
         System.out.println("==== Palindrome Number Tests ====");
-
         for (int i = 0; i < testCases.length; i++) {
             int input = testCases[i];
             boolean result = solver.isPalindrome(input);
-
             System.out.println("---------------------------------");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Input:    " + input);
             System.out.println("Result:   " + result);
         }
-
         System.out.println("=================================");
     }
 
-    public boolean isPalindrome(int originalNumber) {
+    public boolean isPalindrome(int number) {
         // Negative numbers are not palindromes, nor are numbers ending in 0 (unless it's just 0).
-        if (originalNumber < 0 || (originalNumber % 10 == 0 && originalNumber != 0)) {
+        if (number < 0 || (number % 10 == 0 && number != 0))
             return false;
-        }
-
         int revertedHalf = 0;
         // We only need to revert half the number to avoid potential integer overflow.
-        while (originalNumber > revertedHalf) {
-            int lastDigit = originalNumber % 10;
+        while (number > revertedHalf) {
+            int lastDigit = number % 10;
             revertedHalf = revertedHalf * 10 + lastDigit;
-            originalNumber /= 10;
+            number /= 10;
         }
-
         // For odd-length numbers, the middle digit doesn't affect the palindrome check.
-        return originalNumber == revertedHalf || originalNumber == revertedHalf / 10;
+        return number == revertedHalf || number == revertedHalf / 10;
     }
 
     public boolean isPalindromeBruteForce(int number) {
         // Negative numbers cannot be palindromes as the '-' sign breaks the symmetry.
-        if (number < 0) {
+        if (number < 0)
             return false;
-        }
-
         long reversedNumber = 0;
         int tempNum = number;
         // Reverse the number by repeatedly taking the last digit and adding it to the reversed number.
@@ -87,7 +76,6 @@ public class PalindromeNumber {
             reversedNumber = reversedNumber * 10 + lastDigit;
             tempNum = tempNum / 10;
         }
-
         // The number is a palindrome if its reversed form is identical to the original.
         return reversedNumber == number;
     }

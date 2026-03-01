@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ArrayQuestions {
+public class ArrayBasicQuestions {
     private static final Random MY_RANDOM = new Random();
 
     public static void main(String[] args) {
@@ -12,16 +12,12 @@ public class ArrayQuestions {
         insertRandomNumbers(arr);
 
         System.out.println("Array: " + Arrays.toString(arr));
-        int target = 88; //promptForInteger("Please input an integer 0-99: ");
-        if (target == Integer.MIN_VALUE) {
-            return;
-        }
+        int target = promptForInteger();
         int index = findIndexOfElementInArray(arr, target);
-        if (index >= 0) {
+        if (index >= 0)
             System.out.println("Found it, index is: " + index);
-        } else {
+        else
             System.out.println("Couldn't find it!");
-        }
 
         System.out.println("There are " + countOccurrencesOfElementInArray(arr, target) + " times of occurrences");
 
@@ -34,8 +30,8 @@ public class ArrayQuestions {
         System.out.println("Coordinate of first occurrence in 2D array: " + Arrays.toString(coordinate));
     }
 
-    private static int promptForInteger(String promptMessage) {
-        System.out.print(promptMessage);
+    private static int promptForInteger() {
+        System.out.print("Please input an integer 0-99: ");
         try (Scanner scanner = new Scanner(System.in)) {
             if (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a whole number.");
@@ -47,9 +43,8 @@ public class ArrayQuestions {
 
     // Fill array with random numbers [0, 99]
     public static void insertRandomNumbers(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++)
             arr[i] = MY_RANDOM.nextInt(100);
-        }
     }
 
     // Return the first index of target, or -1 if not found.
@@ -73,20 +68,16 @@ public class ArrayQuestions {
 
     // Finding the coordinate of the first occurrence of an element in a 2-dimensional array
     public static int[] findCoordinateOfFirstOccurrenceIn2DArray(int[][] arr, int target) {
-        if (arr == null || arr.length == 0) {
+        if (arr == null || arr.length == 0)
             return new int[]{-1, -1};
-        }
 
         for (int i = 0; i < arr.length; i++) {
             int[] row = arr[i];
-            if (row == null) {
+            if (row == null)
                 continue; // handles jagged/null rows safely
-            }
-            for (int j = 0; j < row.length; j++) {
-                if (row[j] == target) {
+            for (int j = 0; j < row.length; j++)
+                if (row[j] == target)
                     return new int[]{i, j};
-                }
-            }
         }
         return new int[]{-1, -1};
     }

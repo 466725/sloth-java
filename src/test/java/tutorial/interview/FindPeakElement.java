@@ -30,9 +30,7 @@ public class FindPeakElement {
     // ✅ Test Harness
     // ==============================
     public static void main(String[] args) {
-
         FindPeakElement solver = new FindPeakElement();
-
         int[][] testCases = {
                 {1, 2, 3, 1, 9},
                 {1, 2, 3, 1, 0},
@@ -46,48 +44,35 @@ public class FindPeakElement {
                 {2, 1},                       // Two elements
                 {1, 2}                        // Two elements increasing
         };
-
         System.out.println("===== Find Peak Element Tests =====");
-
         for (int i = 0; i < testCases.length; i++) {
-
             int[] input = testCases[i];
-
             int peakIndex = solver.findPeakElement(input);
-
             System.out.println("-----------------------------------");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Array: " + Arrays.toString(input));
             System.out.println("Peak Index: " + peakIndex);
-
             if (peakIndex != -1) {
                 System.out.println("Peak Value: " + input[peakIndex]);
             }
         }
-
         System.out.println("===================================");
     }
 
     public int findPeakElement(int[] nums) {
-
         if (nums == null || nums.length == 0) {
             return -1;
         }
-
-        int leftIndex = 0;
-        int rightIndex = nums.length - 1;
-
-        while (leftIndex < rightIndex) {
-
-            int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
-
-            if (nums[middleIndex] > nums[middleIndex + 1]) {
-                rightIndex = middleIndex;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int middle = left + (right - left) / 2;
+            if (nums[middle] > nums[middle + 1]) {
+                right = middle;
             } else {
-                leftIndex = middleIndex + 1;
+                left = middle + 1;
             }
         }
-
-        return leftIndex;
+        return left;
     }
 }

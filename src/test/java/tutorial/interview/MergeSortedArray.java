@@ -30,49 +30,40 @@ import java.util.Arrays;
  * The result of the merge is [1].
  * Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
  *
- *
  */
 public class MergeSortedArray {
     public static void main(String[] args) {
-
         MergeSortedArray solver = new MergeSortedArray();
-
         runTest(solver,
                 new int[]{1, 2, 3, 0, 0, 0}, 3,
                 new int[]{2, 5, 6}, 3,
                 new int[]{1, 2, 2, 3, 5, 6},
                 "Test 1");
-
         runTest(solver,
                 new int[]{1}, 1,
                 new int[]{}, 0,
                 new int[]{1},
                 "Test 2");
-
         runTest(solver,
                 new int[]{0}, 0,
                 new int[]{1}, 1,
                 new int[]{1},
                 "Test 3");
-
         runTest(solver,
                 new int[]{4, 5, 6, 0, 0, 0}, 3,
                 new int[]{1, 2, 3}, 3,
                 new int[]{1, 2, 3, 4, 5, 6},
                 "Test 4");
-
         runTest(solver,
                 new int[]{1, 2, 3, 0, 0, 0}, 3,
                 new int[]{4, 5, 6}, 3,
                 new int[]{1, 2, 3, 4, 5, 6},
                 "Test 5");
-
         runTest(solver,
                 new int[]{1, 3, 5, 0, 0, 0}, 3,
                 new int[]{2, 4, 6}, 3,
                 new int[]{1, 2, 3, 4, 5, 6},
                 "Test 6");
-
         runTest(solver,
                 new int[]{2, 2, 3, 0, 0, 0}, 3,
                 new int[]{2, 2, 5}, 3,
@@ -87,49 +78,42 @@ public class MergeSortedArray {
                                 int n,
                                 int[] expected,
                                 String testName) {
-
         // Make a copy so original input isn’t destroyed for printing
         int[] nums1Copy = Arrays.copyOf(nums1, nums1.length);
-
         solver.merge(nums1Copy, m, nums2, n);
-
         System.out.println("================================");
         System.out.println(testName);
         System.out.println("After merge: " + Arrays.toString(nums1Copy));
         System.out.println("Expected:    " + Arrays.toString(expected));
-
-        if (Arrays.equals(nums1Copy, expected)) {
+        if (Arrays.equals(nums1Copy, expected))
             System.out.println("Result: ✅ PASS");
-        } else {
+        else
             System.out.println("Result: ❌ FAIL");
-        }
     }
 
-    public void merge(int[] nums1, int nums1Length,
-                      int[] nums2, int nums2Length) {
-        int mergedArrayLastIndex = nums1Length + nums2Length - 1;
-        int nums1LastIndex = nums1Length - 1;
-        int nums2LastIndex = nums2Length - 1;
-
-        // Iterate backwards through the merged array
-        while (nums1LastIndex >= 0 && nums2LastIndex >= 0) {
+    public void merge(int[] nums1, int length1,
+                      int[] nums2, int length2) {
+        int mergedIndex = length1 + length2 - 1;
+        int nums1Index = length1 - 1;
+        int nums2Index = length2 - 1;
+        // While both nums1 and nums2 not finishes merging
+        while (nums1Index >= 0 && nums2Index >= 0) {
             // Choose the larger element from nums1 or nums2.
-            if (nums1[nums1LastIndex] > nums2[nums2LastIndex]) {
-                nums1[mergedArrayLastIndex] = nums1[nums1LastIndex];
-                nums1LastIndex--;
+            if (nums1[nums1Index] > nums2[nums2Index]) {
+                nums1[mergedIndex] = nums1[nums1Index];
+                nums1Index--;
             } else {
-                nums1[mergedArrayLastIndex] = nums2[nums2LastIndex];
-                nums2LastIndex--;
+                nums1[mergedIndex] = nums2[nums2Index];
+                nums2Index--;
             }
-            mergedArrayLastIndex--;
+            mergedIndex--;
         }
-
         // Copy remaining elements from nums2 to nums1 if any.
         // This is needed if nums2 has elements remaining.
-        while (nums2LastIndex >= 0) {
-            nums1[mergedArrayLastIndex] = nums2[nums2LastIndex];
-            nums2LastIndex--;
-            mergedArrayLastIndex--;
+        while (nums2Index >= 0) {
+            nums1[mergedIndex] = nums2[nums2Index];
+            nums2Index--;
+            mergedIndex--;
         }
     }
 }

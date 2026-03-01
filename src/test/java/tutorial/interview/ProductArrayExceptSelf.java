@@ -26,9 +26,7 @@ public class ProductArrayExceptSelf {
     // ✅ Test Harness
     // ==============================
     public static void main(String[] args) {
-
         ProductArrayExceptSelf solver = new ProductArrayExceptSelf();
-
         int[][] testCases = {
                 {1, 2, 3, 4},
                 {-1, 1, 0, -3, 3},
@@ -36,42 +34,31 @@ public class ProductArrayExceptSelf {
                 {5},
                 {2, 3}
         };
-
         System.out.println("===== Product of Array Except Self Tests =====");
-
         for (int i = 0; i < testCases.length; i++) {
-
             int[] input = testCases[i];
-
             int[] bruteResult = solver.productExceptSelfBruteForce(input);
             int[] optimalResult = solver.productExceptSelfBruteForce(input);
-
             System.out.println("--------------------------------------------");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Input:          " + Arrays.toString(input));
             System.out.println("Brute Force:    " + Arrays.toString(bruteResult));
             System.out.println("Optimal (O(n)): " + Arrays.toString(optimalResult));
         }
-
         System.out.println("=============================================");
     }
 
     public int[] productExceptSelfBruteForce(int[] numbers) {
-        int n = numbers.length;
-        int[] result = new int[n];
-
-        for (int i = 0; i < n; i++) {
+        if (numbers == null || numbers.length == 0)
+            return new int[0];
+        int[] result = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
             int product = 1;
-
-            for (int j = 0; j < n; j++) {
-                if (i != j) {
+            for (int j = 0; j < numbers.length; j++)
+                if (i != j)
                     product *= numbers[j];
-                }
-            }
-
             result[i] = product;
         }
-
         return result;
     }
 }

@@ -1,7 +1,6 @@
 package tutorial.interview;
 // https://www.jointaro.com/interviews/questions/house-robber/?src=taro75
 
-
 import java.util.Arrays;
 
 /**
@@ -22,16 +21,13 @@ import java.util.Arrays;
  * Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
  * Total amount you can rob = 2 + 9 + 1 = 12.
  *
- *
  */
 public class HouseRobber {
     // ================================
     // 3️⃣ Test Harness
     // ================================
     public static void main(String[] args) {
-
         HouseRobber solver = new HouseRobber();
-
         int[][] testCases = {
                 {1, 2, 3, 1},        // Expected 4
                 {2, 7, 9, 3, 1},     // Expected 12
@@ -39,34 +35,25 @@ public class HouseRobber {
                 {5},                 // Expected 5
                 {}                   // Expected 0
         };
-
         for (int i = 0; i < testCases.length; i++) {
             int[] input = testCases[i];
-
             System.out.println("=================================");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Input: " + Arrays.toString(input));
-
-            int recursiveResult = solver.robRecursive(input, 0);
-
+            int recursiveResult = solver.robRecursively(input, 0);
             System.out.println("Recursive Result: " + recursiveResult);
         }
     }
 
-    private int robRecursive(int[] nums, int currentHouseIndex) {
+    private int robRecursively(int[] nums, int index) {
         // If we've reached the end of the street, there's nothing to rob
-        if (currentHouseIndex >= nums.length) {
+        if (index >= nums.length)
             return 0;
-        }
-
         // Explore robbing the current house and skipping the next one
-        int robCurrentHouse =
-                nums[currentHouseIndex] + robRecursive(nums, currentHouseIndex + 2);
-
+        int rob = nums[index] + robRecursively(nums, index + 2);
         // Explore skipping the current house and moving to the next one
-        int skipCurrentHouse = robRecursive(nums, currentHouseIndex + 1);
-
+        int skip = robRecursively(nums, index + 1);
         // Return the maximum loot we can get from either option
-        return Math.max(robCurrentHouse, skipCurrentHouse);
+        return Math.max(rob, skip);
     }
 }

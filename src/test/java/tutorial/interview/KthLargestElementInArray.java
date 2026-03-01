@@ -17,35 +17,31 @@ package tutorial.interview;
  * Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
  * Output: 4
  *
- *
  */
 
 public class KthLargestElementInArray {
     public int findKthLargestElement(int[] numbers, int k) {
-        int[] temporaryArray = numbers.clone();
-
-        // Iterate k times to find the kth largest element
+        if (numbers == null || numbers.length == 0)
+            return -1;
+        if (k > numbers.length || k <= 0)
+            return -1;
+        int[] temp = numbers.clone();
+        // Iterate k times
         for (int i = 0; i < k; i++) {
             int indexOfLargest = 0;
-
-            // Find index of the largest element in the remaining array
-            for (int j = 1; j < temporaryArray.length; j++) {
-                if (temporaryArray[j] > temporaryArray[indexOfLargest]) {
+            // Find index of the largest
+            for (int j = 1; j < temp.length; j++) {
+                if (temp[j] > temp[indexOfLargest]) {
                     indexOfLargest = j;
                 }
             }
-
-            // If this is the kth iteration, return the element
+            // Check kth iteration
             if (i == k - 1) {
-                return temporaryArray[indexOfLargest];
+                return temp[indexOfLargest];
             }
-
-            // Set largest element to smallest possible int so
-            // it won't be selected again
-            temporaryArray[indexOfLargest] = Integer.MIN_VALUE;
-
+            // Set largest to MIN_VALUE
+            temp[indexOfLargest] = Integer.MIN_VALUE;
         }
-
         return -1;
     }
 }

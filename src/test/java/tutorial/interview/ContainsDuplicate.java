@@ -1,6 +1,9 @@
 package tutorial.interview;
 // https://www.jointaro.com/interviews/questions/contains-duplicate/?src=taro75
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 /**
  *
  * Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
@@ -23,18 +26,37 @@ package tutorial.interview;
  *
  */
 public class ContainsDuplicate {
-    public boolean containsDuplicate(int[] nums) {
-        java.util.HashSet<Integer> numberSet = new java.util.HashSet<>();
+    public static void main(String[] args) {
+        ContainsDuplicate solver = new ContainsDuplicate();
+        int[][] testCases = {
+                {1, 2, 3, 1},                // true
+                {1, 2, 3, 4},                // false
+                {1, 1, 1, 3, 3, 4, 3, 2, 4, 2}, // true
+                {},                          // false
+                {42},                        // false
+                {5, 6, 7, 8, 9, 5}           // true
+        };
+        System.out.println("==== Contains Duplicate Tests ====");
+        for (int i = 0; i < testCases.length; i++) {
+            int[] nums = testCases[i];
+            boolean result = solver.containsDuplicate(nums);
+            System.out.println("----------------------------------");
+            System.out.println("Test Case " + (i + 1));
+            System.out.println("Input:  " + Arrays.toString(nums));
+            System.out.println("Output: " + result);
+        }
+        System.out.println("==================================");
+    }
 
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> numberSet = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             // Use HashSet to check for duplicates
-            if (numberSet.contains(nums[i])) {
+            if (numberSet.contains(nums[i]))
                 return true;
-            }
             // Add the number to the set
             numberSet.add(nums[i]);
         }
-
         return false;
     }
 }

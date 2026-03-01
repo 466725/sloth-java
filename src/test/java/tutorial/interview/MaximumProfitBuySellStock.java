@@ -4,6 +4,7 @@ package tutorial.interview;
 import java.util.Arrays;
 
 /**
+ *
  * You are given an array prices where prices[i] is the price of a given stock on the ith day.
  * <p>
  * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
@@ -32,26 +33,6 @@ public class MaximumProfitBuySellStock {
         runCase(null, 0);
     }
 
-    public static int maximumProfit(int[] prices) {
-        if (prices == null || prices.length < 2) {
-            return 0;
-        }
-
-        int minPrice = prices[0];
-        int maxProfit = 0;
-
-        for (int i = 1; i < prices.length; i++) {
-            int todayPrice = prices[i];
-            if (todayPrice < minPrice) {
-                minPrice = todayPrice;
-            } else {
-                maxProfit = Math.max(maxProfit, todayPrice - minPrice);
-            }
-        }
-
-        return maxProfit;
-    }
-
     private static void runCase(int[] prices, int expected) {
         int actual = maximumProfit(prices);
         System.out.println(
@@ -59,5 +40,20 @@ public class MaximumProfitBuySellStock {
                         + ", expected=" + expected
                         + ", actual=" + actual
         );
+    }
+
+    public static int maximumProfit(int[] prices) {
+        if (prices == null || prices.length < 2)
+            return 0;
+        int minPrice = prices[0];
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            int todayPrice = prices[i];
+            if (todayPrice < minPrice)
+                minPrice = todayPrice;
+            else
+                maxProfit = Math.max(maxProfit, todayPrice - minPrice);
+        }
+        return maxProfit;
     }
 }

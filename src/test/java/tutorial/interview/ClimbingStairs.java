@@ -29,34 +29,25 @@ public class ClimbingStairs {
     // ✅ Test Harness
     // ==============================
     public static void main(String[] args) {
-
         ClimbingStairs solver = new ClimbingStairs();
-
-        int[] testCases = {0, 1, 2, 3, 4, 5, 10};
-
+        int[] testCases = {0, 1, 2, 3, 4, 5, 8, 10, 20, 40};
         System.out.println("===== Climbing Stairs Tests =====");
-
         for (int n : testCases) {
             int result = solver.climbStairs(n);
             System.out.println("n = " + n + " → Ways = " + result);
         }
-
         System.out.println("=================================");
     }
 
     public int climbStairs(int numberOfSteps) {
-
-        if (numberOfSteps <= 1) {
+        if (numberOfSteps <= 1)
             return 1;
-        }
-
         // Instead of using an array, we only keep last two results
-        int oneStepBefore = 1;  // ways to reach step 1
-        int twoStepsBefore = 1; // ways to reach step 0
+        int oneStepBefore = 1;
+        int twoStepsBefore = 1;
 
-        for (int currentStep = 2; currentStep <= numberOfSteps; currentStep++) {
+        for (int i = 2; i <= numberOfSteps; i++) {
             int currentWays = oneStepBefore + twoStepsBefore;
-
             twoStepsBefore = oneStepBefore;
             oneStepBefore = currentWays;
         }

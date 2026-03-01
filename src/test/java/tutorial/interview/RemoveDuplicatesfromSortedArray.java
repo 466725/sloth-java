@@ -18,10 +18,7 @@ public class RemoveDuplicatesfromSortedArray {
     // ✅ Test Harness
     // =========================
     public static void main(String[] args) {
-
-        RemoveDuplicatesfromSortedArray solver =
-                new RemoveDuplicatesfromSortedArray();
-
+        RemoveDuplicatesfromSortedArray solver = new RemoveDuplicatesfromSortedArray();
         int[][] testCases = {
                 {0, 0, 1, 1, 1, 2, 2, 3, 3, 4},
                 {1, 1, 2},
@@ -30,29 +27,22 @@ public class RemoveDuplicatesfromSortedArray {
                 {},
                 {5}
         };
-
         System.out.println("===== Remove Duplicates Tests =====");
-
         for (int i = 0; i < testCases.length; i++) {
-
             int[] input = Arrays.copyOf(testCases[i], testCases[i].length);
-
             System.out.println("--------------------------------");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Original: " + Arrays.toString(input));
-
             int k = solver.removeDuplicates(input);
-
             System.out.println("k (unique count): " + k);
-
             System.out.print("Modified array (first k elements): [");
             for (int j = 0; j < k; j++) {
                 System.out.print(input[j]);
-                if (j < k - 1) System.out.print(", ");
+                if (j < k - 1)
+                    System.out.print(", ");
             }
             System.out.println("]");
         }
-
         System.out.println("===================================");
     }
 
@@ -60,21 +50,14 @@ public class RemoveDuplicatesfromSortedArray {
     // Remove Duplicates (O(n), O(1))
     // =========================
     public int removeDuplicates(int[] nums) {
-
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length == 0)
             return 0;
-        }
-
-        int writeIndex = 0;
-
-        for (int readIndex = 1; readIndex < nums.length; readIndex++) {
-
-            if (nums[readIndex] != nums[writeIndex]) {
-                writeIndex++;
-                nums[writeIndex] = nums[readIndex];
+        int write = 0;
+        for (int i = 1; i < nums.length; i++)
+            if (nums[write] != nums[i]) {
+                write++;
+                nums[write] = nums[i];
             }
-        }
-
-        return writeIndex + 1;
+        return write + 1;
     }
 }

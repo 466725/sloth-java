@@ -24,9 +24,7 @@ public class MajorityElement {
     // ✅ Test Harness
     // ==============================
     public static void main(String[] args) {
-
         MajorityElement solver = new MajorityElement();
-
         int[][] testCases = {
                 {3, 2, 3},
                 {2, 2, 1, 1, 1, 2, 2},
@@ -34,43 +32,29 @@ public class MajorityElement {
                 {5, 5, 5, 2, 5, 3, 5, 5},
                 {4, 4, 4, 4, 2, 3}
         };
-
         System.out.println("===== Majority Element Tests =====");
-
         for (int i = 0; i < testCases.length; i++) {
-
             int[] input = testCases[i];
             int result = solver.majorityElement(input);
-
             System.out.println("-----------------------------------");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Array: " + Arrays.toString(input));
             System.out.println("Majority Element: " + result);
         }
-
         System.out.println("===================================");
     }
 
     public int majorityElement(int[] numbers) {
-
-        if (numbers == null || numbers.length == 0) {
+        if (numbers == null || numbers.length == 0)
             throw new IllegalArgumentException("Input array cannot be null or empty");
-        }
-
         int threshold = numbers.length / 2;
-
         HashMap<Integer, Integer> frequencyMap = new HashMap<>();
-
         for (int num : numbers) {
-
             int newCount = frequencyMap.getOrDefault(num, 0) + 1;
             frequencyMap.put(num, newCount);
-
-            if (newCount > threshold) {
+            if (newCount > threshold)
                 return num;
-            }
         }
-
         // Since problem guarantees existence, this should never happen
         throw new IllegalStateException("Majority element not found");
     }

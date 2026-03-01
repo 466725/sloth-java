@@ -27,7 +27,28 @@ import java.util.Map;
  */
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
-        System.out.println();
+        String[] testCases = {
+                "abcabcbb",   // 3
+                "bbbbb",      // 1
+                "pwwkew",     // 3
+                "",           // 0
+                " ",          // 1
+                "dvdf",       // 3
+                "abba",       // 2
+                "tmmzuxt"     // 5
+        };
+        System.out.println("===== Longest Substring Tests =====");
+        for (int i = 0; i < testCases.length; i++) {
+            String input = testCases[i];
+            int brute = lengthOfLongestSubstringBruteForce(input);
+            int optimal = lengthOfLongestSubstringSlidingWindow(input);
+            System.out.println("-----------------------------------");
+            System.out.println("Test Case " + (i + 1));
+            System.out.println("Input: \"" + input + "\"");
+            System.out.println("Brute Force Result: " + brute);
+            System.out.println("Sliding Window Result: " + optimal);
+        }
+        System.out.println("===================================");
     }
 
     // O(n^2) approach for longest substring without repeating characters.
@@ -36,9 +57,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
         for (int i = 0; i < input.length(); i++) {
             StringBuilder window = new StringBuilder();
             for (int j = i; j < input.length(); j++) {
-                if (window.indexOf(String.valueOf(input.charAt(j))) != -1) {
+                if (window.indexOf(String.valueOf(input.charAt(j))) != -1)
                     break;
-                }
                 window.append(input.charAt(j));
                 maxLength = Math.max(maxLength, window.length());
             }
@@ -56,11 +76,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int left = 0;
         for (int i = 0; i < input.length(); i++) {
             char currentChar = input.charAt(i);
-            // If duplicate is inside current window, move left past previous occurrence.
-            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= left) {
+            // If duplicate exists
+            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= left)
                 left = charIndexMap.get(currentChar) + 1;
-            }
-            // Update latest index for this character.
             charIndexMap.put(currentChar, i);
             // Current window length = i - left + 1.
             maxLength = Math.max(maxLength, i - left + 1);

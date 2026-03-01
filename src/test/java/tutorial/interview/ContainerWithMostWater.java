@@ -31,9 +31,7 @@ public class ContainerWithMostWater {
     // ✅ Test Harness
     // ==================================
     public static void main(String[] args) {
-
         ContainerWithMostWater solver = new ContainerWithMostWater();
-
         int[][] testCases = {
                 {1, 8, 6, 2, 5, 4, 8, 3, 7},   // Expected: 49
                 {1, 1},                 // Expected: 1
@@ -43,45 +41,36 @@ public class ContainerWithMostWater {
                 {1, 2, 3, 4, 5},           // Increasing
                 {5, 4, 3, 2, 1}            // Decreasing
         };
-
         System.out.println("==== Container With Most Water Tests ====");
-
         for (int i = 0; i < testCases.length; i++) {
-
             int[] input = Arrays.copyOf(testCases[i], testCases[i].length);
-
             System.out.println("------------------------------------------");
             System.out.println("Test Case " + (i + 1));
             System.out.println("Input:  " + Arrays.toString(input));
-
             int result = solver.maxArea(input);
-
             System.out.println("Output: " + result);
         }
-
         System.out.println("==========================================");
     }
 
-    public int maxArea(int[] heightArray) {
-        int leftPointer = 0;
-        int rightPointer = heightArray.length - 1;
-        int maxWater = 0;
-        if (heightArray == null || heightArray.length < 2) {
+    public int maxArea(int[] height) {
+        if (height == null || height.length < 2)
             return 0;
-        }
-        while (leftPointer < rightPointer) {
+        int left = 0;
+        int right = height.length - 1;
+        int maxWater = 0;
+        while (left < right) {
             // We want to maximize the area, which depends on height and width.
-            maxWater = max(maxWater, (rightPointer - leftPointer) * min(heightArray[rightPointer], heightArray[leftPointer]));
-
+            // height = min(height[right], height[left]
+            // width = right - left
+            maxWater = max(maxWater, (right - left) * min(height[right], height[left]));
             // Move the pointer of the shorter bar inwards.
             // This is because moving the taller bar won't increase height and decreases width.
-            if (heightArray[leftPointer] < heightArray[rightPointer]) {
-                leftPointer++;
-            } else {
-                rightPointer--;
-            }
+            if (height[left] < height[right])
+                left++;
+            else
+                right--;
         }
-
         // The loop terminates when pointers meet, having explored all potentially optimal pairs.
         return maxWater;
     }
