@@ -121,7 +121,7 @@ public class ArrayQuestions {
         return new int[]{-1, -1};
     }
 
-    // Finding the top-left and bottom-right corners of a rectangle made of zeros in a 2-dimensional array.
+    // Finding the first and last zeros in a 2-dimensional array.
     // Returns: {{topLeftRow, topLeftCol}, {bottomRightRow, bottomRightCol}}
     public static int[][] findTopLeftAndBottomRightZeroRectangleIn2DArray(int[][] arr) {
         return new int[][]{
@@ -130,7 +130,7 @@ public class ArrayQuestions {
         };
     }
 
-    // Finding the top-left coordinate of zeros in a 2-dimensional array.
+    // Finding the first zero in a 2-dimensional array.
     public static int[] findTopLeftZeroIn2DArray(int[][] arr) {
         if (arr == null || arr.length == 0) {
             return new int[]{-1, -1};
@@ -150,28 +150,24 @@ public class ArrayQuestions {
         return new int[]{-1, -1};
     }
 
-    // Finding the bottom-right coordinate of zeros in a 2-dimensional array.
+    // Finding the last zero in a 2-dimensional array.
     public static int[] findBottomRightZeroIn2DArray(int[][] arr) {
         if (arr == null || arr.length == 0) {
             return new int[]{-1, -1};
         }
 
-        int rowIndex = -1, columnIndex = -1;
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = arr.length-1; i > 0; i--) {
             int[] row = arr[i];
             if (row == null) {
                 continue;
             }
-            // Check column by column of row i
-            for (int j = 0; j < row.length; j++) {
+            for (int j = row.length-1; j > 0; j--) {
                 if (row[j] == 0) {
-                    rowIndex = i;
-                    columnIndex = j;
+                    return new int[]{i, j};
                 }
             }
         }
-
-        return new int[]{rowIndex, columnIndex};
+        return new int[]{-1, -1};
     }
 
     // https://www.jointaro.com/interviews/questions/check-if-every-row-and-column-contains-all-numbers/?company=karat
