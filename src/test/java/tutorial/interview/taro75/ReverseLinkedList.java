@@ -1,11 +1,6 @@
 package tutorial.interview.taro75;
 // https://www.jointaro.com/interviews/questions/reverse-linked-list/?src=taro75
 
-/**
- *
- *
- *
- */
 public class ReverseLinkedList {
     // =========================
     // Helper: Build Linked List from array

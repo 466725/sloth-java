@@ -1,7 +1,6 @@
 package tutorial.interview;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -49,19 +48,6 @@ public class ArrayQuestions {
 
         int[][] rectangleCorners = findTopLeftAndBottomRightZeroRectangleIn2DArray(zeroRectangleArray);
         System.out.println("Zero-rectangle corners [top-left, bottom-right]: " + Arrays.deepToString(rectangleCorners));
-
-        int[][] validMatrix = {
-                {1, 2, 3},
-                {3, 1, 2},
-                {2, 3, 1}
-        };
-        int[][] invalidMatrix = {
-                {1, 1, 1},
-                {1, 2, 3},
-                {1, 2, 3}
-        };
-        System.out.println("Valid matrix check: " + checkRowAndColumnContainsAllNumbers(validMatrix));
-        System.out.println("Invalid matrix check: " + checkRowAndColumnContainsAllNumbers(invalidMatrix));
     }
 
     private static int promptForInteger(String promptMessage) {
@@ -156,75 +142,17 @@ public class ArrayQuestions {
             return new int[]{-1, -1};
         }
 
-        for (int i = arr.length-1; i > 0; i--) {
+        for (int i = arr.length - 1; i > 0; i--) {
             int[] row = arr[i];
             if (row == null) {
                 continue;
             }
-            for (int j = row.length-1; j > 0; j--) {
+            for (int j = row.length - 1; j > 0; j--) {
                 if (row[j] == 0) {
                     return new int[]{i, j};
                 }
             }
         }
         return new int[]{-1, -1};
-    }
-
-    // https://www.jointaro.com/interviews/questions/check-if-every-row-and-column-contains-all-numbers/?company=karat
-    // Check if Every Row and Column Contains All Numbers
-    public static boolean checkRowAndColumnContainsAllNumbers(int[][] arr) {
-        if (arr == null || arr.length == 0) {
-            return false;
-        }
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            if (arr[i] == null || arr[i].length != n) {
-                return false;
-            }
-        }
-
-        return checkRowsContainAllNumbers(arr) && checkColumnsContainAllNumbers(arr);
-    }
-
-    public static boolean checkRowsContainAllNumbers(int[][] arr) {
-        int n = arr.length;
-        HashMap<Integer, Boolean> rowHashMap = new HashMap<>();
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                int value = arr[i][j];
-                if (value < 1 || value > n) {
-                    return false;
-                }
-                rowHashMap.put(value, true);
-            }
-            if (rowHashMap.size() != n) {
-                return false;
-            }
-            rowHashMap.clear();
-        }
-
-        return true;
-    }
-
-    public static boolean checkColumnsContainAllNumbers(int[][] arr) {
-        int n = arr.length;
-        HashMap<Integer, Boolean> columnHashMap = new HashMap<>();
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                int value = arr[j][i];
-                if (value < 1 || value > n) {
-                    return false;
-                }
-                columnHashMap.put(value, true);
-            }
-            if (columnHashMap.size() != n) {
-                return false;
-            }
-            columnHashMap.clear();
-        }
-
-        return true;
     }
 }
