@@ -69,32 +69,26 @@ public class ValidParentheses {
     }
 
     public static boolean checkPair(char left, char right) {
-        if (left == '(' && right == ')') {
+        if (left == '(' && right == ')')
             return true;
-        } else if (left == '[' && right == ']') {
+        else if (left == '[' && right == ']')
             return true;
-        } else if (left == '{' && right == '}') {
+        else if (left == '{' && right == '}')
             return true;
-        } else
+        else
             return false;
     }
 
     public static boolean checkParentheses(String input) {
         if (input == null) return false;
-
         Stack<Character> stack = new Stack<>();
-
-        for (char c : input.toCharArray()) {
-            if (c == '(' || c == '[' || c == '{') {
+        for (char c : input.toCharArray())
+            if (c == '(' || c == '[' || c == '{')
                 stack.push(c);
-            } else {
+            else {
                 if (stack.isEmpty()) return false;
-
-                char top = stack.pop();
-                if (!checkPair(top, c)) return false;
+                if (!checkPair(stack.pop(), c)) return false;
             }
-        }
-
         return stack.isEmpty();
     }
 }

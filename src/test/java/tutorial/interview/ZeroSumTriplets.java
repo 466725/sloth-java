@@ -1,6 +1,8 @@
 package tutorial.interview;
 // https://www.jointaro.com/interviews/questions/3sum/?src=taro75
 
+import java.util.*;
+
 /**
  *
  * Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
@@ -29,31 +31,20 @@ package tutorial.interview;
  *
  */
 public class ZeroSumTriplets {
-    public static java.util.List<java.util.List<Integer>> threeSumBruteForce(int[] numbers) {
-        java.util.Set<java.util.List<Integer>> resultSet = new java.util.HashSet<>();
+    public static List<List<Integer>> threeSumBruteForce(int[] numbers) {
+        Set<List<Integer>> resultSet = new HashSet<>();
         int numbersLength = numbers.length;
-
         // Iterate through all possible combinations of three numbers.
-        for (int firstIndex = 0; firstIndex < numbersLength; firstIndex++) {
-            for (int secondIndex = firstIndex + 1; secondIndex < numbersLength; secondIndex++) {
-                for (int thirdIndex = secondIndex + 1; thirdIndex < numbersLength; thirdIndex++) {
-                    // Check if the sum of the three numbers is equal to zero.
-                    if (numbers[firstIndex] + numbers[secondIndex] + numbers[thirdIndex] == 0) {
-
-                        java.util.List<Integer> triplet = java.util.Arrays.asList(numbers[firstIndex], numbers[secondIndex], numbers[thirdIndex]);
-
+        for (int i = 0; i < numbersLength; i++)
+            for (int j = i + 1; j < numbersLength; j++)
+                for (int k = j + 1; k < numbersLength; k++)
+                    if (numbers[i] + numbers[j] + numbers[k] == 0) {
+                        List<Integer> triplet = Arrays.asList(numbers[i], numbers[j], numbers[k]);
                         // Sort the triplet to handle duplicate combinations.
-                        java.util.Collections.sort(triplet);
-
+                        Collections.sort(triplet);
                         // Add the sorted triplet to the result set.
                         resultSet.add(triplet);
-
                     }
-                }
-            }
-        }
-
-        // Convert the set of triplets to a list and return it.
-        return new java.util.ArrayList<>(resultSet);
+        return new ArrayList<>(resultSet);
     }
 }

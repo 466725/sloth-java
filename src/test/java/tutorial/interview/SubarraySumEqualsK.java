@@ -18,22 +18,20 @@ package tutorial.interview;
  */
 public class SubarraySumEqualsK {
     public int subarraySumEqualsK(int[] numbers, int target) {
-        int numberOfSubarrays = 0;
-
+        if (numbers == null || numbers.length == 0)
+            return 0;
+        int result = 0;
         // Iterate through all possible start indices
-        for (int startIndex = 0; startIndex < numbers.length; startIndex++) {
+        for (int i = 0; i < numbers.length; i++) {
             //Iterate through all possible end indices for each start index
-            int currentSubarraySum = 0;
-            for (int endIndex = startIndex; endIndex < numbers.length; endIndex++) {
-                currentSubarraySum += numbers[endIndex];
-
+            int sum = 0;
+            for (int j = i; j < numbers.length; j++) {
+                sum += numbers[j];
                 //Check if the sum equals the target
-                if (currentSubarraySum == target) {
-                    numberOfSubarrays++;
-                }
+                if (sum == target)
+                    result++;
             }
         }
-
-        return numberOfSubarrays;
+        return result;
     }
 }

@@ -19,61 +19,51 @@ import java.util.Arrays;
 public class TrappingRainWater {
     public static void main(String[] args) {
         TrappingRainWater solution = new TrappingRainWater();
-
         // Example 1
         runTest(solution,
                 new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
                 6,
                 "Test 1");
-
         // Example 2
         runTest(solution,
                 new int[]{4, 2, 0, 3, 2, 5},
                 9,
                 "Test 2");
-
         // No trapping possible
         runTest(solution,
                 new int[]{1, 2, 3, 4, 5},
                 0,
                 "Test 3");
-
         // Flat surface
         runTest(solution,
                 new int[]{3, 3, 3, 3},
                 0,
                 "Test 4");
-
         // Simple valley
         runTest(solution,
                 new int[]{2, 0, 2},
                 2,
                 "Test 5");
-
         // Deep valley
         runTest(solution,
                 new int[]{5, 0, 0, 0, 5},
                 15,
                 "Test 6");
-
         // Single bar
         runTest(solution,
                 new int[]{5},
                 0,
                 "Test 7");
-
         // Two bars
         runTest(solution,
                 new int[]{5, 1},
                 0,
                 "Test 8");
-
         // Empty array
         runTest(solution,
                 new int[]{},
                 0,
                 "Test 9");
-
         // Complex case
         runTest(solution,
                 new int[]{3, 0, 1, 3, 0, 5},
@@ -85,12 +75,10 @@ public class TrappingRainWater {
                                 int[] input,
                                 int expected,
                                 String testName) {
-
         int result = solution.trap(input);
-
-        if (result == expected) {
+        if (result == expected)
             System.out.println(testName + " ✅ PASS");
-        } else {
+        else {
             System.out.println(testName + " ❌ FAIL");
             System.out.println("Input:    " + Arrays.toString(input));
             System.out.println("Expected: " + expected);
@@ -100,34 +88,21 @@ public class TrappingRainWater {
 
     public int trap(int[] heights) {
         int totalTrappedWater = 0;
-        int totalLocations = heights.length;
-        if (heights == null || totalLocations < 3) {
+        int totalBars = heights.length;
+        if (heights == null || totalBars < 3)
             return 0;
-        }
-
-        for (int currentLocation = 0; currentLocation < totalLocations; currentLocation++) {
+        for (int i = 0; i < totalBars; i++) {
             // Find the tallest wall to the left
-            int tallestWallOnTheLeft = 0;
-            for (int leftIndex = 0; leftIndex < currentLocation; leftIndex++) {
-                tallestWallOnTheLeft = Math.max(tallestWallOnTheLeft, heights[leftIndex]);
-            }
-
+            int leftTallestBar = 0;
+            for (int j = 0; j < i; j++)
+                leftTallestBar = Math.max(leftTallestBar, heights[j]);
             // Find the tallest wall to the right
-            int tallestWallOnTheRight = 0;
-            for (int rightIndex = currentLocation + 1; rightIndex < totalLocations; rightIndex++) {
-                tallestWallOnTheRight = Math.max(tallestWallOnTheRight, heights[rightIndex]);
-            }
-
-            // Determine the shorter of the two tallest walls
-            int shorterTallestWall = Math.min(tallestWallOnTheLeft, tallestWallOnTheRight);
-
-            // If the current wall is shorter, calculate trapped water
-            if (heights[currentLocation] < shorterTallestWall) {
-                // Subtract the wall's heights to find amount of trapped water
-                totalTrappedWater += shorterTallestWall - heights[currentLocation];
-            }
+            int rightTallestBar = 0;
+            for (int j = i + 1; j < totalBars; j++)
+                rightTallestBar = Math.max(rightTallestBar, heights[j]);
+            if (heights[i] < Math.min(leftTallestBar, rightTallestBar))
+                totalTrappedWater += Math.min(leftTallestBar, rightTallestBar) - heights[i];
         }
-
         return totalTrappedWater;
     }
 }

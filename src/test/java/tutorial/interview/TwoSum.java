@@ -33,16 +33,14 @@ public class TwoSum {
         runCase(new int[]{1, 2, 3}, 10);       // expected [-1, -1]
     }
 
-    public static int[] sumTwo(int[] numArray, int target) {
-        if (numArray == null || numArray.length <= 1) {
+    public static int[] sumTwo(int[] nums, int target) {
+        if (nums == null || nums.length <= 1)
             return new int[]{-1, -1};
-        }
-        HashMap<Integer, Integer> complementToIndexMap = new HashMap<>();
-        for (int i = 0; i < numArray.length; i++) {
-            if (complementToIndexMap.containsKey(numArray[i])) {
-                return new int[]{complementToIndexMap.get(numArray[i]), i};
-            }
-            complementToIndexMap.put(target - numArray[i], i);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i]))
+                return new int[]{map.get(nums[i]), i};
+            map.put(target - nums[i], i);
         }
         return new int[]{-1, -1};
     }
