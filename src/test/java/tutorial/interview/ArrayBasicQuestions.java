@@ -43,12 +43,16 @@ public class ArrayBasicQuestions {
 
     // Fill array with random numbers [0, 99]
     public static void insertRandomNumbers(int[] arr) {
+        if (arr == null)
+            throw new IllegalArgumentException("Input array cannot be null");
         for (int i = 0; i < arr.length; i++)
             arr[i] = MY_RANDOM.nextInt(100);
     }
 
     // Return the first index of target, or -1 if not found.
     public static int findIndexOfElementInArray(int[] arr, int target) {
+        if (arr == null || arr.length == 0)
+            return 0;
         for (int i = 0; i < arr.length; i++)
             if (arr[i] == target)
                 return i;

@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
+ * 
  * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
  * <p>
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -24,6 +25,7 @@ import java.util.HashMap;
  * Example 3:
  * Input: nums = [3,3], target = 6
  * Output: [0,1]
+ * 
  */
 public class TwoSum {
     public static void main(String[] args) {

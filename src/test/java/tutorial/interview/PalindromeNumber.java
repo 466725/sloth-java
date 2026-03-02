@@ -26,6 +26,8 @@ public class PalindromeNumber {
     // ✅ Test Harness
     // ================================
     public static void main(String[] args) {
+    	System.out.println("121 % 10: " + 121 % 10);
+    	System.out.println("121 / 10: " + 121 / 10);
         PalindromeNumber solver = new PalindromeNumber();
         int[] testCases = {121,        // true
                 -121,       // false

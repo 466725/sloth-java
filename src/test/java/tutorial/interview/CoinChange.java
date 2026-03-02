@@ -37,7 +37,8 @@ public class CoinChange {
                 {7,13,17},
                 {1},
                 {2, 5, 10, 1},
-                {3, 7}
+                {3, 7},
+                {5, 1}
         };
         int[] amounts = {
                 11,   // Expected: 3
@@ -45,7 +46,8 @@ public class CoinChange {
                 3,    // Expected: -1
                 0,    // Expected: 0
                 27,   // Expected: 4 (10+10+5+2? actually 10+10+5+1+1 = 5, best is 10+10+5+1+1=5; better check)
-                5     // Expected: -1
+                5,    // Expected: -1
+                16    // Expected: 4 (5+5+5+1) but actually 5+5+5+1 = 4, better check
         };
         System.out.println("==== Coin Change Tests (Recursive) ====");
         for (int i = 0; i < coinSets.length; i++) {
@@ -64,34 +66,28 @@ public class CoinChange {
     public int coinChange(int[] coins, int amount) {
         if (amount == 0)
             return 0;
-        Integer minNumberOfCoins = findMinimumCoins(coins, amount, 0);
+        Integer minNumberOfCoins = findMinCoin(coins, amount, 0);
         return (minNumberOfCoins == null) ? -1 : minNumberOfCoins;
     }
 
-    private Integer findMinimumCoins(int[] coins, int amount, int coinIndex) {
-        if (amount == 0)
-            return 0;
+    private Integer findMinCoin(int[] coins, int amount, int coinIndex) {
         if (coinIndex >= coins.length)
-            return null;
-        int currentCoin = coins[coinIndex];
-        Integer minimumCoins = null;
-        for (int i = 0; i <= amount / currentCoin; i++) {
-            int remainingAmount = amount - i * currentCoin;
-            if (remainingAmount == 0) {
-                // Found a combination using current coin.
-                if (minimumCoins == null || i < minimumCoins)
-                    minimumCoins = i;
+            return null; // Cannot be
+        Integer minCoin = null;
+        for (int i = 0; i <= amount / coins[coinIndex]; i++) {
+            if ((amount - i * coins[coinIndex]) == 0) {
+                // Found a combination
+                if (minCoin == null || i < minCoin)
+                    minCoin = i;
             } else {
-                // Try combinations with the next coin denomination.
-                Integer subProblemCoins = findMinimumCoins(coins, remainingAmount, coinIndex + 1);
-                if (subProblemCoins != null) {
-                    // Valid solution, see if number of coins smaller.
-                    int totalCoins = i + subProblemCoins;
-                    if (minimumCoins == null || totalCoins < minimumCoins)
-                        minimumCoins = totalCoins;
+                // Try next coin
+                Integer nextCoin = findMinCoin(coins, (amount - i * coins[coinIndex]), coinIndex + 1);
+                if (nextCoin != null) { // Found a combination
+                    if (minCoin == null || (i + nextCoin) < minCoin)
+                        minCoin = (i + nextCoin);
                 }
             }
         }
-        return minimumCoins;
+        return minCoin;
     }
 }

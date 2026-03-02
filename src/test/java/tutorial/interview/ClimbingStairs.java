@@ -39,14 +39,14 @@ public class ClimbingStairs {
         System.out.println("=================================");
     }
 
-    public int climbStairs(int numberOfSteps) {
-        if (numberOfSteps <= 1)
+    public int climbStairs(int steps) {
+        if (steps <= 1)
             return 1;
         // Instead of using an array, we only keep last two results
         int oneStepBefore = 1;
         int twoStepsBefore = 1;
 
-        for (int i = 2; i <= numberOfSteps; i++) {
+        for (int i = 2; i <= steps; i++) {
             int currentWays = oneStepBefore + twoStepsBefore;
             twoStepsBefore = oneStepBefore;
             oneStepBefore = currentWays;
