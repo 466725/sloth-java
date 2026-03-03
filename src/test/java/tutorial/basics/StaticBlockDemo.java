@@ -1,4 +1,4 @@
-package org.concepts;
+package tutorial.basics;
 
 /**
  * Demonstrates execution order of static blocks, constructor, and main method.

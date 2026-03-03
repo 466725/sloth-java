@@ -1,4 +1,4 @@
-package org.concepts;
+package tutorial.basics;
 
 /**
  * Demonstrates member inner classes, anonymous inner classes, and lambdas.

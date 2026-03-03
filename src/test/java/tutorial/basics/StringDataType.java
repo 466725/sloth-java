@@ -1,4 +1,4 @@
-package org.concepts;
+package tutorial.basics;
 
 /**
  * Demonstrates common Java String operations and related patterns.

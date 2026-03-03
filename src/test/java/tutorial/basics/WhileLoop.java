@@ -1,4 +1,4 @@
-package org.concepts;
+package tutorial.basics;
 
 import java.util.Random;
 import java.util.Scanner;

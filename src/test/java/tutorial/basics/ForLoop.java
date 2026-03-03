@@ -1,4 +1,4 @@
-package org.concepts;
+package tutorial.basics;
 
 /**
  * Simple examples of using Java for-loops.
