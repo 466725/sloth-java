@@ -10,7 +10,6 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import testcases.TestCase;
 import utilities.ScreenShotHandler;
 
@@ -170,22 +169,30 @@ public abstract class MobileTestCase extends TestCase {
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result) {
-        logger.info("***** Class: " + result.getTestClass().getName() + " *****");
-        logger.info("***** Method: " + result.getName() + "(...) *****");
+        try {
+            logger.info("***** Class: " + result.getTestClass().getName() + " *****");
+            logger.info("***** Method: " + result.getName() + "(...) *****");
 
-        String screenShotPath = null;
-        if (driver != null) {
-            String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
-            screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
-        } else {
-            logger.warn("mobile.screenshot.skip | reason=driver_null");
+            String screenShotPath = null;
+            if (driver != null) {
+                String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
+                screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
+            } else {
+                logger.warn("mobile.screenshot.skip | reason=driver_null");
+            }
+
+            logResultToExtent(result, screenShotPath);
+        } finally {
+            super.afterMethod(result);
         }
-
-        logResultToExtent(result, screenShotPath);
-        super.afterMethod(result);
     }
 
     private void logResultToExtent(ITestResult result, String screenShotPath) {
+        if (test == null) {
+            logger.warn("ExtentTest is null in MobileTestCase.logResultToExtent; skipping report logging.");
+            return;
+        }
+
         String className = result.getTestClass().getName();
         String methodName = result.getMethod().getMethodName();
         Throwable exception = result.getThrowable();

@@ -66,6 +66,7 @@ public class TestCase {
         if (report != null && test != null) {
             report.endTest(test);
         }
+        test = null;
         logger.info("-----------------------Ending of method------------------------");
     }
 

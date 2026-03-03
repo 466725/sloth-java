@@ -56,13 +56,13 @@ public class GuiTestCase extends TestCase {
      */
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method) {
+        super.beforeMethod(method);
         driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
         if (driver == null) {
             logger.fatal("WebDriver initialization failed (driver is null).");
             return;
         }
         basePage = new BaseWebPage(driver);
-        super.beforeMethod(method);
     }
 
     /**
@@ -70,18 +70,21 @@ public class GuiTestCase extends TestCase {
      */
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result) {
-        logger.info("***** Class: " + result.getTestClass().getName() + " *****");
-        logger.info("***** Method: " + result.getName() + "(...) *****");
+        try {
+            logger.info("***** Class: " + result.getTestClass().getName() + " *****");
+            logger.info("***** Method: " + result.getName() + "(...) *****");
 
-        String screenShotPath = null;
-        if (driver != null) {
-            String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
-            screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
-        } else {
-            logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
+            String screenShotPath = null;
+            if (driver != null) {
+                String screenshotName = LocalDateTime.now().format(SCREENSHOT_TS) + "_" + result.getName();
+                screenShotPath = ScreenShotHandler.captureScreenShot(driver, screenshotName);
+            } else {
+                logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
+            }
+            logResultToExtent(result, screenShotPath);
+        } finally {
+            super.afterMethod(result);
         }
-        logResultToExtent(result, screenShotPath);
-        super.afterMethod(result);
     }
 
     /**
@@ -98,6 +101,11 @@ public class GuiTestCase extends TestCase {
     }
 
     private void logResultToExtent(ITestResult result, String screenShotPath) {
+        if (test == null) {
+            logger.warn("ExtentTest is null in GuiTestCase.logResultToExtent; skipping report logging.");
+            return;
+        }
+
         String className = result.getTestClass().getName();
         String methodName = result.getMethod().getMethodName();
         Throwable exception = result.getThrowable();
