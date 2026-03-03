@@ -17,7 +17,7 @@ public class TangerineSigninPageTest extends GuiTestCase {
 
     // Verifies the Tangerine sign-in page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.TANGERINE})
-    public void verifyTitle() {
+    public void shouldDisplayTangerineSigninPageTitle() {
         test.setDescription("Verify title on Tangerine Signup Page");
         logger.info("ui.web.tangerine.signin.verify_title.start");
         tangerineSigninPage = (TangerineSigninPage) BaseWebPage.gotoHomePage("Tangerine").gotoSigninPage();

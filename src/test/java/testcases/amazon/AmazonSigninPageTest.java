@@ -15,7 +15,7 @@ public class AmazonSigninPageTest extends GuiTestCase {
 
     // Verifies the Amazon sign-in page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.AMAZON})
-    public void verifyTitle() {
+    public void shouldDisplayAmazonSigninPageTitle() {
         logger.info("ui.web.amazon.signin.verify_title.start");
         amazonSigninPage = (AmazonSigninPage) basePage.gotoHomePage("Amazon").gotoSigninPage();
         logger.info("ui.web.amazon.signin.verify_title.state | title=" + driver.getTitle());

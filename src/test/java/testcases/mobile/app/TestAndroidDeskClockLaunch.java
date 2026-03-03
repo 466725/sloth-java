@@ -16,7 +16,7 @@ public class TestAndroidDeskClockLaunch extends MobileAppTestCase {
     private static final Logger logger = LogManager.getLogger(TestAndroidDeskClockLaunch.class.getName());
 
     @Test(priority = 3, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
-    public void verifyAdbCommandWorks() {
+    public void shouldDetectAndroidDeviceViaAdb() {
         String mobileContainerName = System.getenv("MOBILE_CONTAINER_NAME");
         if (mobileContainerName == null || mobileContainerName.isBlank()) {
             throw new SkipException(
@@ -43,7 +43,7 @@ public class TestAndroidDeskClockLaunch extends MobileAppTestCase {
     }
 
     @Test(priority = 5, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
-    public void verifyDeskClockCanBeLaunched() {
+    public void shouldLaunchDeskClockApp() {
         Assert.assertTrue(driver instanceof AndroidDriver, "Expected AndroidDriver session.");
         AndroidDriver androidDriver = (AndroidDriver) driver;
         List<String> deskClockPackages = getDeskClockPackages();

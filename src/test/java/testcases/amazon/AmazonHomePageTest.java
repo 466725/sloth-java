@@ -15,7 +15,7 @@ public class AmazonHomePageTest extends GuiTestCase {
 
     // Verifies the Amazon home page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.AMAZON})
-    public void verifyTitle() {
+    public void shouldDisplayAmazonHomePageTitle() {
         logger.info("ui.web.amazon.home.verify_title.start");
         homepage = BaseWebPage.gotoHomePage("Amazon");
         logger.info("ui.web.amazon.home.verify_title.state | title=" + driver.getTitle());

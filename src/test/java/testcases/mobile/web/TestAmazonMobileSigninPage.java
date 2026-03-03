@@ -44,7 +44,7 @@ public class TestAmazonMobileSigninPage extends MobileWebTestCase {
     }
 
     @Test(priority = 3, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_WEB, TestGroups.AMAZON})
-    public void verifyAmazonSigninFlowOnAndroidChrome() {
+    public void shouldProgressAmazonSigninFlowOnAndroidChrome() {
         String signinUrl = getEnvOrDefault("AMAZON_SIGNIN_URL", DEFAULT_AMAZON_SIGNIN_URL);
         logger.info("mobile.web.amazon.signin.open | url=" + signinUrl);
         driver.get(signinUrl);

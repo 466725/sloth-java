@@ -19,7 +19,7 @@ public class TestTangerineSignupFlow extends GuiTestCase {
 
     // Verifies navigation to the Tangerine sign-up flow.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.QUARANTINE})
-    public void verifyTangerineSignupFlow() {
+    public void shouldNavigateToTangerineSignupFlow() {
         test.setDescription("Verify title on Amazon Register Page");
         // Navigate to Tangerine home page, then to the sign-in page.
         tangerineSigninPage = (TangerineSigninPage) BaseWebPage.gotoHomePage("Tangerine").gotoSigninPage();

@@ -14,7 +14,7 @@ import static org.testng.Assert.assertTrue;
 public class TestBarcodeGenerator extends ApiTestCase {
 
     @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
-    public void generate_Barcode_OKhttp_Call() throws Exception {
+    public void shouldGenerateBarcodeWithOkHttp() throws Exception {
         logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         Request request = new Request.Builder()
                 .url(PropertiesFileReader.getBarcodeBaseURL() + "cpx-barcode-generator-uat/GenerateBarcode?v=4564564136198789456")
@@ -30,7 +30,7 @@ public class TestBarcodeGenerator extends ApiTestCase {
 
     // Equivalent barcode generation call implemented with Rest Assured.
     @Test(priority = 5, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API})
-    public void generate_Barcode_RestAssured_Call() throws Exception {
+    public void shouldGenerateBarcodeWithRestAssured() throws Exception {
         given()
                 .contentType("application/json")
                 .header("Ocp-Apim-Subscription-Key", apiManagerSubscriptionKey)

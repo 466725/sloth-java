@@ -21,7 +21,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
     private static String sessionToken = "";
 
     @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
-    public void create_Application_Session_RestAssured_Call() {
+    public void shouldCreateApplicationSessionWithRestAssured() {
         logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         String payload = """
                 {
@@ -50,7 +50,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
     }
 
     @Test(priority = 7, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
-    public void login_HashMapBody_RestAssured_Call() {
+    public void shouldLoginWithMapPayloadUsingRestAssured() {
         Map<String, Object> payload = new LinkedHashMap<>();
         payload.put("SessionToken", sessionToken);
         payload.put("Password", "password");
@@ -76,7 +76,7 @@ public class TestSigninWithRestAssured extends ApiTestCase {
     }
 
     @Test(priority = 9, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
-    public void login_RawJsonBody_restAssured_Call() {
+    public void shouldLoginWithRawJsonPayloadUsingRestAssured() {
         String body = """
                 {
                   "SessionToken": "%s",

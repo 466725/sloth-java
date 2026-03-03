@@ -25,12 +25,14 @@ public class TestSigninWithOKHttp extends ApiTestCase {
     JSONParser parser = new JSONParser();
 
     @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
-    public void create_Application_Session_OKhttp_Call() throws Exception {
+    public void shouldCreateApplicationSessionWithOkHttp() throws Exception {
         logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
-        RequestBody body = RequestBody
-                .create(mediaType,
-                        "{\r\n\t\"ApplicationKey\": " +
-                                "\"2939bf3b-6c04-4c7b-bcfd-bb590e0016fa\"\r\n}");
+        String payload = """
+                {
+                  "ApplicationKey": "2939bf3b-6c04-4c7b-bcfd-bb590e0016fa"
+                }
+                """;
+        RequestBody body = RequestBody.create(mediaType, payload);
         Request request = new Request.Builder()
                 .url(connectURL + "/CreateApplicationSession")
                 .method("POST", body)
@@ -54,19 +56,17 @@ public class TestSigninWithOKHttp extends ApiTestCase {
 
     // Login call using test credentials.
     @Test(priority = 5, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
-    public void login_OKhttp_Call() throws Exception {
-        RequestBody body = RequestBody
-                .create(mediaType,
-                        "{\n    \"SessionToken\": " +
-                                "\"" + sessionToken + "\"," +
-                                "\n    \"Password\": " +
-                                "\"password\"," +
-                                "\n    \"Email\": " +
-                                "\"user.name.ca@gmail.com\"," +
-                                "\n    \"Source\": " +
-                                "\"1\"," +
-                                "\n    \"LanguageType\": " +
-                                "\"1\"\n}");
+    public void shouldLoginWithOkHttp() throws Exception {
+        String payload = """
+                {
+                  "SessionToken": "%s",
+                  "Password": "password",
+                  "Email": "user.name.ca@gmail.com",
+                  "Source": "1",
+                  "LanguageType": "1"
+                }
+                """.formatted(sessionToken);
+        RequestBody body = RequestBody.create(mediaType, payload);
         Request request = new Request.Builder()
                 .url(connectURL + "/login")
                 .method("POST", body)

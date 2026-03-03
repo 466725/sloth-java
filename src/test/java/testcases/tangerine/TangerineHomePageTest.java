@@ -14,7 +14,7 @@ public class TangerineHomePageTest extends GuiTestCase {
 
     // Verifies the Tangerine home page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.TANGERINE})
-    public void verifyTitle() {
+    public void shouldDisplayTangerineHomePageTitle() {
         logger.info("ui.web.tangerine.home.verify_title.start");
         homepage = BaseWebPage.gotoHomePage("Tangerine");
         logger.info("ui.web.tangerine.home.verify_title.state | title=" + driver.getTitle());
