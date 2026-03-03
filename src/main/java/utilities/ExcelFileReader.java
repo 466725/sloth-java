@@ -20,6 +20,7 @@ public final class ExcelFileReader {
     private static final String DEFAULT_RESOURCE = "/excel-test-data.xlsx";
 
     private ExcelFileReader() {
+        throw new UnsupportedOperationException("Utility class");
     }
 
     public static void main(String[] args) {

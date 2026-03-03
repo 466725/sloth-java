@@ -58,6 +58,7 @@ public class TestCase {
     public void beforeMethod(Method method) {
         String testName = method.getDeclaringClass().getSimpleName() + "." + method.getName();
         test = report.startTest(testName);
+        logger.info("----------------------Beginning of method--------------------------");
     }
 
     @AfterMethod(alwaysRun = true)
@@ -65,6 +66,7 @@ public class TestCase {
         if (report != null && test != null) {
             report.endTest(test);
         }
+        logger.info("-----------------------Ending of method------------------------");
     }
 
     /**

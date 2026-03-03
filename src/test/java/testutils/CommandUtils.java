@@ -17,6 +17,7 @@ public final class CommandUtils {
 
     // Utility methods for invoking external commands used by integration tests.
     private CommandUtils() {
+        throw new UnsupportedOperationException("Utility class");
     }
 
     // Runs a shell command and returns combined stdout/stderr output.

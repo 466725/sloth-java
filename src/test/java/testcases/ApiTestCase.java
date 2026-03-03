@@ -63,14 +63,6 @@ public class ApiTestCase extends TestCase {
     }
 
     /**
-     * Runs before each test method.
-     */
-    @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
-        logger.info("----------------------Beginning of method--------------------------");
-    }
-
-    /**
      * Runs after each test method.
      */
     @AfterMethod(alwaysRun = true)
@@ -79,7 +71,7 @@ public class ApiTestCase extends TestCase {
         logger.info("***** Method: " + result.getName() + "(...) *****");
 
         logResultToExtent(result);
-        logger.info("-----------------------Ending of method------------------------");
+        super.afterMethod(result);
     }
 
     private void logResultToExtent(ITestResult result) {

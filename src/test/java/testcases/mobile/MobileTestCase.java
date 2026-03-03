@@ -168,14 +168,6 @@ public abstract class MobileTestCase extends TestCase {
         logger.info("----------------------Ending of class--------------------------");
     }
 
-    /**
-     * Runs before each test method.
-     */
-    @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
-        logger.info("----------------------Beginning of method--------------------------");
-    }
-
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result) {
         logger.info("***** Class: " + result.getTestClass().getName() + " *****");
@@ -191,7 +183,6 @@ public abstract class MobileTestCase extends TestCase {
 
         logResultToExtent(result, screenShotPath);
         super.afterMethod(result);
-        logger.info("-----------------------Ending of method------------------------");
     }
 
     private void logResultToExtent(ITestResult result, String screenShotPath) {

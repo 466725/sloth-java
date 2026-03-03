@@ -4,6 +4,10 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 public final class TestGroups {
+    // Utility class; not meant to be instantiated.
+    private TestGroups() {
+        throw new UnsupportedOperationException("Utility class");
+    }
     final static Logger logger = LogManager.getLogger(TestGroups.class.getName());
     public static final String API = "api";
     public static final String UI_WEB = "ui-web";
@@ -16,9 +20,4 @@ public final class TestGroups {
     public static final String CANADA_ONLY = "canada-only"; // API can be called only within Canada
     public static final String AMAZON = "amazon";
     public static final String TANGERINE = "tangerine";
-
-    // Utility class; not meant to be instantiated.
-    private TestGroups() {
-        logger.info("TestGroups class created");
-    }
 }

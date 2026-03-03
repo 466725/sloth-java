@@ -13,6 +13,7 @@ import webpages.BaseWebPage;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -54,14 +55,14 @@ public class GuiTestCase extends TestCase {
      * Runs before each UI test method.
      */
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
+    public void beforeMethod(Method method) {
         driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
         if (driver == null) {
             logger.fatal("WebDriver initialization failed (driver is null).");
             return;
         }
         basePage = new BaseWebPage(driver);
-        logger.info("----------------------Beginning of method--------------------------");
+        super.beforeMethod(method);
     }
 
     /**
@@ -80,7 +81,7 @@ public class GuiTestCase extends TestCase {
             logger.warn("Driver is null in @AfterMethod; skipping screenshot.");
         }
         logResultToExtent(result, screenShotPath);
-        logger.info("-----------------------Ending of method------------------------");
+        super.afterMethod(result);
     }
 
     /**
