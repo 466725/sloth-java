@@ -5,7 +5,11 @@
 **/build/
 /bin/
 /test-output/
+**/test-output/
 /allure-results/
+**/allure-results/
+**/surefire-reports/
+**/failsafe-reports/
 .mvn/wrapper/maven-wrapper.jar
 
 # Keep source-tree folders named target/build if intentionally committed
