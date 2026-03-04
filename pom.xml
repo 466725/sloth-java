@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>openqa.automation.framework</groupId>
-    <artifactId>sloth-java-parent</artifactId>
+    <artifactId>sloth-java</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>sloth-java-parent</name>
+    <name>sloth-java</name>
     <description>Parent aggregator for sloth-java modules</description>
 
     <modules>

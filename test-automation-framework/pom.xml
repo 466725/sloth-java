@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>openqa.automation.framework</groupId>
-    <artifactId>sloth-java-framework</artifactId>
+    <artifactId>test-automation-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>sloth-java-framework</name>
+    <name>test-automation-framework</name>
     <description>Automation framework module for UI, API, and mobile testing</description>
 
     <!-- Use Java 21 (matches GitHub Actions CI) -->
