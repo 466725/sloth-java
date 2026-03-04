@@ -1,4 +1,4 @@
-# sloth-spring-demo
+# spring-boot-demo
 
 Spring Boot learning module inside the `sloth-java` repository.
 
@@ -9,13 +9,13 @@ Spring Boot learning module inside the `sloth-java` repository.
 ## Run
 
 ```bash
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
 ## Test
 
 ```bash
-./mvnw test
+mvn test
 ```
 
 ## Useful endpoints

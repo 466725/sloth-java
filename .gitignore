@@ -1,22 +1,51 @@
 # Build artifacts and outputs
 /target/
 **/target/
+/build/
+**/build/
 /bin/
 /test-output/
 /allure-results/
+.mvn/wrapper/maven-wrapper.jar
+
+# Keep source-tree folders named target/build if intentionally committed
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 # IntelliJ IDEA
 /.idea/
+.idea/
 *.iml
+*.iws
+*.ipr
 
 # Eclipse
 /.settings/
+.settings/
 /.project
+.project
 /.classpath
+.classpath
 /.factorypath
+.factorypath
 /.apt_generated/
+.apt_generated
 /.apt_generated_tests/
 /.springBeans
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
 
 # Logs and temporary files
 *.log

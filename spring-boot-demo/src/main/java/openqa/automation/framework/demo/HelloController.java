@@ -9,6 +9,6 @@ class HelloController {
 
     @GetMapping("/api/hello")
     Map<String, String> hello() {
-        return Map.of("message", "Hello from sloth-spring-demo");
+        return Map.of("message", "Hello from spring-boot-demo");
     }
 }

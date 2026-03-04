@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>openqa.automation.framework</groupId>
-    <artifactId>sloth-spring-demo</artifactId>
+    <artifactId>spring-boot-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sloth-spring-demo</name>
+    <name>spring-boot-demo</name>
     <description>Learning module for Spring Boot in the sloth-java repository</description>
     <properties>
         <java.version>21</java.version>

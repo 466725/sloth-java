@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sloth-spring-demo
+    name: spring-boot-demo
 
 management:
   endpoints:

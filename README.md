@@ -20,8 +20,8 @@ This project provides robust capabilities for load, performance, and functional 
 
 ### Repository Modules
 
-*   `framework` - Main automation framework (TestNG, Selenium, Appium, API, tutorials)
-*   `demo` - Spring Boot learning module
+*   `test-automation-framework` - Main automation framework (TestNG, Selenium, Appium, API, tutorials)
+*   `spring-boot-demo` - Spring Boot learning module
 
 ### Prerequisites
 
@@ -70,8 +70,8 @@ Best practices to keep the codebase consistent and maintainable:
 ---
 
 ## Configuration & Secrets
-*   All framework configuration are done via `framework/src/main/resources/config.properties`.
-*   Framework secrets are stored in `framework/src/main/resources/secrets.properties`.
+*   All framework configuration are done via `test-automation-framework/src/main/resources/config.properties`.
+*   Framework secrets are stored in `test-automation-framework/src/main/resources/secrets.properties`.
 *   Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
 
 ---
@@ -89,12 +89,12 @@ Best practices to keep the codebase consistent and maintainable:
 
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
-* Listener is registered via ServiceLoader: `framework/src/test/resources/META-INF/services/org.testng.ITestNGListener`.
+* Listener is registered via ServiceLoader: `test-automation-framework/src/test/resources/META-INF/services/org.testng.ITestNGListener`.
 * Reruns (`testng-failed.xml`) use the same listener in IDE and CLI.
 
 ### Extent Report Config
 * Report styling/metadata is loaded by `config.ExtentReportHandler`.
-* Default config file: `framework/src/main/resources/extent-report-config.xml`.
+* Default config file: `test-automation-framework/src/main/resources/extent-report-config.xml`.
 
 ---
 
@@ -109,24 +109,24 @@ Best practices to keep the codebase consistent and maintainable:
 ### Using Command Line
 ```bash
 # Resolve dependencies
-mvn -pl framework dependency:resolve
-mvn -pl demo dependency:resolve
+mvn -pl test-automation-framework dependency:resolve
+mvn -pl spring-boot-demo dependency:resolve
 
 # Execute framework tests (default smoke suite)
-mvn -pl framework test -Dgroups=smoke
-mvn -pl framework test -Dgroups=api
-mvn -pl framework test -Dgroups=ui-web
-mvn -pl framework test -DsuiteXmlFile=SmokeTest.xml
-mvn -pl framework test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
+mvn -pl test-automation-framework test -Dgroups=smoke
+mvn -pl test-automation-framework test -Dgroups=api
+mvn -pl test-automation-framework test -Dgroups=ui-web
+mvn -pl test-automation-framework test -DsuiteXmlFile=SmokeTest.xml
+mvn -pl test-automation-framework test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
 
-# Execute spring demo tests
-mvn -pl demo test
+# Execute Spring Boot demo tests
+mvn -pl spring-boot-demo test
 
 # Windows PowerShell examples (quoting is safe)
-mvn -pl framework test "-DsuiteXmlFile=SmokeTest.xml"
-mvn -pl framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
-mvn -pl framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
-mvn -pl framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
+mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
+mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
+mvn -pl test-automation-framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
 ```
 
 ---

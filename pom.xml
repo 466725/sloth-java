@@ -12,7 +12,7 @@
     <description>Parent aggregator for sloth-java modules</description>
 
     <modules>
-        <module>framework</module>
-        <module>demo</module>
+        <module>test-automation-framework</module>
+        <module>spring-boot-demo</module>
     </modules>
 </project>

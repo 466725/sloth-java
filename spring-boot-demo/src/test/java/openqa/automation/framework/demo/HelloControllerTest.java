@@ -15,6 +15,6 @@ class HelloControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
         mockMvc.perform(get("/api/hello"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.message").value("Hello from sloth-spring-demo"));
+            .andExpect(jsonPath("$.message").value("Hello from spring-boot-demo"));
     }
 }
