@@ -1,5 +1,6 @@
 # Build artifacts and outputs
 /target/
+**/target/
 /bin/
 /test-output/
 /allure-results/

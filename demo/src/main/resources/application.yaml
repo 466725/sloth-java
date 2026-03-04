@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: sloth-spring-demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

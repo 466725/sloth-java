@@ -24,8 +24,8 @@ jobs:
       - name: Fix artifact permissions
         if: always()
         run: |
-          sudo chown -R "$(id -u):$(id -g)" test-output target 2>/dev/null || true
-          sudo chmod -R u+rwX,go+rX test-output target 2>/dev/null || true
+          sudo chown -R "$(id -u):$(id -g)" framework/test-output framework/target 2>/dev/null || true
+          sudo chmod -R u+rwX,go+rX framework/test-output framework/target 2>/dev/null || true
 
       - name: Upload test reports/artifacts
         if: always()
@@ -33,9 +33,9 @@ jobs:
         with:
           name: smoke-test-artifacts
           path: |
-            test-output/ExtentReportCucumber/**
-            target/cucumber/**
-            target/surefire-reports/**
+            framework/test-output/ExtentReportCucumber/**
+            framework/target/cucumber/**
+            framework/target/surefire-reports/**
           if-no-files-found: warn
 
       - name: Cleanup
@@ -57,8 +57,8 @@ jobs:
       - name: Fix artifact permissions
         if: always()
         run: |
-          sudo chown -R "$(id -u):$(id -g)" test-output target 2>/dev/null || true
-          sudo chmod -R u+rwX,go+rX test-output target 2>/dev/null || true
+          sudo chown -R "$(id -u):$(id -g)" framework/test-output framework/target 2>/dev/null || true
+          sudo chmod -R u+rwX,go+rX framework/test-output framework/target 2>/dev/null || true
 
       - name: Upload mobile-web test reports/artifacts
         if: always()
@@ -66,9 +66,9 @@ jobs:
         with:
           name: mobile-web-test-artifacts
           path: |
-            test-output/ExtentReportCucumber/**
-            target/cucumber/**
-            target/surefire-reports/**
+            framework/test-output/ExtentReportCucumber/**
+            framework/target/cucumber/**
+            framework/target/surefire-reports/**
           if-no-files-found: warn
 
       - name: Cleanup
@@ -90,8 +90,8 @@ jobs:
       - name: Fix artifact permissions
         if: always()
         run: |
-          sudo chown -R "$(id -u):$(id -g)" test-output target 2>/dev/null || true
-          sudo chmod -R u+rwX,go+rX test-output target 2>/dev/null || true
+          sudo chown -R "$(id -u):$(id -g)" framework/test-output framework/target 2>/dev/null || true
+          sudo chmod -R u+rwX,go+rX framework/test-output framework/target 2>/dev/null || true
 
       - name: Upload test reports/artifacts
         if: always()
@@ -99,9 +99,9 @@ jobs:
         with:
           name: regression-test-artifacts
           path: |
-            test-output/ExtentReportCucumber/**
-            target/cucumber/**
-            target/surefire-reports/**
+            framework/test-output/ExtentReportCucumber/**
+            framework/target/cucumber/**
+            framework/target/surefire-reports/**
           if-no-files-found: warn
 
       - name: Cleanup

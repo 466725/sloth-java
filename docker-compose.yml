@@ -71,7 +71,7 @@ services:
       mysql:
         condition: service_healthy
     command: >
-      bash -lc "mvn -B -ntp test
+      bash -lc "mvn -B -ntp -pl framework test
       -DsuiteXmlFile=$${SUITE_XML_FILE}
       -Dheadless=$${HEADLESS}"
 

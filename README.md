@@ -18,6 +18,11 @@ This project provides robust capabilities for load, performance, and functional 
 
 ## Getting Started
 
+### Repository Modules
+
+*   `framework` - Main automation framework (TestNG, Selenium, Appium, API, tutorials)
+*   `demo` - Spring Boot learning module
+
 ### Prerequisites
 
 Ensure you have the following installed:
@@ -65,8 +70,8 @@ Best practices to keep the codebase consistent and maintainable:
 ---
 
 ## Configuration & Secrets
-*   All configuration are done via `src/main/resources/config.properties`.
-*   Secrets are stored in `src/main/resources/secrets.properties`.
+*   All framework configuration are done via `framework/src/main/resources/config.properties`.
+*   Framework secrets are stored in `framework/src/main/resources/secrets.properties`.
 *   Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
 
 ---
@@ -84,12 +89,12 @@ Best practices to keep the codebase consistent and maintainable:
 
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
-* Listener is registered via ServiceLoader: `src/test/resources/META-INF/services/org.testng.ITestNGListener`.
+* Listener is registered via ServiceLoader: `framework/src/test/resources/META-INF/services/org.testng.ITestNGListener`.
 * Reruns (`testng-failed.xml`) use the same listener in IDE and CLI.
 
 ### Extent Report Config
 * Report styling/metadata is loaded by `config.ExtentReportHandler`.
-* Default config file: `src/main/resources/extent-report-config.xml`.
+* Default config file: `framework/src/main/resources/extent-report-config.xml`.
 
 ---
 
@@ -104,20 +109,24 @@ Best practices to keep the codebase consistent and maintainable:
 ### Using Command Line
 ```bash
 # Resolve dependencies
-mvn dependency:resolve
+mvn -pl framework dependency:resolve
+mvn -pl demo dependency:resolve
 
-# Execute tests (default smoke suite)
-mvn test -Dgroups=smoke
-mvn test -Dgroups=api
-mvn test -Dgroups=ui-web
-mvn test -DsuiteXmlFile=SmokeTest.xml
-mvn test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
+# Execute framework tests (default smoke suite)
+mvn -pl framework test -Dgroups=smoke
+mvn -pl framework test -Dgroups=api
+mvn -pl framework test -Dgroups=ui-web
+mvn -pl framework test -DsuiteXmlFile=SmokeTest.xml
+mvn -pl framework test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
+
+# Execute spring demo tests
+mvn -pl demo test
 
 # Windows PowerShell examples (quoting is safe)
-mvn test "-DsuiteXmlFile=SmokeTest.xml"
-mvn test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
-mvn test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
-mvn test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
+mvn -pl framework test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
+mvn -pl framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
+mvn -pl framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
 ```
 
 ---
