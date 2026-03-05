@@ -43,15 +43,13 @@ public class JumpGame {
     }
 
     public boolean canJump(int[] nums) {
-        int lastGoodPosition = nums.length - 1;
-        // Iterate backwards to find positions that can reach the end
-        for (int i = nums.length - 2; i >= 0; i--)
-            // Check can reach
-            if (i + nums[i] >= lastGoodPosition)
-                // Update the last good position
-                lastGoodPosition = i;
-        //If first position is 'good', we can reach the end.
-        return lastGoodPosition == 0;
+        int end = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > end)
+                return false;
+            end = Math.max(end, i + nums[i]);
+        }
+        return true;
     }
 }
 

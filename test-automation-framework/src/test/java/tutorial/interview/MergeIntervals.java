@@ -36,7 +36,7 @@ public class MergeIntervals {
     public static int[][] merge(int[][] intervals) {
         if (intervals == null || intervals.length <= 1)
             return intervals;
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
         List<int[]> result = new ArrayList<>();
         int[] current = intervals[0];
         for (int i = 1; i < intervals.length; i++)
