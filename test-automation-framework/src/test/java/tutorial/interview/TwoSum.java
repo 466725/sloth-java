@@ -35,6 +35,15 @@ public class TwoSum {
         runCase(new int[]{1, 2, 3}, 10);       // expected [-1, -1]
     }
 
+    private static void runCase(int[] nums, int target) {
+        int[] answer = sumTwo(nums, target);
+        System.out.println(
+                "nums=" + Arrays.toString(nums)
+                        + ", target=" + target
+                        + ", result=" + Arrays.toString(answer)
+        );
+    }
+
     public static int[] sumTwo(int[] nums, int target) {
         if (nums == null || nums.length <= 1)
             return new int[]{-1, -1};
@@ -45,14 +54,5 @@ public class TwoSum {
             map.put(target - nums[i], i);
         }
         return new int[]{-1, -1};
-    }
-
-    private static void runCase(int[] nums, int target) {
-        int[] answer = sumTwo(nums, target);
-        System.out.println(
-                "nums=" + Arrays.toString(nums)
-                        + ", target=" + target
-                        + ", result=" + Arrays.toString(answer)
-        );
     }
 }

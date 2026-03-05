@@ -22,28 +22,43 @@ import java.util.Map;
 
 public class TopFrequentElements {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> elementCounts = new HashMap<>();
+        // Step 1: Build frequency map
+        Map<Integer, Integer> frequencyMap = buildFrequencyMap(nums);
+        // Step 2: Create buckets indexed by frequency
+        List<Integer>[] buckets = buildBuckets(frequencyMap, nums.length);
+        // Step 3: Collect top k elements
+        return collectTopK(buckets, k);
+    }
+
+    private Map<Integer, Integer> buildFrequencyMap(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums)
-            elementCounts.put(num, elementCounts.getOrDefault(num, 0) + 1);
-        List<Integer>[] frequencyBuckets = new List[nums.length + 1];
-        //Populate frequency buckets
-        for (int number : elementCounts.keySet()) {
-            int frequency = elementCounts.get(number);
-            if (frequencyBuckets[frequency] == null)
-                frequencyBuckets[frequency] = new ArrayList<>();
-            frequencyBuckets[frequency].add(number);
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        return map;
+    }
+
+    private List<Integer>[] buildBuckets(Map<Integer, Integer> frequencyMap, int maxSize) {
+        List<Integer>[] buckets = new List[maxSize + 1];
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            int number = entry.getKey();
+            int frequency = entry.getValue();
+            if (buckets[frequency] == null)
+                buckets[frequency] = new ArrayList<>();
+            buckets[frequency].add(number);
         }
-        List<Integer> topKElements = new ArrayList<>();
-        // Iterate from highest frequency to lowest.
-        for (int frequency = frequencyBuckets.length - 1; frequency >= 1 && topKElements.size() < k; frequency--)
-            // Only process if the bucket is not empty
-            if (frequencyBuckets[frequency] != null)
-                //Add elements to result
-                topKElements.addAll(frequencyBuckets[frequency]);
+        return buckets;
+    }
+
+    private int[] collectTopK(List<Integer>[] buckets, int k) {
         int[] result = new int[k];
-        // Ensure only k elements are returned.
-        for (int i = 0; i < k; i++)
-            result[i] = topKElements.get(i);
+        int index = 0;
+        for (int freq = buckets.length - 1; freq >= 1 && index < k; freq--)
+            if (buckets[freq] != null)
+                for (int num : buckets[freq]) {
+                    result[index++] = num;
+                    if (index == k) break;
+                }
         return result;
     }
 }

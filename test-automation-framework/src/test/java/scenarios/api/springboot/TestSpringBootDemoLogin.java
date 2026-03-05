@@ -21,6 +21,7 @@ public class TestSpringBootDemoLogin extends ApiTestCase {
 
     @BeforeClass(alwaysRun = true)
     public void verifySpringBootDemoIsAvailable() {
+        super.beforeClass();
         if (!isSpringBootDemoUp()) {
             throw new SkipException(
                     "Skipping TestSpringBootDemoLogin because spring-boot-demo is not reachable at " + baseUrl);
