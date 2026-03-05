@@ -131,6 +131,27 @@ mvn -pl test-automation-framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogi
 
 ---
 
+## Spring Boot Demo Module
+
+### Prerequisites
+* Java 21+
+
+### Run Spring Boot demo
+```bash
+mvn -pl spring-boot-demo spring-boot:run
+```
+
+### Test Spring Boot demo
+```bash
+mvn -pl spring-boot-demo test
+```
+
+### Useful endpoints
+* `GET /api/hello`
+* `GET /actuator/health`
+
+---
+
 ### Using CI/CD of GitHub Actions
 *   Run smoke SmokeTest.xml on PR
 *   Run mobile-web smoke MobileWebSmokeTest.xml on PR/push (Selenium mobile emulation on GitHub runner)
