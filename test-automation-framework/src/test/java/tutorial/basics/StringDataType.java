@@ -21,19 +21,16 @@ public class StringDataType {
     // Counts how many times a character appears in a string.
     public static int countOccurrences(String input, char target) {
         int count = 0;
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == target) {
+        for (int i = 0; i < input.length(); i++)
+            if (input.charAt(i) == target)
                 count++;
-            }
-        }
         return count;
     }
 
     // Reverses a string recursively.
     public static String reverseRecursively(String input) {
-        if (input.length() <= 1) {
+        if (input.length() <= 1)
             return input;
-        }
         return reverseRecursively(input.substring(1)) + input.charAt(0);
     }
 

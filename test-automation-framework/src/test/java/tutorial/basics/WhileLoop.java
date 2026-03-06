@@ -35,9 +35,8 @@ public class WhileLoop {
         int sum = 0;
         // Sum odd numbers from 1 to 9.
         while (number < MAX_NUMBER) {
-            if (number % 2 != 0) {
+            if (number % 2 != 0)
                 sum += number;
-            }
             number++;
         }
         System.out.println("Sum of odd numbers from 1 to 9 is: " + sum);
@@ -49,11 +48,10 @@ public class WhileLoop {
 
         int guess = scanner.nextInt();
         while (guess != targetNumber) {
-            if (guess > targetNumber) {
+            if (guess > targetNumber)
                 System.out.println("Too big. Please try again:");
-            } else {
+            else
                 System.out.println("Too small. Please try again:");
-            }
             guess = scanner.nextInt();
         }
 
