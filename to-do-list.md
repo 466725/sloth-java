@@ -1,23 +1,3 @@
-
-用 AI 生成测试
-
-例如：
-
-ChatGPT + Playwright
-自动生成测试脚本
-
-做几个 GitHub 项目：
-
-例如：
-
-AI Test Generator
-Auto API Test Creator
-Self-healing UI tests
-
-这样简历会非常亮眼。
-
-
-
 ## Secrets and environment profiles Replace hardcoded secrets with env-only loading and profile files (dev/stage/prod). 
 Why: apiManagerSubscriptionKey is hardcoded in src/test/java/testcases/ApiTestCase.java.
 ## Parallel-safe WebDriver lifecycle Move from static/shared driver to ThreadLocal<WebDriver>. 
