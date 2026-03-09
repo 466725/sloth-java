@@ -68,19 +68,15 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     // O(n) sliding-window solution with map of last seen indexes.
     public static int lengthOfLongestSubstringSlidingWindow(String input) {
-        // Best length seen so far.
         int maxLength = 0;
-        // Last index where each character appeared.
         Map<Character, Integer> charIndexMap = new HashMap<>();
-        // Left boundary of current duplicate-free window [left..i].
         int left = 0;
         for (int i = 0; i < input.length(); i++) {
             char currentChar = input.charAt(i);
-            // If duplicate exists
-            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= left)
-                left = charIndexMap.get(currentChar) + 1;
+            Integer lastIndex = charIndexMap.get(currentChar);
+            if (lastIndex != null && lastIndex >= left)
+                left = lastIndex + 1;
             charIndexMap.put(currentChar, i);
-            // Current window length = i - left + 1.
             maxLength = Math.max(maxLength, i - left + 1);
         }
         return maxLength;

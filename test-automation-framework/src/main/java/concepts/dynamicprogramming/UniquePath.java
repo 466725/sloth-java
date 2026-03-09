@@ -1,4 +1,4 @@
-package tutorial.interview;
+package concepts.dynamicprogramming;
 // https://leetcode.com/problems/unique-paths/description/
 
 /**

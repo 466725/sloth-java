@@ -47,32 +47,32 @@ public class GenerateParentheses {
      *
      * @param result  stores valid combinations
      * @param current current parentheses string being built
-     * @param open    number of '(' used
-     * @param close   number of ')' used
-     * @param max     total pairs allowed
+     * @param left    number of '(' used
+     * @param right   number of ')' used
+     * @param total   total pairs allowed
      */
     private void build(List<String> result,
                        StringBuilder current,
-                       int open,
-                       int close,
-                       int max) {
+                       int left,
+                       int right,
+                       int total) {
         // Base case: full valid string formed
-        if (current.length() == max * 2) {
+        if (left == total && right == total) {
             result.add(current.toString());
             return;
         }
 
         // Add '(' if we still have some left
-        if (open < max) {
+        if (left < total) {
             current.append('(');
-            build(result, current, open + 1, close, max);
+            build(result, current, left + 1, right, total);
             current.deleteCharAt(current.length() - 1); // backtrack
         }
 
         // Add ')' only if it won't invalidate the string
-        if (close < open) {
+        if (right < left) {
             current.append(')');
-            build(result, current, open, close + 1, max);
+            build(result, current, left, right + 1, total);
             current.deleteCharAt(current.length() - 1); // backtrack
         }
     }
