@@ -34,11 +34,11 @@ public class MaximumSubarray {
     public static int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0)
             throw new IllegalArgumentException("Input array must not be empty");
-        int current = nums[0];
+        int cur = nums[0];
         int max = nums[0];
         for (int i = 1; i < nums.length; i++) {
-            current = Math.max(nums[i], current + nums[i]);
-            max = Math.max(max, current);
+            cur = Math.max(nums[i], cur + nums[i]);
+            max = Math.max(max, cur);
         }
         return max;
     }

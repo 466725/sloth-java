@@ -25,12 +25,12 @@ package concepts.dynamicprogramming;
  * 3. Down -> Right -> Down
  *
  */
-public class UniquePath {
+public class UniquePaths {
     // ==============================
     // ✅ Test Harness
     // ==============================
     public static void main(String[] args) {
-        UniquePath solver = new UniquePath();
+        UniquePaths solver = new UniquePaths();
         int[][] testCases = {
                 {3, 7},
                 {3, 2},
@@ -59,13 +59,13 @@ public class UniquePath {
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
 
+        // First row
+        for (int i = 0; i < n; i++)
+            dp[0][i] = 1;
+
         // First column
         for (int i = 0; i < m; i++)
             dp[i][0] = 1;
-
-        // First row
-        for (int j = 0; j < n; j++)
-            dp[0][j] = 1;
 
         // Fill the DP table
         for (int i = 1; i < m; i++)
