@@ -1,11 +1,11 @@
-package webpages.playwright;
+package webpages;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.WaitUntilState;
 import config.PropertiesFileReader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import webpages.playwright.tangerine.TangerineHomePagePlaywright;
+import webpages.tangerine.TangerineHomePagePlaywright;
 
 import java.util.Locale;
 

@@ -6,8 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.PlaywrightGuiTestCase;
 import testcases.TestGroups;
-import webpages.playwright.PlaywrightBaseWebPage;
-import webpages.playwright.tangerine.TangerineSigninPagePlaywright;
+import webpages.PlaywrightBaseWebPage;
+import webpages.tangerine.TangerineSigninPagePlaywright;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package webpages.playwright;
+package webpages;
 
 import com.microsoft.playwright.Page;
 

@@ -1,9 +1,9 @@
-package webpages.playwright.tangerine;
+package webpages.tangerine;
 
 import com.microsoft.playwright.Page;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import webpages.playwright.PlaywrightPageObject;
+import webpages.PlaywrightPageObject;
 
 /**
  * Tangerine sign-up page (Playwright).

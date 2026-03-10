@@ -6,8 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.PlaywrightGuiTestCase;
 import testcases.TestGroups;
-import webpages.playwright.PlaywrightBaseWebPage;
-import webpages.playwright.tangerine.TangerineHomePagePlaywright;
+import webpages.PlaywrightBaseWebPage;
+import webpages.tangerine.TangerineHomePagePlaywright;
 
 public class TangerineHomePagePlaywrightTest extends PlaywrightGuiTestCase {
     final static Logger logger = LogManager.getLogger(TangerineHomePagePlaywrightTest.class.getName());
