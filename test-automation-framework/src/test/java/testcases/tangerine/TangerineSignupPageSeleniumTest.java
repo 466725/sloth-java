@@ -12,8 +12,8 @@ import webpages.tangerine.TangerineSignupPage;
 
 import java.util.Objects;
 
-public class TangerineSignupPageTest extends GuiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TangerineSignupPageTest.class.getName());
+public class TangerineSignupPageSeleniumTest extends GuiTestCase {
+    protected final static Logger logger = LogManager.getLogger(TangerineSignupPageSeleniumTest.class.getName());
     TangerineSigninPage tangerineSigninPage;
     TangerineSignupPage tangerineSignupPage;
 

@@ -70,7 +70,7 @@ Best practices to keep the codebase consistent and maintainable:
 ---
 
 ## Configuration & Secrets
-*   All framework configuration are done via `test-automation-framework/src/main/resources/config.properties`.
+*   All framework configuration are done via `test-automation-framework/src/main/resources/init-config.properties`.
 *   Framework secrets are stored in `test-automation-framework/src/main/resources/secrets.properties`.
 *   Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
 
@@ -86,6 +86,16 @@ Best practices to keep the codebase consistent and maintainable:
 * ui-mobile
 * integration (API + UI thin slice)
 * quarantine (flaky/under investigation)
+* ......
+
+### Playwright (UI-Web)
+- Playwright tests are tagged with the `playwright` TestNG group (in addition to `ui-web`, `tangerine`, etc.).
+- First run may download Playwright browser binaries into your user cache (typically `~/.cache/ms-playwright`).
+- Install browsers explicitly (recommended for CI/locked-down networks):
+  ```bash
+  mvn -pl test-automation-framework -DskipTests exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium"
+  ```
+- Control headless mode with `-Dheadless=true` and browser with `-Dplaywright.browser=chromium|firefox|webkit|chrome|msedge`.
 
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
@@ -116,6 +126,7 @@ mvn -pl spring-boot-demo dependency:resolve
 mvn -pl test-automation-framework test -Dgroups=smoke
 mvn -pl test-automation-framework test -Dgroups=api
 mvn -pl test-automation-framework test -Dgroups=ui-web
+mvn -pl test-automation-framework test -Dgroups=playwright
 mvn -pl test-automation-framework test -DsuiteXmlFile=SmokeTest.xml
 mvn -pl test-automation-framework test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
 

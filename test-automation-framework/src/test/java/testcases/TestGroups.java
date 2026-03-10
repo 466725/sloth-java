@@ -16,6 +16,7 @@ public final class TestGroups {
     public static final String SMOKE = "smoke";
     public static final String REGRESSION = "regression";
     public static final String INTEGRATION = "integration";
+    public static final String PLAYWRIGHT = "playwright";
     public static final String QUARANTINE = "quarantine"; // Flaky test cases
     public static final String CANADA_ONLY = "canada-only"; // API can be called only within Canada
     public static final String AMAZON = "amazon";

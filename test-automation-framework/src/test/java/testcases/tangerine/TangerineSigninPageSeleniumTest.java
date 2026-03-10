@@ -11,8 +11,8 @@ import webpages.tangerine.TangerineSigninPage;
 
 import java.util.Objects;
 
-public class TangerineSigninPageTest extends GuiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TangerineSigninPageTest.class.getName());
+public class TangerineSigninPageSeleniumTest extends GuiTestCase {
+    protected final static Logger logger = LogManager.getLogger(TangerineSigninPageSeleniumTest.class.getName());
     TangerineSigninPage tangerineSigninPage;
 
     // Verifies the Tangerine sign-in page title.
