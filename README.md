@@ -93,7 +93,11 @@ Best practices to keep the codebase consistent and maintainable:
 - First run may download Playwright browser binaries into your user cache (typically `~/.cache/ms-playwright`).
 - Install browsers explicitly (recommended for CI/locked-down networks):
   ```bash
+  # Bash/zsh
   mvn -pl test-automation-framework -DskipTests exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium"
+
+  # Windows PowerShell (quote -D... properties with dots)
+  mvn -pl test-automation-framework -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
   ```
 - Control headless mode with `-Dheadless=true` and browser with `-Dplaywright.browser=chromium|firefox|webkit|chrome|msedge`.
 
@@ -136,6 +140,7 @@ mvn -pl spring-boot-demo test
 # Windows PowerShell examples (quoting is safe)
 mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml"
 mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
+mvn -pl test-automation-framework test "-Dgroups=playwright" "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
 mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
 mvn -pl test-automation-framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
 ```
