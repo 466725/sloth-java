@@ -25,6 +25,16 @@ public final class SeleniumWrapper {
         // Private constructor to prevent instantiation
     }
 
+    public static int findAllElementsSize(WebDriver driver) {
+        List<WebElement> elements = driver.findElements(By.xpath("//*"));
+        return elements.size();
+    }
+
+    public static List<WebElement> findAllElements(WebDriver driver) {
+        List<WebElement> elements = driver.findElements(By.xpath("//*"));
+        return elements;
+    }
+
     public static void printWebDriverInfo(WebDriver driver) {
         logger.debug("");
         logger.debug("driver.toString(): " + driver.toString());
