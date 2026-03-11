@@ -25,10 +25,9 @@ import java.time.format.DateTimeFormatter;
  */
 public class GuiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
-    protected static BaseWebPage basePage;
-    public static WebDriver driver = null;
-
     private static final DateTimeFormatter SCREENSHOT_TS = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
+    public static WebDriver driver = null;
+    protected static BaseWebPage basePage;
 
     /**
      * Runs before each UI test class.
@@ -95,27 +94,12 @@ public class GuiTestCase extends TestCase {
     @Override
     public void afterTest() {
         try {
-            if (driver == null) {
+            if (driver == null || driver instanceof RemoteWebDriver remote && remote.getSessionId() == null)
                 return;
-            }
-
-            // Grid can reap sessions (inactivity timeout, node restart, etc.). Teardown should not fail the build.
-            if (driver instanceof RemoteWebDriver remote && remote.getSessionId() == null) {
-                logger.warn("WebDriver session is already closed (sessionId=null); skipping quit.");
-                return;
-            }
-
-            try {
-                SeleniumWrapper.implicitWait(driver);
-            } catch (Throwable t) {
-                logger.warn("Ignoring exception during implicitWait in teardown.", t);
-            }
-
-            try {
-                driver.quit();
-            } catch (Throwable t) {
-                logger.warn("Ignoring exception during driver.quit() in teardown (session may already be gone).", t);
-            }
+            SeleniumWrapper.implicitWait(driver);
+            driver.quit();
+        } catch (Throwable t) {
+            logger.warn("Ignoring exception during driver.quit() in teardown (session may already be gone).", t);
         } finally {
             driver = null;
             super.afterTest();
