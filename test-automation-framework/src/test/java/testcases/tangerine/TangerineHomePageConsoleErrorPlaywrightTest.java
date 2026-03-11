@@ -1,8 +1,8 @@
 package testcases.tangerine;
 
 import com.microsoft.playwright.*;
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -16,21 +16,28 @@ public class TangerineHomePageConsoleErrorPlaywrightTest {
 
     List<String> consoleErrors = new ArrayList<>();
 
-    @BeforeAll
-    static void setup() {
+    @BeforeClass(alwaysRun = true)
+    public static void setup() {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions().setHeadless(true));
     }
 
-    @AfterAll
-    static void teardown() {
-        browser.close();
-        playwright.close();
+    @AfterClass(alwaysRun = true)
+    public static void teardown() {
+        if (browser != null) {
+            browser.close();
+            browser = null;
+        }
+        if (playwright != null) {
+            playwright.close();
+            playwright = null;
+        }
     }
 
     @Test
-    void shouldHaveNoConsoleErrors() {
+    public void shouldHaveNoConsoleErrors() {
+        consoleErrors.clear();
         BrowserContext context = browser.newContext();
         Page page = context.newPage();
 
@@ -40,9 +47,13 @@ public class TangerineHomePageConsoleErrorPlaywrightTest {
             }
         });
 
-        page.navigate("https://www.tangerine.ca/en/personal");
-        page.waitForTimeout(5000);
-        assertTrue(consoleErrors.isEmpty(),
-                "Console errors detected: " + consoleErrors);
+        try {
+            page.navigate("https://www.tangerine.ca/en/personal");
+            page.waitForTimeout(5000);
+            assertTrue(consoleErrors.isEmpty(),
+                    "Console errors detected: " + consoleErrors);
+        } finally {
+            context.close();
+        }
     }
 }
