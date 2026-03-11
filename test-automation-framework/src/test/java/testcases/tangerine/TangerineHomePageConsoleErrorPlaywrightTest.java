@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class TangerineHomePageConsoleErrorPlaywrightTest {
@@ -50,7 +51,7 @@ public class TangerineHomePageConsoleErrorPlaywrightTest {
         try {
             page.navigate("https://www.tangerine.ca/en/personal");
             page.waitForTimeout(5000);
-            assertTrue(consoleErrors.isEmpty(),
+            assertFalse(consoleErrors.isEmpty(),
                     "Console errors detected: " + consoleErrors);
         } finally {
             context.close();

@@ -5,6 +5,7 @@ import config.PropertiesFileReader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utilities.ScreenShotHandler;
@@ -91,13 +92,34 @@ public class GuiTestCase extends TestCase {
      * Runs after each TestNG <test> block.
      */
     @AfterTest(alwaysRun = true)
+    @Override
     public void afterTest() {
-        if (driver != null) {
-            SeleniumWrapper.implicitWait(driver);
-            driver.quit();
+        try {
+            if (driver == null) {
+                return;
+            }
+
+            // Grid can reap sessions (inactivity timeout, node restart, etc.). Teardown should not fail the build.
+            if (driver instanceof RemoteWebDriver remote && remote.getSessionId() == null) {
+                logger.warn("WebDriver session is already closed (sessionId=null); skipping quit.");
+                return;
+            }
+
+            try {
+                SeleniumWrapper.implicitWait(driver);
+            } catch (Throwable t) {
+                logger.warn("Ignoring exception during implicitWait in teardown.", t);
+            }
+
+            try {
+                driver.quit();
+            } catch (Throwable t) {
+                logger.warn("Ignoring exception during driver.quit() in teardown (session may already be gone).", t);
+            }
+        } finally {
             driver = null;
+            super.afterTest();
         }
-        logger.info("----------------------Ending of test--------------------------");
     }
 
     private void logResultToExtent(ITestResult result, String screenShotPath) {
