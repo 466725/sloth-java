@@ -156,6 +156,7 @@ mvn -pl test-automation-framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogi
 ```bash
 mvn -pl spring-boot-demo spring-boot:run
 ```
+Then open `http://localhost:8080/` in your browser.
 
 ### Test Spring Boot demo
 ```bash
