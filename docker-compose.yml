@@ -57,6 +57,7 @@ services:
 
   tests:
     image: maven@sha256:6fdc855a6ed81d288ca7ca37ac6ff5e9308b612485c0801d70b25a858c83d237
+    shm_size: 2gb
     working_dir: /workspace
     volumes:
       - ./:/workspace

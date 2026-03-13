@@ -26,8 +26,8 @@ import java.time.format.DateTimeFormatter;
 public class GuiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(GuiTestCase.class.getName());
     private static final DateTimeFormatter SCREENSHOT_TS = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
-    public static WebDriver driver = null;
-    protected static BaseWebPage basePage;
+    public WebDriver driver = null;
+    protected BaseWebPage basePage;
 
     /**
      * Runs before each UI test class.
@@ -35,12 +35,6 @@ public class GuiTestCase extends TestCase {
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         logger.info("-----------------------Beginning of class----------------------");
-        driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
-        if (driver == null) {
-            logger.fatal("WebDriver initialization failed (driver is null). Check browser parameter and driver setup.");
-            return;
-        }
-        basePage = new BaseWebPage(driver);
     }
 
     /**
@@ -57,6 +51,15 @@ public class GuiTestCase extends TestCase {
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method) {
         super.beforeMethod(method);
+
+        // Avoid reusing an old RemoteWebDriver session across tests. In CI, the Selenium node can reap
+        // sessions that go idle (e.g., while other tests run), leaving us with a stale session id.
+        try {
+            BaseWebPage.quitDriver();
+        } catch (Throwable t) {
+            logger.warn("Ignoring exception while quitting pre-existing driver in @BeforeMethod.", t);
+        }
+
         driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
         if (driver == null) {
             logger.fatal("WebDriver initialization failed (driver is null).");
@@ -83,6 +86,13 @@ public class GuiTestCase extends TestCase {
             }
             logResultToExtent(result, screenShotPath);
         } finally {
+            try {
+                BaseWebPage.quitDriver();
+            } catch (Throwable t) {
+                logger.warn("Ignoring exception during driver.quit() in @AfterMethod (session may already be gone).", t);
+            } finally {
+                driver = null;
+            }
             super.afterMethod(result);
         }
     }
@@ -94,10 +104,11 @@ public class GuiTestCase extends TestCase {
     @Override
     public void afterTest() {
         try {
-            if (driver == null || driver instanceof RemoteWebDriver remote && remote.getSessionId() == null)
+            if (driver == null || driver instanceof RemoteWebDriver remote && remote.getSessionId() == null) {
                 return;
+            }
             SeleniumWrapper.implicitWait(driver);
-            driver.quit();
+            BaseWebPage.quitDriver();
         } catch (Throwable t) {
             logger.warn("Ignoring exception during driver.quit() in teardown (session may already be gone).", t);
         } finally {

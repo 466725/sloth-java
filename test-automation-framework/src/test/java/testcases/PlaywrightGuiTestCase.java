@@ -25,6 +25,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -107,14 +108,24 @@ public class PlaywrightGuiTestCase extends TestCase {
         String normalized = (browserName == null ? "" : browserName).trim().toLowerCase(Locale.ROOT);
 
         boolean headless = RunConfig.isHeadless();
+        List<String> chromiumArgs = headless
+                ? List.of("--no-sandbox", "--disable-dev-shm-usage")
+                : null;
+
         BrowserType.LaunchOptions options = new BrowserType.LaunchOptions().setHeadless(headless);
+
+        // CI/Docker stability: avoid /dev/shm crashes and sandbox issues when running headless in containers.
+        // These flags are safe on local too, but we keep them headless-only to minimize surprises.
+        if (chromiumArgs != null) {
+            options.setArgs(chromiumArgs);
+        }
 
         // Allow "chrome"/"msedge" channels while defaulting safely to bundled Chromium.
         if ("chrome".equals(normalized) || "googlechrome".equals(normalized)) {
-            return launchChromiumWithOptionalChannel(playwright, options, "chrome");
+            return launchChromiumWithOptionalChannel(playwright, headless, chromiumArgs, "chrome");
         }
         if ("edge".equals(normalized) || "msedge".equals(normalized)) {
-            return launchChromiumWithOptionalChannel(playwright, options, "msedge");
+            return launchChromiumWithOptionalChannel(playwright, headless, chromiumArgs, "msedge");
         }
 
         return switch (normalized) {
@@ -125,13 +136,21 @@ public class PlaywrightGuiTestCase extends TestCase {
         };
     }
 
-    private Browser launchChromiumWithOptionalChannel(Playwright playwright, BrowserType.LaunchOptions options, String channel) {
+    private Browser launchChromiumWithOptionalChannel(Playwright playwright, boolean headless, List<String> chromiumArgs, String channel) {
         try {
-            return playwright.chromium().launch(new BrowserType.LaunchOptions()
-                    .setHeadless(options.headless)
-                    .setChannel(channel));
+            BrowserType.LaunchOptions channelOptions = new BrowserType.LaunchOptions()
+                    .setHeadless(headless)
+                    .setChannel(channel);
+            if (chromiumArgs != null) {
+                channelOptions.setArgs(chromiumArgs);
+            }
+            return playwright.chromium().launch(channelOptions);
         } catch (RuntimeException e) {
             logger.warn("Failed to launch channel '" + channel + "'. Falling back to bundled Chromium.", e);
+            BrowserType.LaunchOptions options = new BrowserType.LaunchOptions().setHeadless(headless);
+            if (chromiumArgs != null) {
+                options.setArgs(chromiumArgs);
+            }
             return playwright.chromium().launch(options);
         }
     }
@@ -244,4 +263,3 @@ public class PlaywrightGuiTestCase extends TestCase {
         }
     }
 }
-
