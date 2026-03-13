@@ -101,6 +101,51 @@ Best practices to keep the codebase consistent and maintainable:
   ```
 - Control headless mode with `-Dheadless=true` and browser with `-Dplaywright.browser=chromium|firefox|webkit|chrome|msedge`.
 
+### Self-Healing Locators (Playwright)
+The framework includes an opt-in locator self-healing wrapper for Playwright page objects. When an element cannot be found (typical timeout/waiting failures), the wrapper:
+
+* parses the current DOM (`page.content()`) with JSoup
+* finds and scores similar elements (Levenshtein-based similarity + tag/id/class/attribute signals)
+* generates a replacement selector and retries the action
+
+**How to use (Page Objects)**
+* Page objects that extend `webpages.PlaywrightPageObject` can call `locator(...)` instead of `page.locator(...)`.
+* `locator(...)` returns a `webpages.selfhealing.SelfHealingLocator` which exposes common actions like `waitFor()`, `click()`, `fill()`.
+
+Example:
+```java
+public class TangerineHomePagePlaywright extends PlaywrightPageObject {
+  private final SelfHealingLocator signinButton;
+
+  public TangerineHomePagePlaywright(Page page) {
+    super(page);
+    this.signinButton = locator("#login");
+  }
+
+  public void gotoSigninPage() {
+    signinButton.waitFor(new Locator.WaitForOptions().setTimeout(30_000));
+    signinButton.click();
+  }
+}
+```
+
+**Optional: Provide Healing Hints**
+If a selector has weak signals (for example a CSS path), you can pass hints to improve healing accuracy:
+```java
+HealingHints hints = HealingHints.builder()
+  .expectedTag("button")
+  .expectedText("Login")
+  .build();
+
+SelfHealingLocator login = locator("css=div.header >> button", hints);
+login.click();
+```
+
+**Configuration**
+* Enable/disable: `-Dself.healing.enabled=true|false` or environment variable `SELF_HEALING_ENABLED=true|false`
+* Minimum acceptable match score: `-Dself.healing.minScore=0.35`
+* Limit candidates scored per heal attempt: `-Dself.healing.maxCandidates=800`
+
 ### Retry on Failure
 * Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
 * Listener is registered via ServiceLoader: `test-automation-framework/src/test/resources/META-INF/services/org.testng.ITestNGListener`.
