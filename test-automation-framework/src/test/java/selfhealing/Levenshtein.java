@@ -2,6 +2,84 @@ package selfhealing;
 
 /**
  * Simple Levenshtein distance implementation for similarity scoring.
+ * <p>
+ * Levenshtein usually refers to the Levenshtein distance, a concept in computer science used to measure how different two strings (words/text) are.
+ * <p>
+ * It answers the question:
+ * <p>
+ * How many single-character edits are needed to change one word into another?
+ * <p>
+ * The allowed edits are:
+ * <p>
+ * Insertion – add a character
+ * <p>
+ * Deletion – remove a character
+ * <p>
+ * Substitution – replace one character with another
+ * <p>
+ * Simple Example
+ * <p>
+ * Compare the words:
+ * <p>
+ * kitten → sitting
+ * <p>
+ * Steps required:
+ * <p>
+ * kitten → sitten (substitute k → s)
+ * <p>
+ * sitten → sittin (substitute e → i)
+ * <p>
+ * sittin → sitting (insert g)
+ * <p>
+ * Total edits = 3
+ * <p>
+ * So the Levenshtein distance = 3
+ * <p>
+ * Why It Is Useful
+ * <p>
+ * Levenshtein distance is widely used in:
+ * <p>
+ * 1️⃣ Spell Checking
+ * <p>
+ * Example:
+ * User types "recieve"
+ * <p>
+ * Algorithm finds closest word:
+ * <p>
+ * receive
+ * recipe
+ * recite
+ * <p>
+ * "receive" has the smallest distance, so it is suggested.
+ * <p>
+ * Used in tools like:
+ * <p>
+ * Microsoft Word spell check
+ * <p>
+ * Google Search "Did you mean?" suggestions
+ * <p>
+ * 2️⃣ Fuzzy Search
+ * <p>
+ * Finding similar names:
+ * <p>
+ * Jon
+ * John
+ * Johan
+ * <p>
+ * Very useful in databases and search engines.
+ * <p>
+ * 3️⃣ AI / NLP / Data Matching
+ * <p>
+ * Used in:
+ * <p>
+ * duplicate record detection
+ * <p>
+ * customer name matching
+ * <p>
+ * chatbot text similarity
+ * <p>
+ * bioinformatics DNA comparison
+ *
  */
 public final class Levenshtein {
     private Levenshtein() {

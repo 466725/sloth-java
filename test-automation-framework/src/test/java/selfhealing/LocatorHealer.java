@@ -7,18 +7,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
+ *
  * Healing engine: parse DOM, score candidates, and generate a replacement selector.
  *
  * <p>Based on the algorithm described in {@code Self-Healing Framework.md}:
  * parse DOM with JSoup + score with Levenshtein similarity.
+ *
  */
 public final class LocatorHealer {
     private static final Logger logger = LogManager.getLogger(LocatorHealer.class.getName());
