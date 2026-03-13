@@ -1,8 +1,8 @@
 package webpages;
 
 import com.microsoft.playwright.Page;
-import webpages.selfhealing.HealingHints;
-import webpages.selfhealing.SelfHealingLocator;
+import selfhealing.HealingHints;
+import selfhealing.SelfHealingLocator;
 
 /**
  * Base type for Playwright page objects.

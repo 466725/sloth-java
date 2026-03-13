@@ -1,4 +1,4 @@
-package webpages.selfhealing;
+package selfhealing;
 
 /**
  * Result of a healing attempt.

@@ -1,4 +1,4 @@
-package webpages.selfhealing;
+package selfhealing;
 
 /**
  * Simple Levenshtein distance implementation for similarity scoring.

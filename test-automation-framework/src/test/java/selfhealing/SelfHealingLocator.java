@@ -1,4 +1,4 @@
-package webpages.selfhealing;
+package selfhealing;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;

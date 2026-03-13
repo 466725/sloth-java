@@ -5,7 +5,7 @@ import config.PropertiesFileReader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import webpages.PlaywrightPageObject;
-import webpages.selfhealing.SelfHealingLocator;
+import selfhealing.SelfHealingLocator;
 
 /**
  * Tangerine sign-in page (Playwright).

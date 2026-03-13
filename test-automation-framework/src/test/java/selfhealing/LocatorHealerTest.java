@@ -1,4 +1,4 @@
-package webpages.selfhealing;
+package selfhealing;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
