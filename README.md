@@ -109,7 +109,7 @@ The framework includes an opt-in locator self-healing wrapper for Playwright pag
 * generates a replacement selector and retries the action
 
 **How to use (Page Objects)**
-* Page objects that extend `webpages.PlaywrightPageObject` can call `locator(...)` instead of `page.locator(...)`.
+* Page objects that extend `webpages.PlaywrightBasePage` can call `locator(...)` instead of `page.locator(...)`.
 * `locator(...)` returns a `webpages.selfhealing.SelfHealingLocator` which exposes common actions like `waitFor()`, `click()`, `fill()`.
 
 Example:

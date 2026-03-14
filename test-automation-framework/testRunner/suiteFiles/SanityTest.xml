@@ -9,11 +9,11 @@
     <test name="Sanity Test" parallel="false">
         <classes>
             <!-- GUI test cases -->
-            <class name="testcases.tangerine.TangerineHomePageSeleniumTest"/>
+            <class name="testcases.tangerine.HomePageSeleniumTest"/>
             <!-- API test cases -->
             <class name="scenarios.api.cineplex.TestBarcodeGenerator"/>
             <!-- Cucumber test cases -->
-            <class name="scenarios.ui.amazon.cucumber.AmazonInvalidLoginCucumberTest"/>
+            <class name="scenarios.ui.amazon.cucumber.InvalidLoginCucumberTest"/>
         </classes>
     </test>
 </suite>

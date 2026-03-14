@@ -16,8 +16,8 @@ import webpages.BaseWebPage;
 
 import java.time.Duration;
 
-public class AmazonSigninPage extends BaseWebPage {
-    protected final static Logger logger = LogManager.getLogger(AmazonSigninPage.class.getName());
+public class SigninPage extends BaseWebPage {
+    protected final static Logger logger = LogManager.getLogger(SigninPage.class.getName());
     private static final Duration SIGNIN_WAIT_TIMEOUT = Duration.ofSeconds(25);
     private static final Duration SHORT_WAIT_TIMEOUT = Duration.ofSeconds(4);
     private static final By EMAIL_INPUT = By.cssSelector("#ap_email, input[name='email'], input[type='email']");
@@ -39,7 +39,7 @@ public class AmazonSigninPage extends BaseWebPage {
     @FindBy(id = "ab-registration-ingress-link")
     public WebElement createAccount;
     
-    public AmazonSigninPage(WebDriver driver) {
+    public SigninPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -47,10 +47,10 @@ public class AmazonSigninPage extends BaseWebPage {
     public BaseWebPage gotoRegisterPage() {
         SeleniumWrapper.explicitWaitClickable(driver, createAccount, PropertiesFileReader.getTimeout());
         createAccount.click();
-        return new AmazonRegisterPage(driver);
+        return new RegisterPage(driver);
     }
 
-    public AmazonSigninPage attemptSignin(String email, String password) {
+    public SigninPage attemptSignin(String email, String password) {
         WebDriverWait wait = new WebDriverWait(driver, SIGNIN_WAIT_TIMEOUT);
         acceptConsentIfPresent();
         waitForAnySigninState(wait);

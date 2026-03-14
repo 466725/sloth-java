@@ -8,8 +8,8 @@ import testcases.GuiTestCase;
 import testcases.TestGroups;
 import webpages.BaseWebPage;
 
-public class TangerineHomePageSeleniumTest extends GuiTestCase {
-    final static Logger logger = LogManager.getLogger(TangerineHomePageSeleniumTest.class.getName());
+public class HomePageSeleniumTest extends GuiTestCase {
+    final static Logger logger = LogManager.getLogger(HomePageSeleniumTest.class.getName());
     BaseWebPage homepage;
 
     // Verifies the Tangerine home page title.

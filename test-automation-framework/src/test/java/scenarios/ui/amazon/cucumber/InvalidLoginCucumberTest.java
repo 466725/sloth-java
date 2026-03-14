@@ -13,5 +13,5 @@ import io.cucumber.testng.CucumberOptions;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         }
 )
-public class AmazonInvalidLoginCucumberTest extends AbstractTestNGCucumberTests {
+public class InvalidLoginCucumberTest extends AbstractTestNGCucumberTests {
 }

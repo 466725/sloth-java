@@ -6,23 +6,23 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import testcases.PlaywrightGuiTestCase;
 import testcases.TestGroups;
-import webpages.PlaywrightBaseWebPage;
-import webpages.tangerine.TangerineSigninPagePlaywright;
-import webpages.tangerine.TangerineSignupPagePlaywright;
+import webpages.PlaywrightBasePage;
+import webpages.tangerine.SigninPagePlaywright;
+import webpages.tangerine.SignupPagePlaywright;
 
 import java.util.Objects;
 
-public class TangerineSignupPagePlaywrightTest extends PlaywrightGuiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TangerineSignupPagePlaywrightTest.class.getName());
-    TangerineSigninPagePlaywright tangerineSigninPage;
-    TangerineSignupPagePlaywright tangerineSignupPage;
+public class SignupPagePlaywrightTest extends PlaywrightGuiTestCase {
+    protected final static Logger logger = LogManager.getLogger(SignupPagePlaywrightTest.class.getName());
+    SigninPagePlaywright tangerineSigninPage;
+    SignupPagePlaywright tangerineSignupPage;
 
     // Verifies the Tangerine sign-up page title.
     @Test(groups = {TestGroups.REGRESSION, TestGroups.PLAYWRIGHT, TestGroups.UI_WEB, TestGroups.TANGERINE})
     public void shouldDisplayTangerineSignupPageTitle() {
         test.setDescription("Verify title on Amazon Register Page");
         logger.info("ui.web.tangerine.signup.verify_title.start");
-        tangerineSigninPage = PlaywrightBaseWebPage.gotoHomePage(page, "Tangerine").gotoSigninPage();
+        tangerineSigninPage = PlaywrightBasePage.gotoHomePage(page).gotoSigninPage();
         tangerineSignupPage = tangerineSigninPage.gotoSignupPage();
         logger.info("ui.web.tangerine.signup.verify_title.state | title=" + page.title());
         Assert.assertTrue(Objects.requireNonNull(page.title()).contains("Tangerine"), "Title verification failed");

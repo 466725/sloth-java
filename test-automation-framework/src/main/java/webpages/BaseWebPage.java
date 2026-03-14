@@ -10,8 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utilities.OperationSystemDetector;
-import webpages.amazon.AmazonHomePage;
-import webpages.tangerine.TangerineHomePage;
+import webpages.amazon.HomePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -98,10 +97,10 @@ public class BaseWebPage {
         String normalizedOrg = normalize(org, ORG_TANGERINE);
         if (ORG_AMAZON.equals(normalizedOrg)) {
             currentDriver.get(PropertiesFileReader.getAmazonURL());
-            return new AmazonHomePage(currentDriver);
+            return new HomePage(currentDriver);
         }
         currentDriver.get(PropertiesFileReader.getTangerineURL());
-        return new TangerineHomePage(currentDriver);
+        return new webpages.tangerine.HomePage(currentDriver);
     }
 
     public BaseWebPage gotoSigninPage() {

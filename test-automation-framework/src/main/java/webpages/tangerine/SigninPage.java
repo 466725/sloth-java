@@ -11,18 +11,18 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.SeleniumWrapper;
 import webpages.BaseWebPage;
 
-public class TangerineSigninPage extends BaseWebPage {
-    protected final static Logger logger = LogManager.getLogger(TangerineSigninPage.class.getName());
+public class SigninPage extends BaseWebPage {
+    protected final static Logger logger = LogManager.getLogger(SigninPage.class.getName());
 
     @FindBy(id = "menu_signup")
     public WebElement signupButton;
 
-    public TangerineSigninPage(WebDriver driver) {
+    public SigninPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public TangerineSignupPage gotoSignupPage() {
+    public SignupPage gotoSignupPage() {
         logger.info("Navigating to Signup page");
 
         SeleniumWrapper.scrollToElement(driver, signupButton);
@@ -35,6 +35,6 @@ public class TangerineSigninPage extends BaseWebPage {
             SeleniumWrapper.clickElement(driver, signupButton, Constants.CLICK_METHOD.RUN_JS);
         }
 
-        return new TangerineSignupPage(driver);
+        return new SignupPage(driver);
     }
 }

@@ -4,7 +4,7 @@
 <suite name="Cucumber Amazon Invalid Login Suite">
     <test name="Cucumber Amazon Invalid Login Test">
         <classes>
-            <class name="scenarios.ui.amazon.cucumber.AmazonInvalidLoginCucumberTest"/>
+            <class name="scenarios.ui.amazon.cucumber.InvalidLoginCucumberTest"/>
         </classes>
     </test>
 </suite>

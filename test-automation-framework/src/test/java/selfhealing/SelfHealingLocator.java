@@ -37,15 +37,6 @@ public final class SelfHealingLocator {
         return new SelfHealingLocator(page, selector, HealingHints.none());
     }
 
-    public SelfHealingLocator withHints(HealingHints hints) {
-        HealingHints merged = (hints == null ? HealingHints.none() : hints).merge(this.hints);
-        return new SelfHealingLocator(page, originalSelector, merged);
-    }
-
-    public Locator locator() {
-        return page.locator(currentSelector());
-    }
-
     public void waitFor(Locator.WaitForOptions options) {
         runWithHealing(l -> {
             l.waitFor(options);
@@ -58,24 +49,6 @@ public final class SelfHealingLocator {
             l.click();
             return null;
         });
-    }
-
-    public void click(Locator.ClickOptions options) {
-        runWithHealing(l -> {
-            l.click(options);
-            return null;
-        });
-    }
-
-    public void fill(String value) {
-        runWithHealing(l -> {
-            l.fill(value);
-            return null;
-        });
-    }
-
-    public String textContent() {
-        return runWithHealing(Locator::textContent);
     }
 
     private <T> T runWithHealing(Function<Locator, T> action) {

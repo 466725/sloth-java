@@ -14,8 +14,8 @@ import webpages.BaseWebPage;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class AmazonSigninHooks {
-    private static final Logger logger = LogManager.getLogger(AmazonSigninHooks.class.getName());
+public class SigninHooks {
+    private static final Logger logger = LogManager.getLogger(SigninHooks.class.getName());
     private static final DateTimeFormatter SCREENSHOT_TS = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss_SSS");
 
     @Before

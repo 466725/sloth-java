@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import webpages.BaseWebPage;
-import webpages.amazon.AmazonSigninPage;
+import webpages.amazon.SigninPage;
 
 import java.time.Duration;
 
-public class AmazonInvalidLoginSteps {
-    private static final Logger logger = LogManager.getLogger(AmazonInvalidLoginSteps.class.getName());
-    private AmazonSigninPage amazonSigninPage;
+public class InvalidLoginSteps {
+    private static final Logger logger = LogManager.getLogger(InvalidLoginSteps.class.getName());
+    private SigninPage signinPage;
     private WebDriver driver;
 
     @Given("I am on the Amazon sign-in page")
@@ -24,13 +24,13 @@ public class AmazonInvalidLoginSteps {
         driver = BaseWebPage.getDriver(PropertiesFileReader.getBrowser());
         driver.get(PropertiesFileReader.getAmazonURL() + "ap/signin");
         logger.info("cucumber.step.open_signin | url=" + driver.getCurrentUrl());
-        amazonSigninPage = new AmazonSigninPage(driver);
+        signinPage = new SigninPage(driver);
     }
 
     @When("I attempt to sign in with email {string} and password {string}")
     public void iAttemptToSignInWithEmailAndPassword(String email, String password) {
         logger.info("cucumber.step.signin_attempt | email=" + email);
-        amazonSigninPage.attemptSignin(email, password);
+        signinPage.attemptSignin(email, password);
     }
 
     @When("I navigate back to Amazon home page")
@@ -58,7 +58,7 @@ public class AmazonInvalidLoginSteps {
     @Then("I should see a sign-in error on Amazon")
     public void iShouldSeeASignInErrorOnAmazon() {
         logger.info("cucumber.step.verify_signin_error");
-        Assert.assertTrue(amazonSigninPage.hasSigninError(),
+        Assert.assertTrue(signinPage.hasSigninError(),
                 "Expected Amazon to show an error for invalid credentials.");
     }
 

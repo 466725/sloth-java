@@ -7,10 +7,9 @@ import org.testng.annotations.Test;
 import testcases.GuiTestCase;
 import testcases.TestGroups;
 import webpages.BaseWebPage;
-import webpages.amazon.AmazonHomePage;
 
-public class AmazonHomePageTest extends GuiTestCase {
-    final static Logger logger = LogManager.getLogger(AmazonHomePageTest.class.getName());
+public class HomePageTest extends GuiTestCase {
+    final static Logger logger = LogManager.getLogger(HomePageTest.class.getName());
     BaseWebPage homepage;
 
     // Verifies the Amazon home page title.
