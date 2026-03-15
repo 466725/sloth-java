@@ -13,7 +13,7 @@ public class SigninPageTest extends GuiTestCase {
     SigninPage signinPage;
 
     // Verifies the Amazon sign-in page title.
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.AMAZON})
+    @Test(groups = {TestGroups.UI_WEB, TestGroups.AMAZON})
     public void shouldDisplayAmazonSigninPageTitle() {
         logger.info("ui.web.amazon.signin.verify_title.start");
         signinPage = (SigninPage) basePage.gotoHomePage("Amazon").gotoSigninPage();

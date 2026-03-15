@@ -49,7 +49,7 @@ public class TestSpringBootDemoLogin extends ApiTestCase {
         }
     }
 
-    @Test(priority = 1, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.INTEGRATION})
+    @Test(priority = 1, groups = {TestGroups.INTEGRATION})
     public void shouldLoginSuccessfullyWithValidCredentials() {
         Response response =
                 given()
@@ -67,7 +67,7 @@ public class TestSpringBootDemoLogin extends ApiTestCase {
         logger.info("Valid login response: " + response.asString());
     }
 
-    @Test(priority = 2, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.INTEGRATION})
+    @Test(priority = 2, groups = {TestGroups.INTEGRATION})
     public void shouldReturnWrongCredentialsWithInvalidCredentials() {
         Response response =
                 given()

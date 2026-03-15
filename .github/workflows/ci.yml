@@ -74,7 +74,6 @@ jobs:
       - name: Cleanup
         if: always()
         run: docker compose down -v
-
   regression-nightly:
     name: Regression Nightly
     if: github.event_name == 'schedule'

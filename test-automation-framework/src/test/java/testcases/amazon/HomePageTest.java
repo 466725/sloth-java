@@ -13,7 +13,7 @@ public class HomePageTest extends GuiTestCase {
     BaseWebPage homepage;
 
     // Verifies the Amazon home page title.
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.AMAZON})
+    @Test(groups = {TestGroups.UI_WEB, TestGroups.AMAZON})
     public void shouldDisplayAmazonHomePageTitle() {
         logger.info("ui.web.amazon.home.verify_title.start");
         homepage = BaseWebPage.gotoHomePage("Amazon");

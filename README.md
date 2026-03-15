@@ -104,7 +104,7 @@ Best practices to keep the codebase consistent and maintainable:
 ### Self-Healing Locators (Playwright)
 The framework includes an opt-in locator self-healing wrapper for Playwright page objects. When an element cannot be found (typical timeout/waiting failures), the wrapper:
 
-* parses the current DOM (`page.content()`) with JSoup
+* parses the current DOM (`page.content()`) with Jsoup
 * finds and scores similar elements (Levenshtein-based similarity + tag/id/class/attribute signals)
 * generates a replacement selector and retries the action
 
@@ -113,19 +113,20 @@ The framework includes an opt-in locator self-healing wrapper for Playwright pag
 * `locator(...)` returns a `webpages.selfhealing.SelfHealingLocator` which exposes common actions like `waitFor()`, `click()`, `fill()`.
 
 Example:
+
 ```java
 public class TangerineHomePagePlaywright extends PlaywrightPageObject {
-  private final SelfHealingLocator signinButton;
+    private final SelfHealingLocator signingButton;
 
-  public TangerineHomePagePlaywright(Page page) {
-    super(page);
-    this.signinButton = locator("#login");
-  }
+    public TangerineHomePagePlaywright(Page page) {
+        super(page);
+        this.signingButton = locator("#login");
+    }
 
-  public void gotoSigninPage() {
-    signinButton.waitFor(new Locator.WaitForOptions().setTimeout(30_000));
-    signinButton.click();
-  }
+    public void gotoSigningPage() {
+        signingButton.waitFor(new Locator.WaitForOptions().setTimeout(30_000));
+        signingButton.click();
+    }
 }
 ```
 
@@ -138,7 +139,6 @@ HealingHints hints = HealingHints.builder()
   .build();
 
 SelfHealingLocator login = locator("css=div.header >> button", hints);
-login.click();
 ```
 
 **Configuration**
@@ -161,7 +161,7 @@ login.click();
 *   Import the project as a **Maven Project**.
 *   Install the TestNG plugin (`Help -> Eclipse Marketplace`) to Eclipse.
 *   IntelliJ IDEA shows run icons by default. 
-*   Right-click test methods with TestNG @test annotation -> select **Run as TestNG Suite**.
+*   Right-click test methods with TestNG @test annotation → select **Run as TestNG Suite**.
 
 ---
 
@@ -216,7 +216,6 @@ mvn -pl spring-boot-demo test
 
 ### Using CI/CD of GitHub Actions
 *   Run smoke SmokeTest.xml on PR
-*   Run mobile-web smoke MobileWebSmokeTest.xml on PR/push (Selenium mobile emulation on GitHub runner)
 *   Run regression RegressionTest.xml nightly (or scheduled)
 *   Upload reports + artifacts (screenshots/logs) as build artifacts
 
@@ -240,24 +239,6 @@ Note:
 
 ---
 
-## Run mobile web tests MobileWebSmokeTest.xml in local Docker environment
-
-```bash
-# Start dependencies
-docker compose up -d mysql selenium
-
-# Match GitHub CI mobile-web mode (Selenium mobile emulation)
-docker compose run --rm --no-deps -e SUITE_XML_FILE=MobileWebSmokeTest.xml -e MOBILE_WEB_RUN_MODE=selenium tests
-```
-
-Debug Selenium visually:
-Open `http://localhost:7900` (VNC for the Selenium container).
-
-Note:
-This path does not require an Appium container. It uses Selenium mobile emulation, same as CI.
-
----
-
 ## Run mobile app and web tests MobileLocalSmokeTest.xml in local Docker environment
 
 ```bash
@@ -278,7 +259,7 @@ docker compose --profile mobile-emulator-google run --rm --no-deps `
 ```
 
 Notes:
-* Host ports used by this profile: emulator `8554/5555`, appium `4724` (inside Docker network tests still use `http://appium-google:4723`).
+* Host ports used by this profile: emulator `8554/5555`, Appium `4724` (inside Docker network tests still use `http://appium-google:4723`).
 
 Inspect failing runs:
 
@@ -296,15 +277,6 @@ docker compose --profile mobile-emulator-google down
 docker compose down -v
 docker image prune -f
 ```
-
-Why Mobile App + Emulator is local-only (not GitHub hosted runners)
-
-* GitHub CI runs `MobileWebSmokeTest.xml`
-* But Appium with Android device emulator is executed only locally `MobileLocalSmokeTest.xml`. Reasons:
-    * On GitHub-hosted runners, Dockerized Android emulator startup is slow.
-    * The emulator image is 9GB large.
-
----
 
 ## Share Tutorial MySQL DB with Teammates
 
