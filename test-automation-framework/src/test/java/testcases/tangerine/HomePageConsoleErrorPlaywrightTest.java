@@ -1,6 +1,7 @@
 package testcases.tangerine;
 
 import com.microsoft.playwright.*;
+import config.PropertiesFileReader;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -48,7 +49,7 @@ public class HomePageConsoleErrorPlaywrightTest {
         });
 
         try {
-            page.navigate("https://www.tangerine.ca/en/personal");
+            page.navigate(PropertiesFileReader.getTangerineURL());
             page.waitForTimeout(5000);
             assertTrue(!consoleErrors.isEmpty(),
                     "Console errors detected: " + consoleErrors);

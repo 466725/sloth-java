@@ -13,18 +13,16 @@ import selfhealing.SelfHealingLocator;
 public class HomePagePlaywright extends PlaywrightBasePage {
     protected final static Logger logger = LogManager.getLogger(HomePagePlaywright.class.getName());
 
-    private final SelfHealingLocator signinButton;
+    private final SelfHealingLocator signingButton;
 
     public HomePagePlaywright(Page page) {
         super(page);
-        this.signinButton = locator("#login");
+        this.signingButton = locator("#login");
     }
 
-    public SigninPagePlaywright gotoSigninPage() {
-        logger.info("Navigating to Signin page (Playwright)");
-        signinButton.waitFor(new com.microsoft.playwright.Locator.WaitForOptions()
-                .setTimeout(PropertiesFileReader.getTimeout() * 1000.0));
-        signinButton.click();
-        return new SigninPagePlaywright(page);
+    public SigningPagePlaywright gotoSigningPage() {
+        logger.info("Navigating to Signing page (Playwright)");
+        signingButton.click();
+        return new SigningPagePlaywright(page);
     }
 }
