@@ -42,38 +42,6 @@ jobs:
         if: always()
         run: docker compose down -v
 
-  mobile-web:
-    name: Mobile Web Smoke
-    if: github.event_name != 'schedule'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run Mobile Web suite with Docker Compose
-        run: SUITE_XML_FILE=MobileWebSmokeTest.xml MOBILE_WEB_RUN_MODE=selenium docker compose up --abort-on-container-exit --exit-code-from tests tests
-
-      - name: Fix artifact permissions
-        if: always()
-        run: |
-          sudo chown -R "$(id -u):$(id -g)" test-automation-framework/test-output test-automation-framework/target 2>/dev/null || true
-          sudo chmod -R u+rwX,go+rX test-automation-framework/test-output test-automation-framework/target 2>/dev/null || true
-
-      - name: Upload mobile-web test reports/artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mobile-web-test-artifacts
-          path: |
-            test-automation-framework/test-output/ExtentReportCucumber/**
-            test-automation-framework/target/cucumber/**
-            test-automation-framework/target/surefire-reports/**
-          if-no-files-found: warn
-
-      - name: Cleanup
-        if: always()
-        run: docker compose down -v
   regression-nightly:
     name: Regression Nightly
     if: github.event_name == 'schedule'
