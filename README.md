@@ -1,305 +1,150 @@
-# Sloth Java
+# sloth-java
 
-[![Java Version](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
-[![Build Status](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
+[![Build](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
 
-## Overview
+`sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, plus a small Spring Boot demo app for local learning and integration checks.
 
-**Sloth Java** is an automation framework designed for maximum efficiency with minimal manual effort. Just like a sloth, we believe in doing things once and doing them right through automation.
+## Modules
 
-This project provides robust capabilities for load, performance, and functional testing across various protocols and platforms:
+- `test-automation-framework`: main automation module (TestNG, Selenium, Appium, Playwright, Rest Assured, Cucumber).
+- `spring-boot-demo`: lightweight Spring Boot service with sample endpoints.
 
-*   **Web Services:** HTTP, HTTPS, SOAP, and REST
-*   **Data & Middleware:** JDBC (Database), LDAP, and JMS (Message-oriented Middleware)
-*   **File Transfer:** FTP
-*   **Core Java Concepts:** Built-in examples for learning polymorphism, recursion, and data types.
+## Tech Stack
 
----
+- Java 21
+- Maven (multi-module build)
+- TestNG, Selenium, Appium, Playwright
+- Cucumber + Extent Reports
+- Spring Boot
+- Docker Compose (optional local infrastructure)
 
-## Getting Started
+## Prerequisites
 
-### Repository Modules
+- JDK 21+
+- Maven 3.6+
+- Git
+- Docker Desktop (optional)
+- IntelliJ IDEA or Eclipse (optional)
 
-*   `test-automation-framework` - Main automation framework (TestNG, Selenium, Appium, API, tutorials)
-*   `spring-boot-demo` - Spring Boot learning module
+## Quick Start
 
-### Prerequisites
-
-Ensure you have the following installed:
-
-*   **JDK 21** or higher
-*   **Maven 3.6+**
-*   **Git**
-*   An IDE (IntelliJ IDEA recommended)
-
-### Environment Setup
-
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/your-username/sloth-java.git
-    cd sloth-java
-    ```
-
-2.  **Configure Java 21**
-    Ensure your `settings.xml` or project properties are set to Java 21. If using Maven via CLI:
-    ```bash
-    mvn clean install -Dmaven.compiler.release=21
-    ```
-
-3.  **Set Credentials (Optional)**
-    If running tests on Sauce Labs, export your credentials:
-    ```bash
-    export SAUCE_USERNAME=<your_username>
-    export SAUCE_ACCESS_KEY=<your_access_key>
-    ```
-    If calling API with a subscription key, add it to OS environment variables (e.g., `API_MANAGER_SUBSCRIPTION_KEY`).
-
----
-
-## Code Conventions
-
-Best practices to keep the codebase consistent and maintainable:
-
-*   Prefer `@Getter` and `@Setter` annotations over manual getter/setter methods.
-*   Keep classes focused on a single responsibility.
-*   Extract helpers when a class grows too large.
-*   Keep methods short and focused on a single task.
-*   Use descriptive names for tests and methods.
-*   Avoid abbreviations that obscure intent.
-
----
-
-## Configuration & Secrets
-*   All framework configuration are done via `test-automation-framework/src/main/resources/init-config.properties`.
-*   Framework secrets are stored in `test-automation-framework/src/main/resources/secrets.properties`.
-*   Load secrets from environment variables (e.g., API_KEY, BASE_URL, etc.)
-
----
+```powershell
+git clone https://github.com/<your-org>/sloth-java.git
+Set-Location sloth-java
+mvn -q -DskipTests clean install
+```
 
 ## Running Tests
 
-### Test Cases are grouped by TestNG groups:
-* smoke (fast, critical)
-* regression
-* api
-* ui-web
-* ui-mobile
-* integration (API + UI thin slice)
-* quarantine (flaky/under investigation)
-* ......
+### `test-automation-framework`
 
-### Playwright (UI-Web)
-- Playwright tests are tagged with the `playwright` TestNG group (in addition to `ui-web`, `tangerine`, etc.).
-- First run may download Playwright browser binaries into your user cache (typically `~/.cache/ms-playwright`).
-- Install browsers explicitly (recommended for CI/locked-down networks):
-  ```bash
-  # Bash/zsh
-  mvn -pl test-automation-framework -DskipTests exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium"
+The default suite is `SanityTest.xml` (configured in `test-automation-framework/pom.xml`).
 
-  # Windows PowerShell (quote -D... properties with dots)
-  mvn -pl test-automation-framework -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
-  ```
-- Control headless mode with `-Dheadless=true` and browser with `-Dplaywright.browser=chromium|firefox|webkit|chrome|msedge`.
+```powershell
+# Run default suite
+mvn -pl test-automation-framework test
 
-### Self-Healing Locators (Playwright)
-The framework includes an opt-in locator self-healing wrapper for Playwright page objects. When an element cannot be found (typical timeout/waiting failures), the wrapper:
+# Run by suite file
+mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml"
 
-* parses the current DOM (`page.content()`) with Jsoup
-* finds and scores similar elements (Levenshtein-based similarity + tag/id/class/attribute signals)
-* generates a replacement selector and retries the action
+# Run by TestNG group
+mvn -pl test-automation-framework test "-Dgroups=smoke"
+mvn -pl test-automation-framework test "-Dgroups=api"
+mvn -pl test-automation-framework test "-Dgroups=playwright"
 
-**How to use (Page Objects)**
-* Page objects that extend `webpages.PlaywrightBasePage` can call `locator(...)` instead of `page.locator(...)`.
-* `locator(...)` returns a `webpages.selfhealing.SelfHealingLocator` which exposes common actions like `waitFor()`, `click()`, `fill()`.
-
-Example:
-
-```java
-public class TangerineHomePagePlaywright extends PlaywrightPageObject {
-    private final SelfHealingLocator signingButton;
-
-    public TangerineHomePagePlaywright(Page page) {
-        super(page);
-        this.signingButton = locator("#login");
-    }
-
-    public void gotoSigningPage() {
-        signingButton.waitFor(new Locator.WaitForOptions().setTimeout(30_000));
-        signingButton.click();
-    }
-}
+# Common option
+mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
 ```
 
-**Optional: Provide Healing Hints**
-If a selector has weak signals (for example a CSS path), you can pass hints to improve healing accuracy:
-```java
-HealingHints hints = HealingHints.builder()
-  .expectedTag("button")
-  .expectedText("Login")
-  .build();
+Common groups include `smoke`, `regression`, `api`, `ui-web`, `ui-mobile-app`, `ui-mobile-web`, `integration`, `playwright`, and `quarantine`.
 
-SelfHealingLocator login = locator("css=div.header >> button", hints);
-```
+### `spring-boot-demo`
 
-**Configuration**
-* Enable/disable: `-Dself.healing.enabled=true|false` or environment variable `SELF_HEALING_ENABLED=true|false`
-* Minimum acceptable match score: `-Dself.healing.minScore=0.35`
-* Limit candidates scored per heal attempt: `-Dself.healing.maxCandidates=800`
-
-### Retry on Failure
-* Retry is enabled by `FailureListener` + `FailureRetryAnalyzer`.
-* Listener is registered via ServiceLoader: `test-automation-framework/src/test/resources/META-INF/services/org.testng.ITestNGListener`.
-* Reruns (`testng-failed.xml`) use the same listener in IDE and CLI.
-
-### Extent Report Config
-* Report styling/metadata is loaded by `config.ExtentReportHandler`.
-* Default config file: `test-automation-framework/src/main/resources/extent-report-config.xml`.
-
----
-
-### Using the IDE
-*   Import the project as a **Maven Project**.
-*   Install the TestNG plugin (`Help -> Eclipse Marketplace`) to Eclipse.
-*   IntelliJ IDEA shows run icons by default. 
-*   Right-click test methods with TestNG @test annotation → select **Run as TestNG Suite**.
-
----
-
-### Using Command Line
-```bash
-# Resolve dependencies
-mvn -pl test-automation-framework dependency:resolve
-mvn -pl spring-boot-demo dependency:resolve
-
-# Execute framework tests (default smoke suite)
-mvn -pl test-automation-framework test -Dgroups=smoke
-mvn -pl test-automation-framework test -Dgroups=api
-mvn -pl test-automation-framework test -Dgroups=ui-web
-mvn -pl test-automation-framework test -Dgroups=playwright
-mvn -pl test-automation-framework test -DsuiteXmlFile=SmokeTest.xml
-mvn -pl test-automation-framework test -DsuiteXmlFile=SmokeTest.xml -Dheadless=true
-
-# Execute Spring Boot demo tests
+```powershell
+# Run tests
 mvn -pl spring-boot-demo test
 
-# Windows PowerShell examples (quoting is safe)
-mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml"
-mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
-mvn -pl test-automation-framework test "-Dgroups=playwright" "-DsuiteXmlFile=SmokeTest.xml" "-Dheadless=true"
-mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dheadless=true" "-Dgroups=api"
-mvn -pl test-automation-framework test "-DsuiteXmlFile=CucumberAmazonInvalidLogin.xml" "-Dheadless=true"
-```
-
----
-
-## Spring Boot Demo Module
-
-### Prerequisites
-* Java 21+
-
-### Run Spring Boot demo
-```bash
+# Start app
 mvn -pl spring-boot-demo spring-boot:run
 ```
-Then open `http://localhost:8080/` in your browser.
 
-### Test Spring Boot demo
-```bash
-mvn -pl spring-boot-demo test
+Once the app is running, useful endpoints are:
+
+- `GET /api/hello`
+- `POST /api/login?username=username&password=password`
+- `GET /actuator/health`
+
+## Playwright Setup
+
+Install browser binaries explicitly (recommended for CI or restricted networks):
+
+```powershell
+mvn -pl test-automation-framework -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
 ```
 
-### Useful endpoints
-* `GET /api/hello`
-* `GET /actuator/health`
+Useful runtime properties:
 
----
+- `-Dplaywright.browser=chromium|firefox|webkit|chrome|msedge`
+- `-Dheadless=true|false`
 
-### Using CI/CD of GitHub Actions
-*   Run smoke SmokeTest.xml on PR
-*   Run regression RegressionTest.xml nightly (or scheduled)
-*   Upload reports + artifacts (screenshots/logs) as build artifacts
+## Self-Healing Locators
 
----
+The Playwright page-object layer supports optional self-healing locators that retry failed selectors using DOM similarity scoring.
 
-## Run non-mobile tests RegressionTest.xml in local Docker environment
+- Design document: `Self-Healing Framework.md`
+- Enable/disable: `-Dself.healing.enabled=true|false` or `SELF_HEALING_ENABLED=true|false`
+- Tuning: `-Dself.healing.minScore=<value>`, `-Dself.healing.maxCandidates=<value>`
 
-```bash
-# Start dependencies
+## Configuration
+
+- Framework config: `test-automation-framework/src/main/resources/init-config.properties`
+- Secrets template: `test-automation-framework/src/main/resources/secrets.properties`
+- Report config: `test-automation-framework/src/main/resources/extent-report-config.xml`
+
+Use environment variables for credentials and API keys in local and CI environments.
+
+## Docker Workflows (Optional)
+
+### Non-mobile suites
+
+```powershell
 docker compose up -d mysql selenium
-
-# Run default non-mobile smoke suite
 docker compose run --rm --no-deps tests
-
-# Run a specific non-mobile suite
 docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
 
-Note:
-`docker-compose.yml` pins most test infrastructure images by digest for reproducible runs. MySQL is intentionally set to `mysql:latest`.
+### Mobile local smoke suite
 
----
-
-## Run mobile app and web tests MobileLocalSmokeTest.xml in local Docker environment
-
-```bash
-# Start Google emulator + dedicated Appium sidecar + MySQL
+```powershell
 docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google selenium mysql
-
-# Optional sanity check: emulator is visible via adb inside appium sidecar
-docker exec appium-google adb devices
+docker compose --profile mobile-emulator-google run --rm --no-deps -e SUITE_XML_FILE=MobileLocalSmokeTest.xml -e APPIUM_SERVER_URL=http://appium-google:4723 -e MOBILE_CONTAINER_NAME=android-emulator-google tests
 ```
 
-PowerShell command to run MobileLocalSmokeTest.xml locally:
-```powershell
-docker compose --profile mobile-emulator-google run --rm --no-deps `
-  -e SUITE_XML_FILE=MobileLocalSmokeTest.xml `
-  -e APPIUM_SERVER_URL=http://appium-google:4723 `
-  -e MOBILE_CONTAINER_NAME=android-emulator-google `
-  tests
+## Repository Layout
+
+```text
+sloth-java/
+|- test-automation-framework/
+|  |- src/main/java/{config,utilities,webpages,...}
+|  |- src/test/java/{testcases,scenarios,selfhealing,...}
+|  |- testRunner/suiteFiles/{SmokeTest.xml,SanityTest.xml,RegressionTest.xml,...}
+|- spring-boot-demo/
+|  |- src/main/java/openqa/automation/framework/demo/
+|  |- src/main/resources/application.yaml
+|- docker-compose.yml
 ```
 
-Notes:
-* Host ports used by this profile: emulator `8554/5555`, Appium `4724` (inside Docker network tests still use `http://appium-google:4723`).
+## Contribution Guidelines
 
-Inspect failing runs:
+- Keep PRs scoped and module-focused.
+- Add or update tests for behavior changes.
+- Run a relevant suite locally before opening a PR.
+- Include clear verification steps in PR descriptions.
 
-```bash
-docker compose --profile mobile-emulator-google logs -f android-emulator-google
-docker compose --profile mobile-emulator-google logs -f appium-google
-docker compose logs -f tests
-```
+## Roadmap
 
-Keep environment clean/resettable:
-
-```bash
-docker compose down
-docker compose --profile mobile-emulator-google down
-docker compose down -v
-docker image prune -f
-```
-
-## Share Tutorial MySQL DB with Teammates
-
-This repository includes MySQL as a `docker compose` service. Seed SQL files are loaded from `docker/mysql/init` on first startup.
-
-Then set these values in `.env`:
-```env
-MYSQL_PORT=3306
-MYSQL_ROOT_PASSWORD=rootpass123
-MYSQL_DATABASE=slothdb
-MYSQL_USER=slothuser
-MYSQL_PASSWORD=slothpass123
-```
-
-Add your tutorial DB dump to:
-* `docker/mysql/init/01_tutorial_db.sql`
-
-Example dump command from your running local MySQL container:
-```bash
-docker compose exec -T mysql mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --databases tutorial_db > docker/mysql/init/01_tutorial_db.sql
-```
-
-PowerShell example:
-```powershell
-docker compose exec -T mysql mysqldump -uroot -p"$env:MYSQL_ROOT_PASSWORD" --databases tutorial_db | Out-File -Encoding utf8 docker/mysql/init/01_tutorial_db.sql
-```
+- Expand CI checks for module-specific workflows.
+- Continue improving mobile execution stability.
+- Add more API + UI integration examples.
