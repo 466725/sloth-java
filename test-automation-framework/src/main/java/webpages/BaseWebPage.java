@@ -14,7 +14,11 @@ import webpages.amazon.HomePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -28,6 +32,7 @@ public class BaseWebPage {
     private static final String BROWSER_IE = "ie";
     private static final String ORG_AMAZON = "amazon";
     private static final String ORG_TANGERINE = "tangerine";
+    private static final String WD_HUB_SUFFIX = "/wd/hub";
 
     protected static WebDriver driver = null;
 
@@ -62,12 +67,7 @@ public class BaseWebPage {
         ChromeOptions options = buildChromeOptions();
 
         if (remoteWebDriverUrl != null && !remoteWebDriverUrl.isBlank()) {
-            try {
-                return new RemoteWebDriver(new URL(remoteWebDriverUrl), options);
-            } catch (MalformedURLException e) {
-                logger.fatal("Invalid SELENIUM_REMOTE_URL: " + remoteWebDriverUrl, e);
-                return null;
-            }
+            return createRemoteChromeDriver(remoteWebDriverUrl, options);
         }
 
         if (!OperationSystemDetector.isWindows() && !OperationSystemDetector.isMac()) {
@@ -82,6 +82,61 @@ public class BaseWebPage {
         }
 
         return localDriver;
+    }
+
+    private static WebDriver createRemoteChromeDriver(String remoteWebDriverUrl, ChromeOptions options) {
+        int maxAttempts = getIntSystemOrEnvOrDefault("selenium.session.retry.count", "SELENIUM_SESSION_RETRY_COUNT", 4);
+        int retryDelaySeconds = getIntSystemOrEnvOrDefault("selenium.session.retry.delay.seconds", "SELENIUM_SESSION_RETRY_DELAY_SECONDS", 10);
+        List<String> candidateUrls = buildCandidateSeleniumUrls(remoteWebDriverUrl);
+        Exception lastError = null;
+
+        logger.info("web.session.create.start | requestedUrl=" + remoteWebDriverUrl
+                + " | candidateUrls=" + candidateUrls
+                + " | maxAttempts=" + maxAttempts
+                + " | retryDelaySeconds=" + retryDelaySeconds);
+
+        for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+            for (Iterator<String> iterator = candidateUrls.iterator(); iterator.hasNext(); ) {
+                String candidateUrl = iterator.next();
+                try {
+                    WebDriver remoteDriver = new RemoteWebDriver(new URL(candidateUrl), options);
+                    logger.info("web.session.create.success | seleniumUrl=" + candidateUrl + " | attempt=" + attempt + "/" + maxAttempts);
+                    return remoteDriver;
+                } catch (MalformedURLException e) {
+                    logger.fatal("Invalid SELENIUM_REMOTE_URL: " + candidateUrl, e);
+                    return null;
+                } catch (Exception exception) {
+                    lastError = exception;
+                    String reason = exception.getMessage();
+
+                    if (reason != null
+                            && reason.contains("Response code 404")
+                            && candidateUrl.endsWith(WD_HUB_SUFFIX)
+                            && candidateUrls.size() > 1) {
+                        iterator.remove();
+                        logger.info("web.session.create.fallback | reason=legacy_404 | droppedUrl=" + candidateUrl);
+                        continue;
+                    }
+
+                    logger.warn("web.session.create.retry | attempt=" + attempt + "/" + maxAttempts
+                            + " | seleniumUrl=" + candidateUrl + " | reason=" + reason);
+                }
+            }
+
+            if (attempt < maxAttempts) {
+                try {
+                    Thread.sleep(Duration.ofSeconds(retryDelaySeconds).toMillis());
+                } catch (InterruptedException interruptedException) {
+                    Thread.currentThread().interrupt();
+                    throw new IllegalStateException("Interrupted while retrying Selenium session creation.", interruptedException);
+                }
+            }
+        }
+
+        throw new IllegalStateException(
+                "Unable to start Selenium WebDriver session after " + maxAttempts + " attempts. Selenium URLs tried: " + candidateUrls,
+                lastError
+        );
     }
 
     private static WebDriver createFirefoxDriver() {
@@ -130,10 +185,44 @@ public class BaseWebPage {
         return null;
     }
 
+    private static List<String> buildCandidateSeleniumUrls(String remoteWebDriverUrl) {
+        String normalized = remoteWebDriverUrl.endsWith("/")
+                ? remoteWebDriverUrl.substring(0, remoteWebDriverUrl.length() - 1)
+                : remoteWebDriverUrl;
+
+        List<String> urls = new ArrayList<>();
+        urls.add(normalized);
+
+        if (!normalized.endsWith(WD_HUB_SUFFIX)) {
+            urls.add(normalized + WD_HUB_SUFFIX);
+        } else {
+            urls.add(normalized.substring(0, normalized.length() - WD_HUB_SUFFIX.length()));
+        }
+        return urls;
+    }
+
+    private static int getIntSystemOrEnvOrDefault(String propertyKey, String envKey, int defaultValue) {
+        String value = System.getProperty(propertyKey);
+        if (value == null || value.isBlank()) {
+            value = System.getenv(envKey);
+        }
+        if (value == null || value.isBlank()) {
+            return defaultValue;
+        }
+
+        try {
+            return Integer.parseInt(value.trim());
+        } catch (NumberFormatException exception) {
+            logger.warn("Invalid integer configuration | property=" + propertyKey + " | env=" + envKey
+                    + " | value=" + value + " | usingDefault=" + defaultValue);
+            return defaultValue;
+        }
+    }
+
     private static String buildDriverInitErrorMessage(String browser) {
         return String.format(
                 "WebDriver initialization failed. browser=%s, os.name=%s, SELENIUM_REMOTE_URL=%s. " +
-                        "On Linux CI, provide SELENIUM_REMOTE_URL (e.g. http://localhost:4444/wd/hub) " +
+                        "On Linux CI, provide SELENIUM_REMOTE_URL (e.g. http://selenium:4444 or http://selenium:4444/wd/hub) " +
                         "or use a supported local browser setup.",
                 browser,
                 System.getProperty("os.name"),
