@@ -110,7 +110,7 @@ Use environment variables for credentials and API keys in local and CI environme
 ### Non-mobile suites
 
 ```powershell
-docker compose up -d mysql selenium
+docker compose up -d selenium
 docker compose run --rm --no-deps tests
 docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ```
@@ -118,7 +118,7 @@ docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
 ### Mobile local smoke suite
 
 ```powershell
-docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google selenium mysql
+docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google selenium
 docker compose --profile mobile-emulator-google run --rm --no-deps -e SUITE_XML_FILE=MobileLocalSmokeTest.xml -e APPIUM_SERVER_URL=http://appium-google:4723 -e MOBILE_CONTAINER_NAME=android-emulator-google tests
 ```
 
