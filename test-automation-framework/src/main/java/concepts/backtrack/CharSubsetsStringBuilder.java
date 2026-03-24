@@ -11,9 +11,9 @@ public class CharSubsetsStringBuilder {
         System.out.println(result);
     }
 
-    private static void backTrack(char[] letters, int start, StringBuilder path, List<String> result) {
+    private static void backTrack(char[] letters, int index, StringBuilder path, List<String> result) {
         result.add(path.toString());
-        for (int i = start; i < letters.length; i++) {
+        for (int i = index; i < letters.length; i++) {
             // DO
             path.append(letters[i]);
             // explore
