@@ -1,4 +1,4 @@
-package tutorial.interview;
+package concepts.dynamicprogramming;
 // https://www.jointaro.com/interviews/questions/climbing-stairs/?src=taro75
 
 /**
@@ -40,18 +40,20 @@ public class ClimbingStairs {
     }
 
     public int climbStairs(int steps) {
-        if (steps <= 1)
+        if (steps <= 1) {
             return 1;
-        // Instead of using an array, we only keep last two results
-        int oneStepBefore = 1;
-        int twoStepsBefore = 1;
-
-        for (int i = 2; i <= steps; i++) {
-            int currentWays = oneStepBefore + twoStepsBefore;
-            twoStepsBefore = oneStepBefore;
-            oneStepBefore = currentWays;
         }
 
-        return oneStepBefore;
+        // Fibonacci-style rolling DP: ways(step) = ways(step-1) + ways(step-2)
+        int prevTwo = 1;
+        int prevOne = 1;
+
+        for (int step = 2; step <= steps; step++) {
+            int current = prevOne + prevTwo;
+            prevTwo = prevOne;
+            prevOne = current;
+        }
+
+        return prevOne;
     }
 }
