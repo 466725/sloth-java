@@ -50,10 +50,10 @@ public class HouseRobber {
         if (index >= nums.length)
             return 0;
         // Explore robbing the current house and skipping the next one
-        int rob = nums[index] + robRecursively(nums, index + 2);
+        int robCurrent = nums[index] + robRecursively(nums, index + 2);
         // Explore skipping the current house and moving to the next one
-        int skip = robRecursively(nums, index + 1);
+        int skipCurrent = robRecursively(nums, index + 1);
         // Return the maximum loot we can get from either option
-        return Math.max(rob, skip);
+        return Math.max(robCurrent, skipCurrent);
     }
 }
