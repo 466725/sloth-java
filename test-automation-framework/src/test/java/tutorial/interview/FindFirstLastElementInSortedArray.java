@@ -21,7 +21,7 @@ import java.util.Arrays;
  * <p>
  * Example 3:
  * Input: nums = [], target = 0
- * Output: [-1,-1]v
+ * Output: [-1,-1]
  *
  */
 public class FindFirstLastElementInSortedArray {
@@ -57,47 +57,52 @@ public class FindFirstLastElementInSortedArray {
     }
 
     public int[] searchRange(int[] nums, int target) {
-        int[] result = {-1, -1};
-        result[0] = findFirst(nums, target);
-        result[1] = findLast(nums, target);
-        return result;
+        int firstIndex = findFirst(nums, target);
+        int lastIndex = findLast(nums, target);
+        return new int[]{firstIndex, lastIndex};
     }
 
     private int findFirst(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        int firstPosition = -1;
+        int firstIndex = -1;
+
         while (left <= right) {
-            int middle = left + (right - left) / 2;
-            if (nums[middle] < target) {
-                left = middle + 1;
-            } else if (nums[middle] > target) {
-                right = middle - 1;
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
             } else {
-                // Potential first occurrence, keep searching left
-                firstPosition = middle;
-                right = middle - 1;
+                // Found target; continue left to locate the first occurrence.
+                firstIndex = mid;
+                right = mid - 1;
             }
         }
-        return firstPosition;
+
+        return firstIndex;
     }
 
     private int findLast(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        int lastPosition = -1;
+        int lastIndex = -1;
+
         while (left <= right) {
-            int middle = left + (right - left) / 2;
-            if (nums[middle] < target) {
-                left = middle + 1;
-            } else if (nums[middle] > target) {
-                right = middle - 1;
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
             } else {
-                // Potential last occurrence, keep searching right
-                lastPosition = middle;
-                left = middle + 1;
+                // Found target; continue right to locate the last occurrence.
+                lastIndex = mid;
+                left = mid + 1;
             }
         }
-        return lastPosition;
+
+        return lastIndex;
     }
 }
