@@ -43,13 +43,24 @@ public class JumpGame {
     }
 
     public boolean canJump(int[] nums) {
-        int end = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i > end)
+        int lastIndex = nums.length - 1;
+        int reachableIndex = 0;
+
+        // No need to process the last index. We only need to know whether we can reach it.
+        for (int index = 0; index < lastIndex; index++) {
+            if (index > reachableIndex) {
                 return false;
-            end = Math.max(end, i + nums[i]);
+            }
+
+            int maxJumpFromCurrent = nums[index];
+            reachableIndex = Math.max(reachableIndex, index + maxJumpFromCurrent);
+
+            if (reachableIndex >= lastIndex) {
+                return true;
+            }
         }
-        return true;
+
+        // Covers single-element input and checks reachability for completed scans.
+        return reachableIndex >= lastIndex;
     }
 }
-
