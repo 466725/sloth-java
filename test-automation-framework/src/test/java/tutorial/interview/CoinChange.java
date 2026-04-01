@@ -49,7 +49,7 @@ public class CoinChange {
                 5,    // Expected: -1
                 16    // Expected: 4 (5+5+5+1) but actually 5+5+5+1 = 4, better check
         };
-        System.out.println("==== Coin Change Tests (Recursive) ====");
+        System.out.println("==== Coin Change Tests (Dynamic Programming) ====");
         for (int i = 0; i < coinSets.length; i++) {
             int[] coins = coinSets[i];
             int amount = amounts[i];
@@ -64,30 +64,25 @@ public class CoinChange {
     }
 
     public int coinChange(int[] coins, int amount) {
-        if (amount == 0)
+        if (amount == 0) {
             return 0;
-        Integer minNumberOfCoins = findMinCoin(coins, amount, 0);
-        return (minNumberOfCoins == null) ? -1 : minNumberOfCoins;
-    }
+        }
+        if (coins == null || coins.length == 0) {
+            return -1;
+        }
 
-    private Integer findMinCoin(int[] coins, int amount, int coinIndex) {
-        if (coinIndex >= coins.length)
-            return null; // Cannot be
-        Integer minCoin = null;
-        for (int i = 0; i <= amount / coins[coinIndex]; i++) {
-            if ((amount - i * coins[coinIndex]) == 0) {
-                // Found a combination
-                if (minCoin == null || i < minCoin)
-                    minCoin = i;
-            } else {
-                // Try next coin
-                Integer nextCoin = findMinCoin(coins, (amount - i * coins[coinIndex]), coinIndex + 1);
-                if (nextCoin != null) { // Found a combination
-                    if (minCoin == null || (i + nextCoin) < minCoin)
-                        minCoin = (i + nextCoin);
-                }
+        // dp[value] = minimum coins needed to make 'value'
+        int unreachable = amount + 1;
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, unreachable);
+        dp[0] = 0;
+
+        for (int coin : coins) {
+            for (int value = coin; value <= amount; value++) {
+                dp[value] = Math.min(dp[value], dp[value - coin] + 1);
             }
         }
-        return minCoin;
+
+        return dp[amount] == unreachable ? -1 : dp[amount];
     }
 }
