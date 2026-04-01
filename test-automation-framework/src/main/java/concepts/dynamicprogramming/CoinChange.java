@@ -1,4 +1,4 @@
-package tutorial.interview;
+package concepts.dynamicprogramming;
 // https://www.jointaro.com/interviews/questions/coin-change/?src=taro75
 
 import java.util.Arrays;
