@@ -1,6 +1,6 @@
 # sloth-java
 
-[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
+[![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Build](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
 
 `sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, plus a small Spring Boot demo app for local learning and integration checks.
@@ -12,7 +12,7 @@
 
 ## Tech Stack
 
-- Java 21
+- Java 25
 - Maven (multi-module build)
 - TestNG, Selenium, Appium, Playwright
 - Cucumber + Extent Reports
@@ -21,8 +21,8 @@
 
 ## Prerequisites
 
-- JDK 21+
-- Maven 3.6+
+- JDK 25+
+- Maven 3.9+
 - Git
 - Docker Desktop (optional)
 - IntelliJ IDEA or Eclipse (optional)
@@ -70,10 +70,10 @@ mvn -pl spring-boot-demo test
 mvn -pl spring-boot-demo spring-boot:run
 ```
 
-Once the app is running, useful endpoints are:
+Once the app is running, useful endpoints include:
 
 - `GET /api/hello`
-- `POST /api/login?username=username&password=password`
+- `POST /api/login`
 - `GET /actuator/health`
 
 ## Playwright Setup
@@ -98,53 +98,3 @@ The Playwright page-object layer supports optional self-healing locators that re
 - Tuning: `-Dself.healing.minScore=<value>`, `-Dself.healing.maxCandidates=<value>`
 
 ## Configuration
-
-- Framework config: `test-automation-framework/src/main/resources/init-config.properties`
-- Secrets template: `test-automation-framework/src/main/resources/secrets.properties`
-- Report config: `test-automation-framework/src/main/resources/extent-report-config.xml`
-
-Use environment variables for credentials and API keys in local and CI environments.
-
-## Docker Workflows (Optional)
-
-### Non-mobile suites
-
-```powershell
-docker compose up -d selenium
-docker compose run --rm --no-deps tests
-docker compose run --rm --no-deps -e SUITE_XML_FILE=RegressionTest.xml tests
-```
-
-### Mobile local smoke suite
-
-```powershell
-docker compose --profile mobile-emulator-google up -d android-emulator-google appium-google selenium
-docker compose --profile mobile-emulator-google run --rm --no-deps -e SUITE_XML_FILE=MobileLocalSmokeTest.xml -e APPIUM_SERVER_URL=http://appium-google:4723 -e MOBILE_CONTAINER_NAME=android-emulator-google tests
-```
-
-## Repository Layout
-
-```text
-sloth-java/
-|- test-automation-framework/
-|  |- src/main/java/{config,utilities,webpages,...}
-|  |- src/test/java/{testcases,scenarios,selfhealing,...}
-|  |- testRunner/suiteFiles/{SmokeTest.xml,SanityTest.xml,RegressionTest.xml,...}
-|- spring-boot-demo/
-|  |- src/main/java/openqa/automation/framework/demo/
-|  |- src/main/resources/application.yaml
-|- docker-compose.yml
-```
-
-## Contribution Guidelines
-
-- Keep PRs scoped and module-focused.
-- Add or update tests for behavior changes.
-- Run a relevant suite locally before opening a PR.
-- Include clear verification steps in PR descriptions.
-
-## Roadmap
-
-- Expand CI checks for module-specific workflows.
-- Continue improving mobile execution stability.
-- Add more API + UI integration examples.
