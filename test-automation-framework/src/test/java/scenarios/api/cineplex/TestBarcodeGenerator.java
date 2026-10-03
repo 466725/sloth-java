@@ -25,7 +25,7 @@ public class TestBarcodeGenerator extends ApiTestCase {
 
         Response response = client.newCall(request).execute();
 
-        assertTrue(response.code() == 200);
+        assertTrue(response.code() == 200, "Expected barcode endpoint status 200 but received " + response.code());
     }
 
     // Equivalent barcode generation call implemented with Rest Assured.
