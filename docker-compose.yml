@@ -64,7 +64,7 @@ services:
       - "while true; do adb connect android-emulator-google:5555 >/dev/null 2>&1 || true; sleep 5; done & exec appium --base-path / --address 0.0.0.0 --port 4723 --allow-insecure *:adb_shell"
 
   tests:
-    image: maven@sha256:6fdc855a6ed81d288ca7ca37ac6ff5e9308b612485c0801d70b25a858c83d237
+    image: maven:3.9.12-eclipse-temurin-25
     shm_size: 2gb
     working_dir: /workspace
     volumes:
@@ -94,4 +94,3 @@ services:
 
 volumes:
   mysql-data:
-

@@ -10,12 +10,12 @@
     <name>test-automation-framework</name>
     <description>Automation framework module for UI, API, and mobile testing</description>
 
-    <!-- Use Java 21 (matches GitHub Actions CI) -->
+    <!-- Use Java 25 (matches the Docker Compose test runtime) -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <suiteXmlFile>SanityTest.xml</suiteXmlFile>
         <playwright.version>1.44.0</playwright.version>
     </properties>
