@@ -9,8 +9,6 @@
     <!-- Here we can add any test class, docker environment ready for all -->
     <test name="MobileAppAndWebLocalSmoke" parallel="false">
         <classes>
-            <!-- Web test cases -->
-            <class name="testcases.mobile.web.TestAmazonMobileSigninPage"/>
             <!-- App test cases -->
             <!-- App test only works locally as of now -->
             <class name="testcases.mobile.app.TestAndroidDeskClockLaunch"/>

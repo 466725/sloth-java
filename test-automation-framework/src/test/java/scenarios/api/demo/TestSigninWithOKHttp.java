@@ -1,4 +1,4 @@
-package scenarios.api.cineplex;
+package scenarios.api.demo;
 
 import config.PropertiesFileReader;
 import okhttp3.MediaType;
