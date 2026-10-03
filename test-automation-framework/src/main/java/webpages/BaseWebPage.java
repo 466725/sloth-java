@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utilities.OperationSystemDetector;
-import webpages.amazon.HomePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,7 +29,6 @@ public class BaseWebPage {
     private static final String BROWSER_CHROME = "chrome";
     private static final String BROWSER_FIREFOX = "firefox";
     private static final String BROWSER_IE = "ie";
-    private static final String ORG_AMAZON = "amazon";
     private static final String ORG_TANGERINE = "tangerine";
     private static final String WD_HUB_SUFFIX = "/wd/hub";
 
@@ -149,11 +147,6 @@ public class BaseWebPage {
 
     public static BaseWebPage gotoHomePage(String org) {
         WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
-        String normalizedOrg = normalize(org, ORG_TANGERINE);
-        if (ORG_AMAZON.equals(normalizedOrg)) {
-            currentDriver.get(PropertiesFileReader.getAmazonURL());
-            return new HomePage(currentDriver);
-        }
         currentDriver.get(PropertiesFileReader.getTangerineURL());
         return new webpages.tangerine.HomePage(currentDriver);
     }
