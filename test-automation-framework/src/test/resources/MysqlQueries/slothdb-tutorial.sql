@@ -1,36 +1,9 @@
 USE slothdb;
 SHOW DATABASES;
 
-CREATE TABLE student(
-	student_id INT PRIMARY KEY,
-    name VARCHAR(20),
-    major VARCHAR(20)
-);
-
-DESCRIBE student;
-ALTER TABLE student ADD gpa DECIMAL(3,2);
-INSERT INTO student VALUES(1, 'Allen', 'Computer Engineering', 3.8);
-
 SELECT * 
-FROM student
+FROM students
 WHERE major IN('Computer Engineering', 'Computer Science');
-
-CREATE TABLE employee(
-	emp_id INT PRIMARY KEY,
-    name VARCHAR(20),
-    birth_date DATE,
-    sex VARCHAR(1),
-    salary INT,
-    branch_id INT,
-    sup_id INT
-);
-
-CREATE TABLE branch(
-	branch_id INT PRIMARY KEY,
-    branch_name VARCHAR(20),
-    manager_id INT,
-    FOREIGN KEY (manager_id) REFERENCES employee(emp_id) ON DELETE SET NULL
-);
 
 ALTER TABLE employee
 ADD FOREIGN KEY(branch_id)
@@ -41,21 +14,6 @@ ALTER TABLE employee
 ADD FOREIGN KEY(sup_id)
 REFERENCES employee(emp_id)
 ON DELETE SET NULL;
-
-CREATE TABLE client(
-	client_id INT PRIMARY KEY,
-    client_name VARCHAR(20),
-    phone VARCHAR(20)
-);
-
-CREATE TABLE work_with(
-	emp_id INT,
-    client_id INT,
-    total_sales INT,
-    PRIMARY KEY(emp_id, client_id),
-    FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
-    FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE CASCADE
-);
 
 INSERT INTO branch VALUES(3, 'Info', NULL);
 
@@ -78,7 +36,7 @@ INSERT INTO work_with VALUE(208, 403, '24000');
 INSERT INTO work_with VALUE(210, 404, '87900');
 
 SELECT * 
-FROM branch;
+FROM branches;
 
 SELECT * 
 FROM employee
@@ -92,22 +50,20 @@ AND sex = 'F';
 
 SELECT name
 FROM employee
-UNION
-SELECT client_name
-FROM client
-UNION
-SELECT branch_name
-FROM branch;
+	UNION
+	SELECT client_name
+	FROM client
+		UNION
+		SELECT branch_name
+		FROM branch;
 
 SELECT emp_id, name, branch_name
 FROM employee
-JOIN branch
-ON emp_id = manager_id;
+JOIN branch ON emp_id = manager_id;
 
 SELECT emp_id, name, branch_name
 FROM employee
-LEFT JOIN branch
-ON emp_id = manager_id;
+LEFT JOIN branch ON emp_id = manager_id;
 
 SELECT name
 FROM employee
