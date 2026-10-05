@@ -8,6 +8,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.NoSuchDriverException;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.OperationSystemDetector;
 import webpages.selenium.tangerine.HomePage;
@@ -73,7 +74,19 @@ public class SeleniumBasePage {
             return null;
         }
 
-        WebDriver localDriver = new ChromeDriver(options);
+        WebDriver localDriver;
+        try {
+            localDriver = new ChromeDriver(options);
+        } catch (NoSuchDriverException exception) {
+            throw new IllegalStateException(
+                    "Local ChromeDriver could not be resolved (Selenium Manager failed or was blocked). "
+                            + "Run against Docker Selenium instead: start it with "
+                            + "'docker compose --project-directory . -f .\\docker\\docker-compose.yml up -d selenium' "
+                            + "and pass -Dselenium.remote.url=http://localhost:4444 (or set SELENIUM_REMOTE_URL), "
+                            + "or provide an approved driver via -Dwebdriver.chrome.driver=<path>.",
+                    exception
+            );
+        }
         // Extra safety: ensure size is applied even if args are ignored by the driver/platform.
         if (RunConfig.isHeadless()) {
             localDriver.manage().window().setSize(new Dimension(1920, 1080));

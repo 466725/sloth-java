@@ -17,10 +17,10 @@ import static io.restassured.RestAssured.given;
 // Demo API tests for Rest Assured usage.
 public class SigninWithRestAssuredTest extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(SigninWithRestAssuredTest.class.getName());
-    private final String connectURL = PropertiesFileReader.getCONNECT_URL();
     private static String sessionToken = "";
+    private final String connectURL = PropertiesFileReader.getCONNECT_URL();
 
-    @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
+    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
     public void shouldCreateApplicationSessionWithRestAssured() {
         String payload = """
                 {
@@ -48,7 +48,7 @@ public class SigninWithRestAssuredTest extends ApiTestCase {
         logger.info("sessionToken: " + sessionToken);
     }
 
-    @Test(priority = 7, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
+    @Test(priority = 3, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
     public void shouldLoginWithMapPayloadUsingRestAssured() {
         Map<String, Object> payload = new LinkedHashMap<>();
         payload.put("SessionToken", sessionToken);
@@ -74,7 +74,7 @@ public class SigninWithRestAssuredTest extends ApiTestCase {
         logger.info("jsonBody: " + responseBody);
     }
 
-    @Test(priority = 9, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
+    @Test(priority = 5, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
     public void shouldLoginWithRawJsonPayloadUsingRestAssured() {
         String body = """
                 {

@@ -16,9 +16,9 @@ public class SigninPageSeleniumTest extends GuiTestCase {
     SigninPage signinPage;
 
     // Verifies the Tangerine sign-in page title.
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.TANGERINE})
+    @Test(groups = {TestGroups.SELENIUM})
     public void shouldDisplayTangerineSigninPageTitle() {
-        test.setDescription("Verify title on Tangerine Signup Page");
+        test.setDescription("Verify title on Tangerine Signin Page");
         logger.info("ui.web.tangerine.signin.verify_title.start");
         signinPage = (SigninPage) SeleniumBasePage.gotoHomePage("Tangerine").gotoSigninPage();
         logger.info("ui.web.tangerine.signin.verify_title.state | title=" + driver.getTitle());

@@ -24,7 +24,7 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
     private static final String TARGET_ALARM_LABEL = "Sloth0700";
     private static final int DESKCLOCK_READY_TIMEOUT_SECONDS = 20;
 
-    @Test(priority = 7, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
+    @Test(priority = 7, groups = {TestGroups.UI_MOBILE_APP})
     public void shouldSetDeskClockAlarm() {
         Assert.assertTrue(driver instanceof AndroidDriver, "Expected AndroidDriver session.");
         AndroidDriver androidDriver = (AndroidDriver) driver;

@@ -18,7 +18,7 @@ public class SignupPageSeleniumTest extends GuiTestCase {
     SignupPage signupPage;
 
     // Verifies the Tangerine sign-up page title.
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.TANGERINE})
+    @Test(groups = {TestGroups.SELENIUM})
     public void shouldDisplayTangerineSignupPageTitle() {
         test.setDescription("Verify title on Tangerine Register Page");
         logger.info("ui.web.tangerine.signup.verify_title.start");

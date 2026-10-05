@@ -13,7 +13,7 @@ public class HomePageSeleniumTest extends GuiTestCase {
     SeleniumBasePage homepage;
 
     // Verifies the Tangerine home page title.
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.TANGERINE})
+    @Test(groups = {TestGroups.SELENIUM})
     public void shouldDisplayTangerineHomePageTitle() {
         logger.info("ui.web.tangerine.home.verify_title.start");
         homepage = SeleniumBasePage.gotoHomePage("Tangerine");

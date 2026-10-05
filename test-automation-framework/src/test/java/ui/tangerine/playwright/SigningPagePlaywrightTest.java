@@ -16,7 +16,7 @@ public class SigningPagePlaywrightTest extends PlaywrightGuiTestCase {
     SigningPage tangerineSigningPage;
 
     // Verifies the Tangerine sign-in page title.
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.PLAYWRIGHT, TestGroups.UI_WEB, TestGroups.TANGERINE})
+    @Test(groups = {TestGroups.PLAYWRIGHT, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void shouldDisplayTangerineSigningPageTitle() {
         test.setDescription("Verify title on Tangerine Signup Page");
         logger.info("ui.web.tangerine.signin.verify_title.start");

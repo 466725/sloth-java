@@ -15,7 +15,7 @@ import java.util.List;
 public class AndroidDeskClockLaunchTest extends MobileAppTestCase {
     private static final Logger logger = LogManager.getLogger(AndroidDeskClockLaunchTest.class.getName());
 
-    @Test(priority = 3, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
+    @Test(priority = 3, groups = {TestGroups.UI_MOBILE_APP})
     public void shouldDetectAndroidDeviceViaAdb() {
         String mobileContainerName = System.getenv("MOBILE_CONTAINER_NAME");
         if (mobileContainerName == null || mobileContainerName.isBlank()) {
@@ -42,7 +42,7 @@ public class AndroidDeskClockLaunchTest extends MobileAppTestCase {
         );
     }
 
-    @Test(priority = 5, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
+    @Test(priority = 5, groups = {TestGroups.UI_MOBILE_APP})
     public void shouldLaunchDeskClockApp() {
         Assert.assertTrue(driver instanceof AndroidDriver, "Expected AndroidDriver session.");
         AndroidDriver androidDriver = (AndroidDriver) driver;

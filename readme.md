@@ -158,6 +158,38 @@ docker compose --project-directory . -f .\docker\docker-compose.yml run --rm tes
 Remove-Item Env:\SUITE_XML_FILE
 ```
 
+### Run tests locally against Docker Selenium
+
+Use this when local ChromeDriver can't start, for example when a Windows Application
+Control policy blocks `selenium-manager.exe` (`CreateProcess error=4551`). Maven runs
+on the host, and the browser runs in the Selenium container:
+
+```powershell
+docker compose --project-directory . -f .\docker\docker-compose.yml up -d selenium
+mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dselenium.remote.url=http://localhost:4444"
+```
+
+Local ChromeDriver vs. Docker Selenium:
+
+| Aspect | Local ChromeDriver | Docker Selenium |
+| --- | --- | --- |
+| How it's selected | Default when no remote URL is set | `-Dselenium.remote.url` or `SELENIUM_REMOTE_URL` is set |
+| Driver class | `ChromeDriver` | `RemoteWebDriver` |
+| Browser location | Chrome installed on the host (Windows/macOS only) | Chrome in the `selenium/standalone-chrome` container (Linux) |
+| Driver resolution | Selenium Manager (`selenium-manager.exe`) finds or downloads `chromedriver` | Bundled in the image; no host executables run |
+| Corporate policy impact | Can be blocked by Application Control / AppLocker | Unaffected (needs only Docker) |
+| Prerequisites | Chrome on host; Selenium Manager allowed | Docker Desktop running; port `4444` free |
+| Startup | Fast; no extra service | Container startup + health check (up to ~1 min); session creation retries automatically |
+| Watching the browser | Browser window opens on the desktop | noVNC viewer at `http://localhost:7900` |
+| Version consistency | Depends on the host's Chrome version | Pinned by image digest; same as CI |
+| Debugging | Easiest: breakpoints, DevTools, local window | Breakpoints work; browser visible via noVNC only |
+| Best for | Quick local debugging on an unrestricted machine | Restricted machines, reproducible runs, CI parity |
+
+Alternatively, set `$env:SELENIUM_REMOTE_URL = "http://localhost:4444"` for the
+terminal session instead of passing `-Dselenium.remote.url`. If the container is
+healthy but `http://localhost:4444/status` is unreachable, recreate it with
+`up -d --force-recreate selenium`.
+
 ### Troubleshoot with logs
 
 ```powershell

@@ -1,6 +1,8 @@
 package unit;
 
 import config.EnvironmentConfig;
+import core.TestGroups;
+import core.UnitTestCase;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,10 +13,10 @@ import java.nio.file.Path;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.expectThrows;
 
-public class EnvironmentConfigTest {
+public class EnvironmentConfigTest extends UnitTestCase {
     private static final String TEST_KEY = "SLOTH_ENV_CONFIG_TEST_KEY";
 
-    @Test
+    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION})
     public void readsRootEnvFromRootAndModule() throws Exception {
         Path root = Files.createTempDirectory("sloth-env-");
         Path module = Files.createDirectory(root.resolve("test-automation-framework"));
@@ -35,7 +37,7 @@ public class EnvironmentConfigTest {
         return new Object[][] {{null}, {""}, {TEST_KEY + "=\n"}, {TEST_KEY + "=\"   \"\n"}};
     }
 
-    @Test(dataProvider = "missingValues")
+    @Test(dataProvider = "missingValues", groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION})
     public void rejectsMissingOrBlankValues(String content) throws Exception {
         Path root = Files.createTempDirectory("sloth-env-");
         Path boundary = Files.createDirectory(root.resolve(".git"));
@@ -55,7 +57,7 @@ public class EnvironmentConfigTest {
         }
     }
 
-    @Test
+    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION})
     public void environmentOverridesFile() throws Exception {
         Path root = Files.createTempDirectory("sloth-env-");
         Path env = root.resolve(".env");

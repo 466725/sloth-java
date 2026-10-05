@@ -1,9 +1,10 @@
 package ui.tangerine.playwright;
 
-import com.microsoft.playwright.*;
 import config.PropertiesFileReader;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import core.PlaywrightGuiTestCase;
+import core.TestGroups;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -11,50 +12,24 @@ import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
-public class HomePageConsoleErrorPlaywrightTest {
-    static Playwright playwright;
-    static Browser browser;
+public class HomePageConsoleErrorPlaywrightTest extends PlaywrightGuiTestCase {
+    final static Logger logger = LogManager.getLogger(HomePageConsoleErrorPlaywrightTest.class.getName());
 
-    List<String> consoleErrors = new ArrayList<>();
-
-    @BeforeClass(alwaysRun = true)
-    public static void setup() {
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(
-                new BrowserType.LaunchOptions().setHeadless(true));
-    }
-
-    @AfterClass(alwaysRun = true)
-    public static void teardown() {
-        if (browser != null) {
-            browser.close();
-            browser = null;
-        }
-        if (playwright != null) {
-            playwright.close();
-            playwright = null;
-        }
-    }
-
-    @Test
+    // Verifies console error capture on the Tangerine home page.
+    @Test(groups = {TestGroups.PLAYWRIGHT, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void shouldHaveNoConsoleErrors() {
-        consoleErrors.clear();
-        BrowserContext context = browser.newContext();
-        Page page = context.newPage();
-
+        List<String> consoleErrors = new ArrayList<>();
         page.onConsoleMessage(msg -> {
             if ("error".equals(msg.type())) {
                 consoleErrors.add(msg.text());
             }
         });
 
-        try {
-            page.navigate(PropertiesFileReader.getTangerineURL());
-            page.waitForTimeout(5000);
-            assertTrue(!consoleErrors.isEmpty(),
-                    "Console errors detected: " + consoleErrors);
-        } finally {
-            context.close();
-        }
+        logger.info("ui.web.tangerine.home.console_errors.start");
+        page.navigate(PropertiesFileReader.getTangerineURL());
+        page.waitForTimeout(5000);
+        logger.info("ui.web.tangerine.home.console_errors.state | count=" + consoleErrors.size());
+        assertTrue(consoleErrors.isEmpty(),
+                "Console errors detected: " + consoleErrors);
     }
 }

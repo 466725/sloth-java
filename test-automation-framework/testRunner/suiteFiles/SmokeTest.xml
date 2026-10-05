@@ -20,6 +20,7 @@
             <package name="api.*"/>
             <package name="ui.*"/>
             <package name="demo.*"/>
+            <package name="unit.*"/>
         </packages>
     </test>
 </suite>

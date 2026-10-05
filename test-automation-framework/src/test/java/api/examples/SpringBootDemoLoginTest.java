@@ -50,7 +50,7 @@ public class SpringBootDemoLoginTest extends ApiTestCase {
         }
     }
 
-    @Test(priority = 1, groups = {TestGroups.INTEGRATION})
+    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
     public void shouldLoginSuccessfullyWithValidCredentials() {
         Response response =
                 given()
@@ -68,7 +68,7 @@ public class SpringBootDemoLoginTest extends ApiTestCase {
         logger.info("Valid login response: " + response.asString());
     }
 
-    @Test(priority = 2, groups = {TestGroups.INTEGRATION})
+    @Test(priority = 2, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
     public void shouldReturnWrongCredentialsWithInvalidCredentials() {
         Response response =
                 given()

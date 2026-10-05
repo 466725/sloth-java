@@ -1,14 +1,17 @@
 package unit;
 
-import org.junit.Assert;
-import org.junit.Test;
+import core.TestGroups;
+import core.UnitTestCase;
+import org.testng.Assert;
 import utils.ExcelFileReader;
+
+import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.Map;
 
-public class ExcelFileReaderTest {
-    @Test
+public class ExcelFileReaderTest extends UnitTestCase {
+    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION})
     public void readExcel_shouldReturnHeaderAndDataRows() {
         List<List<String>> rows = ExcelFileReader.readExcel("/excel-test-data.xlsx");
 
@@ -17,7 +20,7 @@ public class ExcelFileReaderTest {
         Assert.assertEquals("1129", rows.get(1).get(0));
     }
 
-    @Test
+    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION})
     public void readAsMaps_shouldReturnRowsMappedByHeader() {
         List<Map<String, String>> rows = ExcelFileReader.readAsMaps("/excel-test-data.xlsx");
 
@@ -28,7 +31,7 @@ public class ExcelFileReaderTest {
         Assert.assertEquals("174", firstRow.get("Seats"));
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION}, expectedExceptions = IllegalStateException.class)
     public void readExcel_shouldThrowForMissingResource() {
         ExcelFileReader.readExcel("/missing-file.xlsx");
     }

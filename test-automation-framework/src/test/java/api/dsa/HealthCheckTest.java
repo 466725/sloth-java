@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import core.TestGroups;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -61,7 +62,7 @@ public class HealthCheckTest extends ApiTestCase {
         return new Object[][]{{"/health"}, {"/api/health"}, {"/api/v1/health"}};
     }
 
-    @Test(dataProvider = "healthEndpoints")
+    @Test(dataProvider = "healthEndpoints", groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
     public void testHealthEndpointReturnsHealthyResponse(String endpoint) {
         var response =
                 given()
