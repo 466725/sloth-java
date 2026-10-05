@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class TestAndroidDeskClockSetAlarm extends MobileAppTestCase {
-    private static final Logger logger = LogManager.getLogger(TestAndroidDeskClockSetAlarm.class.getName());
+public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
+    private static final Logger logger = LogManager.getLogger(AndroidDeskClockSetAlarmTest.class.getName());
     private static final int TARGET_ALARM_HOUR = 7;
     private static final int TARGET_ALARM_MINUTE = 0;
     private static final String TARGET_ALARM_LABEL = "Sloth0700";

@@ -15,8 +15,8 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 // Demo API tests for Rest Assured usage.
-public class TestSigninWithRestAssured extends ApiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TestSigninWithRestAssured.class.getName());
+public class SigninWithRestAssuredTest extends ApiTestCase {
+    protected final static Logger logger = LogManager.getLogger(SigninWithRestAssuredTest.class.getName());
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
     private static String sessionToken = "";
 

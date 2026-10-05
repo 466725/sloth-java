@@ -13,7 +13,7 @@ public final class EnvironmentConfig {
         return getRequired(name, Path.of(System.getProperty("user.dir")));
     }
 
-    static String getRequired(String name, Path workingDirectory) {
+    public static String getRequired(String name, Path workingDirectory) {
         Path directory = workingDirectory.toAbsolutePath();
         while (!Files.exists(directory.resolve(".env"))
                 && !Files.exists(directory.resolve(".git"))

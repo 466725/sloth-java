@@ -16,8 +16,8 @@ import java.net.URL;
 
 import static io.restassured.RestAssured.given;
 
-public class TestSpringBootDemoLogin extends ApiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TestSpringBootDemoLogin.class.getName());
+public class SpringBootDemoLoginTest extends ApiTestCase {
+    protected final static Logger logger = LogManager.getLogger(SpringBootDemoLoginTest.class.getName());
     private static final String baseUrl = System.getProperty("spring.boot.demo.base.url", "http://localhost:8080");
 
     @BeforeClass(alwaysRun = true)

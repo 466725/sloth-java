@@ -1,5 +1,7 @@
-package config;
+package unit;
 
+import config.EnvironmentConfig;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,7 +21,7 @@ public class EnvironmentConfigTest {
         Path env = root.resolve(".env");
         try {
             Files.writeString(env, "# Local test fixture\n" + TEST_KEY + "=\"test-key\"\n");
-            assertEquals(EnvironmentConfig.getRequired(TEST_KEY, root), "test-key");
+            Assert.assertEquals(EnvironmentConfig.getRequired(TEST_KEY, root), "test-key");
             assertEquals(EnvironmentConfig.getRequired(TEST_KEY, module), "test-key");
         } finally {
             Files.deleteIfExists(env);

@@ -12,8 +12,8 @@ import core.mobile.MobileAppTestCase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestAndroidDeskClockLaunch extends MobileAppTestCase {
-    private static final Logger logger = LogManager.getLogger(TestAndroidDeskClockLaunch.class.getName());
+public class AndroidDeskClockLaunchTest extends MobileAppTestCase {
+    private static final Logger logger = LogManager.getLogger(AndroidDeskClockLaunchTest.class.getName());
 
     @Test(priority = 3, groups = {TestGroups.INTEGRATION, TestGroups.UI_MOBILE_APP})
     public void shouldDetectAndroidDeviceViaAdb() {

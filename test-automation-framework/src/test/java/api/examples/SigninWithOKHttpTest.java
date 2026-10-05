@@ -17,8 +17,8 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 // Demo API tests for OkHttp usage.
-public class TestSigninWithOKHttp extends ApiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TestSigninWithOKHttp.class.getName());
+public class SigninWithOKHttpTest extends ApiTestCase {
+    protected final static Logger logger = LogManager.getLogger(SigninWithOKHttpTest.class.getName());
     private static String sessionToken = "";
     private final String connectURL = PropertiesFileReader.getCONNECT_URL();
     MediaType mediaType = MediaType.parse("application/json");
