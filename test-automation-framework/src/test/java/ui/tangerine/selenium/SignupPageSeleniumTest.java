@@ -1,4 +1,4 @@
-package ui.tangerine;
+package ui.tangerine.selenium;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -12,16 +12,19 @@ import webpages.selenium.tangerine.SignupPage;
 
 import java.util.Objects;
 
-public class TestSignupFlow extends GuiTestCase {
-    protected final static Logger logger = LogManager.getLogger(TestSignupFlow.class.getName());
+public class SignupPageSeleniumTest extends GuiTestCase {
+    protected final static Logger logger = LogManager.getLogger(SignupPageSeleniumTest.class.getName());
     SigninPage signinPage;
     SignupPage signupPage;
 
-    @Test(groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.UI_WEB, TestGroups.QUARANTINE})
-    public void shouldNavigateToTangerineSignupFlow() {
-        test.setDescription("Verify title on Tangerine signup page");
+    // Verifies the Tangerine sign-up page title.
+    @Test(groups = {TestGroups.REGRESSION, TestGroups.UI_WEB, TestGroups.TANGERINE})
+    public void shouldDisplayTangerineSignupPageTitle() {
+        test.setDescription("Verify title on Tangerine Register Page");
+        logger.info("ui.web.tangerine.signup.verify_title.start");
         signinPage = (SigninPage) SeleniumBasePage.gotoHomePage("Tangerine").gotoSigninPage();
         signupPage = signinPage.gotoSignupPage();
+        logger.info("ui.web.tangerine.signup.verify_title.state | title=" + driver.getTitle());
         Assert.assertTrue(Objects.requireNonNull(driver.getTitle()).contains("Tangerine"), "Title verification failed");
     }
 }

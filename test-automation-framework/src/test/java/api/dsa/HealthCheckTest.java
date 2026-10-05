@@ -1,4 +1,4 @@
-package api;
+package api.dsa;
 
 import static io.restassured.RestAssured.*;
 import static org.assertj.core.api.Assertions.assertThat;

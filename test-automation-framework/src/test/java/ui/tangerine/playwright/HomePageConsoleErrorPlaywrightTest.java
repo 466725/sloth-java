@@ -1,4 +1,4 @@
-package ui.tangerine;
+package ui.tangerine.playwright;
 
 import com.microsoft.playwright.*;
 import config.PropertiesFileReader;

@@ -1,4 +1,4 @@
-package ui.tangerine;
+package ui.tangerine.playwright;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
