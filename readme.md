@@ -70,6 +70,22 @@ missing or blank; non-API tests do not require it.
 Rotate any key previously committed to source control; removing it from the
 current files does not remove it from Git history.
 
+#### Cucumber tests
+
+Cucumber scenarios run through TestNG with `cucumber-testng` and Playwright:
+
+- Feature files: `test-automation-framework/src/test/resources/features`
+- Step definitions and runner: `test-automation-framework/src/test/java/ui/tangerine/cucumber`
+
+```powershell
+# Run all Cucumber scenarios
+mvn -pl test-automation-framework test "-Dtest=ui.tangerine.cucumber.CucumberRunnerTest"
+```
+
+To add scenarios, create a `.feature` file under `features` and implement any
+new steps in the `ui.tangerine.cucumber` package. To include Cucumber in a suite,
+add `<class name="ui.tangerine.cucumber.CucumberRunnerTest"/>` to the suite XML.
+
 ### `spring-boot-demo`
 
 ```powershell
