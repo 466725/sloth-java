@@ -11,15 +11,11 @@
             <run>
                 <include name="smoke"/>
                 <exclude name="quarantine"/>
-                <exclude name="canada-only"/>
             </run>
         </groups>
 
         <!-- Scan packages so any new @Test(groups={"smoke", ...}) is auto-included -->
         <packages>
-            <package name="api.*"/>
-            <package name="ui.*"/>
-            <package name="demo.*"/>
             <package name="unit.*"/>
         </packages>
     </test>

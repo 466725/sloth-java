@@ -24,7 +24,7 @@ public class SigninWithOKHttpTest extends ApiTestCase {
     MediaType mediaType = MediaType.parse("application/json");
     JSONParser parser = new JSONParser();
 
-    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
+    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void shouldCreateApplicationSessionWithOkHttp() throws Exception {
         String payload = """
                 {
@@ -55,7 +55,7 @@ public class SigninWithOKHttpTest extends ApiTestCase {
     }
 
     // Login call using test credentials.
-    @Test(priority = 3, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
+    @Test(priority = 3, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void shouldLoginWithOkHttp() throws Exception {
         String payload = """
                 {

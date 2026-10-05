@@ -10,6 +10,7 @@
         <groups>
             <run>
                 <include name="regression"/>
+                <include name="playwright"/>
                 <exclude name="quarantine"/>
                 <exclude name="canada-only"/>
             </run>

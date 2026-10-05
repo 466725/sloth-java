@@ -14,7 +14,7 @@ public class HomePagePlaywrightTest extends PlaywrightGuiTestCase {
     HomePage homepage;
 
     // Verifies the Tangerine home page title.
-    @Test(groups = {TestGroups.PLAYWRIGHT, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
+    @Test(groups = {TestGroups.PLAYWRIGHT, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void shouldDisplayTangerineHomePageTitle() {
         logger.info("ui.web.tangerine.home.verify_title.start");
         homepage = PlaywrightBasePage.gotoHomePage(page);

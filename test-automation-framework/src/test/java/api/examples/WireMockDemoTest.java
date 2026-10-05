@@ -42,7 +42,7 @@ public class WireMockDemoTest extends ApiTestCase {
         }
     }
 
-    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
+    @Test(priority = 1, groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void shouldReturnMockedUser() {
         given()
                 .when()

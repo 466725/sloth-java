@@ -62,7 +62,7 @@ public class HealthCheckTest extends ApiTestCase {
         return new Object[][]{{"/health"}, {"/api/health"}, {"/api/v1/health"}};
     }
 
-    @Test(dataProvider = "healthEndpoints", groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.INTEGRATION})
+    @Test(dataProvider = "healthEndpoints", groups = {TestGroups.API, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.INTEGRATION})
     public void testHealthEndpointReturnsHealthyResponse(String endpoint) {
         var response =
                 given()

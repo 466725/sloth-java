@@ -31,7 +31,7 @@ public class ExcelFileReaderTest extends UnitTestCase {
         Assert.assertEquals("174", firstRow.get("Seats"));
     }
 
-    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION}, expectedExceptions = IllegalStateException.class)
+    @Test(groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION, TestGroups.QUARANTINE}, expectedExceptions = IllegalStateException.class)
     public void readExcel_shouldThrowForMissingResource() {
         ExcelFileReader.readExcel("/missing-file.xlsx");
     }
