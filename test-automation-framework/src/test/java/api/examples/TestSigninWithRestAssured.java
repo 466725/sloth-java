@@ -22,7 +22,6 @@ public class TestSigninWithRestAssured extends ApiTestCase {
 
     @Test(priority = 3, groups = {TestGroups.REGRESSION, TestGroups.SMOKE, TestGroups.API, TestGroups.CANADA_ONLY})
     public void shouldCreateApplicationSessionWithRestAssured() {
-        logger.info("API manager subscription key is: " + apiManagerSubscriptionKey);
         String payload = """
                 {
                   "ApplicationKey": "2939bf3b-6c04-4c7b-bcfd-bb590e0016fa"

@@ -52,6 +52,19 @@ mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml"
 
 The POM's default suite value is `SanityTest.xml`. TestNG reports are written to `test-automation-framework/target/surefire-reports`.
 
+#### API test configuration
+
+Copy `.env.example` to `.env` in the repository root and set
+`API_MANAGER_SUBSCRIPTION_KEY` to your local API subscription key. The loader
+finds `.env` when tests run from either the repository root or the framework
+module. An environment variable with the same name takes precedence, so CI can
+inject the key without a file. API test setup fails explicitly if the key is
+missing or blank; non-API tests do not require it.
+
+`.env` is ignored by Git. Never put real secrets in `.env.example` or test logs.
+Rotate any key previously committed to source control; removing it from the
+current files does not remove it from Git history.
+
 ### `spring-boot-demo`
 
 ```powershell

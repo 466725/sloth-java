@@ -1,5 +1,6 @@
 package core;
 
+import config.EnvironmentConfig;
 import com.relevantcodes.extentreports.LogStatus;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -26,8 +27,7 @@ import static com.google.common.base.Throwables.getStackTraceAsString;
 public class ApiTestCase extends TestCase {
     protected final static Logger logger = LogManager.getLogger(ApiTestCase.class.getName());
     protected static OkHttpClient client = new OkHttpClient.Builder().build();
-    // TODO: Read from environment variable instead of hardcoding.
-    protected static String apiManagerSubscriptionKey = "5c8c64aa27dc4384b59bf3ebf5547895";
+    protected static String apiManagerSubscriptionKey;
     protected CookieJar cookieJar = null;
 
     /**
@@ -35,6 +35,7 @@ public class ApiTestCase extends TestCase {
      */
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
+        apiManagerSubscriptionKey = EnvironmentConfig.getRequired("API_MANAGER_SUBSCRIPTION_KEY");
         logger.info("-----------------------Beginning of class----------------------");
         cookieJar = new CookieJar() {
             private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
