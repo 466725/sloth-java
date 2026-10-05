@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke Test Suite" verbose="1" preserve-order="true">
+    <listeners>
+        <listener class-name="core.FailureListener"/>
+    </listeners>
+
+    <test name="Smoke" parallel="false">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <exclude name="quarantine"/>
+                <exclude name="canada-only"/>
+            </run>
+        </groups>
+
+        <!-- Scan packages so any new @Test(groups={"smoke", ...}) is auto-included -->
+        <packages>
+            <package name="api.*"/>
+            <package name="ui.*"/>
+            <package name="unit.*"/>
+        </packages>
+    </test>
+</suite>
