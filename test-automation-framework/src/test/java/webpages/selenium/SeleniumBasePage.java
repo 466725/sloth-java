@@ -13,7 +13,7 @@ import utils.OperationSystemDetector;
 import webpages.selenium.tangerine.HomePage;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +30,6 @@ public class SeleniumBasePage {
     private static final String BROWSER_CHROME = "chrome";
     private static final String BROWSER_FIREFOX = "firefox";
     private static final String BROWSER_IE = "ie";
-    private static final String ORG_TANGERINE = "tangerine";
     private static final String WD_HUB_SUFFIX = "/wd/hub";
 
     protected static WebDriver driver = null;
@@ -98,10 +97,10 @@ public class SeleniumBasePage {
             for (Iterator<String> iterator = candidateUrls.iterator(); iterator.hasNext(); ) {
                 String candidateUrl = iterator.next();
                 try {
-                    WebDriver remoteDriver = new RemoteWebDriver(new URL(candidateUrl), options);
+                    WebDriver remoteDriver = new RemoteWebDriver(URI.create(candidateUrl).toURL(), options);
                     logger.info("web.session.create.success | seleniumUrl=" + candidateUrl + " | attempt=" + attempt + "/" + maxAttempts);
                     return remoteDriver;
-                } catch (MalformedURLException e) {
+                } catch (IllegalArgumentException | MalformedURLException e) {
                     logger.fatal("Invalid SELENIUM_REMOTE_URL: " + candidateUrl, e);
                     return null;
                 } catch (Exception exception) {

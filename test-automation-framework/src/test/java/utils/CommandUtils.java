@@ -17,6 +17,7 @@ public final class CommandUtils {
 
     // Utility methods for invoking external commands used by integration tests.
     private CommandUtils() {
+        logger.error("Attempted to instantiate utility class CommandUtils", null);
         throw new UnsupportedOperationException("Utility class");
     }
 

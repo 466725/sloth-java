@@ -29,7 +29,7 @@ public abstract class MobileAppTestCase extends MobileTestCase {
             return DEFAULT_DESKCLOCK_PACKAGES;
         }
 
-        List<String> parsed = Arrays.stream(configuredPackages.split(",")).map(String::trim).filter(value -> !value.isBlank()).collect(Collectors.toList());
+        List<String> parsed = Arrays.stream(configuredPackages.split(",")).map(value -> value == null ? "" : value.trim()).filter(value -> !value.isBlank()).collect(Collectors.toList());
 
         if (parsed.isEmpty()) {
             return DEFAULT_DESKCLOCK_PACKAGES;

@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.net.URL;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -57,7 +57,7 @@ public abstract class MobileTestCase extends TestCase {
             for (Iterator<String> iterator = candidateUrls.iterator(); iterator.hasNext(); ) {
                 String candidateUrl = iterator.next();
                 try {
-                    AndroidDriver androidDriver = new AndroidDriver(new URL(candidateUrl), options);
+                    AndroidDriver androidDriver = new AndroidDriver(URI.create(candidateUrl).toURL(), options);
                     androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
                     logger.info("mobile.session.create.success | appiumUrl=" + candidateUrl + " | deviceName=" + options.getDeviceName());
                     return androidDriver;

@@ -13,6 +13,7 @@ public class FailureListener implements ITestListener, IAnnotationTransformer {
     protected final static Logger logger = LogManager.getLogger(FailureListener.class.getName());
 
     @Override
+    @SuppressWarnings("rawtypes")
     public void transform(ITestAnnotation annotation,
                           Class testClass,
                           Constructor testConstructor,

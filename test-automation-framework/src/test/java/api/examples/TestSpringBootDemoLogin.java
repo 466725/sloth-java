@@ -11,6 +11,7 @@ import core.ApiTestCase;
 import core.TestGroups;
 
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 import static io.restassured.RestAssured.given;
@@ -31,7 +32,7 @@ public class TestSpringBootDemoLogin extends ApiTestCase {
     private boolean isSpringBootDemoUp() {
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(baseUrl + "/actuator/health");
+            URL url = URI.create(baseUrl + "/actuator/health").toURL();
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(2000);

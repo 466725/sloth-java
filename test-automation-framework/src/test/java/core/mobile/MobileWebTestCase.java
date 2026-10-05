@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.URL;
+import java.net.URI;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,7 +64,7 @@ public abstract class MobileWebTestCase extends MobileTestCase {
             chromeOptions.addArguments("--headless=new");
         }
 
-        WebDriver seleniumDriver = new RemoteWebDriver(new URL(seleniumRemoteUrl), chromeOptions);
+        WebDriver seleniumDriver = new RemoteWebDriver(URI.create(seleniumRemoteUrl).toURL(), chromeOptions);
         seleniumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
         logger.info("mobile.web.session.init.selenium | seleniumUrl=" + seleniumRemoteUrl + " | emulatedDevice=" + emulatedDeviceName + " | headless=" + headless);
         return seleniumDriver;
