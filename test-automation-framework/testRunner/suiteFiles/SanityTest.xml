@@ -19,7 +19,7 @@
         <packages>
             <package name="api.*"/>
             <package name="ui.*"/>
-            <package name="unit.*"/>
+            <package name="demo.*"/>
         </packages>
     </test>
 </suite>

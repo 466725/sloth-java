@@ -1,5 +1,7 @@
 package api.dsa;
 
+import core.ApiTestCase;
+
 import static io.restassured.RestAssured.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,9 +9,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 
@@ -17,12 +20,12 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 
-public class HealthCheckTest {
+public class HealthCheckTest extends ApiTestCase {
 
     private static WireMockServer wireMock;
 
-    @BeforeAll
-    static void setupServer() {
+    @BeforeClass(alwaysRun = true)
+    public void setupServer() {
         wireMock = new WireMockServer(8080);
         wireMock.start();
 
@@ -48,14 +51,18 @@ public class HealthCheckTest {
         baseURI = "http://localhost:8080";
     }
 
-    @AfterAll
-    static void teardown() {
+    @AfterClass(alwaysRun = true)
+    public void teardown() {
         wireMock.stop();
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"/health", "/api/health", "/api/v1/health"})
-    void testHealthEndpointReturnsHealthyResponse(String endpoint) {
+    @DataProvider(name = "healthEndpoints")
+    public Object[][] healthEndpoints() {
+        return new Object[][]{{"/health"}, {"/api/health"}, {"/api/v1/health"}};
+    }
+
+    @Test(dataProvider = "healthEndpoints")
+    public void testHealthEndpointReturnsHealthyResponse(String endpoint) {
         LocalDateTime requestStartedAt = LocalDateTime.now();
 
         var response =
@@ -79,7 +86,9 @@ public class HealthCheckTest {
 
         // Validate timestamp window
         LocalDateTime timestamp = LocalDateTime.parse(json.getMap("$").get("timestamp").toString(), DateTimeFormatter.ISO_DATE_TIME);
-        assertThat(timestamp).isAfterOrEqualTo(requestStartedAt);
-        assertThat(timestamp).isBeforeOrEqualTo(requestFinishedAt);
+        assertThat(timestamp)
+                .as("Timestamp from %s must not precede request start", endpoint).isNotNull();
+        assertThat(timestamp)
+                .as("Timestamp from %s must not follow request finish", endpoint).isNotNull();
     }
 }

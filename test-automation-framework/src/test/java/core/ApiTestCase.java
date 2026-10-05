@@ -70,6 +70,12 @@ public class ApiTestCase extends TestCase {
         try {
             logger.info("***** Class: " + result.getTestClass().getName() + " *****");
             logger.info("***** Method: " + result.getName() + "(...) *****");
+            String testName = result.getTestClass().getName() + "." + result.getName();
+            if (result.getStatus() == ITestResult.FAILURE) {
+                logger.error("API test failed: " + testName, result.getThrowable());
+            } else if (result.getStatus() == ITestResult.SKIP && result.getThrowable() != null) {
+                logger.warn("API test skipped or scheduled for retry: " + testName, result.getThrowable());
+            }
             logResultToExtent(result);
         } finally {
             super.afterMethod(result);
