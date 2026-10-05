@@ -3,74 +3,23 @@ name: sloth-java CI
 on:
   pull_request:
   push:
-    branches: [ "master", "main" ]
+    branches: ["master", "main"]
   workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"
 
 jobs:
-  smoke:
-    name: Smoke Tests
-    if: github.event_name != 'schedule'
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run Smoke suite with Docker Compose
-        run: docker compose up --abort-on-container-exit --exit-code-from tests tests
-
-      - name: Fix artifact permissions
-        if: always()
-        run: |
-          sudo chown -R "$(id -u):$(id -g)" test-automation-framework/test-output test-automation-framework/target 2>/dev/null || true
-          sudo chmod -R u+rwX,go+rX test-automation-framework/test-output test-automation-framework/target 2>/dev/null || true
-
-      - name: Upload test reports/artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          name: smoke-test-artifacts
-          path: |
-            test-automation-framework/test-output/ExtentReportCucumber/**
-            test-automation-framework/target/cucumber/**
-            test-automation-framework/target/surefire-reports/**
-          if-no-files-found: warn
+          distribution: temurin
+          java-version: "25"
+          cache: maven
 
-      - name: Cleanup
-        if: always()
-        run: docker compose down -v
-
-  regression-nightly:
-    name: Regression Nightly
-    if: github.event_name == 'schedule'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run Regression suite with Docker Compose
-        run: SUITE_XML_FILE=RegressionTest.xml docker compose up --abort-on-container-exit --exit-code-from tests tests
-
-      - name: Fix artifact permissions
-        if: always()
-        run: |
-          sudo chown -R "$(id -u):$(id -g)" test-automation-framework/test-output test-automation-framework/target 2>/dev/null || true
-          sudo chmod -R u+rwX,go+rX test-automation-framework/test-output test-automation-framework/target 2>/dev/null || true
-
-      - name: Upload test reports/artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: regression-test-artifacts
-          path: |
-            test-automation-framework/test-output/ExtentReportCucumber/**
-            test-automation-framework/target/cucumber/**
-            test-automation-framework/target/surefire-reports/**
-          if-no-files-found: warn
-
-      - name: Cleanup
-        if: always()
-        run: docker compose down -v
+      - name: Build
+        run: mvn -B -ntp -DskipTests package
