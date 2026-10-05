@@ -63,8 +63,6 @@ public class HealthCheckTest extends ApiTestCase {
 
     @Test(dataProvider = "healthEndpoints")
     public void testHealthEndpointReturnsHealthyResponse(String endpoint) {
-        LocalDateTime requestStartedAt = LocalDateTime.now();
-
         var response =
                 given()
                         .when()
@@ -73,8 +71,6 @@ public class HealthCheckTest extends ApiTestCase {
                         .statusCode(200)
                         .extract()
                         .response();
-
-        LocalDateTime requestFinishedAt = LocalDateTime.now();
 
         // Validate content-type
         assertThat(response.getHeader("Content-Type")).startsWith("application/json");

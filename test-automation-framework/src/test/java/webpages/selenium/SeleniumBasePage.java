@@ -23,7 +23,7 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * Base class for all web pages.
+ * Base class for all Selenium web pages.
  */
 public class SeleniumBasePage {
     private static final Logger logger = LogManager.getLogger(SeleniumBasePage.class.getName());

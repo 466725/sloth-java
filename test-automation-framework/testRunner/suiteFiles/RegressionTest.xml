@@ -17,8 +17,9 @@
 
         <!-- Scan packages so any new @Test(groups={"regression", ...}) is auto-included -->
         <packages>
-            <package name="core.*"/>
-            <package name="scenarios.*"/>
+            <package name="api.*"/>
+            <package name="ui.*"/>
+            <package name="demo.*"/>
         </packages>
     </test>
 </suite>

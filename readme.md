@@ -52,6 +52,11 @@ mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml"
 
 The POM's default suite value is `SanityTest.xml`. TestNG reports are written to `test-automation-framework/target/surefire-reports`.
 
+The framework's Surefire plugin explicitly uses the TestNG provider to execute
+these XML suites and fails if no tests run. The provider dependency belongs inside
+the plugin's `<dependencies>`, not the project's dependency list. JUnit tests in
+this module are not executed by this TestNG configuration.
+
 #### API test configuration
 
 Copy `.env.example` to `.env` in the repository root and set
@@ -101,6 +106,88 @@ Once the app is running, useful endpoints include:
 - `GET /api/hello`
 - `POST /api/login`
 - `GET /actuator/health`
+
+## Docker Services
+
+The Compose file is [docker/docker-compose.yml](docker/docker-compose.yml).
+Start Docker Desktop with Linux containers enabled, then run these PowerShell
+commands from the repository root. Keep `--project-directory .` so the `tests`
+service mounts the whole repository at `/workspace`, not just the `docker` folder.
+
+### Start services
+
+```powershell
+# Start all services, including every optional profile and the test runner
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile "*" up -d
+
+# Start Selenium in the background
+docker compose --project-directory . -f .\docker\docker-compose.yml up -d selenium
+
+# Optional: start the Android emulator and Appium as well
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile mobile-emulator-google up -d selenium android-emulator-google appium-google
+
+# Check container status and health
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile mobile-emulator-google ps -a
+```
+
+Starting all services also runs the `tests` service, which exits after its Maven
+test run; it is not a long-running service. Use the Selenium-only or mobile-service
+commands above if you want infrastructure without automatically running tests.
+
+Service endpoints:
+
+- Selenium: `http://localhost:4444` (status: `/status`).
+- Selenium browser viewer: `http://localhost:7900`.
+- Appium (mobile profile): `http://localhost:4724`.
+- Android emulator (mobile profile): ADB on port `5555`, gRPC on port `8554`.
+
+The Android emulator requires a host that supports its virtualization requirements;
+the mobile profile may need a suitably configured Linux host.
+
+### Run tests in Docker
+
+The `tests` service runs Maven with Java 25 and waits for Selenium to become healthy.
+It runs the smoke suite by default and exits when the test run finishes.
+
+```powershell
+docker compose --project-directory . -f .\docker\docker-compose.yml run --rm tests
+
+# Select another suite for a subsequent run
+$env:SUITE_XML_FILE = "RegressionTest.xml"
+docker compose --project-directory . -f .\docker\docker-compose.yml run --rm tests
+Remove-Item Env:\SUITE_XML_FILE
+```
+
+### Troubleshoot with logs
+
+```powershell
+# Show recent service logs
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile mobile-emulator-google logs --tail 200
+
+# Follow Selenium logs live (Ctrl+C stops following, not the service)
+docker compose --project-directory . -f .\docker\docker-compose.yml logs -f --tail 100 selenium
+
+# Follow mobile-service logs
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile mobile-emulator-google logs -f --tail 100 android-emulator-google appium-google
+```
+
+`run --rm tests` prints Maven output directly and removes its container afterward.
+For a test container whose logs should remain available, use
+`docker compose --project-directory . -f .\docker\docker-compose.yml up tests`,
+then inspect it with
+`docker compose --project-directory . -f .\docker\docker-compose.yml logs --tail 200 tests`.
+If startup fails, check Docker Desktop is running, inspect `ps -a` and service logs,
+and check whether another process is already using a published port.
+
+### Stop services
+
+```powershell
+# Stop all services across every profile without removing containers
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile "*" stop
+
+# Stop and remove all service containers and the Compose network
+docker compose --project-directory . -f .\docker\docker-compose.yml --profile "*" down
+```
 
 ## Playwright Setup
 
