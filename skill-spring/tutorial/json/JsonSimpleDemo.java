@@ -8,7 +8,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.testng.annotations.Test;
-import testcases.ApiTestCase;
+import core.ApiTestCase;
 
 public class JsonSimpleDemo extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(JsonSimpleDemo.class.getName());

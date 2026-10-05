@@ -1,6 +1,6 @@
 package tutorial.javafaker;
 
-import testcases.ApiTestCase;
+import core.ApiTestCase;
 import com.github.javafaker.Faker;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

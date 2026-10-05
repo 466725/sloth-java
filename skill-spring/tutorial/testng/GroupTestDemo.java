@@ -3,7 +3,7 @@ package tutorial.testng;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import testcases.ApiTestCase;
+import core.ApiTestCase;
 
 public class GroupTestDemo extends ApiTestCase {
     protected final static Logger logger = LogManager.getLogger(GroupTestDemo.class.getName());

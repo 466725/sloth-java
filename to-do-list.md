@@ -1,9 +1,9 @@
 ## Secrets and environment profiles Replace hardcoded secrets with env-only loading and profile files (dev/stage/prod). 
-Why: apiManagerSubscriptionKey is hardcoded in src/test/java/testcases/ApiTestCase.java.
+Why: apiManagerSubscriptionKey is hardcoded in src/test/java/core/ApiTestCase.java.
 ## Parallel-safe WebDriver lifecycle Move from static/shared driver to ThreadLocal<WebDriver>. 
-Why: driver is static in both src/test/java/testcases/GuiTestCase.java and src/main/java/webpages/BaseWebPage.java, which blocks safe parallel UI runs.
+Why: driver is static in both src/test/java/core/GuiTestCase.java and src/main/java/webpages/BaseWebPage.java, which blocks safe parallel UI runs.
 ## Deterministic waits (remove sleep-based render wait) Replace sleep with document.readyState + explicit condition waits. 
-Why: Thread.sleep(...) is used in src/main/java/utilities/SeleniumWrapper.java, which causes flaky timing.
+Why: Thread.sleep(...) is used in src/main/java/utils/SeleniumWrapper.java, which causes flaky timing.
 ## API contract validation Add JSON schema/POJO assertions (not only status code). 
 Why: API tests in src/test/java/scenarios/api/cineplex/TestSigninWithRestAssured.java mostly validate 200 only.
 ## DB test utility layer Add reusable JDBC helpers (create/seed/cleanup/assert) and test fixtures. 

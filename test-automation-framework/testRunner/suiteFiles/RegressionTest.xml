@@ -3,7 +3,7 @@
 
 <suite name="Regression Test Suite" verbose="1" preserve-order="true">
     <listeners>
-        <listener class-name="testcases.FailureListener"/>
+        <listener class-name="core.FailureListener"/>
     </listeners>
 
     <test name="Regression" parallel="false">
@@ -17,7 +17,7 @@
 
         <!-- Scan packages so any new @Test(groups={"regression", ...}) is auto-included -->
         <packages>
-            <package name="testcases.*"/>
+            <package name="core.*"/>
             <package name="scenarios.*"/>
         </packages>
     </test>
