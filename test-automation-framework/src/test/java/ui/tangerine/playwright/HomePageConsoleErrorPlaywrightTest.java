@@ -10,8 +10,6 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.assertTrue;
-
 public class HomePageConsoleErrorPlaywrightTest extends PlaywrightGuiTestCase {
     final static Logger logger = LogManager.getLogger(HomePageConsoleErrorPlaywrightTest.class.getName());
 
