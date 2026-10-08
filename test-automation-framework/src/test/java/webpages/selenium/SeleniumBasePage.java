@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.NoSuchDriverException;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.OperationSystemDetector;
+import webpages.selenium.google.GoogleSearchHomePage;
 import webpages.selenium.tangerine.HomePage;
 
 import java.net.MalformedURLException;
@@ -162,6 +163,12 @@ public class SeleniumBasePage {
         WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
         currentDriver.get(PropertiesFileReader.getTangerineURL());
         return new HomePage(currentDriver);
+    }
+
+    public static SeleniumBasePage gotoGoogleSearchHomePage() {
+        WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
+        currentDriver.get(PropertiesFileReader.getGoogleURL());
+        return new GoogleSearchHomePage(currentDriver);
     }
 
     public SeleniumBasePage gotoSigninPage() {

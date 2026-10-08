@@ -71,9 +71,9 @@ public class PropertiesFileReader {
         return value.trim();
     }
 
-    // Returns Amazon base URL.
-    public static String getAmazonURL() {
-        return getRequired("AMAZON_URL");
+    // Returns Google base URL.
+    public static String getGoogleURL() {
+        return getRequired("GOOGLE_URL");
     }
 
     // Returns Tangerine base URL.
@@ -135,7 +135,7 @@ public class PropertiesFileReader {
     }
     
     public static void main(String[] args) {
-        System.out.println(getAmazonURL());
+        System.out.println(getGoogleURL());
         System.out.println(getTangerineURL());
         System.out.println(getBarcodeBaseURL());
         System.out.println(getCONNECT_URL());
