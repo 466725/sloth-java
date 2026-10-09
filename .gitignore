@@ -56,3 +56,6 @@
 
 # Local secrets
 .env
+
+# Ignore macOS Finder metadata file at the repository root
+/.DS_Store
