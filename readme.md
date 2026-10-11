@@ -126,11 +126,13 @@ Once the app is running, useful endpoints include:
 ## Docker Services
 
 The Compose file is [docker/docker-compose.yml](docker/docker-compose.yml).
-Start Docker Desktop with Linux containers enabled, then run these PowerShell
-commands from the repository root. Keep `--project-directory .` so the `tests`
-service mounts the whole repository at `/workspace`, not just the `docker` folder.
+Start Docker Desktop with Linux containers enabled, then run the commands below
+from the repository root. Keep `--project-directory .` so the `tests` service
+mounts the whole repository at `/workspace`, not just the `docker` folder.
 
 ### Start services
+
+**Windows (PowerShell):**
 
 ```powershell
 # Start all services, including every optional profile and the test runner
@@ -144,6 +146,22 @@ docker compose --project-directory . -f .\docker\docker-compose.yml --profile mo
 
 # Check container status and health
 docker compose --project-directory . -f .\docker\docker-compose.yml --profile mobile-emulator-google ps -a
+```
+
+**macOS / Linux (Bash):**
+
+```bash
+# Start all services, including every optional profile and the test runner
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile "*" up -d
+
+# Start Selenium in the background
+docker compose --project-directory . -f ./docker/docker-compose.yml up -d selenium
+
+# Optional: start the Android emulator and Appium as well
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile mobile-emulator-google up -d selenium android-emulator-google appium-google
+
+# Check container status and health
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile mobile-emulator-google ps -a
 ```
 
 Starting all services also runs the `tests` service, which exits after its Maven
@@ -160,10 +178,18 @@ Service endpoints:
 The Android emulator requires a host that supports its virtualization requirements;
 the mobile profile may need a suitably configured Linux host.
 
+On Apple Silicon (ARM64) Macs, the Selenium service uses `selenium/standalone-chromium`
+instead of `selenium/standalone-chrome`, because Google Chrome is not available for
+Linux/ARM64. Chromium behaves identically for WebDriver tests. The mobile-emulator
+profile images are AMD64-only and will not run natively on Apple Silicon; use an
+AMD64 host or Docker emulation (`--platform linux/amd64`) with reduced performance.
+
 ### Run tests in Docker
 
 The `tests` service runs Maven with Java 25 and waits for Selenium to become healthy.
 It runs the smoke suite by default and exits when the test run finishes.
+
+**Windows (PowerShell):**
 
 ```powershell
 docker compose --project-directory . -f .\docker\docker-compose.yml run --rm tests
@@ -174,15 +200,34 @@ docker compose --project-directory . -f .\docker\docker-compose.yml run --rm tes
 Remove-Item Env:\SUITE_XML_FILE
 ```
 
+**macOS / Linux (Bash):**
+
+```bash
+docker compose --project-directory . -f ./docker/docker-compose.yml run --rm tests
+
+# Select another suite for a subsequent run
+SUITE_XML_FILE=RegressionTest.xml docker compose --project-directory . -f ./docker/docker-compose.yml run --rm tests
+```
+
 ### Run tests locally against Docker Selenium
 
 Use this when local ChromeDriver can't start, for example when a Windows Application
-Control policy blocks `selenium-manager.exe` (`CreateProcess error=4551`). Maven runs
-on the host, and the browser runs in the Selenium container:
+Control policy blocks `selenium-manager.exe` (`CreateProcess error=4551`) or when
+macOS permissions prevent ChromeDriver from launching. Maven runs on the host, and
+the browser runs in the Selenium container:
+
+**Windows (PowerShell):**
 
 ```powershell
 docker compose --project-directory . -f .\docker\docker-compose.yml up -d selenium
 mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dselenium.remote.url=http://localhost:4444"
+```
+
+**macOS / Linux (Bash):**
+
+```bash
+docker compose --project-directory . -f ./docker/docker-compose.yml up -d selenium
+mvn -pl test-automation-framework test -DsuiteXmlFile=RegressionTest.xml -Dselenium.remote.url=http://localhost:4444
 ```
 
 Local ChromeDriver vs. Docker Selenium:
@@ -191,7 +236,7 @@ Local ChromeDriver vs. Docker Selenium:
 | --- | --- | --- |
 | How it's selected | Default when no remote URL is set | `-Dselenium.remote.url` or `SELENIUM_REMOTE_URL` is set |
 | Driver class | `ChromeDriver` | `RemoteWebDriver` |
-| Browser location | Chrome installed on the host (Windows/macOS only) | Chrome in the `selenium/standalone-chrome` container (Linux) |
+| Browser location | Chrome installed on the host (Windows/macOS only) | Chromium in the `selenium/standalone-chromium` container (Linux) |
 | Driver resolution | Selenium Manager (`selenium-manager.exe`) finds or downloads `chromedriver` | Bundled in the image; no host executables run |
 | Corporate policy impact | Can be blocked by Application Control / AppLocker | Unaffected (needs only Docker) |
 | Prerequisites | Chrome on host; Selenium Manager allowed | Docker Desktop running; port `4444` free |
@@ -201,12 +246,25 @@ Local ChromeDriver vs. Docker Selenium:
 | Debugging | Easiest: breakpoints, DevTools, local window | Breakpoints work; browser visible via noVNC only |
 | Best for | Quick local debugging on an unrestricted machine | Restricted machines, reproducible runs, CI parity |
 
-Alternatively, set `$env:SELENIUM_REMOTE_URL = "http://localhost:4444"` for the
-terminal session instead of passing `-Dselenium.remote.url`. If the container is
-healthy but `http://localhost:4444/status` is unreachable, recreate it with
-`up -d --force-recreate selenium`.
+Alternatively, set the `SELENIUM_REMOTE_URL` environment variable for the terminal
+session instead of passing `-Dselenium.remote.url`:
+
+**Windows (PowerShell):**
+```powershell
+$env:SELENIUM_REMOTE_URL = "http://localhost:4444"
+```
+
+**macOS / Linux (Bash):**
+```bash
+export SELENIUM_REMOTE_URL="http://localhost:4444"
+```
+
+If the container is healthy but `http://localhost:4444/status` is unreachable,
+recreate it with `up -d --force-recreate selenium`.
 
 ### Troubleshoot with logs
+
+**Windows (PowerShell):**
 
 ```powershell
 # Show recent service logs
@@ -219,15 +277,30 @@ docker compose --project-directory . -f .\docker\docker-compose.yml logs -f --ta
 docker compose --project-directory . -f .\docker\docker-compose.yml --profile mobile-emulator-google logs -f --tail 100 android-emulator-google appium-google
 ```
 
+**macOS / Linux (Bash):**
+
+```bash
+# Show recent service logs
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile mobile-emulator-google logs --tail 200
+
+# Follow Selenium logs live (Ctrl+C stops following, not the service)
+docker compose --project-directory . -f ./docker/docker-compose.yml logs -f --tail 100 selenium
+
+# Follow mobile-service logs
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile mobile-emulator-google logs -f --tail 100 android-emulator-google appium-google
+```
+
 `run --rm tests` prints Maven output directly and removes its container afterward.
 For a test container whose logs should remain available, use
-`docker compose --project-directory . -f .\docker\docker-compose.yml up tests`,
+`docker compose --project-directory . -f ./docker/docker-compose.yml up tests`,
 then inspect it with
-`docker compose --project-directory . -f .\docker\docker-compose.yml logs --tail 200 tests`.
+`docker compose --project-directory . -f ./docker/docker-compose.yml logs --tail 200 tests`.
 If startup fails, check Docker Desktop is running, inspect `ps -a` and service logs,
 and check whether another process is already using a published port.
 
 ### Stop services
+
+**Windows (PowerShell):**
 
 ```powershell
 # Stop all services across every profile without removing containers
@@ -235,6 +308,16 @@ docker compose --project-directory . -f .\docker\docker-compose.yml --profile "*
 
 # Stop and remove all service containers and the Compose network
 docker compose --project-directory . -f .\docker\docker-compose.yml --profile "*" down
+```
+
+**macOS / Linux (Bash):**
+
+```bash
+# Stop all services across every profile without removing containers
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile "*" stop
+
+# Stop and remove all service containers and the Compose network
+docker compose --project-directory . -f ./docker/docker-compose.yml --profile "*" down
 ```
 
 ## Playwright Setup
