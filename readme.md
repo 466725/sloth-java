@@ -94,16 +94,15 @@ add `<class name="ui.tangerine.cucumber.CucumberRunnerTest"/>` to the suite XML.
 mvn -pl spring-boot-demo test
 ```
 
-To run only `DemoApplicationTests`, use PowerShell from the repository root
+To run only `DemoApplicationTests`, use the following command from the repository root
 with JDK 25+ and Maven 3.9+ available on your `PATH`:
 
-```powershell
+```bash
 # Use the demo module's POM and run only DemoApplicationTests
-mvn -f .\spring-boot-demo\pom.xml "-Dtest=DemoApplicationTests" test
+mvn -f spring-boot-demo/pom.xml "-Dtest=DemoApplicationTests" test
 ```
 
-`-f` selects the module's POM, and `-Dtest` selects the test class. Keep the
-`-Dtest` argument quoted in PowerShell. Reports are written to
+`-f` selects the module's POM, and `-Dtest` selects the test class. Reports are written to
 `spring-boot-demo/target/surefire-reports`.
 
 ### `skill-spring`
