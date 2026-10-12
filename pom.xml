@@ -14,5 +14,6 @@
     <modules>
         <module>test-automation-framework</module>
         <module>spring-boot-demo</module>
+        <module>skill-spring</module>
     </modules>
 </project>
