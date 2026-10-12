@@ -1,4 +1,4 @@
-package concepts.recursion;
+package recursion;
 
 public class Fibonacci {
     static int n1 = 0, n2 = 1;

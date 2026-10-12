@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/check-if-every-row-and-column-contains-all-numbers/?company=karat
 // Check if Every Row and Column Contains All Numbers
 

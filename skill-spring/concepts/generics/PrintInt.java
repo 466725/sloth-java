@@ -1,4 +1,4 @@
-package concepts.generics;
+package generics;
 
 import java.util.Objects;
 

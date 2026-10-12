@@ -1,4 +1,4 @@
-package concepts.generics;
+package generics;
 
 /**
  * Generic printer that can print values of any reference type.

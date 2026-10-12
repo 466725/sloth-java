@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/kth-largest-element-in-an-array/?src=taro75
 
 /**

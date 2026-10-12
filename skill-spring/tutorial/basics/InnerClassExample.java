@@ -1,4 +1,4 @@
-package tutorial.basics;
+package basics;
 
 /**
  * Demonstrates member inner classes, anonymous inner classes, and lambdas.

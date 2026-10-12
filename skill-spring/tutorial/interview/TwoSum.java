@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 
 // https://www.jointaro.com/interviews/questions/two-sum/?src=taro75
 

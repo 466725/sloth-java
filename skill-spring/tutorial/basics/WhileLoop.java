@@ -1,4 +1,4 @@
-package tutorial.basics;
+package basics;
 
 import java.util.Random;
 import java.util.Scanner;

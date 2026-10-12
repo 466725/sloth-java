@@ -1,6 +1,6 @@
-package concepts.generics;
+package generics;
 
-import concepts.Polymorphism.Cat;
+import polymorphism.Cat;
 
 /**
  * Demonstrates generic methods with one and two type parameters.

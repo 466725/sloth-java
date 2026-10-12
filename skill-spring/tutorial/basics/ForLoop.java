@@ -1,4 +1,4 @@
-package tutorial.basics;
+package basics;
 
 /**
  * Simple examples of using Java for-loops.

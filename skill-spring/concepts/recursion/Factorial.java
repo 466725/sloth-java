@@ -1,4 +1,4 @@
-package concepts.recursion;
+package recursion;
 
 public class Factorial {
     static int factorial(int n) {

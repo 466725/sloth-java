@@ -1,4 +1,4 @@
-package concepts.deepcopy;
+package deepcopy;
 
 public class DeepCopyDemo {
     public static void main(String[] args) {

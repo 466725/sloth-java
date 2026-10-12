@@ -1,4 +1,4 @@
-package concepts.backtrack;
+package backtrack;
 // https://www.jointaro.com/interviews/questions/generate-parentheses/?src=taro75
 
 import java.util.ArrayList;

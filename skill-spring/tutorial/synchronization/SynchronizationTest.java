@@ -1,4 +1,4 @@
-package tutorial.synchronization;
+package synchronization;
 
 public class SynchronizationTest {
     public static void main(String args[]) {

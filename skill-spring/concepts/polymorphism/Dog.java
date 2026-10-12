@@ -1,4 +1,4 @@
-package concepts.Polymorphism;
+package polymorphism;
 
 /**
  * Dog implementation of {@link Animal}.

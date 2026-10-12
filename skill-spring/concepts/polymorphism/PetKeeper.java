@@ -1,4 +1,4 @@
-package concepts.Polymorphism;
+package polymorphism;
 
 import java.util.Objects;
 

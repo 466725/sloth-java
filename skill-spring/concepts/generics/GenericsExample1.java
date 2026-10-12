@@ -1,4 +1,4 @@
-package concepts.generics;
+package generics;
 
 /**
  * Demonstrates the limitation of non-generic classes.

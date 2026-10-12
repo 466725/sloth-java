@@ -9,6 +9,6 @@ public class SimpleTestFactoryDemo {
 
     @Factory
     public Object[] factoryMethod() {
-        return new Object[]{new tutorial.testng.SimpleTestDemo(1000), new tutorial.testng.SimpleTestDemo(2000)};
+        return new Object[]{new testng.SimpleTestDemo(1000), new testng.SimpleTestDemo(2000)};
     }
 }

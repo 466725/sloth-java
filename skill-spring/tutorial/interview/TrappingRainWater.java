@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/trapping-rain-water/?src=taro75
 
 import java.util.Arrays;

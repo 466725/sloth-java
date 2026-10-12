@@ -1,4 +1,4 @@
-package concepts.annotations;
+package annotations;
 
 /**
  * Simple domain model to demonstrate getter and setter usage.

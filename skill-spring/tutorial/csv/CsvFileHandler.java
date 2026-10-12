@@ -6,7 +6,7 @@ import java.io.FileReader;
 
 public class CsvFileHandler {
     public static void printCSV() throws Exception {
-        File file = new File("./load_test_data_enroll_students.csv");
+        File file = new File("./skill-spring/tutorial/csv/load_test_data_enroll_students.csv");
         String filePath = file.getAbsolutePath();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -14,17 +14,9 @@ public class CsvFileHandler {
             while ((line = br.readLine()) != null) {
                 // Split by comma, assuming standard CSV format
                 String[] record = line.split(",");
-
-                // Ensure the record has enough columns before accessing indices
-                if (record.length > 5) {
-                    String jsonBody = "[\r\n    {"
-                            + "\r\n        \"ITTicketTypeID\": " + record[3].trim() + ","
-                            + "\r\n        \"TicketTypeCode\": \"" + record[4].trim() + "\","
-                            + "\r\n        \"TicketCode\": \"" + record[5].trim() + "\","
-                            + "\r\n        \"Quantity\": 1,"
-                            + "\r\n        \"ITSessionId\": " + record[2].trim() + ""
-                            + "\r\n    }\r\n]";
-                    System.out.println(jsonBody);
+                System.out.println("Record: ");
+                for (String field : record) {
+                    System.out.println(field);
                 }
             }
         }

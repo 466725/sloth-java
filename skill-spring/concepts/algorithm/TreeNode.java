@@ -1,4 +1,4 @@
-package concepts.algorithm;
+package algorithm;
 
 class TreeNode {
     int val;

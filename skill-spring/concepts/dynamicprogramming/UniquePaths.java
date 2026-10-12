@@ -1,4 +1,4 @@
-package concepts.dynamicprogramming;
+package dynamicprogramming;
 // https://leetcode.com/problems/unique-paths/description/
 
 /**

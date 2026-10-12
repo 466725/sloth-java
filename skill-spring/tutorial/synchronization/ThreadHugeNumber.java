@@ -1,4 +1,4 @@
-package tutorial.synchronization;
+package synchronization;
 
 class ThreadHugeNumber extends Thread {
     FiveTimesPrinter printer;

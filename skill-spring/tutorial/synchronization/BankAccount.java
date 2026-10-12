@@ -1,4 +1,4 @@
-package tutorial.synchronization;
+package synchronization;
 
 class BankAccount {
     int amount = 10000;

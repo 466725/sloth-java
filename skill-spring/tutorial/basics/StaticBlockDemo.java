@@ -1,4 +1,4 @@
-package tutorial.basics;
+package basics;
 
 /**
  * Demonstrates execution order of static blocks, constructor, and main method.

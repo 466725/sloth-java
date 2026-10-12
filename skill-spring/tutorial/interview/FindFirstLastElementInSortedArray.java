@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/find-first-and-last-position-of-element-in-sorted-array/?src=taro75
 
 import java.util.Arrays;

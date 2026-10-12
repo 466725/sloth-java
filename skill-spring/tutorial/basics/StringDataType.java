@@ -1,4 +1,4 @@
-package tutorial.basics;
+package basics;
 
 /**
  * Demonstrates common Java String operations and related patterns.

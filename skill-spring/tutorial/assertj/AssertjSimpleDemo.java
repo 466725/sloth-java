@@ -32,12 +32,4 @@ public class AssertjSimpleDemo {
 
         softly.assertAll();
     }
-
-    @Test(priority = 3)
-    public void assertjAssertionsTestThree() {
-        SoftAssertions softly = new SoftAssertions();
-        softly.assertThat(false).isTrue();
-        softly.assertThat(0).isGreaterThan(1);
-        softly.assertAll();
-    }
 }

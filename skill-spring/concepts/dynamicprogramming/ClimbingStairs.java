@@ -1,4 +1,4 @@
-package concepts.dynamicprogramming;
+package dynamicprogramming;
 // https://www.jointaro.com/interviews/questions/climbing-stairs/?src=taro75
 
 /**

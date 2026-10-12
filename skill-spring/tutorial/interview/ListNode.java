@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 
 // =========================
 // Definition for singly-linked list

@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/find-words-that-can-be-formed-by-characters/?company=karat
 
 /**

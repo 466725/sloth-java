@@ -1,6 +1,6 @@
-package concepts.reflection;
+package reflection;
 
-import concepts.Polymorphism.Dog;
+import polymorphism.Dog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

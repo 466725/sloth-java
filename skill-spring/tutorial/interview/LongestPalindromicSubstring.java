@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/longest-palindromic-substring/?src=taro75
 
 import java.util.Arrays;

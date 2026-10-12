@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://leetcode.com/problems/add-two-numbers/
 
 /**

@@ -1,4 +1,4 @@
-package concepts.dynamicprogramming;
+package dynamicprogramming;
 // https://leetcode.com/problems/maximum-subarray/description/
 
 import java.util.Arrays;

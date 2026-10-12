@@ -1,3 +1,5 @@
+package polymorphism.comparable;
+
 class Person implements Comparable<Person> {
     private int age;
 

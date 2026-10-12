@@ -1,8 +1,8 @@
-package concepts.generics;
+package generics;
 
-import concepts.Polymorphism.Animal;
-import concepts.Polymorphism.Cat;
-import concepts.Polymorphism.Dog;
+import polymorphism.Animal;
+import polymorphism.Cat;
+import polymorphism.Dog;
 
 import java.util.ArrayList;
 import java.util.List;

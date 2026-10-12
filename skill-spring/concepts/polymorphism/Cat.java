@@ -1,4 +1,4 @@
-package concepts.Polymorphism;
+package polymorphism;
 
 /**
  * Cat implementation of {@link Animal}.

@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/reverse-linked-list/?src=taro75
 
 public class ReverseLinkedList {

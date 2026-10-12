@@ -1,11 +1,10 @@
-package tutorial.testng;
+package testng;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import core.ApiTestCase;
 
-public class SimpleTestDemo extends ApiTestCase {
+public class SimpleTestDemo {
     protected final static Logger logger = LogManager.getLogger(SimpleTestDemo.class.getName());
 
     private int param = 50;

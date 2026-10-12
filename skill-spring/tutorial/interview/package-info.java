@@ -10,4 +10,4 @@
  * - Include time/space complexity notes in method comments when useful.
  * - Add small runnable examples for quick local verification.
  */
-package tutorial.interview;
+package interview;

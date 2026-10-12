@@ -1,4 +1,4 @@
-package concepts.algorithm;
+package algorithm;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

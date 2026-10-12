@@ -1,4 +1,4 @@
-package tutorial.interview;
+package interview;
 // https://www.jointaro.com/interviews/questions/merge-two-sorted-lists/?src=taro75
 
 /**

@@ -1,4 +1,4 @@
-package tutorial.synchronization;
+package synchronization;
 
 public class FiveTimesPrinter {
     synchronized void printFiveTimes(int n) {// synchronized method

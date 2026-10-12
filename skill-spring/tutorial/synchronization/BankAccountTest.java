@@ -1,4 +1,4 @@
-package tutorial.synchronization;
+package synchronization;
 
 class BankAccountTest {
     public static void main(String args[]) {
