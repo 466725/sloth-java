@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
-    directory: "/"
+    directory: "/spring-boot-demo"
     schedule:
       interval: "daily"
     groups:
@@ -11,6 +11,31 @@ updates:
         update-types:
           - "minor"
           - "patch"
+
+  - package-ecosystem: "maven"
+    directory: "/test-automation-framework"
+    schedule:
+      interval: "daily"
+    groups:
+      maven-minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "maven"
+    directory: "/skill-spring"
+    schedule:
+      interval: "daily"
+    groups:
+      maven-minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
