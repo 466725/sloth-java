@@ -1,13 +1,12 @@
-package tutorial.testng;
+package testng;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import core.ApiTestCase;
 
 import java.io.IOException;
 
-public class ParallelMethodDemo extends ApiTestCase {
+public class ParallelMethodDemo {
     protected final static Logger logger = LogManager.getLogger(ParallelMethodDemo.class.getName());
 
     @Test(expectedExceptions = {IOException.class}, expectedExceptionsMessageRegExp = "Pass Message test")

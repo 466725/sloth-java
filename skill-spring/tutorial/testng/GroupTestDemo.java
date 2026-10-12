@@ -1,11 +1,10 @@
-package tutorial.testng;
+package testng;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import core.ApiTestCase;
 
-public class GroupTestDemo extends ApiTestCase {
+public class GroupTestDemo {
     protected final static Logger logger = LogManager.getLogger(GroupTestDemo.class.getName());
 
     @Test(enabled = true, timeOut = 500, groups = {"test-group"})

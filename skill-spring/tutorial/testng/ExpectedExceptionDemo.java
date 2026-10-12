@@ -1,13 +1,12 @@
-package tutorial.testng;
+package testng;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import core.ApiTestCase;
 
 import java.io.IOException;
 
-public class ExpectedExceptionDemo extends ApiTestCase {
+public class ExpectedExceptionDemo {
     protected final static Logger logger = LogManager.getLogger(ExpectedExceptionDemo.class.getName());
 
     @Test(expectedExceptions = {IOException.class}, expectedExceptionsMessageRegExp = "Pass Message test")

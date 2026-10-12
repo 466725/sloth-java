@@ -1,12 +1,11 @@
-package tutorial.assertj;
+package assertj;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
-import core.ApiTestCase;
 
-public class AssertjSimpleDemo extends ApiTestCase {
+public class AssertjSimpleDemo {
     protected final static Logger logger = LogManager.getLogger(AssertjSimpleDemo.class.getName());
 
     @Test(priority = 1)

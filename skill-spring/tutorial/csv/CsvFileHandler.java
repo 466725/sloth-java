@@ -1,6 +1,4 @@
-package tutorial.csv;
-
-import config.Constants;
+package csv;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +6,7 @@ import java.io.FileReader;
 
 public class CsvFileHandler {
     public static void printCSV() throws Exception {
-        File file = new File(Constants.CONFIG_FILE_FOLDER + Constants.THEATRE_SHOWTIME_CSV);
+        File file = new File("./load_test_data_enroll_students.csv");
         String filePath = file.getAbsolutePath();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

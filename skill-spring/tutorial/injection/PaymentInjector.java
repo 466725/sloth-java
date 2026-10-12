@@ -1,4 +1,4 @@
-package tutorial.injection;
+package injection;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

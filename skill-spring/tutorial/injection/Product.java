@@ -1,4 +1,4 @@
-package tutorial.injection;
+package injection;
 
 public class Product {
 
