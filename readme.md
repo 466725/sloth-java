@@ -3,12 +3,13 @@
 [![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Build](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
 
-`sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, plus a small Spring Boot demo app for local learning and integration checks.
+`sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, a Spring Boot demo app, and a collection of Spring and Java learning examples.
 
 ## Modules
 
 - `test-automation-framework`: main automation module (TestNG, Selenium, Appium, Playwright, Rest Assured, Cucumber).
 - `spring-boot-demo`: lightweight Spring Boot service with sample endpoints.
+- `skill-spring`: Spring and Java learning examples covering AssertJ, ExtentReports, JavaFaker, JSON parsing, Selenium, and MySQL.
 
 ## Tech Stack
 
@@ -105,10 +106,29 @@ mvn -f .\spring-boot-demo\pom.xml "-Dtest=DemoApplicationTests" test
 `-Dtest` argument quoted in PowerShell. Reports are written to
 `spring-boot-demo/target/surefire-reports`.
 
-To run both modules' tests with the smoke suite:
+### `skill-spring`
+
+The skill-spring module contains learning examples organized under `tutorial/` and `concepts/` directories, covering topics like AssertJ, ExtentReports, JavaFaker, JSON parsing, Selenium browser automation, and MySQL database operations.
 
 ```powershell
-mvn -pl test-automation-framework,spring-boot-demo test "-DsuiteXmlFile=SmokeTest.xml"
+# Run all skill-spring tests
+mvn -pl skill-spring test
+```
+
+Source directories `tutorial/` and `concepts/` are registered via the `build-helper-maven-plugin` in the module's POM. Reports are written to `skill-spring/target/surefire-reports`.
+
+### Run all modules
+
+To run all three modules' tests:
+
+```powershell
+mvn test
+```
+
+To run specific modules together:
+
+```powershell
+mvn -pl test-automation-framework,spring-boot-demo,skill-spring test "-DsuiteXmlFile=SmokeTest.xml"
 ```
 
 ### Start the demo app
