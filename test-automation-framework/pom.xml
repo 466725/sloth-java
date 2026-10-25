@@ -60,7 +60,7 @@
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-bom</artifactId>
-                <version>11.0.31</version>
+                <version>11.0.25</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -305,9 +305,9 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>26.7.0</version>
         </dependency>
-        <!-- Source: https://mvnrepository.com/artifact/com.github.tomakehurst/wiremock -->
+        <!-- Source: https://mvnrepository.com/artifact/org.wiremock/wiremock -->
         <dependency>
-            <groupId>com.github.tomakehurst</groupId>
+            <groupId>org.wiremock</groupId>
             <artifactId>wiremock</artifactId>
             <version>3.0.3</version>
             <scope>test</scope>
