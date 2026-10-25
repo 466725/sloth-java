@@ -104,7 +104,7 @@ public class GroupAnagrams {
             Collections.sort(sortedGroup);
             normalized.add(sortedGroup);
         }
-        normalized.sort(Comparator.comparing(Object::toString));
+        normalized.sort(Comparator.comparing(List::toString));
         return normalized;
     }
 
