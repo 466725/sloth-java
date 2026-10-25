@@ -54,7 +54,7 @@ public final class SelfHealingLocator {
     private <T> T runWithHealing(Function<Locator, T> action) {
         String selectorUsed = currentSelector();
         try {
-            return action.apply(page.locator(selectorUsed));
+            return action.apply(page.locator(Objects.requireNonNull(selectorUsed)));
         } catch (PlaywrightException e) {
             if (!SelfHealingConfig.isEnabled()) {
                 throw e;
@@ -72,18 +72,19 @@ public final class SelfHealingLocator {
                 throw e;
             }
 
-            healedSelector = healed.selector();
-            HEALED_CACHE.put(cacheKey(), healedSelector);
+            String newSelector = Objects.requireNonNull(healed.selector());
+            healedSelector = newSelector;
+            HEALED_CACHE.put(cacheKey(), newSelector);
 
             logger.warn("Self-healing applied."
                     + " original=" + originalSelector
-                    + " healed=" + healedSelector
+                    + " healed=" + newSelector
                     + " score=" + healed.score()
                     + " matchedTag=" + healed.matchedTag()
                     + " matchedId=" + healed.matchedId()
                     + " matchedClasses=" + healed.matchedClasses());
 
-            return action.apply(page.locator(healedSelector));
+            return action.apply(page.locator(newSelector));
         }
     }
 
