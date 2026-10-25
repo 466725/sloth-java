@@ -78,8 +78,9 @@ public final class LocatorHealer {
     }
 
     private static Elements selectCandidates(Document doc, HealingHints hints) {
-        if (hints.expectedTag() != null && !hints.expectedTag().isBlank()) {
-            return doc.select(hints.expectedTag());
+        String expectedTag = hints.expectedTag();
+        if (expectedTag != null && !expectedTag.isBlank()) {
+            return doc.select(expectedTag);
         }
 
         // Prefer interactable controls first; fall back to any element with "signal" attrs.
