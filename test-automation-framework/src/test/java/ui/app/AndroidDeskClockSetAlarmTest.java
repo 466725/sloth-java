@@ -16,6 +16,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
     private static final Logger logger = LogManager.getLogger(AndroidDeskClockSetAlarmTest.class.getName());
@@ -68,6 +69,7 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
     }
 
     private void navigateToAlarmTab(AndroidDriver androidDriver, String appPackage) {
+        @SuppressWarnings("null")
         List<By> alarmTabLocators = List.of(
                 By.id(appPackage + ":id/tab_menu_alarm"),
                 By.id(appPackage + ":id/alarm_tab"),
@@ -88,6 +90,7 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
         logger.info("mobile.app.test.deskclock.alarm_tab.opened | locator=not_found_assuming_default_tab");
     }
 
+    @SuppressWarnings("null")
     private void createAlarmViaUi(AndroidDriver androidDriver, String appPackage, int hour, int minute) {
         List<By> addAlarmLocators = List.of(
                 By.id(appPackage + ":id/fab"),
@@ -122,7 +125,7 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
 
     private boolean waitForAlarmEntry(AndroidDriver androidDriver, String label, int hour, int minute) {
         int timeoutSeconds = getIntEnvOrDefault("ANDROID_ALARM_SET_TIMEOUT_SECONDS", 20);
-        WebDriverWait wait = new WebDriverWait(androidDriver, Duration.ofSeconds(timeoutSeconds));
+        WebDriverWait wait = new WebDriverWait(Objects.requireNonNull(androidDriver), Objects.requireNonNull(Duration.ofSeconds(timeoutSeconds)));
 
         By byLabel = By.xpath("//*[contains(@text,'" + label + "')]");
         String time12 = hour + ":" + String.format("%02d", minute);
@@ -172,7 +175,7 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
     }
 
     private boolean waitForCurrentPackage(AndroidDriver androidDriver, String expectedPackage, int timeoutSeconds) {
-        WebDriverWait wait = new WebDriverWait(androidDriver, Duration.ofSeconds(timeoutSeconds));
+        WebDriverWait wait = new WebDriverWait(Objects.requireNonNull(androidDriver), Objects.requireNonNull(Duration.ofSeconds(timeoutSeconds)));
         try {
             return wait.until(driver -> expectedPackage.equals(androidDriver.getCurrentPackage()));
         } catch (Exception exception) {
@@ -180,7 +183,8 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
             return false;
         }
     }
-
+    
+    @SuppressWarnings("null")
     private boolean waitForDeskClockReady(AndroidDriver androidDriver, String appPackage, int timeoutSeconds) {
         List<By> readyLocators = List.of(
                 By.id(appPackage + ":id/alarm_recycler_view"),
@@ -188,7 +192,7 @@ public class AndroidDeskClockSetAlarmTest extends MobileAppTestCase {
                 By.xpath("//*[contains(@content-desc,'Alarm')]"),
                 By.xpath("//*[@text='Alarm' or @text='ALARM']")
         );
-        WebDriverWait wait = new WebDriverWait(androidDriver, Duration.ofSeconds(timeoutSeconds));
+        WebDriverWait wait = new WebDriverWait(Objects.requireNonNull(androidDriver), Objects.requireNonNull(Duration.ofSeconds(timeoutSeconds)));
         try {
             return wait.until(driver -> hasAnyLocator(androidDriver, readyLocators));
         } catch (Exception exception) {
