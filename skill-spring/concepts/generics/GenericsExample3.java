@@ -36,7 +36,9 @@ public class GenericsExample3 {
 
     static void printAnimalNames(List<? extends Animal> animals) {
         for (Animal animal : animals) {
-            System.out.println(animal.getName());
+            if (animal != null) {
+                System.out.println(animal.getName());
+            }
         }
     }
 }
