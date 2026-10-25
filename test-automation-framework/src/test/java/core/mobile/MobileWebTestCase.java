@@ -12,6 +12,7 @@ import java.net.URI;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public abstract class MobileWebTestCase extends MobileTestCase {
     private static final String RUN_MODE_SELENIUM = "selenium";
@@ -43,12 +44,12 @@ public abstract class MobileWebTestCase extends MobileTestCase {
     }
 
     protected boolean hasElement(By locator) {
-        return !driver.findElements(locator).isEmpty();
+        return !driver.findElements(Objects.requireNonNull(locator)).isEmpty();
     }
 
     protected boolean isChallengeUrl() {
         String currentUrl = driver.getCurrentUrl();
-        return currentUrl.contains("/ap/signin") || currentUrl.contains("/ap/cvf") || currentUrl.contains("/errors/validateCaptcha") || currentUrl.contains("/ap/challenge");
+        return currentUrl != null && (currentUrl.contains("/ap/signin") || currentUrl.contains("/ap/cvf") || currentUrl.contains("/errors/validateCaptcha") || currentUrl.contains("/ap/challenge"));
     }
 
     private WebDriver createSeleniumMobileSession(int implicitWaitSeconds) throws Exception {
@@ -64,8 +65,8 @@ public abstract class MobileWebTestCase extends MobileTestCase {
             chromeOptions.addArguments("--headless=new");
         }
 
-        WebDriver seleniumDriver = new RemoteWebDriver(URI.create(seleniumRemoteUrl).toURL(), chromeOptions);
-        seleniumDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
+        WebDriver seleniumDriver = new RemoteWebDriver(Objects.requireNonNull(URI.create(seleniumRemoteUrl).toURL()), chromeOptions);
+        seleniumDriver.manage().timeouts().implicitlyWait(Objects.requireNonNull(Duration.ofSeconds(implicitWaitSeconds)));
         logger.info("mobile.web.session.init.selenium | seleniumUrl=" + seleniumRemoteUrl + " | emulatedDevice=" + emulatedDeviceName + " | headless=" + headless);
         return seleniumDriver;
     }
