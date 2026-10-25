@@ -82,7 +82,7 @@ public class HealthCheckTest extends ApiTestCase {
         assertThat(json.getMap("$").get("status")).isEqualTo("ok");
 
         // Validate timestamp window
-        LocalDateTime timestamp = LocalDateTime.parse(json.getMap("$").get("timestamp").toString(), DateTimeFormatter.ISO_DATE_TIME);
+        LocalDateTime timestamp = LocalDateTime.parse(json.getString("timestamp"), DateTimeFormatter.ISO_DATE_TIME);
         assertThat(timestamp)
                 .as("Timestamp from %s must not precede request start", endpoint).isNotNull();
         assertThat(timestamp)
