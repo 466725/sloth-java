@@ -1,6 +1,6 @@
 package javafaker;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
