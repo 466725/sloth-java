@@ -58,7 +58,8 @@ public abstract class MobileTestCase extends TestCase {
                 String candidateUrl = iterator.next();
                 try {
                     AndroidDriver androidDriver = new AndroidDriver(URI.create(candidateUrl).toURL(), options);
-                    androidDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitSeconds));
+                    androidDriver.manage().timeouts().implicitlyWait(
+                            java.util.Objects.requireNonNull(Duration.ofSeconds(implicitWaitSeconds)));
                     logger.info("mobile.session.create.success | appiumUrl=" + candidateUrl + " | deviceName=" + options.getDeviceName());
                     return androidDriver;
                 } catch (Exception exception) {
