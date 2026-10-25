@@ -11,7 +11,7 @@ public class DependentTestDemo {
 
     @Test(expectedExceptions = {IOException.class}, expectedExceptionsMessageRegExp = "Pass Message test")
     public void testThree() throws Exception {
-        long id = Thread.currentThread().getId();
+        long id = Thread.currentThread().threadId();
         logger.info("Simple test-method Three. Thread id is: " + id);
         System.out.println("Simple test-method Three. Thread id is: " + id);
         throw new IOException("Pass Message test");
@@ -25,7 +25,7 @@ public class DependentTestDemo {
             , expectedExceptions = {IOException.class}
             , expectedExceptionsMessageRegExp = ".* Message .*")
     public void testFour() throws Exception {
-        long id = Thread.currentThread().getId();
+        long id = Thread.currentThread().threadId();
         logger.info("Simple test-method Four. Thread id is: " + id);
         System.out.println("Simple test-method Four. Thread id is: " + id);
         throw new IOException("Pass Message test");
