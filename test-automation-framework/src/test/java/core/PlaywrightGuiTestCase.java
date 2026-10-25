@@ -25,9 +25,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Base class for Playwright UI test lifecycle and screenshot handling.
@@ -53,10 +55,12 @@ public class PlaywrightGuiTestCase extends TestCase {
     public void beforeMethod(Method method) {
         super.beforeMethod(method);
         ensureBrowserStarted();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Accept-Language", "en-US,en;q=0.9");
         context = browser.newContext(new Browser.NewContextOptions()
                 .setLocale("en-US")
                 .setViewportSize(1920, 1080)
-                .setExtraHTTPHeaders(Map.of("Accept-Language", "en-US,en;q=0.9")));
+                .setExtraHTTPHeaders(headers));
         page = context.newPage();
     }
 
@@ -140,7 +144,7 @@ public class PlaywrightGuiTestCase extends TestCase {
         try {
             BrowserType.LaunchOptions channelOptions = new BrowserType.LaunchOptions()
                     .setHeadless(headless)
-                    .setChannel(channel);
+                    .setChannel(Objects.requireNonNull(channel, "channel"));
             if (chromiumArgs != null) {
                 channelOptions.setArgs(chromiumArgs);
             }
@@ -177,7 +181,7 @@ public class PlaywrightGuiTestCase extends TestCase {
             Path outDir = Path.of(Constants.SCREENSHOT_FOLDER);
             Files.createDirectories(outDir);
             Path outFile = outDir.resolve(screenshotName + ".png");
-            page.screenshot(new Page.ScreenshotOptions().setPath(outFile).setFullPage(true));
+            page.screenshot(new Page.ScreenshotOptions().setPath(Objects.requireNonNull(outFile)).setFullPage(true));
             return "ScreenShot/" + screenshotName + ".png";
         } catch (Exception e) {
             logger.error("Failed to capture Playwright screenshot.", e);
