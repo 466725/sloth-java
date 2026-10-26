@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class HomePageConsoleErrorPlaywrightTest extends PlaywrightGuiTestCase {
     final static Logger logger = LogManager.getLogger(HomePageConsoleErrorPlaywrightTest.class.getName());
@@ -24,7 +25,7 @@ public class HomePageConsoleErrorPlaywrightTest extends PlaywrightGuiTestCase {
         });
 
         logger.info("ui.web.tangerine.home.console_errors.start");
-        page.navigate(PropertiesFileReader.getTangerineURL());
+        page.navigate(Objects.requireNonNull(PropertiesFileReader.getTangerineURL(), "Tangerine URL must not be null"));
         page.waitForTimeout(5000);
         logger.info("ui.web.tangerine.home.console_errors.state | count=" + consoleErrors.size());
         logger.info("ui.web.tangerine.home.console_errors.end " + consoleErrors);
