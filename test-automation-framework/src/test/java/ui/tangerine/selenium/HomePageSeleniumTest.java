@@ -17,7 +17,9 @@ public class HomePageSeleniumTest extends GuiTestCase {
     public void shouldDisplayTangerineHomePageTitle() {
         logger.info("ui.web.tangerine.home.verify_title.start");
         homepage = SeleniumBasePage.gotoHomePage("Tangerine");
-        logger.info("ui.web.tangerine.home.verify_title.state | title=" + driver.getTitle());
-        Assert.assertTrue(driver.getTitle().contains("Tangerine"), "Title verification failed");
+        String title = driver.getTitle();
+        logger.info("ui.web.tangerine.home.verify_title.state | title=" + title);
+        Assert.assertNotNull(title, "Title verification failed: title is null");
+        Assert.assertTrue(title.contains("Tangerine"), "Title verification failed");
     }
 }
