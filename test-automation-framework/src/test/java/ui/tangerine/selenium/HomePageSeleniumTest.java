@@ -20,6 +20,6 @@ public class HomePageSeleniumTest extends GuiTestCase {
         String title = driver.getTitle();
         logger.info("ui.web.tangerine.home.verify_title.state | title=" + title);
         Assert.assertNotNull(title, "Title verification failed: title is null");
-        Assert.assertTrue(title.contains("Tangerine"), "Title verification failed");
+        Assert.assertTrue(title != null && title.contains("Tangerine"), "Title verification failed");
     }
 }
