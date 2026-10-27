@@ -47,6 +47,7 @@ public final class SeleniumWrapper {
         logger.debug("");
     }
 
+    @SuppressWarnings("null")
     public static void printWebElementInfo(WebElement element) {
         logger.info("");
         logger.info("getText(): " + element.getText());
@@ -58,6 +59,7 @@ public final class SeleniumWrapper {
         logger.info("");
     }
 
+    @SuppressWarnings("null")
     public static void implicitWait(WebDriver driver) {
         try {
             driver.manage().timeouts().implicitlyWait(PropertiesFileReader.getImplicitWaitTime());
@@ -66,6 +68,7 @@ public final class SeleniumWrapper {
         }
     }
 
+    @SuppressWarnings("null")
     public static void explicitWaitClickable(WebDriver driver, WebElement element, int waitTime) {
         try {
             (new WebDriverWait(driver, Duration.ofSeconds(waitTime)))
@@ -76,6 +79,7 @@ public final class SeleniumWrapper {
         }
     }
 
+    @SuppressWarnings("null")
     public static void waitForPageToRender(WebDriver driver) {
         try {
             logger.info(driver.getTitle());
@@ -88,6 +92,7 @@ public final class SeleniumWrapper {
         }
     }
 
+    @SuppressWarnings("null")
     public static void waitForPageLoadCompletion(WebDriver driver) {
         Duration timeout = PropertiesFileReader.getPageLoadTimeout();
         WebDriverWait wait = new WebDriverWait(driver, timeout);
@@ -102,6 +107,7 @@ public final class SeleniumWrapper {
         waitForInvisibility.until(ExpectedConditions.invisibilityOfElementLocated(PAGE_LOAD_SPINNER));
     }
 
+    @SuppressWarnings("null")
     public static boolean hoverMouseOverElement(WebDriver driver, WebElement element) {
         try {
             new Actions(driver).moveToElement(element).perform();
@@ -112,6 +118,7 @@ public final class SeleniumWrapper {
         }
     }
 
+    @SuppressWarnings("null")
     public static boolean setInputFieldText(WebElement inputField, String textToSet, WebDriver driver) {
         SeleniumWrapper.explicitWaitClickable(driver, inputField, PropertiesFileReader.getExplicitWaitTimeInt());
         try {

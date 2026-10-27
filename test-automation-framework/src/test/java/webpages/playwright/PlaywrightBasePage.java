@@ -21,6 +21,9 @@ public abstract class PlaywrightBasePage {
 
     public static HomePage gotoHomePage(Page page) {
         String url = PropertiesFileReader.getTangerineURL();
+        if (url == null) {
+            throw new IllegalStateException("Tangerine URL must not be null");
+        }
         logger.info("playwright.goto | org= Tangerine | url=" + url);
         page.navigate(url, new Page.NavigateOptions()
                 .setWaitUntil(WaitUntilState.DOMCONTENTLOADED)
