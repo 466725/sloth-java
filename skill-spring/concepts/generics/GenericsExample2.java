@@ -15,7 +15,9 @@ public class GenericsExample2 {
         PrintAnything<String> stringPrinter = new PrintAnything<>("Hello World!");
         PrintAnything<Boolean> booleanPrinter = new PrintAnything<>(true);
         PrintAnything<Character> charPrinter = new PrintAnything<>('a');
+        @SuppressWarnings("null")
         PrintAnything<Animal> animalPrinter = new PrintAnything<>(new Cat());
+        @SuppressWarnings("null")
         PrintAnything<Animal> secondAnimalPrinter = new PrintAnything<>(new Dog());
 
         integerPrinter.print();

@@ -37,6 +37,7 @@ public class EnvironmentConfigTest extends UnitTestCase {
         return new Object[][] {{null}, {""}, {TEST_KEY + "=\n"}, {TEST_KEY + "=\"   \"\n"}};
     }
 
+    @SuppressWarnings("null")
     @Test(dataProvider = "missingValues", groups = {TestGroups.UNIT, TestGroups.SMOKE, TestGroups.REGRESSION})
     public void rejectsMissingOrBlankValues(String content) throws Exception {
         Path root = Files.createTempDirectory("sloth-env-");

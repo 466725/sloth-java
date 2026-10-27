@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ComparableDemo {
     public static void compareByAge(String[] args) {
+        @SuppressWarnings("null")
         List<Person> people = Arrays.asList(
                 new Person(30),
                 new Person(20),
@@ -21,6 +22,7 @@ public class ComparableDemo {
     }
 
     public static void main(String[] args) {
+        @SuppressWarnings("null")
         List<Person> people = Arrays.asList(
                 new Person(30),
                 new Person(20),

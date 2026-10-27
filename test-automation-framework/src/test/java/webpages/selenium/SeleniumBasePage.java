@@ -62,6 +62,7 @@ public class SeleniumBasePage {
         return initializedDriver;
     }
 
+    @SuppressWarnings("null")
     private static WebDriver createChromeDriver() {
         String remoteWebDriverUrl = getRemoteWebDriverUrl();
         ChromeOptions options = buildChromeOptions();
@@ -111,6 +112,7 @@ public class SeleniumBasePage {
             for (Iterator<String> iterator = candidateUrls.iterator(); iterator.hasNext(); ) {
                 String candidateUrl = iterator.next();
                 try {
+                    @SuppressWarnings("null")
                     WebDriver remoteDriver = new RemoteWebDriver(URI.create(candidateUrl).toURL(), options);
                     logger.info("web.session.create.success | seleniumUrl=" + candidateUrl + " | attempt=" + attempt + "/" + maxAttempts);
                     return remoteDriver;
@@ -159,12 +161,14 @@ public class SeleniumBasePage {
         return null;
     }
 
+    @SuppressWarnings("null")
     public static SeleniumBasePage gotoHomePage(String org) {
         WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
         currentDriver.get(PropertiesFileReader.getTangerineURL());
         return new HomePage(currentDriver);
     }
 
+    @SuppressWarnings("null")
     public static SeleniumBasePage gotoGoogleSearchHomePage() {
         WebDriver currentDriver = getDriver(PropertiesFileReader.getBrowser());
         currentDriver.get(PropertiesFileReader.getGoogleURL());

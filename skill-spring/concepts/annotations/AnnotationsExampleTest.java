@@ -7,6 +7,7 @@ public class AnnotationsExampleTest {
     @TestCaseAnnotation(testCaseId = 466725, description = "Verify annotation lookup on method")
     public void printAnnoValueTest() throws Exception {
         System.out.println("============================333============================");
+        @SuppressWarnings("null")
         TestCaseAnnotation testCaseAnno = AnnotationsExampleTest.class
                 .getMethod("printAnnoValueTest")
                 .getAnnotation(TestCaseAnnotation.class);
