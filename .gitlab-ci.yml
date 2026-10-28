@@ -1,0 +1,21 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "main")'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - when: never
+
+default:
+  image: maven:3.9.12-eclipse-temurin-25
+  cache:
+    key: "maven-${CI_COMMIT_REF_SLUG}"
+    paths:
+      - .m2/repository/
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+build:
+  stage: build
+  script:
+    - mvn -B -ntp -DskipTests package

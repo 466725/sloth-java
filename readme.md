@@ -36,6 +36,19 @@ Set-Location sloth-java
 mvn -q -DskipTests clean install
 ```
 
+## Continuous Integration
+
+GitHub Actions uses [ci.yml](.github/workflows/ci.yml), and GitLab uses the
+root-level [.gitlab-ci.yml](.gitlab-ci.yml). Both build all modules with Temurin
+Java 25, cache Maven dependencies, and run `mvn -B -ntp -DskipTests package`
+(tests are compiled but not executed).
+
+The GitLab pipeline runs for merge requests, pushes to `main` or `master`, and
+manual pipelines started from the GitLab UI. It requires a Linux GitLab runner
+with a Docker or Kubernetes executor that supports the configured Maven image.
+GitLab automatically checks out the repository; no separate checkout step or
+CI/CD variables are required.
+
 ## Just Commands
 
 The repository includes a [`justfile`](justfile) with shortcuts for common Maven,
