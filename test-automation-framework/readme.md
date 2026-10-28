@@ -78,6 +78,8 @@ Three pre-defined TestNG suites are available under `testRunner/suiteFiles/`:
 
 The default suite is controlled by the Maven property `suiteXmlFile` (default: `SanityTest.xml`).
 
+Surefire and its explicit TestNG provider share the `surefire.version` property, pinned to 3.5.6. Keep them aligned on the 3.5.x line: Surefire 3.6.0 removed support for TestNG XML suites, which these suite commands require.
+
 ## Test Examples
 
 ### UI Tests (Selenium)
