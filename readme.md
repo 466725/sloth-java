@@ -36,6 +36,37 @@ Set-Location sloth-java
 mvn -q -DskipTests clean install
 ```
 
+## Just Commands
+
+The repository includes a [`justfile`](justfile) with shortcuts for common Maven,
+test, demo-app, and Docker workflows. Install [Just](https://just.systems/) and
+ensure both `just` and Maven are available on your `PATH`. On Windows, you can
+install Just with Scoop:
+
+```powershell
+scoop install just
+```
+
+Run `just` or `just --list` from the repository root to see the available
+recipes. Common examples:
+
+```powershell
+just build
+just test
+just test-framework SmokeTest.xml
+just test-framework-remote RegressionTest.xml
+just test-cucumber
+just run-demo
+just docker-selenium
+just docker-test RegressionTest.xml
+just docker-down
+```
+
+`test-framework` defaults to `SanityTest.xml`; `docker-test` defaults to
+`SmokeTest.xml`. The remote framework recipe expects the Docker Selenium service
+to be running first (`just docker-selenium`). See [Docker Services](#docker-services)
+for service prerequisites and other Docker workflows.
+
 ## Running Tests
 
 ### `test-automation-framework`
