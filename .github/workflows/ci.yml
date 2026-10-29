@@ -23,3 +23,11 @@ jobs:
 
       - name: Build
         run: mvn -B -ntp -DskipTests package
+
+  selenium:
+    needs: build
+    uses: ./.github/workflows/selenium.yml
+
+  playwright:
+    needs: build
+    uses: ./.github/workflows/playwright.yml

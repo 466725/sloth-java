@@ -1,3 +1,7 @@
+include:
+  - local: .gitlab/ci/selenium.yml
+  - local: .gitlab/ci/playwright.yml
+
 workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'

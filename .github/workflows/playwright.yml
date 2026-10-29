@@ -1,0 +1,41 @@
+name: Playwright tests
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HEADLESS: "true"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+
+      - name: Install Playwright Chromium and system dependencies
+        run: >-
+          mvn -B -ntp -pl test-automation-framework exec:java
+          -Dexec.mainClass=com.microsoft.playwright.CLI
+          '-Dexec.args=install --with-deps chromium'
+
+      - name: Run Playwright tests
+        run: mvn -B -ntp -pl test-automation-framework test '-Dtest=ui.tangerine.playwright.*Test' -Dheadless=true
+
+      - name: Upload Playwright results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          retention-days: 14
+          path: |
+            test-automation-framework/target/surefire-reports/
+            test-automation-framework/test-output/

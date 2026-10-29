@@ -1,0 +1,21 @@
+playwright:
+  stage: test
+  needs: [build]
+  timeout: 30m
+  variables:
+    HEADLESS: "true"
+  before_script:
+    - >-
+      mvn -B -ntp -pl test-automation-framework exec:java
+      -Dexec.mainClass=com.microsoft.playwright.CLI
+      '-Dexec.args=install --with-deps chromium'
+  script:
+    - mvn -B -ntp -pl test-automation-framework test '-Dtest=ui.tangerine.playwright.*Test' -Dheadless=true
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - test-automation-framework/target/surefire-reports/
+      - test-automation-framework/test-output/
+    reports:
+      junit: test-automation-framework/target/surefire-reports/TEST-*.xml

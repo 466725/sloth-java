@@ -1,0 +1,48 @@
+name: Selenium tests
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  selenium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HEADLESS: "true"
+      SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
+    services:
+      selenium:
+        image: selenium/standalone-chromium:4
+        ports:
+          - 4444:4444
+        options: >-
+          --shm-size=2g
+          --health-cmd="curl -fsS http://localhost:4444/status | grep -Eq '\"ready\"[[:space:]]*:[[:space:]]*true'"
+          --health-interval=10s
+          --health-timeout=10s
+          --health-retries=24
+          --health-start-period=60s
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+
+      - name: Run Selenium tests
+        run: mvn -B -ntp -pl test-automation-framework test '-Dtest=ui.tangerine.selenium.*Test' -Dheadless=true
+
+      - name: Upload Selenium results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-results
+          retention-days: 14
+          path: |
+            test-automation-framework/target/surefire-reports/
+            test-automation-framework/test-output/

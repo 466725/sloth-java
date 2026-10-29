@@ -41,13 +41,41 @@ mvn -q -DskipTests clean install
 GitHub Actions uses [ci.yml](.github/workflows/ci.yml), and GitLab uses the
 root-level [.gitlab-ci.yml](.gitlab-ci.yml). Both build all modules with Temurin
 Java 25, cache Maven dependencies, and run `mvn -B -ntp -DskipTests package`
-(tests are compiled but not executed).
+(tests are compiled but not executed during the build job).
+
+After a successful build, Selenium and Playwright run as separate, parallel test
+jobs. Each selects only its `ui.tangerine.selenium` or `ui.tangerine.playwright`
+package, including all test classes in that package, rather than the default
+`SanityTest.xml` suite. Both run headlessly with Java 25.
+
+| Test job | GitHub reusable workflow | GitLab included jobs |
+|----------|--------------------------|----------------------|
+| Selenium | [selenium.yml](.github/workflows/selenium.yml) | [selenium.yml](.gitlab/ci/selenium.yml) |
+| Playwright | [playwright.yml](.github/workflows/playwright.yml) | [playwright.yml](.gitlab/ci/playwright.yml) |
+
+Separate files are needed for each CI platform because their YAML schemas differ.
+GitHub calls the reusable workflows from its main workflow; they can also be run
+individually with **Run workflow**. GitLab includes both job files from its root
+configuration.
+
+Selenium uses a `selenium/standalone-chromium:4` service and waits for Grid
+readiness. Playwright installs Chromium and its Linux dependencies using the
+module's existing Playwright Java CLI, keeping the browser version aligned with
+the Maven dependency. Runners need network access to Maven repositories, browser
+downloads, and the public Tangerine and Google sites exercised by these tests;
+site availability, regional restrictions, or bot protection can affect results.
+
+Both platforms retain Surefire reports and `test-output/` (ExtentReports, logs,
+and screenshots) for 14 days, including on test failure. GitLab also publishes
+Surefire XML as JUnit test reports.
 
 The GitLab pipeline runs for merge requests, pushes to `main` or `master`, and
 manual pipelines started from the GitLab UI. It requires a Linux GitLab runner
 with a Docker or Kubernetes executor that supports the configured Maven image.
 GitLab automatically checks out the repository; no separate checkout step or
-CI/CD variables are required.
+CI/CD variables are required. The runner must support service containers for
+Selenium and package installation in the Maven job container for Playwright's
+Linux dependencies and the Selenium readiness check.
 
 ## Just Commands
 
