@@ -7,7 +7,7 @@ A comprehensive test automation framework supporting **UI**, **API**, and **mobi
 The framework provides a unified foundation for automated testing across multiple platforms and tools:
 
 | Layer | Technologies | Purpose |
-|-------|-------------|---------|
+| ------- | ------------- | --------- |
 | **UI Testing** | Selenium, Playwright, Cucumber (BDD) | Web browser automation |
 | **API Testing** | RestAssured, OkHttp, WireMock | Backend API validation |
 | **Mobile Testing** | Appium | Android app and mobile web |
@@ -20,7 +20,7 @@ The framework provides a unified foundation for automated testing across multipl
 
 The framework uses an inheritance hierarchy for shared lifecycle and reporting:
 
-```
+```text
 TestCase (base — ExtentReports + Log4j2 lifecycle)
 ├── GuiTestCase          — Selenium UI tests with auto-screenshots
 ├── PlaywrightGuiTestCase — Playwright UI tests
@@ -37,7 +37,7 @@ TestCase (base — ExtentReports + Log4j2 lifecycle)
 A built-in self-healing mechanism for Playwright locators — when a selector fails, the framework parses the DOM, scores alternative selectors using Levenshtein distance and similarity algorithms, and automatically applies the best match. Healed selectors are cached to avoid repeated computation.
 
 | Class | Role |
-|-------|------|
+| ------- | ------ |
 | `SelfHealingLocator` | Wrapper around Playwright `Locator` with retry-and-heal logic |
 | `LocatorHealer` | Parses HTML and finds the best alternative selector |
 | `Levenshtein` / `Similarity` | String similarity algorithms for scoring candidates |
@@ -47,12 +47,54 @@ A built-in self-healing mechanism for Playwright locators — when a selector fa
 
 Failed tests are automatically retried using TestNG's `IRetryAnalyzer`. The max retry count is configurable via `init-config.properties` (`MAX_RETRY_COUNT = 3`). Skipped tests are not retried.
 
+### HTTP Server Error Monitoring
+
+Use [`ServerErrorMonitor`](src/test/java/utils/ServerErrorMonitor.java) to log
+HTTP 500-599 responses and refresh the page once with either Selenium or Playwright:
+
+```java
+import utils.ServerErrorMonitor;
+
+// Selenium: register once for the current tab before navigation.
+ServerErrorMonitor.monitor(driver);
+driver.get("https://example.test");
+
+// Playwright: register once per Page before navigation.
+ServerErrorMonitor.monitor(page);
+page.navigate("https://example.test");
+```
+
+Both overloads log `SERVER ERROR <status> <url>` at ERROR level through the
+framework logger. The first 5xx from any response (including API requests,
+images, and other resources) requests a full-page refresh. Further 5xx responses
+are still logged, but never trigger another refresh for that registration,
+even if the refresh request fails. Register only once per page/tab to preserve
+this limit. Transport failures without an HTTP response are not included.
+
+Selenium sends a CDP reload command and waits for its acknowledgment, not for
+page load completion. Playwright schedules `window.location.reload()` in the browser
+instead of performing a nested blocking navigation. Refresh completion is not
+awaited; tests should wait for their expected page state. Refreshing can interrupt
+an ongoing navigation or interaction and can repeat requests. Refresh-request
+errors are logged and propagated; response status alone does not fail the test.
+
+Selenium requires a CDP-capable Chromium driver implementing `HasDevTools` and
+a compatible browser/CDP version. The utility uses Selenium's bundled `latest`
+network binding, not a literal `vNN` import. Unsupported drivers are rejected;
+session/connection errors propagate to the caller. Remote drivers may require
+Selenium's `Augmenter` and a Grid exposing CDP. The listener remains attached to
+the DevTools session until driver teardown; register separately for other tabs.
+Playwright supports all its browser engines; callbacks run while Playwright
+processes events (use Playwright waits rather than `Thread.sleep`). The page
+owns its listener lifecycle. Existing test base classes are not changed; monitoring
+is opt-in.
+
 ### Page Object Pattern
 
 Page objects are organized by browser engine and application:
 
 | Package | Browser | Pages |
-|---------|---------|-------|
+| --------- | --------- | ------- |
 | `webpages/selenium/tangerine/` | Selenium | HomePage, SigninPage, SignupPage |
 | `webpages/selenium/google/` | Selenium | GoogleSearchHomePage |
 | `webpages/playwright/tangerine/` | Playwright | HomePage, SigningPage, SignupPage |
@@ -60,7 +102,7 @@ Page objects are organized by browser engine and application:
 ### Configuration
 
 | File | Purpose |
-|------|---------|
+| ------ | --------- |
 | `init-config.properties` | URLs, browser, timeouts, retry count |
 | `secrets.properties` | Sensitive credentials (keep out of version control) |
 | `.env` | Environment variables loaded via `dotenv-java` |
@@ -71,7 +113,7 @@ Page objects are organized by browser engine and application:
 Three pre-defined TestNG suites are available under `testRunner/suiteFiles/`:
 
 | Suite | Groups | Packages | Description |
-|-------|--------|----------|-------------|
+| ------- | -------- | ---------- | ------------- |
 | **SmokeTest.xml** | `smoke` | `api.*`, `ui.*`, `demo.*`, `unit.*` | Fast smoke checks across all layers |
 | **RegressionTest.xml** | `regression`, `playwright` | `api.*`, `ui.*`, `demo.*`, `unit.*` | Full regression with Playwright tests |
 | **SanityTest.xml** | `smoke` | `unit.*` | Lightweight unit-only sanity check |
@@ -85,7 +127,7 @@ Surefire and its explicit TestNG provider share the `surefire.version` property,
 ### UI Tests (Selenium)
 
 | Test | Description |
-|------|-------------|
+| ------ | ------------- |
 | `HomePageSeleniumTest` | Validates Tangerine home page title |
 | `SigninPageSeleniumTest` | Tests login flow |
 | `SignupPageSeleniumTest` | Tests signup flow |
@@ -94,7 +136,7 @@ Surefire and its explicit TestNG provider share the `surefire.version` property,
 ### UI Tests (Playwright)
 
 | Test | Description |
-|------|-------------|
+| ------ | ------------- |
 | `HomePagePlaywrightTest` | Tangerine home page with Playwright |
 | `SigningPagePlaywrightTest` | Login flow with Playwright |
 | `SignupPagePlaywrightTest` | Signup flow with Playwright |
@@ -103,7 +145,7 @@ Surefire and its explicit TestNG provider share the `surefire.version` property,
 ### Cucumber BDD
 
 | File | Description |
-|------|-------------|
+| ------ | ------------- |
 | `TangerineHomePage.feature` | Gherkin feature file |
 | `HomePageSteps.java` | Step definitions |
 | `CucumberRunnerTest.java` | TestNG runner for Cucumber |
@@ -111,7 +153,7 @@ Surefire and its explicit TestNG provider share the `surefire.version` property,
 ### API Tests
 
 | Test | Description |
-|------|-------------|
+| ------ | ------------- |
 | `HealthCheckTest` | API health check endpoint |
 | `SigninWithRestAssuredTest` | Login API via RestAssured |
 | `SigninWithOKHttpTest` | Login API via OkHttp |
@@ -121,7 +163,7 @@ Surefire and its explicit TestNG provider share the `surefire.version` property,
 ### Mobile Tests
 
 | Test | Description |
-|------|-------------|
+| ------ | ------------- |
 | `AndroidDeskClockLaunchTest` | Launches Android Desk Clock app |
 | `AndroidDeskClockSetAlarmTest` | Sets an alarm via Appium |
 
@@ -132,7 +174,7 @@ The `docker/` directory at the repository root provides the infrastructure for r
 ### Services
 
 | Service | Image | Ports | Purpose |
-|---------|-------|-------|---------|
+| --------- | ------- | ------- | --------- |
 | **selenium** | `selenium/standalone-chromium:4` | 4444, 7900 | Headless Selenium grid |
 | **tests** | `maven:3.9.12-eclipse-temurin-25` | — | Runs Maven test command |
 | **android-emulator-google** | Android emulator image (profile) | 5555, 8554 | Android emulator for mobile tests |
@@ -163,7 +205,7 @@ mvn -B -ntp -pl test-automation-framework test -DsuiteXmlFile=${SUITE_XML_FILE} 
 ### Environment Variables
 
 | Variable | Default | Description |
-|----------|---------|-------------|
+| ---------- | --------- | ------------- |
 | `HEADLESS` | `true` | Run browsers in headless mode |
 | `SELENIUM_REMOTE_URL` | `http://selenium:4444/wd/hub` | Remote WebDriver URL |
 | `SUITE_XML_FILE` | `SmokeTest.xml` | TestNG suite file to run |
@@ -172,7 +214,7 @@ mvn -B -ntp -pl test-automation-framework test -DsuiteXmlFile=${SUITE_XML_FILE} 
 ## Tech Stack
 
 | Dependency | Version | Purpose |
-|------------|---------|---------|
+| ------------ | --------- | --------- |
 | **Java** | 25 | Runtime |
 | **TestNG** | 7.12.0 | Test framework |
 | **Selenium** | 4.50.0 | Browser automation |
@@ -222,13 +264,13 @@ mvn -pl test-automation-framework exec:java -Dexec.mainClass="com.microsoft.play
 
 After running tests, the HTML report is available at:
 
-```
+```text
 test-automation-framework/test-output/ExtentReport/ExtentReport.html
 ```
 
 ## Project Structure
 
-```
+```text
 test-automation-framework/
 ├── pom.xml                              # Maven build configuration
 ├── testRunner/
