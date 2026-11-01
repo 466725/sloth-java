@@ -43,6 +43,9 @@ root-level [.gitlab-ci.yml](.gitlab-ci.yml). Both build all modules with Temurin
 Java 25, cache Maven dependencies, and run `mvn -B -ntp -DskipTests package`
 (tests are compiled but not executed during the build job).
 
+GitLab runs a Maven `validate` preflight in its `.pre` stage, followed by the
+build stage and the test stage.
+
 After a successful build, Selenium and Playwright run as separate, parallel test
 jobs. Each selects only its `ui.tangerine.selenium` or `ui.tangerine.playwright`
 package, including all test classes in that package, rather than the default

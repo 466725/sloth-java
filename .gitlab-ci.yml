@@ -16,8 +16,18 @@ default:
     paths:
       - .m2/repository/
 
+stages:
+  - .pre
+  - build
+  - test
+
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+maven-preflight:
+  stage: .pre
+  script:
+    - mvn -B -ntp validate
 
 build:
   stage: build
