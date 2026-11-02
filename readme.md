@@ -5,13 +5,41 @@
 
 `sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, a Spring Boot demo app, and a collection of Spring and Java learning examples.
 
-## Modules
+## 🧭 Index
+
+- [Modules](#-modules)
+- [Tech Stack](#%EF%B8%8F-tech-stack)
+- [Prerequisites](#-prerequisites)
+- [Quick Start](#-quick-start)
+- [Continuous Integration](#-continuous-integration)
+- [Just Commands](#-just-commands)
+- [Running Tests](#-running-tests)
+  - [`test-automation-framework`](#test-automation-framework)
+    - [API test configuration](#api-test-configuration)
+    - [Cucumber tests](#cucumber-tests)
+  - [`spring-boot-demo`](#spring-boot-demo)
+  - [`skill-spring`](#skill-spring)
+  - [Run all modules](#run-all-modules)
+  - [Start the demo app](#start-the-demo-app)
+- [Docker Services](#-docker-services)
+  - [Start services](#start-services)
+  - [Run tests in Docker](#run-tests-in-docker)
+  - [Run tests locally against Docker Selenium](#run-tests-locally-against-docker-selenium)
+  - [Troubleshoot with logs](#troubleshoot-with-logs)
+  - [Stop services](#stop-services)
+- [Playwright Setup](#-playwright-setup)
+- [Debugging](#-debugging)
+  - [Debug a framework test](#debug-a-framework-test)
+  - [Debug the Spring Boot demo](#debug-the-spring-boot-demo)
+- [Self-Healing Locators](#-self-healing-locators)
+
+## 🧩 Modules
 
 - `test-automation-framework`: main automation module (TestNG, Selenium, Appium, Playwright, Rest Assured, Cucumber).
 - `spring-boot-demo`: lightweight Spring Boot service with sample endpoints.
 - `skill-spring`: Spring and Java learning examples covering AssertJ, ExtentReports, JavaFaker, JSON parsing, Selenium, and MySQL.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Java 25
 - Maven (multi-module build)
@@ -20,7 +48,7 @@
 - Spring Boot
 - Docker Compose (optional local infrastructure)
 
-## Prerequisites
+## ✅ Prerequisites
 
 - JDK 25+
 - Maven 3.9+
@@ -28,7 +56,7 @@
 - Docker Desktop (optional)
 - IntelliJ IDEA or Eclipse (optional)
 
-## Quick Start
+## 🚀 Quick Start
 
 ```powershell
 git clone https://github.com/<your-org>/sloth-java.git
@@ -36,7 +64,7 @@ Set-Location sloth-java
 mvn -q -DskipTests clean install
 ```
 
-## Continuous Integration
+## 🔄 Continuous Integration
 
 GitHub Actions uses [ci.yml](.github/workflows/ci.yml), and GitLab uses the
 root-level [.gitlab-ci.yml](.gitlab-ci.yml). Both build all modules with Temurin
@@ -51,9 +79,9 @@ jobs. Each selects only its `ui.tangerine.selenium` or `ui.tangerine.playwright`
 package, including all test classes in that package, rather than the default
 `SanityTest.xml` suite. Both run headlessly with Java 25.
 
-| Test job | GitHub reusable workflow | GitLab included jobs |
-|----------|--------------------------|----------------------|
-| Selenium | [selenium.yml](.github/workflows/selenium.yml) | [selenium.yml](.gitlab/ci/selenium.yml) |
+| Test job   | GitHub reusable workflow                           | GitLab included jobs                        |
+|------------|----------------------------------------------------|---------------------------------------------|
+| Selenium   | [selenium.yml](.github/workflows/selenium.yml)     | [selenium.yml](.gitlab/ci/selenium.yml)     |
 | Playwright | [playwright.yml](.github/workflows/playwright.yml) | [playwright.yml](.gitlab/ci/playwright.yml) |
 
 Separate files are needed for each CI platform because their YAML schemas differ.
@@ -80,7 +108,7 @@ CI/CD variables are required. The runner must support service containers for
 Selenium and package installation in the Maven job container for Playwright's
 Linux dependencies and the Selenium readiness check.
 
-## Just Commands
+## ⚡ Just Commands
 
 The repository includes a [`justfile`](justfile) with shortcuts for common Maven,
 test, demo-app, and Docker workflows. Install [Just](https://just.systems/) and
@@ -108,10 +136,10 @@ just docker-down
 
 `test-framework` defaults to `SanityTest.xml`; `docker-test` defaults to
 `SmokeTest.xml`. The remote framework recipe expects the Docker Selenium service
-to be running first (`just docker-selenium`). See [Docker Services](#docker-services)
+to be running first (`just docker-selenium`). See [Docker Services](#-docker-services)
 for service prerequisites and other Docker workflows.
 
-## Running Tests
+## 🧪 Running Tests
 
 ### `test-automation-framework`
 
@@ -217,7 +245,7 @@ Once the app is running, useful endpoints include:
 - `POST /api/login`
 - `GET /actuator/health`
 
-## Docker Services
+## 🐳 Docker Services
 
 The Compose file is [docker/docker-compose.yml](docker/docker-compose.yml).
 Start Docker Desktop with Linux containers enabled, then run the commands below
@@ -344,11 +372,13 @@ Alternatively, set the `SELENIUM_REMOTE_URL` environment variable for the termin
 session instead of passing `-Dselenium.remote.url`:
 
 **Windows (PowerShell):**
+
 ```powershell
 $env:SELENIUM_REMOTE_URL = "http://localhost:4444"
 ```
 
 **macOS / Linux (Bash):**
+
 ```bash
 export SELENIUM_REMOTE_URL="http://localhost:4444"
 ```
@@ -414,7 +444,7 @@ docker compose --project-directory . -f ./docker/docker-compose.yml --profile "*
 docker compose --project-directory . -f ./docker/docker-compose.yml --profile "*" down
 ```
 
-## Playwright Setup
+## 🎭 Playwright Setup
 
 Install browser binaries explicitly (recommended for CI or restricted networks):
 
@@ -427,7 +457,7 @@ Useful runtime properties:
 - `-Dplaywright.browser=chromium|firefox|webkit|chrome|msedge`
 - `-Dheadless=true|false`
 
-## Debugging
+## 🐞 Debugging
 
 ### Debug a framework test
 
@@ -449,7 +479,7 @@ mvn -pl spring-boot-demo spring-boot:run "-Dspring-boot.run.jvmArguments=-agentl
 
 Attach your IDE's remote debugger to `localhost:5005`; the application resumes after the debugger connects.
 
-## Self-Healing Locators
+## 🩹 Self-Healing Locators
 
 Playwright page objects can wrap selectors with `SelfHealingLocator`. When an action on a wrapped locator fails because the element cannot be found, the wrapper scores DOM candidates and retries the action once with the best match.
 
