@@ -7,7 +7,7 @@ A collection of Java learning examples covering core Java concepts, practical tu
 The `skill-spring` module is organized into three main sections:
 
 | Directory | Purpose |
-|-----------|---------|
+| ----------- | --------- |
 | [`concepts/`](concepts/) | Core Java language concepts with illustrative examples |
 | [`tutorial/`](tutorial/) | Hands-on tutorials for libraries, tools, and frameworks |
 | [`AzureQueries/`](AzureQueries/) | Sample Azure Monitor KQL queries |
@@ -17,7 +17,7 @@ The `skill-spring` module is organized into three main sections:
 Fundamental Java topics demonstrated with concise, runnable examples:
 
 | Topic | Files | Description |
-|-------|-------|-------------|
+| ------- | ----- | ------------- |
 | **Algorithms** | `algorithm/` | Sorting (Quick, Insertion, Selection), Binary Search, Binary Tree Traversal |
 | **Annotations** | `annotations/` | Custom annotations, Lombok `@Getter`/`@Setter` demo |
 | **Backtracking** | `backtrack/` | Character subsets, Generate Parentheses |
@@ -33,22 +33,29 @@ Fundamental Java topics demonstrated with concise, runnable examples:
 Practical, hands-on examples for commonly used libraries and tools:
 
 ### Java Basics (`tutorial/basics/`)
+
 Entry-level Java examples: data types, arrays, HashMap, HashSet, Strings, loops, inner classes, static blocks, and the `+` operator.
 
 ### TestNG (`tutorial/testng/`)
+
 TestNG framework features demonstrated one by one:
+
 - Simple tests, Data Providers, Factory methods
 - Dependent tests, Parallel execution, Groups
 - Expected exceptions, Timeouts, Disabling tests
 
 ### AssertJ (`tutorial/assertj/`)
+
 Fluent assertion library examples for writing readable test assertions.
 
 ### Dependency Injection (`tutorial/injection/`)
+
 Google Guice-based dependency injection: modules, bindings, and injector patterns.
 
 ### Interview Problems (`tutorial/interview/`)
+
 Common coding interview questions with solutions:
+
 - **Arrays:** Two Sum, Contains Duplicate, Move Zeroes, Merge Sorted Array, Product of Array Except Self, Subarray Sum Equals K, Top K Frequent Elements, Kth Largest Element
 - **Strings:** Longest Common Prefix, Longest Palindromic Substring, Longest Substring Without Repeating Characters, Valid Anagram
 - **Linked Lists:** Reverse Linked List, Merge Two Sorted Lists, Remove Nth Node From End, Add Two Numbers
@@ -59,18 +66,23 @@ Common coding interview questions with solutions:
 - **Other:** Valid Parentheses, Majority Element, Group Anagrams, Zero Sum Triplets, Palindrome Number
 
 ### JavaFaker (`tutorial/javafaker/`)
+
 Generating realistic fake data for testing purposes.
 
 ### JSON (`tutorial/json/`)
+
 Parsing and creating JSON with the `json-simple` library.
 
 ### MySQL (`tutorial/mysql/`)
+
 Basic MySQL operations: creating tables, listing tables via JDBC.
 
 ### CSV (`tutorial/csv/`)
+
 Reading and writing CSV files programmatically.
 
 ### Synchronization (`tutorial/synchronization/`)
+
 Java concurrency examples: thread synchronization, `wait()`/`notify()`, and thread-safe patterns.
 
 ## AzureQueries
@@ -78,7 +90,7 @@ Java concurrency examples: thread synchronization, `wait()`/`notify()`, and thre
 Sample KQL (Kusto Query Language) queries for Azure Application Insights monitoring:
 
 | File | Description |
-|------|-------------|
+| ------ | ------------- |
 | `requests.txt` | Query request telemetry |
 | `alerts.txt` | Query alert configurations |
 | `page-views.txt` | Query page view analytics |
@@ -127,7 +139,7 @@ mvn -pl skill-spring test
 
 ## Project Structure
 
-```
+```text
 skill-spring/
 ├── pom.xml                  # Maven build configuration
 ├── concepts/                # Core Java concepts
