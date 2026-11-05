@@ -8,12 +8,13 @@ The demo application exposes two simple REST endpoints and serves a static login
 
 ## Endpoints
 
-| Method | Path | Description | Response |
-|--------|------|-------------|----------|
-| `GET` | `/api/hello` | Returns a greeting message | `{"message": "Hello from spring-boot-demo"}` |
-| `POST` | `/api/login` | Authenticates with username and password | `{"message": "login successful"}` or `{"message": "wrong credentials"}` |
+| Method   | Path         | Description                              | Response                                                                |
+|----------|--------------|------------------------------------------|-------------------------------------------------------------------------|
+| `GET`    | `/api/hello` | Returns a greeting message               | `{"message": "Hello from spring-boot-demo"}`                            |
+| `POST`   | `/api/login` | Authenticates with username and password | `{"message": "login successful"}` or `{"message": "wrong credentials"}` |
 
 The login endpoint accepts `application/x-www-form-urlencoded` body parameters:
+
 - `username` — expected value: `username`
 - `password` — expected value: `password`
 
@@ -21,10 +22,10 @@ The login endpoint accepts `application/x-www-form-urlencoded` body parameters:
 
 Spring Boot Actuator is configured to expose:
 
-| Path | Description |
-|------|-------------|
+| Path               | Description               |
+|--------------------|---------------------------|
 | `/actuator/health` | Application health status |
-| `/actuator/info` | Application info |
+| `/actuator/info`   | Application info          |
 
 ### Static Page
 
@@ -75,7 +76,7 @@ mvn -pl spring-boot-demo test
 
 ## Project Structure
 
-```
+```text
 spring-boot-demo/
 ├── pom.xml                          # Maven build configuration
 └── src/
