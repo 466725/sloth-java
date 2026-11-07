@@ -3,7 +3,7 @@
 [![Java](https://img.shields.io/badge/Java-25-orange.svg)](https://www.oracle.com/java/technologies/downloads/)
 [![Build](https://img.shields.io/badge/Build-Maven-blue.svg)](https://maven.apache.org/)
 
-`sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, a Spring Boot demo app, and a collection of Spring and Java learning examples.
+`sloth-java` is a multi-module Java workspace for UI, API, and mobile test automation, the ai-stock Spring Boot application, and a collection of Spring and Java learning examples.
 
 ## 🧭 Index
 
@@ -17,10 +17,10 @@
   - [`test-automation-framework`](#test-automation-framework)
     - [API test configuration](#api-test-configuration)
     - [Cucumber tests](#cucumber-tests)
-  - [`spring-boot-demo`](#spring-boot-demo)
+  - [`ai-stock`](#ai-stock)
   - [`skill-spring`](#skill-spring)
   - [Run all modules](#run-all-modules)
-  - [Start the demo app](#start-the-demo-app)
+  - [Start the ai-stock app](#start-the-ai-stock-app)
 - [Docker Services](#-docker-services)
   - [Start services](#start-services)
   - [Run tests in Docker](#run-tests-in-docker)
@@ -30,13 +30,13 @@
 - [Playwright Setup](#-playwright-setup)
 - [Debugging](#-debugging)
   - [Debug a framework test](#debug-a-framework-test)
-  - [Debug the Spring Boot demo](#debug-the-spring-boot-demo)
+  - [Debug ai-stock](#debug-ai-stock)
 - [Self-Healing Locators](#-self-healing-locators)
 
 ## 🧩 Modules
 
 - `test-automation-framework`: main automation module (TestNG, Selenium, Appium, Playwright, Rest Assured, Cucumber).
-- `spring-boot-demo`: lightweight Spring Boot service with sample endpoints.
+- `ai-stock`: Spring Boot application with a Next.js login UI and sample endpoints.
 - `skill-spring`: Spring and Java learning examples covering AssertJ, ExtentReports, JavaFaker, JSON parsing, Selenium, and MySQL.
 
 ## 🛠️ Tech Stack
@@ -190,11 +190,11 @@ To add scenarios, create a `.feature` file under `features` and implement any
 new steps in the `ui.tangerine.cucumber` package. To include Cucumber in a suite,
 add `<class name="ui.tangerine.cucumber.CucumberRunnerTest"/>` to the suite XML.
 
-### `spring-boot-demo`
+### `ai-stock`
 
 ```powershell
 # Run the demo module tests
-mvn -pl spring-boot-demo test
+mvn -pl ai-stock test
 ```
 
 To run only `DemoApplicationTests`, use the following command from the repository root
@@ -202,11 +202,11 @@ with JDK 25+ and Maven 3.9+ available on your `PATH`:
 
 ```bash
 # Use the demo module's POM and run only DemoApplicationTests
-mvn -f spring-boot-demo/pom.xml "-Dtest=DemoApplicationTests" test
+mvn -f ai-stock/pom.xml "-Dtest=DemoApplicationTests" test
 ```
 
 `-f` selects the module's POM, and `-Dtest` selects the test class. Reports are written to
-`spring-boot-demo/target/surefire-reports`.
+`ai-stock/target/surefire-reports`.
 
 ### `skill-spring`
 
@@ -230,13 +230,13 @@ mvn test
 To run specific modules together:
 
 ```powershell
-mvn -pl test-automation-framework,spring-boot-demo,skill-spring test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl test-automation-framework,ai-stock,skill-spring test "-DsuiteXmlFile=SmokeTest.xml"
 ```
 
-### Start the demo app
+### Start the ai-stock app
 
 ```powershell
-mvn -pl spring-boot-demo spring-boot:run
+mvn -pl ai-stock spring-boot:run
 ```
 
 Once the app is running, useful endpoints include:
@@ -469,12 +469,12 @@ mvn -pl test-automation-framework -Dmaven.surefire.debug test "-DsuiteXmlFile=Sm
 
 Create or select a **Remote JVM Debug** configuration in your IDE and attach to `localhost:5005`. Replace `SmokeTest.xml` with `RegressionTest.xml` to debug the regression suite.
 
-### Debug the Spring Boot demo
+### Debug ai-stock
 
 Start the app suspended on port `5005`:
 
 ```powershell
-mvn -pl spring-boot-demo spring-boot:run "-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005"
+mvn -pl ai-stock spring-boot:run "-Dspring-boot.run.jvmArguments=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005"
 ```
 
 Attach your IDE's remote debugger to `localhost:5005`; the application resumes after the debugger connects.
