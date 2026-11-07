@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ai-stock
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
