@@ -26,9 +26,9 @@ test-framework suite="SanityTest.xml":
 test-framework-remote suite="SmokeTest.xml":
     mvn -pl test-automation-framework test "-DsuiteXmlFile={{ suite }}" "-Dselenium.remote.url=http://localhost:4444"
 
-# Run tests for spring-boot-demo
-test-demo:
-    mvn -pl spring-boot-demo test
+# Run tests for ai-stock
+test-ai-stock:
+    mvn -pl ai-stock test
 
 # Run tests for skill-spring
 test-skill-spring:
@@ -38,9 +38,9 @@ test-skill-spring:
 test-cucumber:
     mvn -pl test-automation-framework test "-Dtest=ui.tangerine.cucumber.CucumberRunnerTest"
 
-# Start the Spring Boot demo application
-run-demo:
-    mvn -pl spring-boot-demo spring-boot:run
+# Start the ai-stock application
+run-ai-stock:
+    mvn -pl ai-stock spring-boot:run
 
 # Start Docker Selenium
 docker-selenium:
