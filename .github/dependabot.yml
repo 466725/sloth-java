@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
-    directory: "/spring-boot-demo"
+    directory: "/ai-stock"
     schedule:
       interval: "daily"
     groups:
