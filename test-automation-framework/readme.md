@@ -157,7 +157,7 @@ Surefire and its explicit TestNG provider share the `surefire.version` property,
 | `HealthCheckTest` | API health check endpoint |
 | `SigninWithRestAssuredTest` | Login API via RestAssured |
 | `SigninWithOKHttpTest` | Login API via OkHttp |
-| `SpringBootDemoLoginTest` | Tests the `spring-boot-demo` login endpoint |
+| `AiStockLoginTest` | Tests the `ai-stock` login endpoint |
 | `WireMockDemoTest` | Demonstrates API mocking with WireMock |
 
 ### Mobile Tests
