@@ -95,7 +95,7 @@
 
     <modules>
         <module>test-automation-framework</module>
-        <module>spring-boot-demo</module>
+        <module>ai-stock</module>
         <module>skill-spring</module>
     </modules>
 </project>
