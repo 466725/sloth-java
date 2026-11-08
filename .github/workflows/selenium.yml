@@ -35,7 +35,7 @@ jobs:
           cache: maven
 
       - name: Run Selenium tests
-        run: mvn -B -ntp -pl test-automation-framework test '-Dtest=ui.tangerine.selenium.*Test' -Dheadless=true
+        run: mvn -B -ntp -pl tests test '-Dtest=ui.tangerine.selenium.*Test' -Dheadless=true
 
       - name: Upload Selenium results
         if: always()
@@ -44,5 +44,5 @@ jobs:
           name: selenium-results
           retention-days: 14
           path: |
-            test-automation-framework/target/surefire-reports/
-            test-automation-framework/test-output/
+            tests/target/surefire-reports/
+            tests/test-output/

@@ -26,12 +26,12 @@ selenium:
         exit 1
       fi
   script:
-    - mvn -B -ntp -pl test-automation-framework test '-Dtest=ui.tangerine.selenium.*Test' -Dheadless=true
+    - mvn -B -ntp -pl tests test '-Dtest=ui.tangerine.selenium.*Test' -Dheadless=true
   artifacts:
     when: always
     expire_in: 14 days
     paths:
-      - test-automation-framework/target/surefire-reports/
-      - test-automation-framework/test-output/
+      - tests/target/surefire-reports/
+      - tests/test-output/
     reports:
-      junit: test-automation-framework/target/surefire-reports/TEST-*.xml
+      junit: tests/target/surefire-reports/TEST-*.xml

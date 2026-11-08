@@ -23,12 +23,12 @@ jobs:
 
       - name: Install Playwright Chromium and system dependencies
         run: >-
-          mvn -B -ntp -pl test-automation-framework exec:java
+          mvn -B -ntp -pl tests exec:java
           -Dexec.mainClass=com.microsoft.playwright.CLI
           '-Dexec.args=install --with-deps chromium'
 
       - name: Run Playwright tests
-        run: mvn -B -ntp -pl test-automation-framework test '-Dtest=ui.tangerine.playwright.*Test' -Dheadless=true
+        run: mvn -B -ntp -pl tests test '-Dtest=ui.tangerine.playwright.*Test' -Dheadless=true
 
       - name: Upload Playwright results
         if: always()
@@ -37,5 +37,5 @@ jobs:
           name: playwright-results
           retention-days: 14
           path: |
-            test-automation-framework/target/surefire-reports/
-            test-automation-framework/test-output/
+            tests/target/surefire-reports/
+            tests/test-output/

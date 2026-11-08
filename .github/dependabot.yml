@@ -13,7 +13,7 @@ updates:
           - "patch"
 
   - package-ecosystem: "maven"
-    directory: "/test-automation-framework"
+    directory: "/tests"
     schedule:
       interval: "daily"
     groups:

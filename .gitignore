@@ -63,3 +63,12 @@
 
 # Ignore macOS Finder metadata file at the repository root
 /.DS_Store
+.github/dependabot.yml
+.github/workflows/playwright.yml
+.github/workflows/selenium.yml
+.gitlab/ci/playwright.yml
+.gitlab/ci/selenium.yml
+docker/docker-compose.yml
+justfile
+pom.xml
+readme.md

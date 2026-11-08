@@ -94,7 +94,7 @@
     </dependencyManagement>
 
     <modules>
-        <module>test-automation-framework</module>
+        <module>tests</module>
         <module>ai-stock</module>
         <module>skill-spring</module>
     </modules>

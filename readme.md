@@ -14,7 +14,7 @@
 - [Continuous Integration](#-continuous-integration)
 - [Just Commands](#-just-commands)
 - [Running Tests](#-running-tests)
-  - [`test-automation-framework`](#test-automation-framework)
+  - [`tests`](#tests)
     - [API test configuration](#api-test-configuration)
     - [Cucumber tests](#cucumber-tests)
   - [`ai-stock`](#ai-stock)
@@ -35,7 +35,7 @@
 
 ## 🧩 Modules
 
-- `test-automation-framework`: main automation module (TestNG, Selenium, Appium, Playwright, Rest Assured, Cucumber).
+- `tests`: UI, API, and mobile test automation (TestNG, Selenium, Appium, Playwright, Rest Assured, Cucumber).
 - `ai-stock`: Spring Boot application with a Next.js login UI and sample endpoints.
 - `skill-spring`: Spring and Java learning examples covering AssertJ, ExtentReports, JavaFaker, JSON parsing, Selenium, and MySQL.
 
@@ -141,20 +141,20 @@ for service prerequisites and other Docker workflows.
 
 ## 🧪 Running Tests
 
-### `test-automation-framework`
+### `tests`
 
-The framework uses TestNG suite files in `test-automation-framework/testRunner/suiteFiles`.
+The tests module uses TestNG suite files in `tests/testRunner/suiteFiles`.
 Select a suite explicitly when running tests:
 
 ```powershell
 # Smoke tests
-mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl tests test "-DsuiteXmlFile=SmokeTest.xml"
 
 # Regression tests
-mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml"
+mvn -pl tests test "-DsuiteXmlFile=RegressionTest.xml"
 ```
 
-The POM's default suite value is `SanityTest.xml`. TestNG reports are written to `test-automation-framework/target/surefire-reports`.
+The POM's default suite value is `SanityTest.xml`. TestNG reports are written to `tests/target/surefire-reports`.
 
 The framework's Surefire plugin explicitly uses the TestNG provider to execute
 these XML suites and fails if no tests run. The provider dependency belongs inside
@@ -165,7 +165,7 @@ this module are not executed by this TestNG configuration.
 
 Copy `.env.example` to `.env` in the repository root and set
 `API_MANAGER_SUBSCRIPTION_KEY` to your local API subscription key. The loader
-finds `.env` when tests run from either the repository root or the framework
+finds `.env` when tests run from either the repository root or the tests
 module. An environment variable with the same name takes precedence, so CI can
 inject the key without a file. API test setup fails explicitly if the key is
 missing or blank; non-API tests do not require it.
@@ -178,12 +178,12 @@ current files does not remove it from Git history.
 
 Cucumber scenarios run through TestNG with `cucumber-testng` and Playwright:
 
-- Feature files: `test-automation-framework/src/test/resources/features`
-- Step definitions and runner: `test-automation-framework/src/test/java/ui/tangerine/cucumber`
+- Feature files: `tests/src/test/resources/features`
+- Step definitions and runner: `tests/src/test/java/ui/tangerine/cucumber`
 
 ```powershell
 # Run all Cucumber scenarios
-mvn -pl test-automation-framework test "-Dtest=ui.tangerine.cucumber.CucumberRunnerTest"
+mvn -pl tests test "-Dtest=ui.tangerine.cucumber.CucumberRunnerTest"
 ```
 
 To add scenarios, create a `.feature` file under `features` and implement any
@@ -230,7 +230,7 @@ mvn test
 To run specific modules together:
 
 ```powershell
-mvn -pl test-automation-framework,ai-stock,skill-spring test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl tests,ai-stock,skill-spring test "-DsuiteXmlFile=SmokeTest.xml"
 ```
 
 ### Start the ai-stock app
@@ -342,14 +342,14 @@ the browser runs in the Selenium container:
 
 ```powershell
 docker compose --project-directory . -f .\docker\docker-compose.yml up -d selenium
-mvn -pl test-automation-framework test "-DsuiteXmlFile=RegressionTest.xml" "-Dselenium.remote.url=http://localhost:4444"
+mvn -pl tests test "-DsuiteXmlFile=RegressionTest.xml" "-Dselenium.remote.url=http://localhost:4444"
 ```
 
 **macOS / Linux (Bash):**
 
 ```bash
 docker compose --project-directory . -f ./docker/docker-compose.yml up -d selenium
-mvn -pl test-automation-framework test -DsuiteXmlFile=RegressionTest.xml -Dselenium.remote.url=http://localhost:4444
+mvn -pl tests test -DsuiteXmlFile=RegressionTest.xml -Dselenium.remote.url=http://localhost:4444
 ```
 
 Local ChromeDriver vs. Docker Selenium:
@@ -449,7 +449,7 @@ docker compose --project-directory . -f ./docker/docker-compose.yml --profile "*
 Install browser binaries explicitly (recommended for CI or restricted networks):
 
 ```powershell
-mvn -pl test-automation-framework -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
+mvn -pl tests -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
 ```
 
 Useful runtime properties:
@@ -464,7 +464,7 @@ Useful runtime properties:
 Start the selected TestNG suite with Surefire's debug mode. Maven pauses the forked test JVM until a debugger attaches on port `5005`:
 
 ```powershell
-mvn -pl test-automation-framework -Dmaven.surefire.debug test "-DsuiteXmlFile=SmokeTest.xml"
+mvn -pl tests -Dmaven.surefire.debug test "-DsuiteXmlFile=SmokeTest.xml"
 ```
 
 Create or select a **Remote JVM Debug** configuration in your IDE and attach to `localhost:5005`. Replace `SmokeTest.xml` with `RegressionTest.xml` to debug the regression suite.
@@ -487,7 +487,7 @@ Self-healing is enabled by default for wrapped locators. Configure it with a JVM
 
 ```powershell
 # Disable self-healing
-mvn -pl test-automation-framework test "-DsuiteXmlFile=SmokeTest.xml" "-Dself.healing.enabled=false"
+mvn -pl tests test "-DsuiteXmlFile=SmokeTest.xml" "-Dself.healing.enabled=false"
 ```
 
 - `self.healing.enabled` / `SELF_HEALING_ENABLED`: enable or disable healing.

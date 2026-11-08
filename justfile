@@ -18,13 +18,13 @@ clean:
 test:
     mvn test
 
-# Run a TestNG suite in test-automation-framework
+# Run a TestNG suite in tests
 test-framework suite="SanityTest.xml":
-    mvn -pl test-automation-framework test "-DsuiteXmlFile={{ suite }}"
+    mvn -pl tests test "-DsuiteXmlFile={{ suite }}"
 
 # Run a TestNG suite against Docker Selenium
 test-framework-remote suite="SmokeTest.xml":
-    mvn -pl test-automation-framework test "-DsuiteXmlFile={{ suite }}" "-Dselenium.remote.url=http://localhost:4444"
+    mvn -pl tests test "-DsuiteXmlFile={{ suite }}" "-Dselenium.remote.url=http://localhost:4444"
 
 # Run tests for ai-stock
 test-ai-stock:
@@ -34,9 +34,9 @@ test-ai-stock:
 test-skill-spring:
     mvn -pl skill-spring test
 
-# Run Cucumber scenarios in test-automation-framework
+# Run Cucumber scenarios in tests
 test-cucumber:
-    mvn -pl test-automation-framework test "-Dtest=ui.tangerine.cucumber.CucumberRunnerTest"
+    mvn -pl tests test "-Dtest=ui.tangerine.cucumber.CucumberRunnerTest"
 
 # Start the ai-stock application
 run-ai-stock:
@@ -68,4 +68,4 @@ docker-down:
 
 # Install Playwright's Chromium browser
 playwright-install:
-    mvn -pl test-automation-framework -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
+    mvn -pl tests -DskipTests exec:java "-Dexec.mainClass=com.microsoft.playwright.CLI" "-Dexec.args=install chromium"
