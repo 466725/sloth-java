@@ -17,7 +17,7 @@
     <properties>
         <java.version>25</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>4.51.0</selenium.version>
+        <selenium.version>4.52.0</selenium.version>
         <surefire.version>3.5.6</surefire.version>
         <suiteXmlFile>SanityTest.xml</suiteXmlFile>
     </properties>
